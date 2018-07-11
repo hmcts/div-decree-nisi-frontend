@@ -1,6 +1,6 @@
 {
-  "name": "divorce-frontend-boilerplate",
-  "description": "Divorce frontend boilerplate",
+  "name": "divorce-decree-nisi",
+  "description": "Divorce Decree Nisi",
   "version": "0.0.1",
   "engines": {
     "node": ">=8.9.4"
