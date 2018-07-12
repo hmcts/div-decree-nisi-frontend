@@ -1,11 +1,17 @@
 #!groovy
+@Library("Infrastructure") _
 
-@Library("Infrastructure")
+properties([
+  parameters([
+    string(name: 'PRODUCT_NAME', defaultValue: 'divddn', description: ''),
+    string(name: 'APP', defaultValue: 'rules', description: ''),
+    string(name: 'TYPE', defaultValue: 'nodejs', description: ''),
+    string(name: 'ENVIRONMENT', defaultValue: 'saat', description: 'Environment where code should be build and deployed'),
+    choice(name: 'SUBSCRIPTION', choices: 'sandbox\nnonprod\nprod', description: 'Azure subscriptions available to build in')
+  ])
+])
 
-String product = "div"
-String component = "ddn"
-
-withPipeline("nodejs", product, component) {
+withParameterizedPipeline(params.TYPE, params.PRODUCT_NAME, params.APP, params.ENVIRONMENT, params.SUBSCRIPTION) {
   after('test') {
     sh 'yarn test:validation'
   }
