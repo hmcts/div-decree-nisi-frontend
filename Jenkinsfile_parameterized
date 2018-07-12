@@ -3,8 +3,8 @@
 
 properties([
   parameters([
-    string(name: 'PRODUCT_NAME', defaultValue: 'divddn', description: ''),
-    string(name: 'APP', defaultValue: 'rules', description: ''),
+    string(name: 'PRODUCT_NAME', defaultValue: 'div', description: ''),
+    string(name: 'APP', defaultValue: 'ddn', description: ''),
     string(name: 'TYPE', defaultValue: 'nodejs', description: ''),
     string(name: 'ENVIRONMENT', defaultValue: 'saat', description: 'Environment where code should be build and deployed'),
     choice(name: 'SUBSCRIPTION', choices: 'sandbox\nnonprod\nprod', description: 'Azure subscriptions available to build in')
