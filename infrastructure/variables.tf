@@ -5,7 +5,7 @@ variable "reform_team" {
 }
 
 variable "reform_service_name" {
-  default = "ddn"
+  default = "dn"
 }
 
 variable "product" {
