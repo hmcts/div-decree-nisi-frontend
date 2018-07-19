@@ -8,8 +8,10 @@ variable "reform_service_name" {
   default = "dn"
 }
 
-variable "product" {
-  type = "string"
+variable "product" {}
+
+variable "raw_product" {
+  default = "div"
 }
 
 variable "location" {
