@@ -54,6 +54,7 @@ paths:
   authenticated: /authenticated
   index: /
   protected: /protected
+  undefended: /progress-bar/undefended
   end: /end
   entry: /entry
   mock:
