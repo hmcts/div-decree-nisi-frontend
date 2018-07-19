@@ -1,7 +1,7 @@
 const modulePath = 'steps/entry/Entry.step';
 
 const Entry = require(modulePath);
-const Protected = require('steps/protected/Protected.step.js');
+const Undefended = require('steps/undefended/Undefended.step');
 const idam = require('services/idam');
 const { middleware, redirect, sinon } = require('@hmcts/one-per-page-test-suite');
 
@@ -20,7 +20,7 @@ describe(modulePath, () => {
     });
 
     it('to protected page', () => {
-      return redirect.navigatesToNext(Entry, Protected);
+      return redirect.navigatesToNext(Entry, Undefended);
     });
   });
 });

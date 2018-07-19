@@ -1,6 +1,8 @@
-Feature('Happy path');
+Feature('Basic decree nisi path');
 
-Scenario('View example page', I => {
+Scenario('Happy path', I => {
   I.amOnLoadedPage('/');
-  I.seeExamplePage();
+  I.seeHomePage();
+  I.loginToIdam();
+  I.seeUndefendedPage();
 });

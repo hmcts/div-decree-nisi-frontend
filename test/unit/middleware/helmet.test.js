@@ -25,11 +25,16 @@ describe(modulePath, () => {
       directives: {
         defaultSrc: ['\'self\''],
         fontSrc: ['\'self\' data:'],
-        scriptSrc: ['\'self\'', '\'unsafe-inline\'', 'www.google-analytics.com'],
+        scriptSrc: [
+          '\'self\'',
+          '\'unsafe-inline\'',
+          'www.google-analytics.com',
+          'hmctspiwik.useconnect.co.uk'
+        ],
         connectSrc: ['\'self\''],
         mediaSrc: ['\'self\''],
         frameSrc: ['\'none\''],
-        imgSrc: ['\'self\'', 'www.google-analytics.com']
+        imgSrc: ['\'self\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk']
       }
     });
 
