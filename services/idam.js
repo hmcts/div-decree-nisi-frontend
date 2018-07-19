@@ -13,7 +13,7 @@ const idamArgs = {
 };
 
 let middleware = idamExpressMiddleware;
-if (['testing', 'development'].includes(config.environment)) {
+if (['development'].includes(config.environment)) {
   middleware = idamExpressMiddlewareMock;
 }
 
