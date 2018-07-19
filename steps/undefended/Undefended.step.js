@@ -3,9 +3,9 @@ const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 
-class Protected extends Interstitial {
+class Undefended extends Interstitial {
   static get path() {
-    return config.paths.protected;
+    return config.paths.undefended;
   }
 
   next() {
@@ -17,4 +17,4 @@ class Protected extends Interstitial {
   }
 }
 
-module.exports = Protected;
+module.exports = Undefended;

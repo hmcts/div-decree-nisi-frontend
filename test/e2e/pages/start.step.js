@@ -1,10 +1,11 @@
-const ExamplePage = require('steps/start/Start.step');
+const StartPage = require('steps/start/Start.step');
 
-function seeExamplePage() {
+function seeHomePage() {
   const I = this;
 
-  I.seeCurrentUrlEquals(ExamplePage.path);
+  I.seeCurrentUrlEquals(StartPage.path);
   I.see('Start now');
+  I.navByClick('Start now');
 }
 
-module.exports = { seeExamplePage };
+module.exports = { seeHomePage };

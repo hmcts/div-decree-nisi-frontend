@@ -1,13 +1,13 @@
-const modulePath = 'steps/protected/Protected.step';
+const modulePath = 'steps/undefended/Undefended.step';
 
-const Protected = require(modulePath);
+const Undefended = require(modulePath);
 const End = require('steps/end/End.step.js');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Protected, [ idam.protect() ]);
+    return middleware.hasMiddleware(Undefended, [ idam.protect() ]);
   });
 
   it('renders the page on GET', () => {
@@ -24,7 +24,7 @@ describe(modulePath, () => {
     });
 
     it('to end page', () => {
-      return interstitial.navigatesToNext(Protected, End);
+      return interstitial.navigatesToNext(Undefended, End);
     });
   });
 });
