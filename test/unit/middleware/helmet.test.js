@@ -23,7 +23,6 @@ describe(modulePath, () => {
 
     sinon.assert.calledWith(contentSecurityPolicyStub, {
       directives: {
-        defaultSrc: ['\'self\''],
         fontSrc: ['\'self\' data:'],
         scriptSrc: [
           '\'self\'',
