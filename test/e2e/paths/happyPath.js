@@ -5,4 +5,5 @@ Scenario('Happy path', I => {
   I.seeHomePage();
   I.loginToIdam();
   I.seeUndefendedPage();
+  I.seeEndPage();
 });
