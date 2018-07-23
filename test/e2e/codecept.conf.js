@@ -26,7 +26,8 @@ exports.config = {
       }
     },
     IdamHelper: { require: './helpers/idamHelper.js' },
-    JSWait: { require: './helpers/JSWait.js' }
+    JSWait: { require: './helpers/JSWait.js' },
+    UrlHelper: { require: './helpers/urlHelper.js' }
   },
   include: { I: './pages/steps.js' },
   mocha: {

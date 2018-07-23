@@ -31,7 +31,7 @@ services:
     authenticationHealth: https://localhost:3000/health
     apiUrl: http://localhost:8001
     secret: '123456'
-    loginUrl: https://localhost:3000/idam-login
+    loginUrl: https://localhost:3000/idam-mock-login
     clientId: 'divorce'
   saucelabs:
     browser: 'chrome'
@@ -58,7 +58,7 @@ paths:
   end: /end
   entry: /entry
   mock:
-    idamLogin: /idam-login
+    idamLogin: /idam-mock-login
 
 tests:
   e2e:

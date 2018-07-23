@@ -1,9 +1,9 @@
 Feature('Basic decree nisi path');
 
-Scenario('Happy path', I => {
+Scenario('Happy path', async I => {
   I.amOnLoadedPage('/');
   I.seeHomePage();
-  I.loginToIdam();
+  await I.loginToIdam();
   I.seeUndefendedPage();
   I.seeEndPage();
 });
