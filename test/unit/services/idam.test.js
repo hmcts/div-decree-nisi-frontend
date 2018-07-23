@@ -34,6 +34,10 @@ describe(modulePath, () => {
     it('exports a logout function', () => {
       expect(idam.hasOwnProperty('logout')).to.eql(true);
     });
+
+    it('exports a userDetails function', () => {
+      expect(idam.hasOwnProperty('userDetails')).to.eql(true);
+    });
   });
 
   describe('mock middleware if environment is development or test', () => {
@@ -81,6 +85,14 @@ describe(modulePath, () => {
       mockSpy = sinon.spy(idamExpressMiddlewareMock, 'logout');
 
       idam.logout();
+
+      sinon.assert.calledOnce(mockSpy);
+    });
+
+    it('mock userDetails', () => {
+      mockSpy = sinon.spy(idamExpressMiddlewareMock, 'userDetails');
+
+      idam.userDetails();
 
       sinon.assert.calledOnce(mockSpy);
     });
