@@ -45,13 +45,13 @@
     "moment": "^2.22.1",
     "os": "^0.1.1",
     "paths": "^0.1.1",
-    "reform-pattern-library": "https://github.com/hmcts/reform-pattern-library.git",
+    "reform-pattern-library": "https://github.com/dtaylor7/reform-pattern-library.git",
     "request": "^2.85.0",
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git",
-    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#a428883757ad06343d01368c4286141bb89e1430",
+    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#ca6165030aff52910e92336d704518ccdcf87c83",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
