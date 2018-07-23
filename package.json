@@ -34,7 +34,7 @@
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
     "cookies": "^0.7.1",
-    "copy-webpack-plugin": "^4.5.1",
+    "copy-webpack-plugin": "^4.5.2",
     "express": "^4.16.3",
     "express-limiter": "^1.6.1",
     "glob": "^7.1.2",
@@ -45,12 +45,13 @@
     "moment": "^2.22.1",
     "os": "^0.1.1",
     "paths": "^0.1.1",
+    "reform-pattern-library": "https://github.com/hmcts/reform-pattern-library.git",
     "request": "^2.85.0",
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git",
-    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#8ea3ab6c9f27adb6f9c24a60cab0c9971af43332",
+    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#a428883757ad06343d01368c4286141bb89e1430",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
