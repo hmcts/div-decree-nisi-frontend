@@ -24,7 +24,7 @@ class IdamHelper extends Helper {
       idamConfigHelper.setTestEmail(testEmail);
       idamConfigHelper.setTestPassword(testPassword);
 
-      idamExpressTestHarness.createUser(args)
+      return idamExpressTestHarness.createUser(args)
         .then(() => {
           logger.info(`Created IDAM test user: ${testEmail}`);
           console.log('Created IDAM test user: ${testEmail}'); // eslint-disable-line
@@ -39,7 +39,7 @@ class IdamHelper extends Helper {
 
   _after() {
     if (config.environment !== 'development') {
-      idamExpressTestHarness.removeUser(args)
+      return idamExpressTestHarness.removeUser(args)
         .then(() => {
           logger.info(`Removed IDAM test user: ${args.testEmail}`);
         })
