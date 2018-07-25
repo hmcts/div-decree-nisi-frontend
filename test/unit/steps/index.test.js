@@ -6,7 +6,7 @@ const { expect } = require('@hmcts/one-per-page-test-suite');
 const config = require('config');
 
 const fileNameRegex = /^.*[\\\/]/g; // eslint-disable-line
-const currentEnvironment = config.environemnt;
+const currentEnvironment = config.environment;
 
 const findStepNames = location => {
   const files = [];
