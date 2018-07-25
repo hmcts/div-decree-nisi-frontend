@@ -8,7 +8,7 @@ const args = idamConfigHelper.getArgs();
 const config = require('config');
 
 class IdamHelper extends Helper {
-  _before() {
+  _before() { // eslint-disable-line consistent-return
     if (config.environment !== 'development') {
       const randomString = randomstring.generate({
         length: 16,
@@ -37,7 +37,7 @@ class IdamHelper extends Helper {
     }
   }
 
-  _after() {
+  _after() { // eslint-disable-line consistent-return
     if (config.environment !== 'development') {
       return idamExpressTestHarness.removeUser(args)
         .then(() => {
