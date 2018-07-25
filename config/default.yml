@@ -65,12 +65,17 @@ tests:
     waitForTimeout: 10000
     waitForAction: 10000
     smartWait: 5000
-    proxyServer:
-    proxyByPass:
+    proxyServer: '*beta*LB.reform.hmcts.net'
+    proxyByPass: proxyout.reform.hmcts.net:8080
     outputDir: ../../functional-output
-    idamTestEmail: test@email.com
-    idamTestPassword: password
-  url: https://localhost:3000
+    idam:
+      idamTestUsername:
+      idamTestPassword:
+      idamTestForename:
+      idamTestSurname:
+      idamTestUserGroup:
+      idamTestLevelOfAccess:
+      idamTestSupportCreateAccountEndpoint:
 
 features:
   idam: false
