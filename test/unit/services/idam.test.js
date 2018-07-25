@@ -32,10 +32,7 @@ describe(modulePath, () => {
 
     it('sets idamArgs.hostname & idamArgs.redirectUri correctly', () => {
       const host = 'newHostName:3000';
-      const req = {
-        protocol: 'https',
-        get: sinon.stub().returns(host)
-      };
+      const req = { get: sinon.stub().returns(host) };
       const next = sinon.stub();
 
       expect(idam.hasOwnProperty('setRedirectUri')).to.eql(true);
@@ -43,7 +40,7 @@ describe(modulePath, () => {
 
       const newArgs = idam.getIdamArgs();
       expect(newArgs.redirectUri).to
-        .eql(`${req.protocol}://${req.get('host')}${config.paths.authenticated}`);
+        .eql(`https://${req.get('host')}${config.paths.authenticated}`);
       expect(newArgs.hostName).to.eql('newHostName');
     });
 

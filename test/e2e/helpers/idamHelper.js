@@ -1,20 +1,11 @@
-const config = require('config');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 const randomstring = require('randomstring');
 const idamExpressTestHarness = require('@hmcts/div-idam-test-harness');
 const idamConfigHelper = require('./idamConfigHelper');
 
 const Helper = codecept_helper; // eslint-disable-line
-
-const redirectUri = `${config.node.baseUrl}${config.paths.authenticated}`;
-const idamArgs = {
-  redirectUri,
-  indexUrl: config.paths.index,
-  idamApiUrl: config.services.idam.apiUrl,
-  idamLoginUrl: config.services.idam.loginUrl,
-  idamSecret: config.services.idam.secret,
-  idamClientID: config.services.idam.clientId
-};
+const args = idamConfigHelper.getArgs();
+const config = require('config');
 
 class IdamHelper extends Helper {
   _before() {
@@ -27,17 +18,20 @@ class IdamHelper extends Helper {
       const testEmail = `${emailName}@notifications.service.gov.uk`;
       const testPassword = randomstring.generate(9);
 
-      idamArgs.testEmail = testEmail;
-      idamArgs.testPassword = testPassword;
+      args.testEmail = testEmail;
+      args.testPassword = testPassword;
 
       idamConfigHelper.setTestEmail(testEmail);
       idamConfigHelper.setTestPassword(testPassword);
 
-      idamExpressTestHarness.createUser(idamArgs)
+      idamExpressTestHarness.createUser(args)
         .then(() => {
           logger.info(`Created IDAM test user: ${testEmail}`);
+          console.log('Created IDAM test user: ${testEmail}'); // eslint-disable-line
         })
         .catch(error => {
+          console.log('error creating idam user'); // eslint-disable-line
+          console.log(error); // eslint-disable-line
           logger.warn(`Unable to create IDAM test user: ${error}`);
         });
     }
@@ -45,9 +39,9 @@ class IdamHelper extends Helper {
 
   _after() {
     if (config.environment !== 'development') {
-      idamExpressTestHarness.removeUser(idamArgs)
+      idamExpressTestHarness.removeUser(args)
         .then(() => {
-          logger.info(`Removed IDAM test user: ${idamArgs.testEmail}`);
+          logger.info(`Removed IDAM test user: ${args.testEmail}`);
         })
         .catch(error => {
           logger.warn(`Unable to remove IDAM test user: ${error}`);

@@ -65,10 +65,10 @@ tests:
     waitForTimeout: 10000
     waitForAction: 10000
     smartWait: 5000
-    proxyServer: '*beta*LB.reform.hmcts.net'
-    proxyByPass: proxyout.reform.hmcts.net:8080
     outputDir: ../../functional-output
     idam:
+      idamTestApiProxy: proxyout.reform.hmcts.net:8080
+      idamTestProxyByPass: '*beta*LB.reform.hmcts.net'
       idamTestUsername:
       idamTestPassword:
       idamTestForename:

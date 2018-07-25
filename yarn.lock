@@ -91,9 +91,9 @@
     request-promise-native "^1.0.5"
     uuid "^3.1.0"
 
-"@hmcts/div-idam-express-middleware@https://github.com/hmcts/div-idam-express-middleware.git":
-  version "6.0.2"
-  resolved "https://github.com/hmcts/div-idam-express-middleware.git#2ab5bc519a2de0a2e1f9990ce60ec2ef2617e36a"
+"@hmcts/div-idam-express-middleware@https://github.com/hmcts/div-idam-express-middleware#6.0.0":
+  version "6.0.0"
+  resolved "https://github.com/hmcts/div-idam-express-middleware#3b2466873627729a157b5c831217ff9610ed969d"
   dependencies:
     "@hmcts/nodejs-logging" "^2.2.0"
     request "^2.83.0"
@@ -199,9 +199,9 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#7eacc7fae5587a7ee5c20c3b719c15d0aec7ff0a":
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#1fd430348444cd425e19982f71921b57a2c75e5e":
   version "3.3.6"
-  resolved "https://github.com/hmcts/one-per-page#7eacc7fae5587a7ee5c20c3b719c15d0aec7ff0a"
+  resolved "https://github.com/hmcts/one-per-page#1fd430348444cd425e19982f71921b57a2c75e5e"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
@@ -226,9 +226,9 @@
     slug "^0.9.1"
     url-parse "^1.2.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#d8fa3da29dbac0a421d9ffdf40d17124f5343039":
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#7eacc7fae5587a7ee5c20c3b719c15d0aec7ff0a":
   version "3.3.6"
-  resolved "https://github.com/hmcts/one-per-page#d8fa3da29dbac0a421d9ffdf40d17124f5343039"
+  resolved "https://github.com/hmcts/one-per-page#7eacc7fae5587a7ee5c20c3b719c15d0aec7ff0a"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
