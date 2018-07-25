@@ -19,6 +19,34 @@ describe(modulePath, () => {
       config.environment = previousEnvironment;
     });
 
+    it('gets the current IdamArgs', () => {
+      const idamArgs = idam.getIdamArgs();
+
+      expect(idamArgs.hasOwnProperty('redirectUri'));
+      expect(idamArgs.hasOwnProperty('indexUrl'));
+      expect(idamArgs.hasOwnProperty('idamApiUrl'));
+      expect(idamArgs.hasOwnProperty('idamLoginUrl'));
+      expect(idamArgs.hasOwnProperty('idamSecret'));
+      expect(idamArgs.hasOwnProperty('idamClientID'));
+    });
+
+    it('sets idamArgs.hostname & idamArgs.redirectUri correctly', () => {
+      const host = 'newHostName:3000';
+      const req = {
+        protocol: 'https',
+        get: sinon.stub().returns(host)
+      };
+      const next = sinon.stub();
+
+      expect(idam.hasOwnProperty('setRedirectUri')).to.eql(true);
+      idam.setRedirectUri(req, {}, next);
+
+      const newArgs = idam.getIdamArgs();
+      expect(newArgs.redirectUri).to
+        .eql(`${req.protocol}://${req.get('host')}${config.paths.authenticated}`);
+      expect(newArgs.hostName).to.eql('newHostName');
+    });
+
     it('exports a authenticate function', () => {
       expect(idam.hasOwnProperty('authenticate')).to.eql(true);
     });
