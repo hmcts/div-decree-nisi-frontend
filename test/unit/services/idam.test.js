@@ -19,6 +19,31 @@ describe(modulePath, () => {
       config.environment = previousEnvironment;
     });
 
+    it('gets the current IdamArgs', () => {
+      const idamArgs = idam.getIdamArgs();
+
+      expect(idamArgs.hasOwnProperty('redirectUri'));
+      expect(idamArgs.hasOwnProperty('indexUrl'));
+      expect(idamArgs.hasOwnProperty('idamApiUrl'));
+      expect(idamArgs.hasOwnProperty('idamLoginUrl'));
+      expect(idamArgs.hasOwnProperty('idamSecret'));
+      expect(idamArgs.hasOwnProperty('idamClientID'));
+    });
+
+    it('sets idamArgs.hostname & idamArgs.redirectUri correctly', () => {
+      const host = 'newHostName:3000';
+      const req = { get: sinon.stub().returns(host) };
+      const next = sinon.stub();
+
+      expect(idam.hasOwnProperty('setRedirectUri')).to.eql(true);
+      idam.setRedirectUri(req, {}, next);
+
+      const newArgs = idam.getIdamArgs();
+      expect(newArgs.redirectUri).to
+        .eql(`https://${req.get('host')}${config.paths.authenticated}`);
+      expect(newArgs.hostName).to.eql('newHostName');
+    });
+
     it('exports a authenticate function', () => {
       expect(idam.hasOwnProperty('authenticate')).to.eql(true);
     });
@@ -33,6 +58,10 @@ describe(modulePath, () => {
 
     it('exports a logout function', () => {
       expect(idam.hasOwnProperty('logout')).to.eql(true);
+    });
+
+    it('exports a userDetails function', () => {
+      expect(idam.hasOwnProperty('userDetails')).to.eql(true);
     });
   });
 
@@ -81,6 +110,14 @@ describe(modulePath, () => {
       mockSpy = sinon.spy(idamExpressMiddlewareMock, 'logout');
 
       idam.logout();
+
+      sinon.assert.calledOnce(mockSpy);
+    });
+
+    it('mock userDetails', () => {
+      mockSpy = sinon.spy(idamExpressMiddlewareMock, 'userDetails');
+
+      idam.userDetails();
 
       sinon.assert.calledOnce(mockSpy);
     });

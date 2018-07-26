@@ -31,7 +31,7 @@ services:
     authenticationHealth: https://localhost:3000/health
     apiUrl: http://localhost:8001
     secret: '123456'
-    loginUrl: https://localhost:3000/idam-login
+    loginUrl: https://localhost:3000/idam-mock-login
     clientId: 'divorce'
   saucelabs:
     browser: 'chrome'
@@ -52,25 +52,30 @@ services:
 paths:
   health: /health
   authenticated: /authenticated
-  index: /
+  index: /start
   protected: /protected
   undefended: /progress-bar/undefended
   end: /end
-  entry: /entry
+  entry: /
   mock:
-    idamLogin: /idam-login
+    idamLogin: /idam-mock-login
 
 tests:
   e2e:
     waitForTimeout: 10000
     waitForAction: 10000
     smartWait: 5000
-    proxyServer:
-    proxyByPass:
     outputDir: ../../functional-output
-    idamTestEmail: test@email.com
-    idamTestPassword: password
-  url: https://localhost:3000
+    idam:
+      idamTestApiProxy: proxyout.reform.hmcts.net:8080
+      idamTestProxyByPass: '*beta*LB.reform.hmcts.net'
+      idamTestUsername:
+      idamTestPassword:
+      idamTestForename:
+      idamTestSurname:
+      idamTestUserGroup:
+      idamTestLevelOfAccess:
+      idamTestSupportCreateAccountEndpoint:
 
 features:
   idam: false

@@ -30,7 +30,7 @@ const setupConfig = {
   output: config.tests.e2e.outputDir,
   helpers: {
     WebDriverIO: {
-      url: process.env.E2E_FRONTEND_URL || config.node.baseUrl,
+      url: config.tests.e2e.url || config.node.baseUrl,
       browser,
       waitForTimeout,
       smartWait,

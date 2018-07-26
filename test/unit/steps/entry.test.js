@@ -1,26 +1,20 @@
 const modulePath = 'steps/entry/Entry.step';
 
 const Entry = require(modulePath);
-const Undefended = require('steps/undefended/Undefended.step');
+const Start = require('steps/start/Start.step');
 const idam = require('services/idam');
 const { middleware, redirect, sinon } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
-  it('has idam.authenticate middleware', () => {
-    return middleware.hasMiddleware(Entry, [ idam.authenticate() ]);
+  beforeEach(() => {
+    sinon.stub(idam, 'authenticate').returns(middleware.nextMock);
   });
 
-  context('navigation', () => {
-    beforeEach(() => {
-      sinon.stub(idam, 'authenticate').returns(middleware.nextMock);
-    });
+  afterEach(() => {
+    idam.authenticate.restore();
+  });
 
-    afterEach(() => {
-      idam.authenticate.restore();
-    });
-
-    it('to protected page', () => {
-      return redirect.navigatesToNext(Entry, Undefended);
-    });
+  it('to protected page', () => {
+    return redirect.navigatesToNext(Entry, Start);
   });
 });

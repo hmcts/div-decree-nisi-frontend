@@ -26,15 +26,15 @@
     "lint"
   ],
   "dependencies": {
-    "@hmcts/div-idam-express-middleware": "https://github.com/hmcts/div-idam-express-middleware.git",
+    "@hmcts/div-idam-express-middleware": "https://github.com/hmcts/div-idam-express-middleware#6.0.0",
     "@hmcts/look-and-feel": "^1.13.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd",
-    "@hmcts/one-per-page": "https://github.com/hmcts/one-per-page#d8fa3da29dbac0a421d9ffdf40d17124f5343039",
+    "@hmcts/one-per-page": "https://github.com/hmcts/one-per-page#1fd430348444cd425e19982f71921b57a2c75e5e",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
     "cookies": "^0.7.1",
-    "copy-webpack-plugin": "^4.5.1",
+    "copy-webpack-plugin": "^4.5.2",
     "express": "^4.16.3",
     "express-limiter": "^1.6.1",
     "glob": "^7.1.2",
@@ -45,12 +45,13 @@
     "moment": "^2.22.1",
     "os": "^0.1.1",
     "paths": "^0.1.1",
+    "reform-pattern-library": "https://github.com/dtaylor7/reform-pattern-library.git",
     "request": "^2.85.0",
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git",
-    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#8ea3ab6c9f27adb6f9c24a60cab0c9971af43332",
+    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#ca6165030aff52910e92336d704518ccdcf87c83",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
