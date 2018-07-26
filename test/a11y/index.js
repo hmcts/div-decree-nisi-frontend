@@ -16,10 +16,14 @@ const stepIsPostable = step => {
 };
 
 // set up step with valid idam creds
-const session = { IdamLogin: { success: 'yes' } };
+const userDetails = {
+  id: 'idamUserId',
+  email: 'user@email.com'
+};
+
 const getAgent = step => {
   return custom(step)
-    .withSession(session)
+    .withCookie('mockIdamUserDetails', JSON.stringify(userDetails))
     .withGlobal('feedbackLink', 'https://github.com/hmcts/one-per-page/issues/new')
     .asServer();
 };
