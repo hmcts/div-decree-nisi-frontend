@@ -26,7 +26,7 @@ class IdamHelper extends Helper {
     return idamExpressTestHarness.createUser(args)
       .then(() => {
         logger.info(`Created IDAM test user: ${testEmail}`);
-        console.log('Created IDAM test user: ${testEmail}'); // eslint-disable-line
+        console.log(`Created IDAM test user: ${testEmail}`); // eslint-disable-line
       })
       .catch(error => {
         console.log('error creating idam user'); // eslint-disable-line
