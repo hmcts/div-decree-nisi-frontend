@@ -103,4 +103,22 @@ describe(modulePath, () => {
       expect(req.hasOwnProperty('idam')).to.eql(false);
     });
   });
+
+  describe('#userDetails', () => {
+    it('runs next and adds idam object if authenticated', () => {
+      req.headers.cookie = `mockIdamUserDetails=${JSON.stringify(userDetails)};`;
+      const middleware = idam.userDetails(idamArgs);
+      middleware(req, res, next);
+      sinon.assert.calledOnce(next);
+      expect(req.hasOwnProperty('idam')).to.eql(true);
+      expect(req.idam.hasOwnProperty('userDetails')).to.eql(true);
+    });
+
+    it('runs next', () => {
+      const middleware = idam.userDetails(idamArgs);
+      middleware(req, res, next);
+      sinon.assert.calledOnce(next);
+      expect(req.hasOwnProperty('idam')).to.eql(false);
+    });
+  });
 });
