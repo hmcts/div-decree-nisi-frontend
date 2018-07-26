@@ -24,7 +24,7 @@ const methods = {
   },
   setRedirectUri: (req, res, next) => {
     idamArgs.hostName = req.get('host').split(':')[0];
-    idamArgs.redirectUri = `${req.protocol}://${req.get('host')}${config.paths.authenticated}`;
+    idamArgs.redirectUri = `https://${req.get('host')}${config.paths.authenticated}`;
     next();
   },
   authenticate: (...args) => {
