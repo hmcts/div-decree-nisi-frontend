@@ -1,6 +1,5 @@
 const { EntryPoint } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
-const idam = require('services/idam');
 const config = require('config');
 
 class Entry extends EntryPoint {
@@ -9,11 +8,11 @@ class Entry extends EntryPoint {
   }
 
   next() {
-    return redirectTo(this.journey.steps.Undefended);
+    return redirectTo(this.journey.steps.Start);
   }
 
   get middleware() {
-    return [...super.middleware, idam.authenticate()];
+    return [...super.middleware];
   }
 }
 

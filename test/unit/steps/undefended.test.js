@@ -8,15 +8,15 @@ const { getUserData } = require('middleware/ccd');
 
 describe(modulePath, () => {
   beforeEach(() => {
-    sinon.stub(idam, 'protect').returns(middleware.nextMock);
+    sinon.stub(idam, 'authenticate').returns(middleware.nextMock);
   });
 
   afterEach(() => {
-    idam.protect.restore();
+    idam.authenticate.restore();
   });
 
-  it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Undefended, [ idam.protect(), getUserData ]);
+  it('has idam.authenticate middleware', () => {
+    return middleware.hasMiddleware(Undefended, [ idam.authenticate(), getUserData ]);
   });
 
   it('redirects to next page', () => {

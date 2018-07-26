@@ -18,7 +18,7 @@ class Undefended extends Interstitial {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.authenticate(), getUserData];
   }
 }
 

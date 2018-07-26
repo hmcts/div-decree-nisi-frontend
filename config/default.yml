@@ -52,11 +52,11 @@ services:
 paths:
   health: /health
   authenticated: /authenticated
-  index: /
+  index: /start
   protected: /protected
   undefended: /progress-bar/undefended
   end: /end
-  entry: /entry
+  entry: /
   mock:
     idamLogin: /idam-mock-login
 
