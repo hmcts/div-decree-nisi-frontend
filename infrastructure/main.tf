@@ -68,7 +68,7 @@ module "frontend" {
     REDIS_ENCRYPTION_SECRET = "${data.azurerm_key_vault_secret.redis_encryption_secret.value}"
 
     // Encryption secrets
-    SESSION_SECRET = "141461042f31eb712cae8f989d46cd728360ca2e"
+    SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"
 
     // Google Anayltics
     GOOGLE_ANALYTICS_ID           = "${var.google_analytics_tracking_id}"
