@@ -55,6 +55,7 @@ paths:
   index: /
   protected: /protected
   undefended: /progress-bar/undefended
+  reviewAosResponse: /dn-stage/review-aos-response
   end: /end
   entry: /entry
   mock:
