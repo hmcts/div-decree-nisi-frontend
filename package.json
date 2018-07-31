@@ -1,7 +1,7 @@
 {
   "name": "divorce-decree-nisi",
   "description": "Divorce Decree Nisi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "node": ">=8.9.4 <9.0.0"
   },
