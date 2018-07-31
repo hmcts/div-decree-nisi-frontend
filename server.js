@@ -26,6 +26,7 @@ if (['development'].includes(config.environment)) {
 }
 
 logger.info(`Application running: ${config.node.baseUrl}`);
+logger.error(`Session secure: ${config.session.secure}, ${config.session.secure === true}`);
 
 process.on('SIGTERM', () => {
   http.close(() => {

@@ -7,6 +7,7 @@ node:
 
 session:
   secret: SESSION_SECRET
+  secure: SESSION_SECURE
 
 tests:
   e2e:
