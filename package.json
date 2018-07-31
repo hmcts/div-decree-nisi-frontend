@@ -30,7 +30,7 @@
     "@hmcts/look-and-feel": "^1.13.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd",
-    "@hmcts/one-per-page": "https://github.com/hmcts/one-per-page#b789fca3abd96ef0d8edc7f6d78730ad7be7c484",
+    "@hmcts/one-per-page": "https://github.com/hmcts/one-per-page#77787f401e79c74d8c682a9344c0d5983e0301c3",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
     "cookies": "^0.7.1",
