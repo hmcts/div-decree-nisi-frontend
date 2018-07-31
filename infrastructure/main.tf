@@ -69,6 +69,7 @@ module "frontend" {
 
     // Encryption secrets
     SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"
+    SESSION_SECURE = "${var.public_protocol == "https" ? true : false}"
 
     // Google Anayltics
     GOOGLE_ANALYTICS_ID           = "${var.google_analytics_tracking_id}"
