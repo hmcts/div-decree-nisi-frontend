@@ -14,7 +14,7 @@ class Undefended extends Interstitial {
   }
 
   next() {
-    return goTo(this.journey.steps.End);
+    return goTo(this.journey.steps.ReviewAosResponse);
   }
 
   get middleware() {
