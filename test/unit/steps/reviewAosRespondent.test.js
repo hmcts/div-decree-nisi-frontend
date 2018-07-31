@@ -1,8 +1,7 @@
-const modulePath = 'steps/undefended/Undefended.step';
+const modulePath = 'steps/review-aos-response/ReviewAosResponse.step';
 
-const Undefended = require(modulePath);
-const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
-const getSteps = require('steps');
+const ReviewAosResponse = require(modulePath);
+const End = require('steps/end/End.step');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const { getUserData } = require('middleware/ccd');
@@ -17,14 +16,14 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Undefended, [ idam.protect(), getUserData ]);
+    return middleware.hasMiddleware(ReviewAosResponse, [ idam.protect(), getUserData ]);
   });
 
   it('redirects to next page', () => {
-    return interstitial.navigatesToNext(Undefended, ReviewAosResponse, getSteps());
+    return interstitial.navigatesToNext(ReviewAosResponse, End);
   });
 
   it('renders the content', () => {
-    return content(Undefended);
+    return content(ReviewAosResponse);
   });
 });

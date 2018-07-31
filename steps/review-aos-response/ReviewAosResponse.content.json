@@ -1,0 +1,29 @@
+{
+  "en": {
+    "title": "Read your {{ session.divorceWho }}'s response",
+    "youNeedToReed": "You need to read your {{ session.divorceWho }}'s response before you continue. The response is legally known as the 'acknowledgement of service'",
+    "acknowledgementOfSrvice": "Acknowledgement of service",
+    "respondent": "Respondent",
+    "applicant": "Applicant",
+    "respondentProceed": "How the respondent wants to proceed",
+    "whatThisMeans": "What this means",
+    "givenOptions": "The respondent was given the following options for their response.",
+    "proceedWithDivorce": "to proceed with the divorce",
+    "proceedNotAccept": "to proceed, but not accept the allegations",
+    "disagree": "to disagree with the application - if they want to try to prevent the divorce or want to make their own application for divorce (they intend to 'defend' it)",
+    "jurisdictionCourt": "Jurisdiction of the court",
+    "respondentAgrees": "The respondent agrees that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
+    "noOtherProceedings": "They said there are no other proceedings outside of England and Wales which are related to the marriage or which may affect its validity (how legally binding the marriage is).",
+    "respondentWasAsked": "The respondent was asked if they agree with the jurisdiction connections which you give in your divorce application.",
+    "courtProceedings": "They were also asked if there were any other court proceedings which may affect the marriage.",
+    "costsOrder": "Costs order",
+    "respondentDoesNotAgree": "The respondent doesn’t agree to pay all the costs of the divorce, but has made the folllowing suggestion.",
+    "payEqualAmounts": "\"I think we should pay equal amounts for the divorce as we both want it to happen.\"",
+    "respondentWasAskedPayCosts": "The respondent was asked if they agreed to pay the costs that you claimed.",
+    "followingOptions": "They were given the following options:",
+    "payCosts": "to pay the costs that you suggested",
+    "notPayCosts": "to not agree to paying any of the costs",
+    "suggestPayingDifferent": "to suggest paying a different amount",
+    "chanceToChangeAmount": "You'll be given a chance to change the amount that you want to claim later in this application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ session.divorceWho }} make."
+  }
+}

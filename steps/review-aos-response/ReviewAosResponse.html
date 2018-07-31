@@ -1,0 +1,80 @@
+{% extends "page.njk" %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+  <p class="text">{{ content.youNeedToReed | safe }}</p>
+
+  <h2 class="heading-medium">{{ content.acknowledgementOfSrvice }}</h2>
+
+  <h3 class="heading-small">{{ content.respondent }}</h3>
+  <p class="text">{{ session.respondentName }}</p>
+
+  <h3 class="heading-small">{{ content.applicant }}</h3>
+  <p class="text">{{ session.name }}</p>
+
+  <h3 class="heading-small">{{ content.respondentProceed }}</h3>
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.givenOptions }}</p>
+
+      <ul class="bullet list-bullet">
+        <li>{{ content.proceedWithDivorce }}</li>
+        <li>{{ content.proceedNotAccept }}</li>
+        <li>{{ content.disagree }}</li>
+      </ul>
+    </div>
+  </details>
+
+  <h3 class="heading-small">{{ content.jurisdictionCourt }}</h3>
+  <p class="text">{{ content.respondentAgrees }}</p>
+  <p class="text">{{ content.noOtherProceedings }}</p>
+
+  <details>
+    <summary aria-controls="details-content-1" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
+      <p class="text">{{ content.respondentWasAsked }}</p>
+      <p class="text">{{ content.courtProceedings }}</p>
+    </div>
+  </details>
+
+  <h3 class="heading-small">{{ content.costsOrder }}</h3>
+  <p class="text">{{ content.respondentDoesNotAgree }}</p>
+  <p class="text">{{ content.payEqualAmounts }}</p>
+
+  <details>
+    <summary aria-controls="details-content-2" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
+      <p class="text">{{ content.respondentWasAskedPayCosts }}</p>
+      <p class="text">{{ content.followingOptions }}</p>
+
+      <ul class="bullet list-bullet">
+        <li>{{ content.payCosts }}</li>
+        <li>{{ content.notPayCosts }}</li>
+        <li>{{ content.suggestPayingDifferent }}</li>
+      </ul>
+
+      <p class="text">{{ content.chanceToChangeAmount }}</p>
+    </div>
+  </details>
+
+  <br>
+
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+    <input class="button" type="submit" value="{{ content.continue }}">
+  </form>
+{% endblock %}
+
+{% block one_third %}
+
+{% endblock %}

@@ -1,5 +1,5 @@
 const UndefendedPage = require('steps/undefended/Undefended.step');
-const content = require('steps/undefended/Undefended.content');
+const content = require('common/content');
 
 function seeUndefendedPage() {
   const I = this;

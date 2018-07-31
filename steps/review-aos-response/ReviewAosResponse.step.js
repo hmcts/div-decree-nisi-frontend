@@ -4,9 +4,9 @@ const config = require('config');
 const idam = require('services/idam');
 const { getUserData } = require('middleware/ccd');
 
-class Undefended extends Interstitial {
+class ReviewAosResponse extends Interstitial {
   static get path() {
-    return config.paths.undefended;
+    return config.paths.reviewAosResponse;
   }
 
   get session() {
@@ -14,7 +14,7 @@ class Undefended extends Interstitial {
   }
 
   next() {
-    return goTo(this.journey.steps.ReviewAosResponse);
+    return goTo(this.journey.steps.End);
   }
 
   get middleware() {
@@ -22,4 +22,4 @@ class Undefended extends Interstitial {
   }
 }
 
-module.exports = Undefended;
+module.exports = ReviewAosResponse;
