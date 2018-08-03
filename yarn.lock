@@ -171,13 +171,13 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#63b20cc545cca88209ff77334d3369f12f8d1b4d":
+"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#4a7c445ae9b26cab23e3ef206454dfafd5065ee3":
   version "0.0.3"
-  resolved "https://github.com/hmcts/one-per-page-test-suite.git#63b20cc545cca88209ff77334d3369f12f8d1b4d"
+  resolved "https://github.com/hmcts/one-per-page-test-suite.git#4a7c445ae9b26cab23e3ef206454dfafd5065ee3"
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
     "@hmcts/look-and-feel" "^1.13.3"
-    "@hmcts/one-per-page" "https://github.com/hmcts/one-per-page#7eacc7fae5587a7ee5c20c3b719c15d0aec7ff0a"
+    "@hmcts/one-per-page" "https://github.com/hmcts/one-per-page#505b31eefd4f7b04f35558ef0f9dac33ca097861"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"
     chai-as-promised "^7.1.1"
@@ -189,6 +189,7 @@
     eslint-plugin-mocha "^5.0.0"
     express "^4.16.3"
     express-nunjucks "^2.2.3"
+    html-entities "^1.2.1"
     jquery "^3.2.1"
     mocha "^4.0.1"
     nyc "^11.1.0"
@@ -199,9 +200,9 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#7eacc7fae5587a7ee5c20c3b719c15d0aec7ff0a":
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#505b31eefd4f7b04f35558ef0f9dac33ca097861":
   version "3.3.6"
-  resolved "https://github.com/hmcts/one-per-page#7eacc7fae5587a7ee5c20c3b719c15d0aec7ff0a"
+  resolved "https://github.com/hmcts/one-per-page#505b31eefd4f7b04f35558ef0f9dac33ca097861"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
@@ -226,9 +227,9 @@
     slug "^0.9.1"
     url-parse "^1.2.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#dbd824099e759cec11983af9d7463115bab92e3a":
-  version "3.5.0"
-  resolved "https://github.com/hmcts/one-per-page#dbd824099e759cec11983af9d7463115bab92e3a"
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#6bb0d8f042c3a223a94316141bae630a9cc79bb1":
+  version "3.5.2"
+  resolved "https://github.com/hmcts/one-per-page#6bb0d8f042c3a223a94316141bae630a9cc79bb1"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
@@ -4967,6 +4968,10 @@ hsts@2.1.0:
 html-comment-regex@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/html-comment-regex/-/html-comment-regex-1.1.1.tgz#668b93776eaae55ebde8f3ad464b307a4963625e"
+
+html-entities@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
 
 http-errors@1.6.2:
   version "1.6.2"
