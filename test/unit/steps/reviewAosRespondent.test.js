@@ -1,7 +1,7 @@
 const modulePath = 'steps/review-aos-response/ReviewAosResponse.step';
 
 const ReviewAosResponse = require(modulePath);
-const End = require('steps/end/End.step');
+const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const { getUserData } = require('middleware/ccd');
@@ -20,7 +20,7 @@ describe(modulePath, () => {
   });
 
   it('redirects to next page', () => {
-    return interstitial.navigatesToNext(ReviewAosResponse, End);
+    return interstitial.navigatesToNext(ReviewAosResponse, ApplyForDecreeNisi);
   });
 
   it('renders the content', () => {

@@ -14,7 +14,7 @@ class ReviewAosResponse extends Interstitial {
   }
 
   next() {
-    return goTo(this.journey.steps.End);
+    return goTo(this.journey.steps.ApplyForDecreeNisi);
   }
 
   get middleware() {

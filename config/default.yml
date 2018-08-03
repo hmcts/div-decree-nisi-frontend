@@ -56,6 +56,7 @@ paths:
   protected: /protected
   undefended: /progress-bar/undefended
   reviewAosResponse: /dn-stage/review-aos-response
+  applyForDecreeNisi: /dn-stage/continue-with-divorce
   end: /end
   entry: /entry
   mock:
