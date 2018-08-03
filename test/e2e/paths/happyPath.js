@@ -6,5 +6,6 @@ Scenario('Happy path', async I => {
   await I.loginToIdam();
   I.seeUndefendedPage();
   I.seeReviewAosResponsePage();
+  I.seeApplyForDecreeNisiPage();
   I.seeEndPage();
 });
