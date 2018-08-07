@@ -1,0 +1,26 @@
+#!groovy
+
+@Library("Infrastructure")
+
+properties([
+    parameters([
+        string(name: 'PRODUCT', defaultValue: 'div', description: 'Divorce'),
+        string(name: 'COMPONENT', defaultValue: 'dn', description: 'Divorce Decree Nisi Frontend'),
+        string(name: 'TYPE', defaultValue: 'nodejs', description: ''),
+        string(name: 'ENVIRONMENT', defaultValue: 'saat', description: 'Environment where code should be built and deployed'),
+        choice(name: 'SUBSCRIPTION', choices: 'sandbox\nnonprod\nprod', description: 'Azure subscriptions available to build in')
+    ])
+])
+
+withParameterizedPipeline(params.TYPE, params.PRODUCT, params.COMPONENT, params.ENVIRONMENT, params.SUBSCRIPTION) {
+  after('test') {
+    sh 'yarn test:validation'
+  }
+
+  after('functionalTest:saat') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+
+  enableSlackNotifications('#div-dev')
+}

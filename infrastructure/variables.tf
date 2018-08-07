@@ -124,7 +124,7 @@ variable "service_auth_provider_url" {
 }
 
 variable "frontend_service_name" {
-  default = "divorce-respondent-frontend"
+  default = "divorce-decree-nisi-frontend"
 }
 
 variable "s2s_microservice_name" {

@@ -19,7 +19,7 @@ describe(modulePath, () => {
       idam.authenticate.restore();
     });
 
-    it('to protected page', () => {
+    it('to undefended page', () => {
       return redirect.navigatesToNext(Entry, Undefended);
     });
   });
