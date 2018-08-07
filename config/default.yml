@@ -19,7 +19,7 @@ health:
   deadline: 15000
 
 service:
-  name: 'divorce-respondent-frontend'
+  name: 'divorce-decree-nisi-frontend'
 
 services:
   redis:
@@ -53,7 +53,6 @@ paths:
   health: /health
   authenticated: /authenticated
   index: /
-  protected: /protected
   undefended: /progress-bar/undefended
   reviewAosResponse: /dn-stage/review-aos-response
   applyForDecreeNisi: /dn-stage/continue-with-divorce
