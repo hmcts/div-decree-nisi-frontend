@@ -12,6 +12,7 @@ const idam = require('services/idam');
 const cookieParser = require('cookie-parser');
 const setupRateLimiter = require('services/rateLimiter');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const getFilters = require('views/filters');
 
 const app = express();
 
@@ -53,6 +54,7 @@ lookAndFeel.configure(app, {
     ]
   },
   nunjucks: {
+    filters: getFilters(),
     globals: {
       phase: 'ALPHA',
       feedbackLink: 'https://github.com/hmcts/one-per-page/issues/new',
@@ -76,6 +78,7 @@ onePerPage.journey(app, {
   errorPages: {},
   session: {
     redis: { url: config.services.redis.url },
+    cookie: { secure: config.services.redis.useSSL === 'true' },
     secret: config.session.secret,
     sessionEncryption: req => {
       let key = config.services.redis.encryptionAtRestKey;

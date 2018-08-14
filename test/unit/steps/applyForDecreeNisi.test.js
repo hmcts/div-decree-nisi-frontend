@@ -1,7 +1,7 @@
 const modulePath = 'steps/apply-for-decree-nisi/ApplyForDecreeNisi.step';
 
 const ApplyForDecreeNisi = require(modulePath);
-const End = require('steps/end/End.step');
+const MiniPetition = require('steps/mini-petition/MiniPetition.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
@@ -26,14 +26,14 @@ describe(modulePath, () => {
     return question.testErrors(ApplyForDecreeNisi);
   });
 
-  it('redirects to End if answer is no', () => {
+  it('redirects to MiniPetition if answer is no', () => {
     const fields = { applyForDecreeNisi: 'no' };
-    return question.redirectWithField(ApplyForDecreeNisi, fields, End);
+    return question.redirectWithField(ApplyForDecreeNisi, fields, MiniPetition);
   });
 
-  it('redirects to End if answer is yes', () => {
+  it('redirects to MiniPetition if answer is yes', () => {
     const fields = { applyForDecreeNisi: 'yes' };
-    return question.redirectWithField(ApplyForDecreeNisi, fields, End);
+    return question.redirectWithField(ApplyForDecreeNisi, fields, MiniPetition);
   });
 
   it('loads fields from the session', () => {
