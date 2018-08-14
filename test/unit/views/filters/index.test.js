@@ -24,7 +24,7 @@ describe(modulePath, () => {
     const filterNames = getFiltersNames();
 
     filterNames.forEach(name => {
-      expect(filters.hasOwnProperty(name)).to.eql(true)
+      expect(filters.hasOwnProperty(name)).to.eql(true);
     });
   });
 });
