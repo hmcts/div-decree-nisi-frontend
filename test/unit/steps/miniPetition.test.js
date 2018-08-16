@@ -351,7 +351,7 @@ describe(modulePath, () => {
         { specificContent: [ 'coRespondent' ] });
     });
 
-    it.skip('shows name for co-respondent', () => {
+    it('shows name for co-respondent', () => {
       const session = {
         originalPetition: {
           connections: {},
