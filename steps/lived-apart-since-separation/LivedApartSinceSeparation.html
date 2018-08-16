@@ -1,0 +1,32 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+  <p class="text">{{ content.mustHaveLivedApart | safe }}</p>
+
+  <div class="panel panel-border-wide">
+    <p class="text">{{ content.livingApart }}</p>
+  </div>
+
+  <br>
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.livedApartSinceSeparation, content.fields.livedApartSinceSeparation.title,
+      options = [
+        { label: content.fields.livedApartSinceSeparation.yes, value: "yes" },
+        { label: content.fields.livedApartSinceSeparation.no, value: "no" }
+      ],
+      hint=false,
+      hideQuestion=true,
+      inline=true,
+      type='radio'
+    ) }}
+  {% endcall %}
+
+{% endblock %}

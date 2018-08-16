@@ -57,6 +57,7 @@ paths:
   reviewAosResponse: /dn-stage/review-aos-response
   applyForDecreeNisi: /dn-stage/continue-with-divorce
   miniPetition: /dn-stage/review-your-petition
+  livedApartSinceSeparation: /dn-stage/lived-apart-since-separation
   end: /end
   entry: /entry
   mock:
