@@ -56,6 +56,7 @@ paths:
   undefended: /progress-bar/undefended
   reviewAosResponse: /dn-stage/review-aos-response
   applyForDecreeNisi: /dn-stage/continue-with-divorce
+  miniPetition: /dn-stage/review-your-petition
   end: /end
   entry: /entry
   mock:
