@@ -95,7 +95,12 @@ data "azurerm_key_vault" "div_key_vault" {
 }
 
 data "azurerm_key_vault_secret" "idam_secret" {
-  name      = "idam-secret"
+  name = "idam_secret"
+  vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
+}
+
+data "azurerm_key_vault_secret" "session_secret" {
+  name = "session-secret"
   vault_uri = "${data.azurerm_key_vault.div_key_vault.vault_uri}"
 }
 
