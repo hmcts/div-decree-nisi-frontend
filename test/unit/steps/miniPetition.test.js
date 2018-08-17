@@ -2,7 +2,9 @@
 const modulePath = 'steps/mini-petition/MiniPetition.step';
 
 const MiniPetition = require(modulePath);
-const End = require('steps/end/End.step');
+const LivedApartSinceSeparation = require(
+  'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
+);
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const ccd = require('middleware/ccd');
@@ -31,9 +33,9 @@ describe(modulePath, () => {
     return question.testErrors(MiniPetition, session);
   });
 
-  it('redirects to End statement of truth answered', () => {
+  it('redirects to LivedApartSinceSeparation statement of truth answered', () => {
     const fields = { statementOfTruth: 'yes' };
-    return question.redirectWithField(MiniPetition, fields, End);
+    return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation);
   });
 
   describe('values', () => {
