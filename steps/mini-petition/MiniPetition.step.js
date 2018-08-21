@@ -4,11 +4,11 @@ const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const { getUserData } = require('middleware/ccd');
+const ccd = require('middleware/ccd');
 
-class ApplyForDecreeNisi extends Question {
+class MiniPetition extends Question {
   static get path() {
-    return config.paths.applyForDecreeNisi;
+    return config.paths.miniPetition;
   }
 
   get session() {
@@ -16,24 +16,24 @@ class ApplyForDecreeNisi extends Question {
   }
 
   get form() {
-    const answers = ['yes', 'no'];
+    const answers = ['yes'];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
 
-    const applyForDecreeNisi = text
+    const statementOfTruth = text
       .joi(this.content.errors.required, validAnswers);
 
-    return form({ applyForDecreeNisi });
+    return form({ statementOfTruth });
   }
 
   next() {
-    return goTo(this.journey.steps.MiniPetition);
+    return goTo(this.journey.steps.End);
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect(), ccd.getUserData];
   }
 }
 
-module.exports = ApplyForDecreeNisi;
+module.exports = MiniPetition;

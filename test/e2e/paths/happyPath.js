@@ -7,5 +7,6 @@ Scenario('Happy path', async I => {
   I.seeUndefendedPage();
   I.seeReviewAosResponsePage();
   I.seeApplyForDecreeNisiPage();
+  I.seeMiniPetitionPage();
   I.seeEndPage();
 });
