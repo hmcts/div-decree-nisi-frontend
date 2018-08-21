@@ -7,8 +7,8 @@ const chromeArgs = [ '--no-sandbox' ];
 if (config.environment !== 'development') {
   const proxyServer = config.tests.e2e.idam.idamTestApiProxy;
   const proxyByPass = config.tests.e2e.idam.idamTestProxyByPass;
-  chromeArgs.push(`--proxy-server=${proxyServer}`);
-  chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
+  chromeArgs.push(`--proxy-server=${proxyServer || ''}`);
+  chromeArgs.push(`--proxy-bypass-list=${proxyByPass || ''}`);
 }
 
 exports.config = {
@@ -20,6 +20,9 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
+      restart: false,
+      keepCookies: false,
+      keepBrowserState: false,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
