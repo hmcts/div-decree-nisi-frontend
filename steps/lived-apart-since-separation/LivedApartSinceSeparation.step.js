@@ -4,11 +4,11 @@ const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const ccd = require('middleware/ccd');
+const { getUserData } = require('middleware/ccd');
 
-class MiniPetition extends Question {
+class LivedApartSinceSeparation extends Question {
   static get path() {
-    return config.paths.miniPetition;
+    return config.paths.livedApartSinceSeparation;
   }
 
   get session() {
@@ -16,24 +16,24 @@ class MiniPetition extends Question {
   }
 
   get form() {
-    const answers = ['yes'];
+    const answers = ['yes', 'no'];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
 
-    const statementOfTruth = text
+    const livedApartSinceSeparation = text
       .joi(this.content.errors.required, validAnswers);
 
-    return form({ statementOfTruth });
+    return form({ livedApartSinceSeparation });
   }
 
   next() {
-    return goTo(this.journey.steps.LivedApartSinceSeparation);
+    return goTo(this.journey.steps.End);
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), ccd.getUserData];
+    return [...super.middleware, idam.protect(), getUserData];
   }
 }
 
-module.exports = MiniPetition;
+module.exports = LivedApartSinceSeparation;
