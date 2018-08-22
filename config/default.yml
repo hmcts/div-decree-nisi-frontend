@@ -53,11 +53,12 @@ paths:
   health: /health
   authenticated: /authenticated
   index: /
-  undefended: /progress-bar/undefended
-  reviewAosResponse: /dn-stage/review-aos-response
-  applyForDecreeNisi: /dn-stage/continue-with-divorce
-  miniPetition: /dn-stage/review-your-petition
-  livedApartSinceSeparation: /dn-stage/lived-apart-since-separation
+  undefended: /undefended
+  reviewAosResponse: /review-aos-response
+  applyForDecreeNisi: /continue-with-divorce
+  miniPetition: /review-your-petition
+  livedApartSinceSeparation: /lived-apart-since-separation
+  claimCosts: /claim-costs
   end: /end
   entry: /entry
   mock:

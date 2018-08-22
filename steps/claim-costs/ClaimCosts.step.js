@@ -6,9 +6,9 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const { getUserData } = require('middleware/ccd');
 
-class LivedApartSinceSeparation extends Question {
+class ClaimCosts extends Question {
   static get path() {
-    return config.paths.livedApartSinceSeparation;
+    return config.paths.claimCosts;
   }
 
   get session() {
@@ -16,19 +16,19 @@ class LivedApartSinceSeparation extends Question {
   }
 
   get form() {
-    const answers = ['yes', 'no'];
+    const answers = ['originalAmount', 'suggestedAmount', 'differentAmount'];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
 
-    const livedApartSinceSeparation = text
+    const claimCosts = text
       .joi(this.content.errors.required, validAnswers);
 
-    return form({ livedApartSinceSeparation });
+    return form({ claimCosts });
   }
 
   next() {
-    return goTo(this.journey.steps.ClaimCosts);
+    return goTo(this.journey.steps.End);
   }
 
   get middleware() {
@@ -36,4 +36,4 @@ class LivedApartSinceSeparation extends Question {
   }
 }
 
-module.exports = LivedApartSinceSeparation;
+module.exports = ClaimCosts;

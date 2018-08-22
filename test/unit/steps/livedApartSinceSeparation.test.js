@@ -1,7 +1,7 @@
 const modulePath = 'steps/lived-apart-since-separation/LivedApartSinceSeparation.step';
 
 const LivedApartSinceSeparation = require(modulePath);
-const End = require('steps/end/End.step');
+const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
@@ -26,14 +26,14 @@ describe(modulePath, () => {
     return question.testErrors(LivedApartSinceSeparation);
   });
 
-  it('redirects to End if answer is no', () => {
+  it('redirects to ClaimCosts if answer is no', () => {
     const fields = { livedApartSinceSeparation: 'no' };
-    return question.redirectWithField(LivedApartSinceSeparation, fields, End);
+    return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
   });
 
-  it('redirects to End if answer is yes', () => {
+  it('redirects to ClaimCosts if answer is yes', () => {
     const fields = { livedApartSinceSeparation: 'yes' };
-    return question.redirectWithField(LivedApartSinceSeparation, fields, End);
+    return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
   });
 
   it('loads fields from the session', () => {
