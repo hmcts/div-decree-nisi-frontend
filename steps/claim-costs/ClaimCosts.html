@@ -1,0 +1,39 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+  <p class="text">{{ content.applicationYouAsked | safe }}</p>
+  <p class="text">{{ content.courtWillDecide | safe }}</p>
+
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.readMore }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.shouldPayCosts }}</p>
+      <p class="text">{{ content.divorceWillBeGranted }}</p>
+      <p class="text">{{ content.respondentsBehaviour }}</p>
+      <p class="text">{{ content.rulesInFavour }}</p>
+      <p class="text">{{ content.disputeTheCosts }}</p>
+    </div>
+  </details>
+
+  <br>
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.claimCosts, content.fields.claimCosts.title,
+      options = [
+        { label: content.fields.claimCosts.originalAmount, value: "originalAmount" },
+        { label: content.fields.claimCosts.suggestedAmount, value: "suggestedAmount" },
+        { label: content.fields.claimCosts.differentAmount, value: "differentAmount" }
+      ]
+    ) }}
+  {% endcall %}
+
+{% endblock %}

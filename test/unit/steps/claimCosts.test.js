@@ -1,0 +1,48 @@
+const modulePath = 'steps/claim-costs/ClaimCosts.step';
+
+const ClaimCosts = require(modulePath);
+const End = require('steps/end/End.step');
+const idam = require('services/idam');
+const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+
+describe(modulePath, () => {
+  beforeEach(() => {
+    sinon.stub(idam, 'protect').returns(middleware.nextMock);
+  });
+
+  afterEach(() => {
+    idam.protect.restore();
+  });
+
+  it('has idam.protect middleware', () => {
+    return middleware.hasMiddleware(ClaimCosts, [ idam.protect() ]);
+  });
+
+  it('renders the content', () => {
+    return content(ClaimCosts);
+  });
+
+  it('shows error if does not answer question', () => {
+    return question.testErrors(ClaimCosts);
+  });
+
+  it('redirects to End if answer is originalAmount', () => {
+    const fields = { claimCosts: 'originalAmount' };
+    return question.redirectWithField(ClaimCosts, fields, End);
+  });
+
+  it('redirects to End if answer is suggestedAmount', () => {
+    const fields = { claimCosts: 'suggestedAmount' };
+    return question.redirectWithField(ClaimCosts, fields, End);
+  });
+
+  it('redirects to End if answer is differentAmount', () => {
+    const fields = { claimCosts: 'differentAmount' };
+    return question.redirectWithField(ClaimCosts, fields, End);
+  });
+
+  it('loads fields from the session', () => {
+    const sessionData = { claimCosts: 'differentAmount' };
+    return question.rendersValues(ClaimCosts, sessionData);
+  });
+});
