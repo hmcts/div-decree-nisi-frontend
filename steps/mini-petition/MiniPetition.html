@@ -432,21 +432,23 @@
   <h2 class="heading-medium">{{ content.statementOfTruth }}</h2>
   <p class="text">{{ content.statementOfTruthDescription }}</p>
 
+
   {% call formSection() %}
-    {{
-      selectionButtons(
-        fields.statementOfTruth,
-        content.statementOfTruth,
-        options = [
-          { label: content.fields.statementOfTruth.yes, value: "yes" }
-        ],
-        hint=false,
-        hideQuestion=true,
-        inline=false,
-        type='checkbox',
-        class='confirmation-container'
-      )
-    }}
+    <div class="confirmation-container">
+      {{
+        selectionButtons(
+          fields.statementOfTruth,
+          content.statementOfTruth,
+          options = [
+            { label: content.fields.statementOfTruth.yes, value: "yes" }
+          ],
+          hint=false,
+          hideQuestion=true,
+          inline=false,
+          type='checkbox'
+        )
+      }}
+    </div>
   {% endcall %}
 
 {% endblock %}
