@@ -79,6 +79,21 @@ describe(modulePath, () => {
       );
     });
 
+    it('displays place Of Marriage', () => {
+      const placeOfMarriage = 'Parish of Normanton by Derby, in the County of Derby';
+      const session = {
+        placeOfMarriage,
+        originalPetition: {
+          connections: {}
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        { specificValues: [ placeOfMarriage ] }
+      );
+    });
+
     it('displays marriage date formatted', () => {
       const session = {
         originalPetition: {
