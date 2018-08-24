@@ -6,9 +6,9 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const { getUserData } = require('middleware/ccd');
 
-class ClaimCosts extends Question {
+class Upload extends Question {
   static get path() {
-    return config.paths.claimCosts;
+    return config.paths.upload;
   }
 
   get session() {
@@ -16,19 +16,19 @@ class ClaimCosts extends Question {
   }
 
   get form() {
-    const answers = ['originalAmount', 'suggestedAmount', 'differentAmount'];
+    const answers = ['yes', 'no'];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
 
-    const claimCosts = text
+    const upload = text
       .joi(this.content.errors.required, validAnswers);
 
-    return form({ claimCosts });
+    return form({ upload });
   }
 
   next() {
-    return goTo(this.journey.steps.Upload);
+    return goTo(this.journey.steps.End);
   }
 
   get middleware() {
@@ -36,4 +36,4 @@ class ClaimCosts extends Question {
   }
 }
 
-module.exports = ClaimCosts;
+module.exports = Upload;

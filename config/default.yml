@@ -59,6 +59,7 @@ paths:
   miniPetition: /review-your-petition
   livedApartSinceSeparation: /lived-apart-since-separation
   claimCosts: /claim-costs
+  upload: /upload
   end: /end
   entry: /entry
   mock:
