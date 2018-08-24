@@ -1,0 +1,25 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+  <p class="text">{{ content.extraDocuments | safe }}</p>
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.upload, content.fields.upload.title,
+      options = [
+        { label: content.fields.upload.yes, value: "yes" },
+        { label: content.fields.upload.no, value: "no" }
+      ],
+      hint=false,
+      hideQuestion=true,
+      inline=true,
+      type='radio'
+    ) }}
+  {% endcall %}
+
+{% endblock %}

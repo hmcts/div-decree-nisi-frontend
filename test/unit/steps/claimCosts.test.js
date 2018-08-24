@@ -1,7 +1,7 @@
 const modulePath = 'steps/claim-costs/ClaimCosts.step';
 
 const ClaimCosts = require(modulePath);
-const End = require('steps/end/End.step');
+const Upload = require('steps/upload/Upload.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
@@ -26,19 +26,19 @@ describe(modulePath, () => {
     return question.testErrors(ClaimCosts);
   });
 
-  it('redirects to End if answer is originalAmount', () => {
+  it('redirects to Upload if answer is originalAmount', () => {
     const fields = { claimCosts: 'originalAmount' };
-    return question.redirectWithField(ClaimCosts, fields, End);
+    return question.redirectWithField(ClaimCosts, fields, Upload);
   });
 
-  it('redirects to End if answer is suggestedAmount', () => {
+  it('redirects to Upload if answer is suggestedAmount', () => {
     const fields = { claimCosts: 'suggestedAmount' };
-    return question.redirectWithField(ClaimCosts, fields, End);
+    return question.redirectWithField(ClaimCosts, fields, Upload);
   });
 
-  it('redirects to End if answer is differentAmount', () => {
+  it('redirects to Upload if answer is differentAmount', () => {
     const fields = { claimCosts: 'differentAmount' };
-    return question.redirectWithField(ClaimCosts, fields, End);
+    return question.redirectWithField(ClaimCosts, fields, Upload);
   });
 
   it('loads fields from the session', () => {
