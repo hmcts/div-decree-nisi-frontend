@@ -18,7 +18,7 @@
     <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
       <p class="text">{{ content.shouldPayCosts }}</p>
       <p class="text">{{ content.divorceWillBeGranted }}</p>
-      <p class="text">{{ content.respondentsBehaviour }}</p>
+      <p class="text">{{ content.respondents2YearSep }}</p>
       <p class="text">{{ content.rulesInFavour }}</p>
       <p class="text">{{ content.disputeTheCosts }}</p>
     </div>
@@ -31,7 +31,7 @@
       options = [
         { label: content.fields.claimCosts.originalAmount, value: "originalAmount" },
         { label: content.fields.claimCosts.suggestedAmount, value: "suggestedAmount" },
-        { label: content.fields.claimCosts.differentAmount, value: "differentAmount" }
+        { label: content.fields.claimCosts.dontClaimDifferentAmount, value: "dontClaimDifferentAmount" }
       ]
     ) }}
   {% endcall %}

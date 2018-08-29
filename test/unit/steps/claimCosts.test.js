@@ -36,13 +36,13 @@ describe(modulePath, () => {
     return question.redirectWithField(ClaimCosts, fields, Upload);
   });
 
-  it('redirects to Upload if answer is differentAmount', () => {
-    const fields = { claimCosts: 'differentAmount' };
+  it('redirects to Upload if answer is dontClaimDifferentAmount', () => {
+    const fields = { claimCosts: 'dontClaimDifferentAmount' };
     return question.redirectWithField(ClaimCosts, fields, Upload);
   });
 
   it('loads fields from the session', () => {
-    const sessionData = { claimCosts: 'differentAmount' };
+    const sessionData = { claimCosts: 'dontClaimDifferentAmount' };
     return question.rendersValues(ClaimCosts, sessionData);
   });
 });
