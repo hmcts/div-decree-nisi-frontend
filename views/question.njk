@@ -11,3 +11,8 @@
 {% block header_class %}
   with-proposition
 {% endblock %}
+
+{% block after_form -%}
+  <br>
+  {% include "includes/problem_with_this_page.html" %}
+{%- endblock %}
