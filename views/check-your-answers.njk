@@ -1,0 +1,64 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/header.njk" import header %}
+{% from "look-and-feel/components/check-your-answers.njk" import answer %}
+{% from "look-and-feel/components/fields.njk" import hiddenInput %}
+{% from "look-and-feel/components/errors.njk" import errorSummary %}
+
+{% set titleSize = titleSize | default('large') %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block full_width %}
+  <div class="grid-row">
+    <div class="column-full">
+      {{ errorSummary(fields) }}
+
+      {{ header(title, size=titleSize) }}
+
+      {% for section in _sections %}
+
+        {% if section.atLeast1Completed %}
+          {% if section.title and _sections|length > 1 %}
+            {{ header(section.title, size='medium') }}
+          {% endif %}
+
+            {% for part in section.completedAnswers %}
+              {% if not part.hide %}
+                {% if part.html %}
+                  {{ part.html | safe }}
+                {% else %}
+                  {{ answer(part.question, part.answer, part.url, part.id) }}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+        {% endif %}
+      {% endfor %}
+
+      {% if incomplete %}
+        {% block continue_application %}
+          {{ header(pageContent.incompleteHeader | default(defaultContent.incompleteHeader), size='medium') }}
+          <p>{{ pageContent.incompleteMessage | default(defaultContent.incompleteMessage) }}</p>
+          <a href="{{ continueUrl }}" class="button">{{ pageContent.continue | default(defaultContent.continue) }}</a>
+        {% endblock %}
+      {% endif %}
+
+      {% if complete %}
+        {% block statement_of_truth_content %}
+          {{ header('Now send your application', size='medium') }}
+          <p>{{ pageContent.statementOfTruth | default(defaultContent.statementOfTruth) }}</p>
+        {% endblock %}
+        <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+          {% block statement_of_truth_fields %}
+            {{ hiddenInput(fields.statementOfTruth, value=true) }}
+          {%- endblock %}
+
+          <input class="button" type="submit" value="{{ pageContent.sendApplication | default(defaultContent.sendApplication) }}">
+        </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

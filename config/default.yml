@@ -60,6 +60,7 @@ paths:
   livedApartSinceSeparation: /lived-apart-since-separation
   claimCosts: /claim-costs
   upload: /upload
+  checkYourAnswers: /check-your-answers
   end: /end
   entry: /entry
   mock:

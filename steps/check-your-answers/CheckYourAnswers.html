@@ -1,0 +1,60 @@
+{% extends "check-your-answers.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+  {{ content.title }}
+{% endset %}
+
+{% set defaultContent = {
+  title: content.title,
+  incompleteHeader: 'Your application is incomplete',
+  incompleteMessage: 'There are still some questions to answer.',
+  continue: 'Continue your application',
+  statementOfTruth: 'By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.',
+  sendApplication: content.continue
+} %}
+
+{% block statement_of_truth_content %}
+  {{ header(content.confirm, size='medium') }}
+  <p class="text">{{ content.imprisonedOrContempt }}</p>
+{% endblock %}
+
+{% block statement_of_truth_fields %}
+
+  <div class="confirmation-container">
+    {% call formSection() %}
+      {{
+        selectionButtons(
+          fields.statementOfTruth,
+          content.fields.statementOfTruth.yes,
+          options = [
+            { label: content.fields.statementOfTruth.yes, value: "yes" }
+          ],
+          hint=false,
+          hideQuestion=true,
+          inline=false,
+          type='checkbox'
+        )
+      }}
+    {% endcall %}
+
+    <ul class="list-bullet">
+      <li>{{ content.applyingForDecreeNisi }}</li>
+      <li>{{ content.facts }}</li>
+    </uL>
+
+    <br>
+
+    <details>
+      <summary aria-controls="details-content-0" aria-expanded="false">
+        <span class="summary">{{ content.whatTheseStatments }}</span>
+      </summary>
+      <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+        <p class="text">{{ content.firstStatment }}</p>
+      </div>
+    </details>
+  </div>
+
+  <br>
+{%- endblock %}

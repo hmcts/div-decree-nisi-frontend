@@ -1,0 +1,22 @@
+{
+  "en": {
+    "title": "Check your answers",
+    "confirm": "Confirm the following",
+    "imprisonedOrContempt": "You could be fined or imprisoned for contempt of court if you deliberately submit false information.",
+    "confirmThat": "I confirm that:",
+    "applyingForDecreeNisi": "I’m applying to the court for a decree nisi of divorce.",
+    "facts": "I believe that the facts stated in this application are true.",
+    "whatTheseStatments": "What these statements are",
+    "firstStatment": "The first statement is your formal application to the court. The second is your statement of truth.",
+
+    "errors": {
+      "required": "Confirm that you agree to the statement of truth"
+    },
+
+    "fields": {
+      "statementOfTruth": {
+        "yes": "I confirm that:"
+      }
+    }
+  }
+}

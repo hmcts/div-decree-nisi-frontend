@@ -22,14 +22,32 @@
 .confirmation-container {
   background: #dee0e2;
   padding: 25px;
+
+  .form-section {
+    margin: 0;
+  }
+
   .multiple-choice [type=checkbox] + label::before {
     background: #fff;
   }
 
-  .list-bullet {
+  > .list-bullet {
     padding-left: 70px;
   }
-  .text {
+  > .text {
     margin-left: 50px;
   }
+  > details {
+    margin-left: 50px;
+  }
+}
+
+.govuk-check-your-answers {
+  .cya-question {
+    font-weight: normal;
+  }
+}
+
+.text {
+  max-width: none !important;
 }

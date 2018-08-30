@@ -12,7 +12,7 @@
     },
     "fields": {
       "applyForDecreeNisi": {
-        "title": "Do you want to continue with your divorce and apply for a decree nisi?",
+        "title": "Do you want to continue with your divorce and apply for a 'decree nisi'?",
         "yes": "Yes",
         "no": "No"
       }

@@ -171,9 +171,9 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#9edfcfe9323570bf8d4cb12f4810728693a089e7":
+"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#e80beaf4d695003b884d083279bc642d26b56b61":
   version "0.0.3"
-  resolved "https://github.com/hmcts/one-per-page-test-suite.git#9edfcfe9323570bf8d4cb12f4810728693a089e7"
+  resolved "https://github.com/hmcts/one-per-page-test-suite.git#e80beaf4d695003b884d083279bc642d26b56b61"
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
     "@hmcts/look-and-feel" "^1.13.3"

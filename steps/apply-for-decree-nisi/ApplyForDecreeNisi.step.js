@@ -1,6 +1,7 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { goTo } = require('@hmcts/one-per-page/flow');
+const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
@@ -25,6 +26,14 @@ class ApplyForDecreeNisi extends Question {
       .joi(this.content.errors.required, validAnswers);
 
     return form({ applyForDecreeNisi });
+  }
+
+  answers() {
+    return answer(this, {
+      question: this.content.fields.applyForDecreeNisi.title,
+      answer: this.content.fields
+        .applyForDecreeNisi[this.fields.applyForDecreeNisi.value]
+    });
   }
 
   next() {
