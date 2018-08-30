@@ -1,6 +1,7 @@
 const modulePath = 'steps/apply-for-decree-nisi/ApplyForDecreeNisi.step';
 
 const ApplyForDecreeNisi = require(modulePath);
+const ApplyForDecreeNisiContent = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.content');
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
@@ -39,5 +40,14 @@ describe(modulePath, () => {
   it('loads fields from the session', () => {
     const sessionData = { applyForDecreeNisi: 'yes' };
     return question.rendersValues(ApplyForDecreeNisi, sessionData);
+  });
+
+  it('returns correct answers', () => {
+    const assertion = {
+      question: ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.title,
+      answer: ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.yes
+    };
+    const session = { applyForDecreeNisi: 'yes' };
+    return question.answers(ApplyForDecreeNisi, session, assertion);
   });
 });

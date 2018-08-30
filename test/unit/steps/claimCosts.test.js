@@ -1,6 +1,7 @@
 const modulePath = 'steps/claim-costs/ClaimCosts.step';
 
 const ClaimCosts = require(modulePath);
+const ClaimCostsContent = require('steps/claim-costs/ClaimCosts.content');
 const Upload = require('steps/upload/Upload.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
@@ -44,5 +45,14 @@ describe(modulePath, () => {
   it('loads fields from the session', () => {
     const sessionData = { claimCosts: 'dontClaimDifferentAmount' };
     return question.rendersValues(ClaimCosts, sessionData);
+  });
+
+  it('returns correct answers', () => {
+    const assertion = {
+      question: ClaimCostsContent.en.fields.claimCosts.title,
+      answer: ClaimCostsContent.en.fields.claimCosts.originalAmount
+    };
+    const session = { claimCosts: 'originalAmount' };
+    return question.answers(ClaimCosts, session, assertion);
   });
 });

@@ -7,7 +7,7 @@
     },
     "fields": {
       "upload": {
-        "title": "Do you want to share any other documents with the court?",
+        "title": "Do you have any extra documents you want to send to the court?",
         "yes": "Yes",
         "no": "No"
       }

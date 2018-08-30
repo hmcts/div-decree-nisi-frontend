@@ -1,6 +1,9 @@
 const modulePath = 'steps/lived-apart-since-separation/LivedApartSinceSeparation.step';
 
 const LivedApartSinceSeparation = require(modulePath);
+const LivedApartSinceSeparationContent = require(
+  'steps/lived-apart-since-separation/LivedApartSinceSeparation.content'
+);
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
@@ -39,5 +42,14 @@ describe(modulePath, () => {
   it('loads fields from the session', () => {
     const sessionData = { livedApartSinceSeparation: 'yes' };
     return question.rendersValues(LivedApartSinceSeparation, sessionData);
+  });
+
+  it('returns correct answers', () => {
+    const assertion = {
+      question: LivedApartSinceSeparationContent.en.fields.livedApartSinceSeparation.title,
+      answer: LivedApartSinceSeparationContent.en.fields.livedApartSinceSeparation.yes
+    };
+    const session = { livedApartSinceSeparation: 'yes' };
+    return question.answers(LivedApartSinceSeparation, session, assertion);
   });
 });

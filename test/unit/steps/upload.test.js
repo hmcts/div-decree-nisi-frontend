@@ -1,7 +1,7 @@
 const modulePath = 'steps/upload/Upload.step';
 
 const Upload = require(modulePath);
-const End = require('steps/end/End.step');
+const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
@@ -26,14 +26,14 @@ describe(modulePath, () => {
     return question.testErrors(Upload);
   });
 
-  it('redirects to End if answer is no', () => {
+  it('redirects to CheckYourAnswers if answer is no', () => {
     const fields = { upload: 'no' };
-    return question.redirectWithField(Upload, fields, End);
+    return question.redirectWithField(Upload, fields, CheckYourAnswers);
   });
 
-  it('redirects to End if answer is yes', () => {
+  it('redirects to CheckYourAnswers if answer is yes', () => {
     const fields = { upload: 'yes' };
-    return question.redirectWithField(Upload, fields, End);
+    return question.redirectWithField(Upload, fields, CheckYourAnswers);
   });
 
   it('loads fields from the session', () => {

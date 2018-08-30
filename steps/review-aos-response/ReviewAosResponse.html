@@ -1,10 +1,12 @@
-{% extends "page.njk" %}
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import hiddenInput %}
 
 {% set title %}
   {{ content.title | safe }}
 {% endset %}
 
-{% block main_content %}
+{% block fields %}
   <p class="text">{{ content.youNeedToReed | safe }}</p>
 
   <h2 class="heading-medium">{{ content.acknowledgementOfSrvice }}</h2>
@@ -69,12 +71,5 @@
 
   <br>
 
-  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-
-    <input class="button" type="submit" value="{{ content.continue }}">
-  </form>
-{% endblock %}
-
-{% block one_third %}
-
+  {{ hiddenInput(fields.reviewAosResponse, value='yes') }}
 {% endblock %}

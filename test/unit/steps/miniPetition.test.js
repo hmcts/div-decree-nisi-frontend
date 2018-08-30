@@ -2,6 +2,7 @@
 const modulePath = 'steps/mini-petition/MiniPetition.step';
 
 const MiniPetition = require(modulePath);
+const MiniPetitionContent = require('steps/mini-petition/MiniPetition.content');
 const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
 );
@@ -754,5 +755,21 @@ describe(modulePath, () => {
         session,
         { specificContent: [ 'coRespondentsCorrespondenceAddress' ] });
     });
+  });
+
+  it('returns correct answers', () => {
+    const assertion = {
+      question: MiniPetitionContent.en.fields.statementOfTruth.title,
+      answer: MiniPetitionContent.en.fields.statementOfTruth.yes
+    };
+    const stepData = {
+      statementOfTruth: 'yes'
+    };
+    const session = {
+      originalPetition: {
+        connections: {}
+      }
+    };
+    return question.answers(MiniPetition, stepData, assertion, session);
   });
 });

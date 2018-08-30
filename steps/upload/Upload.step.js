@@ -1,6 +1,7 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { goTo } = require('@hmcts/one-per-page/flow');
+const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
@@ -27,8 +28,15 @@ class Upload extends Question {
     return form({ upload });
   }
 
+  answers() {
+    return answer(this, {
+      question: this.content.fields.upload.title,
+      answer: this.content.fields.upload[this.fields.upload.value]
+    });
+  }
+
   next() {
-    return goTo(this.journey.steps.End);
+    return goTo(this.journey.steps.CheckYourAnswers);
   }
 
   get middleware() {

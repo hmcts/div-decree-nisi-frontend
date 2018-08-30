@@ -11,5 +11,6 @@ Scenario('Happy path', async I => {
   I.seeLivedApartSinceSeparationPage();
   I.seeClaimCostsPage();
   I.seeUploadPage();
+  I.seeCheckYourAnswersPage();
   I.seeEndPage();
 });
