@@ -6,10 +6,10 @@
     "applicant": "Applicant",
     "respondent": "Respondent",
     "whatThisMeans": "What this means",
-    "whatThisMeansApplicantRespondent": "The applicant is the person who has applied for a divorce (legally known as the petitioner). {{ session.respondentName }} is their husband or wife.",
+    "whatThisMeansApplicantRespondent": "The applicant is the person who has applied for a divorce (legally known as the petitioner). The respondent is their husband or wife.",
     "aboutTheMarriage": "About the marriage",
     "whoMarriageIsBetween": "Who the marriage is between",
-    "marriageIsBetween": "{{ session.petitionerName }} and {{ session.respondentName }} (as shown on the marriage certificate)",
+    "marriageIsBetween": "{{ session.petitionerName }} and {{ session.respondentName }}",
     "whereMarriageTookPlace": "Where the marriage took place",
     "dateOfMarriage": "Date of marriage",
     "whatThisMeansDetailsCoppied": "These details are copied exactly from the marriage certificate, or a translation of the certificate if it's not in English. The names on the certificate are the names that the applicant and respondent used before the marriage.",
@@ -40,7 +40,7 @@
     "reasonForDivorceDesertionStatment": "This is supported by the following statement from {{ session.petitionerName }}.",
 
     "notClaimingForDivorce": "{{ session.petitionerName }} is not claiming the costs of the divorce.",
-    "claimingCostsFromRespondentCoRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from {{ session.respondentName }} and the co-respondent",
+    "claimingCostsFromRespondentCoRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from {{ session.respondentName }}",
     "claimingCostsFromCoRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from the co-respondent.",
     "claimingCostsFromRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from {{ session.respondentName }}.",
 
