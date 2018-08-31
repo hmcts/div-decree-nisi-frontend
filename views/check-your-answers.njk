@@ -59,6 +59,8 @@
           <input class="button" type="submit" value="{{ pageContent.sendApplication | default(defaultContent.sendApplication) }}">
         </form>
       {% endif %}
+      <br>
+      {% include "includes/problem_with_this_page.html" %}
     </div>
   </div>
 {% endblock %}
