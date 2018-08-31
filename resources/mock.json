@@ -164,8 +164,7 @@
     "divorceCostsClaim": "Yes",
     "divorceIsNamed": "Yes",
     "divorceClaimFrom": [
-      "respondent",
-      "correspondent"
+      "respondent"
     ],
     "jurisdictionIsConnected": true,
     "jurisdictionResidence": "petitioner",
