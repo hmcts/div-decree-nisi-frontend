@@ -51,3 +51,14 @@
 .text {
   max-width: none !important;
 }
+
+#sign-out {
+  float: right;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+
+#sign-out:hover {
+  text-decoration: underline;
+}

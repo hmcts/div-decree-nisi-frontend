@@ -9,6 +9,10 @@
   {% include "includes/head.html" %}
 {% endblock %}
 
+{% block proposition_header %}
+  {% include "includes/proposition_header.html" %}
+{% endblock %}
+
 {% block breadcrumbs %}
   {{ phaseBanner(phase, feedbackLink) }}
   {% block back %}
