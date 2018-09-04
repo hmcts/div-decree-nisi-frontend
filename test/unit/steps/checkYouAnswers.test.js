@@ -19,7 +19,7 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(CheckYourAnswers);
+    return content(CheckYourAnswers, {}, { ignoreContent: ['continue'] });
   });
 
   it('shows error if does not answer question', () => {

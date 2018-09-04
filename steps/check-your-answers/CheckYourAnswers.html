@@ -8,11 +8,8 @@
 
 {% set defaultContent = {
   title: content.title,
-  incompleteHeader: 'Your application is incomplete',
-  incompleteMessage: 'There are still some questions to answer.',
-  continue: 'Continue your application',
-  statementOfTruth: 'By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.',
-  sendApplication: content.continue
+  continue: content.continue,
+  sendApplication: content.submit
 } %}
 
 {% block statement_of_truth_content %}
