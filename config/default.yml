@@ -61,7 +61,7 @@ paths:
   claimCosts: /claim-costs
   upload: /upload-docs
   checkYourAnswers: /check-your-answers
-  end: /end
+  done: /done
   entry: /entry
   mock:
     idamLogin: /idam-mock-login
