@@ -39,17 +39,14 @@
 
       {% if incomplete %}
         {% block continue_application %}
-          {{ header(pageContent.incompleteHeader | default(defaultContent.incompleteHeader), size='medium') }}
-          <p>{{ pageContent.incompleteMessage | default(defaultContent.incompleteMessage) }}</p>
+          <br>
           <a href="{{ continueUrl }}" class="button">{{ pageContent.continue | default(defaultContent.continue) }}</a>
+          <br>
         {% endblock %}
       {% endif %}
 
       {% if complete %}
-        {% block statement_of_truth_content %}
-          {{ header('Now send your application', size='medium') }}
-          <p>{{ pageContent.statementOfTruth | default(defaultContent.statementOfTruth) }}</p>
-        {% endblock %}
+        {% block statement_of_truth_content %}{% endblock %}
         <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
           {% block statement_of_truth_fields %}

@@ -8,11 +8,8 @@
 
 {% set defaultContent = {
   title: content.title,
-  incompleteHeader: 'Your application is incomplete',
-  incompleteMessage: 'There are still some questions to answer.',
-  continue: 'Continue your application',
-  statementOfTruth: 'By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.',
-  sendApplication: content.continue
+  continue: content.continue,
+  sendApplication: content.submit
 } %}
 
 {% block statement_of_truth_content %}
@@ -40,7 +37,17 @@
     {% endcall %}
 
     <ul class="list-bullet">
-      <li>{{ content.applyingForDecreeNisi }}</li>
+      {% if session.originalPetition.claimsCosts == "Yes" %}
+        {% if "respondent" in session.originalPetition.divorceClaimFrom and "correspondent" in session.originalPetition.divorceClaimFrom  %}
+          <li>{{ content.applyingForDecreeNisiClaimsCostsRespondentCoRespondent }}</li>
+        {% elseif "correspondent" in session.originalPetition.divorceClaimFrom  %}
+          <li>{{ content.applyingForDecreeNisiClaimsCostsCoRespondent }}</li>
+        {% else %}
+          <li>{{ content.applyingForDecreeNisiClaimsCostsRespondent }}</li>
+        {% endif %}
+      {% else %}
+        <li>{{ content.applyingForDecreeNisi }}</li>
+      {% endif %}
       <li>{{ content.facts }}</li>
     </uL>
 

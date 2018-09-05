@@ -4,6 +4,7 @@ const CheckYourAnswers = require(modulePath);
 const End = require('steps/end/End.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const ccd = require('middleware/ccd');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -19,7 +20,14 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(CheckYourAnswers);
+    const ignoreContent = [
+      'applyingForDecreeNisi',
+      'applyingForDecreeNisiClaimsCostsRespondent',
+      'applyingForDecreeNisiClaimsCostsCoRespondent',
+      'applyingForDecreeNisiClaimsCostsRespondentCoRespondent',
+      'continue'
+    ];
+    return content(CheckYourAnswers, {}, { ignoreContent });
   });
 
   it('shows error if does not answer question', () => {
@@ -29,5 +37,54 @@ describe(modulePath, () => {
   it('redirects to End if statment of true answered', () => {
     const fields = { statementOfTruth: 'yes' };
     return question.redirectWithField(CheckYourAnswers, fields, End);
+  });
+
+  describe('claims costs statment of truth', () => {
+    beforeEach(() => {
+      sinon.stub(ccd, 'getUserData').callsFake(middleware.nextMock);
+    });
+
+    afterEach(() => {
+      ccd.getUserData.restore();
+    });
+
+    it('from respondent and correspondent', () => {
+      const session = {
+        originalPetition: {
+          claimsCosts: 'Yes',
+          divorceClaimFrom: ['respondent', 'correspondent']
+        }
+      };
+      const specificContent = ['applyingForDecreeNisiClaimsCostsRespondentCoRespondent'];
+      return content(CheckYourAnswers, session, { specificContent });
+    });
+
+    it('from respondent', () => {
+      const session = {
+        originalPetition: {
+          claimsCosts: 'Yes',
+          divorceClaimFrom: ['respondent']
+        }
+      };
+      const specificContent = ['applyingForDecreeNisiClaimsCostsRespondent'];
+      return content(CheckYourAnswers, session, { specificContent });
+    });
+
+    it('from correspondent', () => {
+      const session = {
+        originalPetition: {
+          claimsCosts: 'Yes',
+          divorceClaimFrom: ['correspondent']
+        }
+      };
+      const specificContent = ['applyingForDecreeNisiClaimsCostsCoRespondent'];
+      return content(CheckYourAnswers, session, { specificContent });
+    });
+
+    it('no claim costs', () => {
+      const session = { originalPetition: { claimsCosts: 'No' } };
+      const specificContent = ['applyingForDecreeNisi'];
+      return content(CheckYourAnswers, session, { specificContent });
+    });
   });
 });

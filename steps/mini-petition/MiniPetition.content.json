@@ -131,7 +131,7 @@
     "fields": {
       "statementOfTruth": {
         "title": "Changes you've made to your application",
-        "yes": "I confirm that my original application is still true."
+        "yes": "I have not changed any of the details in my application."
       }
     }
   }
