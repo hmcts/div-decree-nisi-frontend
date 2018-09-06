@@ -6,10 +6,11 @@
     "detailsHowLongLivedTogetherSinceSeparation" : "Provide details of how long you've lived together since you separated",
     "detailsHowLongLivedTogetherSinceSeparationDetail" : "The court will add up any time that you've lived together since you separated. The combined total could affect the date that you can apply using this reason for divorce.",
     "ifLessThan6Months": "If it was less than 6 months",
-    "ifLessThan6MonthsDetail1": "If you've lived together for less than 6 months since you separated, you can still use this date. However, you'll need to make up any time during which you were living together.",
-    "ifLessThan6MonthsDetail2": "For example if you seperated on March 2014, lived together from May 2014 to July 2014 (3 months), then lived apart from August 2014, the earliest you could apply for divorce based on your original separation date would be June 2016 (2 years and 3 months from March 2014).",
+    "ifLessThan6MonthsDetail1": "If you've lived together for a total of less than 6 months since you separated, you can still use this date. However, you'll need to make up any time during which you were living together.",
+    "ifLessThan6MonthsDetail2": "For example if you separated on March 2014, lived together from May 2014 to July 2014 (3 months), then lived apart from Aug 2014, the earliest you could apply for divorce based on your original separation date would be June 2016 (2 years and 3 months from March 2014).",
     "ifMoreThan6Months": "If it was more than 6 months",
-    "ifMoreThan6MonthsDetail": "If it was more than 6 months",
+    "ifMoreThan6MonthsDetail1": "If you've lived together for a total of more than 6 months since you separated, then you can't rely on that period of separation as the basis for your 2 year separation period.",
+    "ifMoreThan6MonthsDetail2": "If this is the case for you, you'll have to use the next date that you separated as a starting point for your 2 years separation period.",
     "errors": {
       "required": "Select yes if you lived apart since separating from your {{ session.divorceWho }}?"
     },
