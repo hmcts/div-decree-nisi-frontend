@@ -29,4 +29,27 @@
     ) }}
   {% endcall %}
 
+<h3 class="heading-medium">{{ content.detailsHowLongLivedTogetherSinceSeparation }}</h3>
+<p class="text">{{ content.detailsHowLongLivedTogetherSinceSeparationDetail | safe }}</p>
+
+<details>
+  <summary aria-controls="details-content-1" aria-expanded="false">
+    <span class="summary">{{ content.ifLessThan6Months }}</span>
+  </summary>
+  <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
+    <p class="text">{{ content.ifLessThan6MonthsDetail1 }}</p>
+    <p class="text">{{ content.ifLessThan6MonthsDetail2 }}</p>
+  </div>
+</details>
+
+<details>
+  <summary aria-controls="details-content-1" aria-expanded="false">
+    <span class="summary">{{ content.ifMoreThan6Months }}</span>
+  </summary>
+  <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
+    <p class="text">{{ content.ifMoreThan6MonthsDetail }}</p>
+  </div>
+</details>
+
+
 {% endblock %}

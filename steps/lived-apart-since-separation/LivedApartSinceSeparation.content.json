@@ -3,6 +3,13 @@
     "title": "Have you lived apart since separating from your {{ session.divorceWho }}?",
     "mustHaveLivedApart": "You must have lived apart from your {{ session.divorceWho }} for at least 2 years since {{ session.originalPetition.marriageDate }}. Any time that you've lived together as a couple doesn't count towards your separation period.",
     "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
+    "detailsHowLongLivedTogetherSinceSeparation" : "Provide details of how long you've lived together since you separated",
+    "detailsHowLongLivedTogetherSinceSeparationDetail" : "The court will add up any time that you've lived together since you separated. The combined total could affect the date that you can apply using this reason for divorce.",
+    "ifLessThan6Months": "If it was less than 6 months",
+    "ifLessThan6MonthsDetail1": "If you've lived together for less than 6 months since you separated, you can still use this date. However, you'll need to make up any time during which you were living together.",
+    "ifLessThan6MonthsDetail2": "For example if you seperated on March 2014, lived together from May 2014 to July 2014 (3 months), then lived apart from August 2014, the earliest you could apply for divorce based on your original separation date would be June 2016 (2 years and 3 months from March 2014).",
+    "ifMoreThan6Months": "If it was more than 6 months",
+    "ifMoreThan6MonthsDetail": "If it was more than 6 months",
     "errors": {
       "required": "Select yes if you lived apart since separating from your {{ session.divorceWho }}?"
     },
