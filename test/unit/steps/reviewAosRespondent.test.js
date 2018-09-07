@@ -30,11 +30,11 @@ describe(modulePath, () => {
   });
 
   it.skip('returns correct answers', () => {
-    const assertion = {
-      question: ReviewAosResponseContent.en.fields.reviewAosResponse.title,
-      answer: ReviewAosResponseContent.en.fields.reviewAosResponse.yes
-    };
+    const expectedContent = [
+      ReviewAosResponseContent.en.fields.reviewAosResponse.title,
+      ReviewAosResponseContent.en.fields.reviewAosResponse.yes
+    ];
     const session = { reviewAosResponse: 'yes' };
-    return question.answers(ReviewAosResponse, session, assertion);
+    return question.answers(ReviewAosResponse, session, expectedContent);
   });
 });

@@ -25,18 +25,61 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(MiniPetition, [ idam.protect() ]);
   });
 
-  it('shows error if statement of truth not answered', () => {
-    const session = {
-      originalPetition: {
-        connections: {}
-      }
-    };
-    return question.testErrors(MiniPetition, session);
+  describe('errors', () => {
+    it('shows error if hasBeenChanges not answered', () => {
+      const session = {
+        originalPetition: {
+          connections: {}
+        }
+      };
+      const onlyErrors = ['requireChanges'];
+      return question.testErrors(MiniPetition, session, {}, { onlyErrors });
+    });
+
+    it('shows error if hasBeenChanges is yes and not answered details or SOT', () => {
+      const session = {
+        originalPetition: {
+          connections: {}
+        }
+      };
+      const fields = {
+        'changes-hasBeenChanges': 'yes'
+      };
+      const onlyErrors = ['requireStatmentOfTruth', 'requireChangeDetails'];
+      return question.testErrors(MiniPetition, session, fields, { onlyErrors });
+    });
+
+    it('shows error if hasBeenChanges is no and not answered SOT', () => {
+      const session = {
+        originalPetition: {
+          connections: {}
+        }
+      };
+      const fields = {
+        'changes-hasBeenChanges': 'no'
+      };
+      const onlyErrors = ['requireStatmentOfTruth'];
+      return question.testErrors(MiniPetition, session, fields, { onlyErrors });
+    });
   });
 
-  it('redirects to LivedApartSinceSeparation statement of truth answered', () => {
-    const fields = { statementOfTruth: 'yes' };
-    return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation);
+  describe('redirects', () => {
+    it('redirects to LivedApartSinceSeparation if answered changes yes', () => {
+      const fields = {
+        'changes-hasBeenChanges': 'yes',
+        'changes-changesDetails': 'details...',
+        'changes-statementOfTruthChanges': 'yes'
+      };
+      return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation);
+    });
+
+    it('redirects to LivedApartSinceSeparation if answered changes no', () => {
+      const fields = {
+        'changes-hasBeenChanges': 'no',
+        'changes-statementOfTruthNoChanges': 'yes'
+      };
+      return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation);
+    });
   });
 
   describe('values', () => {
@@ -757,19 +800,49 @@ describe(modulePath, () => {
     });
   });
 
-  it('returns correct answers', () => {
-    const assertion = {
-      question: MiniPetitionContent.en.fields.statementOfTruth.title,
-      answer: MiniPetitionContent.en.fields.statementOfTruth.yes
-    };
-    const stepData = {
-      statementOfTruth: 'yes'
-    };
-    const session = {
-      originalPetition: {
-        connections: {}
-      }
-    };
-    return question.answers(MiniPetition, stepData, assertion, session);
+  describe('answers', () => {
+    it('shows correct answers if user changes detals', () => {
+      const expectedContent = [
+        MiniPetitionContent.en.fields.changes.hasBeenChanges.title,
+        MiniPetitionContent.en.fields.changes.hasBeenChanges.yes,
+        MiniPetitionContent.en.fields.changes.changesDetails.title,
+        'details...',
+        MiniPetitionContent.en.fields.changes.statementOfTruthChanges.title,
+        MiniPetitionContent.en.fields.changes.statementOfTruthChanges.yes
+      ];
+      const stepData = {
+        changes: {
+          hasBeenChanges: 'yes',
+          changesDetails: 'details...',
+          statementOfTruthChanges: 'yes'
+        }
+      };
+      const session = {
+        originalPetition: {
+          connections: {}
+        }
+      };
+      return question.answers(MiniPetition, stepData, expectedContent, session);
+    });
+    it('shows correct answers if user has no changes', () => {
+      const expectedContent = [
+        MiniPetitionContent.en.fields.changes.hasBeenChanges.title,
+        MiniPetitionContent.en.fields.changes.hasBeenChanges.no,
+        MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.title,
+        MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.yes
+      ];
+      const stepData = {
+        changes: {
+          hasBeenChanges: 'no',
+          statementOfTruthNoChanges: 'yes'
+        }
+      };
+      const session = {
+        originalPetition: {
+          connections: {}
+        }
+      };
+      return question.answers(MiniPetition, stepData, expectedContent, session);
+    });
   });
 });
