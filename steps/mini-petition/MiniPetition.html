@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorClass, errorsFor %}
 
 {% set title %}
   {{ content.title | safe }}
@@ -433,13 +433,58 @@
 
 
   {% call formSection() %}
-    <div class="confirmation-container">
+    {{ selectionButtons(fields.changes.hasBeenChanges, content.fields.changes.hasBeenChanges.title,
+      hideQuestion = false,
+      options = [
+        { label: content.fields.changes.hasBeenChanges.yes, value: "yes", target: "yes-container" },
+        { label: content.fields.changes.hasBeenChanges.no, value: "no", target: "no-container" }
+      ],
+      inline=true
+    ) }}
+
+    <div class="js-hidden" id="yes-container">
+      <div class="notice">
+        <em class="icon icon-important">
+          <span class="visuallyhidden"></span>
+        </em>
+        <p class="bold-small">{{ content.changeOrAddWarning }}</p>
+      </div>
+      <div class="form-group {{ errorClass(fields.changes.changesDetails) }}">
+        <label class="form-label-bold"
+               for="{{ fields.changes.changesDetails.id }}">
+          {{ content.fields.changes.changesDetails.title }}
+        </label>
+        {{ errorsFor(fields.changes.changesDetails) }}
+        <textarea class="form-control"
+           id="{{ fields.changes.changesDetails.id }}"
+           name="{{ fields.changes.changesDetails.id }}"
+           rows="4">{% if fields.changes.changesDetails.value %}{{ fields.changes.changesDetails.value }}{% endif %}</textarea>
+      </div>
+
+      <div class="confirmation-container">
+        {{
+          selectionButtons(
+            fields.changes.statementOfTruthChanges,
+            content.fields.changes.statementOfTruthChanges.title,
+            options = [
+              { label: content.fields.changes.statementOfTruthChanges.title, value: "yes" }
+            ],
+            hint=false,
+            hideQuestion=true,
+            inline=false,
+            type='checkbox'
+          )
+        }}
+      </div>
+    </div>
+
+    <div class="confirmation-container js-hidden" id="no-container">
       {{
         selectionButtons(
-          fields.statementOfTruth,
+          fields.changes.statementOfTruthNoChanges,
           content.statementOfTruth,
           options = [
-            { label: content.fields.statementOfTruth.yes, value: "yes" }
+            { label: content.fields.changes.statementOfTruthNoChanges.yes, value: "yes" }
           ],
           hint=false,
           hideQuestion=true,
