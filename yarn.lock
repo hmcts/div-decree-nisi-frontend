@@ -171,13 +171,13 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#725004de40786538cc5e1c84d55c4d15b00f1811":
+"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#1f7a0448d5cb0dfd7d470a75c776e2a417fe0352":
   version "0.0.3"
-  resolved "https://github.com/hmcts/one-per-page-test-suite.git#725004de40786538cc5e1c84d55c4d15b00f1811"
+  resolved "https://github.com/hmcts/one-per-page-test-suite.git#1f7a0448d5cb0dfd7d470a75c776e2a417fe0352"
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
     "@hmcts/look-and-feel" "^1.13.3"
-    "@hmcts/one-per-page" "https://github.com/hmcts/one-per-page#ca4687ca38e35d50e10bc7d92f3fbaea69682854"
+    "@hmcts/one-per-page" "https://github.com/hmcts/one-per-page#744a2ac087bbdd5686bfb5657de796a454b40c5d"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"
     chai-as-promised "^7.1.1"
@@ -200,9 +200,9 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#ca4687ca38e35d50e10bc7d92f3fbaea69682854":
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#744a2ac087bbdd5686bfb5657de796a454b40c5d":
   version "3.6.1"
-  resolved "https://github.com/hmcts/one-per-page#ca4687ca38e35d50e10bc7d92f3fbaea69682854"
+  resolved "https://github.com/hmcts/one-per-page#744a2ac087bbdd5686bfb5657de796a454b40c5d"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
