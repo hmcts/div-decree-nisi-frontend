@@ -48,11 +48,11 @@ describe(modulePath, () => {
   });
 
   it('returns correct answers', () => {
-    const assertion = {
-      question: ClaimCostsContent.en.fields.claimCosts.title,
-      answer: ClaimCostsContent.en.fields.claimCosts.originalAmount
-    };
+    const expectedContent = [
+      ClaimCostsContent.en.fields.claimCosts.title,
+      ClaimCostsContent.en.fields.claimCosts.originalAmount
+    ];
     const session = { claimCosts: 'originalAmount' };
-    return question.answers(ClaimCosts, session, assertion);
+    return question.answers(ClaimCosts, session, expectedContent);
   });
 });
