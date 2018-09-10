@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { goTo } = require('@hmcts/one-per-page/flow');
@@ -28,12 +29,35 @@ class LivedApartSinceSeparation extends Question {
     return form({ livedApartSinceSeparation });
   }
 
+  /*
+  if no then display popup
+   */
+
+
   answers() {
-    return answer(this, {
+    const answers = [];
+
+    answers.push(answer(this, {
       question: this.content.fields.livedApartSinceSeparation.title,
       answer: this.content.fields
         .livedApartSinceSeparation[this.fields.livedApartSinceSeparation.value]
-    });
+    }));
+
+    if (this.fields.changes.hasBeenChanges.value === 'yes') {
+      answers.push(answer(this, {
+        question: this.content.fields.livedApartSinceSeparation.title,
+        answer: this.content.fields
+          .livedApartSinceSeparation[this.fields.livedApartSinceSeparation.value]
+      }));
+    } else {
+      answers.push(answer(this, {
+        question: this.content.fields.livedApartSinceSeparation.title,
+        answer: this.content.fields
+          .livedApartSinceSeparation[this.fields.livedApartSinceSeparation.value]
+      }));
+    }
+
+    return answers;
   }
 
   next() {

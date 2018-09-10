@@ -20,7 +20,7 @@
     {{ selectionButtons(fields.livedApartSinceSeparation, content.fields.livedApartSinceSeparation.title,
       options = [
         { label: content.fields.livedApartSinceSeparation.yes, value: "yes" },
-        { label: content.fields.livedApartSinceSeparation.no, value: "no" }
+        { label: content.fields.livedApartSinceSeparation.no, value: "no", target: "no-container" }
       ],
       hint=false,
       hideQuestion=true,
@@ -29,34 +29,39 @@
     ) }}
   {% endcall %}
 
-<h3 class="heading-medium">{{ content.detailsHowLongLivedTogetherSinceSeparation }}</h3>
-<p class="text">{{ content.detailsHowLongLivedTogetherSinceSeparationDetail | safe }}</p>
+<!-- Dropdown area if answered no -->
+  <div class="js-hidden" id="no-container">
+  <h3 class="heading-medium">{{ content.detailsHowLongLivedTogetherSinceSeparation }}</h3>
+  <p class="text">{{ content.detailsHowLongLivedTogetherSinceSeparationDetail | safe }}</p>
 
-<details>
-  <summary aria-controls="details-content-1" aria-expanded="false">
-    <span class="summary">{{ content.ifLessThan6Months }}</span>
-  </summary>
-  <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
-    <p class="text">{{ content.ifLessThan6MonthsDetail1 }}</p>
-    <p class="text">{{ content.ifLessThan6MonthsDetail2 }}</p>
-  </div>
-</details>
+  <details>
+    <summary aria-controls="details-content-1" aria-expanded="false">
+      <span class="summary">{{ content.ifLessThan6Months }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
+      <p class="text">{{ content.ifLessThan6MonthsDetail1 }}</p>
+      <p class="text">{{ content.ifLessThan6MonthsDetail2 }}</p>
+    </div>
+  </details>
 
-<details>
-  <summary aria-controls="details-content-2" aria-expanded="false">
-    <span class="summary">{{ content.ifMoreThan6Months }}</span>
-  </summary>
-  <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
-    <p class="text">{{ content.ifMoreThan6MonthsDetail1 }}</p>
-    <p class="text">{{ content.ifMoreThan6MonthsDetail2 }}</p>
-  </div>
-</details>
+  <details>
+    <summary aria-controls="details-content-2" aria-expanded="false">
+      <span class="summary">{{ content.ifMoreThan6Months }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
+      <p class="text">{{ content.ifMoreThan6MonthsDetail1 }}</p>
+      <p class="text">{{ content.ifMoreThan6MonthsDetail2 }}</p>
+    </div>
+  </details>
 
-<h3 class="heading-small">{{ content.approximateDatesOfLivingTogether }}</h3>
+  <h3 class="heading-small">{{ content.approximateDatesOfLivingTogether }}</h3>
 
-{{ textarea(
-label="",
-field=fields.livedApartSinceSeparation
-) }}
+  <textarea class="form-control"
+              label="",
+              field=fields.livedApartSinceSeparation
+              rows="4">
+  </textarea>
+</div>
+<!-- end of dropdown area -->
 
 {% endblock %}
