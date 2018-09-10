@@ -11,11 +11,17 @@
     "ifMoreThan6Months": "If it was more than 6 months",
     "ifMoreThan6MonthsDetail1": "If you've lived together for a total of more than 6 months since you separated, then you can't rely on that period of separation as the basis for your 2 year separation period.",
     "ifMoreThan6MonthsDetail2": "If this is the case for you, you'll have to use the next date that you separated as a starting point for your 2 years separation period.",
+    "approximateDatesOfLivingTogether": "Give approximate dates or number of months you lived together",
     "errors": {
       "required": "Select yes if you lived apart since separating from your {{ session.divorceWho }}?"
     },
     "fields": {
       "livedApartSinceSeparation": {
+        "title": "Have you lived together as a married couple since you found out about the adultery?",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "approximateDatesOfLivingTogetherField": {
         "title": "Have you lived together as a married couple since you found out about the adultery?",
         "yes": "Yes",
         "no": "No"

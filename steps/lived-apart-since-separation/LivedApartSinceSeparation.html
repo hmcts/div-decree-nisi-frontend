@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textarea %}
 
 {% set title %}
   {{ content.title | safe }}
@@ -43,7 +43,7 @@
 </details>
 
 <details>
-  <summary aria-controls="details-content-1" aria-expanded="false">
+  <summary aria-controls="details-content-2" aria-expanded="false">
     <span class="summary">{{ content.ifMoreThan6Months }}</span>
   </summary>
   <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
@@ -52,5 +52,11 @@
   </div>
 </details>
 
+<h3 class="heading-small">{{ content.approximateDatesOfLivingTogether }}</h3>
+
+{{ textarea(
+label="",
+field=fields.livedApartSinceSeparation
+) }}
 
 {% endblock %}
