@@ -15,13 +15,12 @@
   </div>
 
   <br>
-<!--
 
   {% call formSection() %}
-    {{ selectionButtons(fields.livedApartSinceSeparation, content.fields.livedApartSinceSeparation.title,
+    {{ selectionButtons(fields.changes.livedApartSinceSeparation, content.fields.changes.livedApartSinceSeparation.title,
       options = [
-        { label: content.fields.livedApartSinceSeparation.yes, value: "yes" },
-        { label: content.fields.livedApartSinceSeparation.no, value: "no", target: "no-container" }
+        { label: content.fields.changes.livedApartSinceSeparation.yes, value: "yes" },
+        { label: content.fields.changes.livedApartSinceSeparation.no, value: "no", target: "no-container" }
       ],
       hint=false,
       hideQuestion=true,
@@ -31,7 +30,7 @@
   {% endcall %}
 
 
-<!-- Dropdown area if answered no
+<!-- Dropdown area if answered no -->
   <div class="js-hidden" id="no-container">
   <h3 class="heading-medium">{{ content.detailsHowLongLivedTogetherSinceSeparation }}</h3>
   <p class="text">{{ content.detailsHowLongLivedTogetherSinceSeparationDetail | safe }}</p>
@@ -56,15 +55,14 @@
     </div>
   </details>
 
-  <h3 class="heading-small">{{ content.approximateDatesOfLivingTogether }}</h3>
+  <h3 class="heading-small">{{ content.fields.changes.approximateDatesOfLivingTogetherField.title }}</h3>
 
-  <textarea class="form-control"
-              label="",
-              field=fields.livedApartSinceSeparation
-              rows="4">
-  </textarea>
+    <textarea class="form-control"
+              id="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
+              name="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
+              rows="4">{% if fields.changes.approximateDatesOfLivingTogetherField.value %}{{ fields.changes.approximateDatesOfLivingTogetherField.value }}{% endif %}
+    </textarea>
 </div>
- end of dropdown area -->
-
+<!-- end of dropdown area -->
 
 {% endblock %}

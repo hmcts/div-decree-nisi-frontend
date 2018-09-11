@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len,no-console */
 const { Question } = require('@hmcts/one-per-page/steps');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
@@ -11,29 +11,17 @@ const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 
 class LivedApartSinceSeparation extends Question {
   static get path() {
-    return config.paths.livedApartSinceSeparation;
+    return config.paths.approximateDatesOfLivingTogetherField;
   }
 
   get session() {
     return this.req.session;
   }
 
-  /*
   get form() {
-    const answers = ['yes', 'no'];
-    const validAnswers = Joi.string()
-      .valid(answers)
-      .required();
+    const validateKillMe = ({ hasLivedApartSinceSeparationAnswer = '', approximateDatesOfLivingTogetherField = '' }) => {
+      console.log(hasLivedApartSinceSeparationAnswer, approximateDatesOfLivingTogetherField);
 
-    const hasLivedApartSinceSeparationAnswer = text
-      .joi(this.content.errors.required, validAnswers);
-
-    return form({ hasLivedApartSinceSeparationAnswer });
-  }
-   */
-
-  get form() {
-    const validateKillMe = ({ hasLivedApartSinceSeparationAnswer = '', livedApartSinceSeparation = '' }) => {
       // only validate if user has answered hasLivedApartSinceSeparationAnswer
       const hasntAnsweredQuestion = !hasLivedApartSinceSeparationAnswer.length;
       if (hasntAnsweredQuestion) {
@@ -41,7 +29,7 @@ class LivedApartSinceSeparation extends Question {
       }
       const hasAnsweredYes = hasLivedApartSinceSeparationAnswer === 'yes';
       const hasAnsweredNo = hasLivedApartSinceSeparationAnswer === 'no';
-      const hasGivenDates = livedApartSinceSeparation.length > 0;
+      const hasGivenDates = approximateDatesOfLivingTogetherField.length > 0;
       return hasAnsweredNo || (hasAnsweredYes && hasGivenDates);
     };
 
@@ -49,17 +37,18 @@ class LivedApartSinceSeparation extends Question {
       hasLivedApartSinceSeparationAnswer: text.joi(this.content.errors.required, Joi.string()
         .valid(['yes', 'no'])
         .required()),
-      livedApartSinceSeparation: text
+      approximateDatesOfLivingTogetherField: text
     };
 
-    const validation = object(fields)
+    const changes = object(fields)
       .check(
-        errorFor('livedApartSinceSeparation', this.content.errors.required),
+        errorFor('approximateDatesOfLivingTogetherField', this.content.errors.required),
         validateKillMe);
 
-    return form({ validation });
+    return form({ changes });
   }
 
+  /*
   answers() {
     const answers = [];
 
@@ -70,15 +59,16 @@ class LivedApartSinceSeparation extends Question {
           this.fields.hasLivedApartSinceSeparationAnswer.value]
     }));
     answers.push(answer(this, {
-      question: this.content.fields.livedApartSinceSeparation.title,
+      question: this.content.fields.approximateDatesOfLivingTogetherField.title,
       answer: this.content.fields
-        .livedApartSinceSeparation[
-          this.fields.livedApartSinceSeparation.value
+        .approximateDatesOfLivingTogetherField[
+          this.fields.approximateDatesOfLivingTogetherField.value
         ]
     }));
 
     return answers;
   }
+  */
 
   next() {
     return goTo(this.journey.steps.ClaimCosts);
