@@ -1,9 +1,6 @@
 const modulePath = 'steps/lived-apart-since-separation/LivedApartSinceSeparation.step';
 
 const LivedApartSinceSeparation = require(modulePath);
-const LivedApartSinceSeparationContent = require(
-  'steps/lived-apart-since-separation/LivedApartSinceSeparation.content'
-);
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
@@ -35,14 +32,20 @@ describe(modulePath, () => {
     return question.testErrors(LivedApartSinceSeparation, session, {}, { onlyErrors });
   });
 
-  it('redirects to ClaimCosts if answer is no', () => {
-    const fields = { livedApartSinceSeparation: 'no',
-      approximateDatesOfLivingTogetherField: 'Fake Answer' };
-    return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
+  it('does not redirect to ClaimCosts if answer is no and no details provided ', () => {
+    const fields = { 'changes-livedApartSinceSeparation': 'no' };
+    return question.redirectWithField(LivedApartSinceSeparation, fields, LivedApartSinceSeparation);
   });
 
-  it('redirects to ClaimCosts if answer is yes REEEEEE', () => {
-    const fields = { livedApartSinceSeparation: 'yes' };
+  it('redirects to ClaimCosts if answer is no and details are provided', () => {
+    const fields = { 'changes-livedApartSinceSeparation': 'no',
+      'changes-approximateDatesOfLivingTogetherField': 'details...' };
+    return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
+  });
+  it('redirects to ClaimCosts if answered changes yes', () => {
+    const fields = {
+      'changes-livedApartSinceSeparation': 'yes'
+    };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
   });
 });
