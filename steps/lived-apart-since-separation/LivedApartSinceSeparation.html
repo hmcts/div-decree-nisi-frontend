@@ -15,6 +15,7 @@
   </div>
 
   <br>
+<!--
 
   {% call formSection() %}
     {{ selectionButtons(fields.livedApartSinceSeparation, content.fields.livedApartSinceSeparation.title,
@@ -29,7 +30,8 @@
     ) }}
   {% endcall %}
 
-<!-- Dropdown area if answered no -->
+
+<!-- Dropdown area if answered no
   <div class="js-hidden" id="no-container">
   <h3 class="heading-medium">{{ content.detailsHowLongLivedTogetherSinceSeparation }}</h3>
   <p class="text">{{ content.detailsHowLongLivedTogetherSinceSeparationDetail | safe }}</p>
@@ -62,6 +64,7 @@
               rows="4">
   </textarea>
 </div>
-<!-- end of dropdown area -->
+ end of dropdown area -->
+
 
 {% endblock %}

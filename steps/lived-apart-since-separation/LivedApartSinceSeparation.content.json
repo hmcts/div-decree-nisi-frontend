@@ -13,7 +13,8 @@
     "ifMoreThan6MonthsDetail2": "If this is the case for you, you'll have to use the next date that you separated as a starting point for your 2 years separation period.",
     "approximateDatesOfLivingTogether": "Give approximate dates or number of months you lived together",
     "errors": {
-      "required": "Select yes if you lived apart since separating from your {{ session.divorceWho }}?"
+      "required": "Select yes if you lived apart since separating from your {{ session.divorceWho }}?",
+      "requireDatesOfLivingTogether": "Enter approximate dates of when you lived together."
     },
     "fields": {
       "livedApartSinceSeparation": {
