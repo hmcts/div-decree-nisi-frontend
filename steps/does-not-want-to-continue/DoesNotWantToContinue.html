@@ -1,0 +1,25 @@
+{% extends "page.njk" %}
+
+{% block back %}{% endblock %}
+
+{% set title %}
+  {{ content.title }}
+{% endset %}
+
+{% block main_content %}
+
+  <p>{{ content.yourApplicationWillAutomatically }}</p>
+
+  <a class="button" href="/exit/does-not-want-to-continue" role="button">Sign Out</a>
+  <br>
+
+{% endblock %}
+
+{% block fields %}
+
+{% endblock %}
+
+
+
+
+

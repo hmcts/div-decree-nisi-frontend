@@ -56,6 +56,7 @@ paths:
   undefended: /undefended
   reviewAosResponse: /review-aos-response
   applyForDecreeNisi: /continue-with-divorce
+  doesNotWantToContinue: /exit/does-not-want-to-continue
   miniPetition: /review-your-petition
   livedApartSinceSeparation: /lived-apart-since-separation
   claimCosts: /claim-costs
