@@ -37,8 +37,14 @@ class ApplyForDecreeNisi extends Question {
   }
 
   next() {
+    if (this.fields.applyForDecreeNisi.value === 'no') {
+      return goTo(this.journey.steps.DoesNotWantToContinue);
+      // get this working properly to proper URL
+    }
+
     return goTo(this.journey.steps.MiniPetition);
   }
+
 
   get middleware() {
     return [...super.middleware, idam.protect(), getUserData];
