@@ -18,7 +18,7 @@
     "fields": {
       "changes": {
         "livedApartSinceSeparation": {
-          "title": "Have you lived together as a married couple since you found out about the adultery?",
+          "title": "Have you lived apart since separating from your {{ session.divorceWho }}?",
           "yes": "Yes",
           "no": "No"
         },

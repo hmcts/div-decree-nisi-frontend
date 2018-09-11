@@ -11,7 +11,7 @@ const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 
 class LivedApartSinceSeparation extends Question {
   static get path() {
-    return config.paths.approximateDatesOfLivingTogetherField;
+    return config.paths.livedApartSinceSeparation;
   }
 
   get session() {
@@ -19,22 +19,20 @@ class LivedApartSinceSeparation extends Question {
   }
 
   get form() {
-    const validateKillMe = ({ hasLivedApartSinceSeparationAnswer = '', approximateDatesOfLivingTogetherField = '' }) => {
-      console.log(hasLivedApartSinceSeparationAnswer, approximateDatesOfLivingTogetherField);
-
+    const validateKillMe = ({ livedApartSinceSeparation = '', approximateDatesOfLivingTogetherField = '' }) => {
       // only validate if user has answered hasLivedApartSinceSeparationAnswer
-      const hasntAnsweredQuestion = !hasLivedApartSinceSeparationAnswer.length;
+      const hasntAnsweredQuestion = !livedApartSinceSeparation.length;
       if (hasntAnsweredQuestion) {
         return true;
       }
-      const hasAnsweredYes = hasLivedApartSinceSeparationAnswer === 'yes';
-      const hasAnsweredNo = hasLivedApartSinceSeparationAnswer === 'no';
+      const hasAnsweredYes = livedApartSinceSeparation === 'yes';
+      const hasAnsweredNo = livedApartSinceSeparation === 'no';
       const hasGivenDates = approximateDatesOfLivingTogetherField.length > 0;
-      return hasAnsweredNo || (hasAnsweredYes && hasGivenDates);
+      return hasAnsweredYes || (hasAnsweredNo && hasGivenDates);
     };
 
     const fields = {
-      hasLivedApartSinceSeparationAnswer: text.joi(this.content.errors.required, Joi.string()
+      livedApartSinceSeparation: text.joi(this.content.errors.required, Joi.string()
         .valid(['yes', 'no'])
         .required()),
       approximateDatesOfLivingTogetherField: text
@@ -42,13 +40,12 @@ class LivedApartSinceSeparation extends Question {
 
     const changes = object(fields)
       .check(
-        errorFor('approximateDatesOfLivingTogetherField', this.content.errors.required),
+        errorFor('approximateDatesOfLivingTogetherField', this.content.errors.requireDatesOfLivingTogether),
         validateKillMe);
 
     return form({ changes });
   }
 
-  /*
   answers() {
     const answers = [];
 
@@ -68,7 +65,6 @@ class LivedApartSinceSeparation extends Question {
 
     return answers;
   }
-  */
 
   next() {
     return goTo(this.journey.steps.ClaimCosts);
