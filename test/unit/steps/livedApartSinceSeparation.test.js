@@ -30,26 +30,26 @@ describe(modulePath, () => {
   });
 
   it('redirects to ClaimCosts if answer is no', () => {
-    const fields = { approximateDatesOfLivingTogetherField: 'no' };
+    const fields = { LivedApartSinceSeparation: 'no' };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
   });
 
   it('redirects to ClaimCosts if answer is yes', () => {
-    const fields = { approximateDatesOfLivingTogetherField: 'yes' };
+    const fields = { LivedApartSinceSeparation: 'yes' };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
   });
 
   it('loads fields from the session', () => {
-    const sessionData = { approximateDatesOfLivingTogetherField: 'yes' };
+    const sessionData = { LivedApartSinceSeparation: 'yes' };
     return question.rendersValues(LivedApartSinceSeparation, sessionData);
   });
 
   it('returns correct answers', () => {
     const expectedContent = [
-      LivedApartSinceSeparationContent.en.fields.approximateDatesOfLivingTogetherField.title,
-      LivedApartSinceSeparationContent.en.fields.approximateDatesOfLivingTogetherField.yes
+      LivedApartSinceSeparationContent.en.fields.changes.livedApartSinceSeparation.title,
+      LivedApartSinceSeparationContent.en.fields.changes.livedApartSinceSeparation.yes
     ];
-    const session = { approximateDatesOfLivingTogetherField: 'yes' };
+    const session = { LivedApartSinceSeparation: 'yes' };
     return question.answers(LivedApartSinceSeparation, session, expectedContent);
   });
 });

@@ -19,7 +19,7 @@ class LivedApartSinceSeparation extends Question {
   }
 
   get form() {
-    const validateKillMe = ({ livedApartSinceSeparation = '', approximateDatesOfLivingTogetherField = '' }) => {
+    const validateDatesOfLivingTogether = ({ livedApartSinceSeparation = '', approximateDatesOfLivingTogetherField = '' }) => {
       // only validate if user has answered livedApartSinceSeparation
       const hasntAnsweredQuestion = !livedApartSinceSeparation.length;
       if (hasntAnsweredQuestion) {
@@ -41,7 +41,7 @@ class LivedApartSinceSeparation extends Question {
     const changes = object(fields)
       .check(
         errorFor('approximateDatesOfLivingTogetherField', this.content.errors.requireDatesOfLivingTogether),
-        validateKillMe);
+        validateDatesOfLivingTogether);
 
     return form({ changes });
   }
