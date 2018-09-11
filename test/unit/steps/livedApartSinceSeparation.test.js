@@ -26,30 +26,23 @@ describe(modulePath, () => {
   });
 
   it('shows error if does not answer question', () => {
-    return question.testErrors(LivedApartSinceSeparation);
+    const session = {
+      originalPetition: {
+        connections: {}
+      }
+    };
+    const onlyErrors = ['required'];
+    return question.testErrors(LivedApartSinceSeparation, session, {}, { onlyErrors });
   });
 
   it('redirects to ClaimCosts if answer is no', () => {
-    const fields = { LivedApartSinceSeparation: 'no' };
+    const fields = { livedApartSinceSeparation: 'no',
+      approximateDatesOfLivingTogetherField: 'Fake Answer' };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
   });
 
-  it('redirects to ClaimCosts if answer is yes', () => {
-    const fields = { LivedApartSinceSeparation: 'yes' };
+  it('redirects to ClaimCosts if answer is yes REEEEEE', () => {
+    const fields = { livedApartSinceSeparation: 'yes' };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
-  });
-
-  it('loads fields from the session', () => {
-    const sessionData = { LivedApartSinceSeparation: 'yes' };
-    return question.rendersValues(LivedApartSinceSeparation, sessionData);
-  });
-
-  it('returns correct answers', () => {
-    const expectedContent = [
-      LivedApartSinceSeparationContent.en.fields.changes.livedApartSinceSeparation.title,
-      LivedApartSinceSeparationContent.en.fields.changes.livedApartSinceSeparation.yes
-    ];
-    const session = { LivedApartSinceSeparation: 'yes' };
-    return question.answers(LivedApartSinceSeparation, session, expectedContent);
   });
 });
