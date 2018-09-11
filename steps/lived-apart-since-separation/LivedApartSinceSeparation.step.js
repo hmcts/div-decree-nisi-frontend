@@ -1,4 +1,4 @@
-/* eslint-disable max-len,no-console */
+/* eslint-disable max-len */
 const { Question } = require('@hmcts/one-per-page/steps');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
@@ -20,7 +20,7 @@ class LivedApartSinceSeparation extends Question {
 
   get form() {
     const validateKillMe = ({ livedApartSinceSeparation = '', approximateDatesOfLivingTogetherField = '' }) => {
-      // only validate if user has answered hasLivedApartSinceSeparationAnswer
+      // only validate if user has answered livedApartSinceSeparation
       const hasntAnsweredQuestion = !livedApartSinceSeparation.length;
       if (hasntAnsweredQuestion) {
         return true;
@@ -50,18 +50,17 @@ class LivedApartSinceSeparation extends Question {
     const answers = [];
 
     answers.push(answer(this, {
-      question: this.content.fields.hasLivedApartSinceSeparationAnswer.title,
+      question: this.content.fields.changes.livedApartSinceSeparation.title,
       answer: this.content.fields
-        .hasLivedApartSinceSeparationAnswer[
-          this.fields.hasLivedApartSinceSeparationAnswer.value]
+        .changes.livedApartSinceSeparation[this.fields.changes.livedApartSinceSeparation.value]
     }));
-    answers.push(answer(this, {
-      question: this.content.fields.approximateDatesOfLivingTogetherField.title,
-      answer: this.content.fields
-        .approximateDatesOfLivingTogetherField[
-          this.fields.approximateDatesOfLivingTogetherField.value
-        ]
-    }));
+
+    if (this.fields.changes.livedApartSinceSeparation.value === 'no') {
+      answers.push(answer(this, {
+        question: this.content.fields.changes.approximateDatesOfLivingTogetherField.title,
+        answer: this.fields.changes.approximateDatesOfLivingTogetherField.value
+      }));
+    }
 
     return answers;
   }
