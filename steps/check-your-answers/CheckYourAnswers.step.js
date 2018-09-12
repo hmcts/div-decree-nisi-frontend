@@ -14,7 +14,7 @@ class CheckYourAnswers extends CYA {
   }
 
   next() {
-    return goTo(this.journey.steps.End);
+    return goTo(this.journey.steps.Done);
   }
 
   get errorMessage() {

@@ -5,7 +5,7 @@ const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
 const mockData = require('resources/mock');
 
 describe(modulePath, () => {
-  it('setts mock data on the session', () => {
+  it('sets mock data on the session', () => {
     const next = sinon.stub();
     const req = { session: {} };
     getUserData(req, {}, next);
