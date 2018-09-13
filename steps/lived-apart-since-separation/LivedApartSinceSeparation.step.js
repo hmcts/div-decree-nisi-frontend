@@ -30,11 +30,14 @@ class LivedApartSinceSeparation extends Question {
       return hasAnsweredYes || (hasAnsweredNo && hasGivenDates);
     };
 
+    const validate = Joi.string()
+      .valid(['yes', 'no'])
+      .required();
+
+    const livedApartSinceSeparation = text.joi(validate);
+
     const fields = {
-      livedApartSinceSeparation: text.joi(this.content.errors.required,
-        Joi.string()
-          .valid(['yes', 'no'])
-          .required()),
+      livedApartSinceSeparation,
       approximateDatesOfLivingTogetherField: text
     };
 
