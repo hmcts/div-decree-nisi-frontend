@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const { Question } = require('@hmcts/one-per-page/steps');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
@@ -32,9 +31,10 @@ class LivedApartSinceSeparation extends Question {
     };
 
     const fields = {
-      livedApartSinceSeparation: text.joi(this.content.errors.required, Joi.string()
-        .valid(['yes', 'no'])
-        .required()),
+      livedApartSinceSeparation: text.joi(this.content.errors.required,
+        Joi.string()
+          .valid(['yes', 'no'])
+          .required()),
       approximateDatesOfLivingTogetherField: text
     };
 
@@ -52,11 +52,13 @@ class LivedApartSinceSeparation extends Question {
     answers.push(answer(this, {
       question: this.content.fields.changes.livedApartSinceSeparation.title,
       answer: this.content.fields
+        // eslint-disable-next-line max-len
         .changes.livedApartSinceSeparation[this.fields.changes.livedApartSinceSeparation.value]
     }));
 
     if (this.fields.changes.livedApartSinceSeparation.value === 'no') {
       answers.push(answer(this, {
+        // eslint-disable-next-line max-len
         question: this.content.fields.changes.approximateDatesOfLivingTogetherField.title,
         answer: this.fields.changes.approximateDatesOfLivingTogetherField.value
       }));
