@@ -34,7 +34,8 @@ class LivedApartSinceSeparation extends Question {
       .valid(['yes', 'no'])
       .required();
 
-    const livedApartSinceSeparation = text.joi(validate);
+    const livedApartSinceSeparation = text.joi(this.content.errors.required,
+      validate);
 
     const fields = {
       livedApartSinceSeparation,
