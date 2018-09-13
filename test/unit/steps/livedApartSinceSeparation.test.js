@@ -39,10 +39,24 @@ describe(modulePath, () => {
       'changes-approximateDatesOfLivingTogetherField': 'details...' };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
   });
+  
   it('redirects to ClaimCosts if answered yes', () => {
     const fields = {
       'changes-livedApartSinceSeparation': 'yes'
     };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
+
+  it('loads fields from the session', () => {
+    const sessionData = { livedApartSinceSeparation: 'yes' };
+    return question.rendersValues(LivedApartSinceSeparation, sessionData);
+  });
+
+  it('returns correct answers', () => {
+    const expectedContent = [
+      LivedApartSinceSeparationContent.en.fields.livedApartSinceSeparation.title,
+      LivedApartSinceSeparationContent.en.fields.livedApartSinceSeparation.yes
+    ];
+    const session = { livedApartSinceSeparation: 'yes' };
+    return question.answers(LivedApartSinceSeparation, session, expectedContent);
   });
 });

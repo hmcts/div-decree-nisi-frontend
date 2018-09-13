@@ -1,7 +1,7 @@
 const modulePath = 'steps/check-your-answers/CheckYourAnswers.step';
 
 const CheckYourAnswers = require(modulePath);
-const End = require('steps/end/End.step');
+const Done = require('steps/done/Done.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const ccd = require('middleware/ccd');
@@ -34,9 +34,9 @@ describe(modulePath, () => {
     return question.testErrors(CheckYourAnswers);
   });
 
-  it('redirects to End if statment of true answered', () => {
+  it('redirects to Done if statment of true answered', () => {
     const fields = { statementOfTruth: 'yes' };
-    return question.redirectWithField(CheckYourAnswers, fields, End);
+    return question.redirectWithField(CheckYourAnswers, fields, Done);
   });
 
   describe('claims costs statment of truth', () => {
