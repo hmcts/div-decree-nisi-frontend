@@ -23,18 +23,15 @@ describe(modulePath, () => {
   });
 
   it('shows error if does not answer question', () => {
-    const session = {
-      originalPetition: {
-        connections: {}
-      }
-    };
     const onlyErrors = ['required'];
-    return question.testErrors(LivedApartSinceSeparation, session, {}, { onlyErrors });
+    return question.testErrors(LivedApartSinceSeparation, {}, {}, { onlyErrors });
   });
 
-  it('does not redirect to ClaimCosts if answer is no and no details provided ', () => {
-    const fields = { 'changes-livedApartSinceSeparation': 'no' };
-    return question.redirectWithField(LivedApartSinceSeparation, fields, LivedApartSinceSeparation);
+  it('shows error if answered no and no data entered', () => {
+    const onlyErrors = ['requireDatesOfLivingTogether'];
+    const fields = { 'changes-livedApartSinceSeparation': 'no',
+      'changes-approximateDatesOfLivingTogetherField': '' };
+    return question.testErrors(LivedApartSinceSeparation, {}, fields, { onlyErrors });
   });
 
   it('redirects to ClaimCosts if answer is no and details are provided', () => {
@@ -42,7 +39,7 @@ describe(modulePath, () => {
       'changes-approximateDatesOfLivingTogetherField': 'details...' };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
   });
-  it('redirects to ClaimCosts if answered changes yes', () => {
+  it('redirects to ClaimCosts if answered yes', () => {
     const fields = {
       'changes-livedApartSinceSeparation': 'yes'
     };
