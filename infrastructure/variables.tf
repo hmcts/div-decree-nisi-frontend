@@ -119,10 +119,6 @@ variable "idam_api_url" {
   type = "string"
 }
 
-variable "service_auth_provider_url" {
-  type = "string"
-}
-
 variable "frontend_service_name" {
   default = "divorce-decree-nisi-frontend"
 }
@@ -175,10 +171,6 @@ variable "rate_limiter_enabled" {
 
 variable "common_tags" {
   type = "map"
-}
-
-variable "evidence_management_client_api_url" {
-  default = ""
 }
 
 variable "evidence_management_client_api_upload_endpoint" {

@@ -6,7 +6,7 @@ locals {
   previewVaultName = "${var.raw_product}-aat"
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
-  evidence_management_client_api_url = "${var.evidence_management_client_api_url == "" ? "http://div-emca-${local.local_env}.service.core-compute-${local.local_env}.internal" : var.evidence_management_client_api_url}"
+  evidence_management_client_api_url = "http://div-emca-${local.local_env}.service.core-compute-${local.local_env}.internal"
   status_health_endpoint = "/status/health"
 }
 
@@ -72,7 +72,7 @@ module "frontend" {
 
     // Evidence Management Client API
     EVIDENCE_MANAGEMENT_CLIENT_API_URL             = "${local.evidence_management_client_api_url}"
-    EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL = "${local.evidence_management_client_api_url}${var.evidence_management_client_api_url == "" ? var.health_endpoint : local.status_health_endpoint}"
+    EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL = "${local.evidence_management_client_api_url}${local.status_health_endpoint}"
     EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT = "${var.evidence_management_client_api_upload_endpoint}"
 
     // Encryption secrets
