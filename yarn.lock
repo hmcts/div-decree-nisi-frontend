@@ -171,7 +171,7 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#901b48a04327a27fd61099d5f8df432a46d09f68":
+"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#semver:~1.0.0":
   version "1.0.0"
   resolved "https://github.com/hmcts/one-per-page-test-suite.git#901b48a04327a27fd61099d5f8df432a46d09f68"
   dependencies:
