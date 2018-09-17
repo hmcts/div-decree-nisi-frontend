@@ -6,7 +6,8 @@ function seeMiniPetitionPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(MiniPetition.path);
-  I.checkOption(MiniPetitionContent.en.fields.statementOfTruth.yes);
+  I.checkOption(MiniPetitionContent.en.fields.changes.hasBeenChanges.no);
+  I.checkOption(MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.yes);
   I.navByClick(commonContent.en.continue);
 }
 

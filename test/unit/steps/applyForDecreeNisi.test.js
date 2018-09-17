@@ -44,11 +44,11 @@ describe(modulePath, () => {
   });
 
   it('returns correct answers', () => {
-    const assertion = {
-      question: ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.title,
-      answer: ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.yes
-    };
+    const expectedContent = [
+      ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.title,
+      ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.yes
+    ];
     const session = { applyForDecreeNisi: 'yes' };
-    return question.answers(ApplyForDecreeNisi, session, assertion);
+    return question.answers(ApplyForDecreeNisi, session, expectedContent);
   });
 });

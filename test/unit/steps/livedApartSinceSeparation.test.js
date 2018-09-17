@@ -45,11 +45,11 @@ describe(modulePath, () => {
   });
 
   it('returns correct answers', () => {
-    const assertion = {
-      question: LivedApartSinceSeparationContent.en.fields.livedApartSinceSeparation.title,
-      answer: LivedApartSinceSeparationContent.en.fields.livedApartSinceSeparation.yes
-    };
+    const expectedContent = [
+      LivedApartSinceSeparationContent.en.fields.livedApartSinceSeparation.title,
+      LivedApartSinceSeparationContent.en.fields.livedApartSinceSeparation.yes
+    ];
     const session = { livedApartSinceSeparation: 'yes' };
-    return question.answers(LivedApartSinceSeparation, session, assertion);
+    return question.answers(LivedApartSinceSeparation, session, expectedContent);
   });
 });

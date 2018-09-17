@@ -12,5 +12,5 @@ Scenario('Happy path', async I => {
   I.seeClaimCostsPage();
   I.seeUploadPage();
   I.seeCheckYourAnswersPage();
-  I.seeEndPage();
+  I.seeDonePage();
 });

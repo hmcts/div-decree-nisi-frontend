@@ -1,9 +1,9 @@
-const EndPage = require('steps/end/End.step');
+const DonePage = require('steps/done/Done.step');
 
-function seeEndPage() {
+function seeDonePage() {
   const I = this;
 
-  I.seeCurrentUrlEquals(EndPage.path);
+  I.seeCurrentUrlEquals(DonePage.path);
 }
 
-module.exports = { seeEndPage };
+module.exports = { seeDonePage };
