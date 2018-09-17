@@ -63,11 +63,7 @@
       <textarea class="form-control"
                 id="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
                 name="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
-                rows="4">
-          {% if fields.changes.approximateDatesOfLivingTogetherField.value %}
-            {{ fields.changes.approximateDatesOfLivingTogetherField.value }}
-          {% endif %}
-      </textarea>
+                rows="4">{% if fields.changes.approximateDatesOfLivingTogetherField.value %}{{ fields.changes.approximateDatesOfLivingTogetherField.value }}{% endif %}</textarea>
     </div>
   </div>
 <!-- end of dropdown area -->
