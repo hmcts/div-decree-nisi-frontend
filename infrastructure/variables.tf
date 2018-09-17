@@ -176,3 +176,11 @@ variable "rate_limiter_enabled" {
 variable "common_tags" {
   type = "map"
 }
+
+variable "evidence_management_client_api_url" {
+  default = ""
+}
+
+variable "evidence_management_client_api_upload_endpoint" {
+  default = "/emclientapi/version/1/upload"
+}
