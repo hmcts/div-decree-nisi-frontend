@@ -28,6 +28,7 @@ exports.config = {
         args: chromeArgs
       }
     },
+    ElementExist: { require: './helpers/ElementExist.js' },
     IdamHelper: { require: './helpers/idamHelper.js' },
     JSWait: { require: './helpers/JSWait.js' },
     UrlHelper: { require: './helpers/urlHelper.js' }

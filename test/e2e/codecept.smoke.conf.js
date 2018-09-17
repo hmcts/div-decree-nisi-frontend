@@ -25,6 +25,7 @@ exports.config = {
         args: chromeArgs
       }
     },
+    ElementExist: { require: './helpers/ElementExist.js' },
     JSWait: { require: './helpers/JSWait.js' }
   },
   include: { I: './pages/steps.js' },
