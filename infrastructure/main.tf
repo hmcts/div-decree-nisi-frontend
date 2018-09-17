@@ -1,6 +1,7 @@
 locals {
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   public_hostname = "${var.product}-${var.component}-${var.env}.service.${local.aseName}.internal"
+  local_env = "${(var.env == "preview" || var.env == "spreview") ? (var.env == "preview" ) ? "aat" : "saat" : var.env}"
 
   previewVaultName = "${var.raw_product}-aat"
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
