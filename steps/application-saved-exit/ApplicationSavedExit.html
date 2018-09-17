@@ -2,15 +2,19 @@
 
 {% block back %}{% endblock %}
 
+
+{% block proposition_header %}{% endblock %}
+
 {% set title %}
   {{ content.title }}
 {% endset %}
 
 {% block main_content %}
 
-  <p>{{ content.yourApplicationWillAutomatically }}</p>
+  <p>{{ content.aLinkHasBeenSent }}</p>
+  <p class="text bold">{{ content.petitionerEmail }}</p>
+  <p>{{ content.yourApplicationWillBeSaved | safe }}</p>
 
-  <a class="button" href="/exit/does-not-want-to-continue" role="button">Sign Out</a>
   <br>
 
 {% endblock %}
