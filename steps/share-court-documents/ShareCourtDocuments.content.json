@@ -1,0 +1,16 @@
+{
+  "en": {
+    "title": "Do you want to share any other documents with the court?",
+    "extraDocuments": "You can upload any extra documents you want to share with the court. For example, if you have a letter from your husband agreeing to pay the costs.",
+    "errors": {
+      "required": "Select Yes if you want to share any other documents with the court"
+    },
+    "fields": {
+      "upload": {
+        "title": "Do you have any extra documents you want to send to the court?",
+        "yes": "Yes",
+        "no": "No"
+      }
+    }
+  }
+}
