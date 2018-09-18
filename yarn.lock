@@ -200,9 +200,9 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#d79ea497303eb971ba07baac7455990124b42ec8":
-  version "4.0.1"
-  resolved "https://github.com/hmcts/one-per-page#d79ea497303eb971ba07baac7455990124b42ec8"
+"@hmcts/one-per-page@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.0.2.tgz#c37b1b07da357e2821bcbde3a1752f7b1a43c792"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
@@ -228,9 +228,9 @@
     slug "^0.9.1"
     url-parse "^1.2.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page.git#semver:~4.0.2":
-  version "4.0.2"
-  resolved "https://github.com/hmcts/one-per-page.git#37524349e7d94bbbed6af088c88fa39c99de00c1"
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page#d79ea497303eb971ba07baac7455990124b42ec8":
+  version "4.0.1"
+  resolved "https://github.com/hmcts/one-per-page#d79ea497303eb971ba07baac7455990124b42ec8"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
