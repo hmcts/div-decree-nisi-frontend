@@ -58,6 +58,7 @@ paths:
   applyForDecreeNisi: /continue-with-divorce
   miniPetition: /review-your-petition
   livedApartSinceSeparation: /lived-apart-since-separation
+  livedApartSinceDesertion: /lived-apart-since-desertion
   claimCosts: /claim-costs
   upload: /upload-docs
   checkYourAnswers: /check-your-answers
