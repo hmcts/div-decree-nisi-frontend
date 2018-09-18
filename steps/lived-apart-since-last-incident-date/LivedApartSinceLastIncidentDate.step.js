@@ -20,7 +20,7 @@ class LivedApartSinceLastIncidentDate extends Question {
 
   get form() {
     const validateDatesOfLivingTogether = ({ livedApartSinceLastIncidentDate = '', approximateDatesOfLivingTogetherField = '' }) => {
-      // only validate if user has answered livedApartSinceDesertion
+      // only validate if user has answered livedApartSinceLastIncidentDate
       const hasntAnsweredQuestion = !livedApartSinceLastIncidentDate.length;
       if (hasntAnsweredQuestion) {
         return true;
