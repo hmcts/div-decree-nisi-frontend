@@ -1,6 +1,6 @@
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 
-Feature('Upload Files');
+Feature('Upload Files').retry(3);
 
 Scenario('Test upload', async I => {
   I.amOnLoadedPage('/');

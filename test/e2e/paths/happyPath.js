@@ -1,4 +1,4 @@
-Feature('Basic decree nisi path');
+Feature('Basic decree nisi path').retry(3);
 
 Scenario('Happy path', async I => {
   I.amOnLoadedPage('/');
