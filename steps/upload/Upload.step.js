@@ -4,7 +4,6 @@ const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
-const { getUserData } = require('middleware/ccd');
 const evidenceManagmentMiddleware = require('middleware/evidenceManagmentMiddleware');
 const errors = require('resources/errors');
 
@@ -91,7 +90,6 @@ class Upload extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getUserData,
       evidenceManagmentMiddleware.createHandler(this.name)
     ];
   }

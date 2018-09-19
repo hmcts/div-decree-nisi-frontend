@@ -4,7 +4,6 @@ const CheckYourAnswers = require(modulePath);
 const Done = require('steps/done/Done.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const ccd = require('middleware/ccd');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -40,14 +39,6 @@ describe(modulePath, () => {
   });
 
   describe('claims costs statment of truth', () => {
-    beforeEach(() => {
-      sinon.stub(ccd, 'getUserData').callsFake(middleware.nextMock);
-    });
-
-    afterEach(() => {
-      ccd.getUserData.restore();
-    });
-
     it('from respondent and correspondent', () => {
       const session = {
         originalPetition: {

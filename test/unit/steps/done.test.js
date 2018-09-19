@@ -24,7 +24,7 @@ describe(modulePath, () => {
 
   describe('values', () => {
     it('displays reference number', () => {
-      const referenceNumber = '1234 ‐ 5678 ‐ 9012 ‐ 5672';
+      const referenceNumber = '1234 ‐ 5678 ‐ 9012 ‐ 4567';
       const session = { referenceNumber: referenceNumber.replace(/ ‐ /g, '') };
       return content(
         Done,

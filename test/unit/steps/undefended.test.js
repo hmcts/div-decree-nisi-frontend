@@ -5,7 +5,7 @@ const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.s
 const getSteps = require('steps');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const { getUserData } = require('middleware/ccd');
+const caseOrchestrationMiddleware = require('middleware/caseOrchestrationMiddleware');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -17,7 +17,10 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Undefended, [ idam.protect(), getUserData ]);
+    return middleware.hasMiddleware(Undefended, [
+      idam.protect(),
+      caseOrchestrationMiddleware.getApplication
+    ]);
   });
 
   it('redirects to next page', () => {

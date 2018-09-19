@@ -8,17 +8,14 @@ const LivedApartSinceSeparation = require(
 );
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const ccd = require('middleware/ccd');
 
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
-    sinon.stub(ccd, 'getUserData').callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
-    ccd.getUserData.restore();
   });
 
   it('has idam.protect middleware', () => {
