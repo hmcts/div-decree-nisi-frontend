@@ -46,8 +46,10 @@ const sendFile = req => {
     .then(delayRequest)
     .then(getResponse)
     .then(resp => {
-      return evidenceManagmentService
-        .handleResponse(resp, Promise.resolve, Promise.reject);
+      return new Promise((resolve, reject) => {
+        evidenceManagmentService
+          .handleResponse(resp, resolve, reject);
+      });
     });
 };
 
