@@ -1,0 +1,24 @@
+{
+  "en": {
+    "title": "Have you lived apart since {{ session.behaviourLastIncidentDate }}?",
+    "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
+    "detailsHowLongLivedTogetherSinceLastIncidentDate" : "Provide details of how long you've lived together since {{ session.behaviourLastIncidentDate }}",
+    "detailsHowLongLivedTogetherSinceLastIncidentDateDetail" : "You may not be granted a divorce if you live together as a couple for more than 6 months after the behaviour occurs. This could be over a single 6 month period, or if you live together on and off for several periods adding up to more than 6 months",
+    "errors": {
+      "required": "Select yes if you lived apart since ",
+      "requireDatesOfLivingTogether": "Enter approximate dates of when you lived together."
+    },
+    "fields": {
+      "changes": {
+        "livedApartSinceLastIncidentDate": {
+          "title": "Have you lived apart since ",
+          "yes": "Yes",
+          "no": "No"
+        },
+        "approximateDatesOfLivingTogetherField": {
+          "title": "Give approximate dates or number of months you lived together"
+        }
+      }
+    }
+  }
+}
