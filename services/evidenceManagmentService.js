@@ -46,31 +46,33 @@ const sendFile = req => {
 
   return fileManagment.saveFileFromRequest(req)
     .then(file => {
-      return superagent
-        .post(evidenceManagmentClientUploadUrl)
-        .set({ Authorization: token })
-        .set('enctype', 'multipart/form-data')
-        .attach('file', file.path, file.name)
-        .end((error, response = { statusCode: null }) => {
-          fileManagment.removeFile(file);
+      return new Promise((resolve, reject) => {
+        superagent
+          .post(evidenceManagmentClientUploadUrl)
+          .set({ Authorization: token })
+          .set('enctype', 'multipart/form-data')
+          .attach('file', file.path, file.name)
+          .end((error, response = { statusCode: null }) => {
+            fileManagment.removeFile(file);
 
-          if (error || response.statusCode !== httpStatus.OK) {
-            const errorToReturn = new Error(error || response.body || defaultEMCErrorMessage);
-            errorToReturn.status = response.statusCode;
+            if (error || response.statusCode !== httpStatus.OK) {
+              const errorToReturn = new Error(error || response.body || defaultEMCErrorMessage);
+              errorToReturn.status = response.statusCode;
 
-            logger.error({
-              message: 'Error when uploading to Evidence Management:',
-              error: errorToReturn
-            });
+              logger.error({
+                message: 'Error when uploading to Evidence Management:',
+                error: errorToReturn
+              });
 
-            if (response && response.errorCode === 'invalidFileType') {
-              return Promise.reject(errors.fileTypeInvalid);
+              if (response && response.errorCode === 'invalidFileType') {
+                return reject(errors.fileTypeInvalid);
+              }
+              return reject(errorToReturn);
             }
-            return Promise.reject(errorToReturn);
-          }
 
-          return handleResponse(response.body);
-        });
+            return handleResponse(response.body);
+          });
+      });
     });
 };
 
