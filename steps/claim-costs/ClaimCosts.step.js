@@ -36,7 +36,7 @@ class ClaimCosts extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.Upload);
+    return goTo(this.journey.steps.ShareCourtDocuments);
   }
 
   get middleware() {
