@@ -2,7 +2,6 @@
 
 {% block back %}{% endblock %}
 
-
 {% block proposition_header %}{% endblock %}
 
 {% set title %}
@@ -12,7 +11,7 @@
 {% block main_content %}
 
   <p>{{ content.aLinkHasBeenSent }}</p>
-  <p class="text bold">{{ content.petitionerEmail }}</p>
+  <p class="text bold">{{ session.petitionerEmail | safe }}</p>
   <p>{{ content.yourApplicationWillBeSaved | safe }}</p>
 
   <br>

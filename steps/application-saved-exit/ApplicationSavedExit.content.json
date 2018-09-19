@@ -2,7 +2,6 @@
   "en": {
     "title": "Your application has been saved",
     "aLinkHasBeenSent": "A link to your application has been sent to:",
-    "petitionerEmail": "{{ session.petitionerEmail }}",
     "yourApplicationWillBeSaved": "Your application will be saved for 6 months. To continue with your application your need to <a href=\"/\">Sign in</a>."
   }
 }
