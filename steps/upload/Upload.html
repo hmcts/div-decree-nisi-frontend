@@ -6,20 +6,148 @@
   {{ content.title | safe }}
 {% endset %}
 
-{% block fields %}
-  <p class="text">{{ content.extraDocuments | safe }}</p>
+{% block head %}
+  {% include "includes/head.html" %}
 
-  {% call formSection() %}
-    {{ selectionButtons(fields.upload, content.fields.upload.title,
-      options = [
-        { label: content.fields.upload.yes, value: "yes" },
-        { label: content.fields.upload.no, value: "no" }
-      ],
-      hint=false,
-      hideQuestion=true,
-      inline=true,
-      type='radio'
-    ) }}
-  {% endcall %}
+  <script type="text/javascript">
+    var called = false;
+    var startDocumentUpload = function() {
+      if (called) {
+        return;
+      }
+      called = true;
+      var documentUpload = new DIVORCE.documentUpload();
+      documentUpload.init({
+        uploadingHint: '{{ content.uploading }}',
+        pendingUploadHint: '{{ content.pendingUpload }}',
+        hideErrorFileLink: '{{ content.hide }}',
+        removeFileLink: '{{ content.remove }}',
+        errors: {
+          errorMaximumFilesExceeded: '{{ content.errors.errorMaximumFilesExceeded }}',
+          errorUnknown: '{{ content.errors.errorUnknown }}',
+          errorFileSizeTooLarge: '{{ content.errors.errorFileSizeTooLarge }}',
+          errorFileTypeInvalid: '{{ content.errors.errorFileTypeInvalid }}',
+          errorVirusFoundInFile: '{{ content.errors.errorVirusFoundInFile }}'
+        }
+      });
+    }
+    if ( document.readyState === "complete" ||
+    	( document.readyState !== "loading" && !document.documentElement.doScroll ) ) {
+
+    	// Handle it asynchronously to allow scripts the opportunity to delay ready
+    	window.setTimeout( startDocumentUpload );
+
+    } else {
+
+    	// Use the handy event callback
+    	document.addEventListener( "DOMContentLoaded", startDocumentUpload );
+
+    	// A fallback to window.onload, that will always work
+    	window.addEventListener( "load", startDocumentUpload );
+    }
+  </script>
+{% endblock %}
+
+{% block two_thirds %}
+
+  {{ errorSummary(fields) }}
+
+  {{ header(title, size='large') }}
+
+  <p class="text">{{ content.uploadDigitalCopies }}</p>
+
+  <details>
+    <summary aria-controls="details-content-1" aria-expanded="false">
+      <span class="summary">{{ content.howToTake }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
+      <ul class="list list-number">
+        <li>{{ content.howToTakeInfo1 }}</li>
+        <li>{{ content.howToTakeInfo2 }}</li>
+        <li>{{ content.howToTakeInfo3 }}</li>
+        <li>{{ content.howToTakeInfo4 }}</li>
+      </ul>
+    </div>
+  </details>
+
+  <p class="text">{{ content.entireDocument }}</p>
+
+  <div class="document-upload">
+    <div class="fallback">
+      <form method="POST" accept-charset="utf-8" class="form"
+        enctype="multipart/form-data"
+        autocomplete="off">
+        <label for="noJsFiles" class="file-select-button">
+          {{ content.selectFiles }}
+        </label>
+        <input id="noJsFiles" type="file" name="file" class="file-upload-input" accept="image/x-png,image/png,image/jpeg,image/jpg,.pdf,.bmp,.tiff,.tif" required />
+        <input type="submit" class="file-upload-button" name="upload" value="{{ content.upload }}" />
+      </form>
+    </div>
+    <div class="dropzone-container hidden">
+      <div class="dz-default dz-message grid-row">
+        <div class="column-one-third">
+          <span class="arrow-icon"></span>
+        </div>
+        <div class="column-two-thirds">
+          <p class="dz-message-copy">
+            <a href="#" class="faux-link">{{ content.clickToChooseFile }}</a><br>
+            <strong>{{ content.or }}</strong><br>
+           {{ content.dragAndDrop }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="uploaded-files-wrapper {{ 'hidden' if not filesWithoutErrors.length }}">
+    <h2 class="heading-small" style="margin-bottom: 0;">{{ content.uploadedFiles }}</h2>
+    <table>
+      <colgroup>
+         <col span="1" style="width: 85%;">
+         <col span="1" style="width: 15%;">
+      </colgroup>
+      <tbody>
+        {%- if filesWithoutErrors.length -%}
+          {%- for file in filesWithoutErrors -%}
+            <tr class="file">
+              <td>{{ file.fileName | safe }}</td>
+              <td><a class="link remove-file" data-fileUrl="{{ file.fileUrl | safe }}" href="?fileUrl={{ file.fileUrl | urlencode }}&noJsDelete=true">{{ content.remove }}</a></td>
+            </tr>
+          {%- endfor -%}
+        {%- else -%}
+          <tr class='no-files'>
+            <td>{{ content.noFiles }}</td>
+            <td>&nbsp;</td>
+          </tr>
+        {%- endif -%}
+      </tbody>
+    </table>
+  </div>
+
+  <br>
+
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.cantUpload }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <h4 class="heading-small">{{ content.sendByPost }}</h4>
+      <ul class="list list-number">
+        <li>{{ content.continueWithApplication }}</li>
+        <li>{{ content.writeTheReference }}</li>
+        <li>{{ content.postToCourt }}</li>
+      </ul>
+    </div>
+  </details>
+
+  <br>
+
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+    <input class="button" type="submit" value="Continue">
+  </form>
+
+  <br><br>
+  {% include "includes/problem_with_this_page.html" %}
 
 {% endblock %}
