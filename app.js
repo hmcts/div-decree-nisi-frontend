@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use(idam.userDetails());
 
 lookAndFeel.configure(app, {
-  baseUrl: config.node.baseUrl,
+  baseUrl: '/',
   express: {
     views: [
       path.resolve(__dirname, 'mocks', 'steps'),
