@@ -2,7 +2,7 @@ const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocum
 
 Feature('Upload Files').retry(3);
 
-Scenario('Test upload', async I => {
+Scenario.skip('Test upload', async I => {
   I.amOnLoadedPage('/');
   I.seeHomePage();
   await I.loginToIdam();
@@ -13,7 +13,7 @@ Scenario('Test upload', async I => {
   I.uploadFile(isDragAndDropSupported);
 });
 
-Scenario('Test remove marriage Certificate', async I => {
+Scenario.skip('Test remove marriage Certificate', async I => {
   I.amOnLoadedPage('/');
   I.seeHomePage();
   await I.loginToIdam();
