@@ -45,7 +45,10 @@ const sendFile = req => {
   return fileManagment.saveFileFromRequest(req)
     .then(delayRequest)
     .then(getResponse)
-    .then(evidenceManagmentService.handleResponse);
+    .then(resp => {
+      return evidenceManagmentService
+        .handleResponse(resp, Promise.resolve, Promise.reject)
+    });
 };
 
 module.exports = { sendFile };

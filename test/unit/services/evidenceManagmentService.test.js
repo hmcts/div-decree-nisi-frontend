@@ -15,25 +15,27 @@ describe(modulePath, () => {
       body = [{ status: 'OK' }];
     });
 
-    it('resolves with body if valid', done => {
-      evidenceManagmentService.handleResponse(body)
-        .then(response => {
-          expect(response).to.eql(body);
-        })
-        .then(done, done);
+    it('resolves with body if valid', () => {
+      const resolve = sinon.stub();
+      evidenceManagmentService.handleResponse(body, resolve);
+      expect(resolve.calledOnce).to.eql(true);
+      expect(resolve.calledWith(body)).to.eql(true);
     });
 
     it('rejects with body if valid', () => {
       body = [{ status: 'BAD' }];
-      return expect(evidenceManagmentService.handleResponse(body))
-        .to.eventually.be.rejected;
+      const resolve = sinon.stub();
+      const reject = sinon.stub();
+      evidenceManagmentService.handleResponse(body, resolve, reject);
+      expect(reject.calledOnce).to.eql(true);
     });
 
     it('rejects with body if contains error', () => {
       body = { error: 'true' };
-
-      return expect(evidenceManagmentService.handleResponse(body))
-        .to.eventually.be.rejected;
+      const resolve = sinon.stub();
+      const reject = sinon.stub();
+      evidenceManagmentService.handleResponse(body, resolve, reject);
+      expect(reject.calledOnce).to.eql(true);
     });
   });
 
@@ -60,12 +62,9 @@ describe(modulePath, () => {
       sinon.stub(superagent, 'post').returns(superagentStub);
       sinon.stub(fileManagement, 'removeFile');
       sinon.stub(fileManagement, 'saveFileFromRequest').resolves(file);
-
-      // config.evidenceManagmentClient.url = 'test';
     });
 
     afterEach(() => {
-      // delete config.evidenceManagmentClient.url;
       superagent.post.restore();
       fileManagement.removeFile.restore();
       fileManagement.saveFileFromRequest.restore();
@@ -94,16 +93,15 @@ describe(modulePath, () => {
         .to.be.rejectedWith(resp.body);
     });
 
-    it('returns fileTypeInvalid error if file is rejected with type', done => {
+    it('returns fileTypeInvalid error if file is rejected with type', () => {
       resp = {
         statusCode: httpStatus.BAD_REQUEST,
         errorCode: 'invalidFileType'
       };
       fileManagement.saveFileFromRequest.resolves(buf);
 
-      expect(evidenceManagmentService.sendFile(req))
-        .to.be.rejectedWith(errors.fileTypeInvalid)
-        .and.notify(done);
+      return expect(evidenceManagmentService.sendFile(req))
+        .to.be.rejectedWith(errors.fileTypeInvalid);
     });
   });
 });
