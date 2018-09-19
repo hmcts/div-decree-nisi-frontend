@@ -41,6 +41,7 @@ const setupConfig = {
       key: process.env.SAUCE_ACCESS_KEY || config.services.saucelabs.key,
       desiredCapabilities: {}
     },
+    ElementExist: { require: './helpers/elementExist.js' },
     IdamHelper: { require: './helpers/idamHelper.js' },
     JSWait: { require: './helpers/JSWait.js' },
     SauceLabsReportingHelper: { require: './helpers/SauceLabsReportingHelper.js' }

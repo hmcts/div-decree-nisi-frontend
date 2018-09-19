@@ -21,6 +21,4 @@ Start database:
 
 Start application:
 
-
-
 `yarn dev`
