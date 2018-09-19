@@ -1,6 +1,5 @@
-const { Question } = require('@hmcts/one-per-page/steps');
+const { Question, goTo, branch } = require('@hmcts/one-per-page');
 const { form, text } = require('@hmcts/one-per-page/forms');
-const { goTo } = require('@hmcts/one-per-page/flow');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
@@ -37,11 +36,14 @@ class ApplyForDecreeNisi extends Question {
   }
 
   next() {
-    if (this.fields.applyForDecreeNisi.value === 'no') {
-      return goTo(this.journey.steps.ApplicationSavedExit);
-    }
+    const declinesToApplyForDN = () => {
+      return this.fields.applyForDecreeNisi.value === 'no';
+    };
 
-    return goTo(this.journey.steps.MiniPetition);
+    return branch(
+      goTo(this.journey.steps.ApplicationSavedExit).if(declinesToApplyForDN),
+      goTo(this.journey.steps.MiniPetition)
+    );
   }
 
 
