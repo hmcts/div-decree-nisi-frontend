@@ -8,7 +8,7 @@ additional_host_name = "www.divorce-decree-nisi.service.gov.uk"
 http_proxy = ""
 
 idam_authentication_web_url = "https://hmcts-access.service.gov.uk"
-idam_api_url = "https://prod-idamapi.reform.hmcts.net:3511"
+idam_api_url = "https://idam-api.platform.hmcts.net:3511"
 google_analytics_tracking_id = "TBD"
 
 capacity = "2"
