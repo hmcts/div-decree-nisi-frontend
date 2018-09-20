@@ -281,11 +281,10 @@ describe(modulePath, () => {
   describe('#validatePostRequest', () => {
     it('should return error if files are more than 10', done => {
       const req = { session: {} };
-      req.session[nameSpace] = { files: [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ] };
+      req.session[nameSpace] = { files: [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ] };
 
       expect(evidenceManagmentMiddleware.validatePostRequest(req, nameSpace))
-        .to
-        .be
+        .to.be
         .rejectedWith(evidenceManagmentMiddleware.errors.maximumFilesExceeded)
         .and.notify(done);
     });
