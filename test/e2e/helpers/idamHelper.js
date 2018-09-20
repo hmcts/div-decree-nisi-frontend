@@ -9,9 +9,6 @@ const args = idamConfigHelper.getArgs();
 
 class IdamHelper extends Helper {
   _before() {
-    request.get('https://idam.preprod.ccidam.reform.hmcts.net');
-    request.get('http://proxyout.reform.hmcts.net:8080');
-
     const randomString = randomstring.generate({
       length: 16,
       charset: 'numeric'
