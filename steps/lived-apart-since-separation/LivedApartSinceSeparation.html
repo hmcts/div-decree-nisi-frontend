@@ -17,16 +17,16 @@
 <br>
 
 {% call formSection() %}
-{{ selectionButtons(fields.changes.livedApartSinceSeparation, content.fields.changes.livedApartSinceSeparation.title,
-options = [
-{ label: content.fields.changes.livedApartSinceSeparation.yes, value: "yes" },
-{ label: content.fields.changes.livedApartSinceSeparation.no, value: "no", target: "no-container" }
-],
-hint=false,
-hideQuestion=true,
-inline=true,
-type='radio'
-) }}
+  {{ selectionButtons(fields.changes.livedApartSinceSeparation, content.fields.changes.livedApartSinceSeparation.title,
+    options = [
+      { label: content.fields.changes.livedApartSinceSeparation.yes, value: "yes" },
+      { label: content.fields.changes.livedApartSinceSeparation.no, value: "no", target: "no-container" }
+    ],
+    hint=false,
+    hideQuestion=true,
+    inline=true,
+    type='radio'
+  ) }}
 {% endcall %}
 
 
@@ -64,7 +64,8 @@ type='radio'
     <textarea class="form-control"
               id="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
               name="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
-              rows="4">{% if fields.changes.approximateDatesOfLivingTogetherField.value %}{{ fields.changes.approximateDatesOfLivingTogetherField.value }}{% endif %}</textarea>
+              rows="4">{% if fields.changes.approximateDatesOfLivingTogetherField.value %}
+      {{ fields.changes.approximateDatesOfLivingTogetherField.value }}{% endif %}</textarea>
   </div>
 </div>
 <!-- end of dropdown area -->
