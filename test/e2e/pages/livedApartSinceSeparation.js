@@ -10,7 +10,7 @@ function seeLivedApartSinceSeparationPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(LivedApartSinceSeparation.path);
-  I.checkOption(LivedApartSinceSeparationContent.en.fields.livedApartSinceSeparation.yes);
+  I.checkOption(LivedApartSinceSeparationContent.en.fields.changes.livedApartSinceSeparation.yes);
   I.navByClick(commonContent.en.continue);
 }
 
