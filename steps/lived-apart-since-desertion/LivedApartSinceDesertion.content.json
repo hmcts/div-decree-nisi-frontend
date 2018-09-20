@@ -17,7 +17,7 @@
     "fields": {
       "changes": {
         "livedApartSinceDesertion": {
-          "title": "Have you lived apart since your {{ session.divorceWho }} deserted you?",
+          "title": "Have you lived apart since desertion?",
           "yes": "Yes",
           "no": "No"
         },

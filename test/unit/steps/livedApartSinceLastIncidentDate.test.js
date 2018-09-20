@@ -1,5 +1,7 @@
 const modulePath = 'steps/lived-apart-since-last-incident-date/LivedApartSinceLastIncidentDate.step'; // eslint-disable-line
 
+const LivedApartSinceLastIncidentDateContent = require('steps/lived-apart-since-last-incident-date/LivedApartSinceLastIncidentDate.content'); // eslint-disable-line
+
 const LivedApartSinceLastIncidentDate = require(modulePath);
 
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
@@ -47,5 +49,35 @@ describe(modulePath, () => {
       'changes-livedApartSinceLastIncidentDate': 'yes'
     };
     return question.redirectWithField(LivedApartSinceLastIncidentDate, fields, ClaimCosts);
+  });
+
+  it('returns correct answers if answered yes', () => {
+    const expectedContent = [
+      // eslint-disable-next-line max-len
+      LivedApartSinceLastIncidentDateContent.en.fields.changes.livedApartSinceLastIncidentDate.title,
+      LivedApartSinceLastIncidentDateContent.en.fields.changes.livedApartSinceLastIncidentDate.yes
+    ];
+
+    const stepData = {
+      changes: {
+        livedApartSinceLastIncidentDate: 'yes'
+      }
+    };
+    return question.answers(LivedApartSinceLastIncidentDate, stepData, expectedContent, {});
+  });
+
+  it('returns correct answers if answered no', () => {
+    const expectedContent = [
+      // eslint-disable-next-line max-len
+      LivedApartSinceLastIncidentDateContent.en.fields.changes.livedApartSinceLastIncidentDate.title,
+      LivedApartSinceLastIncidentDateContent.en.fields.changes.livedApartSinceLastIncidentDate.no
+    ];
+
+    const stepData = {
+      changes: {
+        livedApartSinceLastIncidentDate: 'no'
+      }
+    };
+    return question.answers(LivedApartSinceLastIncidentDate, stepData, expectedContent, {});
   });
 });
