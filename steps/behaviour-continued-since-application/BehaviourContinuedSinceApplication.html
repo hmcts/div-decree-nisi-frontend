@@ -1,0 +1,36 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons,errorClass, errorsFor %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+  <p class="text">{{ content.stillBehaviourContinues }}</p>
+
+  <br>
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.changes.behaviourContinuedSinceApplication, content.fields.changes.behaviourContinuedSinceApplication.title,
+      options = [
+        { label: content.fields.changes.behaviourContinuedSinceApplication.yes, value: "yes" },
+        { label: content.fields.changes.behaviourContinuedSinceApplication.no, value: "no", target: "no-container" }
+      ],
+      hint=false,
+      hideQuestion=true,
+      inline=true,
+      type='radio'
+    ) }}
+  {% endcall %}
+
+<!-- Dropdown area if answered no -->
+  <div class="js-hidden" id="no-container">
+    <h3 class="heading-medium">{{ content.detailsAboutLastIncidentDate }}</h3>
+    <p class="text">{{ content.detailsAboutLastIncidentDateDetail | safe }}</p>
+
+  </div>
+<!-- end of dropdown area -->
+
+{% endblock %}
