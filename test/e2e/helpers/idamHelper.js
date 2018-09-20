@@ -2,7 +2,6 @@ const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 const randomstring = require('randomstring');
 const idamExpressTestHarness = require('@hmcts/div-idam-test-harness');
 const idamConfigHelper = require('./idamConfigHelper');
-const request = require('request-promise-native');
 
 const Helper = codecept_helper; // eslint-disable-line
 const args = idamConfigHelper.getArgs();
@@ -22,6 +21,8 @@ class IdamHelper extends Helper {
 
     idamConfigHelper.setTestEmail(testEmail);
     idamConfigHelper.setTestPassword(testPassword);
+
+    logger.info('About to create a new user');
 
     return idamExpressTestHarness.createUser(args)
       .then(() => {
