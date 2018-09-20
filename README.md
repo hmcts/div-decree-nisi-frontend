@@ -8,6 +8,8 @@ Install dependencies:
 
 Start application:
 
+`docker-compose up`
+
 `yarn dev`
 
 The application will now be running on https://localhost:3000
