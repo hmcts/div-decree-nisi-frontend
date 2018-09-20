@@ -10,7 +10,7 @@ locals {
   status_health_endpoint = "/status/health"
   
   asp_name = "${var.env == "prod" ? "div-dn-prod" : "${var.product}-${var.env}"}"
-  asp_rg = "${var.env == "prod" ? "div-dn-prod" : "${var.product}-shared-infrastructure-${var.env}"}"
+  asp_rg = "${var.env == "prod" ? "div-dn-prod" : "${var.product}-${var.env}"}"
 }
 
 module "redis-cache" {
