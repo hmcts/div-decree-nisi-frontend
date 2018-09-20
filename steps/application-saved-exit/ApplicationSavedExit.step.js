@@ -3,20 +3,20 @@ const config = require('config');
 const preserveSession = require('middleware/preserveSession');
 
 class ApplicationSavedExit extends ExitPoint {
-    static get path() {
-        return config.paths.applicationSavedExit;
-    }
+  static get path() {
+    return config.paths.applicationSavedExit;
+  }
 
-    get session() {
-        return this.req.sess;
-    }
+  get session() {
+    return this.req.sess;
+  }
 
-    get middleware() {
-        return [
-            preserveSession,
-            ...super.middleware
-        ];
-    }
+  get middleware() {
+    return [
+      preserveSession,
+      ...super.middleware
+    ];
+  }
 }
 
 module.exports = ApplicationSavedExit;
