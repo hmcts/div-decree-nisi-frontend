@@ -2,12 +2,16 @@ const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 const randomstring = require('randomstring');
 const idamExpressTestHarness = require('@hmcts/div-idam-test-harness');
 const idamConfigHelper = require('./idamConfigHelper');
+const request = require('request-promise-native');
 
 const Helper = codecept_helper; // eslint-disable-line
 const args = idamConfigHelper.getArgs();
 
 class IdamHelper extends Helper {
   _before() {
+    request.get('https://idam.preprod.ccidam.reform.hmcts.net');
+    request.get('http://proxyout.reform.hmcts.net:8080');
+
     const randomString = randomstring.generate({
       length: 16,
       charset: 'numeric'
