@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "Have you lived apart since separating from your {{ session.divorceWho }}?",
-    "mustHaveLivedApart": "You must have lived apart from your {{ session.divorceWho }} for at least 2 years since {{ session.originalPetition.marriageDate }}. Any time that you've lived together as a couple doesn't count towards your separation period.",
+    "mustHaveLivedApart": "You must have lived apart from your {{ session.divorceWho }} for at least 2 years since {{ session.originalPetition.marriageDate | date }}. Any time that you've lived together as a couple doesn't count towards your separation period.",
     "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
     "errors": {
       "required": "Select yes if you lived apart since separating from your {{ session.divorceWho }}?"
