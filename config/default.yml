@@ -60,6 +60,7 @@ paths:
   undefended: /undefended
   reviewAosResponse: /review-aos-response
   applyForDecreeNisi: /continue-with-divorce
+  applicationSavedExit: /exit/application-saved-exit
   miniPetition: /review-your-petition
   livedApartSinceSeparation: /lived-apart-since-separation
   livedApartSinceDesertion: /lived-apart-since-desertion
