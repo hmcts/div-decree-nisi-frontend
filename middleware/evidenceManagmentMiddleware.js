@@ -36,7 +36,7 @@ const removeFile = (req, res, nameSpace) => {
 
 const validatePostRequest = (req, nameSpace) => {
   const maximumNumberOfFiles = 10;
-  const maximumOf10Files = req.session && req.session[nameSpace] && req.session[nameSpace].files && req.session[nameSpace].files.length >= maximumNumberOfFiles;
+  const maximumOf10Files = req.session && req.session[nameSpace] && req.session[nameSpace].files && req.session[nameSpace].files.length > maximumNumberOfFiles;
 
   return new Promise((resolve, reject) => {
     if (maximumOf10Files) {
