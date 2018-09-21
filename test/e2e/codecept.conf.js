@@ -4,12 +4,15 @@ const waitForTimeout = config.tests.e2e.waitForTimeout;
 const waitForAction = config.tests.e2e.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
-// if (config.environment !== 'development') {
-//   const proxyServer = config.tests.e2e.idam.idamTestApiProxy;
-//   const proxyByPass = config.tests.e2e.idam.idamTestProxyByPass;
-//   chromeArgs.push(`--proxy-server=${proxyServer || ''}`);
-//   chromeArgs.push(`--proxy-bypass-list=${proxyByPass || ''}`);
-// }
+if (config.environment !== 'development') {
+  const proxyServer = config.tests.e2e.idam.idamTestApiProxy;
+  const proxyByPass = config.tests.e2e.idam.idamTestProxyByPass;
+  chromeArgs.push(`--proxy-server=${proxyServer || ''}`);
+  chromeArgs.push(`--proxy-bypass-list=${proxyByPass || ''}`);
+}
+
+console.log('chromeArgs are:'); // eslint-disable-line no-console
+console.log(chromeArgs); // eslint-disable-line no-console
 
 exports.config = {
   tests: './paths/**/*.js',

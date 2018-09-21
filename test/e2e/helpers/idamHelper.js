@@ -12,8 +12,9 @@ class IdamHelper extends Helper {
   _before() {
     request.get('https://idam.preprod.ccidam.reform.hmcts.net').then(response => {
       console.log(response); // eslint-disable-line no-console
+    }).catch(error => {
+      console.log(error); // eslint-disable-line no-console
     });
-
     logger.info('BEFORE BLOCK IS RUN');
     console.log('Before block is run'); // eslint-disable-line no-console
 
