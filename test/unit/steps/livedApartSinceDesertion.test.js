@@ -1,5 +1,8 @@
 const modulePath = 'steps/lived-apart-since-desertion/LivedApartSinceDesertion.step';
 
+const LivedApartSinceDesertionContent = require('steps/lived-apart-since-desertion/LivedApartSinceDesertion.content');  // eslint-disable-line
+
+
 const LivedApartSinceDesertion = require(modulePath);
 
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
@@ -47,5 +50,37 @@ describe(modulePath, () => {
       'changes-livedApartSinceDesertion': 'yes'
     };
     return question.redirectWithField(LivedApartSinceDesertion, fields, ClaimCosts);
+  });
+
+  it('returns correct answers if answered yes', () => {
+    const expectedContent = [
+      // eslint-disable-next-line max-len
+      LivedApartSinceDesertionContent.en.fields.changes.livedApartSinceDesertion.title,
+      LivedApartSinceDesertionContent.en.fields.changes.livedApartSinceDesertion.yes
+    ];
+
+    const stepData = {
+      changes: {
+        livedApartSinceDesertion: 'yes'
+      }
+    };
+
+    return question.answers(LivedApartSinceDesertion, stepData, expectedContent, {});
+  });
+
+  it('returns correct answers if answered no', () => {
+    const expectedContent = [
+      // eslint-disable-next-line max-len
+      LivedApartSinceDesertionContent.en.fields.changes.livedApartSinceDesertion.title,
+      LivedApartSinceDesertionContent.en.fields.changes.livedApartSinceDesertion.no
+    ];
+
+    const stepData = {
+      changes: {
+        livedApartSinceDesertion: 'no'
+      }
+    };
+
+    return question.answers(LivedApartSinceDesertion, stepData, expectedContent, {});
   });
 });
