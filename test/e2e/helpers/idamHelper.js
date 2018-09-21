@@ -8,6 +8,9 @@ const args = idamConfigHelper.getArgs();
 
 class IdamHelper extends Helper {
   _before() {
+    logger.info('BEFORE BLOCK IS RUN');
+    console.log('Before block is run'); // eslint-disable-line no-console
+
     const randomString = randomstring.generate({
       length: 16,
       charset: 'numeric'
@@ -23,13 +26,17 @@ class IdamHelper extends Helper {
     idamConfigHelper.setTestPassword(testPassword);
 
     logger.info('About to create a new user');
+    console.log('About to create new user'); // eslint-disable-line no-console
 
     return idamExpressTestHarness.createUser(args)
       .then(() => {
         logger.info(`Created IDAM test user: ${testEmail}`);
+        console.log('Created'); // eslint-disable-line no-console
       })
       .catch(error => {
         logger.error(`Unable to create IDAM test user: ${error}`);
+        console.log('Failed create'); // eslint-disable-line no-console
+        console.log(error); // eslint-disable-line no-console
       });
   }
 
