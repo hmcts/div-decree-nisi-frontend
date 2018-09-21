@@ -13,7 +13,7 @@
   <br>
 
   {% call formSection() %}
-    {{ selectionButtons(fields.changes.behaviourContinuedSinceApplication, content.fields.changes.behaviourContinuedSinceApplication.title,
+    {{ selectionButtons( fields.behaviourContinuedSinceApplication, content.fields.changes.behaviourContinuedSinceApplication.title,
       options = [
         { label: content.fields.changes.behaviourContinuedSinceApplication.yes, value: "yes" },
         { label: content.fields.changes.behaviourContinuedSinceApplication.no, value: "no", target: "no-container" }
