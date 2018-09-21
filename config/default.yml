@@ -68,6 +68,7 @@ paths:
   upload: /upload-docs
   shareCoreDocuments: /share-court-documents
   checkYourAnswers: /check-your-answers
+  exitIntolerable: /exit/intolerable
   done: /done
   entry: /entry
   mock:
