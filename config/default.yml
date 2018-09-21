@@ -64,6 +64,7 @@ paths:
   miniPetition: /review-your-petition
   livedApartSinceSeparation: /lived-apart-since-separation
   livedApartSinceDesertion: /lived-apart-since-desertion
+  livedApartSinceAdultery: /lived-apart-since-adultery
   claimCosts: /claim-costs
   upload: /upload-docs
   shareCoreDocuments: /share-court-documents
