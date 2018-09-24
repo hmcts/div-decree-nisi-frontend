@@ -4,6 +4,9 @@ const waitForTimeout = config.tests.e2e.waitForTimeout;
 const waitForAction = config.tests.e2e.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
+console.log('environment is:'); // eslint-disable-line no-console
+console.log(config.environment); // eslint-disable-line no-console
+
 if (config.environment !== 'development') {
   const proxyServer = config.tests.e2e.idam.idamTestApiProxy;
   const proxyByPass = config.tests.e2e.idam.idamTestProxyByPass;
