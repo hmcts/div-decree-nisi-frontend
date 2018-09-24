@@ -6,7 +6,7 @@
     "detailsAboutLastIncidentDateDetail" : "If you're not sure of the exact date, use the closest date you remember.",
     "errors": {
       "required": "Select yes if your {{ session.divorceWho }}'s behaviour still continuing?",
-      "requireLastIncidentDate": "Please enter a valid date between  between the date of your marriage and today's date."
+      "requireLastIncidentDate": "Please enter a valid date between the date of your marriage and today's date."
     },
     "fields": {
       "changes": {
@@ -14,6 +14,15 @@
           "title": "Is behaviour still continuing?",
           "yes": "Yes",
           "no": "No"
+        },
+        "lastIncidentDate": {
+          "hint": "For example, 31 3 2002",
+          "dayLabel": "Day",
+          "monthLabel": "Month",
+          "yearLabel": "Year",
+          "dayRequired": "Enter the day the last incident happened",
+          "monthRequired": "Enter the month the last incident happened",
+          "yearRequired": "Enter the year the last incident happened"
         }
       }
     }

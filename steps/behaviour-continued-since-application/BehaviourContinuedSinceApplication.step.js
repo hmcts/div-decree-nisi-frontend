@@ -1,13 +1,15 @@
 /* eslint-disable max-len */
 const { Question } = require('@hmcts/one-per-page/steps');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { branch, goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { getUserData } = require('middleware/ccd');
+const moment = require('moment');
 
-const { form, text } = require('@hmcts/one-per-page/forms');
+
+const { form, text, object, date, convert, errorFor } = require('@hmcts/one-per-page/forms');
 
 class BehaviourContinuedSinceApplication extends Question {
   static get path() {
@@ -23,10 +25,44 @@ class BehaviourContinuedSinceApplication extends Question {
       .valid(['yes', 'no'])
       .required();
 
+    const validateIncidentDate = ({ behaviourContinuedSinceApplication = '', lastIncidentDate = '' }) => {
+      // only validate if user has answered livedApartSinceDesertion
+      const hasntAnsweredQuestion = !behaviourContinuedSinceApplication.length;
+      if (hasntAnsweredQuestion) {
+        return true;
+      }
+      const hasAnsweredYes = behaviourContinuedSinceApplication === 'yes';
+      const hasAnsweredNo = behaviourContinuedSinceApplication === 'no';
+      const hasGivenDate = lastIncidentDate.isAfter(this.req.session.originalPetition.marriageDate) && !lastIncidentDate.isAfter(moment.now());
+      return hasAnsweredYes || (hasAnsweredNo && hasGivenDate);
+    };
+
     const behaviourContinuedSinceApplication = text
       .joi(this.content.errors.required, validate);
 
-    return form({ behaviourContinuedSinceApplication });
+    const fields = {
+      behaviourContinuedSinceApplication,
+      lastIncidentDate: convert(
+        d => moment(`${d.year}-${d.month}-${d.day}`, 'YYYY-MM-DD'),
+        date
+      )
+    };
+
+    const changes = object(fields)
+      .check(
+        errorFor('lastIncidentDate', this.content.errors.requireLastIncidentDate),
+        validateIncidentDate);
+
+    return form({ changes });
+  }
+
+  next() {
+    const hasAnsweredYes = this.fields.changes.behaviourContinuedSinceApplication.value === 'no';
+
+    return branch(
+      goTo(this.journey.steps.ClaimCosts).if(hasAnsweredYes),
+      goTo(this.journey.steps.LivedApartSinceLastIncdientDate)
+    );
   }
 
   answers() {
@@ -39,10 +75,6 @@ class BehaviourContinuedSinceApplication extends Question {
         .changes.behaviourContinuedSinceApplication[this.fields.changes.behaviourContinuedSinceApplication.value]
     }));
     return answers;
-  }
-
-  next() {
-    return goTo(this.journey.steps.ClaimCosts);
   }
 
   get middleware() {
