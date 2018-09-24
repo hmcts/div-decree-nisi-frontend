@@ -1,10 +1,10 @@
-const modulePath = 'steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.step';
+const modulePath = 'steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.step'; // eslint-disable-line
 
 const BehaviourContinuedSinceApplication = require(modulePath);
 const BehaviourContinuedSinceApplicationContent = require('steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.content');  // eslint-disable-line
 
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
-const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-last-incident-date/LivedApartSinceLastIncidentDate.step');
+const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-last-incident-date/LivedApartSinceLastIncidentDate.step'); // eslint-disable-line
 
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
@@ -63,7 +63,7 @@ describe(modulePath, () => {
       'changes-lastIncidentDate-day': '20',
       'changes-lastIncidentDate-month': '03',
       'changes-lastIncidentDate-year': '2017' };
-    return question.redirectWithField(BehaviourContinuedSinceApplication, fields, LivedApartSinceLastIncidentDate);
+    return question.redirectWithField(BehaviourContinuedSinceApplication, fields, LivedApartSinceLastIncidentDate); // eslint-disable-line
   });
 
 
@@ -78,7 +78,7 @@ describe(modulePath, () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
       BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.title,
-      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.yes
+      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.yes // eslint-disable-line
     ];
 
     const stepData = {
@@ -94,7 +94,7 @@ describe(modulePath, () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
       BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.title,
-      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.no
+      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.no // eslint-disable-line
     ];
 
     const stepData = {

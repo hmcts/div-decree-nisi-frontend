@@ -10,7 +10,7 @@ function seeBehaviourContinuedSinceApplicationPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(BehaviourContinuedSinceApplication.path);
-  I.checkOption(BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.yes);
+  I.checkOption(BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.yes); // eslint-disable-line
   I.navByClick(commonContent.en.continue);
 }
 

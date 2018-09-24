@@ -43,7 +43,9 @@ class BehaviourContinuedSinceApplication extends Question {
     const fields = {
       behaviourContinuedSinceApplication,
       lastIncidentDate: convert(
-        d => moment(`${d.year}-${d.month}-${d.day}`, 'YYYY-MM-DD'),
+        d => {
+          moment(`${d.year}-${d.month}-${d.day}`, 'YYYY-MM-DD');
+        },
         date
       )
     };
