@@ -32,7 +32,7 @@ describe(modulePath, () => {
 
   it('redirects to ClaimCosts if answered yes', () => {
     const fields = {
-      'changes-livedApartSinceDesertion': 'yes'
+      'changes-behaviourContinuedSinceApplication': 'yes'
     };
     return question.redirectWithField(BehaviourContinuedSinceApplication, fields, ClaimCosts);
   });
