@@ -26,7 +26,7 @@ class BehaviourContinuedSinceApplication extends Question {
       .required();
 
     const validateIncidentDate = ({ behaviourContinuedSinceApplication = '', lastIncidentDate = '' }) => {
-      // only validate if user has answered livedApartSinceDesertion
+      // only validate if user has answered behaviourContinuedSinceApplication
       const hasntAnsweredQuestion = !behaviourContinuedSinceApplication.length;
       if (hasntAnsweredQuestion) {
         return true;
