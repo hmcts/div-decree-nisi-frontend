@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "Have you lived apart since your {{ session.divorceWho }} deserted you?",
-    "mustHaveLivedApart": "You must have lived apart from your {{ session.divorceWho }} for at least 2 years since {{ session.originalPetition.marriageDate }}. Any time that you've lived together as a couple doesn't count towards this 2 year desertion period.",
+    "mustHaveLivedApart": "You must have lived apart from your {{ session.divorceWho }} for at least 2 years since {{ session.originalPetition.marriageDate | date}}. Any time that you've lived together as a couple doesn't count towards this 2 year desertion period.",
     "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
     "detailsHowLongLivedTogetherSinceDesertion" : "Provide details of how long you've lived together since your {{ session.divorceWho }} deserted you",
     "detailsHowLongLivedTogetherSinceDesertionDetail" : "The court will add up any time that you've lived together. The combined total could affect the date that you can apply using this reason for divorce.",
@@ -17,7 +17,7 @@
     "fields": {
       "changes": {
         "livedApartSinceDesertion": {
-          "title": "Have you lived apart since your {{ session.divorceWho }} deserted you?",
+          "title": "Have you lived apart since desertion?",
           "yes": "Yes",
           "no": "No"
         },
