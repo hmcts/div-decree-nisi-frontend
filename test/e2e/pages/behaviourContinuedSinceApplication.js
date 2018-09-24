@@ -1,8 +1,8 @@
 const BehaviourContinuedSinceApplication = require(
-  'steps/lived-apart-since-desertion/BehaviourContinuedSinceApplication.step'
+  'steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.step'
 );
 const BehaviourContinuedSinceApplicationContent = require(
-  'steps/lived-apart-since-desertion/BehaviourContinuedSinceApplication.content'
+  'steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.content'
 );
 const commonContent = require('common/content');
 
