@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const { Question } = require('@hmcts/one-per-page/steps');
 const { goTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
@@ -8,9 +9,9 @@ const { getUserData } = require('middleware/ccd');
 
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 
-class LivedApartSinceSeparation extends Question {
+class LivedApartSinceLastIncidentDate extends Question {
   static get path() {
-    return config.paths.livedApartSinceSeparation;
+    return config.paths.livedApartSinceLastIncidentDate;
   }
 
   get session() {
@@ -18,14 +19,14 @@ class LivedApartSinceSeparation extends Question {
   }
 
   get form() {
-    const validateDatesOfLivingTogether = ({ livedApartSinceSeparation = '', approximateDatesOfLivingTogetherField = '' }) => {
-      // only validate if user has answered livedApartSinceSeparation
-      const hasntAnsweredQuestion = !livedApartSinceSeparation.length;
+    const validateDatesOfLivingTogether = ({ livedApartSinceLastIncidentDate = '', approximateDatesOfLivingTogetherField = '' }) => {
+      // only validate if user has answered livedApartSinceLastIncidentDate
+      const hasntAnsweredQuestion = !livedApartSinceLastIncidentDate.length;
       if (hasntAnsweredQuestion) {
         return true;
       }
-      const hasAnsweredYes = livedApartSinceSeparation === 'yes';
-      const hasAnsweredNo = livedApartSinceSeparation === 'no';
+      const hasAnsweredYes = livedApartSinceLastIncidentDate === 'yes';
+      const hasAnsweredNo = livedApartSinceLastIncidentDate === 'no';
       const hasGivenDates = approximateDatesOfLivingTogetherField.length > 0;
       return hasAnsweredYes || (hasAnsweredNo && hasGivenDates);
     };
@@ -34,11 +35,10 @@ class LivedApartSinceSeparation extends Question {
       .valid(['yes', 'no'])
       .required();
 
-    const livedApartSinceSeparation = text.joi(this.content.errors.required,
-      validate);
+    const livedApartSinceLastIncidentDate = text.joi(this.content.errors.required, validate);
 
     const fields = {
-      livedApartSinceSeparation,
+      livedApartSinceLastIncidentDate,
       approximateDatesOfLivingTogetherField: text
     };
 
@@ -54,13 +54,13 @@ class LivedApartSinceSeparation extends Question {
     const answers = [];
 
     answers.push(answer(this, {
-      question: this.content.fields.changes.livedApartSinceSeparation.title,
+      question: this.content.fields.changes.livedApartSinceLastIncidentDate.title,
       answer: this.content.fields
-      // eslint-disable-next-line max-len
-        .changes.livedApartSinceSeparation[this.fields.changes.livedApartSinceSeparation.value]
+        // eslint-disable-next-line max-len
+        .changes.livedApartSinceLastIncidentDate[this.fields.changes.livedApartSinceLastIncidentDate.value]
     }));
 
-    if (this.fields.changes.livedApartSinceSeparation.value === 'no') {
+    if (this.fields.changes.livedApartSinceLastIncidentDate.value === 'no') {
       answers.push(answer(this, {
         // eslint-disable-next-line max-len
         question: this.content.fields.changes.approximateDatesOfLivingTogetherField.title,
@@ -80,4 +80,4 @@ class LivedApartSinceSeparation extends Question {
   }
 }
 
-module.exports = LivedApartSinceSeparation;
+module.exports = LivedApartSinceLastIncidentDate;
