@@ -16,6 +16,7 @@
           "no": "No"
         },
         "lastIncidentDate": {
+          "question" : "Enter the last incident date",
           "hint": "For example, 31 3 2002",
           "dayLabel": "Day",
           "monthLabel": "Month",

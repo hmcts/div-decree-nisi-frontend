@@ -57,11 +57,11 @@ class BehaviourContinuedSinceApplication extends Question {
   }
 
   next() {
-    const hasAnsweredYes = this.fields.changes.behaviourContinuedSinceApplication.value === 'no';
+    const hasAnsweredYes = this.fields.changes.behaviourContinuedSinceApplication.value === 'yes';
 
     return branch(
       goTo(this.journey.steps.ClaimCosts).if(hasAnsweredYes),
-      goTo(this.journey.steps.LivedApartSinceLastIncdientDate)
+      goTo(this.journey.steps.LivedApartSinceLastIncidentDate)
     );
   }
 
@@ -74,6 +74,14 @@ class BehaviourContinuedSinceApplication extends Question {
         // eslint-disable-next-line max-len
         .changes.behaviourContinuedSinceApplication[this.fields.changes.behaviourContinuedSinceApplication.value]
     }));
+
+    if (this.fields.changes.behaviourContinuedSinceApplication.value === 'no') {
+      answers.push(answer(this, {
+        // eslint-disable-next-line max-len
+        question: this.content.fields.changes.lastIncidentDate.question,
+        answer: this.fields.changes.lastIncidentDate.value.format('DD/MM/YYYY')
+      }));
+    }
     return answers;
   }
 
