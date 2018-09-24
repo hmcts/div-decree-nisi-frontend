@@ -6,10 +6,6 @@ String product = "div"
 String component = "dn"
 
 withPipeline("nodejs", product, component) {
-  before('build') {
-    sh 'https_proxy=http://proxyout.reform.hmcts.net:8080 curl -k https://idam.preprod.ccidam.reform.hmcts.net'
-    sh 'curl -k https://idam.preprod.ccidam.reform.hmcts.net'
-  }
   
   after('test') {
     sh 'yarn test:validation'
