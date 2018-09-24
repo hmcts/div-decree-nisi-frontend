@@ -5,6 +5,7 @@ const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
+const filter = require('views/filters/date');
 
 class LivedApartSinceAdultery extends Question {
   static get path() {
@@ -74,6 +75,9 @@ class LivedApartSinceAdultery extends Question {
     return goTo(this.journey.steps.ClaimCosts);
   }
 
+  get marriageDate() {
+    return filter.date(this.req.session.originalPetition.marriageDate);
+  }
   get middleware() {
     return [...super.middleware, idam.protect()];
   }

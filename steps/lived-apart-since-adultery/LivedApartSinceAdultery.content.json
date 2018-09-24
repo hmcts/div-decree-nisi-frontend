@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "Have you lived apart since finding out about the adultery?",
-    "livedApartSince": "You said you found out about the adultery on {{ session.originalPetition.marriageDate }}.",
+    "livedApartSince": "You said you found out about the adultery on {{ marriageDate }}.",
     "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
 
     "detailsHowLongLivedTogether": "Provide details of how long you've lived together since you found out about the adultery",
