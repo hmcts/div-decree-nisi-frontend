@@ -9,9 +9,6 @@ const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-last-in
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
-const moment = require('moment');
-
-const {  date } = require('@hmcts/one-per-page/forms');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -39,16 +36,36 @@ describe(modulePath, () => {
   it('shows error if answered no and no date entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
     const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
-      'changes-lastIncidentDate': '' };
+      'changes-lastIncidentDate-day': '' };
     return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
   });
 
-  it('shows error if answered no and invalid date entered', () => {
+  it('shows error if answered no and a date before marriage date is entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
     const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
-      'changes-lastIncidentDate': '20/08/1990' };
+      'changes-lastIncidentDate-day': '20',
+      'changes-lastIncidentDate-month': '03',
+      'changes-lastIncidentDate-year': '1900' };
     return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
   });
+
+  it('shows error if answered no and a date in future is entered', () => {
+    const onlyErrors = ['requireLastIncidentDate'];
+    const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
+      'changes-lastIncidentDate-day': '20',
+      'changes-lastIncidentDate-month': '03',
+      'changes-lastIncidentDate-year': '2200' };
+    return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
+  });
+
+  it('shows error if answered no and valid date entered', () => {
+    const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
+      'changes-lastIncidentDate-day': '20',
+      'changes-lastIncidentDate-month': '03',
+      'changes-lastIncidentDate-year': '2017' };
+    return question.redirectWithField(BehaviourContinuedSinceApplication, fields, LivedApartSinceLastIncidentDate);
+  });
+
 
   it('redirects to ClaimCosts if answered yes', () => {
     const fields = {
