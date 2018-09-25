@@ -43,7 +43,7 @@ class BehaviourContinuedSinceApplication extends Question {
     const fields = {
       behaviourContinuedSinceApplication,
       lastIncidentDate: convert(
-        d => moment(`${d.day}/${d.month}/${d.year}`, 'DD/MM/YYYY'), // eslint-disable-line
+        d => moment(`${d.year}-${d.month}-${d.day}`, 'YYYY-MM-DD'), // eslint-disable-line
         date
       )
     };
