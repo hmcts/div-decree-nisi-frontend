@@ -83,7 +83,7 @@ tests:
     outputDir: ../../functional-output
     idam:
       idamTestApiProxy: proxyout.reform.hmcts.net:8080
-      idamTestProxyByPass: '*beta*LB.reform.hmcts.net'
+      idamTestProxyByPass:
       idamTestUsername:
       idamTestPassword:
       idamTestForename:

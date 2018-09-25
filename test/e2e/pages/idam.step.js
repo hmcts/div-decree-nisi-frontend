@@ -15,11 +15,12 @@ async function loginToIdam(success = true) {
     }
     I.navByClick('Continue');
   } else {
+    I.wait(5);
     I.seeInCurrentUrl('/login?');
     I.fillField('username', idamConfigHelper.getTestEmail());
     I.fillField('password', idamConfigHelper.getTestPassword());
     I.navByClick('Sign in');
-    I.wait(2);
+    I.wait(3);
   }
 }
 

@@ -6,6 +6,7 @@ String product = "div"
 String component = "dn"
 
 withPipeline("nodejs", product, component) {
+  
   after('test') {
     sh 'yarn test:validation'
   }
