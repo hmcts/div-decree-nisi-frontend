@@ -43,7 +43,7 @@ class BehaviourContinuedSinceApplication extends Question {
     const fields = {
       behaviourContinuedSinceApplication,
       lastIncidentDate: convert(
-        d => moment(`${d.year}-${d.month}-${d.day}`, 'YYYY-MM-DD'), // eslint-disable-line
+        d => moment(`${d.day}/${d.month}/${d.year}`, 'DD/MM/YYYY'), // eslint-disable-line
         date
       )
     };
@@ -61,7 +61,7 @@ class BehaviourContinuedSinceApplication extends Question {
     const hasAnsweredNo = this.fields.changes.behaviourContinuedSinceApplication.value === 'no';
 
     if (hasAnsweredNo) {
-      this.req.session.lastIncidentDate = this.fields.changes.lastIncidentDate.value.format('DD MMMM YYYY');
+      this.req.session.lastIncidentDate = this.fields.changes.lastIncidentDate.value;
     }
     return branch(
       goTo(this.journey.steps.ClaimCosts).if(hasAnsweredYes),
