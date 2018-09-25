@@ -1,0 +1,23 @@
+{
+  "en": {
+    "title": "When did you first find out about the adultery?",
+    "whenAdulteryFound": "If you're not sure, use the closest date you remember.",
+    "errors": {
+      "requireFirstFoundDate": "Please enter a valid date between the date of your marriage and today's date."
+    },
+    "fields": {
+      "changes": {
+        "adulteryFirstFoundDate": {
+          "question" : "Enter the Adultery found date",
+          "hint": "For example, 31 3 2002",
+          "dayLabel": "Day",
+          "monthLabel": "Month",
+          "yearLabel": "Year",
+          "dayRequired": "Enter the day when Adultery first found",
+          "monthRequired": "Enter the month when Adultery first found",
+          "yearRequired": "Enter the year when Adultery first found"
+        }
+      }
+    }
+  }
+}
