@@ -33,7 +33,8 @@ class BehaviourContinuedSinceApplication extends Question {
       }
       const hasAnsweredYes = behaviourContinuedSinceApplication === 'yes';
       const hasAnsweredNo = behaviourContinuedSinceApplication === 'no';
-      const hasGivenDate = lastIncidentDate.isAfter(this.req.session.originalPetition.marriageDate) && !lastIncidentDate.isAfter(moment.now());
+      const hasGivenDate = this.fields.changes.lastIncidentDate.day.value && this.fields.changes.lastIncidentDate.month.value && this.fields.changes.lastIncidentDate.year.value
+       && lastIncidentDate.isAfter(this.req.session.originalPetition.marriageDate) && !lastIncidentDate.isAfter(moment.now()); // eslint-disable-line
       return hasAnsweredYes || (hasAnsweredNo && hasGivenDate);
     };
 
