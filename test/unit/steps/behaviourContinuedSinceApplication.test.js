@@ -58,7 +58,7 @@ describe(modulePath, () => {
     return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
   });
 
-  it('shows error if answered no and valid date entered', () => {
+  it('redirects to LivedApartSinceLastIncidentDate if answered no and valid date entered', () => {
     const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
       'changes-lastIncidentDate-day': '20',
       'changes-lastIncidentDate-month': '03',
