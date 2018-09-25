@@ -9,3 +9,7 @@ output "vaultUri" {
 output "idam_api_url" {
   value = "${var.idam_api_url}"
 }
+
+output "reform_environment" {
+  value = "${var.env}"
+}
