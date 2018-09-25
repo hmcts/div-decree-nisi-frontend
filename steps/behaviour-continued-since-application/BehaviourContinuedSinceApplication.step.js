@@ -58,7 +58,11 @@ class BehaviourContinuedSinceApplication extends Question {
 
   next() {
     const hasAnsweredYes = this.fields.changes.behaviourContinuedSinceApplication.value === 'yes';
+    const hasAnsweredNo = this.fields.changes.behaviourContinuedSinceApplication.value === 'no';
 
+    if (hasAnsweredNo) {
+      this.req.session.lastIncidentDate = this.fields.changes.lastIncidentDate.value.format('DD MMMM YYYY');
+    }
     return branch(
       goTo(this.journey.steps.ClaimCosts).if(hasAnsweredYes),
       goTo(this.journey.steps.LivedApartSinceLastIncidentDate)

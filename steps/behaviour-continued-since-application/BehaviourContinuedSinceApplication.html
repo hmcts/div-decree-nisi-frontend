@@ -31,7 +31,7 @@
     <h3 class="heading-medium">{{ content.detailsAboutLastIncidentDate }}</h3>
     <p class="text">{{ content.detailsAboutLastIncidentDateDetail | safe }}</p>
 
-    {{ date(fields.changes.lastIncidentDate, "",
+    {{ date(fields.changes.lastIncidentDate, content.fields.changes.lastIncidentDate.question,
       hideQuestion = true,
       hint = content.fields.changes.lastIncidentDate.hint,
       labels = {
