@@ -19,7 +19,7 @@ async function loginToIdam(success = true) {
     I.fillField('username', idamConfigHelper.getTestEmail());
     I.fillField('password', idamConfigHelper.getTestPassword());
     I.navByClick('Sign in');
-    I.wait(2);
+    I.wait(3);
   }
 }
 
