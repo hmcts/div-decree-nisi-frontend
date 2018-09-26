@@ -64,6 +64,7 @@ paths:
   miniPetition: /review-your-petition
   livedApartSinceSeparation: /lived-apart-since-separation
   livedApartSinceDesertion: /lived-apart-since-desertion
+  livedApartSinceAdultery: /lived-apart-since-adultery
   livedApartSinceLastIncidentDate: /lived-apart-since-last-incident-date
   intolerable: /intolerable
   claimCosts: /claim-costs
