@@ -2,7 +2,7 @@ const AdulteryFirstFoundOut = require('steps/adultery-first-found-out/AdulteryFi
 
 const commonContent = require('common/content');
 
-function seeAdulterFirstFound(day = '2', month = '3', year = '2017') {
+function seeAdulteryFirstFound(day = '2', month = '3', year = '2017') {
   const I = this;
 
   I.seeCurrentUrlEquals(AdulteryFirstFoundOut.path);
@@ -12,4 +12,4 @@ function seeAdulterFirstFound(day = '2', month = '3', year = '2017') {
   I.navByClick(commonContent.en.continue);
 }
 
-module.exports = { seeAdulterFirstFound };
+module.exports = { seeAdulteryFirstFound };
