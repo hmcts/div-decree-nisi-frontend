@@ -47,7 +47,7 @@ class AdulteryFirstFoundOut extends Question {
 
   next() {
     this.req.session.adulteryFirstFoundDate = this.fields.changes.adulteryFirstFoundDate.value;
-    return goTo(this.journey.steps.LivedApartSinceLastIncidentDate);
+    return goTo(this.journey.steps.LivedApartSinceAdultery);
   }
 
   answers() {

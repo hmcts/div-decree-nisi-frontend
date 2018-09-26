@@ -4,7 +4,7 @@ const AdulteryFirstFoundOut = require(modulePath);
 
 const AdulteryFirstFoundOutContent = require('steps/adultery-first-found-out/AdulteryFirstFoundOut.content');  // eslint-disable-line
 
-const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-last-incident-date/LivedApartSinceLastIncidentDate.step'); // eslint-disable-line
+const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-adultery/LivedApartSinceAdultery.step'); // eslint-disable-line
 
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
