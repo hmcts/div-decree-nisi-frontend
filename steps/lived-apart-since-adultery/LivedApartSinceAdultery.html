@@ -1,0 +1,53 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorClass, errorsFor %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+  <p class="text">{{ content.livedApartSince | safe }}</p>
+
+  <div class="panel panel-border-wide">
+    <p class="text">{{ content.livingApart }}</p>
+  </div>
+
+  <br>
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.livedApart.livedApartSinceAdultery, content.fields.livedApart.livedApartSinceAdultery.title,
+      options = [
+        { label: content.fields.livedApart.livedApartSinceAdultery.yes, value: "yes" },
+        { label: content.fields.livedApart.livedApartSinceAdultery.no, value: "no", target: "no-container" }
+      ],
+      hint=false,
+      hideQuestion=true,
+      inline=true,
+      type='radio'
+    ) }}
+  {% endcall %}
+
+  <div class="js-hidden" id="no-container">
+
+    <h2 class="heading-medium">{{ content.detailsHowLongLivedTogether }}</h2>
+
+    <p class="text">{{ content.actOfAdultery }}</p>
+    <p class="text">{{ content.togetherAndOff }}</p>
+    <p class="text">{{ content.notSure }}</p>
+
+    <div class="form-group {{ errorClass(fields.livedApart.datesLivedTogether) }}">
+      <label class="form-label-bold"
+             for="{{ fields.livedApart.datesLivedTogether.id }}">
+        {{ content.fields.livedApart.datesLivedTogether.title }}
+      </label>
+      {{ errorsFor(fields.livedApart.datesLivedTogether) }}
+      <textarea class="form-control"
+         id="{{ fields.livedApart.datesLivedTogether.id }}"
+         name="{{ fields.livedApart.datesLivedTogether.id }}"
+         rows="4">{% if fields.livedApart.datesLivedTogether.value %}{{ fields.livedApart.datesLivedTogether.value }}{% endif %}</textarea>
+    </div>
+  </div>
+
+{% endblock %}
