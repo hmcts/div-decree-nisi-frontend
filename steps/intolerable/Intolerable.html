@@ -1,0 +1,29 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorClass, errorsFor %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+  <p class="text">{{ content.mustBeIntolerable | safe }}</p>
+
+  <br>
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.intolerable, content.fields.changes.intolerable.title,
+      options = [
+        { label: content.fields.changes.intolerable.yes, value: "yes" },
+        { label: content.fields.changes.intolerable.no, value: "no" }
+      ],
+      hint=false,
+      hideQuestion=true,
+      inline=true,
+      type='radio'
+    ) }}
+  {% endcall %}
+
+
+{% endblock %}
