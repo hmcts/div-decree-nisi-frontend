@@ -40,7 +40,7 @@ describe(modulePath, () => {
     return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
   });
 
-  it('shows error if answered no and a date before marriage date is entered', () => {
+  it('shows error if answered no and a date before last application submitted date is entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
     const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
       'changes-lastIncidentDate-day': '20',
@@ -61,8 +61,8 @@ describe(modulePath, () => {
   it('redirects to LivedApartSinceLastIncidentDate if answered no and valid date entered', () => {
     const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
       'changes-lastIncidentDate-day': '20',
-      'changes-lastIncidentDate-month': '03',
-      'changes-lastIncidentDate-year': '2017' };
+      'changes-lastIncidentDate-month': '09',
+      'changes-lastIncidentDate-year': '2018' };
     return question.redirectWithField(BehaviourContinuedSinceApplication, fields, LivedApartSinceLastIncidentDate); // eslint-disable-line
   });
 
