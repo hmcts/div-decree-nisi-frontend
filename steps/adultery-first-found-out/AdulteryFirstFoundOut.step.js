@@ -21,8 +21,9 @@ class AdulteryFirstFoundOut extends Question {
 
   get form() {
     const validateFirstFoundDate = ({ adulteryFirstFoundDate = '' }) => {
-      const marriageDate = moment(this.req.session.originalPetition.marriageDate).format('DD/MM/YYYY');
-      const hasGivenDate = adulteryFirstFoundDate.isBetween(marriageDate, moment.now(), null, []);
+      const marriageDate = moment(this.req.session.originalPetition.marriageDate).format('YYYY-MM-DD');
+      const createdDate = moment(this.req.session.originalPetition.createdDate).format('YYYY-MM-DD');
+      const hasGivenDate = adulteryFirstFoundDate.isBetween(marriageDate, createdDate, null, []);
       return hasGivenDate;
     };
 
