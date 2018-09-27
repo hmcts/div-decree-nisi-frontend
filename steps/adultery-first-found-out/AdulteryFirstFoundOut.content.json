@@ -3,7 +3,7 @@
     "title": "When did you first find out about the adultery?",
     "whenAdulteryFound": "If you're not sure, use the closest date you remember.",
     "errors": {
-      "requireFirstFoundDate": "Please enter a valid date between the date of your marriage and today's date."
+      "requireFirstFoundDate": "Enter a date between the day you got married to the day you submitted your divorce application."
     },
     "fields": {
       "changes": {
@@ -13,7 +13,7 @@
           "dayLabel": "Day",
           "monthLabel": "Month",
           "yearLabel": "Year",
-          "allRequired": "Please enter a valid date between the date of your marriage and today's date.",
+          "allRequired": "Enter a date between the day you got married to the day you submitted your divorce application.",
           "dayRequired": "Enter the day when Adultery first found",
           "monthRequired": "Enter the month when Adultery first found",
           "yearRequired": "Enter the year when Adultery first found"
