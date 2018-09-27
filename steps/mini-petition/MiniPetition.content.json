@@ -6,10 +6,10 @@
     "applicant": "Applicant",
     "respondent": "Respondent",
     "whatThisMeans": "What this means",
-    "whatThisMeansApplicantRespondent": "The applicant is the person who has applied for a divorce (legally known as the petitioner). {{ session.respondentName }} is their husband or wife.",
+    "whatThisMeansApplicantRespondent": "The applicant is the person who has applied for a divorce (legally known as the petitioner). The respondent is their husband or wife.",
     "aboutTheMarriage": "About the marriage",
     "whoMarriageIsBetween": "Who the marriage is between",
-    "marriageIsBetween": "{{ session.petitionerName }} and {{ session.respondentName }} (as shown on the marriage certificate)",
+    "marriageIsBetween": "{{ session.petitionerName }} and {{ session.respondentName }}",
     "whereMarriageTookPlace": "Where the marriage took place",
     "dateOfMarriage": "Date of marriage",
     "whatThisMeansDetailsCoppied": "These details are copied exactly from the marriage certificate, or a translation of the certificate if it's not in English. The names on the certificate are the names that the applicant and respondent used before the marriage.",
@@ -40,7 +40,7 @@
     "reasonForDivorceDesertionStatment": "This is supported by the following statement from {{ session.petitionerName }}.",
 
     "notClaimingForDivorce": "{{ session.petitionerName }} is not claiming the costs of the divorce.",
-    "claimingCostsFromRespondentCoRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from {{ session.respondentName }} and the co-respondent",
+    "claimingCostsFromRespondentCoRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from {{ session.respondentName }}",
     "claimingCostsFromCoRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from the co-respondent.",
     "claimingCostsFromRespondent": "{{ session.petitionerName }} is also applying to the court to claim the costs of the divorce from {{ session.respondentName }}.",
 
@@ -124,13 +124,32 @@
     "whatThisMeansFinantialOrdersChildMaintenance": "Orders for child maintenance",
     "whatThisMeansFinantialOrdersCertainCircumstances": "The court can only make financial orders for children under certain circumstances. You'll usually either need to come to an agreement with your husband/wife (which you can then make legally binding with a consent order) or use the Child Maintenance Service.",
 
+    "changeOrAddWarning": "Your application will be sent to your {{ session.divorceWho }} again if court staff think that it's changed enough that they should see it. You will also have to pay another £95 fee if it needs to be sent again.",
+
     "errors": {
-      "required": "Please answer the statment of truth"
+      "requireStatmentOfTruth": "Answer the statment of truth",
+      "requireChanges": "Answer if there any changes to your application",
+      "requireChangeDetails": "Enter details of what you need to change or add"
     },
 
     "fields": {
-      "statementOfTruth": {
-        "yes": "I confirm that my original application is still true."
+      "changes": {
+        "hasBeenChanges": {
+          "title": "Do you need to change your application or add anything?",
+          "yes": "Yes",
+          "no": "No"
+        },
+        "statementOfTruthNoChanges": {
+          "title": "Changes you've made to your application",
+          "yes": "I have not changed any of the details in my application."
+        },
+        "changesDetails": {
+          "title": "Provide details of what you need to change or add"
+        },
+        "statementOfTruthChanges": {
+          "title": "Subject to these changes or additions everything stated in my divorce application is true.",
+          "yes": "Other than the changes I have stated, I have not changed any of the details in my application."
+        }
       }
     }
   }

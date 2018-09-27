@@ -1,3 +1,5 @@
+/* eslint-disable no-process-env */
+
 const config = require('config');
 
 const waitForTimeout = config.tests.e2e.waitForTimeout;
@@ -28,6 +30,7 @@ exports.config = {
         args: chromeArgs
       }
     },
+    ElementExist: { require: './helpers/elementExist.js' },
     IdamHelper: { require: './helpers/idamHelper.js' },
     JSWait: { require: './helpers/JSWait.js' },
     UrlHelper: { require: './helpers/urlHelper.js' }
@@ -35,23 +38,16 @@ exports.config = {
   include: { I: './pages/steps.js' },
   mocha: {
     reporterOptions: {
-      'codeceptjs-cli-reporter': {
-        stdout: '-',
-        options: { steps: true }
-      },
-      'mocha-junit-reporter': {
-        stdout: '-',
-        options: { mochaFile: `${config.tests.e2e.outputDir}/result.xml` }
-      },
-      mochawesome: {
-        stdout: `${config.tests.e2e.outputDir}/console.log`,
-        options: {
-          reportDir: config.tests.e2e.outputDir,
-          reportName: 'index',
-          inlineAssets: true
-        }
-      }
+      reportDir: process.env.E2E_OUTPUT_DIR || './functional-output',
+      reportName: 'DecreeNisiFrontendTests',
+      inlineAssets: true
     }
   },
-  name: 'Frontend Tests'
+  plugins: {
+    screenshotOnFail: {
+      enabled: true,
+      fullPageScreenshots: true
+    }
+  },
+  name: 'Decree Nisi Frontend Tests'
 };

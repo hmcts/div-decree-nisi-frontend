@@ -23,21 +23,27 @@ describe(modulePath, () => {
   });
 
   it('shows error if does not answer question', () => {
-    return question.testErrors(LivedApartSinceSeparation);
+    const onlyErrors = ['required'];
+    return question.testErrors(LivedApartSinceSeparation, {}, {}, { onlyErrors });
   });
 
-  it('redirects to ClaimCosts if answer is no', () => {
-    const fields = { livedApartSinceSeparation: 'no' };
+  it('shows error if answered no and no data entered', () => {
+    const onlyErrors = ['requireDatesOfLivingTogether'];
+    const fields = { 'changes-livedApartSinceSeparation': 'no',
+      'changes-approximateDatesOfLivingTogetherField': '' };
+    return question.testErrors(LivedApartSinceSeparation, {}, fields, { onlyErrors });
+  });
+
+  it('redirects to ClaimCosts if answer is no and details are provided', () => {
+    const fields = { 'changes-livedApartSinceSeparation': 'no',
+      'changes-approximateDatesOfLivingTogetherField': 'details...' };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
   });
 
-  it('redirects to ClaimCosts if answer is yes', () => {
-    const fields = { livedApartSinceSeparation: 'yes' };
+  it('redirects to ClaimCosts if answered yes', () => {
+    const fields = {
+      'changes-livedApartSinceSeparation': 'yes'
+    };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts);
-  });
-
-  it('loads fields from the session', () => {
-    const sessionData = { livedApartSinceSeparation: 'yes' };
-    return question.rendersValues(LivedApartSinceSeparation, sessionData);
   });
 });

@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use(idam.userDetails());
 
 lookAndFeel.configure(app, {
-  baseUrl: config.node.baseUrl,
+  baseUrl: '/',
   express: {
     views: [
       path.resolve(__dirname, 'mocks', 'steps'),
@@ -41,13 +41,21 @@ lookAndFeel.configure(app, {
     entry: [
       path.resolve(__dirname, 'assets/js/main.js'),
       path.resolve(__dirname, 'assets/scss/main.scss'),
-      path.resolve(__dirname, 'node_modules/reform-pattern-library/app/sass/main.scss')
+      path.resolve(__dirname, 'node_modules/reform-pattern-library/app/sass/main.scss'),
+      path.resolve(__dirname, 'node_modules/dropzone/dist/dropzone.js')
     ],
     plugins: [
       new CopyWebpackPlugin(
         [
           {
             from: path.resolve(__dirname, 'node_modules/reform-pattern-library/app/images'),
+            to: 'images'
+          }
+        ]),
+      new CopyWebpackPlugin(
+        [
+          {
+            from: path.resolve(__dirname, 'assets/images'),
             to: 'images'
           }
         ])
@@ -88,7 +96,8 @@ onePerPage.journey(app, {
       return key;
     }
   },
-  timeoutDelay: config.journey.timeoutDelay
+  timeoutDelay: config.journey.timeoutDelay,
+  i18n: { filters: getFilters() }
 });
 
 app.use(logging.Express.accessLogger());

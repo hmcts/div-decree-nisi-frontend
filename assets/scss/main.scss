@@ -2,6 +2,7 @@
 @import 'look-and-feel/check-your-answers';
 @import 'look-and-feel/add-another';
 @import 'look-and-feel/language-switch';
+@import './file-upload';
 
 .govuk-related-items {
   margin-top: 30px;
@@ -22,14 +23,52 @@
 .confirmation-container {
   background: #dee0e2;
   padding: 25px;
+
+  .form-section {
+    margin: 0;
+  }
+
   .multiple-choice [type=checkbox] + label::before {
     background: #fff;
   }
 
-  .list-bullet {
+  > .list-bullet {
     padding-left: 70px;
   }
-  .text {
+  > .text {
     margin-left: 50px;
   }
+  > details {
+    margin-left: 50px;
+  }
+}
+
+.govuk-check-your-answers {
+  .cya-question {
+    font-weight: normal;
+  }
+}
+
+.text {
+  max-width: none !important;
+}
+
+#sign-out {
+  float: right;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+}
+
+#sign-out:hover {
+  text-decoration: underline;
+}
+
+textarea.form-control {
+  width: 100%;
+}
+
+.notice p {
+    padding-left: 65px;
+    margin-left: -15px;
 }

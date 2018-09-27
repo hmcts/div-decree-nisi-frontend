@@ -1,0 +1,67 @@
+{% extends "check-your-answers.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+  {{ content.title }}
+{% endset %}
+
+{% set defaultContent = {
+  title: content.title,
+  continue: content.continue,
+  sendApplication: content.submit
+} %}
+
+{% block statement_of_truth_content %}
+  {{ header(content.confirm, size='medium') }}
+  <p class="text">{{ content.imprisonedOrContempt }}</p>
+{% endblock %}
+
+{% block statement_of_truth_fields %}
+
+  <div class="confirmation-container">
+    {% call formSection() %}
+      {{
+        selectionButtons(
+          fields.statementOfTruth,
+          content.fields.statementOfTruth.yes,
+          options = [
+            { label: content.fields.statementOfTruth.yes, value: "yes" }
+          ],
+          hint=false,
+          hideQuestion=true,
+          inline=false,
+          type='checkbox'
+        )
+      }}
+    {% endcall %}
+
+    <ul class="list-bullet">
+      {% if session.originalPetition.claimsCosts == "Yes" %}
+        {% if "respondent" in session.originalPetition.divorceClaimFrom and "correspondent" in session.originalPetition.divorceClaimFrom  %}
+          <li>{{ content.applyingForDecreeNisiClaimsCostsRespondentCoRespondent }}</li>
+        {% elseif "correspondent" in session.originalPetition.divorceClaimFrom  %}
+          <li>{{ content.applyingForDecreeNisiClaimsCostsCoRespondent }}</li>
+        {% else %}
+          <li>{{ content.applyingForDecreeNisiClaimsCostsRespondent }}</li>
+        {% endif %}
+      {% else %}
+        <li>{{ content.applyingForDecreeNisi }}</li>
+      {% endif %}
+      <li>{{ content.facts }}</li>
+    </uL>
+
+    <br>
+
+    <details>
+      <summary aria-controls="details-content-0" aria-expanded="false">
+        <span class="summary">{{ content.whatTheseStatments }}</span>
+      </summary>
+      <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+        <p class="text">{{ content.firstStatment }}</p>
+      </div>
+    </details>
+  </div>
+
+  <br>
+{%- endblock %}

@@ -5,9 +5,14 @@
 {% endblock %}
 
 {% block proposition_header %}
-  {% from "look-and-feel/components/nav.njk" import propositionalNavigation %}
+  {% include "includes/proposition_header.html" %}
 {% endblock %}
 
 {% block header_class %}
   with-proposition
 {% endblock %}
+
+{% block after_form -%}
+  <br>
+  {% include "includes/problem_with_this_page.html" %}
+{%- endblock %}

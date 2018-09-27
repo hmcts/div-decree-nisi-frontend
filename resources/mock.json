@@ -7,6 +7,8 @@
   "petitionerName": "John James Dante",
   "respondentName": "Elizabeth Jane Dante",
   "placeOfMarriage": "At the Holy Trinity Church, in the Parish of Normanton by Derby, in the County of Derby",
+  "referenceNumber": "1234567890124567",
+  "behaviourLastIncidentDate" : "20 August 2014",
   "originalPetition": {
     "screenHasMarriageBroken": "Yes",
     "screenHasRespondentAddress": "Yes",
@@ -20,7 +22,7 @@
     "marriageCanDivorce": true,
     "marriageDateIsFuture": false,
     "marriageDateMoreThan100": false,
-    "marriageDate": "02 February 2001",
+    "marriageDate": "2001-10-02T00:00:00.000Z",
     "marriageWhereMarried": "england",
     "marriageSolemnized": "Wendover",
     "marriageInThe1": "Parish",
@@ -164,8 +166,7 @@
     "divorceCostsClaim": "Yes",
     "divorceIsNamed": "Yes",
     "divorceClaimFrom": [
-      "respondent",
-      "correspondent"
+      "respondent"
     ],
     "jurisdictionIsConnected": true,
     "jurisdictionResidence": "petitioner",

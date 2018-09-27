@@ -6,7 +6,7 @@
     "readMore": "Read more about the costs order",
     "shouldPayCosts": "The court will make its decision on whether you should pay any costs if you decide to continue. It will take all your circumstances into account, including your conduct, and your husband/wife's conduct, before and during the divorce.",
     "divorceWillBeGranted": "You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made.",
-    "respondentsBehaviour": "In divorces based on the respondent's behaviour, the court will usually order the respondent to pay all of the applicant's costs, unless the applicant has asked for less.",
+    "respondents2YearSep": "In divorces based on 2 years separation, the court will usually make an order that the respondent pay half of the applicant's costs.",
     "rulesInFavour": "If the court rules in your favour, your husband will be ordered to pay you back your costs within 14 days of the order being made.",
     "disputeTheCosts": "Your husband can dispute the costs order. They'll need to tell the court why they don't think they should pay at least 14 days before the hearing.",
     "errors": {
@@ -14,10 +14,10 @@
     },
     "fields": {
       "claimCosts": {
-        "title": "What do you want to claim?",
+        "title": "Your claim for the divorce costs",
         "originalAmount": "I still want to claim the original amount I requested",
         "suggestedAmount": "I will accept the amount my husband has suggested",
-        "differentAmount": "I want to claim a different amount"
+        "dontClaimDifferentAmount": "I don't want to claim my costs anymore"
       }
     }
   }

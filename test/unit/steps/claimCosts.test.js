@@ -1,7 +1,8 @@
 const modulePath = 'steps/claim-costs/ClaimCosts.step';
 
 const ClaimCosts = require(modulePath);
-const Upload = require('steps/upload/Upload.step');
+const ClaimCostsContent = require('steps/claim-costs/ClaimCosts.content');
+const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
@@ -26,23 +27,32 @@ describe(modulePath, () => {
     return question.testErrors(ClaimCosts);
   });
 
-  it('redirects to Upload if answer is originalAmount', () => {
+  it('redirects to ShareCourtDocuments if answer is originalAmount', () => {
     const fields = { claimCosts: 'originalAmount' };
-    return question.redirectWithField(ClaimCosts, fields, Upload);
+    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments);
   });
 
-  it('redirects to Upload if answer is suggestedAmount', () => {
+  it('redirects to ShareCourtDocuments if answer is suggestedAmount', () => {
     const fields = { claimCosts: 'suggestedAmount' };
-    return question.redirectWithField(ClaimCosts, fields, Upload);
+    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments);
   });
 
-  it('redirects to Upload if answer is differentAmount', () => {
-    const fields = { claimCosts: 'differentAmount' };
-    return question.redirectWithField(ClaimCosts, fields, Upload);
+  it('redirects to ShareCourtDocuments if answer is dontClaimDifferentAmount', () => {
+    const fields = { claimCosts: 'dontClaimDifferentAmount' };
+    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments);
   });
 
   it('loads fields from the session', () => {
-    const sessionData = { claimCosts: 'differentAmount' };
+    const sessionData = { claimCosts: 'dontClaimDifferentAmount' };
     return question.rendersValues(ClaimCosts, sessionData);
+  });
+
+  it('returns correct answers', () => {
+    const expectedContent = [
+      ClaimCostsContent.en.fields.claimCosts.title,
+      ClaimCostsContent.en.fields.claimCosts.originalAmount
+    ];
+    const session = { claimCosts: 'originalAmount' };
+    return question.answers(ClaimCosts, session, expectedContent);
   });
 });

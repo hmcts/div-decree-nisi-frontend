@@ -9,6 +9,10 @@
   {% include "includes/head.html" %}
 {% endblock %}
 
+{% block proposition_header %}
+  {% include "includes/proposition_header.html" %}
+{% endblock %}
+
 {% block breadcrumbs %}
   {{ phaseBanner(phase, feedbackLink) }}
   {% block back %}
@@ -18,8 +22,12 @@
 {% endblock %}
 
 {% block two_thirds -%}
-  {{ header(title, size=titleSize) }}
+  {% block title %}
+    {{ header(title, size=titleSize) }}
+  {% endblock %}
   {% block main_content %}{% endblock %}
+  <br>
+  {% include "includes/problem_with_this_page.html" %}
 {%- endblock %}
 
 {% block one_third -%}

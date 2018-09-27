@@ -1,4 +1,4 @@
-Feature('Basic decree nisi path');
+Feature('Basic decree nisi path').retry(3);
 
 Scenario('Happy path', async I => {
   I.amOnLoadedPage('/');
@@ -10,6 +10,7 @@ Scenario('Happy path', async I => {
   I.seeMiniPetitionPage();
   I.seeLivedApartSinceSeparationPage();
   I.seeClaimCostsPage();
-  I.seeUploadPage();
-  I.seeEndPage();
+  I.seeShareCourtDocumentsPage();
+  I.seeCheckYourAnswersPage();
+  I.seeDonePage();
 });

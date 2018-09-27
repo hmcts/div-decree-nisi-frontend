@@ -1,0 +1,30 @@
+{
+  "en": {
+    "title": "Have you lived apart since your {{ session.divorceWho }} deserted you?",
+    "mustHaveLivedApart": "You must have lived apart from your {{ session.divorceWho }} for at least 2 years since {{ session.originalPetition.marriageDate | date}}. Any time that you've lived together as a couple doesn't count towards this 2 year desertion period.",
+    "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
+    "detailsHowLongLivedTogetherSinceDesertion" : "Provide details of how long you've lived together since your {{ session.divorceWho }} deserted you",
+    "detailsHowLongLivedTogetherSinceDesertionDetail" : "The court will add up any time that you've lived together. The combined total could affect the date that you can apply using this reason for divorce.",
+    "ifLessThan6Months": "Living together for less than 6 months",
+    "ifLessThan6MonthsDetail1": "If you lived with your {{ session.divorceWho }} again after they deserted you, but for less than 6 months, that period won't count towards the 2 years you'll need to have been apart. Your {{ session.divorceWho }} will need to have deserted you again for enough time so that you've spent at least 2 years apart.",
+    "ifLessThan6MonthsDetail2": "For example if your {{ session.divorceWho }}  deserted you on March 2014, you lived together from May 2014 to July 2014 (3 months), then lived apart from August 2014, the earliest you could apply for divorce based on your original desertion date would be June 2016 (2 years and 3 months from March 2014).",
+    "ifMoreThan6Months": "Living together for more than 6 months",
+    "ifMoreThan6MonthsDetail": "You can't use a given desertion date if you lived with your {{ session.divorceWho }} again for 6 months or more after that date.",
+    "errors": {
+      "required": "Select yes if you lived apart since your {{ session.divorceWho }} deserted you",
+      "requireDatesOfLivingTogether": "Enter approximate dates of when you lived together."
+    },
+    "fields": {
+      "changes": {
+        "livedApartSinceDesertion": {
+          "title": "Have you lived apart since desertion?",
+          "yes": "Yes",
+          "no": "No"
+        },
+        "approximateDatesOfLivingTogetherField": {
+          "title": "Give approximate dates or number of months you lived together"
+        }
+      }
+    }
+  }
+}

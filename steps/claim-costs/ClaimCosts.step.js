@@ -1,6 +1,7 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { goTo } = require('@hmcts/one-per-page/flow');
+const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
@@ -16,7 +17,7 @@ class ClaimCosts extends Question {
   }
 
   get form() {
-    const answers = ['originalAmount', 'suggestedAmount', 'differentAmount'];
+    const answers = ['originalAmount', 'suggestedAmount', 'dontClaimDifferentAmount'];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
@@ -27,8 +28,15 @@ class ClaimCosts extends Question {
     return form({ claimCosts });
   }
 
+  answers() {
+    return answer(this, {
+      question: this.content.fields.claimCosts.title,
+      answer: this.content.fields.claimCosts[this.fields.claimCosts.value]
+    });
+  }
+
   next() {
-    return goTo(this.journey.steps.Upload);
+    return goTo(this.journey.steps.ShareCourtDocuments);
   }
 
   get middleware() {
