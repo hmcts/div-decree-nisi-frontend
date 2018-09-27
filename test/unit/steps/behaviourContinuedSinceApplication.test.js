@@ -40,7 +40,7 @@ describe(modulePath, () => {
     return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
   });
 
-  it('shows error if answered no and a date before last application submitted date is entered', () => {
+  it('shows error if answered no and a date before last application date is entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
     const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
       'changes-lastIncidentDate-day': '20',
