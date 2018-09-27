@@ -12,10 +12,6 @@ COPY . /opt
 RUN apk update && \
     apk add --no-cache bash make g++ git python2
 
-RUN yarn install --production=false && yarn setup
-
-RUN rm -rf node_modules \
-    && yarn install \
-    && yarn cache clean
+RUN yarn install && yarn setup
 
 CMD [ "yarn", "start" ]
