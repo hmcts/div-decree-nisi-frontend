@@ -31,9 +31,7 @@ class Intolerable extends Question {
   answers() {
     return answer(this, {
       question: this.content.fields.changes.intolerable.title,
-      answer: this.content.fields
-        // eslint-disable-next-line max-len
-        .changes.intolerable[this.fields.intolerable.value]
+      answer: this.content.fields.changes.intolerable[this.fields.intolerable.value]
     });
   }
 
