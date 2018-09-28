@@ -33,10 +33,10 @@ class BehaviourContinuedSinceApplication extends Question {
       }
       const hasAnsweredYes = behaviourContinuedSinceApplication === 'yes';
       const hasAnsweredNo = behaviourContinuedSinceApplication === 'no';
-
       const lastSubmittedDate = moment(this.req.session.originalPetition.createdDate).format('YYYY-MM-DD');
+
       const hasGivenDate = this.fields.changes.lastIncidentDate.day.value && this.fields.changes.lastIncidentDate.month.value && this.fields.changes.lastIncidentDate.year.value
-       && lastIncidentDate.isBetween(lastSubmittedDate, moment.now(), null, []); // eslint-disable-line
+       && lastIncidentDate.isValid() && lastIncidentDate.isBetween(lastSubmittedDate, moment.now(), null, []); // eslint-disable-line
       return hasAnsweredYes || (hasAnsweredNo && hasGivenDate);
     };
 
