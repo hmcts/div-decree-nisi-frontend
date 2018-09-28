@@ -23,19 +23,15 @@ class AdulteryFirstFoundOut extends Question {
     const validateFirstFoundDate = ({ adulteryFirstFoundDate = '' }) => {
       const marriageDate = moment(this.req.session.originalPetition.marriageDate).format('YYYY-MM-DD');
       const createdDate = moment(this.req.session.originalPetition.createdDate).format('YYYY-MM-DD');
-      const hasGivenDate = adulteryFirstFoundDate.isBetween(marriageDate, createdDate, null, []);
+      const hasGivenDate = this.fields.changes.adulteryFirstFoundDate.day.value && this.fields.changes.adulteryFirstFoundDate.month.value && this.fields.changes.adulteryFirstFoundDate.year.value
+         && adulteryFirstFoundDate.isValid() && adulteryFirstFoundDate.isBetween(marriageDate, createdDate, null, []); // eslint-disable-line
       return hasGivenDate;
     };
 
     const fields = {
       adulteryFirstFoundDate: convert(
         d => moment(`${d.year}-${d.month}-${d.day}`, 'YYYY-MM-DD'), // eslint-disable-line
-        date.required({
-          allRequired: this.content.fields.changes.adulteryFirstFoundDate.allRequired,
-          dayRequired: this.content.fields.changes.adulteryFirstFoundDate.dayRequired,
-          monthRequired: this.content.fields.changes.adulteryFirstFoundDate.monthRequired,
-          yearRequired: this.content.fields.changes.adulteryFirstFoundDate.yearRequired
-        })
+        date
       )
     };
 
