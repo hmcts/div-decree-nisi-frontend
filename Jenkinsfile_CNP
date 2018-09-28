@@ -5,7 +5,29 @@
 String product = "div"
 String component = "dn"
 
+List<LinkedHashMap<String, Object>> secrets = [
+  secret('session-secret', 'SESSION_SECRET'),
+  secret('redis-encryption-secret', 'REDIS_ENCRYPTION_SECRET'),
+  secret('idam-secret', 'IDAM_SECRET')
+]
+
+static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
+  [ $class: 'AzureKeyVaultSecret',
+    secretType: 'Secret',
+    name: secretName,
+    version: '',
+    envVariable: envVar
+  ]
+}
+ 
+
 withPipeline("nodejs", product, component) {
+
+  enableDockerBuild()
+  enableDeployToAKS()
+  loadVaultSecrets(secrets)
+  setVaultName('div')
+
   after('test') {
     sh 'yarn test:validation'
   }

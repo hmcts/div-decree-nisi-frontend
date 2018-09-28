@@ -98,4 +98,4 @@ features:
   idam: false
 
 journey:
-  timeoutDelay: 150
+  timeoutDelay: 500
