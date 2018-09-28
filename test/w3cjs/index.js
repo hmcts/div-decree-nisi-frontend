@@ -20,6 +20,15 @@ const filteredWarnings = r => {
   return true;
 };
 
+const excludeErrors = ['Attribute “pattern” is only allowed when the input type is “email”, “password”, “search”, “tel”, “text”, or “url”.']; // eslint-disable-line
+
+const filteredErrors = r => {
+  if (excludeErrors.includes(r.message)) {
+    return false;
+  }
+  return true;
+};
+
 // ensure step has a template - if it doesnt no need to test it
 const filterSteps = step => {
   const stepInstance = new step({ journey: {} });
@@ -50,7 +59,8 @@ const w3cjsValidate = html => {
         }
 
         const errors = res.messages
-          .filter(r => r.type === 'error');
+          .filter(r => r.type === 'error')
+          .filter(filteredErrors);
         const warnings = res.messages
           .filter(r => r.type === 'info')
           .filter(filteredWarnings);
