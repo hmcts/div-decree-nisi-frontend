@@ -21,6 +21,7 @@ const filteredWarnings = r => {
 };
 
 const excludeErrors = ['Attribute “pattern” is only allowed when the input type is “email”, “password”, “search”, “tel”, “text”, or “url”.']; // eslint-disable-line
+
 const filteredErrors = r => {
   if (excludeErrors.includes(r.message)) {
     return false;

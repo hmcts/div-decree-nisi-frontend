@@ -1,0 +1,46 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, date %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+  <p class="text">{{ content.stillBehaviourContinues }}</p>
+
+  <br>
+
+  {% call formSection() %}
+    {{ selectionButtons( fields.changes.behaviourContinuedSinceApplication, content.fields.changes.behaviourContinuedSinceApplication.title,
+      options = [
+        { label: content.fields.changes.behaviourContinuedSinceApplication.yes, value: "yes" },
+        { label: content.fields.changes.behaviourContinuedSinceApplication.no, value: "no", target: "no-container" }
+      ],
+      hint=false,
+      hideQuestion=true,
+      inline=true,
+      type='radio'
+    ) }}
+    
+  {% endcall %}
+
+<!-- Dropdown area if answered no -->
+  <div class="js-hidden" id="no-container">
+    <h3 class="heading-medium">{{ content.detailsAboutLastIncidentDate }}</h3>
+    <p class="text">{{ content.detailsAboutLastIncidentDateDetail | safe }}</p>
+
+    {{ date(fields.changes.lastIncidentDate, content.fields.changes.lastIncidentDate.question,
+      hideQuestion = true,
+      hint = content.fields.changes.lastIncidentDate.hint,
+      labels = {
+        day: content.fields.changes.lastIncidentDate.dayLabel,
+        month: content.fields.changes.lastIncidentDate.monthLabel,
+        year: content.fields.changes.lastIncidentDate.yearLabel
+      }
+    ) }}
+  </div>
+<!-- end of dropdown area -->
+
+{% endblock %}
