@@ -35,14 +35,14 @@ describe(modulePath, () => {
 
   it('redirects to adulteryFirstFoundOut if answered yes', () => {
     const fields = {
-      'changes-intolerable': 'yes'
+      intolerable: 'yes'
     };
     return question.redirectWithField(Intolerable, fields, AdulteryFirstFoundOut);
   });
 
   it('redirects to exitIntolerable if answered no', () => {
     const fields = {
-      'changes-intolerable': 'no'
+      intolerable: 'no'
     };
     return question.redirectWithField(Intolerable, fields, ExitIntolerable);
   });
@@ -55,9 +55,7 @@ describe(modulePath, () => {
     ];
 
     const stepData = {
-      changes: {
-        intolerable: 'yes'
-      }
+      intolerable: 'yes'
     };
 
     return question.answers(Intolerable, stepData, expectedContent, {});
@@ -71,9 +69,7 @@ describe(modulePath, () => {
     ];
 
     const stepData = {
-      changes: {
-        intolerable: 'no'
-      }
+      intolerable: 'no'
     };
 
     return question.answers(Intolerable, stepData, expectedContent, {});

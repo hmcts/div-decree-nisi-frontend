@@ -1,0 +1,30 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, date, errorClass, errorsFor %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+  <p class="text">{{ content.whenAdulteryFound }}</p>
+
+  <br>
+
+  {% call formSection() %}
+
+    {{ date(fields.changes.adulteryFirstFoundDate, content.fields.changes.adulteryFirstFoundDate.question,
+      hideQuestion = true,
+      hint = content.fields.changes.adulteryFirstFoundDate.hint,
+      labels = {
+        day: content.fields.changes.adulteryFirstFoundDate.dayLabel,
+        month: content.fields.changes.adulteryFirstFoundDate.monthLabel,
+        year: content.fields.changes.adulteryFirstFoundDate.yearLabel
+      }
+    ) }}
+
+    {% endcall %}
+
+
+{% endblock %}
