@@ -55,6 +55,10 @@ services:
     total: RATE_LIMITER_TOTAL
     expire: RATE_LIMITER_EXPIRE
     enabled: RATE_LIMITER_ENABLED
+  orchestrationService:
+    url: ORCHESTRATION_SERVICE_URL
+    health: ORCHESTRATION_SERVICE_HEALTH_URL
+    draftEndpoint: ORCHESTRATION_SERVICE_DRAFT_ENDPOINT
 
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY
