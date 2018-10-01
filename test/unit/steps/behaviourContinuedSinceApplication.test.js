@@ -30,14 +30,24 @@ describe(modulePath, () => {
 
   it('shows error if does not answer question', () => {
     const onlyErrors = ['required'];
-    return question.testErrors(BehaviourContinuedSinceApplication, {}, {}, { onlyErrors });
+    const session = {
+      originalPetition: {
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+    return question.testErrors(BehaviourContinuedSinceApplication, session, {}, { onlyErrors });
   });
 
   it('shows error if answered no and no date entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
     const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
       'changes-lastIncidentDate-day': '' };
-    return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
+    const session = {
+      originalPetition: {
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+    return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
   });
 
   it('shows error if answered no and a date before last application date is entered', () => {
@@ -46,7 +56,12 @@ describe(modulePath, () => {
       'changes-lastIncidentDate-day': '20',
       'changes-lastIncidentDate-month': '03',
       'changes-lastIncidentDate-year': '1900' };
-    return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
+    const session = {
+      originalPetition: {
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+    return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
   });
 
   it('shows error if answered no and a date in future is entered', () => {
@@ -55,7 +70,12 @@ describe(modulePath, () => {
       'changes-lastIncidentDate-day': '20',
       'changes-lastIncidentDate-month': '03',
       'changes-lastIncidentDate-year': '2200' };
-    return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
+    const session = {
+      originalPetition: {
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+    return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
   });
 
   it('redirects to LivedApartSinceLastIncidentDate if answered no and valid date entered', () => {
@@ -63,7 +83,12 @@ describe(modulePath, () => {
       'changes-lastIncidentDate-day': '20',
       'changes-lastIncidentDate-month': '09',
       'changes-lastIncidentDate-year': '2018' };
-    return question.redirectWithField(BehaviourContinuedSinceApplication, fields, LivedApartSinceLastIncidentDate); // eslint-disable-line
+    const session = {
+      originalPetition: {
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+    return question.redirectWithField(BehaviourContinuedSinceApplication, fields, LivedApartSinceLastIncidentDate, session); // eslint-disable-line
   });
 
 
@@ -71,7 +96,17 @@ describe(modulePath, () => {
     const fields = {
       'changes-behaviourContinuedSinceApplication': 'yes'
     };
-    return question.redirectWithField(BehaviourContinuedSinceApplication, fields, ClaimCosts);
+    const session = {
+      originalPetition: {
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+    return question.redirectWithField(
+      BehaviourContinuedSinceApplication,
+      fields,
+      ClaimCosts,
+      session
+    );
   });
 
   it('returns correct answers if answered yes', () => {
@@ -87,7 +122,13 @@ describe(modulePath, () => {
       }
     };
 
-    return question.answers(BehaviourContinuedSinceApplication, stepData, expectedContent, {});
+    const session = {
+      originalPetition: {
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+
+    return question.answers(BehaviourContinuedSinceApplication, stepData, expectedContent, session);
   });
 
   it('returns correct answers if answered no', () => {
@@ -103,6 +144,12 @@ describe(modulePath, () => {
       }
     };
 
-    return question.answers(BehaviourContinuedSinceApplication, stepData, expectedContent, {});
+    const session = {
+      originalPetition: {
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+
+    return question.answers(BehaviourContinuedSinceApplication, stepData, expectedContent, session);
   });
 });

@@ -30,7 +30,13 @@ describe(modulePath, () => {
   it('shows error if no date entered', () => {
     const onlyErrors = ['requireFirstFoundDate'];
     const fields = { 'changes-adulteryFirstFoundDate-day': '' };
-    return question.testErrors(AdulteryFirstFoundOut, {}, fields, { onlyErrors });
+    const session = {
+      originalPetition: {
+        marriageDate: '2001-10-02T00:00:00.000Z',
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+    return question.testErrors(AdulteryFirstFoundOut, session, fields, { onlyErrors });
   });
 
   it('shows error if a date before marriage date is entered', () => {
@@ -40,7 +46,13 @@ describe(modulePath, () => {
       'changes-adulteryFirstFoundDate-month': '03',
       'changes-adulteryFirstFoundDate-year': '1900'
     };
-    return question.testErrors(AdulteryFirstFoundOut, {}, fields, { onlyErrors });
+    const session = {
+      originalPetition: {
+        marriageDate: '2001-10-02T00:00:00.000Z',
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+    return question.testErrors(AdulteryFirstFoundOut, session, fields, { onlyErrors });
   });
 
   it('shows error if a date in future is entered', () => {
@@ -50,7 +62,13 @@ describe(modulePath, () => {
       'changes-adulteryFirstFoundDate-month': '03',
       'changes-adulteryFirstFoundDate-year': '2200'
     };
-    return question.testErrors(AdulteryFirstFoundOut, {}, fields, { onlyErrors });
+    const session = {
+      originalPetition: {
+        marriageDate: '2001-10-02T00:00:00.000Z',
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+    return question.testErrors(AdulteryFirstFoundOut, session, fields, { onlyErrors });
   });
 
   it('Redirects to Adulter page if valid date entered', () => {
@@ -59,6 +77,12 @@ describe(modulePath, () => {
       'changes-adulteryFirstFoundDate-month': '03',
       'changes-adulteryFirstFoundDate-year': '2017'
     };
-    return question.redirectWithField(AdulteryFirstFoundOut, fields, LivedApartSinceLastIncidentDate); // eslint-disable-line
+    const session = {
+      originalPetition: {
+        marriageDate: '2001-10-02T00:00:00.000Z',
+        createdDate: '2018-08-02T00:00:00.000Z'
+      }
+    };
+    return question.redirectWithField(AdulteryFirstFoundOut, fields, LivedApartSinceLastIncidentDate, session); // eslint-disable-line
   });
 });

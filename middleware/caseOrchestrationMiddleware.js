@@ -10,7 +10,7 @@ if (['development'].includes(config.environment)) {
 const middleware = {
   getApplication: (req, res, next) => {
     service
-      .getApplication()
+      .getApplication(req)
       .then(response => {
         Object.assign(req.session, response);
       })
