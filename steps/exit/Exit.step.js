@@ -2,9 +2,9 @@ const { ExitPoint } = require('@hmcts/one-per-page');
 const config = require('config');
 const preserveSession = require('middleware/preserveSession');
 
-class ApplicationSavedExit extends ExitPoint {
+class Exit extends ExitPoint {
   static get path() {
-    return config.paths.applicationSavedExit;
+    return config.paths.exit;
   }
 
   get session() {
@@ -19,4 +19,4 @@ class ApplicationSavedExit extends ExitPoint {
   }
 }
 
-module.exports = ApplicationSavedExit;
+module.exports = Exit;
