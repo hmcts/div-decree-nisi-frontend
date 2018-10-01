@@ -52,12 +52,12 @@ describe(modulePath, () => {
         }
       };
       const specificValuesToNotExist = ['bad file'];
-      const specificValues = ['good file'];
+      const specificContent = ['good file'];
       const ignoreContent = [ 'noFiles' ];
       return content(Upload, session, {
         specificValuesToNotExist,
         ignoreContent,
-        specificValues
+        specificContent
       });
     });
   });
