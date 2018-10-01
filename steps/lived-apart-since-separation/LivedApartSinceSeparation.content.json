@@ -16,6 +16,7 @@
       "requireDatesOfLivingTogether": "Enter approximate dates of when you lived together."
     },
     "fields": {
+      "changes": {
         "livedApartSinceSeparation": {
           "title": "Have you lived apart since separating from your {{ session.divorceWho }}?",
           "yes": "Yes",
@@ -24,6 +25,7 @@
         "approximateDatesOfLivingTogetherField": {
           "title": "Give approximate dates or number of months you lived together"
         }
+      }
     }
   }
 }

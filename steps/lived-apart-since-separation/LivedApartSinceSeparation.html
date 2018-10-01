@@ -17,10 +17,10 @@
 <br>
 
 {% call formSection() %}
-  {{ selectionButtons(fields.changes.livedApartSinceSeparation, content.fields.livedApartSinceSeparation.title,
+  {{ selectionButtons(fields.changes.livedApartSinceSeparation, content.fields.changes.livedApartSinceSeparation.title,
     options = [
-      { label: content.fields.livedApartSinceSeparation.yes, value: "yes" },
-      { label: content.fields.livedApartSinceSeparation.no, value: "no", target: "no-container" }
+      { label: content.fields.changes.livedApartSinceSeparation.yes, value: "yes" },
+      { label: content.fields.changes.livedApartSinceSeparation.no, value: "no", target: "no-container" }
     ],
     hint=false,
     hideQuestion=true,
@@ -58,7 +58,7 @@
   <div class="form-group {{ errorClass(fields.changes.approximateDatesOfLivingTogetherField) }}">
     <label class="form-label-bold"
            for="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}">
-      {{ content.fields.approximateDatesOfLivingTogetherField.title }}
+      {{ content.fields.changes.approximateDatesOfLivingTogetherField.title }}
     </label>
     {{ errorsFor(fields.changes.approximateDatesOfLivingTogetherField) }}
     <textarea class="form-control"
