@@ -5,10 +5,7 @@ const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
-const { getUserData } = require('middleware/ccd');
 const moment = require('moment');
-
-
 const { form, text, object, date, convert, errorFor } = require('@hmcts/one-per-page/forms');
 
 class BehaviourContinuedSinceApplication extends Question {
@@ -93,7 +90,7 @@ class BehaviourContinuedSinceApplication extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
   }
 }
 

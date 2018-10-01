@@ -4,10 +4,7 @@ const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
-const { getUserData } = require('middleware/ccd');
 const moment = require('moment');
-
-
 const { form, object, date, convert, errorFor } = require('@hmcts/one-per-page/forms');
 
 class AdulteryFirstFoundOut extends Question {
@@ -56,7 +53,7 @@ class AdulteryFirstFoundOut extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
   }
 }
 
