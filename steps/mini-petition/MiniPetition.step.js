@@ -119,13 +119,12 @@ class MiniPetition extends Question {
 
     return branch(
       goTo(this.journey.steps.Intolerable)
-        .if(reasonForDivorce === this.content.en.reasons.adultery),
+        .if(reasonForDivorce === 'adultery'),
       goTo(this.journey.steps.BehaviourContinuedSinceApplication)
-        .if(reasonForDivorce === this.content.en.reasons.behaviour),
+        .if(reasonForDivorce === 'unreasonable-behaviour'),
       goTo(this.journey.steps.LivedApartSinceDesertion)
-        .if(reasonForDivorce === this.content.en.reasons.desertion),
+        .if(reasonForDivorce === 'desertion'),
       goTo(this.journey.steps.LivedApartSinceSeparation)
-        .if(reasonForDivorce === this.content.en.reasons.twoYearSeparation || reasonForDivorce === this.content.en.reasons.fiveYearSeparation)
     );
   }
 

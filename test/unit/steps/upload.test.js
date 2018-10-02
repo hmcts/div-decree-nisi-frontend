@@ -51,13 +51,13 @@ describe(modulePath, () => {
           ]
         }
       };
-      const specificContentToNotExist = ['bad file'];
-      const specificContent = ['good file'];
+      const specificValuesToNotExist = ['bad file'];
+      const specificValues = ['good file'];
       const ignoreContent = [ 'noFiles' ];
       return content(Upload, session, {
-        specificContentToNotExist,
+        specificValuesToNotExist,
         ignoreContent,
-        specificContent
+        specificValues
       });
     });
   });

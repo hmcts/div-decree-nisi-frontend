@@ -10,7 +10,7 @@ const BehaviourContinueStep = require(
   'steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.step'
 );
 const LivedApartSinceDesertion = require(
-  'steps/lived-apart-since-separation/LivedApartSinceDesertion.step'
+  'steps/lived-apart-since-desertion/LivedApartSinceDesertion.step'
 );
 const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
@@ -440,7 +440,7 @@ describe(modulePath, () => {
           }
         };
         return content(MiniPetition, session, {
-          specificContent: ['costsPetitionerPayedByCorrispondent']
+          specificContent: ['costsPetitionerPayedByCorrespondent']
         });
       });
 
@@ -748,8 +748,7 @@ describe(modulePath, () => {
         const specificContent = [
           'reasonForDivorceUnreasonableBehaviourBrokenDown',
           'reasonForDivorceUnreasonableBehaviourStatment',
-          'reasonForDivorceUnreasonableBehaviourDescription',
-          'reasonForDivorceBehaviourDetails'
+          'reasonForDivorceUnreasonableBehaviourDescription'
         ];
         return content(MiniPetition, session, { specificContent });
       });
