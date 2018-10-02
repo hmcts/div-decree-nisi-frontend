@@ -132,6 +132,14 @@
       "requireChangeDetails": "Enter details of what you need to change or add"
     },
 
+    "reasons": {
+      "adultery": "adultery",
+      "behaviour": "unreasonable-behaviour",
+      "desertion": "desertion",
+      "twoYearSeparation": "separation-2-years",
+      "fiveYearSeparation": "separation-5-years"
+    },
+
     "fields": {
       "changes": {
         "hasBeenChanges": {
