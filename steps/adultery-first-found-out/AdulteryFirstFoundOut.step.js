@@ -12,14 +12,14 @@ class AdulteryFirstFoundOut extends Question {
     return config.paths.adulteryFirstFoundOut;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {
     const validateFirstFoundDate = ({ adulteryFirstFoundDate = '' }) => {
-      const marriageDate = moment(this.req.session.originalPetition.marriageDate).format('YYYY-MM-DD');
-      const createdDate = moment(this.req.session.originalPetition.createdDate).format('YYYY-MM-DD');
+      const marriageDate = moment(this.case.marriageDate).format('YYYY-MM-DD');
+      const createdDate = moment(this.case.createdDate).format('YYYY-MM-DD');
       const hasGivenDate = this.fields.changes.adulteryFirstFoundDate.day.value && this.fields.changes.adulteryFirstFoundDate.month.value && this.fields.changes.adulteryFirstFoundDate.year.value
          && adulteryFirstFoundDate.isValid() && adulteryFirstFoundDate.isBetween(marriageDate, createdDate, null, []); // eslint-disable-line
       return hasGivenDate;

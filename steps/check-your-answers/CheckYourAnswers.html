@@ -37,10 +37,10 @@
     {% endcall %}
 
     <ul class="list-bullet">
-      {% if session.originalPetition.claimsCosts == "Yes" %}
-        {% if "respondent" in session.originalPetition.divorceClaimFrom and "correspondent" in session.originalPetition.divorceClaimFrom  %}
+      {% if case.claimsCosts == "Yes" %}
+        {% if "respondent" in case.divorceClaimFrom and "correspondent" in case.divorceClaimFrom  %}
           <li>{{ content.applyingForDecreeNisiClaimsCostsRespondentCoRespondent }}</li>
-        {% elseif "correspondent" in session.originalPetition.divorceClaimFrom  %}
+        {% elseif "correspondent" in case.divorceClaimFrom  %}
           <li>{{ content.applyingForDecreeNisiClaimsCostsCoRespondent }}</li>
         {% else %}
           <li>{{ content.applyingForDecreeNisiClaimsCostsRespondent }}</li>

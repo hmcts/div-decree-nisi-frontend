@@ -11,8 +11,8 @@ class ReviewAosResponse extends Question {
     return config.paths.reviewAosResponse;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   next() {

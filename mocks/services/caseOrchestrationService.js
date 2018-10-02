@@ -4,7 +4,7 @@ const submitApplicationresponse = require('mocks/stubs/submitApplicationResponse
 const methods = {
   getApplication: () => {
     return new Promise(resolve => {
-      resolve(getSessionResponse);
+      resolve({ case: getSessionResponse });
     });
   },
   submitApplication: () => {

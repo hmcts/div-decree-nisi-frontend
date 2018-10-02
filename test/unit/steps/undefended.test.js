@@ -28,6 +28,7 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(Undefended);
+    const session = { case: { data: {}, caseId: '1234' } };
+    return content(Undefended, session);
   });
 });

@@ -8,8 +8,8 @@ class CheckYourAnswers extends CYA {
     return config.paths.checkYourAnswers;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   next() {

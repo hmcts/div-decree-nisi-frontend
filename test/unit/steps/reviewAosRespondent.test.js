@@ -25,7 +25,8 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(ReviewAosResponse);
+    const session = { case: { data: {} } };
+    return content(ReviewAosResponse, session);
   });
 
   it.skip('returns correct answers', () => {
@@ -40,17 +41,25 @@ describe(modulePath, () => {
   describe('values', () => {
     it('displays petitioner and respondent names', () => {
       const session = {
-        petitionerName: 'petitioner name',
-        respondentName: 'respondent name',
-        originalPetition: { connections: {} }
+        case: {
+          data: {
+            connections: {},
+            petitionerFirstName: 'petitioner',
+            petitionerLastName: 'name',
+            respondentFirstName: 'respondent',
+            respondentLastName: 'name'
+          }
+        }
       };
       return content(
         ReviewAosResponse,
         session,
         {
           specificValues: [
-            session.petitionerName,
-            session.respondentName
+            session.case.data.petitionerFirstName,
+            session.case.data.petitionerLastName,
+            session.case.data.respondentFirstName,
+            session.case.data.respondentLastName
           ]
         }
       );

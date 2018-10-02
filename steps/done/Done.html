@@ -11,7 +11,7 @@
 
     <p class="text-reference">
       {{ content.referenceNumber }}<br>
-      <strong class="text-reference-number">{{ session.referenceNumber | hypenate | safe }}</strong>
+      <strong class="text-reference-number">{{ caseId | hypenate | safe }}</strong>
     </p>
 
   </div>
@@ -91,14 +91,14 @@
     <h3 class="heading-small">{{ content.divorceCenter }}</h3>
 
     <ul class="font-xsmall">
-      <li>{{ session.divorceCenterName }}</li>
+      <li>{{ case.court[case.courts].divorceCentre }}</li>
       <li>
         <strong class="bold-xsmall">{{ content.email }}</strong><br>
-        <a href="mailto:{{ session.divorceCenterEmail }}">{{ session.divorceCenterEmail }}</a><br>
+        <a href="mailto:{{ case.divorceCenterEmail }}">{{ case.court[case.courts].email }}</a><br>
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ session.divorceCenterPhone }} {{ content.openTimes }}<br>
+        {{ case.court[case.courts].phoneNumber }} {{ content.openTimes }}<br>
       </li>
     </ul>
 

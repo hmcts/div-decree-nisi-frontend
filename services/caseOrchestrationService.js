@@ -9,6 +9,9 @@ const methods = {
     const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
 
     return request.get({ uri, headers, json: true })
+      .then(response => {
+        return { case: response };
+      })
       .catch(error => {
         logger.error(`Trying to connect to Case orchestartion service error: ${error}`);
         throw error;

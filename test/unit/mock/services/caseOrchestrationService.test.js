@@ -10,7 +10,7 @@ describe(moduleName, () => {
     return mockCaseOrchestrationService
       .getApplication()
       .then(response => {
-        expect(response).to.eql(getSessionResponse);
+        expect(response).to.eql({ case: getSessionResponse });
       });
   });
 

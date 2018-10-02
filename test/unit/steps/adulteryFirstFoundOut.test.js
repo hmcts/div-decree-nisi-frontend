@@ -1,14 +1,10 @@
 const modulePath = 'steps/adultery-first-found-out/AdulteryFirstFoundOut.step'; // eslint-disable-line
 
 const AdulteryFirstFoundOut = require(modulePath);
-
 const AdulteryFirstFoundOutContent = require('steps/adultery-first-found-out/AdulteryFirstFoundOut.content');  // eslint-disable-line
-
 const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-adultery/LivedApartSinceAdultery.step'); // eslint-disable-line
-
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -24,16 +20,19 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(AdulteryFirstFoundOut);
+    const session = { case: { data: {} } };
+    return content(AdulteryFirstFoundOut, session);
   });
 
   it('shows error if no date entered', () => {
     const onlyErrors = ['requireFirstFoundDate'];
     const fields = { 'changes-adulteryFirstFoundDate-day': '' };
     const session = {
-      originalPetition: {
-        marriageDate: '2001-10-02T00:00:00.000Z',
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          marriageDate: '2001-10-02T00:00:00.000Z',
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
     return question.testErrors(AdulteryFirstFoundOut, session, fields, { onlyErrors });
@@ -47,9 +46,11 @@ describe(modulePath, () => {
       'changes-adulteryFirstFoundDate-year': '1900'
     };
     const session = {
-      originalPetition: {
-        marriageDate: '2001-10-02T00:00:00.000Z',
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          marriageDate: '2001-10-02T00:00:00.000Z',
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
     return question.testErrors(AdulteryFirstFoundOut, session, fields, { onlyErrors });
@@ -63,9 +64,11 @@ describe(modulePath, () => {
       'changes-adulteryFirstFoundDate-year': '2200'
     };
     const session = {
-      originalPetition: {
-        marriageDate: '2001-10-02T00:00:00.000Z',
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          marriageDate: '2001-10-02T00:00:00.000Z',
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
     return question.testErrors(AdulteryFirstFoundOut, session, fields, { onlyErrors });
@@ -78,9 +81,11 @@ describe(modulePath, () => {
       'changes-adulteryFirstFoundDate-year': '2017'
     };
     const session = {
-      originalPetition: {
-        marriageDate: '2001-10-02T00:00:00.000Z',
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          marriageDate: '2001-10-02T00:00:00.000Z',
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
     return question.redirectWithField(AdulteryFirstFoundOut, fields, LivedApartSinceLastIncidentDate, session); // eslint-disable-line

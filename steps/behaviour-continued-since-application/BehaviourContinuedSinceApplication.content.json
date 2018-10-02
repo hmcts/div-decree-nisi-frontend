@@ -1,11 +1,11 @@
 {
   "en": {
-    "title": "Is your {{ session.divorceWho }}'s behaviour still continuing?",
-    "stillBehaviourContinues": "Select Yes if your {{ session.divorceWho }}'s behaviour has continued since you submitted your application for divorce.",
+    "title": "Is your {{ case.divorceWho }}'s behaviour still continuing?",
+    "stillBehaviourContinues": "Select Yes if your {{ case.divorceWho }}'s behaviour has continued since you submitted your application for divorce.",
     "detailsAboutLastIncidentDate" : "When did the most recent example take place?",
     "detailsAboutLastIncidentDateDetail" : "If you're not sure of the exact date, use the closest date you remember.",
     "errors": {
-      "required": "Select yes if your {{ session.divorceWho }}'s behaviour still continuing?",
+      "required": "Select yes if your {{ case.divorceWho }}'s behaviour still continuing?",
       "requireLastIncidentDate": "Enter a date between the day you submitted your application and today’s date."
     },
     "fields": {

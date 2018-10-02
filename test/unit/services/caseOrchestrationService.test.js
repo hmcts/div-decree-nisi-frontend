@@ -5,8 +5,6 @@ const request = require('request-promise-native');
 const config = require('config');
 const { expect, sinon } = require('@hmcts/one-per-page-test-suite');
 
-const exampleCosResponse = { foo: 'bar' };
-
 describe(moduleName, () => {
   beforeEach(() => {
     sinon.stub(request, 'get');
@@ -17,6 +15,7 @@ describe(moduleName, () => {
   });
 
   it('gets application from cos', done => {
+    const exampleCosResponse = { foo: 'bar' }; // eslint-disable-line id-blacklist
     request.get.resolves(exampleCosResponse);
     const req = { cookies: { '__auth-token': 'token' } };
 
@@ -26,7 +25,7 @@ describe(moduleName, () => {
     caseOrchestrationService.getApplication(req)
       .then(response => {
         sinon.assert.calledWith(request.get, { uri, headers, json: true });
-        expect(response).to.eql(exampleCosResponse);
+        expect(response).to.eql({ case: exampleCosResponse });
       })
       .then(done, done);
   });

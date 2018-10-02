@@ -9,8 +9,12 @@ class Done extends ExitPoint {
     return config.paths.done;
   }
 
-  get session() {
-    return this.req.preservedSession;
+  get case() {
+    return this.req.preservedSession.case.data;
+  }
+
+  get caseId() {
+    return this.req.preservedSession.case.caseId;
   }
 
   get middleware() {

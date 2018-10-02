@@ -11,8 +11,8 @@ class ClaimCosts extends Question {
     return config.paths.claimCosts;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {

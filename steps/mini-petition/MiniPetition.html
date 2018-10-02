@@ -12,23 +12,23 @@
   <h2 class="heading-medium">{{ content.applicationForDivorce }}</h2>
 
   <p class="text">
-    {% if session.originalPetition.claimsCosts == "Yes" and session.originalPetition.financialOrderFor == "Yes" %}
-      {% if "respondent" in session.originalPetition.divorceClaimFrom and "correspondent" in session.originalPetition.divorceClaimFrom  %}
+    {% if case.claimsCosts == "Yes" and case.financialOrderFor == "Yes" %}
+      {% if "respondent" in case.divorceClaimFrom and "correspondent" in case.divorceClaimFrom  %}
         {{ content.costsPetitionerPayedByRespondentAndCorrispondent }}
-      {% elseif "correspondent" in session.originalPetition.divorceClaimFrom  %}
+      {% elseif "correspondent" in case.divorceClaimFrom  %}
         {{ content.costsPetitionerPayedByCorrespondent }}
       {% else %}
         {{ content.costsPetitionerPayedByRespondent }}
       {% endif %}
-    {% elseif session.originalPetition.claimsCosts == "Yes" %}
-      {% if "respondent" in session.originalPetition.divorceClaimFrom and "correspondent" in session.originalPetition.divorceClaimFrom %}
+    {% elseif case.claimsCosts == "Yes" %}
+      {% if "respondent" in case.divorceClaimFrom and "correspondent" in case.divorceClaimFrom %}
         {{ content.costsPetitionerDivorceCostsdByRespondentAndCorespondent }}
-      {% elseif "correspondent" in session.originalPetition.divorceClaimFrom %}
+      {% elseif "correspondent" in case.divorceClaimFrom %}
         {{ content.costsPetitionerDivorceCostsdByCorespondent }}
       {% else %}
         {{ content.costsPetitionerDivorceCostsdByRespondent }}
       {% endif %}
-    {% elseif session.originalPetition.financialOrderFor == "Yes" %}
+    {% elseif case.financialOrderFor == "Yes" %}
       {{ content.costsPetitionerDivorceCostsdByFinantialOrder }}
     {% else %}
       {{ content.costsPetitionerDivorceNoCosts }}
@@ -36,10 +36,10 @@
   </p>
 
   <h3 class="heading-small">{{ content.applicant }}</h3>
-  <p class="text">{{ session.petitionerName }}</p>
+  <p class="text">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
 
   <h3 class="heading-small">{{ content.respondent }}</h3>
-  <p class="text">{{ session.respondentName }}</p>
+  <p class="text">{{ case.respondentFirstName }} {{ case.respondentLastName }}</p>
 
   <details>
     <summary aria-controls="details-content-0" aria-expanded="false">
@@ -54,9 +54,9 @@
 
   <!-- CoRespondent -->
 
-  {% if session.originalPetition.reasonForDivorce == "adultery" and session.originalPetition.reasonForDivorceAdulteryIsNamed == "Yes" %}
+  {% if case.reasonForDivorce == "adultery" and case.reasonForDivorceAdulteryIsNamed == "Yes" %}
     <h3 class="heading-small">{{ content.coRespondent }}</h3>
-    <p class="text">{{ session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName }} {{ session.originalPetition.reasonForDivorceAdultery3rdPartyLastName }}</p>
+    <p class="text">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
   {% endif %}
 
   <!-- EOF CoRespondent -->
@@ -70,10 +70,10 @@
   <p class="text">{{ content.marriageIsBetween }}</p>
 
   <h3 class="heading-small">{{ content.whereMarriageTookPlace }}</h3>
-  <p class="text">{{ session.placeOfMarriage }}</p>
+  <p class="text">{{ case.placeOfMarriage }}</p>
 
   <h3 class="heading-small">{{ content.dateOfMarriage }}</h3>
-  <p class="text">{{ session.originalPetition.marriageDate | date }}</p>
+  <p class="text">{{ case.marriageDate | date }}</p>
 
   <details>
     <summary aria-controls="details-content-7" aria-expanded="false">
@@ -91,95 +91,95 @@
 
   <h2 class="heading-medium">{{ content.jurisdiction }}</h2>
 
-  {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+  {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
     <ul class="list-bullet">
   {% endif %}
 
-    {% if "A" in session.originalPetition.connections %}
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+    {% if "A" in case.connections %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
 
       {{ content.jurisdictionConnectionBothResident }}
 
-      {% if session.originalPetition.connections|length > 1  and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+      {% if case.connections|length > 1  and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         </li>
       {% endif %}
     {% endif %}
 
-    {% if "B" in session.originalPetition.connections %}
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+    {% if "B" in case.connections %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
 
       {{ content.jurisdictionConnectionOneResides }}
 
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         </li>
       {% endif %}
     {% endif %}
 
-    {% if "C" in session.originalPetition.connections and (not ("A" in session.originalPetition.connections)) %}
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+    {% if "C" in case.connections and (not ("A" in case.connections)) %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
 
       {{ content.jurisdictionConnectionRespondent }}
 
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         </li>
       {% endif %}
     {% endif %}
 
-    {% if "D" in session.originalPetition.connections %}
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+    {% if "D" in case.connections %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
 
       {{ content.jurisdictionConnectionPetitioner }}
 
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         </li>
       {% endif %}
     {% endif %}
 
-    {% if "E" in session.originalPetition.connections %}
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+    {% if "E" in case.connections %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
 
       {{ content.jurisdictionConnectionPetitionerSixMonths }}
 
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         </li>
       {% endif %}
     {% endif %}
 
-    {% if "F" in session.originalPetition.connections %}
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+    {% if "F" in case.connections %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
 
       {{ content.jurisdictionConnectionBothDomiciled }}
 
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         </li>
       {% endif %}
     {% endif %}
 
-    {% if "G" in session.originalPetition.connections %}
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+    {% if "G" in case.connections %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
 
       {{ content.jurisdictionConnectionOther }}
 
-      {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         </li>
       {% endif %}
     {% endif %}
 
-  {% if session.originalPetition.connections|length > 1 and session.originalPetition.connections != ["A", "C"] and session.originalPetition.connections != ["C", "A"] %}
+  {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
     </ul>
   {% endif %}
 
@@ -187,11 +187,11 @@
 
   <h3 class="heading-small">{{ content.otherCourtCases }}</h3>
 
-  {% if session.originalPetition.legalProceedings == "No" %}
+  {% if case.legalProceedings == "No" %}
     <p class="text">{{ content.onGoingCasesNo }}</p>
   {% else %}
     <p class="text">{{ content.onGoingCasesYes }}</p>
-    <p class="text">"{{ session.originalPetition.legalProceedingsDetails }}"</p>
+    <p class="text">"{{ case.legalProceedingsDetails }}"</p>
   {% endif %}
 
   <details>
@@ -236,52 +236,52 @@
 
   <h2 class="heading-medium">{{ content.reasonForDivorce }}</h2>
 
-  {% if session.originalPetition.reasonForDivorce == "adultery" %}
+  {% if case.reasonForDivorce == "adultery" %}
     <p class="text">{{ content.reasonForDivorceAdultery }}</p>
 
     <p class="text">
-      {% if session.originalPetition.reasonForDivorceAdulteryIsNamed == "Yes" %}
+      {% if case.reasonForDivorceAdulteryIsNamed == "Yes" %}
         {{ content.reasonForDivorceAdulteryCorrespondentNamed }}
       {% else %}
         {{ content.reasonForDivorceAdulteryCorrespondentNotNamed }}
       {% endif %}
     </p>
 
-    <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryDetails }}"</p>
+    <p class="text">"{{ case.reasonForDivorceAdulteryDetails }}"</p>
 
-    {% if session.originalPetition.reasonForDivorceAdulteryKnowWhere == "Yes" %}
+    {% if case.reasonForDivorceAdulteryKnowWhere == "Yes" %}
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhere }}</p>
-      <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryWhereDetails }}"</p>
+      <p class="text">"{{ case.reasonForDivorceAdulteryWhereDetails }}"</p>
     {% endif %}
 
-    {% if session.originalPetition.reasonForDivorceAdulteryKnowWhen == "Yes" %}
+    {% if case.reasonForDivorceAdulteryKnowWhen == "Yes" %}
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhen }}</p>
-      <p class="text">"{{ session.originalPetition.reasonForDivorceAdulteryWhenDetails }}"</p>
+      <p class="text">"{{ case.reasonForDivorceAdulteryWhenDetails }}"</p>
     {% endif %}
   {% endif %}
 
-  {% if session.originalPetition.reasonForDivorce == "unreasonable-behaviour" %}
+  {% if case.reasonForDivorce == "unreasonable-behaviour" %}
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatment }}</p>
     <h3 class="heading-small">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
-    <p class="text">"{{ session.originalPetition.reasonForDivorceBehaviourDetails }}"</p>
+    <p class="text">"{{ case.reasonForDivorceBehaviourDetails }}"</p>
   {% endif %}
 
-  {% if session.originalPetition.reasonForDivorce == "separation-2-years" %}
+  {% if case.reasonForDivorce == "separation-2-years" %}
     <p class="text">{{ content.reasonForDivorceSeperationTwoYearsBrokendDown }}
     <p class="text">{{ content.reasonForDivorceSeperationTwoYears }}</p>
   {% endif %}
 
-  {% if session.originalPetition.reasonForDivorce == "separation-5-years" %}
+  {% if case.reasonForDivorce == "separation-5-years" %}
     <p class="text">{{ content.reasonForDivorceSeperationFiveYearsBrokendDown }}
     <p class="text">{{ content.reasonForDivorceSeperationFiveYears }}</p>
   {% endif %}
 
-  {% if session.originalPetition.reasonForDivorce == "desertion" %}
+  {% if case.reasonForDivorce == "desertion" %}
     <p class="text">{{ content.reasonForDivorceDesertionBrokendDown }}
     <p class="text">{{ content.reasonForDivorceDesertion }}</p>
     <p class="text">{{ content.reasonForDivorceDesertionStatment }}</p>
-    <p class="text">"{{ session.originalPetition.reasonForDivorceDesertionDetails }}"</p>
+    <p class="text">"{{ case.reasonForDivorceDesertionDetails }}"</p>
   {% endif %}
 
   <details>
@@ -319,10 +319,10 @@
   <!-- Cost Orders -->
 
   <h3 class="heading-small">{{ content.costsOrders }}</h3>
-  {% if session.originalPetition.claimsCosts == "Yes" %}
-    {% if "respondent" in session.originalPetition.divorceClaimFrom and "correspondent" in session.originalPetition.divorceClaimFrom %}
+  {% if case.claimsCosts == "Yes" %}
+    {% if "respondent" in case.divorceClaimFrom and "correspondent" in case.divorceClaimFrom %}
       <p class="text">{{ content.claimingCostsFromRespondentCoRespondent }}</p>
-    {% elseif "correspondent" in session.originalPetition.divorceClaimFrom %}
+    {% elseif "correspondent" in case.divorceClaimFrom %}
       <p class="text">{{ content.claimingCostsFromCoRespondent }}</p>
     {% else %}
       <p class="text">{{ content.claimingCostsFromRespondent }}</p>
@@ -347,10 +347,10 @@
   <!-- Financial Orders -->
 
   <h3 class="heading-small">{{ content.financialOrders }}</h3>
-  {% if session.originalPetition.financialOrder == "Yes" %}
-    {% if "petitioner" in session.originalPetition.financialOrderFor and "children" in session.originalPetition.financialOrderFor %}
+  {% if case.financialOrder == "Yes" %}
+    {% if "petitioner" in case.financialOrderFor and "children" in case.financialOrderFor %}
       <p class="text">{{ content.financialOrdersPropertyMoneyPensionsChildren }}</p>
-    {% elseif "children" in session.originalPetition.financialOrderFor %}
+    {% elseif "children" in case.financialOrderFor %}
       <p class="text">{{ content.financialOrdersChildren }}</p>
     {% else %}
       <p class="text">{{ content.financialOrdersPropertyMoneyPensions }}</p>
@@ -386,15 +386,15 @@
 
   <!-- Petitioner Address -->
 
-  {% if session.originalPetition.petitionerContactDetailsConfidential == "share" %}
+  {% if case.petitionerContactDetailsConfidential == "share" %}
     <h2 class="heading-medium">{{ content.applicantsCorrespondenceAddress }}</h2>
 
-    {% if session.originalPetition.respondentSolicitorName != "" and not(session.originalPetition.petitionerHomeAddress|length) %}
+    {% if case.respondentSolicitorName != "" and not(case.petitionerHomeAddress|length) %}
       <p class="text">{{ petitionersSolicitorName }}</p>
       <p class="text">{{ petitionersSolicitorFirm }}</p>
       <p class="text">{{ petitionersSolicitorAddress }}</p>
     {% else %}
-      <p class="text">{{ session.originalPetition.petitionerHomeAddress.address | address | safe }}</p>
+      <p class="text">{{ case.petitionerHomeAddress.address | address | safe }}</p>
     {% endif %}
   {% endif %}
 
@@ -403,12 +403,12 @@
   <!-- Respondent Address -->
 
   <h2 class="heading-medium">{{ content.respondentsCorrespondenceAddress }}</h2>
-  {% if not session.originalPetition.respondentSolicitorAddress|length %}
-    <p class="text">{{ session.originalPetition.respondentSolicitorName }}</p>
-    <p class="text">{{ session.originalPetition.respondentSolicitorCompany }}</p>
-    <p class="text">{{ session.originalPetition.respondentSolicitorAddress.address | address | safe }}</p>
+  {% if not case.respondentSolicitorAddress|length %}
+    <p class="text">{{ case.respondentSolicitorName }}</p>
+    <p class="text">{{ case.respondentSolicitorCompany }}</p>
+    <p class="text">{{ case.respondentSolicitorAddress.address | address | safe }}</p>
   {% else %}
-    <p class="text">{{ session.originalPetition.respondentCorrespondenceAddress.address | address | safe }}</p>
+    <p class="text">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
   {% endif %}
 
   <!-- EOF Respondent Address -->
@@ -418,9 +418,9 @@
 
   <!-- CoRespondent Address -->
 
-  {% if session.originalPetition.reasonForDivorceAdultery3rdAddress|length %}
+  {% if case.reasonForDivorceAdultery3rdAddress|length %}
     <h2 class="heading-medium">{{ content.coRespondentsCorrespondenceAddress }}</h2>
-    <p class="text">{{ session.originalPetition.reasonForDivorceAdultery3rdAddress.address | address | safe }}</p>
+    <p class="text">{{ case.reasonForDivorceAdultery3rdAddress.address | address | safe }}</p>
   {% endif %}
 
   <!-- EOF CoRespondent Address -->

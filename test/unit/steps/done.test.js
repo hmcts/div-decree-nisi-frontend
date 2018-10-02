@@ -19,13 +19,19 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(Done, {}, { ignoreContent: ['continue'] });
+    const session = { case: { data: {} } };
+    return content(Done, session, { ignoreContent: ['continue'] });
   });
 
   describe('values', () => {
     it('displays reference number', () => {
       const referenceNumber = '1234 ‐ 5678 ‐ 9012 ‐ 4567';
-      const session = { referenceNumber: referenceNumber.replace(/ ‐ /g, '') };
+      const session = {
+        case: {
+          caseId: referenceNumber.replace(/ ‐ /g, ''),
+          data: {}
+        }
+      };
       return content(
         Done,
         session,
@@ -37,30 +43,34 @@ describe(modulePath, () => {
 
     it('displays divorce center details', () => {
       const session = {
-        divorceCenterName: 'divorce center name',
-        divorceCenterEmail: 'thisistheemail@email.com',
-        divorceCenterPhone: '0123456789'
+        case: {
+          data: {
+            divorceCenterName: 'divorce center name',
+            divorceCenterEmail: 'thisistheemail@email.com',
+            divorceCenterPhone: '0123456789'
+          }
+        }
       };
       return content(
         Done,
         session,
         {
           specificValues: [
-            session.divorceCenterName,
-            session.divorceCenterEmail,
-            session.divorceCenterPhone
+            session.case.divorceCenterName,
+            session.case.divorceCenterEmail,
+            session.case.divorceCenterPhone
           ]
         }
       );
     });
 
     it('displays petitioner email', () => {
-      const session = { originalPetition: { petitionerEmail: 'petitioner@email.com' } };
+      const session = { case: { data: { petitionerEmail: 'petitioner@email.com' } } };
       return content(
         Done,
         session,
         {
-          specificValues: [ session.originalPetition.petitionerEmail ]
+          specificValues: [ session.case.petitionerEmail ]
         }
       );
     });

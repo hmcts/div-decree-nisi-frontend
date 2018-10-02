@@ -9,8 +9,12 @@ class Undefended extends Interstitial {
     return config.paths.undefended;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
+  }
+
+  get caseId() {
+    return this.req.session.case.caseId;
   }
 
   handler(req, res) {

@@ -13,8 +13,8 @@ class BehaviourContinuedSinceApplication extends Question {
     return config.paths.behaviourContinuedSinceApplication;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {
@@ -30,7 +30,7 @@ class BehaviourContinuedSinceApplication extends Question {
       }
       const hasAnsweredYes = behaviourContinuedSinceApplication === 'yes';
       const hasAnsweredNo = behaviourContinuedSinceApplication === 'no';
-      const lastSubmittedDate = moment(this.req.session.originalPetition.createdDate).format('YYYY-MM-DD');
+      const lastSubmittedDate = moment(this.case.createdDate).format('YYYY-MM-DD');
 
       const hasGivenDate = this.fields.changes.lastIncidentDate.day.value && this.fields.changes.lastIncidentDate.month.value && this.fields.changes.lastIncidentDate.year.value
        && lastIncidentDate.isValid() && lastIncidentDate.isBetween(lastSubmittedDate, moment.now(), null, []); // eslint-disable-line

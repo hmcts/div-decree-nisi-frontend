@@ -11,8 +11,8 @@ class ApplyForDecreeNisi extends Question {
     return config.paths.applyForDecreeNisi;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {

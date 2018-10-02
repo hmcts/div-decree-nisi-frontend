@@ -2,10 +2,8 @@ const modulePath = 'steps/behaviour-continued-since-application/BehaviourContinu
 
 const BehaviourContinuedSinceApplication = require(modulePath);
 const BehaviourContinuedSinceApplicationContent = require('steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.content');  // eslint-disable-line
-
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-last-incident-date/LivedApartSinceLastIncidentDate.step'); // eslint-disable-line
-
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
@@ -24,15 +22,18 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(BehaviourContinuedSinceApplication);
+    const session = { case: { data: {} } };
+    return content(BehaviourContinuedSinceApplication, session);
   });
 
 
   it('shows error if does not answer question', () => {
     const onlyErrors = ['required'];
     const session = {
-      originalPetition: {
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
     return question.testErrors(BehaviourContinuedSinceApplication, session, {}, { onlyErrors });
@@ -43,8 +44,10 @@ describe(modulePath, () => {
     const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
       'changes-lastIncidentDate-day': '' };
     const session = {
-      originalPetition: {
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
     return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
@@ -57,8 +60,10 @@ describe(modulePath, () => {
       'changes-lastIncidentDate-month': '03',
       'changes-lastIncidentDate-year': '1900' };
     const session = {
-      originalPetition: {
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
     return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
@@ -71,8 +76,10 @@ describe(modulePath, () => {
       'changes-lastIncidentDate-month': '03',
       'changes-lastIncidentDate-year': '2200' };
     const session = {
-      originalPetition: {
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
     return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
@@ -84,8 +91,10 @@ describe(modulePath, () => {
       'changes-lastIncidentDate-month': '09',
       'changes-lastIncidentDate-year': '2018' };
     const session = {
-      originalPetition: {
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
     return question.redirectWithField(BehaviourContinuedSinceApplication, fields, LivedApartSinceLastIncidentDate, session); // eslint-disable-line
@@ -97,8 +106,10 @@ describe(modulePath, () => {
       'changes-behaviourContinuedSinceApplication': 'yes'
     };
     const session = {
-      originalPetition: {
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
     return question.redirectWithField(
@@ -123,8 +134,10 @@ describe(modulePath, () => {
     };
 
     const session = {
-      originalPetition: {
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
 
@@ -145,8 +158,10 @@ describe(modulePath, () => {
     };
 
     const session = {
-      originalPetition: {
-        createdDate: '2018-08-02T00:00:00.000Z'
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
       }
     };
 
