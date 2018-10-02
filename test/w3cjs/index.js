@@ -43,7 +43,7 @@ const userDetails = {
 
 const stepHtml = step => {
   return custom(step)
-    .withSession(Object.assign({ entryPoint: step.name }, mockSession))
+    .withSession(Object.assign({ entryPoint: step.name }, { case: mockSession }))
     .withCookie('mockIdamUserDetails', JSON.stringify(userDetails))
     .get()
     .expect(httpStatus.OK)
