@@ -33,10 +33,6 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(Exit, [ idam.protect(), idam.logout(), preserveSession ]);
   });
 
-  it('renders the content', () => {
-    return content(Exit, session);
-  });
-
   describe('values', () => {
     it('displays divorce center details', () => {
       return content(
