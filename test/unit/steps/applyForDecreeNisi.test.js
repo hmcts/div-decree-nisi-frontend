@@ -32,7 +32,7 @@ describe(modulePath, () => {
 
   it('redirects to Exit page if answer is no', () => {
     const fields = { applyForDecreeNisi: 'no' };
-    return question.redirectWithField(ApplyForDecreeNisi, fields, SaveAndClose, session);
+    return question.redirectWithField(ApplyForDecreeNisi, fields, ExitPage, session);
   });
 
   it('redirects to MiniPetition if answer is yes', () => {

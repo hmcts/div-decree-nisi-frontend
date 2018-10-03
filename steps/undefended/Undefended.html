@@ -68,14 +68,14 @@
     <h3 class="heading-small">{{ content.divorceCenter }}</h3>
 
     <ul class="font-xsmall">
-      <li>{{ case.divorceCenterName }}</li>
+      <li>{{ case.court[case.courts].divorceCentre }}</li>
       <li>
         <strong class="bold-xsmall">{{ content.email }}</strong><br>
-        <a href="mailto:{{ case.divorceCenterEmail }}">{{ case.divorceCenterEmail }}</a><br>
+        <a href="mailto:{{ case.court[case.courts].email }}">{{ case.court[case.courts].email }}</a><br>
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ case.divorceCenterPhone }} {{ content.openTimes }}<br>
+        {{ case.court[case.courts].phoneNumber }} {{ content.openTimes }}<br>
       </li>
     </ul>
 

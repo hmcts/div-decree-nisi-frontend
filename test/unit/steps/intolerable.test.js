@@ -10,6 +10,8 @@ const ExitIntolerable = require('steps/exit-intolerable/ExitIntolerable.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
+const session = { case: { data: {} } };
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -37,7 +39,7 @@ describe(modulePath, () => {
     const fields = {
       intolerable: 'yes'
     };
-    return question.redirectWithField(Intolerable, fields, AdulteryFirstFoundOut);
+    return question.redirectWithField(Intolerable, fields, AdulteryFirstFoundOut, session);
   });
 
   it('redirects to exitIntolerable if answered no', () => {

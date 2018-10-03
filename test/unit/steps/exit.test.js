@@ -5,6 +5,21 @@ const idam = require('services/idam');
 const { middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const preserveSession = require('middleware/preserveSession');
 
+const session = {
+  case: {
+    data: {
+      court: {
+        northWest: {
+          openingHours: 'Telephone Enquiries from: 8.30am to 5pm',
+          phoneNumber: '0300 303 0642',
+          email: 'family@liverpool.countycourt.gsi.gov.uk'
+        }
+      },
+      courts: 'northWest'
+    }
+  }
+};
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -18,19 +33,20 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(Exit, [ idam.protect(), idam.logout(), preserveSession ]);
   });
 
+  it('renders the content', () => {
+    return content(Exit, session);
+  });
+
   describe('values', () => {
     it('displays divorce center details', () => {
-      const session = {
-        divorceCenterEmail: 'thisistheemail@email.com',
-        divorceCenterPhone: '0123456789'
-      };
       return content(
         Exit,
         session,
         {
           specificValues: [
-            session.divorceCenterEmail,
-            session.divorceCenterPhone
+            session.case.data.court.northWest.openingHours,
+            session.case.data.court.northWest.phoneNumber,
+            session.case.data.court.northWest.email
           ]
         }
       );
