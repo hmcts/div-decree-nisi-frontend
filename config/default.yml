@@ -60,17 +60,18 @@ paths:
   behaviourContinuedSinceApplication: /behaviour-continued-since-application
   checkYourAnswers: /check-your-answers
   claimCosts: /claim-costs
+  done: /done
   entry: /entry
   exit: /exit
   exitIntolerable: /exit/intolerable
   health: /health
   index: /
+  intolerable: /intolerable
   livedApartSinceAdultery: /lived-apart-since-adultery
   livedApartSinceDesertion: /lived-apart-since-desertion
   livedApartSinceLastIncidentDate: /lived-apart-since-last-incident-date
   livedApartSinceSeparation: /lived-apart-since-separation
   miniPetition: /review-your-petition
-  done: /done
   reviewAosResponse: /review-aos-response
   shareCoreDocuments: /share-court-documents
   undefended: /undefended
