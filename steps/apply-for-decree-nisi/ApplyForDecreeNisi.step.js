@@ -41,7 +41,7 @@ class ApplyForDecreeNisi extends Question {
     };
 
     return branch(
-      goTo(this.journey.steps.ApplicationSavedExit).if(declinesToApplyForDN),
+      goTo(this.journey.steps.Exit).if(declinesToApplyForDN),
       goTo(this.journey.steps.MiniPetition)
     );
   }
