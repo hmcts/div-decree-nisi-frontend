@@ -1,5 +1,6 @@
 const { ExitPoint } = require('@hmcts/one-per-page');
 const config = require('config');
+const idam = require('services/idam');
 const preserveSession = require('middleware/preserveSession');
 
 class Exit extends ExitPoint {
@@ -13,8 +14,10 @@ class Exit extends ExitPoint {
 
   get middleware() {
     return [
+      idam.protect(),
       preserveSession,
-      ...super.middleware
+      ...super.middleware,
+      idam.logout()
     ];
   }
 }

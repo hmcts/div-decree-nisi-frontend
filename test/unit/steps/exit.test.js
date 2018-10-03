@@ -14,8 +14,8 @@ describe(modulePath, () => {
     idam.protect.restore();
   });
 
-  it('has preserveSession middleware', () => {
-    return middleware.hasMiddleware(Exit, [ preserveSession ]);
+  it('has idam.protect, idam.logout, preserveSession middleware', () => {
+    return middleware.hasMiddleware(Exit, [ idam.protect(), idam.logout(), preserveSession ]);
   });
 
   describe('values', () => {
