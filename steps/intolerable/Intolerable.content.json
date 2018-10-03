@@ -1,0 +1,18 @@
+{
+  "en": {
+    "title": "Do you find it intolerable to live with your {{ session.divorceWho }}?",
+    "mustBeIntolerable": "You must find it intolerable (unbearable) to live with your {{ session.divorceWho }} to use adultery as your reason for divorce. This applies whether you're still living together or not.",
+    "errors": {
+      "required": "Select yes if you find it intolerable to live with your {{ session.divorceWho }}"
+    },
+    "fields": {
+      "changes": {
+        "intolerable": {
+          "title": "Do you find it intolerable?",
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    }
+  }
+}

@@ -299,7 +299,7 @@ describe(modulePath, () => {
           }
         };
         return content(MiniPetition, session, {
-          specificContent: ['costsPetitionerPayedByCorrispondent']
+          specificContent: ['costsPetitionerPayedByCorrespondent']
         });
       });
 
@@ -607,8 +607,7 @@ describe(modulePath, () => {
         const specificContent = [
           'reasonForDivorceUnreasonableBehaviourBrokenDown',
           'reasonForDivorceUnreasonableBehaviourStatment',
-          'reasonForDivorceUnreasonableBehaviourDescription',
-          'reasonForDivorceBehaviourDetails'
+          'reasonForDivorceUnreasonableBehaviourDescription'
         ];
         return content(MiniPetition, session, { specificContent });
       });

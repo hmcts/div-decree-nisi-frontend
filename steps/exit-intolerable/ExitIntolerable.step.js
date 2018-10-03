@@ -1,5 +1,6 @@
 const { Page } = require('@hmcts/one-per-page');
 const config = require('config');
+const { stopHere } = require('@hmcts/one-per-page/flow');
 
 class ExitIntolerable extends Page {
   static get path() {
@@ -8,6 +9,10 @@ class ExitIntolerable extends Page {
 
   get session() {
     return this.req.session;
+  }
+
+  get flowControl() {
+    return stopHere(this);
   }
 }
 
