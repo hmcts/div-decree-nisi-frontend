@@ -75,6 +75,7 @@ paths:
   reviewAosResponse: /review-aos-response
   shareCoreDocuments: /share-court-documents
   undefended: /undefended
+  petitionProgressBar: /progress-bar/petitioner
   upload: /upload-docs
   mock:
     idamLogin: /idam-mock-login
