@@ -7,9 +7,24 @@ const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const { getUserData } = require('middleware/ccd');
 
-const ignoreContent = [
-  'submitted',
-  'issued'
+const issuedContent = [
+  'issuedAppStatusMsg',
+  'issuedAppStatusMsgDetails',
+  'issuedWhatHappensNext',
+  'issuedWhatHappensNextDetail1',
+  'issuedWhatHappensNextDetails2list1',
+  'issuedWhatHappensNextDetails2list2',
+  'issuedWhatHappensNextDetails2list3',
+  'issuedWhatHappensNextDetails3'
+];
+
+const submittedContent = [
+  'submittedAppStatusMsg',
+  'submittedAppStatusMsgDetails',
+  'submittedWhatHappensNext',
+  'submittedWhatHappensNextDetails1',
+  'submittedWhatHappensNextDetails2',
+  'submittedWhatHappensNextDetails3'
 ];
 
 describe(modulePath, () => {
@@ -29,9 +44,6 @@ describe(modulePath, () => {
     return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, getSteps());
   });
 
-  it('renders the content', () => {
-    return content(PetitionProgressBar, {}, { ignoreContent });
-  });
 
   it('renders the content when ccd status is Submitted', () => {
     const session = {
@@ -40,22 +52,20 @@ describe(modulePath, () => {
         status: 'Submitted'
       }
     };
-    const specificContent = ['submitted'];
-    /*
-     * Specific content to include "submitted" key existence based on session variable
-     * Ignore content to ignore recursive keys checking in submitted content.
-     */
-    return content(PetitionProgressBar, session, { specificContent, ignoreContent });
+    const specificContent = submittedContent;
+    const specificValuesToNotExist = issuedContent;
+    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
 
-  it('renders the content ccd status is AOSstarted', () => {
+  it('renders the content when ccd status is AOSstarted', () => {
     const session = {
       originalPetition: {
         connections: {},
         status: 'AOSstarted'
       }
     };
-    const specificContent = ['issued'];
-    return content(PetitionProgressBar, session, { specificContent, ignoreContent });
+    const specificContent = issuedContent;
+    const specificValuesToNotExist = specificContent;
+    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
 });
