@@ -19,7 +19,7 @@ const middleware = {
   },
   submitApplication: (req, res, next) => {
     service
-      .submitApplication(req.session)
+      .submitApplication(req)
       .then(response => {
         Object.assign(req.session, response);
       })
