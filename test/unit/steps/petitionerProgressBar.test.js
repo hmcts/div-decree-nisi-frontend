@@ -41,6 +41,10 @@ describe(modulePath, () => {
       }
     };
     const specificContent = ['submitted'];
+    /*
+     * Specific content to include "submitted" key existence based on session variable
+     * Ignore content to ignore recursive keys checking in submitted content.
+     */
     return content(PetitionProgressBar, session, { specificContent, ignoreContent });
   });
 
