@@ -18,7 +18,9 @@ const methods = {
       });
   },
   submitApplication: () => {
-    // submit applciation
+    return new Promise(resolve => {
+      resolve({});
+    });
   }
 };
 

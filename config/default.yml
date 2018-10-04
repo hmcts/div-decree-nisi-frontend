@@ -55,7 +55,7 @@ services:
   orchestrationService:
     getCaseUrl: http://localhost:4013/retrieve-aos-case
     health: http://localhost:4013/health
-    draftEndpoint: /draftsapi/version/1
+    draftEndpoint: http://localhost:4013/draftsapi/version/1
 
 paths:
   adulteryFirstFoundOut: /first-find-out
