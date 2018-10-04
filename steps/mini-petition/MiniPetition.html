@@ -403,7 +403,7 @@
   <!-- Respondent Address -->
 
   <h2 class="heading-medium">{{ content.respondentsCorrespondenceAddress }}</h2>
-  {% if not case.respondentSolicitorAddress|length %}
+  {% if case.respondentSolicitorAddress|length %}
     <p class="text">{{ case.respondentSolicitorName }}</p>
     <p class="text">{{ case.respondentSolicitorCompany }}</p>
     <p class="text">{{ case.respondentSolicitorAddress.address | address | safe }}</p>
