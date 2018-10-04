@@ -9,8 +9,8 @@ locals {
   evidence_management_client_api_url = "http://div-emca-${local.local_env}.service.core-compute-${local.local_env}.internal"
   status_health_endpoint = "/status/health"
   
-  asp_name = "${var.env == "prod" ? "div-dn-prod" : "${var.product}-${var.env}"}"
-  asp_rg = "${var.env == "prod" ? "div-dn-prod" : "${var.product}-${var.env}"}"
+  asp_name = "${var.env == "prod" ? "div-dn-prod" : "${var.raw_product}-${var.env}"}"
+  asp_rg = "${var.env == "prod" ? "div-dn-prod" : "${var.raw_product}-${var.env}"}"
 }
 
 module "redis-cache" {
