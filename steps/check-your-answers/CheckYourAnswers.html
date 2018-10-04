@@ -38,9 +38,9 @@
 
     <ul class="list-bullet">
       {% if case.claimsCosts == "Yes" %}
-        {% if "respondent" in case.divorceClaimFrom and "correspondent" in case.divorceClaimFrom  %}
+        {% if case.divorceClaimFrom|length and "respondent" in case.divorceClaimFrom and "correspondent" in case.divorceClaimFrom  %}
           <li>{{ content.applyingForDecreeNisiClaimsCostsRespondentCoRespondent }}</li>
-        {% elseif "correspondent" in case.divorceClaimFrom  %}
+        {% elseif case.divorceClaimFrom|length and "correspondent" in case.divorceClaimFrom  %}
           <li>{{ content.applyingForDecreeNisiClaimsCostsCoRespondent }}</li>
         {% else %}
           <li>{{ content.applyingForDecreeNisiClaimsCostsRespondent }}</li>
