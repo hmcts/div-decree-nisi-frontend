@@ -13,6 +13,10 @@
   {% include "includes/proposition_header.html" %}
 {% endblock %}
 
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
 {% block breadcrumbs %}
   {{ phaseBanner(phase, feedbackLink) }}
   {% block back %}
