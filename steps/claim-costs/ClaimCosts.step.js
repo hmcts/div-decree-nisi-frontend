@@ -1,10 +1,17 @@
 const { Question } = require('@hmcts/one-per-page/steps');
-const { form, text } = require('@hmcts/one-per-page/forms');
+const { form, text, object, errorFor } = require('@hmcts/one-per-page/forms');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
+const { getUserData } = require('middleware/ccd');
+const content = require('./ClaimCosts.content');
+
+const respAmount = 'respAmount';
+const originalAmount = 'originalAmount';
+const alterAmount = 'alterAmount';
+const dontClaim = 'dontClaim';
 
 class ClaimCosts extends Question {
   static get path() {
@@ -16,22 +23,83 @@ class ClaimCosts extends Question {
   }
 
   get form() {
-    const answers = ['originalAmount', 'suggestedAmount', 'dontClaimDifferentAmount'];
+    const answers = [respAmount, originalAmount, alterAmount, dontClaim];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
 
-    const claimCosts = text
-      .joi(this.content.errors.required, validAnswers);
+    const fields = {
+      divorceCostsOption: text.joi(this.content.errors.required, validAnswers),
+      costsDifferentAmount: text
+    };
+
+    const validateNewAmount = ({ divorceCostsOption = '', costsDifferentAmount = '' }) => {
+      if (divorceCostsOption === alterAmount && (!costsDifferentAmount.trim().length)) {
+        return false;
+      }
+
+      return true;
+    };
+
+    const claimCosts = object(fields)
+      .check(
+        errorFor('costsDifferentAmount', this.content.errors.costsDifferentAmountRequired),
+        validateNewAmount
+      );
+
 
     return form({ claimCosts });
   }
 
+  values() {
+    const divorceCostsOption = this.fields.claimCosts.divorceCostsOption.value;
+
+    const values = { divorceCostsOption };
+
+    if (divorceCostsOption === alterAmount) {
+      values.costsDifferentAmount = this.fields.claimCosts
+        .costsDifferentAmount.value.trim();
+    }
+
+    return values;
+  }
+
   answers() {
-    return answer(this, {
+    const answers = [];
+    let agreeAnswer = '';
+
+    if (this.fields.claimCosts.divorceCostsOption.value === respAmount) {
+      agreeAnswer = content.en.fields.claimCosts.suggestedAmount;
+    }
+
+    if (this.fields.claimCosts.divorceCostsOption.value === originalAmount) {
+      agreeAnswer = content.en.fields.claimCosts.courtSuggestedAmount;
+    }
+
+    if (this.fields.claimCosts.divorceCostsOption.value === alterAmount) {
+      agreeAnswer = content.en.fields.claimCosts.differentAmount;
+    }
+
+    if (this.fields.claimCosts.divorceCostsOption.value === dontClaim) {
+      agreeAnswer = content.en.fields.claimCosts.dontClaimDifferentAmount;
+    }
+
+    answers.push(answer(this, {
       question: this.content.fields.claimCosts.title,
-      answer: this.content.fields.claimCosts[this.fields.claimCosts.value]
-    });
+      answer: agreeAnswer
+    }));
+
+    if (this.fields.claimCosts.divorceCostsOption.value === alterAmount) {
+      const costsDifferentAmount = this.fields.claimCosts
+        .costsDifferentAmount.value;
+
+      answers.push(answer(this, {
+        question: this.content.fields.amountToClaimAndReason.question,
+        answer: costsDifferentAmount
+      }));
+    }
+
+    return answers;
   }
 
   next() {

@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButton, textarea, errorClass, errorsFor %}
 
 {% set title %}
   {{ content.title | safe }}
@@ -27,13 +27,39 @@
   <br>
 
   {% call formSection() %}
-    {{ selectionButtons(fields.claimCosts, content.fields.claimCosts.title,
-      options = [
-        { label: content.fields.claimCosts.originalAmount, value: "originalAmount" },
-        { label: content.fields.claimCosts.suggestedAmount, value: "suggestedAmount" },
-        { label: content.fields.claimCosts.dontClaimDifferentAmount, value: "dontClaimDifferentAmount" }
-      ]
-    ) }}
+
+     {{ selectionButton(fields.claimCosts.divorceCostsOption,
+      option =
+        { label: content.fields.claimCosts.courtSuggestedAmount, value: "originalAmount" },
+      type='radio'
+    )
+    }}
+
+    {{ selectionButton(fields.claimCosts.divorceCostsOption,
+      option =
+        { label: content.fields.claimCosts.suggestedAmount, value: "respAmount" },
+      type='radio'
+    )
+    }}
+
+    {{ selectionButton(fields.claimCosts.divorceCostsOption ,
+      option =
+        { label: content.fields.claimCosts.differentAmount, value: "alterAmount", target: "different-amount" },
+      type='radio'
+    )
+    }}
+
+    <div id="different-amount" class="form-group panel js-hidden">
+      {{ textarea(fields.claimCosts.costsDifferentAmount, content.fields.amountToClaimAndReason.title) }}
+    </div>
+
+    {{ selectionButton(fields.claimCosts.divorceCostsOption,
+      option =
+        { label: content.fields.claimCosts.dontClaimDifferentAmount, value: "dontClaim" },
+      type='radio'
+    )
+    }}
+
   {% endcall %}
 
 {% endblock %}
