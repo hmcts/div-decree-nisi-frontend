@@ -10,7 +10,8 @@ function seeClaimCostsPage() {
   const I = this;
 
   I.seeCurrentUrlEquals(ClaimCosts.path);
-  I.checkOption(ClaimCostsContent.en.fields.claimCosts.suggestedAmount);
+  I.checkOption(ClaimCostsContent.en.fields.claimCosts.differentAmount);
+  I.fillField('#claimCosts-costsDifferentAmount', 'Amount and reason');
   I.navByClick(commonContent.en.continue);
 }
 

@@ -68,20 +68,21 @@ class ClaimCosts extends Question {
     const answers = [];
     let agreeAnswer = '';
 
-    if (this.fields.claimCosts.divorceCostsOption.value === respAmount) {
+    switch (this.fields.claimCosts.divorceCostsOption.value) {
+    case respAmount:
       agreeAnswer = content.en.fields.claimCosts.suggestedAmount;
-    }
-
-    if (this.fields.claimCosts.divorceCostsOption.value === originalAmount) {
+      break;
+    case originalAmount:
       agreeAnswer = content.en.fields.claimCosts.courtSuggestedAmount;
-    }
-
-    if (this.fields.claimCosts.divorceCostsOption.value === alterAmount) {
+      break;
+    case alterAmount:
       agreeAnswer = content.en.fields.claimCosts.differentAmount;
-    }
-
-    if (this.fields.claimCosts.divorceCostsOption.value === dontClaim) {
+      break;
+    case dontClaim:
       agreeAnswer = content.en.fields.claimCosts.dontClaimDifferentAmount;
+      break;
+    default:
+      agreeAnswer = '';
     }
 
     answers.push(answer(this, {
