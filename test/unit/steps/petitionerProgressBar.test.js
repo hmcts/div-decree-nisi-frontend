@@ -53,6 +53,9 @@ describe(modulePath, () => {
       }
     };
     const specificContent = submittedContent;
+    /**
+     * Excluded content keeps on going as and when new templates gets added.
+     */
     const specificValuesToNotExist = issuedContent;
     return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
@@ -65,6 +68,9 @@ describe(modulePath, () => {
       }
     };
     const specificContent = issuedContent;
+    /**
+     * Excluded content keeps on going as and when new templates gets added.
+     */
     const specificValuesToNotExist = specificContent;
     return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
