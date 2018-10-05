@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 const { Question } = require('@hmcts/one-per-page/steps');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
@@ -45,7 +45,7 @@ class AdulteryFirstFoundOut extends Question {
 
   next() {
     this.req.session.adulteryFirstFoundDate = this.fields.changes.adulteryFirstFoundDate.value;
-    return goTo(this.journey.steps.LivedApartSinceAdultery);
+    return redirectTo(this.journey.steps.LivedApartSinceAdultery);
   }
 
   answers() {

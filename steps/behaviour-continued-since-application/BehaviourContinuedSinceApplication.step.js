@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 const { Question } = require('@hmcts/one-per-page/steps');
-const { branch, goTo } = require('@hmcts/one-per-page/flow');
+const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
@@ -67,8 +67,8 @@ class BehaviourContinuedSinceApplication extends Question {
       this.req.session.lastIncidentDate = this.fields.changes.lastIncidentDate.value;
     }
     return branch(
-      goTo(this.journey.steps.ClaimCosts).if(hasAnsweredYes),
-      goTo(this.journey.steps.LivedApartSinceLastIncidentDate)
+      redirectTo(this.journey.steps.ClaimCosts).if(hasAnsweredYes),
+      redirectTo(this.journey.steps.LivedApartSinceLastIncidentDate)
     );
   }
 

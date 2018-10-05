@@ -1,4 +1,5 @@
-const { Question, goTo, branch } = require('@hmcts/one-per-page');
+const { Question, branch } = require('@hmcts/one-per-page');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
@@ -41,8 +42,8 @@ class ApplyForDecreeNisi extends Question {
     };
 
     return branch(
-      goTo(this.journey.steps.Exit).if(declinesToApplyForDN),
-      goTo(this.journey.steps.MiniPetition)
+      redirectTo(this.journey.steps.Exit).if(declinesToApplyForDN),
+      redirectTo(this.journey.steps.MiniPetition)
     );
   }
 
