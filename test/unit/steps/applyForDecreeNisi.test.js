@@ -3,7 +3,7 @@ const modulePath = 'steps/apply-for-decree-nisi/ApplyForDecreeNisi.step';
 const ApplyForDecreeNisi = require(modulePath);
 const ApplyForDecreeNisiContent = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.content');
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
-const SaveAndClose = require('steps/application-saved-exit/ApplicationSavedExit.step');
+const ExitPage = require('steps/exit/Exit.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
@@ -28,9 +28,9 @@ describe(modulePath, () => {
     return question.testErrors(ApplyForDecreeNisi);
   });
 
-  it('redirects to Save & Close page if answer is no', () => {
+  it('redirects to Exit page if answer is no', () => {
     const fields = { applyForDecreeNisi: 'no' };
-    return question.redirectWithField(ApplyForDecreeNisi, fields, SaveAndClose);
+    return question.redirectWithField(ApplyForDecreeNisi, fields, ExitPage);
   });
 
   it('redirects to MiniPetition if answer is yes', () => {

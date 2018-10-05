@@ -54,28 +54,28 @@ services:
     enabled: false
 
 paths:
-  health: /health
-  authenticated: /authenticated
-  index: /
-  undefended: /undefended
-  reviewAosResponse: /review-aos-response
-  applyForDecreeNisi: /continue-with-divorce
-  applicationSavedExit: /exit/application-saved-exit
-  miniPetition: /review-your-petition
-  livedApartSinceSeparation: /lived-apart-since-separation
-  livedApartSinceDesertion: /lived-apart-since-desertion
-  behaviourContinuedSinceApplication: /behaviour-continued-since-application
-  livedApartSinceAdultery: /lived-apart-since-adultery
-  livedApartSinceLastIncidentDate: /lived-apart-since-last-incident-date
-  intolerable: /intolerable
   adulteryFirstFoundOut: /first-find-out
-  claimCosts: /claim-costs
-  upload: /upload-docs
-  shareCoreDocuments: /share-court-documents
+  applyForDecreeNisi: /continue-with-divorce
+  authenticated: /authenticated
+  behaviourContinuedSinceApplication: /behaviour-continued-since-application
   checkYourAnswers: /check-your-answers
-  exitIntolerable: /exit/intolerable
+  claimCosts: /claim-costs
   done: /done
   entry: /entry
+  exit: /exit
+  exitIntolerable: /exit/intolerable
+  health: /health
+  index: /
+  intolerable: /intolerable
+  livedApartSinceAdultery: /lived-apart-since-adultery
+  livedApartSinceDesertion: /lived-apart-since-desertion
+  livedApartSinceLastIncidentDate: /lived-apart-since-last-incident-date
+  livedApartSinceSeparation: /lived-apart-since-separation
+  miniPetition: /review-your-petition
+  reviewAosResponse: /review-aos-response
+  shareCoreDocuments: /share-court-documents
+  undefended: /undefended
+  upload: /upload-docs
   mock:
     idamLogin: /idam-mock-login
 
