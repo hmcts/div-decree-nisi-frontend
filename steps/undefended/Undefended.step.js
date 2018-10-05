@@ -1,5 +1,5 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const { getUserData } = require('middleware/ccd');
@@ -19,7 +19,7 @@ class Undefended extends Interstitial {
   }
 
   next() {
-    return goTo(this.journey.steps.ReviewAosResponse);
+    return redirectTo(this.journey.steps.ReviewAosResponse);
   }
 
   get middleware() {

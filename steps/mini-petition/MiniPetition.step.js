@@ -1,5 +1,5 @@
 const { Question } = require('@hmcts/one-per-page/steps');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
@@ -115,7 +115,7 @@ class MiniPetition extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.LivedApartSinceSeparation);
+    return redirectTo(this.journey.steps.LivedApartSinceSeparation);
   }
 
   get middleware() {

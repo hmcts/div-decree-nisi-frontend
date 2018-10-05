@@ -1,6 +1,6 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
@@ -71,7 +71,7 @@ class LivedApartSinceAdultery extends Question {
   }
 
   next() {
-    return goTo(this.journey.steps.ClaimCosts);
+    return redirectTo(this.journey.steps.ClaimCosts);
   }
 
   get middleware() {

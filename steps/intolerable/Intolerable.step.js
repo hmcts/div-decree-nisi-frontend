@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 const { Question } = require('@hmcts/one-per-page/steps');
-const { branch, goTo } = require('@hmcts/one-per-page/flow');
+const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
@@ -39,8 +39,8 @@ class Intolerable extends Question {
     const hasAnsweredYes = this.fields.intolerable.value === 'yes';
 
     return branch(
-      goTo(this.journey.steps.AdulteryFirstFoundOut).if(hasAnsweredYes),
-      goTo(this.journey.steps.ExitIntolerable)
+      redirectTo(this.journey.steps.AdulteryFirstFoundOut).if(hasAnsweredYes),
+      redirectTo(this.journey.steps.ExitIntolerable)
     );
   }
 
