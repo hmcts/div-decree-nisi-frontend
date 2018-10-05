@@ -1,4 +1,4 @@
-const { Question , branch } = require('@hmcts/one-per-page');
+const { Question, branch } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
