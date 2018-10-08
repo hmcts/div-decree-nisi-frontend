@@ -5,10 +5,6 @@ const path = require('path');
 const express = require('express');
 
 class ModifySession extends Question {
-  static get stepEnabled() {
-    return config.environment !== 'prod';
-  }
-
   handler(req) {
     if (req.method === 'POST') {
       this.updateSession(req);

@@ -33,11 +33,7 @@ const filteredErrors = r => {
 // ensure step has a template - if it doesnt no need to test it
 const filterSteps = step => {
   const stepInstance = new step({ journey: {} });
-  let stepEnabled = true;
-  if (step.hasOwnProperty('stepEnabled')) {
-    stepEnabled = stepInstance.stepEnabled;
-  }
-  return stepInstance.middleware.includes(resolveTemplate) && stepEnabled;
+  return stepInstance.middleware.includes(resolveTemplate);
 };
 
 const userDetails = {

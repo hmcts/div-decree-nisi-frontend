@@ -1,8 +1,7 @@
-const modulePath = 'steps/modify-session/ModifySession.step';
+const modulePath = 'mocks/steps/modify-session/ModifySession.step';
 
 const ModifySession = require(modulePath);
 const { content, expect } = require('@hmcts/one-per-page-test-suite');
-const config = require('config');
 
 const ignoreContent = [
   'problemWithThisPage',
@@ -11,25 +10,10 @@ const ignoreContent = [
   'emailIfProblems',
   'continue'
 ];
-const previousEnvironment = config.environment;
 
 describe(modulePath, () => {
   it('renders the page on GET', () => {
     return content(ModifySession, {}, { ignoreContent });
-  });
-
-  it('step is not enabled on prod', () => {
-    config.environment = 'prod';
-    expect(ModifySession.stepEnabled).to.eql(false);
-
-    config.environment = previousEnvironment;
-  });
-
-  it('step is enabled on anything but prod', () => {
-    config.environment = 'anything but prod';
-    expect(ModifySession.stepEnabled).to.eql(true);
-
-    config.environment = previousEnvironment;
   });
 
   describe('Instance tests', () => {

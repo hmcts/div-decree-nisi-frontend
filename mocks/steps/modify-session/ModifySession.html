@@ -36,9 +36,9 @@
 
   <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
-    {% include "modify-session/sections/caseState.html" %}
-    {% include "modify-session/sections/petitioner.html" %}
-    {% include "modify-session/sections/respondent.html" %}
+    {% include "steps/modify-session/sections/caseState.html" %}
+    {% include "steps/modify-session/sections/petitioner.html" %}
+    {% include "steps/modify-session/sections/respondent.html" %}
 
     <input class="button" type="submit" value="Set">
 
@@ -46,6 +46,6 @@
 
   <br><br>
 
-  {% include "modify-session/sections/rawSession.html" %}
+  {% include "steps/modify-session/sections/rawSession.html" %}
 
 {% endblock %}]

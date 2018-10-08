@@ -42,8 +42,8 @@ describe(modulePath, () => {
     });
   });
 
-  it('doest not include mocks if env is not developement', () => {
-    config.environment = 'another env';
+  it('doest not include mocks if env is prod', () => {
+    config.environment = 'prod';
     const steps = allSteps();
 
     const fileNames = findStepNames('mocks/steps/**/*.step.js');
@@ -54,33 +54,5 @@ describe(modulePath, () => {
       expect(!stepNames.includes(fileName)).to.eql(true);
     });
     config.environment = currentEnvironment;
-  });
-
-  describe('#step.stepEnabled', () => {
-    afterEach(() => {
-      config.environment = currentEnvironment;
-    });
-
-    it('is true so should add step', () => {
-      config.environment = 'development';
-      const steps = allSteps();
-
-      const stepNames = steps.map(step => {
-        return step.name;
-      });
-
-      expect(stepNames.includes('ModifySession')).to.eql(true);
-    });
-
-    it('is false so should not add step', () => {
-      config.environment = 'prod';
-      const steps = allSteps();
-
-      const stepNames = steps.map(step => {
-        return step.name;
-      });
-
-      expect(stepNames.includes('ModifySession')).to.eql(false);
-    });
   });
 });
