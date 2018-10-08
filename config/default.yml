@@ -53,7 +53,7 @@ services:
     expire: 3600000
     enabled: false
   orchestrationService:
-    getCaseUrl: http://localhost:4013/retrieve-aos-case
+    getCaseUrl: http://localhost:3001/retrieve-aos-case
     health: http://localhost:4013/health
     draftEndpoint: http://localhost:4013/draftsapi/version/1
 
@@ -64,6 +64,7 @@ paths:
   behaviourContinuedSinceApplication: /behaviour-continued-since-application
   checkYourAnswers: /check-your-answers
   claimCosts: /claim-costs
+  modifySession: /session
   done: /done
   entry: /entry
   exit: /exit
