@@ -4,7 +4,6 @@ const CheckYourAnswers = require(modulePath);
 const Done = require('steps/done/Done.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const ccd = require('middleware/ccd');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -27,11 +26,13 @@ describe(modulePath, () => {
       'applyingForDecreeNisiClaimsCostsRespondentCoRespondent',
       'continue'
     ];
-    return content(CheckYourAnswers, {}, { ignoreContent });
+    const session = { case: { data: {} } };
+    return content(CheckYourAnswers, session, { ignoreContent });
   });
 
   it('shows error if does not answer question', () => {
-    return question.testErrors(CheckYourAnswers);
+    const session = { case: { data: {} } };
+    return question.testErrors(CheckYourAnswers, session);
   });
 
   it('redirects to Done if statment of true answered', () => {
@@ -40,19 +41,13 @@ describe(modulePath, () => {
   });
 
   describe('claims costs statment of truth', () => {
-    beforeEach(() => {
-      sinon.stub(ccd, 'getUserData').callsFake(middleware.nextMock);
-    });
-
-    afterEach(() => {
-      ccd.getUserData.restore();
-    });
-
     it('from respondent and correspondent', () => {
       const session = {
-        originalPetition: {
-          claimsCosts: 'Yes',
-          divorceClaimFrom: ['respondent', 'correspondent']
+        case: {
+          data: {
+            claimsCosts: 'Yes',
+            divorceClaimFrom: ['respondent', 'correspondent']
+          }
         }
       };
       const specificContent = ['applyingForDecreeNisiClaimsCostsRespondentCoRespondent'];
@@ -61,9 +56,11 @@ describe(modulePath, () => {
 
     it('from respondent', () => {
       const session = {
-        originalPetition: {
-          claimsCosts: 'Yes',
-          divorceClaimFrom: ['respondent']
+        case: {
+          data: {
+            claimsCosts: 'Yes',
+            divorceClaimFrom: ['respondent']
+          }
         }
       };
       const specificContent = ['applyingForDecreeNisiClaimsCostsRespondent'];
@@ -72,9 +69,11 @@ describe(modulePath, () => {
 
     it('from correspondent', () => {
       const session = {
-        originalPetition: {
-          claimsCosts: 'Yes',
-          divorceClaimFrom: ['correspondent']
+        case: {
+          data: {
+            claimsCosts: 'Yes',
+            divorceClaimFrom: ['correspondent']
+          }
         }
       };
       const specificContent = ['applyingForDecreeNisiClaimsCostsCoRespondent'];
@@ -82,7 +81,7 @@ describe(modulePath, () => {
     });
 
     it('no claim costs', () => {
-      const session = { originalPetition: { claimsCosts: 'No' } };
+      const session = { case: { data: { claimsCosts: 'No' } } };
       const specificContent = ['applyingForDecreeNisi'];
       return content(CheckYourAnswers, session, { specificContent });
     });

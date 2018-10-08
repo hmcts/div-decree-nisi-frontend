@@ -8,6 +8,8 @@ const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
+const session = { case: { data: {} } };
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -22,25 +24,25 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(LivedApartSinceAdultery);
+    return content(LivedApartSinceAdultery, session);
   });
 
   describe('errors', () => {
     it('shows error if does not answer question', () => {
       const onlyErrors = ['required'];
-      return question.testErrors(LivedApartSinceAdultery, {}, {}, { onlyErrors });
+      return question.testErrors(LivedApartSinceAdultery, session, {}, { onlyErrors });
     });
 
     it('shows error if user answers no and does not enter date', () => {
       const onlyErrors = ['requireDatesLivedTogether'];
       const fields = { 'livedApart-livedApartSinceAdultery': 'no' };
-      return question.testErrors(LivedApartSinceAdultery, {}, fields, { onlyErrors });
+      return question.testErrors(LivedApartSinceAdultery, session, fields, { onlyErrors });
     });
   });
 
   it('redirects to ClaimCosts if answer is yes', () => {
     const fields = { 'livedApart-livedApartSinceAdultery': 'yes' };
-    return question.redirectWithField(LivedApartSinceAdultery, fields, ClaimCosts);
+    return question.redirectWithField(LivedApartSinceAdultery, fields, ClaimCosts, session);
   });
 
   it('redirects to ClaimCosts if answer is no and dates givent', () => {
@@ -48,7 +50,7 @@ describe(modulePath, () => {
       'livedApart-livedApartSinceAdultery': 'no',
       'livedApart-datesLivedTogether': '3 months'
     };
-    return question.redirectWithField(LivedApartSinceAdultery, fields, ClaimCosts);
+    return question.redirectWithField(LivedApartSinceAdultery, fields, ClaimCosts, session);
   });
 
   it('returns correct answers', () => {
@@ -62,6 +64,6 @@ describe(modulePath, () => {
         datesLivedTogether: '3 months'
       }
     };
-    return question.answers(LivedApartSinceAdultery, stepData, expectedContent);
+    return question.answers(LivedApartSinceAdultery, stepData, expectedContent, session);
   });
 });

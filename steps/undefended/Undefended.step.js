@@ -1,16 +1,20 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
-const { getUserData } = require('middleware/ccd');
+const caseOrchestrationMiddleware = require('middleware/caseOrchestrationMiddleware');
 
 class Undefended extends Interstitial {
   static get path() {
     return config.paths.undefended;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
+  }
+
+  get caseId() {
+    return this.req.session.case.caseId;
   }
 
   handler(req, res) {
@@ -19,11 +23,15 @@ class Undefended extends Interstitial {
   }
 
   next() {
-    return goTo(this.journey.steps.ReviewAosResponse);
+    return redirectTo(this.journey.steps.ReviewAosResponse);
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      caseOrchestrationMiddleware.getApplication
+    ];
   }
 }
 

@@ -6,7 +6,6 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const { getUserData } = require('middleware/ccd');
 
 class ShareCourtDocuments extends Question {
   static get path() {
@@ -48,8 +47,7 @@ class ShareCourtDocuments extends Question {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      getUserData
+      idam.protect()
     ];
   }
 }

@@ -3,6 +3,7 @@ const steps = require('steps')();
 const { custom, expect } = require('@hmcts/one-per-page-test-suite');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 const httpStatus = require('http-status-codes');
+const mockSession = require('mocks/stubs/getSessionResponse');
 
 // Ignored warnings
 const excludedWarnings = [
@@ -42,7 +43,7 @@ const userDetails = {
 
 const stepHtml = step => {
   return custom(step)
-    .withSession({ entryPoint: step.name })
+    .withSession(Object.assign({ entryPoint: step.name }, { case: mockSession }))
     .withCookie('mockIdamUserDetails', JSON.stringify(userDetails))
     .get()
     .expect(httpStatus.OK)

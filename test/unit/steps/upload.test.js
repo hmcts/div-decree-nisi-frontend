@@ -32,7 +32,8 @@ describe(modulePath, () => {
   describe('content', () => {
     it('renders the content', () => {
       const ignoreContent = [ 'noFiles' ];
-      return content(Upload, {}, { ignoreContent });
+      const session = { case: { data: {} } };
+      return content(Upload, session, { ignoreContent });
     });
 
     it('only renders files without errors to page', () => {

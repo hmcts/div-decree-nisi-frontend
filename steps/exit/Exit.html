@@ -12,8 +12,8 @@
 
     <p>{{ content.signInToReturn | safe }}</p> <br>
     <p>{{ content.ifYouNeedHelp | safe }}</p>
-    <p>{{ content.phone | safe }} {{ content.openTimes | safe }}</p>
-    <p>{{ content.email | safe }} </p>
+    <p>{{ content.phone }} {{ case.court[case.courts].phoneNumber }}, {{ case.court[case.courts].openingHours }}</p>
+    <p>{{ content.email }} {{ case.court[case.courts].email }}</p>
 
 {% endblock %}
 

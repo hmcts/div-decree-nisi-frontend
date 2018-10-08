@@ -1,23 +1,22 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { getUserData } = require('middleware/ccd');
 
 class ReviewAosResponse extends Question {
   static get path() {
     return config.paths.reviewAosResponse;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   next() {
-    return goTo(this.journey.steps.ApplyForDecreeNisi);
+    return redirectTo(this.journey.steps.ApplyForDecreeNisi);
   }
 
   get form() {
@@ -40,7 +39,7 @@ class ReviewAosResponse extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
   }
 }
 

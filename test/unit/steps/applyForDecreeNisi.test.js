@@ -7,6 +7,8 @@ const ExitPage = require('steps/exit/Exit.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
+const session = { case: { data: {} } };
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -21,26 +23,26 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(ApplyForDecreeNisi);
+    return content(ApplyForDecreeNisi, session);
   });
 
   it('shows error if does not answer question', () => {
-    return question.testErrors(ApplyForDecreeNisi);
+    return question.testErrors(ApplyForDecreeNisi, session);
   });
 
   it('redirects to Exit page if answer is no', () => {
     const fields = { applyForDecreeNisi: 'no' };
-    return question.redirectWithField(ApplyForDecreeNisi, fields, ExitPage);
+    return question.redirectWithField(ApplyForDecreeNisi, fields, ExitPage, session);
   });
 
   it('redirects to MiniPetition if answer is yes', () => {
     const fields = { applyForDecreeNisi: 'yes' };
-    return question.redirectWithField(ApplyForDecreeNisi, fields, MiniPetition);
+    return question.redirectWithField(ApplyForDecreeNisi, fields, MiniPetition, session);
   });
 
   it('loads fields from the session', () => {
-    const sessionData = { applyForDecreeNisi: 'yes' };
-    return question.rendersValues(ApplyForDecreeNisi, sessionData);
+    const stepData = { applyForDecreeNisi: 'yes' };
+    return question.rendersValues(ApplyForDecreeNisi, stepData, session);
   });
 
   it('returns correct answers', () => {
@@ -48,7 +50,7 @@ describe(modulePath, () => {
       ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.title,
       ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.yes
     ];
-    const session = { applyForDecreeNisi: 'yes' };
-    return question.answers(ApplyForDecreeNisi, session, expectedContent);
+    const stepData = { applyForDecreeNisi: 'yes' };
+    return question.answers(ApplyForDecreeNisi, stepData, expectedContent, session);
   });
 });

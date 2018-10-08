@@ -1,14 +1,10 @@
 const modulePath = 'steps/adultery-first-found-out/AdulteryFirstFoundOut.step'; // eslint-disable-line
 
 const AdulteryFirstFoundOut = require(modulePath);
-
 const AdulteryFirstFoundOutContent = require('steps/adultery-first-found-out/AdulteryFirstFoundOut.content');  // eslint-disable-line
-
 const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-adultery/LivedApartSinceAdultery.step'); // eslint-disable-line
-
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -24,13 +20,22 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(AdulteryFirstFoundOut);
+    const session = { case: { data: {} } };
+    return content(AdulteryFirstFoundOut, session);
   });
 
   it('shows error if no date entered', () => {
     const onlyErrors = ['requireFirstFoundDate'];
     const fields = { 'changes-adulteryFirstFoundDate-day': '' };
-    return question.testErrors(AdulteryFirstFoundOut, {}, fields, { onlyErrors });
+    const session = {
+      case: {
+        data: {
+          marriageDate: '2001-10-02T00:00:00.000Z',
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    return question.testErrors(AdulteryFirstFoundOut, session, fields, { onlyErrors });
   });
 
   it('shows error if a date before marriage date is entered', () => {
@@ -40,7 +45,15 @@ describe(modulePath, () => {
       'changes-adulteryFirstFoundDate-month': '03',
       'changes-adulteryFirstFoundDate-year': '1900'
     };
-    return question.testErrors(AdulteryFirstFoundOut, {}, fields, { onlyErrors });
+    const session = {
+      case: {
+        data: {
+          marriageDate: '2001-10-02T00:00:00.000Z',
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    return question.testErrors(AdulteryFirstFoundOut, session, fields, { onlyErrors });
   });
 
   it('shows error if a date in future is entered', () => {
@@ -50,7 +63,15 @@ describe(modulePath, () => {
       'changes-adulteryFirstFoundDate-month': '03',
       'changes-adulteryFirstFoundDate-year': '2200'
     };
-    return question.testErrors(AdulteryFirstFoundOut, {}, fields, { onlyErrors });
+    const session = {
+      case: {
+        data: {
+          marriageDate: '2001-10-02T00:00:00.000Z',
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    return question.testErrors(AdulteryFirstFoundOut, session, fields, { onlyErrors });
   });
 
   it('Redirects to Adulter page if valid date entered', () => {
@@ -59,6 +80,14 @@ describe(modulePath, () => {
       'changes-adulteryFirstFoundDate-month': '03',
       'changes-adulteryFirstFoundDate-year': '2017'
     };
-    return question.redirectWithField(AdulteryFirstFoundOut, fields, LivedApartSinceLastIncidentDate); // eslint-disable-line
+    const session = {
+      case: {
+        data: {
+          marriageDate: '2001-10-02T00:00:00.000Z',
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    return question.redirectWithField(AdulteryFirstFoundOut, fields, LivedApartSinceLastIncidentDate, session); // eslint-disable-line
   });
 });

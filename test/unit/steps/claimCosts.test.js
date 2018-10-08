@@ -6,6 +6,8 @@ const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocum
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
+const session = { case: { data: {} } };
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -20,31 +22,31 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(ClaimCosts);
+    return content(ClaimCosts, session);
   });
 
   it('shows error if does not answer question', () => {
-    return question.testErrors(ClaimCosts);
+    return question.testErrors(ClaimCosts, session);
   });
 
   it('redirects to ShareCourtDocuments if answer is originalAmount', () => {
     const fields = { claimCosts: 'originalAmount' };
-    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments);
+    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
   });
 
   it('redirects to ShareCourtDocuments if answer is suggestedAmount', () => {
     const fields = { claimCosts: 'suggestedAmount' };
-    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments);
+    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
   });
 
   it('redirects to ShareCourtDocuments if answer is dontClaimDifferentAmount', () => {
     const fields = { claimCosts: 'dontClaimDifferentAmount' };
-    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments);
+    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
   });
 
   it('loads fields from the session', () => {
-    const sessionData = { claimCosts: 'dontClaimDifferentAmount' };
-    return question.rendersValues(ClaimCosts, sessionData);
+    const stepData = { claimCosts: 'dontClaimDifferentAmount' };
+    return question.rendersValues(ClaimCosts, stepData, session);
   });
 
   it('returns correct answers', () => {
@@ -52,7 +54,7 @@ describe(modulePath, () => {
       ClaimCostsContent.en.fields.claimCosts.title,
       ClaimCostsContent.en.fields.claimCosts.originalAmount
     ];
-    const session = { claimCosts: 'originalAmount' };
-    return question.answers(ClaimCosts, session, expectedContent);
+    const stepData = { claimCosts: 'originalAmount' };
+    return question.answers(ClaimCosts, stepData, expectedContent, session);
   });
 });

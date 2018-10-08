@@ -7,7 +7,8 @@ const idam = require('services/idam');
 
 describe(modulePath, () => {
   it('renders the page on GET', () => {
-    return content(Start, {}, { ignoreContent: ['continue'] });
+    const session = { case: { data: {} } };
+    return content(Start, session, { ignoreContent: ['continue'] });
   });
   it('ignores pa11y warnings', () => {
     expect(Start.ignorePa11yWarnings).to.include('WCAG2AA.Principle1.Guideline1_3.1_3_1.H48');
