@@ -1,10 +1,10 @@
 {
   "en": {
-    "submittedAppStatusMsg": "Your application was submitted on {{session.originalPetition.createdDate | date}}",
-    "submittedAppStatusMsgDetails": "Your temporary reference number is {{ session.referenceNumber }}. You’ll be given a full case number when your application has been accepted and issued (sent by post to your {{ session.divorceWho }}).",
+    "submittedAppStatusMsg": "Your application was submitted on {{case.originalPetition.createdDate | date}}",
+    "submittedAppStatusMsgDetails": "Your temporary reference number is {{ case.referenceNumber }}. You’ll be given a full case number when your application has been accepted and issued (sent by post to your {{ case.divorceWho }}).",
     "submittedWhatHappensNext": "What happens next",
     "submittedWhatHappensNextDetails1": "If your application is accepted you'll be sent a notice saying that your application has been issued. You'll also get a case number and a copy of the application stamped by the divorce centre.",
-    "submittedWhatHappensNextDetails2": "Your {{ session.divorceWho }} will also receive a copy of the application and a form to return. If you have used adultery as your reason for divorce, and named the person that your {{ session.divorceWho }} committed adultery with, they will also get a copy and a form to return.",
+    "submittedWhatHappensNextDetails2": "Your {{ case.divorceWho }} will also receive a copy of the application and a form to return. If you have used adultery as your reason for divorce, and named the person that your {{ case.divorceWho }} committed adultery with, they will also get a copy and a form to return.",
     "submittedWhatHappensNextDetails3": "Contact the divorce centre if you don't hear anything back after 3 weeks."
   }
 }

@@ -3,15 +3,18 @@ const config = require('config');
 const { goTo } = require('@hmcts/one-per-page/flow');
 
 const idam = require('services/idam');
-const { getUserData } = require('middleware/ccd');
 
 class PetitionProgressBar extends Interstitial {
   static get path() {
     return config.paths.petitionProgressBar;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
+  }
+
+  get caseId() {
+    return this.req.session.case.caseId;
   }
 
   handler(req, res) {
@@ -20,7 +23,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
   }
 
   next() {
@@ -28,10 +31,10 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get ccdStatus() {
-    const ccdStatus = this.req.session.originalPetition.status;
-    const submittedFlow = ['Submitted', 'AwaitingHWFDecision', 'AwaitingPetitioner', 'Issued', 'PendingRejection'];
-    const issuedFlow = ['AwaitingAOS', 'AOSstarted'];
-    const awaitFlow = ['AwaitingLegalAdvisorReferral', 'AwaitingConsiderationDN'];
+    const ccdStatus = this.req.session.case.state.toLowerCase();
+    const submittedFlow = ['submitted', 'awaitinghwfdecision', 'awaitingpetitioner', 'issued', 'pendingrejection'];
+    const issuedFlow = ['awaitingaos', 'aosstarted'];
+    const awaitFlow = ['awaitinglegaladvisorreferral', 'awaitingconsiderationdn'];
 
     if (submittedFlow.includes(ccdStatus)) {
       return 'submitted';

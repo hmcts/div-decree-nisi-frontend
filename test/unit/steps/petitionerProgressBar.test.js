@@ -47,9 +47,11 @@ describe(modulePath, () => {
 
   it('renders the content when ccd status is Submitted', () => {
     const session = {
-      originalPetition: {
-        connections: {},
-        status: 'Submitted'
+      case: {
+        state: 'Submitted',
+        data: {
+          connections: {}
+        }
       }
     };
     const specificContent = submittedContent;
@@ -62,9 +64,11 @@ describe(modulePath, () => {
 
   it('renders the content when ccd status is AOSstarted', () => {
     const session = {
-      originalPetition: {
-        connections: {},
-        status: 'AOSstarted'
+      case: {
+        state: 'AOSstarted',
+        data: {
+          connections: {}
+        }
       }
     };
     const specificContent = issuedContent;

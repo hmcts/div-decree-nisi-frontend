@@ -3,7 +3,7 @@
     "issuedAppStatusMsg": "Your application is in progress",
     "issuedAppStatusMsgDetails": "Your application has passed checks by court staff and the next stage of your divorce has begun. You’ll be sent a ’notice of proceedings’ by post confirming this.",
     "issuedWhatHappensNext": "What happens next",
-    "issuedWhatHappensNextDetail1": "The divorce centre sent the application to your {{ session.divorceWho }} by post on 1st September 2018. They were also sent an ‘acknowledgement of service’. This is a form which asks if they:",
+    "issuedWhatHappensNextDetail1": "The divorce centre sent the application to your {{ case.divorceWho }} by post on 1st September 2018. They were also sent an ‘acknowledgement of service’. This is a form which asks if they:",
     "issuedWhatHappensNextDetails2list1": "agree with what you’ve said in the application",
     "issuedWhatHappensNextDetails2list2": "intend to try to stop the divorce (defend it)",
     "issuedWhatHappensNextDetails2list3": "object to paying the costs (if you've claimed them)",
