@@ -17,17 +17,14 @@ const LivedApartSinceSeparation = require(
 );
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const ccd = require('middleware/ccd');
 
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
-    sinon.stub(ccd, 'getUserData').callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
-    ccd.getUserData.restore();
   });
 
   it('has idam.protect middleware', () => {
@@ -37,8 +34,10 @@ describe(modulePath, () => {
   describe('errors', () => {
     it('shows error if hasBeenChanges not answered', () => {
       const session = {
-        originalPetition: {
-          connections: {}
+        case: {
+          data: {
+            connections: {}
+          }
         }
       };
       const onlyErrors = ['requireChanges'];
@@ -47,8 +46,10 @@ describe(modulePath, () => {
 
     it('shows error if hasBeenChanges is yes and not answered details or SOT', () => {
       const session = {
-        originalPetition: {
-          connections: {}
+        case: {
+          data: {
+            connections: {}
+          }
         }
       };
       const fields = {
@@ -60,8 +61,10 @@ describe(modulePath, () => {
 
     it('shows error if hasBeenChanges is no and not answered SOT', () => {
       const session = {
-        originalPetition: {
-          connections: {}
+        case: {
+          data: {
+            connections: {}
+          }
         }
       };
       const fields = {
@@ -80,9 +83,11 @@ describe(modulePath, () => {
         'changes-statementOfTruthChanges': 'yes'
       };
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'adultery'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery'
+          }
         }
       };
       return question.redirectWithField(MiniPetition, fields, Intolerable, session);
@@ -94,9 +99,11 @@ describe(modulePath, () => {
         'changes-statementOfTruthNoChanges': 'yes'
       };
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'adultery'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery'
+          }
         }
       };
       return question.redirectWithField(MiniPetition, fields, Intolerable, session);
@@ -111,9 +118,11 @@ describe(modulePath, () => {
           'changes-statementOfTruthChanges': 'yes'
         };
         const session = {
-          originalPetition: {
-            connections: {},
-            reasonForDivorce: 'unreasonable-behaviour'
+          case: {
+            data: {
+              connections: {},
+              reasonForDivorce: 'unreasonable-behaviour'
+            }
           }
         };
         return question.redirectWithField(MiniPetition, fields, BehaviourContinueStep, session);
@@ -127,9 +136,11 @@ describe(modulePath, () => {
           'changes-statementOfTruthNoChanges': 'yes'
         };
         const session = {
-          originalPetition: {
-            connections: {},
-            reasonForDivorce: 'unreasonable-behaviour'
+          case: {
+            data: {
+              connections: {},
+              reasonForDivorce: 'unreasonable-behaviour'
+            }
           }
         };
         return question.redirectWithField(MiniPetition, fields, BehaviourContinueStep, session);
@@ -142,9 +153,11 @@ describe(modulePath, () => {
         'changes-statementOfTruthChanges': 'yes'
       };
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'desertion'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'desertion'
+          }
         }
       };
       return question.redirectWithField(MiniPetition, fields, LivedApartSinceDesertion, session);
@@ -156,9 +169,11 @@ describe(modulePath, () => {
         'changes-statementOfTruthNoChanges': 'yes'
       };
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'desertion'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'desertion'
+          }
         }
       };
       return question.redirectWithField(MiniPetition, fields, LivedApartSinceDesertion, session);
@@ -171,9 +186,11 @@ describe(modulePath, () => {
         'changes-statementOfTruthChanges': 'yes'
       };
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'separation-2-years'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'separation-2-years'
+          }
         }
       };
       return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation, session);
@@ -185,9 +202,11 @@ describe(modulePath, () => {
         'changes-statementOfTruthNoChanges': 'yes'
       };
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'separation-2-years'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'separation-2-years'
+          }
         }
       };
       return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation, session);
@@ -200,9 +219,11 @@ describe(modulePath, () => {
         'changes-statementOfTruthChanges': 'yes'
       };
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'separation-5-years'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'separation-5-years'
+          }
         }
       };
       return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation, session);
@@ -214,9 +235,11 @@ describe(modulePath, () => {
         'changes-statementOfTruthNoChanges': 'yes'
       };
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'separation-5-years'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'separation-5-years'
+          }
         }
       };
       return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation, session);
@@ -228,7 +251,11 @@ describe(modulePath, () => {
       const session = {
         petitionerName: 'petitioner name',
         respondentName: 'respondent name',
-        originalPetition: { connections: {} }
+        case: {
+          data: {
+            connections: {}
+          }
+        }
       };
       return content(
         MiniPetition,
@@ -244,12 +271,14 @@ describe(modulePath, () => {
 
     it('displays coorespondent names', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'adultery',
-          reasonForDivorceAdulteryIsNamed: 'Yes',
-          reasonForDivorceAdultery3rdPartyFirstName: 'corespondent firstname',
-          reasonForDivorceAdultery3rdPartyLastName: 'corespondent lastname'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery',
+            reasonForDivorceAdulteryIsNamed: 'Yes',
+            reasonForDivorceAdultery3rdPartyFirstName: 'corespondent firstname',
+            reasonForDivorceAdultery3rdPartyLastName: 'corespondent lastname'
+          }
         }
       };
       return content(
@@ -268,8 +297,10 @@ describe(modulePath, () => {
       const placeOfMarriage = 'Parish of Normanton by Derby, in the County of Derby';
       const session = {
         placeOfMarriage,
-        originalPetition: {
-          connections: {}
+        case: {
+          data: {
+            connections: {}
+          }
         }
       };
       return content(
@@ -281,9 +312,11 @@ describe(modulePath, () => {
 
     it('displays marriage date formatted', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          marriageDate: '2001-02-02T00:00:00.000Z'
+        case: {
+          data: {
+            connections: {},
+            marriageDate: '2001-02-02T00:00:00.000Z'
+          }
         }
       };
       return content(
@@ -295,10 +328,12 @@ describe(modulePath, () => {
 
     it('displays legal proceedings details', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          legalProceedings: 'Yes',
-          legalProceedingsDetails: 'The legal proceeding details'
+        case: {
+          data: {
+            connections: {},
+            legalProceedings: 'Yes',
+            legalProceedingsDetails: 'The legal proceeding details'
+          }
         }
       };
       return content(
@@ -310,14 +345,16 @@ describe(modulePath, () => {
 
     it('displays reason for divorce adultery details', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'adultery',
-          reasonForDivorceAdulteryKnowWhere: 'Yes',
-          reasonForDivorceAdulteryKnowWhen: 'Yes',
-          reasonForDivorceAdulteryDetails: 'Here are some adultery details',
-          reasonForDivorceAdulteryWhereDetails: 'Where the adultery happened',
-          reasonForDivorceAdulteryWhenDetails: 'When the adultery happened'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery',
+            reasonForDivorceAdulteryKnowWhere: 'Yes',
+            reasonForDivorceAdulteryKnowWhen: 'Yes',
+            reasonForDivorceAdulteryDetails: 'Here are some adultery details',
+            reasonForDivorceAdulteryWhereDetails: 'Where the adultery happened',
+            reasonForDivorceAdulteryWhenDetails: 'When the adultery happened'
+          }
         }
       };
       return content(
@@ -335,10 +372,12 @@ describe(modulePath, () => {
 
     it('displays reason for divorce unreasonable behaviour details', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'unreasonable-behaviour',
-          reasonForDivorceBehaviourDetails: [ 'My wife is lazy' ]
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'unreasonable-behaviour',
+            reasonForDivorceBehaviourDetails: [ 'My wife is lazy' ]
+          }
         }
       };
       return content(
@@ -350,10 +389,12 @@ describe(modulePath, () => {
 
     it('displays reason for divorce desertion details', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'desertion',
-          reasonForDivorceDesertionDetails: 'I was deserted'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'desertion',
+            reasonForDivorceDesertionDetails: 'I was deserted'
+          }
         }
       };
       return content(
@@ -367,8 +408,10 @@ describe(modulePath, () => {
   describe('content', () => {
     it('all', () => {
       const session = {
-        originalPetition: {
-          connections: {}
+        case: {
+          data: {
+            connections: {}
+          }
         }
       };
       const ignoreContent = [
@@ -417,11 +460,13 @@ describe(modulePath, () => {
     context('intro text - claim costs & financial order', () => {
       it('from respondent and co-respondent', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            claimsCosts: 'Yes',
-            financialOrderFor: 'Yes',
-            divorceClaimFrom: ['respondent', 'correspondent']
+          case: {
+            data: {
+              connections: {},
+              claimsCosts: 'Yes',
+              financialOrderFor: 'Yes',
+              divorceClaimFrom: ['respondent', 'correspondent']
+            }
           }
         };
         return content(
@@ -432,11 +477,13 @@ describe(modulePath, () => {
       });
       it('from co-respondent', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            claimsCosts: 'Yes',
-            financialOrderFor: 'Yes',
-            divorceClaimFrom: ['correspondent']
+          case: {
+            data: {
+              connections: {},
+              claimsCosts: 'Yes',
+              financialOrderFor: 'Yes',
+              divorceClaimFrom: ['correspondent']
+            }
           }
         };
         return content(MiniPetition, session, {
@@ -446,11 +493,13 @@ describe(modulePath, () => {
 
       it('from neither respondent or co-respondent', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            claimsCosts: 'Yes',
-            financialOrderFor: 'Yes',
-            divorceClaimFrom: []
+          case: {
+            data: {
+              connections: {},
+              claimsCosts: 'Yes',
+              financialOrderFor: 'Yes',
+              divorceClaimFrom: []
+            }
           }
         };
         return content(
@@ -463,11 +512,13 @@ describe(modulePath, () => {
     context('claim costs only', () => {
       it('from respondent and co-respondent', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            claimsCosts: 'Yes',
-            financialOrderFor: 'No',
-            divorceClaimFrom: ['respondent', 'correspondent']
+          case: {
+            data: {
+              connections: {},
+              claimsCosts: 'Yes',
+              financialOrderFor: 'No',
+              divorceClaimFrom: ['respondent', 'correspondent']
+            }
           }
         };
         return content(
@@ -478,11 +529,13 @@ describe(modulePath, () => {
       });
       it('from co-respondent', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            claimsCosts: 'Yes',
-            financialOrderFor: 'No',
-            divorceClaimFrom: ['correspondent']
+          case: {
+            data: {
+              connections: {},
+              claimsCosts: 'Yes',
+              financialOrderFor: 'No',
+              divorceClaimFrom: ['correspondent']
+            }
           }
         };
         return content(
@@ -493,11 +546,13 @@ describe(modulePath, () => {
 
       it('from neither respondent or co-respondent', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            claimsCosts: 'Yes',
-            financialOrderFor: 'No',
-            divorceClaimFrom: []
+          case: {
+            data: {
+              connections: {},
+              claimsCosts: 'Yes',
+              financialOrderFor: 'No',
+              divorceClaimFrom: []
+            }
           }
         };
         return content(
@@ -509,11 +564,13 @@ describe(modulePath, () => {
 
     it('financialOrderFor only from neither respondent or co-respondent', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          claimsCosts: 'No',
-          financialOrderFor: 'Yes',
-          divorceClaimFrom: []
+        case: {
+          data: {
+            connections: {},
+            claimsCosts: 'No',
+            financialOrderFor: 'Yes',
+            divorceClaimFrom: []
+          }
         }
       };
       return content(
@@ -524,11 +581,13 @@ describe(modulePath, () => {
 
     it('not claiming costs or applying for financial Order', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          claimsCosts: 'No',
-          financialOrderFor: 'No',
-          divorceClaimFrom: []
+        case: {
+          data: {
+            connections: {},
+            claimsCosts: 'No',
+            financialOrderFor: 'No',
+            divorceClaimFrom: []
+          }
         }
       };
       return content(
@@ -539,12 +598,14 @@ describe(modulePath, () => {
 
     it('shows details for co-respondent', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'adultery',
-          reasonForDivorceAdulteryIsNamed: 'Yes',
-          reasonForDivorceAdultery3rdPartyFirstName: 'first name',
-          reasonForDivorceAdultery3rdPartyLastName: 'last name'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery',
+            reasonForDivorceAdulteryIsNamed: 'Yes',
+            reasonForDivorceAdultery3rdPartyFirstName: 'first name',
+            reasonForDivorceAdultery3rdPartyLastName: 'last name'
+          }
         }
       };
       return content(
@@ -555,12 +616,14 @@ describe(modulePath, () => {
 
     it('shows name for co-respondent', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorce: 'adultery',
-          reasonForDivorceAdulteryIsNamed: 'Yes',
-          reasonForDivorceAdultery3rdPartyFirstName: 'first name',
-          reasonForDivorceAdultery3rdPartyLastName: 'last name'
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery',
+            reasonForDivorceAdulteryIsNamed: 'Yes',
+            reasonForDivorceAdultery3rdPartyFirstName: 'first name',
+            reasonForDivorceAdultery3rdPartyLastName: 'last name'
+          }
         }
       };
       return content(
@@ -572,9 +635,11 @@ describe(modulePath, () => {
     context('jurisdiction', () => {
       it('for both resident', () => {
         const session = {
-          originalPetition: {
-            connections: { A: '' },
-            reasonForDivorce: 'adultery'
+          case: {
+            data: {
+              connections: { A: '' },
+              reasonForDivorce: 'adultery'
+            }
           }
         };
         return content(
@@ -584,9 +649,11 @@ describe(modulePath, () => {
       });
       it('for one resides', () => {
         const session = {
-          originalPetition: {
-            connections: { B: '' },
-            reasonForDivorce: 'adultery'
+          case: {
+            data: {
+              connections: { B: '' },
+              reasonForDivorce: 'adultery'
+            }
           }
         };
         return content(
@@ -596,9 +663,11 @@ describe(modulePath, () => {
       });
       it('respondent', () => {
         const session = {
-          originalPetition: {
-            connections: { C: '' },
-            reasonForDivorce: 'adultery'
+          case: {
+            data: {
+              connections: { C: '' },
+              reasonForDivorce: 'adultery'
+            }
           }
         };
         return content(
@@ -608,9 +677,11 @@ describe(modulePath, () => {
       });
       it('petitioner', () => {
         const session = {
-          originalPetition: {
-            connections: { D: '' },
-            reasonForDivorce: 'adultery'
+          case: {
+            data: {
+              connections: { D: '' },
+              reasonForDivorce: 'adultery'
+            }
           }
         };
         return content(
@@ -620,9 +691,11 @@ describe(modulePath, () => {
       });
       it('petitioner six months', () => {
         const session = {
-          originalPetition: {
-            connections: { E: '' },
-            reasonForDivorce: 'adultery'
+          case: {
+            data: {
+              connections: { E: '' },
+              reasonForDivorce: 'adultery'
+            }
           }
         };
         return content(
@@ -632,9 +705,11 @@ describe(modulePath, () => {
       });
       it('both domiciled', () => {
         const session = {
-          originalPetition: {
-            connections: { F: '' },
-            reasonForDivorce: 'adultery'
+          case: {
+            data: {
+              connections: { F: '' },
+              reasonForDivorce: 'adultery'
+            }
           }
         };
         return content(
@@ -644,9 +719,11 @@ describe(modulePath, () => {
       });
       it('both domiciled', () => {
         const session = {
-          originalPetition: {
-            connections: { G: '' },
-            reasonForDivorce: 'adultery'
+          case: {
+            data: {
+              connections: { G: '' },
+              reasonForDivorce: 'adultery'
+            }
           }
         };
         return content(
@@ -659,9 +736,11 @@ describe(modulePath, () => {
     context('legal proceedings', () => {
       it('no', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            legalProceedings: 'No'
+          case: {
+            data: {
+              connections: {},
+              legalProceedings: 'No'
+            }
           }
         };
         return content(
@@ -671,9 +750,11 @@ describe(modulePath, () => {
       });
       it('Yes', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            legalProceedings: 'Yes'
+          case: {
+            data: {
+              connections: {},
+              legalProceedings: 'Yes'
+            }
           }
         };
         return content(
@@ -687,9 +768,11 @@ describe(modulePath, () => {
       context('adultery', () => {
         it('base content', () => {
           const session = {
-            originalPetition: {
-              connections: {},
-              reasonForDivorce: 'adultery'
+            case: {
+              data: {
+                connections: {},
+                reasonForDivorce: 'adultery'
+              }
             }
           };
           return content(
@@ -699,10 +782,12 @@ describe(modulePath, () => {
         });
         it('co-respondent is named', () => {
           const session = {
-            originalPetition: {
-              connections: {},
-              reasonForDivorce: 'adultery',
-              reasonForDivorceAdulteryIsNamed: 'Yes'
+            case: {
+              data: {
+                connections: {},
+                reasonForDivorce: 'adultery',
+                reasonForDivorceAdulteryIsNamed: 'Yes'
+              }
             }
           };
           return content(
@@ -712,10 +797,12 @@ describe(modulePath, () => {
         });
         it('knows where', () => {
           const session = {
-            originalPetition: {
-              connections: {},
-              reasonForDivorce: 'adultery',
-              reasonForDivorceAdulteryKnowWhere: 'Yes'
+            case: {
+              data: {
+                connections: {},
+                reasonForDivorce: 'adultery',
+                reasonForDivorceAdulteryKnowWhere: 'Yes'
+              }
             }
           };
           return content(
@@ -725,10 +812,12 @@ describe(modulePath, () => {
         });
         it('knows when', () => {
           const session = {
-            originalPetition: {
-              connections: {},
-              reasonForDivorce: 'adultery',
-              reasonForDivorceAdulteryKnowWhen: 'Yes'
+            case: {
+              data: {
+                connections: {},
+                reasonForDivorce: 'adultery',
+                reasonForDivorceAdulteryKnowWhen: 'Yes'
+              }
             }
           };
           return content(
@@ -740,9 +829,11 @@ describe(modulePath, () => {
 
       it('unreasonable behaviour', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            reasonForDivorce: 'unreasonable-behaviour'
+          case: {
+            data: {
+              connections: {},
+              reasonForDivorce: 'unreasonable-behaviour'
+            }
           }
         };
         const specificContent = [
@@ -755,9 +846,11 @@ describe(modulePath, () => {
 
       it('separation 2 years', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            reasonForDivorce: 'separation-2-years'
+          case: {
+            data: {
+              connections: {},
+              reasonForDivorce: 'separation-2-years'
+            }
           }
         };
         const specificContent = [
@@ -769,9 +862,11 @@ describe(modulePath, () => {
 
       it('separation 5 years', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            reasonForDivorce: 'separation-5-years'
+          case: {
+            data: {
+              connections: {},
+              reasonForDivorce: 'separation-5-years'
+            }
           }
         };
         const specificContent = [
@@ -783,9 +878,11 @@ describe(modulePath, () => {
 
       it('desertion', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            reasonForDivorce: 'desertion'
+          case: {
+            data: {
+              connections: {},
+              reasonForDivorce: 'desertion'
+            }
           }
         };
         const specificContent = [
@@ -800,10 +897,12 @@ describe(modulePath, () => {
     context('cost orders', () => {
       it('from respondent and co-respondent', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            claimsCosts: 'Yes',
-            divorceClaimFrom: ['respondent', 'correspondent']
+          case: {
+            data: {
+              connections: {},
+              claimsCosts: 'Yes',
+              divorceClaimFrom: ['respondent', 'correspondent']
+            }
           }
         };
         return content(
@@ -813,10 +912,12 @@ describe(modulePath, () => {
       });
       it('from co-respondent', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            claimsCosts: 'Yes',
-            divorceClaimFrom: ['correspondent']
+          case: {
+            data: {
+              connections: {},
+              claimsCosts: 'Yes',
+              divorceClaimFrom: ['correspondent']
+            }
           }
         };
         return content(
@@ -827,10 +928,12 @@ describe(modulePath, () => {
 
       it('from neither respondent or co-respondent', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            claimsCosts: 'Yes',
-            divorceClaimFrom: []
+          case: {
+            data: {
+              connections: {},
+              claimsCosts: 'Yes',
+              divorceClaimFrom: []
+            }
           }
         };
         return content(
@@ -841,10 +944,12 @@ describe(modulePath, () => {
 
       it('not claiming', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            claimsCosts: 'No',
-            divorceClaimFrom: []
+          case: {
+            data: {
+              connections: {},
+              claimsCosts: 'No',
+              divorceClaimFrom: []
+            }
           }
         };
         return content(
@@ -857,10 +962,12 @@ describe(modulePath, () => {
     context('finantial orders', () => {
       it('for children and petitioner', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            financialOrder: 'Yes',
-            financialOrderFor: ['children', 'petitioner']
+          case: {
+            data: {
+              connections: {},
+              financialOrder: 'Yes',
+              financialOrderFor: ['children', 'petitioner']
+            }
           }
         };
         return content(
@@ -871,10 +978,12 @@ describe(modulePath, () => {
       });
       it('for children', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            financialOrder: 'Yes',
-            financialOrderFor: ['children']
+          case: {
+            data: {
+              connections: {},
+              financialOrder: 'Yes',
+              financialOrderFor: ['children']
+            }
           }
         };
         return content(
@@ -885,10 +994,12 @@ describe(modulePath, () => {
 
       it('from neither respondent or co-respondent', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            financialOrder: 'Yes',
-            financialOrderFor: []
+          case: {
+            data: {
+              connections: {},
+              financialOrder: 'Yes',
+              financialOrderFor: []
+            }
           }
         };
         return content(
@@ -899,10 +1010,12 @@ describe(modulePath, () => {
 
       it('not claiming', () => {
         const session = {
-          originalPetition: {
-            connections: {},
-            financialOrder: 'No',
-            divorceClaimFrom: []
+          case: {
+            data: {
+              connections: {},
+              financialOrder: 'No',
+              divorceClaimFrom: []
+            }
           }
         };
         return content(
@@ -914,9 +1027,11 @@ describe(modulePath, () => {
 
     it('Petitioner Address if not confidential', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          petitionerContactDetailsConfidential: 'share'
+        case: {
+          data: {
+            connections: {},
+            petitionerContactDetailsConfidential: 'share'
+          }
         }
       };
       return content(
@@ -928,9 +1043,11 @@ describe(modulePath, () => {
 
     it('CoRespondent Address', () => {
       const session = {
-        originalPetition: {
-          connections: {},
-          reasonForDivorceAdultery3rdAddress: ['line1', 'line2', 'postcode']
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorceAdultery3rdAddress: ['line1', 'line2', 'postcode']
+          }
         }
       };
       return content(
@@ -958,8 +1075,10 @@ describe(modulePath, () => {
         }
       };
       const session = {
-        originalPetition: {
-          connections: {}
+        case: {
+          data: {
+            connections: {}
+          }
         }
       };
       return question.answers(MiniPetition, stepData, expectedContent, session);
@@ -978,8 +1097,10 @@ describe(modulePath, () => {
         }
       };
       const session = {
-        originalPetition: {
-          connections: {}
+        case: {
+          data: {
+            connections: {}
+          }
         }
       };
       return question.answers(MiniPetition, stepData, expectedContent, session);

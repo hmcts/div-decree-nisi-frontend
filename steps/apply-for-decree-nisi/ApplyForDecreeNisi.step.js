@@ -1,18 +1,18 @@
-const { Question, goTo, branch } = require('@hmcts/one-per-page');
+const { Question, branch } = require('@hmcts/one-per-page');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const { getUserData } = require('middleware/ccd');
 
 class ApplyForDecreeNisi extends Question {
   static get path() {
     return config.paths.applyForDecreeNisi;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {
@@ -41,14 +41,14 @@ class ApplyForDecreeNisi extends Question {
     };
 
     return branch(
-      goTo(this.journey.steps.Exit).if(declinesToApplyForDN),
-      goTo(this.journey.steps.MiniPetition)
+      redirectTo(this.journey.steps.Exit).if(declinesToApplyForDN),
+      redirectTo(this.journey.steps.MiniPetition)
     );
   }
 
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
   }
 }
 

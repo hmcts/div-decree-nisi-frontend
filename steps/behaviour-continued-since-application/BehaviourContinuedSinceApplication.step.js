@@ -1,14 +1,11 @@
 /* eslint-disable max-len */
 const { Question } = require('@hmcts/one-per-page/steps');
-const { branch, goTo } = require('@hmcts/one-per-page/flow');
+const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
-const { getUserData } = require('middleware/ccd');
 const moment = require('moment');
-
-
 const { form, text, object, date, convert, errorFor } = require('@hmcts/one-per-page/forms');
 
 class BehaviourContinuedSinceApplication extends Question {
@@ -16,8 +13,8 @@ class BehaviourContinuedSinceApplication extends Question {
     return config.paths.behaviourContinuedSinceApplication;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {
@@ -33,7 +30,7 @@ class BehaviourContinuedSinceApplication extends Question {
       }
       const hasAnsweredYes = behaviourContinuedSinceApplication === 'yes';
       const hasAnsweredNo = behaviourContinuedSinceApplication === 'no';
-      const lastSubmittedDate = moment(this.req.session.originalPetition.createdDate).format('YYYY-MM-DD');
+      const lastSubmittedDate = moment(this.case.createdDate).format('YYYY-MM-DD');
 
       const hasGivenDate = this.fields.changes.lastIncidentDate.day.value && this.fields.changes.lastIncidentDate.month.value && this.fields.changes.lastIncidentDate.year.value
        && lastIncidentDate.isValid() && lastIncidentDate.isBetween(lastSubmittedDate, moment.now(), null, []); // eslint-disable-line
@@ -67,8 +64,8 @@ class BehaviourContinuedSinceApplication extends Question {
       this.req.session.lastIncidentDate = this.fields.changes.lastIncidentDate.value;
     }
     return branch(
-      goTo(this.journey.steps.ClaimCosts).if(hasAnsweredYes),
-      goTo(this.journey.steps.LivedApartSinceLastIncidentDate)
+      redirectTo(this.journey.steps.ClaimCosts).if(hasAnsweredYes),
+      redirectTo(this.journey.steps.LivedApartSinceLastIncidentDate)
     );
   }
 
@@ -93,7 +90,7 @@ class BehaviourContinuedSinceApplication extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
   }
 }
 

@@ -176,3 +176,7 @@ variable "common_tags" {
 variable "evidence_management_client_api_upload_endpoint" {
   default = "/emclientapi/version/1/upload"
 }
+
+variable "case_orchestration_service_draft_endpoint" {
+  default = "/draftsapi/version/1"
+}
