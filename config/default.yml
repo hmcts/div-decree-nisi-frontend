@@ -64,7 +64,6 @@ paths:
   behaviourContinuedSinceApplication: /behaviour-continued-since-application
   checkYourAnswers: /check-your-answers
   claimCosts: /claim-costs
-  modifySession: /session
   done: /done
   entry: /entry
   exit: /exit
@@ -83,6 +82,7 @@ paths:
   upload: /upload-docs
   mock:
     idamLogin: /idam-mock-login
+    modifySession: /session
 
 tests:
   e2e:

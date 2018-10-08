@@ -4,6 +4,7 @@ const { custom, expect } = require('@hmcts/one-per-page-test-suite');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 const httpStatus = require('http-status-codes');
 const cosMockCase = require('mocks/services/case-orchestration/retrieve-aos-case/mock-case');
+const config = require('config');
 
 // Ignored warnings
 const excludedWarnings = [
@@ -33,7 +34,8 @@ const filteredErrors = r => {
 // ensure step has a template - if it doesnt no need to test it
 const filterSteps = step => {
   const stepInstance = new step({ journey: {} });
-  return stepInstance.middleware.includes(resolveTemplate);
+  const notMockStep = Object.values(config.paths).includes(step.path);
+  return stepInstance.middleware.includes(resolveTemplate) && notMockStep;
 };
 
 const userDetails = {

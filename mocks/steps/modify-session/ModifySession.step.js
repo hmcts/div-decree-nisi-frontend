@@ -38,7 +38,7 @@ class ModifySession extends Question {
   }
 
   static get path() {
-    return config.paths.modifySession;
+    return config.paths.mock.modifySession;
   }
 
   get form() {
