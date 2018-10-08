@@ -28,7 +28,7 @@ describe(modulePath, () => {
       return redirect.navigatesToNext(Entry, Undefended, null);
     });
 
-    it('to error page if get application fails', () => {
+    it('to start page if get application fails', () => {
       caseOrchestrationService.getApplication.rejects();
       return redirect.navigatesToNext(Entry, Start, null);
     });

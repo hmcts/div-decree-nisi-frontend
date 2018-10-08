@@ -61,7 +61,7 @@ describe(modulePath, () => {
       config.environment = currentEnvironment;
     });
 
-    it('is false so should not add step', () => {
+    it('is true so should add step', () => {
       config.environment = 'development';
       const steps = allSteps();
 
@@ -72,7 +72,7 @@ describe(modulePath, () => {
       expect(stepNames.includes('ModifySession')).to.eql(true);
     });
 
-    it('is true so should add step', () => {
+    it('is false so should not add step', () => {
       config.environment = 'prod';
       const steps = allSteps();
 
