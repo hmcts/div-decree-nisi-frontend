@@ -98,6 +98,10 @@
       "text"
     ],
     "sourceMap": true,
-    "instrument": true
+    "instrument": true,
+    "exclude": [
+      "services/caseOrchestrationService.js",
+      "services/redis.js"
+    ]
   }
 }
