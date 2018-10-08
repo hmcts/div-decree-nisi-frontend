@@ -55,4 +55,32 @@ describe(modulePath, () => {
     });
     config.environment = currentEnvironment;
   });
+
+  describe('#step.stepEnabled', () => {
+    afterEach(() => {
+      config.environment = currentEnvironment;
+    });
+
+    it('is false so should not add step', () => {
+      config.environment = 'development';
+      const steps = allSteps();
+
+      const stepNames = steps.map(step => {
+        return step.name;
+      });
+
+      expect(stepNames.includes('ModifySession')).to.eql(true);
+    });
+
+    it('is true so should add step', () => {
+      config.environment = 'prod';
+      const steps = allSteps();
+
+      const stepNames = steps.map(step => {
+        return step.name;
+      });
+
+      expect(stepNames.includes('ModifySession')).to.eql(false);
+    });
+  });
 });

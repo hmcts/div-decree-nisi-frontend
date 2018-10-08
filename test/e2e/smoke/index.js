@@ -1,6 +1,7 @@
 Feature('Smoke test', { retries: 2 });
 
-Scenario('Can see index page', I => {
+Scenario('Can see index page', async I => {
   I.amOnLoadedPage('/');
-  I.seeHomePage();
+  await I.loginToIdam();
+  I.seeUndefendedPage();
 });

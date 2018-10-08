@@ -20,13 +20,18 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
+      restart: false,
+      keepCookies: false,
+      keepBrowserState: false,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
       }
     },
     ElementExist: { require: './helpers/elementExist.js' },
-    JSWait: { require: './helpers/JSWait.js' }
+    IdamHelper: { require: './helpers/idamHelper.js' },
+    JSWait: { require: './helpers/JSWait.js' },
+    UrlHelper: { require: './helpers/urlHelper.js' }
   },
   include: { I: './pages/steps.js' },
   mocha: {
