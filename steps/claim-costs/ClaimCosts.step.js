@@ -5,7 +5,6 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const { getUserData } = require('middleware/ccd');
 const content = require('./ClaimCosts.content');
 
 const respAmount = 'respAmount';

@@ -38,7 +38,7 @@ describe(modulePath, () => {
       const testOptions = {
         onlyErrors: ['required']
       };
-      return question.testErrors(ClaimCosts, {}, {}, testOptions);
+      return question.testErrors(ClaimCosts, session, {}, testOptions);
     });
 
     it('shows error if does not fill amount ', () => {
@@ -50,7 +50,7 @@ describe(modulePath, () => {
         'claimCosts-divorceCostsOption': optionValues.alterAmount
       };
 
-      return question.testErrors(ClaimCosts, {}, fields, testOptions);
+      return question.testErrors(ClaimCosts, session, fields, testOptions);
     });
   });
 
@@ -59,7 +59,7 @@ describe(modulePath, () => {
 
     itParam('redirects to ShareCourtDocuments if answer is ${value}', options, option => {
       const fields = { 'claimCosts-divorceCostsOption': option };
-      return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments);
+      return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
     });
 
     it('redirects to ShareCourtDocuments if answer is differentAmount', () => {
@@ -67,7 +67,7 @@ describe(modulePath, () => {
         'claimCosts-divorceCostsOption': optionValues.alterAmount,
         'claimCosts-costsDifferentAmount': '10 pound and reason'
       };
-      return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments);
+      return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
     });
   });
 
@@ -80,7 +80,7 @@ describe(modulePath, () => {
     ];
     itParam('loads field ${value} from the session', options, option => {
       const sessionData = { 'claimCosts-divorceCostsOption': option };
-      return question.rendersValues(ClaimCosts, sessionData);
+      return question.rendersValues(ClaimCosts, sessionData, session);
     });
   });
 
@@ -94,11 +94,11 @@ describe(modulePath, () => {
         amountToClaim
       ];
 
-      const session = { claimCosts: {
+      const sessionData = { claimCosts: {
         divorceCostsOption: optionValues.alterAmount,
         costsDifferentAmount: amountToClaim
       } };
-      return question.answers(ClaimCosts, session, expectedContent);
+      return question.answers(ClaimCosts, sessionData, expectedContent, session);
     });
   });
 
