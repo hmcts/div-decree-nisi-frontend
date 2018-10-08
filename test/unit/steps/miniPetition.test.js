@@ -249,11 +249,13 @@ describe(modulePath, () => {
   describe('values', () => {
     it('displays petitioner and respondent names', () => {
       const session = {
-        petitionerName: 'petitioner name',
-        respondentName: 'respondent name',
         case: {
           data: {
-            connections: {}
+            connections: {},
+            petitionerFirstName: 'petitioner',
+            petitionerLastName: 'name',
+            respondentFirstName: 'respondent',
+            respondentLastName: 'name'
           }
         }
       };
@@ -262,8 +264,10 @@ describe(modulePath, () => {
         session,
         {
           specificValues: [
-            session.petitionerName,
-            session.respondentName
+            session.case.data.petitionerFirstName,
+            session.case.data.petitionerLastName,
+            session.case.data.respondentFirstName,
+            session.case.data.respondentLastName
           ]
         }
       );
@@ -286,8 +290,8 @@ describe(modulePath, () => {
         session,
         {
           specificValues: [
-            session.originalPetition.reasonForDivorceAdultery3rdPartyFirstName,
-            session.originalPetition.reasonForDivorceAdultery3rdPartyLastName
+            session.case.reasonForDivorceAdultery3rdPartyFirstName,
+            session.case.reasonForDivorceAdultery3rdPartyLastName
           ]
         }
       );
@@ -296,9 +300,9 @@ describe(modulePath, () => {
     it('displays place Of Marriage', () => {
       const placeOfMarriage = 'Parish of Normanton by Derby, in the County of Derby';
       const session = {
-        placeOfMarriage,
         case: {
           data: {
+            placeOfMarriage,
             connections: {}
           }
         }
@@ -339,7 +343,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [ session.originalPetition.legalProceedingsDetails ] }
+        { specificValues: [ session.case.legalProceedingsDetails ] }
       );
     });
 
@@ -362,9 +366,9 @@ describe(modulePath, () => {
         session,
         {
           specificValues: [
-            session.originalPetition.reasonForDivorceAdulteryDetails,
-            session.originalPetition.reasonForDivorceAdulteryWhereDetails,
-            session.originalPetition.reasonForDivorceAdulteryWhenDetails
+            session.case.reasonForDivorceAdulteryDetails,
+            session.case.reasonForDivorceAdulteryWhereDetails,
+            session.case.reasonForDivorceAdulteryWhenDetails
           ]
         }
       );
@@ -383,7 +387,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [ session.originalPetition.reasonForDivorceBehaviourDetails ] }
+        { specificValues: [ session.case.reasonForDivorceBehaviourDetails ] }
       );
     });
 
@@ -400,7 +404,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [ session.originalPetition.reasonForDivorceDesertionDetails ] }
+        { specificValues: [ session.case.reasonForDivorceDesertionDetails ] }
       );
     });
   });
