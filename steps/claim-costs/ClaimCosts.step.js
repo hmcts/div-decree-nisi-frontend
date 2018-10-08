@@ -5,15 +5,14 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const { getUserData } = require('middleware/ccd');
 
 class ClaimCosts extends Question {
   static get path() {
     return config.paths.claimCosts;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {
@@ -40,7 +39,7 @@ class ClaimCosts extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
   }
 }
 

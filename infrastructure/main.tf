@@ -7,8 +7,11 @@ locals {
   nonPreviewVaultName = "${var.raw_product}-${var.env}"
   vaultName = "${(var.env == "preview" || var.env == "spreview") ? local.previewVaultName : local.nonPreviewVaultName}"
   evidence_management_client_api_url = "http://div-emca-${local.local_env}.service.core-compute-${local.local_env}.internal"
-  status_health_endpoint = "/status/health"
-  
+
+  case_orchestration_service_api_url = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
+
+  health_endpoint = "/health"
+
   asp_name = "${var.env == "prod" ? "div-dn-prod" : "${var.raw_product}-${var.env}"}"
   asp_rg = "${var.env == "prod" ? "div-dn-prod" : "${var.raw_product}-${var.env}"}"
 }
@@ -77,8 +80,14 @@ module "frontend" {
 
     // Evidence Management Client API
     EVIDENCE_MANAGEMENT_CLIENT_API_URL             = "${local.evidence_management_client_api_url}"
-    EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL = "${local.evidence_management_client_api_url}${local.status_health_endpoint}"
+    EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL = "${local.evidence_management_client_api_url}${local.health_endpoint}"
     EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT = "${var.evidence_management_client_api_upload_endpoint}"
+
+    // CCase Orchestration API
+    ORCHESTRATION_SERVICE_URL              = "${local.case_orchestration_service_api_url}"
+    ORCHESTRATION_SERVICE_GET_PETITION_URL = "${local.case_orchestration_service_api_url}/retrieve-aos-case"
+    ORCHESTRATION_SERVICE_HEALTH_URL       = "${local.case_orchestration_service_api_url}${local.health_endpoint}"
+    ORCHESTRATION_SERVICE_DRAFT_ENDPOINT   = "${var.case_orchestration_service_draft_endpoint}"
 
     // Encryption secrets
     SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"

@@ -3,7 +3,6 @@ const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
-const ccd = require('middleware/ccd');
 const Joi = require('joi');
 
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
@@ -13,8 +12,8 @@ class MiniPetition extends Question {
     return config.paths.miniPetition;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {
@@ -119,7 +118,7 @@ class MiniPetition extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), ccd.getUserData];
+    return [...super.middleware, idam.protect()];
   }
 }
 

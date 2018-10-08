@@ -2,10 +2,8 @@ const modulePath = 'steps/behaviour-continued-since-application/BehaviourContinu
 
 const BehaviourContinuedSinceApplication = require(modulePath);
 const BehaviourContinuedSinceApplicationContent = require('steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.content');  // eslint-disable-line
-
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-last-incident-date/LivedApartSinceLastIncidentDate.step'); // eslint-disable-line
-
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
@@ -24,20 +22,35 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(BehaviourContinuedSinceApplication);
+    const session = { case: { data: {} } };
+    return content(BehaviourContinuedSinceApplication, session);
   });
 
 
   it('shows error if does not answer question', () => {
     const onlyErrors = ['required'];
-    return question.testErrors(BehaviourContinuedSinceApplication, {}, {}, { onlyErrors });
+    const session = {
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    return question.testErrors(BehaviourContinuedSinceApplication, session, {}, { onlyErrors });
   });
 
   it('shows error if answered no and no date entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
     const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
       'changes-lastIncidentDate-day': '' };
-    return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
+    const session = {
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
   });
 
   it('shows error if answered no and a date before last application date is entered', () => {
@@ -46,7 +59,14 @@ describe(modulePath, () => {
       'changes-lastIncidentDate-day': '20',
       'changes-lastIncidentDate-month': '03',
       'changes-lastIncidentDate-year': '1900' };
-    return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
+    const session = {
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
   });
 
   it('shows error if answered no and a date in future is entered', () => {
@@ -55,7 +75,14 @@ describe(modulePath, () => {
       'changes-lastIncidentDate-day': '20',
       'changes-lastIncidentDate-month': '03',
       'changes-lastIncidentDate-year': '2200' };
-    return question.testErrors(BehaviourContinuedSinceApplication, {}, fields, { onlyErrors });
+    const session = {
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
   });
 
   it('redirects to LivedApartSinceLastIncidentDate if answered no and valid date entered', () => {
@@ -63,7 +90,14 @@ describe(modulePath, () => {
       'changes-lastIncidentDate-day': '20',
       'changes-lastIncidentDate-month': '09',
       'changes-lastIncidentDate-year': '2018' };
-    return question.redirectWithField(BehaviourContinuedSinceApplication, fields, LivedApartSinceLastIncidentDate); // eslint-disable-line
+    const session = {
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    return question.redirectWithField(BehaviourContinuedSinceApplication, fields, LivedApartSinceLastIncidentDate, session); // eslint-disable-line
   });
 
 
@@ -71,7 +105,19 @@ describe(modulePath, () => {
     const fields = {
       'changes-behaviourContinuedSinceApplication': 'yes'
     };
-    return question.redirectWithField(BehaviourContinuedSinceApplication, fields, ClaimCosts);
+    const session = {
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    return question.redirectWithField(
+      BehaviourContinuedSinceApplication,
+      fields,
+      ClaimCosts,
+      session
+    );
   });
 
   it('returns correct answers if answered yes', () => {
@@ -87,7 +133,15 @@ describe(modulePath, () => {
       }
     };
 
-    return question.answers(BehaviourContinuedSinceApplication, stepData, expectedContent, {});
+    const session = {
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+
+    return question.answers(BehaviourContinuedSinceApplication, stepData, expectedContent, session);
   });
 
   it('returns correct answers if answered no', () => {
@@ -103,6 +157,14 @@ describe(modulePath, () => {
       }
     };
 
-    return question.answers(BehaviourContinuedSinceApplication, stepData, expectedContent, {});
+    const session = {
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+
+    return question.answers(BehaviourContinuedSinceApplication, stepData, expectedContent, session);
   });
 });

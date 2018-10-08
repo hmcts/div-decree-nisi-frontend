@@ -8,8 +8,8 @@ class Exit extends ExitPoint {
     return config.paths.exit;
   }
 
-  get session() {
-    return this.req.sess;
+  get case() {
+    return this.req.preservedSession.case.data;
   }
 
   get middleware() {

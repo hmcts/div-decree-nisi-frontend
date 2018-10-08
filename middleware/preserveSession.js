@@ -1,6 +1,6 @@
 // preserve session to render done page
 const preserveSession = (req, res, next) => {
-  req.sess = req.session;
+  req.preservedSession = req.session;
   next();
 };
 

@@ -5,7 +5,6 @@ const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
-const { getUserData } = require('middleware/ccd');
 
 const { form, text } = require('@hmcts/one-per-page/forms');
 
@@ -45,7 +44,7 @@ class Intolerable extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
   }
 }
 

@@ -1,7 +1,7 @@
 {
   "en": {
-    "title": "Read your {{ session.divorceWho }}'s response",
-    "youNeedToReed": "You need to read your {{ session.divorceWho }}'s response before you continue. The response is legally known as the 'acknowledgement of service'",
+    "title": "Read your {{ case.divorceWho }}'s response",
+    "youNeedToReed": "You need to read your {{ case.divorceWho }}'s response before you continue. The response is legally known as the 'acknowledgement of service'",
     "acknowledgementOfSrvice": "Acknowledgement of service",
     "respondent": "Respondent",
     "applicant": "Applicant",
@@ -24,10 +24,10 @@
     "payCosts": "to pay the costs that you suggested",
     "notPayCosts": "to not agree to paying any of the costs",
     "suggestPayingDifferent": "to suggest paying a different amount",
-    "chanceToChangeAmount": "You'll be given a chance to change the amount that you want to claim later in this application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ session.divorceWho }} make.",
+    "chanceToChangeAmount": "You'll be given a chance to change the amount that you want to claim later in this application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ case.divorceWho }} make.",
     "fields": {
       "reviewAosResponse": {
-        "title": "Have you read your {{ session.divorceWho }}'s response?",
+        "title": "Have you read your {{ case.divorceWho }}'s response?",
         "yes": "Yes"
       }
     }

@@ -5,7 +5,6 @@ const ReviewAosResponseContent = require('steps/review-aos-response/ReviewAosRes
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const idam = require('services/idam');
 const { middleware, sinon, content, question } = require('@hmcts/one-per-page-test-suite');
-const { getUserData } = require('middleware/ccd');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -17,7 +16,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(ReviewAosResponse, [ idam.protect(), getUserData ]);
+    return middleware.hasMiddleware(ReviewAosResponse, [ idam.protect() ]);
   });
 
   it('redirects to next page', () => {
@@ -26,7 +25,8 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(ReviewAosResponse);
+    const session = { case: { data: {} } };
+    return content(ReviewAosResponse, session);
   });
 
   it.skip('returns correct answers', () => {
@@ -36,5 +36,33 @@ describe(modulePath, () => {
     ];
     const session = { reviewAosResponse: 'yes' };
     return question.answers(ReviewAosResponse, session, expectedContent);
+  });
+
+  describe('values', () => {
+    it('displays petitioner and respondent names', () => {
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            petitionerFirstName: 'petitioner',
+            petitionerLastName: 'name',
+            respondentFirstName: 'respondent',
+            respondentLastName: 'name'
+          }
+        }
+      };
+      return content(
+        ReviewAosResponse,
+        session,
+        {
+          specificValues: [
+            session.case.data.petitionerFirstName,
+            session.case.data.petitionerLastName,
+            session.case.data.respondentFirstName,
+            session.case.data.respondentLastName
+          ]
+        }
+      );
+    });
   });
 });

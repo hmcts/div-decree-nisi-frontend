@@ -4,10 +4,7 @@ const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
-const { getUserData } = require('middleware/ccd');
 const moment = require('moment');
-
-
 const { form, object, date, convert, errorFor } = require('@hmcts/one-per-page/forms');
 
 class AdulteryFirstFoundOut extends Question {
@@ -15,14 +12,14 @@ class AdulteryFirstFoundOut extends Question {
     return config.paths.adulteryFirstFoundOut;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {
     const validateFirstFoundDate = ({ adulteryFirstFoundDate = '' }) => {
-      const marriageDate = moment(this.req.session.originalPetition.marriageDate).format('YYYY-MM-DD');
-      const createdDate = moment(this.req.session.originalPetition.createdDate).format('YYYY-MM-DD');
+      const marriageDate = moment(this.case.marriageDate).format('YYYY-MM-DD');
+      const createdDate = moment(this.case.createdDate).format('YYYY-MM-DD');
       const hasGivenDate = this.fields.changes.adulteryFirstFoundDate.day.value && this.fields.changes.adulteryFirstFoundDate.month.value && this.fields.changes.adulteryFirstFoundDate.year.value
          && adulteryFirstFoundDate.isValid() && adulteryFirstFoundDate.isBetween(marriageDate, createdDate, null, []); // eslint-disable-line
       return hasGivenDate;
@@ -56,7 +53,7 @@ class AdulteryFirstFoundOut extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), getUserData];
+    return [...super.middleware, idam.protect()];
   }
 }
 

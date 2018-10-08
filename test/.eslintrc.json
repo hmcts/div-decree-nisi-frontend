@@ -18,7 +18,8 @@
     "max-len": ["error", {
         "code": 100
       }
-    ]
+    ],
+    "id-blacklist": ["error", "err", "e", "cb", "callback"]
   },
   "globals": {
     "After": true,

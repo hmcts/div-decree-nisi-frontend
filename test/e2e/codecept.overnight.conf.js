@@ -42,7 +42,6 @@ const setupConfig = {
       desiredCapabilities: {}
     },
     ElementExist: { require: './helpers/elementExist.js' },
-    IdamHelper: { require: './helpers/idamHelper.js' },
     JSWait: { require: './helpers/JSWait.js' },
     SauceLabsReportingHelper: { require: './helpers/SauceLabsReportingHelper.js' }
   },

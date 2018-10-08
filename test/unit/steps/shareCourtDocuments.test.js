@@ -20,7 +20,8 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(ShareCourtDocuments);
+    const session = { case: { data: {} } };
+    return content(ShareCourtDocuments, session);
   });
 
   it('shows error if does not answer question', () => {

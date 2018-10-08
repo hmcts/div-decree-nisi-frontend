@@ -1,8 +1,8 @@
 {
   "en": {
-    "title": "You must find it intolerable to live with your {{ session.divorceWho }}",
-    "mustBeIntolerable": "You must find it intolerable (unbearable) to live with your {{ session.divorceWho }} if you want to use adultery as your reason for divorce. This applies whether you're still living together or not.",
-    "notIntolerable": "If you don't find it intolerable, you'll need to pay a £95 fee to change your application and use another reason for divorce. Your application will also need to be sent to your {{ session.divorceWho }} again.",
+    "title": "You must find it intolerable to live with your {{ case.divorceWho }}",
+    "mustBeIntolerable": "You must find it intolerable (unbearable) to live with your {{ case.divorceWho }} if you want to use adultery as your reason for divorce. This applies whether you're still living together or not.",
+    "notIntolerable": "If you don't find it intolerable, you'll need to pay a £95 fee to change your application and use another reason for divorce. Your application will also need to be sent to your {{ case.divorceWho }} again.",
     "contact": "Contact your regional divorce centre to change your application, or go back to change your answer."
   }
 }
