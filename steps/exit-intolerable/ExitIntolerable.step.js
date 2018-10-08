@@ -7,8 +7,8 @@ class ExitIntolerable extends Page {
     return config.paths.exitIntolerable;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get flowControl() {

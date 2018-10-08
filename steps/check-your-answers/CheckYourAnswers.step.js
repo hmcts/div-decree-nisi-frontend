@@ -1,20 +1,19 @@
 const { CheckYourAnswers: CYA } = require('@hmcts/one-per-page/checkYourAnswers');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
-const ccd = require('middleware/ccd');
 
 class CheckYourAnswers extends CYA {
   static get path() {
     return config.paths.checkYourAnswers;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   next() {
-    return goTo(this.journey.steps.Done);
+    return redirectTo(this.journey.steps.Done);
   }
 
   get errorMessage() {
@@ -22,7 +21,7 @@ class CheckYourAnswers extends CYA {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect(), ccd.getUserData];
+    return [...super.middleware, idam.protect()];
   }
 }
 
