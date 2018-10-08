@@ -1,4 +1,4 @@
-environment: REFORM_ENVIRONMENT
+environment: DEPLOYMENT_ENV
 NODE_ENV: NODE_ENV
 
 node:

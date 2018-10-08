@@ -55,14 +55,13 @@ module "frontend" {
     REFORM_TEAM = "${var.reform_team}"
     REFORM_SERVICE_NAME = "${var.reform_service_name}"
     REFORM_ENVIRONMENT = "${var.env}"
+    DEPLOYMENT_ENV="${var.deployment_env}"
 
     // Packages
     PACKAGES_NAME="${var.packages_name}"
     PACKAGES_PROJECT="${var.packages_project}"
     PACKAGES_ENVIRONMENT="${var.packages_environment}"
     PACKAGES_VERSION="${var.packages_version}"
-
-    DEPLOYMENT_ENV="${var.deployment_env}"
 
     // Service name
     SERVICE_NAME="${var.frontend_service_name}"
