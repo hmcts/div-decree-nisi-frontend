@@ -1,5 +1,5 @@
 const { Question } = require('@hmcts/one-per-page/steps');
-const { branch, goTo } = require('@hmcts/one-per-page/flow');
+const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
@@ -117,13 +117,13 @@ class MiniPetition extends Question {
     const reasonForDivorce = this.case.reasonForDivorce;
 
     return branch(
-      goTo(this.journey.steps.Intolerable)
+      redirectTo(this.journey.steps.Intolerable)
         .if(reasonForDivorce === 'adultery'),
-      goTo(this.journey.steps.BehaviourContinuedSinceApplication)
+      redirectTo(this.journey.steps.BehaviourContinuedSinceApplication)
         .if(reasonForDivorce === 'unreasonable-behaviour'),
-      goTo(this.journey.steps.LivedApartSinceDesertion)
+      redirectTo(this.journey.steps.LivedApartSinceDesertion)
         .if(reasonForDivorce === 'desertion'),
-      goTo(this.journey.steps.LivedApartSinceSeparation)
+      redirectTo(this.journey.steps.LivedApartSinceSeparation)
     );
   }
 
