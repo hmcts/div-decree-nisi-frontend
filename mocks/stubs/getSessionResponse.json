@@ -1,7 +1,7 @@
 {
   "caseId": "1234567890124567",
   "courts": "dsdf",
-  "state": "AwaitingAOS",
+  "state": "AosAwaiting",
   "data": {
     "createdDate":"2018-08-02T00:00:00.000Z",
     "screenHasMarriageBroken": "Yes",
