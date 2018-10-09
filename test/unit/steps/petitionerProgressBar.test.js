@@ -5,7 +5,7 @@ const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.s
 const getSteps = require('steps');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const { getUserData } = require('middleware/ccd');
+const caseOrchestrationMiddleware = require('middleware/caseOrchestrationMiddleware');
 
 const issuedContent = [
   'issuedAppStatusMsg',
@@ -37,13 +37,15 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(PetitionProgressBar, [ idam.protect(), getUserData ]);
+    return middleware.hasMiddleware(PetitionProgressBar, [
+      idam.protect(),
+      caseOrchestrationMiddleware.getApplication
+    ]);
   });
 
   it('redirects to next page', () => {
     return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, getSteps());
   });
-
 
   it('renders the content when ccd status is Submitted', () => {
     const session = {

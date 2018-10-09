@@ -1,8 +1,8 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { goTo } = require('@hmcts/one-per-page/flow');
-
 const idam = require('services/idam');
+const caseOrchestrationMiddleware = require('middleware/caseOrchestrationMiddleware');
 
 class PetitionProgressBar extends Interstitial {
   static get path() {
@@ -23,7 +23,11 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      caseOrchestrationMiddleware.getApplication
+    ];
   }
 
   next() {
