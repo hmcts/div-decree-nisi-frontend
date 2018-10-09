@@ -3,6 +3,7 @@
   "courts": "dsdf",
   "state": "AwaitingPayment",
   "data": {
+    "issueDate": "2018-02-02T00:00:00.000Z",
     "createdDate":"2018-08-02T00:00:00.000Z",
     "screenHasMarriageBroken": "Yes",
     "screenHasRespondentAddress": "Yes",
