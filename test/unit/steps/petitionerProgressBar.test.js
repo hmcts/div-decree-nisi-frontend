@@ -4,8 +4,9 @@ const PetitionProgressBar = require(modulePath);
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const getSteps = require('steps');
 const idam = require('services/idam');
-const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, interstitial, sinon, content, verifyResult } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationMiddleware = require('middleware/caseOrchestrationMiddleware');
+
 
 const issuedContent = [
   'issuedAppStatusMsg',
@@ -79,5 +80,44 @@ describe(modulePath, () => {
      */
     const specificValuesToNotExist = specificContent;
     return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+  });
+
+  it('renders the correct template when ccd status is Submitted', () => {
+    const session = {
+      case: {
+        state: 'Submitted',
+        data: {
+          connections: {}
+        }
+      }
+    };
+    const expectedContent = 'submitted';
+    return verifyResult(PetitionProgressBar, 'ccdStatus', expectedContent, session);
+  });
+
+  it('renders the correct template when ccd status is AOSStarted', () => {
+    const session = {
+      case: {
+        state: 'AOSstarted',
+        data: {
+          connections: {}
+        }
+      }
+    };
+    const expectedContent = 'issued';
+    return verifyResult(PetitionProgressBar, 'ccdStatus', expectedContent, session);
+  });
+
+  it('renders the correct template when ccd status is awaitingConsiderationDN', () => {
+    const session = {
+      case: {
+        state: 'awaitingConsiderationDN',
+        data: {
+          connections: {}
+        }
+      }
+    };
+    const expectedContent = 'awaiting';
+    return verifyResult(PetitionProgressBar, 'ccdStatus', expectedContent, session);
   });
 });
