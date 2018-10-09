@@ -4,7 +4,7 @@ const PetitionProgressBar = require(modulePath);
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const getSteps = require('steps');
 const idam = require('services/idam');
-const { middleware, interstitial, sinon, content, verifyResult } = require('@hmcts/one-per-page-test-suite');
+const { middleware, interstitial, sinon, content, stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationMiddleware = require('middleware/caseOrchestrationMiddleware');
 
 
@@ -92,7 +92,8 @@ describe(modulePath, () => {
       }
     };
     const expectedContent = 'submitted';
-    return verifyResult(PetitionProgressBar, 'ccdStatus', expectedContent, session);
+    const instance = stepAsInstance(PetitionProgressBar, session);
+    expect(instance.ccdStatus).to.eql(expectedContent);
   });
 
   it('renders the correct template when ccd status is AOSStarted', () => {
@@ -105,7 +106,8 @@ describe(modulePath, () => {
       }
     };
     const expectedContent = 'issued';
-    return verifyResult(PetitionProgressBar, 'ccdStatus', expectedContent, session);
+    const instance = stepAsInstance(PetitionProgressBar, session);
+    expect(instance.ccdStatus).to.eql(expectedContent);
   });
 
   it('renders the correct template when ccd status is awaitingConsiderationDN', () => {
@@ -118,6 +120,7 @@ describe(modulePath, () => {
       }
     };
     const expectedContent = 'awaiting';
-    return verifyResult(PetitionProgressBar, 'ccdStatus', expectedContent, session);
+    const instance = stepAsInstance(PetitionProgressBar, session);
+    expect(instance.ccdStatus).to.eql(expectedContent);
   });
 });
