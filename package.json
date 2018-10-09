@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git",
-    "@hmcts/one-per-page-test-suite": "^2.0.4",
+    "@hmcts/one-per-page-test-suite": "^2.0.7",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
@@ -67,7 +67,6 @@
     "eslint": "^4.19.1",
     "eslint-plugin-mocha": "^5.0.0",
     "mocha": "^3.0.0",
-    "mocha-param": "^2.0.0",
     "mochawesome": "^3.0.2",
     "node-dev": "^3.1.3",
     "nsp": "3.2.1",
