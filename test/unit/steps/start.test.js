@@ -1,19 +1,21 @@
 const modulePath = 'steps/start/Start.step';
 
 const Start = require(modulePath);
-const { middleware, content, expect } = require('@hmcts/one-per-page-test-suite');
-
-const idam = require('services/idam');
+const Undefended = require('steps/undefended/Undefended.step');
+const Entry = require('steps/entry/Entry.step');
+const { redirect } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
-  it('renders the page on GET', () => {
-    const session = { case: { data: {} } };
-    return content(Start, session, { ignoreContent: ['continue'] });
-  });
-  it('ignores pa11y warnings', () => {
-    expect(Start.ignorePa11yWarnings).to.include('WCAG2AA.Principle1.Guideline1_3.1_3_1.H48');
-  });
-  it('has idam.authenticate middleware', () => {
-    return middleware.hasMiddleware(Start, [ idam.setRedirectUri ]);
+  context('navigation', () => {
+    it('to undefended page', () => {
+      const session = {
+        case: {}
+      };
+      return redirect.navigatesToNext(Start, Undefended, session);
+    });
+
+    it('to entry page', () => {
+      return redirect.navigatesToNext(Start, Entry);
+    });
   });
 });

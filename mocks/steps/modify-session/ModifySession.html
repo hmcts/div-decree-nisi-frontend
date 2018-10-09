@@ -1,0 +1,51 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textbox %}
+
+{% block breadcrumbs %}
+  {{ phaseBanner(phase, feedbackLink) }}
+{% endblock %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+  <link href="/session/assets/jsoneditor/jsoneditor.min.css" rel="stylesheet" type="text/css">
+  <script src="/session/assets/jsoneditor/jsoneditor.min.js"></script>
+  <style>
+    .form-group{
+      margin:0;
+      margin-bottom: 30px;
+    }
+    .form-group .heading-medium{
+      margin-top: 0px;
+      margin-bottom: 5px;
+    }
+    .form-group .inline .multiple-choice{
+      width: 185px;
+      margin-bottom: 10px;
+    }
+  </style>
+{% endblock %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block full_width %}
+  {{ header(title, size='xlarge') }}
+
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+    {% include "steps/modify-session/sections/caseState.html" %}
+    {% include "steps/modify-session/sections/petitioner.html" %}
+    {% include "steps/modify-session/sections/respondent.html" %}
+
+    <input class="button" type="submit" value="Set">
+
+  </form>
+
+  <br><br>
+
+  {% include "steps/modify-session/sections/rawSession.html" %}
+
+{% endblock %}]

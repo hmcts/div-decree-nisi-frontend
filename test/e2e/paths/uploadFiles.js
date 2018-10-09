@@ -4,7 +4,6 @@ Feature('Upload Files').retry(3);
 
 Scenario('Test upload', async I => {
   I.amOnLoadedPage('/');
-  I.seeHomePage();
   await I.loginToIdam();
   I.amOnLoadedPage(ShareCourtDocuments.path);
   I.seeShareCourtDocumentsPage('yes');
@@ -15,7 +14,6 @@ Scenario('Test upload', async I => {
 
 Scenario('Test remove marriage Certificate', async I => {
   I.amOnLoadedPage('/');
-  I.seeHomePage();
   await I.loginToIdam();
   I.amOnLoadedPage(ShareCourtDocuments.path);
   I.seeShareCourtDocumentsPage('yes');

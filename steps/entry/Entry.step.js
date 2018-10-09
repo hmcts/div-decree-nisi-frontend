@@ -1,7 +1,8 @@
 const { EntryPoint } = require('@hmcts/one-per-page');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo, action } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const config = require('config');
+const caseOrchestrationService = require('services/caseOrchestrationService');
 
 class Entry extends EntryPoint {
   static get path() {
@@ -9,7 +10,9 @@ class Entry extends EntryPoint {
   }
 
   next() {
-    return redirectTo(this.journey.steps.Undefended);
+    return action(caseOrchestrationService.getApplication)
+      .then(redirectTo(this.journey.steps.Undefended))
+      .onFailure(redirectTo(this.journey.steps.Start));
   }
 
   get middleware() {

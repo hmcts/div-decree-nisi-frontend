@@ -4,6 +4,8 @@ const CheckYourAnswers = require(modulePath);
 const Done = require('steps/done/Done.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const caseOrchestrationService = require('services/caseOrchestrationService');
+const Start = require('steps/start/Start.step');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -35,9 +37,26 @@ describe(modulePath, () => {
     return question.testErrors(CheckYourAnswers, session);
   });
 
-  it('redirects to Done if statment of true answered', () => {
-    const fields = { statementOfTruth: 'yes' };
-    return question.redirectWithField(CheckYourAnswers, fields, Done);
+  describe('navigates', () => {
+    beforeEach(() => {
+      sinon.stub(caseOrchestrationService, 'submitApplication');
+    });
+
+    afterEach(() => {
+      caseOrchestrationService.submitApplication.restore();
+    });
+
+    it('to Done if statment of true answered', () => {
+      caseOrchestrationService.submitApplication.resolves();
+      const fields = { statementOfTruth: 'yes' };
+      return question.redirectWithField(CheckYourAnswers, fields, Done);
+    });
+
+    it('to start page if save application fails', () => {
+      caseOrchestrationService.submitApplication.rejects();
+      const fields = { statementOfTruth: 'yes' };
+      return question.redirectWithField(CheckYourAnswers, fields, Start);
+    });
   });
 
   describe('claims costs statment of truth', () => {
