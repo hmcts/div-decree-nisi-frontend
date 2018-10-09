@@ -4,7 +4,8 @@ const ClaimCosts = require(modulePath);
 const ClaimCostsContent = require('steps/claim-costs/ClaimCosts.content');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const idam = require('services/idam');
-const { middleware, question, sinon, content, expect, itParam } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon,
+  content, expect, itParam } = require('@hmcts/one-per-page-test-suite');
 
 const session = { case: { data: {} } };
 
