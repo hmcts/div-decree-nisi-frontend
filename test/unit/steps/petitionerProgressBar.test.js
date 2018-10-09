@@ -4,7 +4,8 @@ const PetitionProgressBar = require(modulePath);
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const getSteps = require('steps');
 const idam = require('services/idam');
-const { middleware, interstitial, sinon, content, stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
+const { middleware, interstitial, sinon, content,
+  stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationMiddleware = require('middleware/caseOrchestrationMiddleware');
 
 
