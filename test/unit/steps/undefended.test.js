@@ -1,7 +1,7 @@
 const modulePath = 'steps/undefended/Undefended.step';
 
 const Undefended = require(modulePath);
-const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
+const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const getSteps = require('steps');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
@@ -23,8 +23,8 @@ describe(modulePath, () => {
     ]);
   });
 
-  it('redirects to next page', () => {
-    return interstitial.navigatesToNext(Undefended, ReviewAosResponse, getSteps());
+  it('skips reviewAosResponse when CCD has respDefendsDivorce as null', () => {
+    return interstitial.navigatesToNext(Undefended, ApplyForDecreeNisi, getSteps());
   });
 
   it('renders the content', () => {

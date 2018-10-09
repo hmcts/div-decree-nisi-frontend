@@ -2,6 +2,7 @@
   "caseId": "1234567890124567",
   "courts": "dsdf",
   "state": "AwaitingPayment",
+  "respDefendsDivorce": null, 
   "data": {
     "createdDate":"2018-08-02T00:00:00.000Z",
     "screenHasMarriageBroken": "Yes",
