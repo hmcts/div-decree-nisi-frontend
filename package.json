@@ -23,9 +23,7 @@
     "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha test/w3cjs",
     "lint": "eslint ."
   },
-  "pre-commit": [
-    "lint"
-  ],
+  "pre-commit": "lint",
   "dependencies": {
     "@hmcts/div-idam-express-middleware": "https://github.com/hmcts/div-idam-express-middleware#6.0.0",
     "@hmcts/look-and-feel": "^1.13.2",
@@ -73,6 +71,7 @@
     "nsp": "3.2.1",
     "nyc": "12.0.1",
     "pa11y": "^4.0.1",
+    "pre-commit": "^1.2.2",
     "proxyquire": "^2.0.1",
     "puppeteer": "^1.4.0",
     "randomstring": "^1.1.5",
