@@ -114,8 +114,7 @@ class MiniPetition extends Question {
   }
 
   next() {
-    const reasonForDivorce = this.case.reasonForDivorce;
-
+    const reasonForDivorce = this.case.reasonForDivorce.toLowerCase();
     return branch(
       redirectTo(this.journey.steps.Intolerable)
         .if(reasonForDivorce === 'adultery'),

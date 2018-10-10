@@ -8,7 +8,9 @@ Scenario('Happy path', async I => {
   I.seeReviewAosResponsePage();
   I.seeApplyForDecreeNisiPage();
   I.seeMiniPetitionPage();
-  I.seeLivedApartSinceSeparationPage();
+  I.seeIntolerable();
+  I.seeAdulteryFirstFound();
+  I.seeLivedApartSinceAdulteryPage();
   I.seeClaimCostsPage();
   I.seeShareCourtDocumentsPage();
   I.seeCheckYourAnswersPage();
