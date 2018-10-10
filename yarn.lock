@@ -91,7 +91,7 @@
     request-promise-native "^1.0.5"
     uuid "^3.1.0"
 
-"@hmcts/div-idam-express-middleware@https://github.com/hmcts/div-idam-express-middleware#6.2.2":
+"@hmcts/div-idam-express-middleware@https://github.com/hmcts/div-idam-express-middleware#5b6ce320d8232c338a8f383628bfd06218954316":
   version "6.2.2"
   resolved "https://github.com/hmcts/div-idam-express-middleware#5b6ce320d8232c338a8f383628bfd06218954316"
   dependencies:
