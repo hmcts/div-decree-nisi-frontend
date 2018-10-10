@@ -32,7 +32,7 @@
     {{ selectionButtons(fields.applyForDecreeNisi, content.fields.applyForDecreeNisi.title,
       options = [
         { label: content.fields.applyForDecreeNisi.yes, value: "yes" },
-        { label: content.fields.applyForDecreeNisi.no, value: "no" }
+        { label: content.fields.applyForDecreeNisi.no, value: "no", target: "no-container"}
       ],
       hint=false,
       hideQuestion=true,
@@ -40,5 +40,10 @@
       type='radio'
     ) }}
   {% endcall %}
+
+  <!-- Dropdown area if answered no -->
+  <div class="js-hidden panel panel-border-wide" id="no-container">
+    <p class="text">{{ content.signOutDetail | safe}}</p>
+  </div>
 
 {% endblock %}
