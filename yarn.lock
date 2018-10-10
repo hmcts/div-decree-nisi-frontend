@@ -82,18 +82,9 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@hmcts/div-idam-express-middleware@^6.0.1":
+"@hmcts/div-idam-express-middleware@^6.0.1", "@hmcts/div-idam-express-middleware@https://github.com/hmcts/div-idam-express-middleware#4c64f8c7a9c76e7b8f75ec6544f6a77b990080bb":
   version "6.2.1"
-  resolved "https://github.com/hmcts/div-idam-express-middleware#0127c9031afd7c1662c0f18f570d1e233b0eeab1"
-  dependencies:
-    "@hmcts/nodejs-logging" "^2.2.0"
-    request "^2.83.0"
-    request-promise-native "^1.0.5"
-    uuid "^3.1.0"
-
-"@hmcts/div-idam-express-middleware@https://github.com/hmcts/div-idam-express-middleware#5b6ce320d8232c338a8f383628bfd06218954316":
-  version "6.2.2"
-  resolved "https://github.com/hmcts/div-idam-express-middleware#5b6ce320d8232c338a8f383628bfd06218954316"
+  resolved "https://github.com/hmcts/div-idam-express-middleware#4c64f8c7a9c76e7b8f75ec6544f6a77b990080bb"
   dependencies:
     "@hmcts/nodejs-logging" "^2.2.0"
     request "^2.83.0"

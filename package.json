@@ -26,7 +26,7 @@
   },
   "pre-commit": "lint",
   "dependencies": {
-    "@hmcts/div-idam-express-middleware": "https://github.com/hmcts/div-idam-express-middleware#5b6ce320d8232c338a8f383628bfd06218954316",
+    "@hmcts/div-idam-express-middleware": "https://github.com/hmcts/div-idam-express-middleware#4c64f8c7a9c76e7b8f75ec6544f6a77b990080bb",
     "@hmcts/look-and-feel": "^1.13.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd",
