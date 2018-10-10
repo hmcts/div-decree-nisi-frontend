@@ -1,8 +1,8 @@
 {
   "en": {
     "title": "Your divorce",
-    "referenceNumber": "Reference number",
-    "name": "name",
+    "referenceNumber": "Case number",
+    "name": "Name",
 
     "youApplied": "You applied",
     "husbandWifeMustRespond": "Your {{ case.divorceWho }} must respond",
