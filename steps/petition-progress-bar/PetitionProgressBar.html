@@ -39,9 +39,6 @@
   <h2 class="heading-medium">{{ content.imporveService }}</h2>
   <p class="text">{{ content.imporveServiceDetails | safe }} {{ content.feedbackLink | safe }}</p>
 
-  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-    <input class="button button-start" type="submit" value="{{ content.continue }}">
-  </form>
 {% endblock %}
 
 {% block one_third %}
