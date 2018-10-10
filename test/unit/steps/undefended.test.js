@@ -7,7 +7,6 @@ const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.s
 const getSteps = require('steps');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const cosMiddleware = require('middleware/caseOrchestrationMiddleware');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -19,32 +18,25 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Undefended, [
-      idam.protect(),
-      cosMiddleware.getApplication
-    ]);
+    return middleware.hasMiddleware(Undefended, [ idam.protect() ]);
   });
 
   it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
-    const getApplicationResponse = {
+    const session = {
       case: {
         respDefendsDivorce: null
       }
     };
-    sinon.stub(cosMiddleware, 'getApplication').resolves(getApplicationResponse);
-    interstitial.navigatesToNext(Undefended, ApplyForDecreeNisi, getSteps());
-    cosMiddleware.getApplication.restore();
+    interstitial.navigatesToNext(Undefended, ApplyForDecreeNisi, getSteps(), session);
   });
 
   it('redirects reviewAosResponse when CCD has respDefendsDivorce as Yes', () => {
-    const getApplicationResponse = {
+    const session = {
       case: {
         respDefendsDivorce: 'Yes'
       }
     };
-    sinon.stub(cosMiddleware, 'getApplication').resolves(getApplicationResponse);
-    interstitial.navigatesToNext(Undefended, ReviewAosResponse, getSteps());
-    cosMiddleware.getApplication.restore();
+    interstitial.navigatesToNext(Undefended, ReviewAosResponse, getSteps(), session);
   });
 
   it('renders the content', () => {
