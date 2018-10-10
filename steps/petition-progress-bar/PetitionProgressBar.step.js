@@ -36,7 +36,7 @@ class PetitionProgressBar extends Interstitial {
 
   get ccdStatus() {
     const ccdStatus = this.req.session.case.state.toLowerCase();
-    const submittedFlow = ['submitted', 'awaitinghwfdecision', 'awaitingpetitioner', 'issued', 'pendingrejection'];
+    const submittedFlow = ['submitted', 'awaitinghwfdecision', 'awaitingpetitioner', 'issued', 'pendingrejection', 'petitioncompleted'];
     const issuedFlow = ['aosawaiting', 'aosstarted'];
     const awaitFlow = ['awaitinglegaladvisorreferral', 'awaitingconsiderationdn'];
 
