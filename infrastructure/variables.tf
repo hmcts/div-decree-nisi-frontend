@@ -111,6 +111,10 @@ variable "idam_authentication_web_url" {
   type = "string"
 }
 
+variable "petitioner_frontend_url" {
+  type = "string"
+}
+
 variable "idam_authentication_login_endpoint" {
   default = "/login"
 }

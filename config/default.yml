@@ -53,9 +53,11 @@ services:
     expire: 3600000
     enabled: false
   orchestrationService:
-    getCaseUrl: http://localhost:4013/retrieve-aos-case
+    getCaseUrl: http://localhost:3001/retrieve-aos-case
     health: http://localhost:4013/health
     draftEndpoint: http://localhost:4013/draftsapi/version/1
+  petitionerFrontend:
+    url: https://div-pfe-prod-staging.service.core-compute-prod.internal
 
 paths:
   adulteryFirstFoundOut: /first-find-out
@@ -81,8 +83,10 @@ paths:
   undefended: /undefended
   petitionProgressBar: /progress-bar/petitioner
   upload: /upload-docs
+  exitNoCase: /exit-no-case
   mock:
     idamLogin: /idam-mock-login
+    modifySession: /session
 
 tests:
   e2e:

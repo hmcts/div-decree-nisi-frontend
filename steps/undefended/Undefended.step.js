@@ -2,7 +2,6 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
-const caseOrchestrationMiddleware = require('middleware/caseOrchestrationMiddleware');
 
 class Undefended extends Interstitial {
   static get path() {
@@ -29,8 +28,7 @@ class Undefended extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      caseOrchestrationMiddleware.getApplication
+      idam.protect()
     ];
   }
 }

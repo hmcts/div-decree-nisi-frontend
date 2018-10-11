@@ -1,7 +1,8 @@
 const { CheckYourAnswers: CYA } = require('@hmcts/one-per-page/checkYourAnswers');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { goTo, action, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
+const caseOrchestrationService = require('services/caseOrchestrationService');
 
 class CheckYourAnswers extends CYA {
   static get path() {
@@ -13,7 +14,9 @@ class CheckYourAnswers extends CYA {
   }
 
   next() {
-    return redirectTo(this.journey.steps.Done);
+    return action(caseOrchestrationService.submitApplication)
+      .then(goTo(this.journey.steps.Done))
+      .onFailure(redirectTo(this.journey.steps.Start));
   }
 
   get errorMessage() {
