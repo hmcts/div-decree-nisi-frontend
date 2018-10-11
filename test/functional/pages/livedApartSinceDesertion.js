@@ -4,14 +4,19 @@ const LivedApartSinceDesertion = require(
 const LivedApartSinceDesertionContent = require(
   'steps/lived-apart-since-desertion/LivedApartSinceDesertion.content'
 );
+const ClaimCosts = require(
+  'steps/claim-costs/ClaimCosts.step'
+);
 const commonContent = require('common/content');
 
-function seeLivedApartSinceDesertionPage() {
+function testLivedApartSinceDesertionPage() {
   const I = this;
 
-  I.seeCurrentUrlEquals(LivedApartSinceDesertion.path);
+  I.amOnLoadedPage(LivedApartSinceDesertion.path);
   I.checkOption(LivedApartSinceDesertionContent.en.fields.changes.livedApartSinceDesertion.yes);
   I.navByClick(commonContent.en.continue);
+
+  I.seeCurrentUrlEquals(ClaimCosts.path);
 }
 
-module.exports = { seeLivedApartSinceDesertionPage };
+module.exports = { testLivedApartSinceDesertionPage };

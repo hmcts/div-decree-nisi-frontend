@@ -2,23 +2,23 @@
 
 const config = require('config');
 
-const waitForTimeout = config.tests.e2e.waitForTimeout;
-const waitForAction = config.tests.e2e.waitForAction;
+const waitForTimeout = config.tests.functional.waitForTimeout;
+const waitForAction = config.tests.functional.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
 if (config.environment !== 'development') {
-  const proxyServer = config.tests.e2e.idam.idamTestApiProxy;
-  const proxyByPass = config.tests.e2e.idam.idamTestProxyByPass;
+  const proxyServer = config.tests.functional.idam.idamTestApiProxy;
+  const proxyByPass = config.tests.functional.idam.idamTestProxyByPass;
   chromeArgs.push(`--proxy-server=${proxyServer || ''}`);
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass || ''}`);
 }
 
 exports.config = {
   tests: './paths/**/*.js',
-  output: config.tests.e2e.outputDir,
+  output: config.tests.functional.outputDir,
   helpers: {
     Puppeteer: {
-      url: config.tests.e2e.url || config.node.baseUrl,
+      url: config.tests.functional.url || config.node.baseUrl,
       waitForTimeout,
       waitForAction,
       show: false,
@@ -37,7 +37,7 @@ exports.config = {
   include: { I: './pages/steps.js' },
   mocha: {
     reporterOptions: {
-      reportDir: process.env.E2E_OUTPUT_DIR || './functional-output',
+      reportDir: process.env.FUNCTIONAL_OUTPUT_DIR || './functional-output',
       reportName: 'DecreeNisiFrontendTests',
       inlineAssets: true
     }

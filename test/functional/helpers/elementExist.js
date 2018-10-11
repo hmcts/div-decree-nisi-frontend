@@ -16,18 +16,6 @@ class ElementExist extends Helper {
         return Boolean(els.length);
       });
   }
-
-  getPaymentIsOnStub() {
-    const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
-
-    return helper.grabCurrentUrl()
-      .then(url => {
-        return url.includes('/pay/gov-pay-stub');
-      })
-      .catch(error => {
-        throw error;
-      });
-  }
 }
 
 module.exports = ElementExist;
