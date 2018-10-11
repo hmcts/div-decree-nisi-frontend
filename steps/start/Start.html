@@ -7,7 +7,10 @@
 {% endset %}
 
 {% block main_content %}
-  <a class="button button-start" href="/entry" role="button">Start now</a>
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+    <input class="button button-start" type="submit" value="{{ content.startNow }}">
+  </form>
   <br>
 {% endblock %}
 

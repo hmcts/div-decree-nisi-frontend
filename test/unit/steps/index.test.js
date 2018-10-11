@@ -42,8 +42,8 @@ describe(modulePath, () => {
     });
   });
 
-  it('doest not include mocks if env is not developement', () => {
-    config.environment = 'another env';
+  it('doest not include mocks if env is prod', () => {
+    config.environment = 'prod';
     const steps = allSteps();
 
     const fileNames = findStepNames('mocks/steps/**/*.step.js');

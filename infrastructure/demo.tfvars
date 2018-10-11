@@ -11,3 +11,5 @@ idam_authentication_web_url = "https://idam.preprod.ccidam.reform.hmcts.net"
 idam_api_url = "https://preprod-idamapi.reform.hmcts.net:3511"
 google_analytics_tracking_id = "TBD"
 rate_limiter_enabled = false
+
+petitioner_frontend_url = "https://div-pfe-prod-staging.service.core-compute-prod.internal"

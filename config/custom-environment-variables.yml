@@ -1,4 +1,4 @@
-environment: REFORM_ENVIRONMENT
+environment: DEPLOYMENT_ENV
 NODE_ENV: NODE_ENV
 
 node:
@@ -59,6 +59,8 @@ services:
     getCaseUrl: ORCHESTRATION_SERVICE_GET_PETITION_URL
     health: ORCHESTRATION_SERVICE_HEALTH_URL
     draftEndpoint: ORCHESTRATION_SERVICE_DRAFT_ENDPOINT
+  petitionerFrontend:
+    url: PETITIONER_FRONTEND_URL
 
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY

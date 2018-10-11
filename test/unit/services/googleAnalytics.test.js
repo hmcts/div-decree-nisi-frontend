@@ -1,12 +1,22 @@
-const exampleStep = require('steps/start/Start.step');
-const { custom, expect } = require('@hmcts/one-per-page-test-suite');
+const exampleStep = require('steps/undefended/Undefended.step');
+const { custom, expect, middleware, sinon } = require('@hmcts/one-per-page-test-suite');
 const httpStatus = require('http-status-codes');
+const idam = require('services/idam');
 
 describe('Google analytics', () => {
+  beforeEach(() => {
+    sinon.stub(idam, 'protect').returns(middleware.nextMock);
+  });
+
+  afterEach(() => {
+    idam.protect.restore();
+  });
+
   it('should to be injected into the page', () => {
     const googleAnalyticsId = 'google-analytics-id';
     return custom(exampleStep)
       .withGlobal('googleAnalyticsId', googleAnalyticsId)
+      .withSession({ case: { data: {} } })
       .get()
       .expect(httpStatus.OK)
       .text(pageContent => {
