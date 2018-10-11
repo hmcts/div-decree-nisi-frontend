@@ -5,9 +5,8 @@ const ProgressBarStepContent = require('steps/petition-progress-bar/PetitionProg
 function testProgressBar() {
   const I = this;
 
-
   I.amOnLoadedPage(ProgressBarStep.path);
-  I.seeCurrentUrlEquals(ProgressBarStepContent.en.title);
+  I.see(ProgressBarStepContent.en.title);
 }
 
 module.exports = { testProgressBar };
