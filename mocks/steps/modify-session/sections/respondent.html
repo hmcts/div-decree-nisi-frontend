@@ -1,0 +1,49 @@
+<h1 class="heading-large">Respondent</h1>
+
+{% call formSection() %}
+  {{ selectionButtons(fields.respAgreeToCosts, "Will they pay the costs?",
+    options = [
+      { label: "Yes", value: "Yes" },
+      { label: "No", value: "No" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
+
+  {{ selectionButtons(fields.respDefendsDivorce, "Will they defend the divorce?",
+    options = [
+      { label: "Yes", value: "Yes" },
+      { label: "No", value: "No" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
+
+  {{ selectionButtons(fields.respStatementOfTruth, "Do they consent to the divorce?",
+    options = [
+      { label: "Yes", value: "Yes" },
+      { label: "No", value: "No" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
+
+  {{ selectionButtons(fields.respAdmitOrConsentToFact, "Do they admit the adultery?",
+    options = [
+      { label: "Yes", value: "Yes" },
+      { label: "No", value: "No" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
+
+  {{ selectionButtons(fields.respJurisdictionAgree, "Do they agree to jurisdiction?",
+    options = [
+      { label: "Yes", value: "Yes" },
+      { label: "No", value: "No" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
+
+{% endcall %}

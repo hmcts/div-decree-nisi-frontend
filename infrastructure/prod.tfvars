@@ -14,3 +14,5 @@ google_analytics_tracking_id = "TBD"
 capacity = "2"
 
 rate_limiter_enabled = true
+
+petitioner_frontend_url = "https://div-pfe-prod-staging.service.core-compute-prod.internal"
