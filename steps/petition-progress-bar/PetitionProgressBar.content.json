@@ -6,8 +6,8 @@
 
     "youApplied": "You applied",
     "husbandWifeMustRespond": "Your {{ case.divorceWho }} must respond",
-    "confirmApp": "Confirm your application",
-    "madeFinal": "The divorce is made final",
+    "getDecreeNisi": "Get a decree nisi",
+    "madeFinal": "The divorce is complete",
 
     "needHelp" : "If you need help",
     "needHelpDetails": "You can contact the divorce centre if you need help with your application. Court staff can’t give you legal advice however, and you should speak to a ",
