@@ -22,7 +22,7 @@ class Undefended extends Interstitial {
   }
 
   get respDefendsDivorce() {
-    return this.req.session.case.respDefendsDivorce;
+    return this.case.respDefendsDivorce;
   }
 
   next() {

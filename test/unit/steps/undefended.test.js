@@ -24,7 +24,9 @@ describe(modulePath, () => {
   it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
     const session = {
       case: {
-        respDefendsDivorce: null
+        data: {
+          respDefendsDivorce: null
+        }
       }
     };
     interstitial.navigatesToNext(Undefended, ApplyForDecreeNisi, getSteps(), session);
@@ -33,7 +35,9 @@ describe(modulePath, () => {
   it('redirects reviewAosResponse when CCD has respDefendsDivorce as Yes', () => {
     const session = {
       case: {
-        respDefendsDivorce: 'Yes'
+        data: {
+          respDefendsDivorce: 'Yes'
+        }
       }
     };
     interstitial.navigatesToNext(Undefended, ReviewAosResponse, getSteps(), session);
