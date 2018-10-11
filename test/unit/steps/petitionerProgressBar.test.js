@@ -38,9 +38,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(PetitionProgressBar, [
-      idam.protect()
-    ]);
+    return middleware.hasMiddleware(PetitionProgressBar, [ idam.protect() ]);
   });
 
   it('redirects to next page', () => {
