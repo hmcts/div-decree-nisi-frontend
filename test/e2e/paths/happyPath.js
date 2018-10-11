@@ -5,7 +5,7 @@ Scenario('Happy path', async I => {
   I.seeHomePage();
   await I.loginToIdam();
   I.seeUndefendedPage();
-  I.seeReviewAosResponsePage();
+  // I.seeReviewAosResponsePage(); - divdecreenisi user is having flag as null which skips this page
   I.seeApplyForDecreeNisiPage();
   I.seeMiniPetitionPage();
   I.seeLivedApartSinceSeparationPage();
