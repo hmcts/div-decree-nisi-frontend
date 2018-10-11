@@ -88,9 +88,9 @@ paths:
     modifySession: /session
 
 tests:
-  e2e:
+  functional:
     waitForTimeout: 10000
-    waitForAction: 10000
+    waitForAction: 1000
     smartWait: 5000
     outputDir: ../../functional-output
     idam:
