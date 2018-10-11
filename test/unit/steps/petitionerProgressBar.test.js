@@ -21,7 +21,8 @@ const issuedContent = [
 
 const submittedContent = [
   'submittedAppStatusMsg',
-  'submittedAppStatusMsgDetails',
+  'submittedAppStatusMsgDetails1',
+  'submittedAppStatusMsgDetails2',
   'submittedWhatHappensNext',
   'submittedWhatHappensNextDetails1',
   'submittedWhatHappensNextDetails2',
