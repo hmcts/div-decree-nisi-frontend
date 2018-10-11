@@ -3,7 +3,7 @@ const config = require('config');
 const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 
 const waitForTimeout = config.services.saucelabs.waitForTimeout;
-const smartWait = config.tests.e2e.smartWait;
+const smartWait = config.tests.functional.smartWait;
 const browser = process.env.SAUCE_BROWSER || config.services.saucelabs.browser;
 const tunnelName = process.env.SAUCE_TUNNEL_IDENTIFIER || config.services.saucelabs.tunnelId;
 
@@ -27,10 +27,10 @@ const getBrowserConfig = () => {
 
 const setupConfig = {
   tests: './paths/**/*.js',
-  output: config.tests.e2e.outputDir,
+  output: config.tests.functional.outputDir,
   helpers: {
     WebDriverIO: {
-      url: config.tests.e2e.url || config.node.baseUrl,
+      url: config.tests.functional.url || config.node.baseUrl,
       browser,
       waitForTimeout,
       smartWait,
@@ -54,12 +54,12 @@ const setupConfig = {
       },
       'mocha-junit-reporter': {
         stdout: '-',
-        options: { mochaFile: `${config.tests.e2e.outputDir}/result.xml` }
+        options: { mochaFile: `${config.tests.functional.outputDir}/result.xml` }
       },
       mochawesome: {
-        stdout: `${config.tests.e2e.outputDir}/console.log`,
+        stdout: `${config.tests.functional.outputDir}/console.log`,
         options: {
-          reportDir: config.tests.e2e.outputDir,
+          reportDir: config.tests.functional.outputDir,
           reportName: 'index',
           inlineAssets: true
         }

@@ -1,7 +1,7 @@
 const StartPage = require('steps/start/Start.step');
 const StartPageContent = require('steps/start/Start.content');
 
-function seeHomePage() {
+function testHomePage() {
   const I = this;
 
   I.seeCurrentUrlEquals(StartPage.path);
@@ -9,4 +9,4 @@ function seeHomePage() {
   I.navByClick(StartPageContent.en.startNow);
 }
 
-module.exports = { seeHomePage };
+module.exports = { testHomePage };
