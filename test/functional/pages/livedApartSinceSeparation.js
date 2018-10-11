@@ -5,13 +5,16 @@ const LivedApartSinceSeparationContent = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.content'
 );
 const commonContent = require('common/content');
+const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 
-function seeLivedApartSinceSeparationPage() {
+function testLivedApartSinceSeparationPage() {
   const I = this;
 
-  I.seeCurrentUrlEquals(LivedApartSinceSeparation.path);
+  I.amOnLoadedPage(LivedApartSinceSeparation.path);
   I.checkOption(LivedApartSinceSeparationContent.en.fields.changes.livedApartSinceSeparation.yes);
   I.navByClick(commonContent.en.continue);
+
+  I.seeCurrentUrlEquals(ClaimCosts.path);
 }
 
-module.exports = { seeLivedApartSinceSeparationPage };
+module.exports = { testLivedApartSinceSeparationPage };
