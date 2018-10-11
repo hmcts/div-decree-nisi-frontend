@@ -6,7 +6,6 @@ const getSteps = require('steps');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content,
   stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
-const caseOrchestrationMiddleware = require('middleware/caseOrchestrationMiddleware');
 
 
 const issuedContent = [
@@ -40,8 +39,7 @@ describe(modulePath, () => {
 
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(PetitionProgressBar, [
-      idam.protect(),
-      caseOrchestrationMiddleware.getApplication
+      idam.protect()
     ]);
   });
 
