@@ -1,0 +1,33 @@
+<h2 class="heading-large">Petitioner</h2>
+
+{% call formSection() %}
+  {{ selectionButtons(fields.divorceWho, "Who are you divorcing?",
+    options = [
+      { label: "Your husband", value: "husband" },
+      { label: "Your wife", value: "wife" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
+
+  {{ selectionButtons(fields.marriageIsSameSexCouple, "We were a same-sex couple when we got married.",
+    options = [
+      { label: "Yes", value: "Yes" },
+      { label: "No", value: "No" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
+
+  {{ selectionButtons(fields.reasonForDivorce, "Select reason for divorce",
+    options = [
+      { label: "Unreasonable Behaviour", value: "unreasonable-behaviour" },
+      { label: "Adultery", value: "adultery" },
+      { label: "Separation 2 Years", value: "separation-2-years" },
+      { label: "Separation 5 Years", value: "separation-5-years" },
+      { label: "Desertion", value: "desertion" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
+{% endcall %}

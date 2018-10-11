@@ -55,14 +55,13 @@ module "frontend" {
     REFORM_TEAM = "${var.reform_team}"
     REFORM_SERVICE_NAME = "${var.reform_service_name}"
     REFORM_ENVIRONMENT = "${var.env}"
+    DEPLOYMENT_ENV="${var.deployment_env}"
 
     // Packages
     PACKAGES_NAME="${var.packages_name}"
     PACKAGES_PROJECT="${var.packages_project}"
     PACKAGES_ENVIRONMENT="${var.packages_environment}"
     PACKAGES_VERSION="${var.packages_version}"
-
-    DEPLOYMENT_ENV="${var.deployment_env}"
 
     // Service name
     SERVICE_NAME="${var.frontend_service_name}"
@@ -104,6 +103,9 @@ module "frontend" {
     RATE_LIMITER_TOTAL  = "${var.rate_limiter_total}"
     RATE_LIMITER_EXPIRE = "${var.rate_limiter_expire}"
     RATE_LIMITER_ENABLED = "${var.rate_limiter_enabled}"
+
+    // Petitioner Front End
+    PETITIONER_FRONTEND_URL = "${var.petitioner_frontend_url}"
   }
 }
 

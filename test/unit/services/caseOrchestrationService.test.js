@@ -17,7 +17,7 @@ describe(moduleName, () => {
   it('gets application from cos', done => {
     const exampleCosResponse = { foo: 'bar' }; // eslint-disable-line id-blacklist
     request.get.resolves(exampleCosResponse);
-    const req = { cookies: { '__auth-token': 'token' } };
+    const req = { cookies: { '__auth-token': 'token' }, session: {} };
 
     const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
     const headers = { Authorization: 'Bearer token' };
@@ -26,6 +26,16 @@ describe(moduleName, () => {
       .then(response => {
         sinon.assert.calledWith(request.get, { uri, headers, json: true });
         expect(response).to.eql({ case: exampleCosResponse });
+      })
+      .then(done, done);
+  });
+
+  it('does not get application if already in session', done => {
+    const req = { cookies: { '__auth-token': 'token' }, session: { case: {} } };
+
+    caseOrchestrationService.getApplication(req)
+      .then(() => {
+        expect(request.get.called).to.eql(false);
       })
       .then(done, done);
   });
