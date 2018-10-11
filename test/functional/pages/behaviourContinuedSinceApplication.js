@@ -4,14 +4,17 @@ const BehaviourContinuedSinceApplication = require(
 const BehaviourContinuedSinceApplicationContent = require(
   'steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.content'
 );
+const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const commonContent = require('common/content');
 
-function seeBehaviourContinuedSinceApplicationPage() {
+function testBehaviourContinuedSinceApplicationPage() {
   const I = this;
 
-  I.seeCurrentUrlEquals(BehaviourContinuedSinceApplication.path);
+  I.amOnLoadedPage(BehaviourContinuedSinceApplication.path);
   I.checkOption(BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.yes); // eslint-disable-line
   I.navByClick(commonContent.en.continue);
+
+  I.seeCurrentUrlEquals(ClaimCosts.path);
 }
 
-module.exports = { seeBehaviourContinuedSinceApplicationPage };
+module.exports = { testBehaviourContinuedSinceApplicationPage };
