@@ -4,8 +4,8 @@
     "referenceNumber": "Case number",
     "name": "Name",
 
-    "youApplied": "You apply",
-    "husbandWifeMustRespond": "Your {{ case.divorceWho }} must respond",
+    "youApply": "You apply",
+    "husbandWifeMustRespond": "Your {{ case.divorceWho }} responds",
     "getDecreeNisi": "Get a decree nisi",
     "madeFinal": "The divorce is complete",
 
