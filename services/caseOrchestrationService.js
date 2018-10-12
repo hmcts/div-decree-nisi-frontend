@@ -1,6 +1,19 @@
 const request = require('request-promise-native');
 const config = require('config');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const sessionToCosMapping = require('resources/sessionToCosMapping');
+const { get } = require('lodash');
+
+const formatSessionForSubmit = session => {
+  return Object.keys(sessionToCosMapping)
+    .reduce((body, key) => {
+      const value = get(session, key);
+      if (value) {
+        body[sessionToCosMapping[key]] = value;
+      }
+      return body;
+    }, {});
+};
 
 const authTokenString = '__auth-token';
 
@@ -19,12 +32,22 @@ const methods = {
         return Object.assign(req.session, { case: response });
       })
       .catch(error => {
-        logger.error(`Trying to connect to Case orchestartion service error: ${error}`);
+        logger.error(`Trying to retrieve case from case orchestartion service: ${error}`);
         throw error;
       });
   },
-  submitApplication: () => {
-    return Promise.resolve();
+  submitApplication: req => {
+    const { caseId } = req.session.case;
+
+    const uri = `${config.services.orchestrationService.submitCaseUrl}/${caseId}`;
+    const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
+    const body = formatSessionForSubmit(req.session);
+
+    return request.post({ uri, headers, json: true, body })
+      .catch(error => {
+        logger.error(`Trying to submit case to case orchestartion service: ${error}`);
+        throw error;
+      });
   }
 };
 
