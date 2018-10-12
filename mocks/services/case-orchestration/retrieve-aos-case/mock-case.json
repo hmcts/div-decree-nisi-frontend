@@ -250,7 +250,7 @@
     "expires":0,
     "respConfirmReadPetition" : "Yes",
     "respAdmitOrConsentToFact" : "Yes",
-    "respDefendsDivorce" : "Yes",
+    "respDefendsDivorce" : null,
     "respJurisdictionAgree" : "No",
     "respJurisdictionDisagreeReason" : "Some Jurisdiction disagree reason",
     "respJurisdictionRespCountryOfResidence" : "UK",

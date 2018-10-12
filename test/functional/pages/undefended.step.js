@@ -1,6 +1,6 @@
 const UndefendedPage = require('steps/undefended/Undefended.step');
 const content = require('common/content');
-const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
+const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 
 function testUndefendedPage() {
   const I = this;
@@ -8,7 +8,7 @@ function testUndefendedPage() {
   I.amOnLoadedPage(UndefendedPage.path);
   I.navByClick(content.en.continue);
 
-  I.seeCurrentUrlEquals(ReviewAosResponse.path);
+  I.seeCurrentUrlEquals(ApplyForDecreeNisi.path);
 }
 
 module.exports = { testUndefendedPage };
