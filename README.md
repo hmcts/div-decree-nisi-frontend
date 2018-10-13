@@ -2,11 +2,11 @@
 
 ## Getting started
 
-Install dependencies:
+####Install dependencies:
 
 `yarn install`
 
-Start application:
+####Start application:
 
 `docker-compose up`
 
@@ -14,8 +14,12 @@ Start application:
 
 `yarn dev`
 
-The application will now be running on https://localhost:3000
+The application will now be running on ```https://localhost:3000```. 
 
-Test application:
+Locally this will also create a new URL of ```"/session"``` where you can view and edit the current session
+(Note: each time you login/logout of IDAM the session will be reset)
+
+####Test application:
 
 `yarn test`
+
