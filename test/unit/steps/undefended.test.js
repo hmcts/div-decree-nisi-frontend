@@ -1,11 +1,12 @@
 const modulePath = 'steps/undefended/Undefended.step';
 
 const Undefended = require(modulePath);
+
+const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const getSteps = require('steps');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const caseOrchestrationMiddleware = require('middleware/caseOrchestrationMiddleware');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -17,14 +18,29 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(Undefended, [
-      idam.protect(),
-      caseOrchestrationMiddleware.getApplication
-    ]);
+    return middleware.hasMiddleware(Undefended, [ idam.protect() ]);
   });
 
-  it('redirects to next page', () => {
-    return interstitial.navigatesToNext(Undefended, ReviewAosResponse, getSteps());
+  it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
+    const session = {
+      case: {
+        data: {
+          respDefendsDivorce: null
+        }
+      }
+    };
+    interstitial.navigatesToNext(Undefended, ApplyForDecreeNisi, getSteps(), session);
+  });
+
+  it('redirects reviewAosResponse when CCD has respDefendsDivorce as Yes', () => {
+    const session = {
+      case: {
+        data: {
+          respDefendsDivorce: 'Yes'
+        }
+      }
+    };
+    interstitial.navigatesToNext(Undefended, ReviewAosResponse, getSteps(), session);
   });
 
   it('renders the content', () => {

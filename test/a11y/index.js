@@ -2,11 +2,13 @@ const steps = require('steps')();
 const { custom, expect } = require('@hmcts/one-per-page-test-suite');
 const a11y = require('./a11y');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
+const config = require('config');
 
 // ensure step has a template - if it doesnt no need to test it
 const filterSteps = step => {
   const stepInstance = new step({ journey: {} });
-  return stepInstance.middleware.includes(resolveTemplate);
+  const notMockStep = Object.values(config.paths).includes(step.path);
+  return stepInstance.middleware.includes(resolveTemplate) && notMockStep;
 };
 
 // ensure step has parse function - if it does then test POST requests
@@ -25,6 +27,7 @@ const getAgent = step => {
   return custom(step)
     .withCookie('mockIdamUserDetails', JSON.stringify(userDetails))
     .withGlobal('feedbackLink', 'https://github.com/hmcts/one-per-page/issues/new')
+    .withSession({ case: { data: {} } })
     .asServer();
 };
 
