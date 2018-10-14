@@ -247,6 +247,23 @@ describe(modulePath, () => {
   });
 
   describe('values', () => {
+    it('displays issue date', () => {
+      const session = {
+        case: {
+          data: {
+            issueDate: '2006-02-02T00:00:00.000+0000',
+            connections: {}
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        {
+          specificValues: ['02 February 2006']
+        }
+      );
+    });
     it('displays petitioner and respondent names', () => {
       const session = {
         case: {
