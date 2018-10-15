@@ -1,6 +1,6 @@
 const IdamMockLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const content = require('mocks/steps/idamLogin/IdamLogin.content');
-const UndefendedPage = require('steps/undefended/Undefended.step');
+const PetitionProgressBarPage = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const StartPageContent = require('steps/start/Start.content');
 
 async function testIdamPage(success = true) {
@@ -11,7 +11,7 @@ async function testIdamPage(success = true) {
 
   const currentPath = await I.getCurrentUrl();
 
-  if (currentPath !== UndefendedPage.path) {
+  if (currentPath !== PetitionProgressBarPage.path) {
     if (currentPath === IdamMockLogin.path) {
       I.seeCurrentUrlEquals(IdamMockLogin.path);
       if (success) {
@@ -29,7 +29,7 @@ async function testIdamPage(success = true) {
     }
   }
 
-  I.seeCurrentUrlEquals(UndefendedPage.path);
+  I.seeCurrentUrlEquals(PetitionProgressBarPage.path);
 }
 
 module.exports = { testIdamPage };

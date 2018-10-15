@@ -1,3 +1,23 @@
+{% set items = {
+  one: {
+    label: content.youApply,
+    complete: true
+  },
+  two: {
+    label: content.husbandWifeMustRespond,
+    current: true
+  },
+  three: {
+    label: content.getDecreeNisi
+  },
+  four: {
+    label: content.madeFinal
+  }
+}
+%}
+
+{% include "reform-progress-list/template.njk" %}
+
 <h2 class="heading-medium">{{ content.issuedAppStatusMsg }}</h2>
 <p>{{ content.issuedAppStatusMsgDetails }}</p>
 
@@ -9,3 +29,8 @@
   <li>{{ content.issuedWhatHappensNextDetails2list3 }}</li>
 </ul>
 <p class="text">{{ content.issuedWhatHappensNextDetails3 | safe }}</p>
+
+<h2 class="heading-medium">{{ content.needHelp }}</h2>
+<p class="text">{{ content.needHelpDetails | safe }} {{ content.solicitorLink | safe }}</p>
+ <h2 class="heading-medium">{{ content.imporveService }}</h2>
+<p class="text">{{ content.imporveServiceDetails | safe }} {{ content.feedbackLink | safe }}</p>

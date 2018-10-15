@@ -1,7 +1,7 @@
 const modulePath = 'steps/authenticated/Authenticated.step';
 
 const Authenticated = require(modulePath);
-const Undefended = require('steps/undefended/Undefended.step');
+const progressBarPage = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const ExitNoCase = require('steps/exit-no-case/ExitNoCase.step');
 const idam = require('services/idam');
 const { middleware, redirect, sinon } = require('@hmcts/one-per-page-test-suite');
@@ -23,9 +23,9 @@ describe(modulePath, () => {
       caseOrchestrationService.getApplication.restore();
     });
 
-    it('to undefended page', () => {
+    it('to PetitionProgressBar page', () => {
       caseOrchestrationService.getApplication.resolves();
-      return redirect.navigatesToNext(Authenticated, Undefended);
+      return redirect.navigatesToNext(Authenticated, progressBarPage);
     });
 
     it('to ExitNoCase page if get application fails', () => {

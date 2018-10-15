@@ -80,7 +80,6 @@ paths:
   miniPetition: /review-your-petition
   reviewAosResponse: /review-aos-response
   shareCoreDocuments: /share-court-documents
-  undefended: /undefended
   petitionProgressBar: /progress-bar/petitioner
   upload: /upload-docs
   exitNoCase: /exit-no-case

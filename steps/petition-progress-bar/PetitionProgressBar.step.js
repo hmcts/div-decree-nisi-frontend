@@ -32,6 +32,10 @@ class PetitionProgressBar extends Interstitial {
     return this.case.respDefendsDivorce;
   }
 
+  get ccdState() {
+    return this.req.session.case.state ? this.req.session.case.state : 'notDefined';
+  }
+
   next() {
     const showReviewAosResponse = this.respDefendsDivorce && ['yes', 'no'].includes(this.respDefendsDivorce.toLowerCase()); // eslint-disable-line
 
@@ -43,7 +47,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get ccdStatus() {
-    const ccdStatus = this.req.session.case.state.toLowerCase();
+    const ccdStatus = this.ccdState.toLowerCase();
     const DNReason = this.case.permittedDecreeNisiReason;
     const submittedFlow = [
       'submitted', 'awaitinghwfdecision',
@@ -75,7 +79,7 @@ class PetitionProgressBar extends Interstitial {
         return 'undefended';
       }
     }
-    return '';
+    return 'undefended';
   }
 }
 

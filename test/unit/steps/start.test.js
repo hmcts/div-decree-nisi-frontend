@@ -1,7 +1,7 @@
 const modulePath = 'steps/start/Start.step';
 
 const Start = require(modulePath);
-const Undefended = require('steps/undefended/Undefended.step');
+const progressBarPage = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const Entry = require('steps/entry/Entry.step');
 const { middleware, content, expect, custom } = require('@hmcts/one-per-page-test-suite');
 const { MOVED_TEMPORARILY } = require('http-status-codes');
@@ -14,14 +14,14 @@ describe(modulePath, () => {
     return content(Start, session, { ignoreContent: ['continue'] });
   });
   context('navigation', () => {
-    it('to undefended page', () => {
+    it('to PetitionProgressBar page', () => {
       const session = {
         case: {}
       };
       return custom(Start)
         .withSession(session)
         .post()
-        .expect('Location', Undefended.path)
+        .expect('Location', progressBarPage.path)
         .expect(MOVED_TEMPORARILY);
     });
 
