@@ -1,6 +1,6 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
-const { goTo } = require('@hmcts/one-per-page/flow');
+const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 
 class PetitionProgressBar extends Interstitial {
@@ -28,15 +28,30 @@ class PetitionProgressBar extends Interstitial {
     ];
   }
 
+  get respDefendsDivorce() {
+    return this.case.respDefendsDivorce;
+  }
+
   next() {
-    return goTo(this.journey.steps.ReviewAosResponse);
+    const showReviewAosResponse = this.respDefendsDivorce && ['yes', 'no'].includes(this.respDefendsDivorce.toLowerCase()); // eslint-disable-line
+
+    return branch(
+      redirectTo(this.journey.steps.ReviewAosResponse)
+        .if(showReviewAosResponse),
+      redirectTo(this.journey.steps.ApplyForDecreeNisi)
+    );
   }
 
   get ccdStatus() {
     const ccdStatus = this.req.session.case.state.toLowerCase();
-    const submittedFlow = ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'issued', 'pendingrejection', 'petitioncompleted'];
+    const DNReason = this.case.permittedDecreeNisiReason;
+    const submittedFlow = [
+      'submitted', 'awaitinghwfdecision',
+      'awaitingdocuments', 'issued', 'pendingrejection', 'petitioncompleted'
+    ];
     const issuedFlow = ['aosawaiting', 'aosstarted'];
     const awaitFlow = ['awaitinglegaladvisorreferral', 'awaitingconsiderationdn'];
+    const awaitingdecreenisi = ['dnawaiting'];
 
     if (submittedFlow.includes(ccdStatus)) {
       return 'submitted';
@@ -44,6 +59,21 @@ class PetitionProgressBar extends Interstitial {
       return 'issued';
     } else if (awaitFlow.includes(ccdStatus)) {
       return 'awaiting';
+    } else if (awaitingdecreenisi.includes(ccdStatus)) {
+      switch (DNReason) {
+      case '0':
+        return 'undefended';
+      case '1':
+        return 'deemedService';
+      case '2':
+        return 'dispensedWithService';
+      case '3':
+        return 'defendedWithoutAnswer';
+      case '4':
+        return 'defendedWithoutAnswer';
+      default:
+        return 'undefended';
+      }
     }
     return '';
   }

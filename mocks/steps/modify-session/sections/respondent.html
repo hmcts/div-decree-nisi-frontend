@@ -46,4 +46,16 @@
     inline = true
   ) }}
 
+  {{ selectionButtons(fields.permittedDecreeNisiReason, "Reason for applying DN?",
+  options = [
+    { label: "Undefended divorce with Respondent agreement", value: "0" },
+    { label: "Deemed service has been accepted by the Court", value: "1" },
+    { label: "Dispense with service has been agreed by the Court", value: "2" },
+    { label: "A Bailiff successfully served the petition/AOS on the Respondent", value: "3" },
+    { label: "Respondent indicated they will defend the divorce but did not submit their answer (defence) in the time period allocated to them. ", value: "4" }
+  ],
+  hideQuestion = false,
+  inline = true
+) }}
+
 {% endcall %}

@@ -11,33 +11,8 @@
     <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ caseId }} <br>
     <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;&nbsp; {{ case.respondentFirstName }} {{ case.respondentLastName }}
   </p>
-
-  {% set items = {
-      one: {
-        label: content.youApplied,
-        complete: true
-      },
-      two: {
-        label: content.husbandWifeMustRespond,
-        current: true
-      },
-      three: {
-        label: content.getDecreeNisi
-      },
-      four: {
-        label: content.madeFinal
-      }
-    }
-  %}
-  {% include "reform-progress-list/template.njk" %}
-
+  
   {% include "./sections/" + ccdStatus + "/PetitionProgressBar." + ccdStatus + ".template.html" %}
-
-  <h2 class="heading-medium">{{ content.needHelp }}</h2>
-  <p class="text">{{ content.needHelpDetails | safe }} {{ content.solicitorLink | safe }}</p>
-
-  <h2 class="heading-medium">{{ content.imporveService }}</h2>
-  <p class="text">{{ content.imporveServiceDetails | safe }} {{ content.feedbackLink | safe }}</p>
 
 {% endblock %}
 
