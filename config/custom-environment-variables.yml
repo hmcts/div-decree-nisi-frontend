@@ -57,6 +57,7 @@ services:
     enabled: RATE_LIMITER_ENABLED
   orchestrationService:
     getCaseUrl: ORCHESTRATION_SERVICE_GET_PETITION_URL
+    submitCaseUrl: ORCHESTRATION_SERVICE_POST_PETITION_URL
     health: ORCHESTRATION_SERVICE_HEALTH_URL
     draftEndpoint: ORCHESTRATION_SERVICE_DRAFT_ENDPOINT
   petitionerFrontend:
