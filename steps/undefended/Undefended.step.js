@@ -1,5 +1,5 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 
@@ -21,8 +21,18 @@ class Undefended extends Interstitial {
     super.handler(req, res);
   }
 
+  get respDefendsDivorce() {
+    return this.case.respDefendsDivorce;
+  }
+
   next() {
-    return redirectTo(this.journey.steps.ReviewAosResponse);
+    const showReviewAosResponse = this.respDefendsDivorce && ['yes', 'no'].includes(this.respDefendsDivorce.toLowerCase()); // eslint-disable-line
+
+    return branch(
+      redirectTo(this.journey.steps.ReviewAosResponse)
+        .if(showReviewAosResponse),
+      redirectTo(this.journey.steps.ApplyForDecreeNisi)
+    );
   }
 
   get middleware() {
