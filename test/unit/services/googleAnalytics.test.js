@@ -14,8 +14,6 @@ describe('Google analytics', () => {
 
   it('should to be injected into the page', () => {
     const googleAnalyticsId = 'google-analytics-id';
-    console.log('testing ....');
-    console.log(exampleStep);
     return custom(exampleStep)
       .withGlobal('googleAnalyticsId', googleAnalyticsId)
       .withSession({ case: { data: {} } })

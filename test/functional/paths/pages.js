@@ -6,7 +6,7 @@ Scenario('Pages', async I => {
   I.testHomePage();
 
   await I.testIdamPage();
-  
+
   I.testProgressBar();
 
   I.testAdulteryFirstFound();
