@@ -21,9 +21,9 @@
     "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
     "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
     "moneyAndPropertyLinky": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>",
-    "youApplied": "You applied",
-    "husbandWifeResponded": "Your {{ case.divorceWho }} responded",
+    "youApplied": "You apply",
+    "husbandWifeResponded": "Your {{ case.divorceWho }} responds",
     "getDecreeNisi": "Get a decree nisi",
-    "madeFinal": "The divorce is made final"
+    "madeFinal": "Divorce is complete"
   }
 }
