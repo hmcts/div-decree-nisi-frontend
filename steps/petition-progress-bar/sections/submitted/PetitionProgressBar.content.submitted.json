@@ -1,6 +1,6 @@
 {
   "en": {
-    "submittedAppStatusMsg": "Your application was submitted on {{case.originalPetition.createdDate | date}}",
+    "submittedAppStatusMsg": "Your application was submitted on {{ case.createdDate | date }}",
     "submittedAppStatusMsgDetails1": "Your temporary reference number is ",
     "submittedAppStatusMsgDetails2": ". You’ll be given a full case number when your application has been accepted and issued (sent by post to your {{ case.divorceWho }}).",
     "submittedWhatHappensNext": "What happens next",
