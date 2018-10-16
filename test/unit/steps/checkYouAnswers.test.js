@@ -5,7 +5,6 @@ const Done = require('steps/done/Done.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationService = require('services/caseOrchestrationService');
-const Start = require('steps/start/Start.step');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -55,7 +54,7 @@ describe(modulePath, () => {
     it('to start page if save application fails', () => {
       caseOrchestrationService.submitApplication.rejects();
       const fields = { statementOfTruth: 'yes' };
-      return question.redirectWithField(CheckYourAnswers, fields, Start);
+      return question.redirectWithField(CheckYourAnswers, fields, CheckYourAnswers);
     });
   });
 
