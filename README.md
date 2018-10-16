@@ -22,4 +22,3 @@ Locally this will also create a new URL of ```"/session"``` where you can view a
 ####Test application:
 
 `yarn test`
-
