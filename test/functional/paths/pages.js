@@ -7,7 +7,7 @@ Scenario('Pages', async I => {
 
   await I.testIdamPage();
 
-  I.testUndefendedPage();
+  I.testProgressBar();
 
   I.testAdulteryFirstFound();
 

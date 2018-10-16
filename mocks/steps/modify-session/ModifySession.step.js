@@ -52,6 +52,7 @@ class ModifySession extends Question {
     const respStatementOfTruth = text;
     const respAdmitOrConsentToFact = text;
     const respJurisdictionAgree = text;
+    const permittedDecreeNisiReason = text;
 
     return form({
       divorceWho,
@@ -62,7 +63,8 @@ class ModifySession extends Question {
       respDefendsDivorce,
       respStatementOfTruth,
       respAdmitOrConsentToFact,
-      respJurisdictionAgree
+      respJurisdictionAgree,
+      permittedDecreeNisiReason
     });
   }
 

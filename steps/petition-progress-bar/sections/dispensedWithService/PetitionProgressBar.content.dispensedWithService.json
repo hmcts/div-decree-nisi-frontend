@@ -1,0 +1,7 @@
+{
+  "en": {
+    "dWSAppStatusMsg": "You can continue with your divorce",
+    "dWSAppStatusMsgDetails1": "The court has accepted your application to 'dispense with service' (decided that your {{ case.divorceWho }} doesn’t have to be served the divorce application).",
+    "dWSAppStatusMsgDetails2": "You can now continue the divorce without their response."
+  }
+}

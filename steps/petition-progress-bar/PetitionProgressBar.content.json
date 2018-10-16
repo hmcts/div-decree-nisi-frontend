@@ -1,0 +1,32 @@
+{
+  "en": {
+    "title": "Your divorce",
+    "referenceNumber": "Case number",
+    "name": "Name",
+
+    "youApply": "You apply",
+    "husbandWifeMustRespond": "Your {{ case.divorceWho }} responds",
+    "getDecreeNisi": "Get a decree nisi",
+    "madeFinal": "Divorce is complete",
+
+    "needHelp" : "If you need help",
+    "needHelpDetails": "You can contact the divorce centre if you need help with your application. Court staff can’t give you legal advice however, and you should speak to a ",
+    "solicitorLink": "<a href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>",
+
+    "imporveService": "Help us improve this service",
+    "imporveServiceDetails": "Please help us improve this service by ",
+    "feedbackLink": "<a href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/email\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">leaving your feedback</a>",
+
+
+    "divorceCenter": "Your divorce centre",
+    "email": "Email",
+    "phone": "Phone",
+    "openTimes": "(Monday to Friday, 8.30am to 5pm)",
+    "guidence": "Guidance on GOV.UK",
+    "howRespondsLink": "<a href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How your {{ case.divorceWho }} responds</a>",
+    "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
+    "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
+    "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
+    "moneyAndPropertyLinky": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
+  }
+}

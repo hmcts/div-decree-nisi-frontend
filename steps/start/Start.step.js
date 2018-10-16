@@ -18,7 +18,7 @@ class Start extends Page {
     };
 
     return branch(
-      redirectTo(this.journey.steps.Undefended).if(hasSession),
+      redirectTo(this.journey.steps.PetitionProgressBar).if(hasSession),
       redirectTo(this.journey.steps.Entry)
     );
   }
