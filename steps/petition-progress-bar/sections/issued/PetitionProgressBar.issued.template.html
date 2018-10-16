@@ -21,7 +21,7 @@
 <h2 class="heading-medium">{{ content.issuedAppStatusMsg }}</h2>
 <p>{{ content.issuedAppStatusMsgDetails }}</p>
 
-<h2 class="heading-medium">{{ content.issuedWhatHappensNext }}</h2>
+<h2 class="heading-medium">{{ content.issuedWhatHappensNext | safe }}</h2>
 <p class="text">{{ content.issuedWhatHappensNextDetail1 | safe }}</p>
 <ul class="list list-bullet">
   <li>{{ content.issuedWhatHappensNextDetails2list1 }}</li>
