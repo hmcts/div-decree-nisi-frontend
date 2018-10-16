@@ -64,7 +64,7 @@ describe(modulePath, () => {
         case: {
           data: {
             claimsCosts: 'Yes',
-            divorceClaimFrom: ['respondent', 'correspondent']
+            claimsCostsFrom: ['respondent', 'correspondent']
           }
         }
       };
@@ -77,7 +77,7 @@ describe(modulePath, () => {
         case: {
           data: {
             claimsCosts: 'Yes',
-            divorceClaimFrom: ['respondent']
+            claimsCostsFrom: ['respondent']
           }
         }
       };
@@ -90,7 +90,7 @@ describe(modulePath, () => {
         case: {
           data: {
             claimsCosts: 'Yes',
-            divorceClaimFrom: ['correspondent']
+            claimsCostsFrom: ['correspondent']
           }
         }
       };

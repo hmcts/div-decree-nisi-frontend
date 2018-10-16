@@ -13,17 +13,17 @@
 
   <p class="text">
     {% if case.claimsCosts == "Yes" and case.financialOrderFor == "Yes" %}
-      {% if case.divorceClaimFrom|length and "respondent" in case.divorceClaimFrom and "correspondent" in case.divorceClaimFrom  %}
+      {% if case.claimsCostsFrom|length and "respondent" in case.claimsCostsFrom and "correspondent" in case.claimsCostsFrom  %}
         {{ content.costsPetitionerPayedByRespondentAndCorrispondent }}
-      {% elseif case.divorceClaimFrom|length and "correspondent" in case.divorceClaimFrom  %}
+      {% elseif case.claimsCostsFrom|length and "correspondent" in case.claimsCostsFrom  %}
         {{ content.costsPetitionerPayedByCorrespondent }}
       {% else %}
         {{ content.costsPetitionerPayedByRespondent }}
       {% endif %}
     {% elseif case.claimsCosts == "Yes" %}
-      {% if case.divorceClaimFrom|length and "respondent" in case.divorceClaimFrom and "correspondent" in case.divorceClaimFrom %}
+      {% if case.claimsCostsFrom|length and "respondent" in case.claimsCostsFrom and "correspondent" in case.claimsCostsFrom %}
         {{ content.costsPetitionerDivorceCostsdByRespondentAndCorespondent }}
-      {% elseif case.divorceClaimFrom|length and "correspondent" in case.divorceClaimFrom %}
+      {% elseif case.claimsCostsFrom|length and "correspondent" in case.claimsCostsFrom %}
         {{ content.costsPetitionerDivorceCostsdByCorespondent }}
       {% else %}
         {{ content.costsPetitionerDivorceCostsdByRespondent }}
@@ -323,9 +323,9 @@
 
   <h3 class="heading-small">{{ content.costsOrders }}</h3>
   {% if case.claimsCosts == "Yes" %}
-    {% if case.divorceClaimFrom|length and "respondent" in case.divorceClaimFrom and "correspondent" in case.divorceClaimFrom %}
+    {% if case.claimsCostsFrom|length and "respondent" in case.claimsCostsFrom and "correspondent" in case.claimsCostsFrom %}
       <p class="text">{{ content.claimingCostsFromRespondentCoRespondent }}</p>
-    {% elseif case.divorceClaimFrom|length and "correspondent" in case.divorceClaimFrom %}
+    {% elseif case.claimsCostsFrom|length and "correspondent" in case.claimsCostsFrom %}
       <p class="text">{{ content.claimingCostsFromCoRespondent }}</p>
     {% else %}
       <p class="text">{{ content.claimingCostsFromRespondent }}</p>

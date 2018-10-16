@@ -321,7 +321,7 @@ describe(modulePath, () => {
               connections: {},
               claimsCosts: 'Yes',
               financialOrderFor: 'Yes',
-              divorceClaimFrom: ['respondent', 'correspondent']
+              claimsCostsFrom: ['respondent', 'correspondent']
             }
           }
         };
@@ -338,7 +338,7 @@ describe(modulePath, () => {
               connections: {},
               claimsCosts: 'Yes',
               financialOrderFor: 'Yes',
-              divorceClaimFrom: ['correspondent']
+              claimsCostsFrom: ['correspondent']
             }
           }
         };
@@ -354,7 +354,7 @@ describe(modulePath, () => {
               connections: {},
               claimsCosts: 'Yes',
               financialOrderFor: 'Yes',
-              divorceClaimFrom: []
+              claimsCostsFrom: []
             }
           }
         };
@@ -373,7 +373,7 @@ describe(modulePath, () => {
               connections: {},
               claimsCosts: 'Yes',
               financialOrderFor: 'No',
-              divorceClaimFrom: ['respondent', 'correspondent']
+              claimsCostsFrom: ['respondent', 'correspondent']
             }
           }
         };
@@ -390,7 +390,7 @@ describe(modulePath, () => {
               connections: {},
               claimsCosts: 'Yes',
               financialOrderFor: 'No',
-              divorceClaimFrom: ['correspondent']
+              claimsCostsFrom: ['correspondent']
             }
           }
         };
@@ -407,7 +407,7 @@ describe(modulePath, () => {
               connections: {},
               claimsCosts: 'Yes',
               financialOrderFor: 'No',
-              divorceClaimFrom: []
+              claimsCostsFrom: []
             }
           }
         };
@@ -425,7 +425,7 @@ describe(modulePath, () => {
             connections: {},
             claimsCosts: 'No',
             financialOrderFor: 'Yes',
-            divorceClaimFrom: []
+            claimsCostsFrom: []
           }
         }
       };
@@ -442,7 +442,7 @@ describe(modulePath, () => {
             connections: {},
             claimsCosts: 'No',
             financialOrderFor: 'No',
-            divorceClaimFrom: []
+            claimsCostsFrom: []
           }
         }
       };
@@ -757,7 +757,7 @@ describe(modulePath, () => {
             data: {
               connections: {},
               claimsCosts: 'Yes',
-              divorceClaimFrom: ['respondent', 'correspondent']
+              claimsCostsFrom: ['respondent', 'correspondent']
             }
           }
         };
@@ -772,7 +772,7 @@ describe(modulePath, () => {
             data: {
               connections: {},
               claimsCosts: 'Yes',
-              divorceClaimFrom: ['correspondent']
+              claimsCostsFrom: ['correspondent']
             }
           }
         };
@@ -788,7 +788,7 @@ describe(modulePath, () => {
             data: {
               connections: {},
               claimsCosts: 'Yes',
-              divorceClaimFrom: []
+              claimsCostsFrom: []
             }
           }
         };
@@ -804,7 +804,7 @@ describe(modulePath, () => {
             data: {
               connections: {},
               claimsCosts: 'No',
-              divorceClaimFrom: []
+              claimsCostsFrom: []
             }
           }
         };
@@ -870,7 +870,7 @@ describe(modulePath, () => {
             data: {
               connections: {},
               financialOrder: 'No',
-              divorceClaimFrom: []
+              claimsCostsFrom: []
             }
           }
         };
