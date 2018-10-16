@@ -50,7 +50,7 @@
         <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
           {% block statement_of_truth_fields %}
-            {{ hiddenInput(fields.statementOfTruth, value=true) }}
+            {{ hiddenInput(fields.statementOfTruth, value='yes') }}
           {%- endblock %}
 
           <input class="button" type="submit" value="{{ pageContent.sendApplication | default(defaultContent.sendApplication) }}">

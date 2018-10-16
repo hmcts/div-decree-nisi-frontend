@@ -15,10 +15,10 @@
     "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
     "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
     "moneyAndPropertyLinky": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>",
-    "youApplied": "You applied",
-    "husbandWifeResponded": "Your {{ case.divorceWho }} responded",
+    "youApplied": "You apply",
+    "husbandWifeResponded": "Your {{ case.divorceWho }} responds",
     "getDecreeNisi": "Get a decree nisi",
-    "madeFinal": "The divorce is made final",
+    "madeFinal": "Divorce is complete",
 
     "courtWillCheck": "The court will check your applicaiton and pass it to the judge. If the judge agree's there's no reason why you shouldnt get your divorce, you'll be sent the time, date and court in which you decree nisi will be announced, You'll then be sent your decree nisi.",
     "decreeNisiGranted": "After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute.",
