@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 const { Question } = require('@hmcts/one-per-page/steps');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
@@ -71,7 +71,11 @@ class LivedApartSinceLastIncidentDate extends Question {
   }
 
   next() {
-    return redirectTo(this.journey.steps.ClaimCosts);
+    const skipClaimCosts = this.case.D8DivorceCostsClaim === 'No';
+    return branch(
+      redirectTo(this.journey.steps.ShareCourtDocuments).if(skipClaimCosts),
+      redirectTo(this.journey.steps.ClaimCosts)
+    );
   }
 
   get middleware() {

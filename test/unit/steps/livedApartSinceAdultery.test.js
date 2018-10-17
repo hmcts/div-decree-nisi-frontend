@@ -4,6 +4,7 @@ const LivedApartSinceAdultery = require(modulePath);
 const LivedApartSinceAdulteryContent = require(
   'steps/lived-apart-since-adultery/LivedApartSinceAdultery.content'
 );
+const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
@@ -42,7 +43,31 @@ describe(modulePath, () => {
 
   it('redirects to ClaimCosts if answer is yes', () => {
     const fields = { 'livedApart-livedApartSinceAdultery': 'yes' };
-    return question.redirectWithField(LivedApartSinceAdultery, fields, ClaimCosts, session);
+    const sessionData = {
+      case: {
+        data: {
+          D8DivorceCostsClaim: 'Yes'
+        }
+      }
+    };
+    return question.redirectWithField(LivedApartSinceAdultery, fields, ClaimCosts, sessionData);
+  });
+
+  it('redirects to ShareCourtDocuments if answered yes and D8DivorceCostsClaim is No', () => {
+    const fields = { 'livedApart-livedApartSinceAdultery': 'yes' };
+    const sessionData = {
+      case: {
+        data: {
+          D8DivorceCostsClaim: 'No'
+        }
+      }
+    };
+    return question.redirectWithField(
+      LivedApartSinceAdultery,
+      fields,
+      ShareCourtDocuments,
+      sessionData
+    );
   });
 
   it('redirects to ClaimCosts if answer is no and dates givent', () => {
@@ -51,6 +76,26 @@ describe(modulePath, () => {
       'livedApart-datesLivedTogether': '3 months'
     };
     return question.redirectWithField(LivedApartSinceAdultery, fields, ClaimCosts, session);
+  });
+
+  it('redirects to ShareCourtDocuments if answered no, dates, D8DivorceCostsClaim is No', () => {
+    const fields = {
+      'livedApart-livedApartSinceAdultery': 'no',
+      'livedApart-datesLivedTogether': '3 months'
+    };
+    const sessionData = {
+      case: {
+        data: {
+          D8DivorceCostsClaim: 'No'
+        }
+      }
+    };
+    return question.redirectWithField(
+      LivedApartSinceAdultery,
+      fields,
+      ShareCourtDocuments,
+      sessionData
+    );
   });
 
   it('returns correct answers', () => {
