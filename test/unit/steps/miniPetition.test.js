@@ -3,6 +3,15 @@ const modulePath = 'steps/mini-petition/MiniPetition.step';
 
 const MiniPetition = require(modulePath);
 const MiniPetitionContent = require('steps/mini-petition/MiniPetition.content');
+const Intolerable = require(
+  'steps/intolerable/Intolerable.step'
+);
+const BehaviourContinueStep = require(
+  'steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.step'
+);
+const LivedApartSinceDesertion = require(
+  'steps/lived-apart-since-desertion/LivedApartSinceDesertion.step'
+);
 const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
 );
@@ -67,21 +76,173 @@ describe(modulePath, () => {
   });
 
   describe('redirects', () => {
-    it('redirects to LivedApartSinceSeparation if answered changes yes', () => {
+    it('redirects to Intolerable if answered changes yes and reasonForDivorce is adultery', () => {
       const fields = {
         'changes-hasBeenChanges': 'yes',
         'changes-changesDetails': 'details...',
         'changes-statementOfTruthChanges': 'yes'
       };
-      return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation);
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery'
+          }
+        }
+      };
+      return question.redirectWithField(MiniPetition, fields, Intolerable, session);
     });
 
-    it('redirects to LivedApartSinceSeparation if answered changes no', () => {
+    it('redirects to Intolerable if answered changes no and reasonForDivorce is adultery', () => {
       const fields = {
         'changes-hasBeenChanges': 'no',
         'changes-statementOfTruthNoChanges': 'yes'
       };
-      return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation);
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery'
+          }
+        }
+      };
+      return question.redirectWithField(MiniPetition, fields, Intolerable, session);
+    });
+
+    it('redirects to BehaviourContinuedSinceApplication with unreasonable-behaviour and answer yes',
+      // eslint-disable-next-line max-len
+      () => {
+        const fields = {
+          'changes-hasBeenChanges': 'yes',
+          'changes-changesDetails': 'details...',
+          'changes-statementOfTruthChanges': 'yes'
+        };
+        const session = {
+          case: {
+            data: {
+              connections: {},
+              reasonForDivorce: 'unreasonable-behaviour'
+            }
+          }
+        };
+        return question.redirectWithField(MiniPetition, fields, BehaviourContinueStep, session);
+      });
+
+    it('redirects to BehaviourContinuedSinceApplication with unreasonable-behaviour and answer no',
+      // eslint-disable-next-line max-len
+      () => {
+        const fields = {
+          'changes-hasBeenChanges': 'no',
+          'changes-statementOfTruthNoChanges': 'yes'
+        };
+        const session = {
+          case: {
+            data: {
+              connections: {},
+              reasonForDivorce: 'unreasonable-behaviour'
+            }
+          }
+        };
+        return question.redirectWithField(MiniPetition, fields, BehaviourContinueStep, session);
+      });
+
+    it('redirects to LivedApartSinceDesertion with desertion and answer yes', () => {
+      const fields = {
+        'changes-hasBeenChanges': 'yes',
+        'changes-changesDetails': 'details...',
+        'changes-statementOfTruthChanges': 'yes'
+      };
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'desertion'
+          }
+        }
+      };
+      return question.redirectWithField(MiniPetition, fields, LivedApartSinceDesertion, session);
+    });
+
+    it('redirects to LivedApartSinceDesertion with desertion and answer no', () => {
+      const fields = {
+        'changes-hasBeenChanges': 'no',
+        'changes-statementOfTruthNoChanges': 'yes'
+      };
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'desertion'
+          }
+        }
+      };
+      return question.redirectWithField(MiniPetition, fields, LivedApartSinceDesertion, session);
+    });
+
+    it('redirects to LivedApartSinceSeparation with separation-2-years and answer yes', () => {
+      const fields = {
+        'changes-hasBeenChanges': 'yes',
+        'changes-changesDetails': 'details...',
+        'changes-statementOfTruthChanges': 'yes'
+      };
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'separation-2-years'
+          }
+        }
+      };
+      return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation, session);
+    });
+
+    it('redirects to LivedApartSinceSeparation with separation-2-years and answer no', () => {
+      const fields = {
+        'changes-hasBeenChanges': 'no',
+        'changes-statementOfTruthNoChanges': 'yes'
+      };
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'separation-2-years'
+          }
+        }
+      };
+      return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation, session);
+    });
+
+    it('redirects to LivedApartSinceSeparation with separation-5-years and answer yes', () => {
+      const fields = {
+        'changes-hasBeenChanges': 'yes',
+        'changes-changesDetails': 'details...',
+        'changes-statementOfTruthChanges': 'yes'
+      };
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'separation-5-years'
+          }
+        }
+      };
+      return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation, session);
+    });
+
+    it('redirects to LivedApartSinceSeparation with separation-5-years and answer no', () => {
+      const fields = {
+        'changes-hasBeenChanges': 'no',
+        'changes-statementOfTruthNoChanges': 'yes'
+      };
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'separation-5-years'
+          }
+        }
+      };
+      return question.redirectWithField(MiniPetition, fields, LivedApartSinceSeparation, session);
     });
   });
 
@@ -268,7 +429,11 @@ describe(modulePath, () => {
   describe('content', () => {
     it('all', () => {
       const session = {
-        case: { data: { connections: {} } }
+        case: {
+          data: {
+            connections: {}
+          }
+        }
       };
       const ignoreContent = [
         'coRespondentsCorrespondenceAddress',
@@ -313,7 +478,7 @@ describe(modulePath, () => {
       return content(MiniPetition, session, { ignoreContent });
     });
 
-    context('intro text - claim costs & finantial order', () => {
+    context('intro text - claim costs & financial order', () => {
       it('from respondent and co-respondent', () => {
         const session = {
           case: {

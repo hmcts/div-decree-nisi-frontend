@@ -13,8 +13,8 @@ class Intolerable extends Question {
     return config.paths.intolerable;
   }
 
-  get session() {
-    return this.req.session;
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {

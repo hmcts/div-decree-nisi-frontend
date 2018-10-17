@@ -1,9 +1,7 @@
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
 const MiniPetitionContent = require('steps/mini-petition/MiniPetition.content');
 const commonContent = require('common/content');
-const LivedApartSinceSeparation = require(
-  'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
-);
+const Intolerable = require('steps/intolerable/Intolerable.step');
 
 function testMiniPetitionPage() {
   const I = this;
@@ -13,7 +11,7 @@ function testMiniPetitionPage() {
   I.checkOption(MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.yes);
   I.navByClick(commonContent.en.continue);
 
-  I.seeCurrentUrlEquals(LivedApartSinceSeparation.path);
+  I.seeCurrentUrlEquals(Intolerable.path);
 }
 
 module.exports = { testMiniPetitionPage };

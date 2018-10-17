@@ -21,13 +21,35 @@
 
   {{ selectionButtons(fields.reasonForDivorce, "Select reason for divorce",
     options = [
-      { label: "Unreasonable Behaviour", value: "unreasonable-behaviour" },
+      { label: "Unreasonable Behaviour", value: "unreasonable-behaviour", target: "reason-behaviour-no-container"},
       { label: "Adultery", value: "adultery" },
       { label: "Separation 2 Years", value: "separation-2-years" },
       { label: "Separation 5 Years", value: "separation-5-years" },
-      { label: "Desertion", value: "desertion" }
+      { label: "Desertion", value: "desertion", target: "reason-desertion-no-container" }
     ],
     hideQuestion = false,
     inline = true
   ) }}
 {% endcall %}
+
+<div class="js-hidden" id="reason-behaviour-no-container">
+  <div class="form-group">
+    {{ content.fields.changes.reasonForDivorceBehaviourDetails.title }}
+    <textarea class="form-control"
+              id="reasonForDivorceBehaviourDetails"
+              name="reasonForDivorceBehaviourDetails"
+              rows="4">{% if fields.reasonForDivorceBehaviourDetails.value %}
+      {{ fields.reasonForDivorceBehaviourDetails.value }}{% endif %}</textarea>
+  </div>
+</div>
+
+<div class="js-hidden" id="reason-desertion-no-container">
+  <div class="form-group">
+    {{ content.fields.changes.reasonForDivorceDesertionDetails.title }}
+    <textarea class="form-control"
+              id="reasonForDivorceDesertionDetails"
+              name="reasonForDivorceDesertionDetails"
+              rows="4">{% if fields.reasonForDivorceDesertionDetails.value %}
+      {{ fields.reasonForDivorceDesertionDetails.value }}{% endif %}</textarea>
+  </div>
+</div>
