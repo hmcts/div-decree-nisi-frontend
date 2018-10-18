@@ -15,6 +15,7 @@
     "test:unit": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha 'test/unit/**/*.js' --timeout 5000",
     "test:smoke": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/functional/codecept.smoke.conf.js --steps --invert",
     "test:overnight": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run-multiple saucelabs -c test/functional/codecept.overnight.conf.js --steps",
+    "test:e2e": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha 'test/e2e/**/*.js' --timeout 5000",
     "test:coverage": "nyc check-coverage",
     "test:a11y": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha test/a11y --timeout 15000",
     "test:nsp": "nsp check",
@@ -58,7 +59,7 @@
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git",
-    "@hmcts/one-per-page-test-suite": "^2.0.8",
+    "@hmcts/one-per-page-test-suite": "^2.0.10",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
