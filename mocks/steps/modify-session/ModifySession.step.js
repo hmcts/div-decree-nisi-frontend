@@ -52,12 +52,9 @@ class ModifySession extends Question {
     const respStatementOfTruth = text;
     const respAdmitOrConsentToFact = text;
     const respJurisdictionAgree = text;
-<<<<<<< HEAD
-    const permittedDecreeNisiReason = text;
-=======
     const reasonForDivorceBehaviourDetails = text;
     const reasonForDivorceDesertionDetails = text;
->>>>>>> origin/master
+    const permittedDecreeNisiReason = text;
 
     return form({
       divorceWho,
