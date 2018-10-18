@@ -266,7 +266,6 @@
     "respConsentToEmail" : "No",
     "respConsiderFinancialSituation" : "Yes",
     "respHardshipDefenseResponse" : "No",
-    "respHardshipDescription" : "Some Hardship Description goes here",
-    "d8DivorceCostsClaim" : "Yes"
+    "respHardshipDescription" : "Some Hardship Description goes here"
   }
 }

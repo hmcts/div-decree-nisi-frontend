@@ -37,40 +37,40 @@ describe(modulePath, () => {
     return question.testErrors(LivedApartSinceSeparation, session, fields, { onlyErrors });
   });
 
-  it('redirects to ClaimCosts if answered no, details, D8DivorceCostsClaim is Yes', () => {
+  it('redirects to ClaimCosts if answered no, details, claimsCosts is Yes', () => {
     const fields = { 'changes-livedApartSinceSeparation': 'no',
       'changes-approximateDatesOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'Yes'
+          claimsCosts: 'Yes'
         }
       }
     };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts, sessionData);
   });
 
-  it('redirects to ClaimCosts if answered yes and D8DivorceCostsClaim is Yes', () => {
+  it('redirects to ClaimCosts if answered yes and claimsCosts is Yes', () => {
     const fields = {
       'changes-livedApartSinceSeparation': 'yes'
     };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'Yes'
+          claimsCosts: 'Yes'
         }
       }
     };
     return question.redirectWithField(LivedApartSinceSeparation, fields, ClaimCosts, sessionData);
   });
 
-  it('redirects to ShareCourtDocuments if answered no, details, D8DivorceCostsClaim is No', () => {
+  it('redirects to ShareCourtDocuments if answered no, details, claimsCosts is No', () => {
     const fields = { 'changes-livedApartSinceSeparation': 'no',
       'changes-approximateDatesOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'No'
+          claimsCosts: 'No'
         }
       }
     };
@@ -82,14 +82,14 @@ describe(modulePath, () => {
     );
   });
 
-  it('redirects to ShareCourtDocuments if answered yes and D8DivorceCostsClaim is No', () => {
+  it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
     const fields = {
       'changes-livedApartSinceSeparation': 'yes'
     };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'No'
+          claimsCosts: 'No'
         }
       }
     };

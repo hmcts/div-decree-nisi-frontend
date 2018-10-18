@@ -46,19 +46,19 @@ describe(modulePath, () => {
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'Yes'
+          claimsCosts: 'Yes'
         }
       }
     };
     return question.redirectWithField(LivedApartSinceAdultery, fields, ClaimCosts, sessionData);
   });
 
-  it('redirects to ShareCourtDocuments if answered yes and D8DivorceCostsClaim is No', () => {
+  it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
     const fields = { 'livedApart-livedApartSinceAdultery': 'yes' };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'No'
+          claimsCosts: 'No'
         }
       }
     };
@@ -78,7 +78,7 @@ describe(modulePath, () => {
     return question.redirectWithField(LivedApartSinceAdultery, fields, ClaimCosts, session);
   });
 
-  it('redirects to ShareCourtDocuments if answered no, dates, D8DivorceCostsClaim is No', () => {
+  it('redirects to ShareCourtDocuments if answered no, dates, claimsCosts is No', () => {
     const fields = {
       'livedApart-livedApartSinceAdultery': 'no',
       'livedApart-datesLivedTogether': '3 months'
@@ -86,7 +86,7 @@ describe(modulePath, () => {
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'No'
+          claimsCosts: 'No'
         }
       }
     };

@@ -59,7 +59,7 @@ class BehaviourContinuedSinceApplication extends Question {
   next() {
     const hasAnsweredYes = this.fields.changes.behaviourContinuedSinceApplication.value === 'yes';
     const hasAnsweredNo = this.fields.changes.behaviourContinuedSinceApplication.value === 'no';
-    const skipClaimCosts = this.case.d8DivorceCostsClaim === 'No';
+    const skipClaimCosts = this.case.claimsCosts === 'No';
 
     if (hasAnsweredNo) {
       this.req.session.lastIncidentDate = this.fields.changes.lastIncidentDate.value;

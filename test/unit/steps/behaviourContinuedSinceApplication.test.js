@@ -107,7 +107,7 @@ describe(modulePath, () => {
     );
   });
 
-  it('redirects to ShareCourtDocuments if answered yes and D8DivorceCostsClaim is No', () => {
+  it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
     const fields = {
       'changes-behaviourContinuedSinceApplication': 'yes'
     };
@@ -115,7 +115,7 @@ describe(modulePath, () => {
       case: {
         data: {
           createdDate: '2018-08-02T00:00:00.000Z',
-          d8DivorceCostsClaim: 'No'
+          claimsCosts: 'No'
         }
       }
     };
@@ -127,7 +127,7 @@ describe(modulePath, () => {
     );
   });
 
-  it('redirects to ClaimCosts if answered yes and D8DivorceCostsClaim is Yes', () => {
+  it('redirects to ClaimCosts if answered yes and claimsCosts is Yes', () => {
     const fields = {
       'changes-behaviourContinuedSinceApplication': 'yes'
     };
@@ -135,7 +135,7 @@ describe(modulePath, () => {
       case: {
         data: {
           createdDate: '2018-08-02T00:00:00.000Z',
-          d8DivorceCostsClaim: 'Yes'
+          claimsCosts: 'Yes'
         }
       }
     };

@@ -45,7 +45,7 @@ describe(modulePath, () => {
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'Yes'
+          claimsCosts: 'Yes'
         }
       }
     };
@@ -59,7 +59,7 @@ describe(modulePath, () => {
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'Yes'
+          claimsCosts: 'Yes'
         }
       }
     };
@@ -67,14 +67,14 @@ describe(modulePath, () => {
   });
 
 
-  it('redirects to ShareCourtDocuments if answered yes and D8DivorceCostsClaim is No', () => {
+  it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
     const fields = {
       'changes-livedApartSinceDesertion': 'yes'
     };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'No'
+          claimsCosts: 'No'
         }
       }
     };
@@ -87,13 +87,13 @@ describe(modulePath, () => {
   });
 
 
-  it('redirects to ShareCourtDocuments if answered yes and D8DivorceCostsClaim is No', () => {
+  it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
     const fields = { 'changes-livedApartSinceDesertion': 'no',
       'changes-approximateDatesOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'No'
+          claimsCosts: 'No'
         }
       }
     };
@@ -105,7 +105,7 @@ describe(modulePath, () => {
     );
   });
 
-  it('returns correct answers if answered yes and D8DivorceCostsClaim is Yes', () => {
+  it('returns correct answers if answered yes and claimsCosts is Yes', () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
       LivedApartSinceDesertionContent.en.fields.changes.livedApartSinceDesertion.title,
@@ -121,7 +121,7 @@ describe(modulePath, () => {
     return question.answers(LivedApartSinceDesertion, stepData, expectedContent, session);
   });
 
-  it('returns correct answers if answered no and D8DivorceCostsClaim is Yes', () => {
+  it('returns correct answers if answered no and claimsCosts is Yes', () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
       LivedApartSinceDesertionContent.en.fields.changes.livedApartSinceDesertion.title,

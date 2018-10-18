@@ -71,7 +71,7 @@ class LivedApartSinceDesertion extends Question {
   }
 
   next() {
-    const skipClaimCosts = this.case.d8DivorceCostsClaim === 'No';
+    const skipClaimCosts = this.case.claimsCosts === 'No';
     return branch(
       redirectTo(this.journey.steps.ShareCourtDocuments).if(skipClaimCosts),
       redirectTo(this.journey.steps.ClaimCosts)

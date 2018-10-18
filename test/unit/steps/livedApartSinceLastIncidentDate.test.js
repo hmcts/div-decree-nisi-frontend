@@ -39,13 +39,13 @@ describe(modulePath, () => {
     return question.testErrors(LivedApartSinceLastIncidentDate, session, fields, { onlyErrors });
   });
 
-  it('redirects to ClaimCosts if answered no, details, D8DivorceCostsClaim is Yes', () => {
+  it('redirects to ClaimCosts if answered no, details, claimsCosts is Yes', () => {
     const fields = { 'changes-livedApartSinceLastIncidentDate': 'no',
       'changes-approximateDatesOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'Yes'
+          claimsCosts: 'Yes'
         }
       }
     };
@@ -57,14 +57,14 @@ describe(modulePath, () => {
     );
   });
 
-  it('redirects to ClaimCosts if answered yes and D8DivorceCostsClaim is Yes', () => {
+  it('redirects to ClaimCosts if answered yes and claimsCosts is Yes', () => {
     const fields = {
       'changes-livedApartSinceLastIncidentDate': 'yes'
     };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'Yes'
+          claimsCosts: 'Yes'
         }
       }
     };
@@ -77,13 +77,13 @@ describe(modulePath, () => {
   });
 
 
-  it('redirects to ShareCourtDocuments if answered no, details, D8DivorceCostsClaim is No', () => {
+  it('redirects to ShareCourtDocuments if answered no, details, claimsCosts is No', () => {
     const fields = { 'changes-livedApartSinceLastIncidentDate': 'no',
       'changes-approximateDatesOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'No'
+          claimsCosts: 'No'
         }
       }
     };
@@ -95,14 +95,14 @@ describe(modulePath, () => {
     );
   });
 
-  it('redirects to ShareCourtDocuments if answered yes and D8DivorceCostsClaim is No', () => {
+  it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
     const fields = {
       'changes-livedApartSinceLastIncidentDate': 'yes'
     };
     const sessionData = {
       case: {
         data: {
-          d8DivorceCostsClaim: 'No'
+          claimsCosts: 'No'
         }
       }
     };
