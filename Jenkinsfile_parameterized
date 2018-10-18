@@ -15,6 +15,7 @@ properties([
 withParameterizedPipeline(params.TYPE, params.PRODUCT, params.COMPONENT, params.ENVIRONMENT, params.SUBSCRIPTION) {
   after('test') {
     sh 'yarn test:validation'
+    sh 'yarn test:e2e'
   }
 
   after('functionalTest:saat') {
