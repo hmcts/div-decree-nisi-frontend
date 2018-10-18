@@ -1,5 +1,5 @@
 const { Question } = require('@hmcts/one-per-page/steps');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
@@ -114,7 +114,16 @@ class MiniPetition extends Question {
   }
 
   next() {
-    return redirectTo(this.journey.steps.LivedApartSinceSeparation);
+    const reasonForDivorce = this.case.reasonForDivorce.toLowerCase();
+    return branch(
+      redirectTo(this.journey.steps.Intolerable)
+        .if(reasonForDivorce === 'adultery'),
+      redirectTo(this.journey.steps.BehaviourContinuedSinceApplication)
+        .if(reasonForDivorce === 'unreasonable-behaviour'),
+      redirectTo(this.journey.steps.LivedApartSinceDesertion)
+        .if(reasonForDivorce === 'desertion'),
+      redirectTo(this.journey.steps.LivedApartSinceSeparation)
+    );
   }
 
   get middleware() {

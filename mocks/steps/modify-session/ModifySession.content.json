@@ -1,5 +1,15 @@
 {
   "en": {
-    "title": "Modify the session"
+    "title": "Modify the session",
+    "fields": {
+      "changes": {
+        "reasonForDivorceBehaviourDetails": {
+          "title": "Specify the unreasonable behaviour details"
+        },
+        "reasonForDivorceDesertionDetails": {
+          "title": "Specify the reason for desertion details"
+        }
+      }
+    }
   }
 }
