@@ -43,7 +43,7 @@ describe(modulePath, () => {
     const sessionData = {
       case: {
         data: {
-          D8DivorceCostsClaim: 'Yes'
+          d8DivorceCostsClaim: 'Yes'
         }
       }
     };
@@ -57,7 +57,7 @@ describe(modulePath, () => {
     const sessionData = {
       case: {
         data: {
-          D8DivorceCostsClaim: 'Yes'
+          d8DivorceCostsClaim: 'Yes'
         }
       }
     };
@@ -70,7 +70,7 @@ describe(modulePath, () => {
     const sessionData = {
       case: {
         data: {
-          D8DivorceCostsClaim: 'No'
+          d8DivorceCostsClaim: 'No'
         }
       }
     };
@@ -89,7 +89,7 @@ describe(modulePath, () => {
     const sessionData = {
       case: {
         data: {
-          D8DivorceCostsClaim: 'No'
+          d8DivorceCostsClaim: 'No'
         }
       }
     };

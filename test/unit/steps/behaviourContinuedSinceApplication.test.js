@@ -115,7 +115,7 @@ describe(modulePath, () => {
       case: {
         data: {
           createdDate: '2018-08-02T00:00:00.000Z',
-          D8DivorceCostsClaim: 'No'
+          d8DivorceCostsClaim: 'No'
         }
       }
     };
@@ -135,7 +135,7 @@ describe(modulePath, () => {
       case: {
         data: {
           createdDate: '2018-08-02T00:00:00.000Z',
-          D8DivorceCostsClaim: 'Yes'
+          d8DivorceCostsClaim: 'Yes'
         }
       }
     };

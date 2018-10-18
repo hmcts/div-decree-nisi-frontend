@@ -30,6 +30,15 @@
     hideQuestion = false,
     inline = true
   ) }}
+
+  {{ selectionButtons(fields.d8DivorceCostsClaim, "Do you want to claim costs?",
+  options = [
+     { label: "Yes", value: "Yes" },
+     { label: "No", value: "No" }
+  ],
+  hideQuestion = false,
+  inline = true
+) }}
 {% endcall %}
 
 <div class="js-hidden" id="reason-behaviour-no-container">
