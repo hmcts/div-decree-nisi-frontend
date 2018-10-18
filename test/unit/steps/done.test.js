@@ -3,7 +3,6 @@ const modulePath = 'steps/done/Done.step';
 const Done = require(modulePath);
 const idam = require('services/idam');
 const { middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const preserveSession = require('middleware/preserveSession');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -15,7 +14,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect, idam.logout, preserveSession middleware', () => {
-    return middleware.hasMiddleware(Done, [ idam.protect(), idam.logout(), preserveSession ]);
+    return middleware.hasMiddleware(Done, [ idam.protect(), idam.logout()]);
   });
 
   it('renders the content', () => {
