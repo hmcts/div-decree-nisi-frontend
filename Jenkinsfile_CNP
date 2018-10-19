@@ -7,7 +7,13 @@ String component = "dn"
 
 withPipeline("nodejs", product, component) {
   after('test') {
-    sh 'yarn test:validation'
+    stage('Test HTML') {
+      sh 'yarn test:validation'
+      sh 'yarn test:a11y'
+    }
+    stage('Test E2E') {
+      sh 'yarn test:e2e'
+    }
   }
 
   after('functionalTest:aat') {
