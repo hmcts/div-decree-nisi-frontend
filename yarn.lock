@@ -176,10 +176,10 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@^2.0.8":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-2.0.8.tgz#8672290bb7f79a8d0ed2b1e2bdfe46da4bd266e6"
-  integrity sha512-JUbAQw86DH5d/YJvr9jfmViL11VwcWPLH+T5yKrdkiBEmCLDGnPTrHwKymCpQHHYruBexeaJK+hWs986QbFExg==
+"@hmcts/one-per-page-test-suite@^2.0.10":
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-2.0.10.tgz#93ae298a551204512fcab3dcb8ca79b23822d4bc"
+  integrity sha512-yxK3ZazKbs6GirqWKr4NUkIpDHm/Re5G4EQ4DRvQZ1nsAF/Zlq1Cq7QwOQAdQm1YTGOykn9QeA/lOtYda8cqZQ==
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
     "@hmcts/look-and-feel" "^1.13.3"
