@@ -22,7 +22,7 @@ async function testIdamPage(success = true) {
       I.navByClick('Continue');
     } else {
       I.seeInCurrentUrl('/login?');
-      I.fillField('username', 'decreenisitesting@mailinator.com');
+      I.fillField('username', 'divdecreenisitesting@mailinator.com');
       I.fillField('password', 'Test1234');
       I.navByClick('Sign in');
       I.wait(3);
