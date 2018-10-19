@@ -19,17 +19,23 @@
 {% block one_third %}
 <aside class="govuk-related-items" role="complementary">
 
-    <h3 class="heading-small">{{ content.divorceCenter }}</h3>
+    <h3 class="heading-small">{{ content.help }}</h3>
 
     <ul class="font-xsmall">
-      <li>{{ case.court[case.courts].divorceCentre }}</li>
       <li>
         <strong class="bold-xsmall">{{ content.email }}</strong><br>
         <a href="mailto:{{ case.court[case.courts].email }}">{{ case.court[case.courts].email }}</a><br>
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ case.court[case.courts].phoneNumber }} {{ content.openTimes }}<br>
+        {{ case.court[case.courts].phoneNumber }} <br> {{ content.openTimes }}<br>
+      </li>
+      <li>
+        <strong class="bold-xsmall">{{ content.courtAddress }}</strong><br>
+        {{content.careOf}} {{ case.court[case.courts].divorceCentre }}<br>
+        {{ case.court[case.courts].poBox }}<br>
+        {{ case.court[case.courts].courtCity }}<br>
+        {{ case.court[case.courts].postCode }}<br>
       </li>
     </ul>
 
