@@ -24,18 +24,18 @@
     <ul class="font-xsmall">
       <li>
         <strong class="bold-xsmall">{{ content.email }}</strong><br>
-        <a href="mailto:{{ case.court[case.courts].email }}">{{ case.court[case.courts].email | safe }}</a><br>
+        <a href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail | safe }}</a><br>
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ case.court[case.courts].phoneNumber | safe }} <br> {{ content.openTimes }}<br>
+        {{ content.ctscPhoneNumber| safe }} <br> {{ content.openTimes | safe}}<br>
       </li>
       <li>
-        <strong class="bold-xsmall">{{ content.courtAddress }}</strong><br>
-        {{content.careOf}} {{ case.court[case.courts].divorceCentre | safe }}<br>
-        {{ case.court[case.courts].poBox | safe }}<br>
-        {{ case.court[case.courts].courtCity | safe }}<br>
-        {{ case.court[case.courts].postCode | safe }}<br>
+        <strong class="bold-xsmall">{{ content.courtAddress | safe}}</strong><br>
+        {{ content.careOf }} {{ content.ctscDivorceCentre | safe }}<br>
+        {{ content.ctscPOBox| safe }}<br>
+        {{ content.ctscCourtCity | safe }}<br>
+        {{ content.ctscPostCode| safe }}<br>
       </li>
     </ul>
 
