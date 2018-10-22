@@ -1,7 +1,7 @@
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
 const MiniPetitionContent = require('steps/mini-petition/MiniPetition.content');
 const commonContent = require('common/content');
-const Intolerable = require('steps/intolerable/Intolerable.step');
+const LivedApartSinceSeparation = require('steps/lived-apart-since-separation/LivedApartSinceSeparation.step'); // eslint-disable-line
 
 function testMiniPetitionPage() {
   const I = this;
@@ -11,7 +11,7 @@ function testMiniPetitionPage() {
   I.checkOption(MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.yes);
   I.navByClick(commonContent.en.continue);
 
-  I.seeCurrentUrlEquals(Intolerable.path);
+  I.seeCurrentUrlEquals(LivedApartSinceSeparation.path);
 }
 
 module.exports = { testMiniPetitionPage };
