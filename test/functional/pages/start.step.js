@@ -6,7 +6,6 @@ function testHomePage() {
 
   I.seeCurrentUrlEquals(StartPage.path);
   I.see(StartPageContent.en.title);
-  I.navByClick(StartPageContent.en.startNow);
 }
 
 module.exports = { testHomePage };
