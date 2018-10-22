@@ -57,7 +57,18 @@
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ case.court[case.courts].phoneNumber }} {{ content.openTimes }}<br>
+        {{ case.court[case.courts].phoneNumber }} <br>
+        {{ case.court[case.courts].openingHours }} <br>
+      </li>
+      <li>
+        <strong class="bold-xsmall">{{ content.courtsAndTribunals }}</strong><br>
+        {{ content.courtsCenterPrefix }} <br>
+        {{ case.court[case.courts].divorceCentre }} <br>
+        {% if case.court[case.courts].poBox %}
+          {{ case.court[case.courts].poBox }} <br>
+        {% endif %}
+        {{ case.court[case.courts].courtCity }} <br>
+        {{ case.court[case.courts].postCode }} <br>
       </li>
     </ul>
 
