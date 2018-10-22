@@ -16,7 +16,8 @@
     "continue": "Continue application",
 
     "errors": {
-      "required": "Confirm that you agree to the statement of truth"
+      "required": "Confirm that you agree to the statement of truth",
+      "submitError": "Sorry, we’re having technical problems. Please try again in a few minutes. If the problem continues you can contact the divorce centre."
     },
 
     "fields": {
