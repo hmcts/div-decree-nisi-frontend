@@ -28,14 +28,14 @@
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ content.ctscPhoneNumber| safe }} <br> {{ content.openTimes | safe}}<br>
+        {{ case.court[case.courts].phoneNumber | safe }} <br> {{ content.openTimes | safe}}<br>
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.courtAddress | safe}}</strong><br>
-        {{ content.careOf }} {{ content.ctscDivorceCentre | safe }}<br>
-        {{ content.ctscPOBox| safe }}<br>
-        {{ content.ctscCourtCity | safe }}<br>
-        {{ content.ctscPostCode| safe }}<br>
+        {{ content.careOf }} {{ case.court[case.courts].divorceCentre | safe }}<br>
+        {{ case.court[case.courts].poBox | safe }}<br>
+        {{ case.court[case.courts].courtCity | safe }}<br>
+        {{ case.court[case.courts].postCode | safe }}<br>
       </li>
     </ul>
 
