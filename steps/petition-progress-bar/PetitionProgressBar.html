@@ -8,7 +8,7 @@
 
 {% block main_content %}
   <p class="font-xsmall">
-    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ caseId }} <br>
+    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ caseId | safe }} <br>
     <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;&nbsp; {{ case.respondentFirstName }} {{ case.respondentLastName }}
   </p>
   
@@ -28,12 +28,14 @@
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ case.court[case.courts].phoneNumber | safe }} <br> {{ content.openTimes | safe}}<br>
+        {{ content.phoneNumber | safe }} <br> {{ content.openTimes | safe}}<br>
       </li>
       <li>
         <strong class="bold-xsmall">{{ content.courtAddress | safe}}</strong><br>
         {{ content.careOf }} {{ case.court[case.courts].divorceCentre | safe }}<br>
-        {{ case.court[case.courts].poBox | safe }}<br>
+        {% if case.court[case.courts].poBox %}
+          {{ case.court[case.courts].poBox | safe }}<br>
+        {% endif %}
         {{ case.court[case.courts].courtCity | safe }}<br>
         {{ case.court[case.courts].postCode | safe }}<br>
       </li>

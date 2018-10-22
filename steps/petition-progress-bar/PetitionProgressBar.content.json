@@ -25,6 +25,7 @@
     "careOf": "c/o ",
     "divorceEmail": "divorce@justice.gov.uk",
     "openTimes": "(Monday to Friday, 8.30am to 5pm)",
+    "phoneNumber" : "0300 303 0642",
     "guidence": "Guidance on GOV.UK",
     "howRespondsLink": "<a href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How your {{ case.divorceWho }} responds</a>",
     "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
