@@ -1,0 +1,32 @@
+{% set items = {
+  one: {
+    label: content.youApply,
+    complete: true
+  },
+  two: {
+    label: content.husbandWifeMustRespond,
+    current: true
+  },
+  three: {
+    label: content.getDecreeNisi
+  },
+  four: {
+    label: content.madeFinal
+  }
+}
+%}
+
+{% include "reform-progress-list/template.njk" %}
+
+<h2 class="heading-medium">{{ content.dAATitle }}</h2>
+<p class="text">{{ content.dAAHasRespondend }}</p>
+
+<h2 class="heading-medium">{{ content.dAAWhatHappensNext }}</h2>
+<p class="text">{{ content.dAA28Days }}</p>
+<p class="text">{{ content.dAAUsualyGoToCourt }}</p>
+
+<h2 class="heading-medium">{{ content.dAADoesntSubmitAnswer }}</h2>
+<p class="text">{{ content.dAADoesntReceiveAnswer }}</p>
+<p class="text">{{ content.dAASentandEmail }}</p>
+
+<p class="text">{{ content.dAAReadTheResponse }}</p>
