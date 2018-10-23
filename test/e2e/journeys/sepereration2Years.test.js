@@ -6,7 +6,7 @@ const config = require('config');
 
 const Start = require('steps/start/Start.step');
 const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
-const Undefended = require('steps/undefended/Undefended.step');
+const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
 const LivedApartSinceSeparation = require(
@@ -48,7 +48,7 @@ describe('Sepereration 2 years', () => {
   journey.test([
     { step: Start },
     { step: IdamLogin, body: { success: 'yes' } },
-    { step: Undefended },
+    { step: petitionProgressBar },
     { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
     {
       step: MiniPetition,

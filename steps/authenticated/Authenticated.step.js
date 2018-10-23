@@ -11,7 +11,7 @@ class Authenticated extends Redirect {
 
   next() {
     return action(caseOrchestrationService.getApplication)
-      .then(redirectTo(this.journey.steps.Undefended))
+      .then(redirectTo(this.journey.steps.PetitionProgressBar))
       .onFailure(redirectTo(this.journey.steps.ExitNoCase));
   }
 
