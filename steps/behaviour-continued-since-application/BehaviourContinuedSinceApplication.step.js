@@ -59,11 +59,13 @@ class BehaviourContinuedSinceApplication extends Question {
   next() {
     const hasAnsweredYes = this.fields.changes.behaviourContinuedSinceApplication.value === 'yes';
     const hasAnsweredNo = this.fields.changes.behaviourContinuedSinceApplication.value === 'no';
+    const skipClaimCosts = this.case.claimsCosts === 'No';
 
     if (hasAnsweredNo) {
       this.req.session.lastIncidentDate = this.fields.changes.lastIncidentDate.value;
     }
     return branch(
+      redirectTo(this.journey.steps.ShareCourtDocuments).if(hasAnsweredYes && skipClaimCosts),
       redirectTo(this.journey.steps.ClaimCosts).if(hasAnsweredYes),
       redirectTo(this.journey.steps.LivedApartSinceLastIncidentDate)
     );

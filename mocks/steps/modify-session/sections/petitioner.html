@@ -1,40 +1,49 @@
 <h2 class="heading-large">Petitioner</h2>
 
 {% call formSection() %}
-  {{ selectionButtons(fields.divorceWho, "Who are you divorcing?",
+  {{ selectionButtons(fields.divorceWho, content.fields.petitioner.divorceWho.title,
     options = [
-      { label: "Your husband", value: "husband" },
-      { label: "Your wife", value: "wife" }
+      { label: content.fields.petitioner.divorceWho.husband, value: "husband" },
+      { label: content.fields.petitioner.divorceWho.wife, value: "wife" }
     ],
     hideQuestion = false,
     inline = true
   ) }}
 
-  {{ selectionButtons(fields.marriageIsSameSexCouple, "We were a same-sex couple when we got married.",
+  {{ selectionButtons(fields.marriageIsSameSexCouple, content.fields.petitioner.marriageIsSameSexCouple.title,
     options = [
-      { label: "Yes", value: "Yes" },
-      { label: "No", value: "No" }
+      { label: content.fields.petitioner.marriageIsSameSexCouple.yes, value: "Yes" },
+      { label: content.fields.petitioner.marriageIsSameSexCouple.no, value: "No" }
     ],
     hideQuestion = false,
     inline = true
   ) }}
 
-  {{ selectionButtons(fields.reasonForDivorce, "Select reason for divorce",
+  {{ selectionButtons(fields.reasonForDivorce, content.fields.petitioner.reasonForDivorce.title,
     options = [
-      { label: "Unreasonable Behaviour", value: "unreasonable-behaviour", target: "reason-behaviour-no-container"},
-      { label: "Adultery", value: "adultery" },
-      { label: "Separation 2 Years", value: "separation-2-years" },
-      { label: "Separation 5 Years", value: "separation-5-years" },
-      { label: "Desertion", value: "desertion", target: "reason-desertion-no-container" }
+      { label: content.fields.petitioner.reasonForDivorce.behaviour, value: "unreasonable-behaviour", target: "reason-behaviour-no-container"},
+      { label: content.fields.petitioner.reasonForDivorce.adultery, value: "adultery" },
+      { label: content.fields.petitioner.reasonForDivorce.sepTwoYrs, value: "separation-2-years" },
+      { label: content.fields.petitioner.reasonForDivorce.sepFiveYrs, value: "separation-5-years" },
+      { label: content.fields.petitioner.reasonForDivorce.desertion, value: "desertion", target: "reason-desertion-no-container" }
     ],
     hideQuestion = false,
     inline = true
   ) }}
+
+  {{ selectionButtons(fields.claimsCosts, content.fields.petitioner.claimCosts.title,
+  options = [
+     { label: content.fields.petitioner.claimCosts.yes, value: "Yes" },
+     { label: content.fields.petitioner.claimCosts.no, value: "No" }
+  ],
+  hideQuestion = false,
+  inline = true
+) }}
 {% endcall %}
 
 <div class="js-hidden" id="reason-behaviour-no-container">
   <div class="form-group">
-    {{ content.fields.changes.reasonForDivorceBehaviourDetails.title }}
+    {{ content.fields.petitioner.reasonForDivorceBehaviourDetails.title }}
     <textarea class="form-control"
               id="reasonForDivorceBehaviourDetails"
               name="reasonForDivorceBehaviourDetails"
@@ -45,7 +54,7 @@
 
 <div class="js-hidden" id="reason-desertion-no-container">
   <div class="form-group">
-    {{ content.fields.changes.reasonForDivorceDesertionDetails.title }}
+    {{ content.fields.petitioner.reasonForDivorceDesertionDetails.title }}
     <textarea class="form-control"
               id="reasonForDivorceDesertionDetails"
               name="reasonForDivorceDesertionDetails"
