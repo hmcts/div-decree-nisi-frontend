@@ -8,7 +8,7 @@
 
 {% block main_content %}
   <p class="font-xsmall">
-    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ caseId | safe }} <br>
+    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ caseId | space | safe }} <br>
     <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;&nbsp; {{ case.respondentFirstName }} {{ case.respondentLastName }}
   </p>
   
