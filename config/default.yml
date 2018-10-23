@@ -58,7 +58,7 @@ services:
     health: http://localhost:4013/health
     draftEndpoint: http://localhost:4013/draftsapi/version/1
   petitionerFrontend:
-    url: https://div-pfe-prod-staging.service.core-compute-prod.internal
+    url: https://div-pfe-aat.service.core-compute-aat.internal
 
 paths:
   adulteryFirstFoundOut: /first-find-out
