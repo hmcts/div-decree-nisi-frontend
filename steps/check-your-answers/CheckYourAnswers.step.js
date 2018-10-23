@@ -18,11 +18,21 @@ class CheckYourAnswers extends CYA {
   next() {
     return action(caseOrchestrationService.submitApplication)
       .then(goTo(this.journey.steps.Done))
-      .onFailure(redirectTo(this.journey.steps.CheckYourAnswers));
+      .onFailure((error, req, res) => {
+        const { session } = req;
+        // push error into session to display error message to user
+        session.temp = { CheckYourAnswers: Object.assign({}, session.CheckYourAnswers, { submitError: 'error' }) };
+        return redirectTo(this.journey.steps.CheckYourAnswers)
+          .redirect(req, res);
+      });
   }
 
   get errorMessage() {
     return this.content.errors.required;
+  }
+
+  get submitError() {
+    return this.content.errors.submitError;
   }
 
   get middleware() {
@@ -35,6 +45,10 @@ class CheckYourAnswers extends CYA {
       statementOfTruth: text.joi(
         this.errorMessage,
         Joi.required().valid(answers)
+      ),
+      submitError: text.joi(
+        this.submitError,
+        Joi.valid([''])
       )
     });
   }
