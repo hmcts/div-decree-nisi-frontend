@@ -26,13 +26,13 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(Intolerable);
+    return content(Intolerable, session);
   });
 
 
   it('shows error if does not answer question', () => {
     const onlyErrors = ['required'];
-    return question.testErrors(Intolerable, {}, {}, { onlyErrors });
+    return question.testErrors(Intolerable, session, {}, { onlyErrors });
   });
 
   it('redirects to adulteryFirstFoundOut if answered yes', () => {
@@ -60,7 +60,7 @@ describe(modulePath, () => {
       intolerable: 'yes'
     };
 
-    return question.answers(Intolerable, stepData, expectedContent, {});
+    return question.answers(Intolerable, stepData, expectedContent, session);
   });
 
   it('returns correct answers if answered no', () => {
@@ -74,6 +74,6 @@ describe(modulePath, () => {
       intolerable: 'no'
     };
 
-    return question.answers(Intolerable, stepData, expectedContent, {});
+    return question.answers(Intolerable, stepData, expectedContent, session);
   });
 });

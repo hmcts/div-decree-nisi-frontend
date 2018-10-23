@@ -1,5 +1,38 @@
 {
   "en": {
-    "title": "Modify the session"
+    "title": "Modify the session",
+    "fields": {
+      "petitioner": {
+        "divorceWho": {
+          "title" : "Who are you divorcing?",
+          "husband": "Your husband",
+          "wife": "Your wife"
+        },
+        "marriageIsSameSexCouple": {
+          "title" : "We were a same-sex couple when we got married?",
+          "yes": "Yes",
+          "no": "No"
+        },
+        "reasonForDivorce": {
+          "title" : "Select reason for divorce?",
+          "behaviour": "Unreasonable Behaviour",
+          "adultery": "Adultery",
+          "sepTwoYrs": "Separation 2 Years",
+          "sepFiveYrs": "Separation 5 Years",
+          "desertion": "Desertion"
+        },
+        "claimCosts": {
+          "title" : "Do you want to claim costs?",
+          "yes": "Yes",
+          "no": "No"
+        },
+        "reasonForDivorceBehaviourDetails": {
+          "title": "Specify the unreasonable behaviour details"
+        },
+        "reasonForDivorceDesertionDetails": {
+          "title": "Specify the reason for desertion details"
+        }
+      }
+    }
   }
 }
