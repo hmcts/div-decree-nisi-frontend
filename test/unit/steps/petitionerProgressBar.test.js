@@ -1,4 +1,4 @@
-const { union } = require('lodash');
+const { union, difference } = require('lodash');
 
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
@@ -10,6 +10,15 @@ const idam = require('services/idam');
 const { middleware, interstitial, sinon, content,
   stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
 
+const templates = {
+  submitted: './sections/submitted/PetitionProgressBar.submitted.template.html',
+  issued: './sections/issued/PetitionProgressBar.issued.template.html',
+  defended: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
+  undefended: './sections/undefended/PetitionProgressBar.undefended.template.html',
+  deemedService: './sections/deemedService/PetitionProgressBar.deemedService.template.html',
+  dWS: './sections/dispensedWithService/PetitionProgressBar.dispensedWithService.template.html',
+  dWA: './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html'
+};
 
 const issuedContent = [
   'issuedAppStatusMsg',
@@ -61,6 +70,29 @@ const dispensedWithService = [
   'dWSAppStatusMsgDetails2'
 ];
 
+const defendedDivorceContent = [
+  'defendedServiceAppStatusMsg',
+  'defendedServiceAppStatusMsgDetails1',
+  'defendedServiceAppStatusMsgDetails2',
+  'defendedServiceWhatHappensNext',
+  'defendedServiceWhatHappensNextDetails1',
+  'defendedServiceWhatHappensNextDetails2'
+];
+
+const pageContent = union(
+  submittedContent,
+  issuedContent,
+  undefendedContent,
+  deemedServiceContent,
+  defendedWithoutAnswerContent,
+  dispensedWithService,
+  defendedDivorceContent
+);
+
+const allPetitionProgressBarContentWithout = withoutEntry => {
+  return difference(pageContent, withoutEntry);
+};
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -84,17 +116,16 @@ describe(modulePath, () => {
       }
     };
     const specificContent = submittedContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      issuedContent,
-      undefendedContent,
-      deemedServiceContent,
-      defendedWithoutAnswerContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+    let specificContentToNotExist = allPetitionProgressBarContentWithout(
+      submittedContent
+    );
+
+    // remove keys with same content
+    specificContentToNotExist = specificContentToNotExist.filter(key => {
+      return !['issuedWhatHappensNext'].includes(key);
+    });
+
+    return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
   });
 
   it('renders the content when ccd status is AOSstarted', () => {
@@ -107,17 +138,33 @@ describe(modulePath, () => {
       }
     };
     const specificContent = issuedContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      undefendedContent,
-      deemedServiceContent,
-      defendedWithoutAnswerContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+    let specificContentToNotExist = allPetitionProgressBarContentWithout(
+      issuedContent
+    );
+
+    // remove keys with same content
+    specificContentToNotExist = specificContentToNotExist.filter(key => {
+      return !['submittedWhatHappensNext'].includes(key);
+    });
+
+    return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+  });
+
+  it('renders the content when ccd status is DefendedDivorce', () => {
+    const session = {
+      case: {
+        state: 'DefendedDivorce',
+        data: {
+          connections: {}
+        }
+      }
+    };
+    const specificContent = defendedDivorceContent;
+    const specificContentToNotExist = allPetitionProgressBarContentWithout(
+      defendedDivorceContent
+    );
+
+    return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
   });
 
   it('renders the content when ccd status is DNawaiting & DNReason is 0', () => {
@@ -131,17 +178,20 @@ describe(modulePath, () => {
       }
     };
     const specificContent = undefendedContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      issuedContent,
-      deemedServiceContent,
-      defendedWithoutAnswerContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+    let specificContentToNotExist = allPetitionProgressBarContentWithout(
+      undefendedContent
+    );
+
+    // remove keys with same content
+    specificContentToNotExist = specificContentToNotExist.filter(key => {
+      return ![
+        'deemedServiceAppStatusMsg',
+        'dWAAppStatusMsg',
+        'dWSAppStatusMsg'
+      ].includes(key);
+    });
+
+    return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
   });
 
   it('renders the content when ccd status is DNawaiting & DNReason is 1', () => {
@@ -155,17 +205,20 @@ describe(modulePath, () => {
       }
     };
     const specificContent = deemedServiceContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      undefendedContent,
-      issuedContent,
-      defendedWithoutAnswerContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+    let specificContentToNotExist = allPetitionProgressBarContentWithout(
+      deemedServiceContent
+    );
+
+    // remove keys with same content
+    specificContentToNotExist = specificContentToNotExist.filter(key => {
+      return ![
+        'undefendedAppStatusMsg',
+        'dWAAppStatusMsg',
+        'dWSAppStatusMsg'
+      ].includes(key);
+    });
+
+    return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
   });
 
   it('renders the content when ccd status is DNawaiting & DNReason is 2', () => {
@@ -179,17 +232,20 @@ describe(modulePath, () => {
       }
     };
     const specificContent = dispensedWithService;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      undefendedContent,
-      deemedServiceContent,
-      defendedWithoutAnswerContent,
-      issuedContent
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+    let specificContentToNotExist = allPetitionProgressBarContentWithout(
+      dispensedWithService
+    );
+
+    // remove keys with same content
+    specificContentToNotExist = specificContentToNotExist.filter(key => {
+      return ![
+        'undefendedAppStatusMsg',
+        'deemedServiceAppStatusMsg',
+        'dWAAppStatusMsg'
+      ].includes(key);
+    });
+
+    return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
   });
 
   it('renders the content when ccd status is DNawaiting & DNReason is 3', () => {
@@ -203,20 +259,23 @@ describe(modulePath, () => {
       }
     };
     const specificContent = defendedWithoutAnswerContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      undefendedContent,
-      deemedServiceContent,
-      issuedContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+    let specificContentToNotExist = allPetitionProgressBarContentWithout(
+      defendedWithoutAnswerContent
+    );
+
+    // remove keys with same content
+    specificContentToNotExist = specificContentToNotExist.filter(key => {
+      return ![
+        'undefendedAppStatusMsg',
+        'deemedServiceAppStatusMsg',
+        'dWSAppStatusMsg'
+      ].includes(key);
+    });
+
+    return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
   });
 
-  it('renders the content when ccd status is DNawaiting & permittedDecreeNisiReason is 4', () => {
+  it('renders the content when ccd status is DNawaiting & DNReason is 4', () => {
     const session = {
       case: {
         state: 'DNawaiting',
@@ -227,17 +286,20 @@ describe(modulePath, () => {
       }
     };
     const specificContent = defendedWithoutAnswerContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      undefendedContent,
-      deemedServiceContent,
-      issuedContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+    let specificContentToNotExist = allPetitionProgressBarContentWithout(
+      defendedWithoutAnswerContent
+    );
+
+    // remove keys with same content
+    specificContentToNotExist = specificContentToNotExist.filter(key => {
+      return ![
+        'undefendedAppStatusMsg',
+        'deemedServiceAppStatusMsg',
+        'dWSAppStatusMsg'
+      ].includes(key);
+    });
+
+    return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
   });
 
   it('renders the correct template when ccd status is Submitted', () => {
@@ -249,9 +311,8 @@ describe(modulePath, () => {
         }
       }
     };
-    const expectedContent = 'submitted';
     const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+    expect(instance.stateTemplate).to.eql(templates.submitted);
   });
 
   it('renders the correct template when ccd status is AOSStarted', () => {
@@ -263,10 +324,24 @@ describe(modulePath, () => {
         }
       }
     };
-    const expectedContent = 'issued';
     const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+    expect(instance.stateTemplate).to.eql(templates.issued);
   });
+
+  it('renders defendedWithAnswer if ccdstatus is DefendedDivorce', () => {
+    const session = {
+      case: {
+        state: 'DefendedDivorce',
+        data: {
+          connections: {},
+          permittedDecreeNisiReason: '1'
+        }
+      }
+    };
+    const instance = stepAsInstance(PetitionProgressBar, session);
+    expect(instance.stateTemplate).to.eql(templates.defended);
+  });
+
 
   it('renders undefended if ccdstatus is DNawaiting, DNReason is 0', () => {
     const session = {
@@ -278,9 +353,8 @@ describe(modulePath, () => {
         }
       }
     };
-    const expectedContent = 'undefended';
     const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+    expect(instance.stateTemplate).to.eql(templates.undefended);
   });
 
   it('renders deemedService if ccdstatus is DNawaiting, DNReason is 1', () => {
@@ -293,9 +367,8 @@ describe(modulePath, () => {
         }
       }
     };
-    const expectedContent = 'deemedService';
     const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+    expect(instance.stateTemplate).to.eql(templates.deemedService);
   });
 
   it('renders dispensedWithService if ccdstatus is DNawaiting, DNReason is 2', () => {
@@ -308,9 +381,8 @@ describe(modulePath, () => {
         }
       }
     };
-    const expectedContent = 'dispensedWithService';
     const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+    expect(instance.stateTemplate).to.eql(templates.dWS);
   });
 
   it('renders defendedWithoutAnswer when ccdstatus is DNawaiting, DNReason is 3', () => {
@@ -323,9 +395,8 @@ describe(modulePath, () => {
         }
       }
     };
-    const expectedContent = 'defendedWithoutAnswer';
     const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+    expect(instance.stateTemplate).to.eql(templates.dWA);
   });
 
   it('renders defendedWithoutAnswer when ccd status is DNawaiting, DNReason is 4', () => {
@@ -338,9 +409,8 @@ describe(modulePath, () => {
         }
       }
     };
-    const expectedContent = 'defendedWithoutAnswer';
     const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+    expect(instance.stateTemplate).to.eql(templates.dWA);
   });
 
 
