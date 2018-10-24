@@ -31,9 +31,28 @@ describe(modulePath, () => {
     return content(CheckYourAnswers, session, { ignoreContent });
   });
 
-  it('shows error if does not answer question', () => {
-    const session = { case: { data: {} } };
-    return question.testErrors(CheckYourAnswers, session);
+  describe('errors', () => {
+    beforeEach(() => {
+      sinon.stub(caseOrchestrationService, 'submitApplication');
+    });
+
+    afterEach(() => {
+      caseOrchestrationService.submitApplication.restore();
+    });
+
+    it('shows error if does not answer question', () => {
+      const session = { case: { data: {} } };
+      const onlyErrors = ['required'];
+      return question.testErrors(CheckYourAnswers, session, {}, { onlyErrors });
+    });
+
+    it('shows error if case submission fails', () => {
+      caseOrchestrationService.submitApplication.rejects();
+      const fields = { statementOfTruth: 'yes' };
+      const session = { case: { data: {} } };
+      const onlyErrors = ['submitError'];
+      return question.testErrors(CheckYourAnswers, session, fields, { onlyErrors });
+    });
   });
 
   describe('navigates', () => {
