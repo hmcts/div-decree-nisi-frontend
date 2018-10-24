@@ -3,6 +3,7 @@ const modulePath = 'steps/lived-apart-since-desertion/LivedApartSinceDesertion.s
 const LivedApartSinceDesertionContent = require('steps/lived-apart-since-desertion/LivedApartSinceDesertion.content');  // eslint-disable-line
 const LivedApartSinceDesertion = require(modulePath);
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
+const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
@@ -41,17 +42,70 @@ describe(modulePath, () => {
   it('redirects to ClaimCosts if answer is no and details are provided', () => {
     const fields = { 'changes-livedApartSinceDesertion': 'no',
       'changes-approximateDatesOfLivingTogetherField': 'details...' };
-    return question.redirectWithField(LivedApartSinceDesertion, fields, ClaimCosts, session);
+    const sessionData = {
+      case: {
+        data: {
+          claimsCosts: 'Yes'
+        }
+      }
+    };
+    return question.redirectWithField(LivedApartSinceDesertion, fields, ClaimCosts, sessionData);
   });
 
   it('redirects to ClaimCosts if answered yes', () => {
     const fields = {
       'changes-livedApartSinceDesertion': 'yes'
     };
-    return question.redirectWithField(LivedApartSinceDesertion, fields, ClaimCosts, session);
+    const sessionData = {
+      case: {
+        data: {
+          claimsCosts: 'Yes'
+        }
+      }
+    };
+    return question.redirectWithField(LivedApartSinceDesertion, fields, ClaimCosts, sessionData);
   });
 
-  it('returns correct answers if answered yes', () => {
+
+  it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
+    const fields = {
+      'changes-livedApartSinceDesertion': 'yes'
+    };
+    const sessionData = {
+      case: {
+        data: {
+          claimsCosts: 'No'
+        }
+      }
+    };
+    return question.redirectWithField(
+      LivedApartSinceDesertion,
+      fields,
+      ShareCourtDocuments,
+      sessionData
+    );
+  });
+
+
+  it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
+    const fields = { 'changes-livedApartSinceDesertion': 'no',
+      'changes-approximateDatesOfLivingTogetherField': 'details...' };
+    const sessionData = {
+      case: {
+        data: {
+          claimsCosts: 'No'
+        }
+      }
+    };
+    return question.redirectWithField(
+      LivedApartSinceDesertion,
+      fields,
+      ShareCourtDocuments,
+      sessionData
+    );
+  });
+
+  it('returns correct answers if answered yes and claimsCosts is Yes', () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
       LivedApartSinceDesertionContent.en.fields.changes.livedApartSinceDesertion.title,
@@ -67,7 +121,7 @@ describe(modulePath, () => {
     return question.answers(LivedApartSinceDesertion, stepData, expectedContent, session);
   });
 
-  it('returns correct answers if answered no', () => {
+  it('returns correct answers if answered no and claimsCosts is Yes', () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
       LivedApartSinceDesertionContent.en.fields.changes.livedApartSinceDesertion.title,

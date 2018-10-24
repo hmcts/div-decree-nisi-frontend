@@ -1,6 +1,8 @@
 const modulePath = 'steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.step'; // eslint-disable-line
 
 const BehaviourContinuedSinceApplication = require(modulePath);
+
+const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const BehaviourContinuedSinceApplicationContent = require('steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.content');  // eslint-disable-line
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-last-incident-date/LivedApartSinceLastIncidentDate.step'); // eslint-disable-line
@@ -85,7 +87,7 @@ describe(modulePath, () => {
     return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
   });
 
-  it('redirects to LivedApartSinceLastIncidentDate if answered no and valid date entered', () => {
+  it('redirects to LivedApartSinceLastIncidentDate if selected no and valid date', () => {
     const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
       'changes-lastIncidentDate-day': '20',
       'changes-lastIncidentDate-month': '09',
@@ -97,18 +99,43 @@ describe(modulePath, () => {
         }
       }
     };
-    return question.redirectWithField(BehaviourContinuedSinceApplication, fields, LivedApartSinceLastIncidentDate, session); // eslint-disable-line
+    return question.redirectWithField(
+      BehaviourContinuedSinceApplication,
+      fields,
+      LivedApartSinceLastIncidentDate,
+      session
+    );
   });
 
-
-  it('redirects to ClaimCosts if answered yes', () => {
+  it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
     const fields = {
       'changes-behaviourContinuedSinceApplication': 'yes'
     };
     const session = {
       case: {
         data: {
-          createdDate: '2018-08-02T00:00:00.000Z'
+          createdDate: '2018-08-02T00:00:00.000Z',
+          claimsCosts: 'No'
+        }
+      }
+    };
+    return question.redirectWithField(
+      BehaviourContinuedSinceApplication,
+      fields,
+      ShareCourtDocuments,
+      session
+    );
+  });
+
+  it('redirects to ClaimCosts if answered yes and claimsCosts is Yes', () => {
+    const fields = {
+      'changes-behaviourContinuedSinceApplication': 'yes'
+    };
+    const session = {
+      case: {
+        data: {
+          createdDate: '2018-08-02T00:00:00.000Z',
+          claimsCosts: 'Yes'
         }
       }
     };
