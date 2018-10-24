@@ -17,7 +17,8 @@ const templates = {
   undefended: './sections/undefended/PetitionProgressBar.undefended.template.html',
   deemedService: './sections/deemedService/PetitionProgressBar.deemedService.template.html',
   dWS: './sections/dispensedWithService/PetitionProgressBar.dispensedWithService.template.html',
-  dWA: './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html'
+  dWA: './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html',
+  awaiting: './sections/awaiting/PetitionProgressBar.awaiting.template.html'
 };
 
 const issuedContent = [
@@ -79,6 +80,28 @@ const defendedDivorceContent = [
   'defendedServiceWhatHappensNextDetails2'
 ];
 
+const awaitingContent = [
+  'awaitingAppStatusMsg',
+  'awaitingCourtWillCheck',
+  'awaitingDecreeNisiGranted',
+  'awaitingAverageDivorceTimes',
+  'awaiting4to6Months',
+  'awaitingWhatHappens',
+  'awaitingHowLongItTakes',
+  'awaitingCourtSends',
+  'awaiting1WeekAfterSubmit',
+  'awaitingYourSpouseRepsonds',
+  'awaitingAfterTheyGetIt',
+  'awaitingNisiGranted',
+  'awaiting3to4WeeksAfterApply',
+  'awaitingWaitToApplyForDecreeAbsolute',
+  'awaiting6Weeks1Day',
+  'awaitingDivorceIsGranted',
+  'awaiting2WorkingDays',
+  'awaitingTimesCanVary'
+];
+
+
 const pageContent = union(
   submittedContent,
   issuedContent,
@@ -86,7 +109,8 @@ const pageContent = union(
   deemedServiceContent,
   defendedWithoutAnswerContent,
   dispensedWithService,
-  defendedDivorceContent
+  defendedDivorceContent,
+  awaitingContent
 );
 
 const allPetitionProgressBarContentWithout = withoutEntry => {
@@ -122,7 +146,12 @@ describe(modulePath, () => {
 
     // remove keys with same content
     specificContentToNotExist = specificContentToNotExist.filter(key => {
-      return !['issuedWhatHappensNext'].includes(key);
+      return ![
+        'issuedWhatHappensNext',
+        'awaitingAppStatusMsg',
+        'awaitingWhatHappens',
+        'awaitingYourSpouseRepsonds'
+      ].includes(key);
     });
 
     return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
@@ -144,7 +173,12 @@ describe(modulePath, () => {
 
     // remove keys with same content
     specificContentToNotExist = specificContentToNotExist.filter(key => {
-      return !['submittedWhatHappensNext'].includes(key);
+      return ![
+        'submittedWhatHappensNext',
+        'awaitingAppStatusMsg',
+        'awaitingWhatHappens',
+        'awaitingYourSpouseRepsonds'
+      ].includes(key);
     });
 
     return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
@@ -160,9 +194,42 @@ describe(modulePath, () => {
       }
     };
     const specificContent = defendedDivorceContent;
-    const specificContentToNotExist = allPetitionProgressBarContentWithout(
+    let specificContentToNotExist = allPetitionProgressBarContentWithout(
       defendedDivorceContent
     );
+
+    // remove keys with same content
+    specificContentToNotExist = specificContentToNotExist.filter(key => {
+      return ![
+        'awaitingWhatHappens',
+        'awaitingYourSpouseRepsonds'
+      ].includes(key);
+    });
+
+    return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+  });
+
+  it('renders the content when ccd status is AwaitingLegalAdvisorReferral', () => {
+    const session = {
+      case: {
+        state: 'AwaitingLegalAdvisorReferral',
+        data: {
+          connections: {}
+        }
+      }
+    };
+    const specificContent = awaitingContent;
+    let specificContentToNotExist = allPetitionProgressBarContentWithout(
+      awaitingContent
+    );
+
+    // remove keys with same content
+    specificContentToNotExist = specificContentToNotExist.filter(key => {
+      return ![
+        'submittedWhatHappensNext',
+        'issuedWhatHappensNext'
+      ].includes(key);
+    });
 
     return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
   });
@@ -187,7 +254,8 @@ describe(modulePath, () => {
       return ![
         'deemedServiceAppStatusMsg',
         'dWAAppStatusMsg',
-        'dWSAppStatusMsg'
+        'dWSAppStatusMsg',
+        'awaitingYourSpouseRepsonds'
       ].includes(key);
     });
 
@@ -214,7 +282,8 @@ describe(modulePath, () => {
       return ![
         'undefendedAppStatusMsg',
         'dWAAppStatusMsg',
-        'dWSAppStatusMsg'
+        'dWSAppStatusMsg',
+        'awaitingYourSpouseRepsonds'
       ].includes(key);
     });
 
@@ -241,7 +310,8 @@ describe(modulePath, () => {
       return ![
         'undefendedAppStatusMsg',
         'deemedServiceAppStatusMsg',
-        'dWAAppStatusMsg'
+        'dWAAppStatusMsg',
+        'awaitingYourSpouseRepsonds'
       ].includes(key);
     });
 
@@ -268,7 +338,8 @@ describe(modulePath, () => {
       return ![
         'undefendedAppStatusMsg',
         'deemedServiceAppStatusMsg',
-        'dWSAppStatusMsg'
+        'dWSAppStatusMsg',
+        'awaitingYourSpouseRepsonds'
       ].includes(key);
     });
 
@@ -295,7 +366,8 @@ describe(modulePath, () => {
       return ![
         'undefendedAppStatusMsg',
         'deemedServiceAppStatusMsg',
-        'dWSAppStatusMsg'
+        'dWSAppStatusMsg',
+        'awaitingYourSpouseRepsonds'
       ].includes(key);
     });
 
@@ -342,6 +414,19 @@ describe(modulePath, () => {
     expect(instance.stateTemplate).to.eql(templates.defended);
   });
 
+  it('renders defendedWithAnswer if ccdstatus is AwaitingLegalAdvisorReferral', () => {
+    const session = {
+      case: {
+        state: 'AwaitingLegalAdvisorReferral',
+        data: {
+          connections: {},
+          permittedDecreeNisiReason: '1'
+        }
+      }
+    };
+    const instance = stepAsInstance(PetitionProgressBar, session);
+    expect(instance.stateTemplate).to.eql(templates.awaiting);
+  });
 
   it('renders undefended if ccdstatus is DNawaiting, DNReason is 0', () => {
     const session = {
@@ -412,7 +497,6 @@ describe(modulePath, () => {
     const instance = stepAsInstance(PetitionProgressBar, session);
     expect(instance.stateTemplate).to.eql(templates.dWA);
   });
-
 
   it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
     const session = {

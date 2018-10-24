@@ -10,7 +10,7 @@
     "setup": "NODE_PATH=.",
     "dev": "NODE_PATH=. node-dev server.js",
     "mocks": "NODE_PATH=. node-dev mocks/index.js",
-    "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR nyc mocha 'test/unit/**/**/*.test.js' --timeout 5000",
+    "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR nyc mocha 'test/unit/**/*.test.js' --timeout 5000",
     "test:all": "yarn lint; yarn test:unit; yarn test:a11y; yarn test:validation; yarn test:nsp",
     "test:unit": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha 'test/unit/**/*.js' --timeout 5000",
     "test:smoke": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/functional/codecept.smoke.conf.js --steps --invert",
@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git",
-    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git",
+    "@hmcts/one-per-page-test-suite": "^2.0.13",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
