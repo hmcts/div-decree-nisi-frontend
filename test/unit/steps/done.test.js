@@ -1,6 +1,7 @@
 const modulePath = 'steps/done/Done.step';
 
 const Done = require(modulePath);
+const DoneContent = require('steps/done/Done.content');
 const idam = require('services/idam');
 const { middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const preserveSession = require('middleware/preserveSession');
@@ -79,9 +80,9 @@ describe(modulePath, () => {
             session.case.data.court.expectedCourt.courtCity,
             session.case.data.court.expectedCourt.poBox,
             session.case.data.court.expectedCourt.postCode,
-            session.case.data.court.expectedCourt.openingHours,
-            session.case.data.court.expectedCourt.email,
-            session.case.data.court.expectedCourt.phoneNumber
+            DoneContent.openTimes,
+            DoneContent.divorceEmail,
+            DoneContent.phoneNumber
           ]
         }
       );
