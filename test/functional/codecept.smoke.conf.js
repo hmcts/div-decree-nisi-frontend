@@ -28,11 +28,8 @@ exports.config = {
         args: chromeArgs
       }
     },
-    ElementExist: { require: './helpers/elementExist.js' },
-    JSWait: { require: './helpers/JSWait.js' },
-    UrlHelper: { require: './helpers/urlHelper.js' }
+    JSWait: { require: './helpers/JSWait.js' }
   },
-  include: { I: './pages/steps.js' },
   mocha: {
     reporterOptions: {
       'codeceptjs-cli-reporter': {
