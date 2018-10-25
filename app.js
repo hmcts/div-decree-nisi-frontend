@@ -83,7 +83,7 @@ app.use('/images', (req, res) => {
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
-  errorPages: {},
+  errorPages: { serverError: { template: 'errors/error' } },
   session: {
     redis: { url: config.services.redis.url },
     cookie: { secure: config.services.redis.useSSL === 'true' },
