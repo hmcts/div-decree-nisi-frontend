@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
@@ -55,6 +56,7 @@ class PetitionProgressBar extends Interstitial {
     ];
     const issuedFlow = ['aosawaiting', 'aosstarted'];
     const awaitFlow = ['awaitinglegaladvisorreferral', 'awaitingconsiderationdn'];
+    const defendedAwaitingAnswer = ['aossubmittedawaitinganswer'];
     const awaitingdecreenisi = ['dnawaiting'];
 
     if (submittedFlow.includes(ccdStatus)) {
@@ -63,6 +65,8 @@ class PetitionProgressBar extends Interstitial {
       return 'issued';
     } else if (awaitFlow.includes(ccdStatus)) {
       return 'awaiting';
+    } else if (defendedAwaitingAnswer.includes(ccdStatus)) {
+      return 'defendedAwaitingAnswer';
     } else if (awaitingdecreenisi.includes(ccdStatus)) {
       switch (DNReason) {
       case '0':

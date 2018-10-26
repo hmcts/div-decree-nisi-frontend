@@ -55,6 +55,17 @@ const defendedWithoutAnswerContent = [
   'dWAAppStatusMsgDetails2'
 ];
 
+const defendedAwaitingAnswerContent = [
+  'dAATitle',
+  'dAAHasRespondend',
+  'dAAWhatHappensNext',
+  'dAA28Days',
+  'dAAUsualyGoToCourt',
+  'dAADoesntSubmitAnswer',
+  'dAADoesntReceiveAnswer',
+  'dAASentandEmail'
+];
+
 const dispensedWithService = [
   'dWSAppStatusMsg',
   'dWSAppStatusMsgDetails1',
@@ -92,7 +103,8 @@ describe(modulePath, () => {
       undefendedContent,
       deemedServiceContent,
       defendedWithoutAnswerContent,
-      dispensedWithService
+      dispensedWithService,
+      defendedAwaitingAnswerContent
     ]);
     return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
@@ -115,7 +127,8 @@ describe(modulePath, () => {
       undefendedContent,
       deemedServiceContent,
       defendedWithoutAnswerContent,
-      dispensedWithService
+      dispensedWithService,
+      defendedAwaitingAnswerContent
     ]);
     return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
@@ -139,7 +152,8 @@ describe(modulePath, () => {
       issuedContent,
       deemedServiceContent,
       defendedWithoutAnswerContent,
-      dispensedWithService
+      dispensedWithService,
+      defendedAwaitingAnswerContent
     ]);
     return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
@@ -163,7 +177,8 @@ describe(modulePath, () => {
       undefendedContent,
       issuedContent,
       defendedWithoutAnswerContent,
-      dispensedWithService
+      dispensedWithService,
+      defendedAwaitingAnswerContent
     ]);
     return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
@@ -187,7 +202,8 @@ describe(modulePath, () => {
       undefendedContent,
       deemedServiceContent,
       defendedWithoutAnswerContent,
-      issuedContent
+      issuedContent,
+      defendedAwaitingAnswerContent
     ]);
     return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
@@ -211,7 +227,8 @@ describe(modulePath, () => {
       undefendedContent,
       deemedServiceContent,
       issuedContent,
-      dispensedWithService
+      dispensedWithService,
+      defendedAwaitingAnswerContent
     ]);
     return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
@@ -235,7 +252,8 @@ describe(modulePath, () => {
       undefendedContent,
       deemedServiceContent,
       issuedContent,
-      dispensedWithService
+      dispensedWithService,
+      defendedAwaitingAnswerContent
     ]);
     return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
   });
@@ -343,6 +361,36 @@ describe(modulePath, () => {
     expect(instance.ccdStatus).to.eql(expectedContent);
   });
 
+  describe('case state is AosSubmittedAwaitingAnswer', () => {
+    const session = {
+      case: {
+        state: 'AosSubmittedAwaitingAnswer',
+        data: {}
+      }
+    };
+
+    it('renders correct content', () => {
+      const specificContent = defendedAwaitingAnswerContent;
+      /**
+       * Excluded content should be added as and when new templates gets added.
+       */
+      const specificValuesToNotExist = union([
+        submittedContent,
+        undefendedContent,
+        deemedServiceContent,
+        defendedWithoutAnswerContent,
+        dispensedWithService,
+        issuedContent
+      ]);
+      return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+    });
+
+    it('returns correct folder name', () => {
+      const expectedContent = 'defendedAwaitingAnswer';
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.ccdStatus).to.eql(expectedContent);
+    });
+  });
 
   it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
     const session = {
