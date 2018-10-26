@@ -63,8 +63,7 @@ const defendedAwaitingAnswerContent = [
   'dAAUsualyGoToCourt',
   'dAADoesntSubmitAnswer',
   'dAADoesntReceiveAnswer',
-  'dAASentandEmail',
-  'dAAReadTheResponse'
+  'dAASentandEmail'
 ];
 
 const dispensedWithService = [
