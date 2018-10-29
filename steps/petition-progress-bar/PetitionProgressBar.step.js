@@ -58,6 +58,7 @@ class PetitionProgressBar extends Interstitial {
     const awaitFlow = ['awaitinglegaladvisorreferral', 'awaitingconsiderationdn'];
     const defendedAwaitingAnswer = ['aossubmittedawaitinganswer'];
     const awaitingdecreenisi = ['dnawaiting'];
+    const respondentNotReplied = ['aosoverdue'];
 
     if (submittedFlow.includes(ccdStatus)) {
       return 'submitted';
@@ -67,6 +68,8 @@ class PetitionProgressBar extends Interstitial {
       return 'awaiting';
     } else if (defendedAwaitingAnswer.includes(ccdStatus)) {
       return 'defendedAwaitingAnswer';
+    } else if (respondentNotReplied.includes(ccdStatus)) {
+      return 'respondentNotReplied';
     } else if (awaitingdecreenisi.includes(ccdStatus)) {
       switch (DNReason) {
       case '0':

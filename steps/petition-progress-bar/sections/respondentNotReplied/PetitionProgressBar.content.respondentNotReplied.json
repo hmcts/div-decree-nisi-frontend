@@ -1,0 +1,10 @@
+{
+  "en": {
+    "rNRTitle": "Your {{ case.divorceWho }} hasn’t responded",
+    "rNRSentApplication": "The court sent your application to:",
+    "rNRaskedToRespondBy": "Your {{ case.divorceWho }} was asked to respond within 7 days.",
+    "rNRhearFromBothParties": "The court usually needs to hear from both parties in a marriage before it can grant a divorce.",
+    "rNRcanJustWait": "You can just wait for them to respond if you know they can't at present, for example they're away from home. They can still send in their response after the deadline has passed.",
+    "rNRvariousOptions": "You have various options to choose from if your {{ case.divorceWho }} isn't responding and you want to proceed."
+  }
+}
