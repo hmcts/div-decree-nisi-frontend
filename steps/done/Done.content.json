@@ -5,7 +5,6 @@
     "referenceNumber": "Your reference number is",
     "emailConfirmation": "Email confirmation has been sent to <strong class=\"bold-small\">{{ case.petitionerEmail }}</strong>.",
     "help": "Getting help",
-    "divorceCenter": "Your divorce centre",
     "email": "Email",
     "phone": "Phone",
     "phoneNumber" : "0300 303 0642",
