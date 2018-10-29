@@ -110,3 +110,11 @@ features:
 
 journey:
   timeoutDelay: 300
+
+appRouter:
+  stateVariable: 'session.case.state'
+  app:
+    d8:
+      url: 'https://localhost:8080'
+      entry: '/authenticated'
+      authCookieName: '__auth-token'

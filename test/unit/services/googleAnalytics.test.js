@@ -2,14 +2,17 @@ const exampleStep = require('steps/petition-progress-bar/PetitionProgressBar.ste
 const { custom, expect, middleware, sinon } = require('@hmcts/one-per-page-test-suite');
 const httpStatus = require('http-status-codes');
 const idam = require('services/idam');
+const appRouter = require('middleware/appRouter');
 
 describe('Google analytics', () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
+    sinon.stub(appRouter, 'middleware').callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
+    appRouter.middleware.restore();
   });
 
   it('should to be injected into the page', () => {

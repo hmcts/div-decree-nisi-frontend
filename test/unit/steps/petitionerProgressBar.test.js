@@ -7,7 +7,7 @@ const idam = require('services/idam');
 const { middleware, interstitial, sinon, content,
   stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
 const glob = require('glob');
-
+const appRouter = require('middleware/appRouter');
 
 const templates = {
   submitted: './sections/submitted/PetitionProgressBar.submitted.template.html',
@@ -64,14 +64,20 @@ const contentToNotExist = withoutKeysFrom => {
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
+    sinon.stub(appRouter, 'middleware').callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
+    appRouter.middleware.restore();
   });
 
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(PetitionProgressBar, [ idam.protect() ]);
+  });
+
+  it('has appRouter middleware', () => {
+    return middleware.hasMiddleware(PetitionProgressBar, [ appRouter.middleware ]);
   });
 
   describe('CCD state: Submitted', () => {

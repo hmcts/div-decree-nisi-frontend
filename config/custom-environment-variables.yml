@@ -65,3 +65,8 @@ services:
 
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY
+
+appRouter:
+  app:
+    d8:
+      url: PETITIONER_FRONTEND_URL

@@ -3,6 +3,7 @@ const config = require('config');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const { caseStateMap, permitDNReasonMap } = require('./petitionerStateTemplates');
+const appRouter = require('middleware/appRouter');
 
 class PetitionProgressBar extends Interstitial {
   static get path() {
@@ -25,7 +26,8 @@ class PetitionProgressBar extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect()
+      idam.protect(),
+      appRouter.middleware
     ];
   }
 
