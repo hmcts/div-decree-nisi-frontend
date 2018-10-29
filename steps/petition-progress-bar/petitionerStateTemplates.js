@@ -8,12 +8,20 @@ const caseStateMap = [
     state: ['aosstarted', 'aosawaiting']
   },
   {
-    template: './sections/awaiting/PetitionProgressBar.awaiting.template.html',
+    template: './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
     state: ['awaitinglegaladvisorreferral']
   },
   {
     template: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
     state: ['defendeddivorce']
+  },
+  {
+    template: './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html',
+    state: ['aossubmittedawaitinganswer']
+  },
+  {
+    template: './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
+    state: ['aosoverdue']
   },
   {
     template: './sections/undefended/PetitionProgressBar.undefended.template.html',

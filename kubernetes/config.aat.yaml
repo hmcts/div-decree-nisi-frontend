@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ${SERVICE_NAME}-config
+  namespace: ${NAMESPACE}
+data:
+  # TODO - this should be changed once we deploy AAT to AKS
+  BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
+  DEPLOYMENT_ENV: "aat"
+  IDAM_APP_HEALHCHECK_URL: "https://preprod-idamapi.reform.hmcts.net:3511/health"
+  IDAM_API_URL: "https://preprod-idamapi.reform.hmcts.net:3511"
+  GOOGLE_ANALYTICS_ID: "TBD"
+  GOOGLE_ANALYTICS_TRACKING_URL: "http://www.google-analytics.com/collect"
+  REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis:6379"
+  NODE_ENV: "production"
+  IDAM_LOGIN_URL: "https://idam.preprod.ccidam.reform.hmcts.net/login"
+  IDAM_AUTHENTICATION_HEALHCHECK_URL: "https://idam.preprod.ccidam.reform.hmcts.net/health"
+  ORCHESTRATION_SERVICE_HEALTH_URL: "http://div-cos-aat.service.core-compute-aat.internal/health"
+  ORCHESTRATION_SERVICE_GET_PETITION_URL: "http://div-cos-aat.service.core-compute-aat.internal/retrieve-aos-case"
+  ORCHESTRATION_SERVICE_POST_PETITION_URL: "http://div-cos-aat.service.core-compute-aat.internal/submit-dn"
+  ORCHESTRATION_SERVICE_DRAFT_ENDPOINT: "http://div-cos-aat.service.core-compute-aat.internal/draftsapi/version/1"
+  HPKP_MAX_AGE: "86400"
+  HPKP_SHAS: "Naw+prhcXSIkbtYJ0t7vAD+Fc92DWL9UZevVfWBvids=,klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=,grX4Ta9HpZx6tSHkmCrvpApTQGo67CYDnvprLg5yRME="
+  RATE_LIMITER_ENABLED: "false"
+  RATE_LIMITER_TOTAL: "3600"
+  RATE_LIMITER_EXPIRE: "3600000"
+  SESSION_SECRET: "${SESSION_SECRET}"
+  IDAM_SECRET: "${IDAM_SECRET}"
+  REDIS_ENCRYPTION_SECRET: "${REDIS_ENCRYPTION_SECRET}"
+  PETITIONER_FRONTEND_URL: "https://div-pfe-prod-staging.service.core-compute-prod.internal"
+  EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL: "http://div-emca-aat.service.core-compute-aat.internal/health"
+  EVIDENCE_MANAGEMENT_CLIENT_API_URL: "http://div-emca-aat.service.core-compute-aat.internal/"
+  EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT: "/emclientapi/version/1/upload"

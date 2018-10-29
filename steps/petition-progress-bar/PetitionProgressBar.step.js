@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');

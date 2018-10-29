@@ -1,0 +1,21 @@
+{
+  "en": {
+    "awaitingSubmittedDNAppStatusMsg": "What happens next",
+    "awaitingSubmittedDNCourtWillCheck": "The court will check your applicaiton and pass it to the judge. If the judge agrees there's no reason why you shouldn't get your divorce, you'll be sent the time, date and court in which you decree nisi will be announced, You'll then be sent your decree nisi.",
+    "awaitingSubmittedDNDecreeNisiGranted": "After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute.",
+    "awaitingSubmittedDNAverageDivorceTimes": "See average divorce times",
+    "awaitingSubmittedDN4to6Months": "It usually takes 4 to 6 months to get a divorce if your {{ case.divorceWho }} doesn't 'defend' it (doesn't try to prevent it).",
+    "awaitingSubmittedDNWhatHappens": "What happens",
+    "awaitingSubmittedDNHowLongItTakes": "How long it takes",
+    "awaitingSubmittedDNCourtSends": "The court sends the application to your {{ case.divorceWho }}",
+    "awaitingSubmittedDN1WeekAfterSubmit": "Up to 1 week after you submit it",
+    "awaitingSubmittedDNAfterTheyGetIt": "Up to 3 weeks after they get it",
+    "awaitingSubmittedDNNisiGranted": "Decree nisi is granted",
+    "awaitingSubmittedDN3to4WeeksAfterApply": "3 to 4 weeks after you apply for it",
+    "awaitingSubmittedDNWaitToApplyForDecreeAbsolute": "Wait to apply for decree absolute",
+    "awaitingSubmittedDN6Weeks1Day": "6 weeks and 1 day after decree nisi is granted",
+    "awaitingSubmittedDNDivorceIsGranted": "Divorce is granted",
+    "awaitingSubmittedDN2WorkingDays": "2 working days after applying for decree absolute",
+    "awaitingSubmittedDNTimesCanVary": "Times can vary depending on when and where you apply for a divorce, and how long it takes your {{ case.divorceWho }} to respond."
+  }
+}
