@@ -1,0 +1,36 @@
+{% set items = {
+  one: {
+    label: content.youApply,
+    complete: true
+  },
+  two: {
+    label: content.husbandWifeMustRespond,
+    current: true
+  },
+  three: {
+    label: content.getDecreeNisi
+  },
+  four: {
+    label: content.madeFinal
+  }
+}
+%}
+
+{% include "reform-progress-list/template.njk" %}
+
+<h2 class="heading-medium">{{ content.rNRTitle }}</h2>
+<p class="text">{{ content.rNRSentApplication }}</p>
+<p class="text">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
+<p class="text">{{ content.rNRaskedToRespondBy }}</p>
+<p class="text">{{ content.rNRhearFromBothParties }}</p>
+<div class="panel panel-border-wide">
+  <p class="text">{{ content.rNRcanJustWait }}</p>
+</div>
+<p class="text">{{ content.rNRvariousOptions }}</p>
+
+<br>
+
+<form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+<input class="button button-start" type="submit" value="{{ content.continue }}">
+</form>
