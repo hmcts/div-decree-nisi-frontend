@@ -58,7 +58,6 @@
     "util": "^0.11.0"
   },
   "devDependencies": {
-    "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git",
     "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#93da471881c5b0a7c15827f8532661d3bcc8addb",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",

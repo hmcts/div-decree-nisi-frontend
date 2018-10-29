@@ -98,7 +98,7 @@
     <ul class="list-bullet">
   {% endif %}
 
-    {% if "A" in case.connections %}
+    {% if "A" in case.connections and case.connections.A != null %}
       {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
@@ -110,7 +110,7 @@
       {% endif %}
     {% endif %}
 
-    {% if "B" in case.connections %}
+    {% if "B" in case.connections and case.connections.B != null %}
       {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
@@ -122,7 +122,7 @@
       {% endif %}
     {% endif %}
 
-    {% if "C" in case.connections and (not ("A" in case.connections)) %}
+    {% if "C" in case.connections and case.connections.C != null and (not ("A" in case.connections)) %}
       {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
@@ -134,7 +134,7 @@
       {% endif %}
     {% endif %}
 
-    {% if "D" in case.connections %}
+    {% if "D" in case.connections and case.connections.D != null %}
       {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
@@ -146,7 +146,7 @@
       {% endif %}
     {% endif %}
 
-    {% if "E" in case.connections %}
+    {% if "E" in case.connections and case.connections.E != null %}
       {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
@@ -158,7 +158,7 @@
       {% endif %}
     {% endif %}
 
-    {% if "F" in case.connections %}
+    {% if "F" in case.connections and case.connections.F != null %}
       {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
@@ -170,7 +170,7 @@
       {% endif %}
     {% endif %}
 
-    {% if "G" in case.connections %}
+    {% if "G" in case.connections and case.connections.G != null %}
       {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
