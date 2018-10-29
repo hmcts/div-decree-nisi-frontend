@@ -4,7 +4,7 @@
     "appliedForDecreeNisi": "You've applied for a decree nisi",
     "referenceNumber": "Your reference number is",
     "emailConfirmation": "Email confirmation has been sent to <strong class=\"bold-small\">{{ case.petitionerEmail }}</strong>.",
-
+    "help": "Getting help",
     "divorceCenter": "Your divorce centre",
     "email": "Email",
     "phone": "Phone",
