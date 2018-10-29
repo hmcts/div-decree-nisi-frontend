@@ -62,12 +62,12 @@
       <li>
         <strong class="bold-xsmall">{{ content.courtsAndTribunals }}</strong><br>
         {{ content.courtsCenterPrefix }} 
-        {{ case.court[case.courts].divorceCentre }} <br>
+        {{ case.court[case.courts].divorceCentre | safe}} <br>
         {% if case.court[case.courts].poBox %}
-          {{ case.court[case.courts].poBox }} <br>
+          {{ case.court[case.courts].poBox | safe}} <br>
         {% endif %}
-        {{ case.court[case.courts].courtCity }} <br>
-        {{ case.court[case.courts].postCode }} <br>
+        {{ case.court[case.courts].courtCity | safe}} <br>
+        {{ case.court[case.courts].postCode  | safe}} <br>
       </li>
     </ul>
 
