@@ -160,9 +160,9 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@hmcts/div-app-router@https://github.com/hmcts/div-app-router#1.4.0":
-  version "1.4.0"
-  resolved "https://github.com/hmcts/div-app-router#8f188de17b8dd4906ff0347999567125696f093b"
+"@hmcts/div-app-router@https://github.com/hmcts/div-app-router#1.5.0":
+  version "1.5.0"
+  resolved "https://github.com/hmcts/div-app-router#ebd4be92a9a1ad4eed4e0684b44f6a1f0d92951c"
   dependencies:
     lodash "^4.17.11"
     pre-commit "^1.2.2"
