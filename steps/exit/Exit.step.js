@@ -9,7 +9,7 @@ class Exit extends ExitPoint {
   }
 
   get case() {
-    return this.req.preservedSession.case.data;
+    return this.req.session.case.data;
   }
 
   get middleware() {

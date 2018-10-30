@@ -9,11 +9,11 @@ class Done extends ExitPoint {
   }
 
   get case() {
-    return this.req.preservedSession.case.data;
+    return this.req.session.case.data;
   }
 
   get caseId() {
-    return this.req.preservedSession.case.caseId;
+    return this.req.session.case.caseId;
   }
 
   get middleware() {
