@@ -112,6 +112,7 @@ journey:
   timeoutDelay: 300
 
 appRouter:
+  appName: dn
   stateVariable: 'session.case.state'
   app:
     d8:
