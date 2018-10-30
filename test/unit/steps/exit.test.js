@@ -3,7 +3,6 @@ const modulePath = 'steps/exit/Exit.step';
 const Exit = require(modulePath);
 const idam = require('services/idam');
 const { middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const preserveSession = require('middleware/preserveSession');
 
 const session = {
   case: {
@@ -29,8 +28,8 @@ describe(modulePath, () => {
     idam.protect.restore();
   });
 
-  it('has idam.protect, idam.logout, preserveSession middleware', () => {
-    return middleware.hasMiddleware(Exit, [ idam.protect(), idam.logout(), preserveSession ]);
+  it('has idam.protect and idam.logout middleware', () => {
+    return middleware.hasMiddleware(Exit, [ idam.protect(), idam.logout() ]);
   });
 
   describe('values', () => {
