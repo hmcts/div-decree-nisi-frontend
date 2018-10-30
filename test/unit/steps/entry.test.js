@@ -1,11 +1,12 @@
 const modulePath = 'steps/entry/Entry.step';
 
 const Entry = require(modulePath);
-const progressBarPage = require('steps/petition-progress-bar/PetitionProgressBar.step');
-const ExitNoCase = require('steps/exit-no-case/ExitNoCase.step');
+const PetitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const idam = require('services/idam');
-const { middleware, redirect, sinon } = require('@hmcts/one-per-page-test-suite');
+const { middleware, redirect, sinon, custom, expect } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationService = require('services/caseOrchestrationService');
+const { NOT_FOUND, INTERNAL_SERVER_ERROR } = require('http-status-codes');
+const config = require('config');
 
 describe(modulePath, () => {
   it('has idam.authenticate middleware', () => {
@@ -25,12 +26,28 @@ describe(modulePath, () => {
 
     it('to PetitionProgressBar page', () => {
       caseOrchestrationService.getApplication.resolves();
-      return redirect.navigatesToNext(Entry, progressBarPage, null);
+      return redirect.navigatesToNext(Entry, PetitionProgressBar, null);
     });
 
-    it('to ExitNoCase page if get application fails', () => {
-      caseOrchestrationService.getApplication.rejects();
-      return redirect.navigatesToNext(Entry, ExitNoCase);
+    it('to error page if error is not 404', () => {
+      const error = new Error('An error has occoured on the Case Orchestartion Service');
+      error.statusCode = INTERNAL_SERVER_ERROR;
+      caseOrchestrationService.getApplication.rejects(error);
+      return custom(Entry)
+        .get()
+        .expect(INTERNAL_SERVER_ERROR)
+        .text(pageContent => {
+          return expect(pageContent.indexOf(error) !== -1).to.eql(true);
+        });
+    });
+
+    it('to petitioner frontend  if error is 404', () => {
+      const error = new Error('The case does not exist on CCD');
+      error.statusCode = NOT_FOUND;
+      caseOrchestrationService.getApplication.rejects(error);
+      return custom(Entry)
+        .get()
+        .expect('location', config.services.petitionerFrontend.url);
     });
   });
 });

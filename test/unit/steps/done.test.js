@@ -1,6 +1,7 @@
 const modulePath = 'steps/done/Done.step';
 
 const Done = require(modulePath);
+const DoneContent = require('steps/done/Done.content');
 const idam = require('services/idam');
 const { middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const preserveSession = require('middleware/preserveSession');
@@ -25,10 +26,10 @@ describe(modulePath, () => {
 
   describe('values', () => {
     it('displays reference number', () => {
-      const referenceNumber = '1234 ‐ 5678 ‐ 9012 ‐ 4567';
+      const referenceNumber = '1234‐5678‐9012‐4567';
       const session = {
         case: {
-          caseId: referenceNumber.replace(/ ‐ /g, ''),
+          caseId: referenceNumber.replace(/‐/g, ''),
           data: {}
         }
       };
@@ -45,20 +46,43 @@ describe(modulePath, () => {
       const session = {
         case: {
           data: {
-            divorceCenterName: 'divorce center name',
-            divorceCenterEmail: 'thisistheemail@email.com',
-            divorceCenterPhone: '0123456789'
+            courts: 'expectedCourt',
+            court: {
+              eastMidlands: {
+                divorceCentre: 'East Midlands Regional Divorce Centre',
+                courtCity: 'Nottingham',
+                poBox: 'PO Box 10447',
+                postCode: 'NG2 9QN',
+                openingHours: 'Telephone Enquiries from: 8.30am to 5pm',
+                email: 'eastmidlandsdivorce@hmcts.gsi.gov.uk',
+                phoneNumber: '0300 303 0642'
+              },
+              expectedCourt: {
+                divorceCentre: 'Expected court center',
+                courtCity: 'City',
+                poBox: 'PO Box',
+                postCode: 'PostCode',
+                openingHours: 'Opening hours info',
+                email: 'Email info',
+                phoneNumber: 'phone number info'
+              }
+            }
           }
         }
       };
+
       return content(
         Done,
         session,
         {
           specificValues: [
-            session.case.divorceCenterName,
-            session.case.divorceCenterEmail,
-            session.case.divorceCenterPhone
+            session.case.data.court.expectedCourt.divorceCentre,
+            session.case.data.court.expectedCourt.courtCity,
+            session.case.data.court.expectedCourt.poBox,
+            session.case.data.court.expectedCourt.postCode,
+            DoneContent.openTimes,
+            DoneContent.divorceEmail,
+            DoneContent.phoneNumber
           ]
         }
       );
@@ -70,7 +94,7 @@ describe(modulePath, () => {
         Done,
         session,
         {
-          specificValues: [ session.case.petitionerEmail ]
+          specificValues: [ session.case.data.petitionerEmail ]
         }
       );
     });

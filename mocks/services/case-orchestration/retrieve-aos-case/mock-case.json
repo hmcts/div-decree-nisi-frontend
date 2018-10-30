@@ -1,7 +1,7 @@
 {
   "caseId": "1234567890124567",
   "courts": "dsdf",
-  "state": "AosAwaiting",
+  "state": "DNAwaiting",
   "data": {
     "createdDate":"2018-08-02T00:00:00.000Z",
     "issueDate":"2018-10-02T00:00:00.000Z",
@@ -188,7 +188,9 @@
     ],
     "jurisdictionConfidentLegal": "Yes",
     "connections": {
-      "A": "The Petitioner and the Respondent are habitually resident in England and Wales."
+      "A": "The Petitioner and the Respondent are habitually resident in England and Wales",
+      "C": "The Respondent is habitually resident in England and Wales",
+      "E": null
     },
     "jurisdictionLastTwelveMonths": "Yes",
     "jurisdictionPetitionerDomicile": "Yes",
@@ -248,7 +250,6 @@
     "courts": "westMidlands",
     "placeOfMarriage": "At the Holy Trinity Church, in the Parish of Normanton by Derby, in the County of Derby",
     "caseReference": "caseReference",
-    "expires":0,
     "respConfirmReadPetition" : "Yes",
     "respAdmitOrConsentToFact" : "Yes",
     "respDefendsDivorce" : null,

@@ -1,65 +1,65 @@
-const { union } = require('lodash');
-
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
 const PetitionProgressBar = require(modulePath);
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
-const getSteps = require('steps');
 const idam = require('services/idam');
 const { middleware, interstitial, sinon, content,
   stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
+const glob = require('glob');
 
 
-const issuedContent = [
-  'issuedAppStatusMsg',
-  'issuedAppStatusMsgDetails',
-  'issuedWhatHappensNext',
-  'issuedWhatHappensNextDetail1',
-  'issuedWhatHappensNextDetails2list1',
-  'issuedWhatHappensNextDetails2list2',
-  'issuedWhatHappensNextDetails2list3',
-  'issuedWhatHappensNextDetails3'
-];
+const templates = {
+  submitted: './sections/submitted/PetitionProgressBar.submitted.template.html',
+  issued: './sections/issued/PetitionProgressBar.issued.template.html',
+  defended: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
+  undefended: './sections/undefended/PetitionProgressBar.undefended.template.html',
+  deemedService: './sections/deemedService/PetitionProgressBar.deemedService.template.html',
+  dispensedWithService:
+     './sections/dispensedWithService/PetitionProgressBar.dispensedWithService.template.html',
+  defendedWithoutAnswer:
+     './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html',
+  awaitingSubmittedDN:
+     './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
+  defendedWithAnswer:
+     './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
+  respondentNotReplied:
+     './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
+  defendedAwaitingAnswer:
+     './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html'
+};
 
-const submittedContent = [
-  'submittedAppStatusMsg',
-  'submittedAppStatusMsgDetails1',
-  'submittedAppStatusMsgDetails2',
-  'submittedWhatHappensNext',
-  'submittedWhatHappensNextDetails1',
-  'submittedWhatHappensNextDetails2',
-  'submittedWhatHappensNextDetails3'
-];
+// get all content for all pages
+const pageContent = {};
+glob.sync('steps/petition-progress-bar/**/*.json').forEach(file => {
+  const stepContent = require(file); // eslint-disable-line global-require
 
-const undefendedContent = [
-  'undefendedAppStatusMsg',
-  'undefendedAppStatusMsgDetails1',
-  'undefendedAppStatusMsgDetails2',
-  'undefendedReadMore',
-  'undefendedOrderForDivorce',
-  'undefendedCourtAgrees',
-  'undefendedCannotBeMade6Weeks',
-  'undefendedUntilTheDecreeAbsolute'
-];
+  const scope = file.match(/content\.(.*)\.json/);
+  if (scope && scope.length) {
+    pageContent[scope[1]] = stepContent.en;
+  }
+});
 
-const deemedServiceContent = [
-  'deemedServiceAppStatusMsg',
-  'deemedServiceAppStatusMsgDetails1',
-  'deemedServiceAppStatusMsgDetails2'
-];
-
-const defendedWithoutAnswerContent = [
-  'dWAAppStatusMsg',
-  'dWAAppStatusMsgDetails1',
-  'dWAAppStatusMsgDetails2'
-];
-
-const dispensedWithService = [
-  'dWSAppStatusMsg',
-  'dWSAppStatusMsgDetails1',
-  'dWSAppStatusMsgDetails2'
-];
+// function to return all content that should not be rendered.
+// some pages have the same content/sub content so this will also remove content keys
+// that have the same content as that we are testing
+const contentToNotExist = withoutKeysFrom => {
+  return Object.keys(pageContent).reduce((allContent, contentKey) => {
+    if (withoutKeysFrom === contentKey) {
+      return allContent;
+    }
+    const contentToIgnore = Object.keys(pageContent[contentKey]).filter(key => {
+      let ignoreContent = true;
+      Object.values(pageContent[withoutKeysFrom]).forEach(value => {
+        if (value.includes(pageContent[contentKey][key])) {
+          ignoreContent = false;
+        }
+      });
+      return ignoreContent;
+    });
+    return [...allContent, ...contentToIgnore];
+  }, []);
+};
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -74,295 +74,269 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(PetitionProgressBar, [ idam.protect() ]);
   });
 
-  it('renders the content when ccd status is Submitted', () => {
+  describe('CCD state: Submitted', () => {
     const session = {
       case: {
         state: 'Submitted',
-        data: {
-          connections: {}
-        }
+        data: {}
       }
     };
-    const specificContent = submittedContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      issuedContent,
-      undefendedContent,
-      deemedServiceContent,
-      defendedWithoutAnswerContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.submitted);
+      const specificContentToNotExist = contentToNotExist('submitted');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.submitted);
+    });
   });
 
-  it('renders the content when ccd status is AOSstarted', () => {
+  describe('CCD state: AOSstarted', () => {
     const session = {
       case: {
         state: 'AOSstarted',
-        data: {
-          connections: {}
-        }
+        data: {}
       }
     };
-    const specificContent = issuedContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      undefendedContent,
-      deemedServiceContent,
-      defendedWithoutAnswerContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.issued);
+      const specificContentToNotExist = contentToNotExist('issued');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.issued);
+    });
   });
 
-  it('renders the content when ccd status is DNawaiting & DNReason is 0', () => {
+  describe('CCD state: DNawaiting, DNReason : 0 ', () => {
     const session = {
       case: {
         state: 'DNawaiting',
         data: {
-          connections: {},
           permittedDecreeNisiReason: '0'
         }
       }
     };
-    const specificContent = undefendedContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      issuedContent,
-      deemedServiceContent,
-      defendedWithoutAnswerContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.undefended);
+      const specificContentToNotExist = contentToNotExist('undefended');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.undefended);
+    });
   });
 
-  it('renders the content when ccd status is DNawaiting & DNReason is 1', () => {
+  describe('CCD state: DNawaiting, DNReason : 1 ', () => {
     const session = {
       case: {
         state: 'DNawaiting',
         data: {
-          connections: {},
           permittedDecreeNisiReason: '1'
         }
       }
     };
-    const specificContent = deemedServiceContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      undefendedContent,
-      issuedContent,
-      defendedWithoutAnswerContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.deemedService);
+      const specificContentToNotExist = contentToNotExist('deemedService');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.deemedService);
+    });
   });
 
-  it('renders the content when ccd status is DNawaiting & DNReason is 2', () => {
+  describe('CCD state: DNawaiting, DNReason : 2 ', () => {
     const session = {
       case: {
         state: 'DNawaiting',
         data: {
-          connections: {},
           permittedDecreeNisiReason: '2'
         }
       }
     };
-    const specificContent = dispensedWithService;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      undefendedContent,
-      deemedServiceContent,
-      defendedWithoutAnswerContent,
-      issuedContent
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.dispensedWithService);
+      const specificContentToNotExist = contentToNotExist('dispensedWithService');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.dispensedWithService);
+    });
   });
 
-  it('renders the content when ccd status is DNawaiting & DNReason is 3', () => {
+  describe('CCD state: DNawaiting, DNReason : 3 ', () => {
     const session = {
       case: {
         state: 'DNawaiting',
         data: {
-          connections: {},
           permittedDecreeNisiReason: '3'
         }
       }
     };
-    const specificContent = defendedWithoutAnswerContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      undefendedContent,
-      deemedServiceContent,
-      issuedContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.defendedWithoutAnswer);
+      const specificContentToNotExist = contentToNotExist('defendedWithoutAnswer');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.defendedWithoutAnswer);
+    });
   });
 
-  it('renders the content when ccd status is DNawaiting & permittedDecreeNisiReason is 4', () => {
+
+  describe('CCD state: DNawaiting, DNReason : 4 ', () => {
     const session = {
       case: {
         state: 'DNawaiting',
         data: {
-          connections: {},
           permittedDecreeNisiReason: '4'
         }
       }
     };
-    const specificContent = defendedWithoutAnswerContent;
-    /**
-     * Excluded content should be added as and when new templates gets added.
-     */
-    const specificValuesToNotExist = union([
-      submittedContent,
-      undefendedContent,
-      deemedServiceContent,
-      issuedContent,
-      dispensedWithService
-    ]);
-    return content(PetitionProgressBar, session, { specificContent, specificValuesToNotExist });
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.defendedWithoutAnswer);
+      const specificContentToNotExist = contentToNotExist('defendedWithoutAnswer');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.defendedWithoutAnswer);
+    });
   });
 
-  it('renders the correct template when ccd status is Submitted', () => {
+  describe('CCD state: AosSubmittedAwaitingAnswer', () => {
     const session = {
       case: {
-        state: 'Submitted',
-        data: {
-          connections: {}
-        }
+        state: 'AosSubmittedAwaitingAnswer',
+        data: {}
       }
     };
-    const expectedContent = 'submitted';
-    const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.defendedAwaitingAnswer);
+      const specificContentToNotExist = contentToNotExist('defendedAwaitingAnswer');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('returns correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.defendedAwaitingAnswer);
+    });
   });
 
-  it('renders the correct template when ccd status is AOSStarted', () => {
+  describe('CCD state: AOSOverdue', () => {
     const session = {
       case: {
-        state: 'AOSstarted',
-        data: {
-          connections: {}
-        }
+        state: 'AOSOverdue',
+        data: {}
       }
     };
-    const expectedContent = 'issued';
-    const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.respondentNotReplied);
+      const specificContentToNotExist = contentToNotExist('respondentNotReplied');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.respondentNotReplied);
+    });
   });
 
-  it('renders undefended if ccdstatus is DNawaiting, DNReason is 0', () => {
+  describe('CCD state: DefendedDivorce', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
-        data: {
-          connections: {},
-          permittedDecreeNisiReason: '0'
-        }
+        state: 'DefendedDivorce',
+        data: {}
       }
     };
-    const expectedContent = 'undefended';
-    const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.defendedWithAnswer);
+      const specificContentToNotExist = contentToNotExist('defendedWithAnswer');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.defendedWithAnswer);
+    });
   });
 
-  it('renders deemedService if ccdstatus is DNawaiting, DNReason is 1', () => {
+  describe('CCD state: AwaitingLegalAdvisorReferral', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
-        data: {
-          connections: {},
-          permittedDecreeNisiReason: '1'
-        }
+        state: 'AwaitingLegalAdvisorReferral',
+        data: {}
       }
     };
-    const expectedContent = 'deemedService';
-    const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
+      const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
+    });
   });
 
-  it('renders dispensedWithService if ccdstatus is DNawaiting, DNReason is 2', () => {
-    const session = {
-      case: {
-        state: 'DNawaiting',
-        data: {
-          connections: {},
-          permittedDecreeNisiReason: '2'
+  describe('navigation', () => {
+    it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
+      const session = {
+        case: {
+          data: {
+            respDefendsDivorce: null
+          }
         }
-      }
-    };
-    const expectedContent = 'dispensedWithService';
-    const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
-  });
+      };
+      interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
+    });
 
-  it('renders defendedWithoutAnswer when ccdstatus is DNawaiting, DNReason is 3', () => {
-    const session = {
-      case: {
-        state: 'DNawaiting',
-        data: {
-          connections: {},
-          permittedDecreeNisiReason: '3'
+    it('redirects reviewAosResponse when CCD has respDefendsDivorce as Yes', () => {
+      const session = {
+        case: {
+          data: {
+            respDefendsDivorce: 'Yes'
+          }
         }
-      }
-    };
-    const expectedContent = 'defendedWithoutAnswer';
-    const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
-  });
-
-  it('renders defendedWithoutAnswer when ccd status is DNawaiting, DNReason is 4', () => {
-    const session = {
-      case: {
-        state: 'DNawaiting',
-        data: {
-          connections: {},
-          permittedDecreeNisiReason: '4'
-        }
-      }
-    };
-    const expectedContent = 'defendedWithoutAnswer';
-    const instance = stepAsInstance(PetitionProgressBar, session);
-    expect(instance.ccdStatus).to.eql(expectedContent);
-  });
-
-
-  it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
-    const session = {
-      case: {
-        data: {
-          respDefendsDivorce: null
-        }
-      }
-    };
-    interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, getSteps(), session);
-  });
-
-  it('redirects reviewAosResponse when CCD has respDefendsDivorce as Yes', () => {
-    const session = {
-      case: {
-        data: {
-          respDefendsDivorce: 'Yes'
-        }
-      }
-    };
-    interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, getSteps(), session);
+      };
+      interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
   });
 });
