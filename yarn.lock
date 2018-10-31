@@ -285,38 +285,10 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@^4.0.4":
+"@hmcts/one-per-page@^4.0.4", "@hmcts/one-per-page@^4.0.7":
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.0.7.tgz#53ab451b0cadaf9cf55b6c8cb0dab6fed016ae64"
   integrity sha512-8XRcKHQbX33naz/n8c4OmKgLrxC6qmLrar/W2xcYMuDo+DLj9TxyBIgVbj7Gg4MHzYg65dthCYAJGau6GFc7lQ==
-  dependencies:
-    "@log4js-node/log4js-api" "^1.0.0"
-    body-parser "^1.18.2"
-    callsites "^2.0.0"
-    colors "^1.1.2"
-    config "^1.28.1"
-    connect-redis "^3.3.2"
-    cookie-parser "^1.4.3"
-    csurf "^1.9.0"
-    debug "^3.1.0"
-    deepmerge "2.0.1"
-    express "^4.16.2"
-    express-nunjucks "^2.2.3"
-    express-session "^1.15.6"
-    glob "^7.1.2"
-    http-status-codes "^1.3.0"
-    i18next "^10.2.1"
-    joi "^13.0.2"
-    js-yaml "^3.10.0"
-    nunjucks "^3.0.1"
-    option "^0.2.4"
-    router "^1.3.2"
-    slug "^0.9.1"
-    url-parse "^1.2.0"
-
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page.git#94eea72cedf067b3a018a5e25a02f23730adb926":
-  version "5.0.0"
-  resolved "https://github.com/hmcts/one-per-page.git#94eea72cedf067b3a018a5e25a02f23730adb926"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
