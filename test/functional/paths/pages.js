@@ -9,6 +9,8 @@ Scenario('Pages', async I => {
 
   I.testProgressBar();
 
+  I.testDnNoResponse();
+
   I.testAdulteryFirstFound();
 
   I.testApplyForDecreeNisiPage();
