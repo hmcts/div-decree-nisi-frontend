@@ -1,0 +1,32 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import hiddenInput %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+  <p class="text">{{ content.courtHearsBothParties | safe }}</p>
+  <div class="notice">
+    <em class="icon icon-important">
+      <span class="visuallyhidden"></span>
+    </em>
+    <p class="bold-small">{{ content.infoToContactRespondent }}</p>
+  </div>
+  <p class="text">{{ content.provideNewAddrToCourt | safe }}</p>
+  <p class="text">{{ content.noResponseOptions | safe }}</p>
+
+  <h2 class="heading-medium">{{ content.whichSituation }}</h2>  
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.haveAnotherAddress }}</span>
+    </summary>
+    
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p>{{ content.provideAddress }}</p>
+      <p class="text">{{ content.noExtraPay }}</p>
+    </div>
+  </details>
+
+{% endblock %}
