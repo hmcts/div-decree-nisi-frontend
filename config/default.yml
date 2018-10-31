@@ -117,5 +117,5 @@ appRouter:
   app:
     d8:
       url: 'https://localhost:8080'
-      entry: '/authenticated'
+      entry: '/start'
       authCookieName: '__auth-token'
