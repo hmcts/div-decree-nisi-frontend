@@ -118,7 +118,7 @@ describe(modulePath, () => {
     });
 
     it('no claim costs', () => {
-      const session = { case: { data: { claimsCosts: 'No' } } };
+      const session = { case: { data: { claimsCosts: 'dontClaimDifferentAmount' } } };
       const specificContent = ['applyingForDecreeNisi'];
       return content(CheckYourAnswers, session, { specificContent });
     });
