@@ -4,6 +4,7 @@ const divAppRouter = require('@hmcts/div-app-router');
 // Setup appRouter
 divAppRouter.setup(config.appRouter);
 
-const middleware = divAppRouter.router.middleware;
-
-module.exports = { middleware };
+module.exports = {
+  middleware: divAppRouter.router.middleware,
+  entryMiddleware: divAppRouter.router.entryMiddleware
+};

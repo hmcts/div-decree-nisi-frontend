@@ -5,6 +5,7 @@ const config = require('config');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const { NOT_FOUND } = require('http-status-codes');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const appRouter = require('middleware/appRouter');
 
 class Entry extends EntryPoint {
   static get path() {
@@ -25,7 +26,11 @@ class Entry extends EntryPoint {
   }
 
   get middleware() {
-    return [...super.middleware, idam.authenticate()];
+    return [
+      ...super.middleware,
+      idam.authenticate(),
+      appRouter.entryMiddleware
+    ];
   }
 }
 

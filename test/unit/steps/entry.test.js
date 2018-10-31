@@ -7,20 +7,27 @@ const { middleware, redirect, sinon, custom, expect } = require('@hmcts/one-per-
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const { NOT_FOUND, INTERNAL_SERVER_ERROR } = require('http-status-codes');
 const config = require('config');
+const appRouter = require('middleware/appRouter');
 
 describe(modulePath, () => {
   it('has idam.authenticate middleware', () => {
     return middleware.hasMiddleware(Entry, [ idam.authenticate() ]);
   });
 
+  it('has appRouter entryMiddleware middleware', () => {
+    return middleware.hasMiddleware(Entry, [ appRouter.entryMiddleware ]);
+  });
+
   context('navigation', () => {
     beforeEach(() => {
       sinon.stub(idam, 'authenticate').returns(middleware.nextMock);
+      sinon.stub(appRouter, 'entryMiddleware').callsFake(middleware.nextMock);
       sinon.stub(caseOrchestrationService, 'getApplication');
     });
 
     afterEach(() => {
       idam.authenticate.restore();
+      appRouter.entryMiddleware.restore();
       caseOrchestrationService.getApplication.restore();
     });
 
