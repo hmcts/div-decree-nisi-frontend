@@ -6,6 +6,7 @@ describe('DnNoResponse step', () => {
   it('renders the content', () => {
     const ignoreContent = ['continue'];
     const session = { case: { data: {} } };
-    return content(DnNoResponse, session, { ignoreContent });
+    const specificContent = [ 'formD89', 'applyD11', 'applyD13bLink' ];
+    return content(DnNoResponse, session, { specificContent, ignoreContent });
   });
 });
