@@ -25,7 +25,23 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const session = { case: { data: {} } };
+    const session = {
+      case: {
+        state: 'AosSubmittedAwaitingAnswer',
+        data: {}
+      }
+    };
+
+    return content(ReviewAosResponse, session);
+  });
+
+  it('renders the content', () => {
+    const session = {
+      case: {
+        state: 'DNAwaiting',
+        data: {}
+      }
+    };
     return content(ReviewAosResponse, session);
   });
 

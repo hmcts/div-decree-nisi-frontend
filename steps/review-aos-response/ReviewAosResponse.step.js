@@ -15,6 +15,10 @@ class ReviewAosResponse extends Question {
     return this.req.session.case.data;
   }
 
+  get awaitingForRespAnswer() {
+    return this.req.session.case.state === 'AosSubmittedAwaitingAnswer';
+  }
+
   next() {
     return redirectTo(this.journey.steps.ApplyForDecreeNisi);
   }
