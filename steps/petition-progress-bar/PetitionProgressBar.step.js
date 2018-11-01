@@ -38,9 +38,11 @@ class PetitionProgressBar extends Interstitial {
   }
 
   next() {
-    const showReviewAosResponse = this.respDefendsDivorce && ['yes', 'no'].includes(this.respDefendsDivorce.toLowerCase()); // eslint-disable-line
-
+    const showDnNoResponse = this.caseState === 'aosoverdue';
+    const showReviewAosResponse = !showDnNoResponse && this.respDefendsDivorce && ['yes', 'no'].includes(this.respDefendsDivorce.toLowerCase());
     return branch(
+      redirectTo(this.journey.steps.DnNoResponse)
+        .if(showDnNoResponse),
       redirectTo(this.journey.steps.ReviewAosResponse)
         .if(showReviewAosResponse),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
