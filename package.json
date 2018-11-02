@@ -10,7 +10,7 @@
     "setup": "NODE_PATH=.",
     "dev": "NODE_PATH=. node-dev server.js",
     "mocks": "NODE_PATH=. node-dev mocks/index.js",
-    "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR nyc mocha --inspect-brk 'test/unit/**/*.test.js' --timeout 5000",
+    "test": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR nyc mocha 'test/unit/**/*.test.js' --timeout 5000",
     "test:all": "yarn lint; yarn test:unit; yarn test:a11y; yarn test:validation; yarn test:nsp",
     "test:unit": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha 'test/unit/**/*.js' --timeout 5000",
     "test:smoke": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/functional/codecept.smoke.conf.js --steps --invert",
