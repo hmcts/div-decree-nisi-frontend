@@ -7,52 +7,66 @@
     "noResponseOptions": "If there's still no response using the original address, you have the following options available to you, depending on your situation.",
    
     "whichSituation": "Which situation applies to you?",
-    "haveAnotherAddress": "I have another residential address or a solicitor's address for my {{ case.divorceWho }} (no fee)",
-    "provideAddress": "Contact us to provide a different address for your {{ case.divorceWho }}. This can be a UK or international address.",
-    "noExtraPay": "You don't have to pay anything extra to have it sent to a different address.",
+
+    "haveAnotherAddress": {
+      "linkSummary": "I have another residential address or a solicitor's address for my {{ case.divorceWho }} (no fee)",
+      "provideAddress": "Contact us to provide a different address for your {{ case.divorceWho }}. This can be a UK or international address.",
+      "noExtraPay": "You don't have to pay anything extra to have it sent to a different address." 
+    },
   
-    "sendToWorkAddress": "I need to send the application to a non-residential address, eg a work address (£50)",
-    "askToSendApp": "You can ask for the application to be sent to a different address.",
-    "printAndSend": "Print and send the form to the court's address at the top of this screen.",
+    "sendToWorkAddress": {
+      "linkSummary": "I need to send the application to a non-residential address, eg a work address (£50)",
+      "askToSendApp": "You can ask for the application to be sent to a different address."
+    },
 
-    "needToSearchRecords": "I need to search government records for my {{ case.divorceWho }}’s address (£50)",
-    "canApplyIfRespLivesInEngWales": "You can apply for a search of government databases (eg the electoral role) for your {{ case.divorceWho }}’s address. Your {{ case.divorceWho }} must live in England or Wales.",
-    "applyViaSearchRecords": "Contact the court and ask for the form to be sent to you.",
+    "needToSearchRecords": {
+      "linkSummary": "I need to search government records for my {{ case.divorceWho }}’s address (£50)",
+      "canApplyIfRespLivesInEngWales": "You can apply for a search of government databases (eg the electoral role) for your {{ case.divorceWho }}’s address. Your {{ case.divorceWho }} must live in England or Wales.",
+      "applyViaSearchRecords": "Contact the court and ask for the form to be sent to you."  
+    },
 
-    "sendEmailToResp": "I need to send the application to my {{ case.divorceWho }}'s email address (£50)",
-    "appToEmail": "You can ask for the application to be delivered by email.",
+    "sendEmailToResp": {
+      "linkSummary": "I need to send the application to my {{ case.divorceWho }}'s email address (£50)",
+      "appToEmail": "You can ask for the application to be delivered by email."
+    },
 
-    "believeRespChoseNotToRespond": "I believe my {{ case.divorceWho }} lives at that address, but chose not to respond (£110)",
-    "deliverPapersDirectlyToResp": "If you think that your {{ case.divorceWho }} is deliberately not responding you can pay a professional to deliver (serve) the divorce papers directly to them.",
-    "optionsToDeliver": "You can do this by using either a:",
-    "privateHireToDeliver": "Process server (a privately hired professional)",
-    "courtEmpToDeliver": "Court bailiff (an employee of the courts)",
-    "processServers": "Process servers",
-    "processServerDetails": "Contact a local solicitor who should be able to give you the contact details for a local company.",
-    "courtBailif": "Court bailiffs",
-    "courtBailifDetails1": "The bailiff service can only be used at addresses in England and Wales where delivery by post has already failed. If you have a new address for your {{ case.divorceWho }}, you’ll have to get it delivered by post before you can apply for the bailiff service.",
-    "courtBailifDetails2": "If the bailiff succeeds in delivering the application, you'll be given a letter as evidence that your {{ case.divorceWho }} has received the application. This is known as an ‘endorsement of service'. If your {{ case.divorceWho }} doesn’t respond within 14 days of getting the application, you can use this letter to continue your divorce without their response.",
-    "formD89": "<a href=\"https://www.gov.uk/government/publications/form-d89-request-for-personal-service-by-a-court-bailiff\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D89</a>.",
-    "moreToSend": "You'll also need to send the following:",
-    "respPhoto": "a photo of your {{ case.divorceWho }}",
-    "divorceAppCopy": "a copy of your divorce application",
+    "believeRespChoseNotToRespond": {
+      "linkSummary": "I believe my {{ case.divorceWho }} lives at that address, but chose not to respond (£110)",
+      "deliverPapersDirectlyToResp": "If you think that your {{ case.divorceWho }} is deliberately not responding you can pay a professional to deliver (serve) the divorce papers directly to them.",
+      "optionsToDeliver": "You can do this by using either a:",
+      "privateHireToDeliver": "Process server (a privately hired professional)",
+      "courtEmpToDeliver": "Court bailiff (an employee of the courts)",
+      "processServers": "Process servers",
+      "processServerDetails": "Contact a local solicitor who should be able to give you the contact details for a local company.",
+      "courtBailif": "Court bailiffs",
+      "courtBailifDetails1": "The bailiff service can only be used at addresses in England and Wales where delivery by post has already failed. If you have a new address for your {{ case.divorceWho }}, you’ll have to get it delivered by post before you can apply for the bailiff service.",
+      "courtBailifDetails2": "If the bailiff succeeds in delivering the application, you'll be given a letter as evidence that your {{ case.divorceWho }} has received the application. This is known as an ‘endorsement of service'. If your {{ case.divorceWho }} doesn’t respond within 14 days of getting the application, you can use this letter to continue your divorce without their response.",
+      "formD89": "<a href=\"https://www.gov.uk/government/publications/form-d89-request-for-personal-service-by-a-court-bailiff\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D89</a>.",
+      "moreToSend": "You'll also need to send the following:",
+      "respPhoto": "a photo of your {{ case.divorceWho }}",
+      "divorceAppCopy": "a copy of your divorce application"
+    },
 
-    "evidenceRespWontRespond": "I have evidence that my {{ case.divorceWho }} received the application, but can't or won't respond (£50)",
-    "canApplyForDeemedServ": "If you know your {{ case.divorceWho }} received the application, but can’t or won’t respond, you can apply to the court for a ‘deemed service’. This means that the court will decide that your {{ case.divorceWho }} has received the application, and that you can continue without their response.",
-    "needToProve": "You need to be able to prove that your {{ case.divorceWho }} received the application (eg, you have a text message from {{ case.divorceWho }} saying they received it).",
-    "applyAndSendDocs": "Print and send the form and documents to the court's address at the top of this screen.",
+    "evidenceRespWontRespond": {
+      "linkSummary": "I have evidence that my {{ case.divorceWho }} received the application, but can't or won't respond (£50)",
+      "canApplyForDeemedServ": "If you know your {{ case.divorceWho }} received the application, but can’t or won’t respond, you can apply to the court for a ‘deemed service’. This means that the court will decide that your {{ case.divorceWho }} has received the application, and that you can continue without their response.",
+      "needToProve": "You need to be able to prove that your {{ case.divorceWho }} received the application (eg, you have a text message from {{ case.divorceWho }} saying they received it).",
+      "applyAndSendDocs": "Print and send the form and documents to the court's address at the top of this screen."  
+    },
 
-    "doneWithAllWaysOfDelivering": "I’ve tried every possible way of delivering the application (£50)",
-    "askForDispenseWithService":"Under exceptional circumstances, you can ask the court to ‘dispense with service’ (decide your {{ case.divorceWho }} doesn’t have to be served the divorce application).",
-    "allInCourtHands":"It’s up to the court to decide whether to grant this. Before it can be considered, you’ll need to show that you’ve done everything you can to find them by contacting their:",
-    "relatives":"relatives (including children)",
-    "friends": "friends",
-    "lastEmployer": "last known employer",
-    "tradePlace": "trade union or professional organisation",
-    "searchInGovtDB": "You'll also need to have tried to find their address by searching for it on government databases.",
-    "and": " and ",
-    "applyD13bLink": "<a href=\"https://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=1112\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D13b</a>.",
-    "applyD11AndD13bContent": "Print and send the forms to the court's address at the top of this screen.",
+    "doneWithAllWaysOfDelivering":{
+      "linkSummary": "I’ve tried every possible way of delivering the application (£50)",
+      "askForDispenseWithService":"Under exceptional circumstances, you can ask the court to ‘dispense with service’ (decide your {{ case.divorceWho }} doesn’t have to be served the divorce application).",
+      "allInCourtHands":"It’s up to the court to decide whether to grant this. Before it can be considered, you’ll need to show that you’ve done everything you can to find them by contacting their:",
+      "relatives":"relatives (including children)",
+      "friends": "friends",
+      "lastEmployer": "last known employer",
+      "tradePlace": "trade union or professional organisation",
+      "searchInGovtDB": "You'll also need to have tried to find their address by searching for it on government databases.",
+      "and": " and ",
+      "applyD13bLink": "<a href=\"https://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=1112\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D13b</a>.",
+      "applyD11AndD13bContent": "Print and send the forms to the court's address at the top of this screen."
+    },
 
     "howToApply": "How to apply: ",
     "fill": "Fill in ",
@@ -61,6 +75,7 @@
     "howToPayContent": "Call the court to make the £50 payment by card (between 8.30am and 5pm) or include a cheque with your form.",
     "getNewRefNumb": "If you're eligible for help with fees you'll need to apply again and <a href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get a new reference number</a>.",
     "extraCosts": "If you asked the court to order your {{ case.divorceWho }} to pay your costs, then these extra costs will also be taken into account.",
+    "printAndSend": "Print and send the form to the court's address at the top of this screen.",
     "help": "Getting help",
     "email": "Email",
     "phone": "Phone",
@@ -76,6 +91,5 @@
     "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
     "moneyAndPropertyLink": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>",
     "solicitorLink": "<a href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>"
-
   }
 }
