@@ -21,28 +21,35 @@ describe(modulePath, () => {
 
   it('redirects to next page', () => {
     const fields = { reviewAosResponse: 'yes' };
-    return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi);
-  });
-
-  it('renders the content', () => {
-    const session = {
-      case: {
-        state: 'AosSubmittedAwaitingAnswer',
-        data: {}
-      }
-    };
-
-    return content(ReviewAosResponse, session);
-  });
-
-  it('renders the content', () => {
     const session = {
       case: {
         state: 'DNAwaiting',
         data: {}
       }
     };
-    return content(ReviewAosResponse, session);
+    return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
+  });
+
+  it('CCD state : AosSubmittedAwaitingAnswer, renders the content to view response', () => {
+    const session = {
+      case: {
+        state: 'AosSubmittedAwaitingAnswer',
+        data: {}
+      }
+    };
+    const ignoreContent = [ 'continue', 'respondentDoesNotAgree', 'payEqualAmounts' ];
+    return content(ReviewAosResponse, session, { ignoreContent });
+  });
+
+  it('CCD state : DNAwaiting, renders the content to review response', () => {
+    const session = {
+      case: {
+        state: 'DNAwaiting',
+        data: {}
+      }
+    };
+    const ignoreContent = [ 'willDefendDivorce', 'agreedToPayCosts' ];
+    return content(ReviewAosResponse, session, { ignoreContent });
   });
 
   it.skip('returns correct answers', () => {

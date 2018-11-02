@@ -15,8 +15,11 @@ class ReviewAosResponse extends Question {
     return this.req.session.case.data;
   }
 
-  get awaitingForRespAnswer() {
-    return this.req.session.case.state === 'AosSubmittedAwaitingAnswer';
+  get template() {
+    if (this.req.session.case.state === 'AosSubmittedAwaitingAnswer') {
+      return './ViewResponse.html';
+    }
+    return './ReviewResponse.html';
   }
 
   next() {
