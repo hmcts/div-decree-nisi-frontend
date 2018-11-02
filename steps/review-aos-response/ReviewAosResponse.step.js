@@ -6,6 +6,12 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 
+const constants = {
+  viewState: 'AosSubmittedAwaitingAnswer',
+  viewTemplate: './templates/ViewResponse.html',
+  reviewTemplate: './templates/ReviewResponse.html'
+};
+
 class ReviewAosResponse extends Question {
   static get path() {
     return config.paths.reviewAosResponse;
@@ -15,11 +21,11 @@ class ReviewAosResponse extends Question {
     return this.req.session.case.data;
   }
 
-  get template() {
-    if (this.req.session.case.state === 'AosSubmittedAwaitingAnswer') {
-      return './ViewResponse.html';
+  get responseTemplate() {
+    if (this.req.session.case.state === constants.viewState) {
+      return constants.viewTemplate;
     }
-    return './ReviewResponse.html';
+    return constants.reviewTemplate;
   }
 
   next() {
