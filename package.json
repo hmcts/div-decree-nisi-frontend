@@ -78,6 +78,7 @@
     "puppeteer": "^1.4.0",
     "randomstring": "^1.1.5",
     "require-directory": "^2.1.1",
+    "rewire": "^4.0.1",
     "sinon": "^5.0.7",
     "sinon-chai": "^3.0.0",
     "sonar-scanner": "^3.1.0",
@@ -101,8 +102,8 @@
     "sourceMap": true,
     "instrument": true,
     "exclude": [
-      "services/caseOrchestrationService.js",
-      "services/redis.js"
+      "services/redis.js",
+      "test/**/*"
     ]
   }
 }
