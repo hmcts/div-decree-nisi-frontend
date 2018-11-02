@@ -19,24 +19,24 @@
 
  <details class="exit-guidance">
     <summary aria-controls="details-content-0" aria-expanded="false">
-      <span class="summary">{{ content.haveAnotherAddress }}</span>
+      <span class="summary">{{ content.haveAnotherAddress.linkSummary }}</span>
     </summary>
     
     <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-      <p>{{ content.provideAddress }}</p>
-      <p>{{ content.noExtraPay }}</p>
+      <p>{{ content.haveAnotherAddress.provideAddress }}</p>
+      <p>{{ content.haveAnotherAddress.noExtraPay }}</p>
     </div>
   </details>
    
  <details class="exit-guidance">
     <summary aria-controls="details-content-1" aria-expanded="false">
-      <span class="summary">{{ content.sendToWorkAddress }}</span>
+      <span class="summary">{{ content.sendToWorkAddress.linkSummary }}</span>
     </summary>
     
     <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
-      <p>{{ content.askToSendApp }}</p>
-      <p class="text"><b>{{ content.howToApply }}</b>{{ content.fill }} {{ content.applyD11 | safe }} {{ content.printAndSend }}</p>
-      <p><b>{{ content.howToPay }}</b>{{ content.howToPayContent }}</p>
+      <p>{{ content.sendToWorkAddress.askToSendApp }}</p>
+      <p class="text"><strong>{{ content.howToApply }}</strong>{{ content.fill }} {{ content.applyD11 | safe }} {{ content.printAndSend }}</p>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
       <p>{{ content.getNewRefNumb | safe }}</p>
       <p>{{ content.extraCosts }}</p>
     </div>
@@ -44,13 +44,13 @@
  
  <details class="exit-guidance">
     <summary aria-controls="details-content-2" aria-expanded="false">
-      <span class="summary">{{ content.needToSearchRecords }}</span>
+      <span class="summary">{{ content.needToSearchRecords.linkSummary }}</span>
     </summary>
     
     <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
-      <p>{{ content.canApplyIfRespLivesInEngWales }}</p>
-      <p><b>{{ content.howToApply }}</b> {{ content.applyViaSearchRecords }}</p>
-      <p><b>{{ content.howToPay }}</b>{{ content.howToPayContent }}</p>
+      <p>{{ content.needToSearchRecords.canApplyIfRespLivesInEngWales }}</p>
+      <p><strong>{{ content.howToApply }}</strong> {{ content.needToSearchRecords.applyViaSearchRecords }}</p>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
       <p>{{ content.getNewRefNumb | safe }}</p>
       <p>{{ content.extraCosts }}</p>
     </div>
@@ -58,13 +58,13 @@
 
  <details class="exit-guidance">
     <summary aria-controls="details-content-3" aria-expanded="false">
-      <span class="summary">{{ content.sendEmailToResp }}</span>
+      <span class="summary">{{ content.sendEmailToResp.linkSummary }}</span>
     </summary>
     
     <div class="panel panel-border-narrow" id="details-content-3" aria-hidden="true">
-      <p>{{ content.appToEmail }}</p>
-      <p><b>{{ content.howToApply }}</b> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.printAndSend }}</p>
-      <p><b>{{ content.howToPay }}</b>{{ content.howToPayContent }}</p>
+      <p>{{ content.sendEmailToResp.appToEmail }}</p>
+      <p><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.printAndSend }}</p>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
       <p>{{ content.getNewRefNumb | safe }}</p>
       <p>{{ content.extraCosts }}</p>
     </div>
@@ -72,27 +72,27 @@
 
  <details class="exit-guidance">
     <summary aria-controls="details-content-4" aria-expanded="false">
-      <span class="summary">{{ content.believeRespChoseNotToRespond }}</span>
+      <span class="summary">{{ content.believeRespChoseNotToRespond.linkSummary }}</span>
     </summary>
     
     <div class="panel panel-border-narrow" id="details-content-4" aria-hidden="true">
-      <p>{{ content.deliverPapersDirectlyToResp }}</p>
-      <p>{{ content.optionsToDeliver }}</p>
+      <p>{{ content.believeRespChoseNotToRespond.deliverPapersDirectlyToResp }}</p>
+      <p>{{ content.believeRespChoseNotToRespond.optionsToDeliver }}</p>
       <ul class="list list-bullet">
-        <li>{{ content.privateHireToDeliver }}</li>
-        <li>{{ content.courtEmpToDeliver }}</li>
+        <li>{{ content.believeRespChoseNotToRespond.privateHireToDeliver }}</li>
+        <li>{{ content.believeRespChoseNotToRespond.courtEmpToDeliver }}</li>
       </ul>
-      <p><b>{{ content.processServers }}</b></p>
-      <p>{{ content.processServerDetails }}</p>
-      <p><b>{{ content.courtBailif }}</b></p>
-      <p>{{ content.courtBailifDetails1 }}</p>
-      <p>{{ content.courtBailifDetails2 }}</p>
-      <p><b>{{ content.howToApply }}</b></p>
-      <p>{{ content.fill }} {{ content.formD89 | safe }}</p>
-      <p>{{ content.moreToSend }}</p>
+      <p><strong>{{ content.believeRespChoseNotToRespond.processServers }}</strong></p>
+      <p>{{ content.believeRespChoseNotToRespond.processServerDetails }}</p>
+      <p><strong>{{ content.believeRespChoseNotToRespond.courtBailif }}</strong></p>
+      <p>{{ content.believeRespChoseNotToRespond.courtBailifDetails1 }}</p>
+      <p>{{ content.believeRespChoseNotToRespond.courtBailifDetails2 }}</p>
+      <p><strong>{{ content.howToApply }}</strong></p>
+      <p>{{ content.fill }} {{ content.believeRespChoseNotToRespond.formD89 | safe }}</p>
+      <p>{{ content.believeRespChoseNotToRespond.moreToSend }}</p>
       <ul class="list list-bullet">
-        <li>{{ content.respPhoto }}</li>
-        <li>{{ content.divorceAppCopy }}</li>
+        <li>{{ content.believeRespChoseNotToRespond.respPhoto }}</li>
+        <li>{{ content.believeRespChoseNotToRespond.divorceAppCopy }}</li>
       </ul>
       <p>{{ content.getNewRefNumb | safe }}</p>
       <p>{{ content.extraCosts }}</p>
@@ -102,14 +102,14 @@
 
  <details class="exit-guidance">
     <summary aria-controls="details-content-5" aria-expanded="false">
-      <span class="summary">{{ content.evidenceRespWontRespond }}</span>
+      <span class="summary">{{ content.evidenceRespWontRespond.linkSummary }}</span>
     </summary>
     
     <div class="panel panel-border-narrow" id="details-content-5" aria-hidden="true">
-      <p>{{ content.canApplyForDeemedServ }}</p>
-      <p>{{ content.needToProve }}</p>
-      <p class="text"><b>{{ content.howToApply }}</b> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.applyAndSendDocs }}</p>
-      <p><b>{{ content.howToPay }}</b>{{ content.howToPayContent }}</p>
+      <p>{{ content.evidenceRespWontRespond.canApplyForDeemedServ }}</p>
+      <p>{{ content.evidenceRespWontRespond.needToProve }}</p>
+      <p class="text"><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.evidenceRespWontRespond.applyAndSendDocs }}</p>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
       <p>{{ content.getNewRefNumb | safe }}</p>
       <p>{{ content.extraCosts }}</p>
     </div>
@@ -118,21 +118,21 @@
 
  <details class="exit-guidance">
     <summary aria-controls="details-content-6" aria-expanded="false">
-      <span class="summary">{{ content.doneWithAllWaysOfDelivering }}</span>
+      <span class="summary">{{ content.doneWithAllWaysOfDelivering.linkSummary }}</span>
     </summary>
     
     <div class="panel panel-border-narrow" id="details-content-6" aria-hidden="true">
-      <p>{{ content.askForDispenseWithService }}</p>
-      <p>{{ content.allInCourtHands }}</p>
+      <p>{{ content.doneWithAllWaysOfDelivering.askForDispenseWithService }}</p>
+      <p>{{ content.doneWithAllWaysOfDelivering.allInCourtHands }}</p>
       <ul class="list list-bullet">
-        <li>{{ content.relatives }}</li>
-        <li>{{ content.friends }}</li>
-        <li>{{ content.lastEmployer }}</li>
-        <li>{{ content.tradePlace }}</li>
+        <li>{{ content.doneWithAllWaysOfDelivering.relatives }}</li>
+        <li>{{ content.doneWithAllWaysOfDelivering.friends }}</li>
+        <li>{{ content.doneWithAllWaysOfDelivering.lastEmployer }}</li>
+        <li>{{ content.doneWithAllWaysOfDelivering.tradePlace }}</li>
       </ul>
-      <p>{{ content.searchInGovtDB }}</p>
-      <p><b>{{ content.howToApply }}</b> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.and }} {{ content.applyD13bLink | safe }} {{ content.applyD11AndD13bContent }}</p>
-      <p><b>{{ content.howToPay }}</b>{{ content.howToPayContent }}</p>
+      <p>{{ content.doneWithAllWaysOfDelivering.searchInGovtDB }}</p>
+      <p><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.doneWithAllWaysOfDelivering.and }} {{ content.doneWithAllWaysOfDelivering.applyD13bLink | safe }} {{ content.doneWithAllWaysOfDelivering.applyD11AndD13bContent }}</p>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
       <p>{{ content.getNewRefNumb | safe }}</p>
       <p>{{ content.extraCosts }}</p>
     </div>
