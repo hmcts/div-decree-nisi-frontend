@@ -34,18 +34,18 @@ describe(modulePath, () => {
     return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
   });
 
-  it('redirects to ShareCourtDocuments if answer is suggestedAmount', () => {
-    const fields = { claimCosts: 'suggestedAmount' };
+  it('redirects to ShareCourtDocuments if answer is counterOffer', () => {
+    const fields = { claimCosts: 'counterOffer' };
     return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
   });
 
-  it('redirects to ShareCourtDocuments if answer is dontClaimDifferentAmount', () => {
-    const fields = { claimCosts: 'dontClaimDifferentAmount' };
+  it('redirects to ShareCourtDocuments if answer is endClaim', () => {
+    const fields = { claimCosts: 'endClaim' };
     return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
   });
 
   it('loads fields from the session', () => {
-    const stepData = { claimCosts: 'dontClaimDifferentAmount' };
+    const stepData = { claimCosts: 'endClaim' };
     return question.rendersValues(ClaimCosts, stepData, session);
   });
 

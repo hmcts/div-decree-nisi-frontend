@@ -16,7 +16,7 @@ class ClaimCosts extends Question {
   }
 
   get form() {
-    const answers = ['originalAmount', 'suggestedAmount', 'dontClaimDifferentAmount'];
+    const answers = ['originalAmount', 'counterOffer', 'endClaim'];
     const validAnswers = Joi.string()
       .valid(answers)
       .required();
