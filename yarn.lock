@@ -314,9 +314,9 @@
     slug "^0.9.1"
     url-parse "^1.2.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page.git#94eea72cedf067b3a018a5e25a02f23730adb926":
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page.git#6bd206c0208ce35b011bb5818ab15db35aaf9e3d":
   version "5.0.0"
-  resolved "https://github.com/hmcts/one-per-page.git#94eea72cedf067b3a018a5e25a02f23730adb926"
+  resolved "https://github.com/hmcts/one-per-page.git#6bd206c0208ce35b011bb5818ab15db35aaf9e3d"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
