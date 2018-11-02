@@ -328,9 +328,22 @@ describe(modulePath, () => {
       interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
     });
 
-    it('redirects reviewAosResponse when CCD has respDefendsDivorce as Yes', () => {
+    it('redirects ReviewAosResponse when CCD state:DNAwaiting, respDefendsDivorce: Yes ', () => {
       const session = {
         case: {
+          state: 'DNAwaiting',
+          data: {
+            respDefendsDivorce: 'Yes'
+          }
+        }
+      };
+      interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    it('redirects to ReviewAosResponse if CCD state: AosSubmittedAwaitingAnswer', () => {
+      const session = {
+        case: {
+          state: 'AosSubmittedAwaitingAnswer',
           data: {
             respDefendsDivorce: 'Yes'
           }
