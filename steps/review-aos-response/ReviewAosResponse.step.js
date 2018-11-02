@@ -7,7 +7,7 @@ const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 
 const constants = {
-  viewState: 'AosSubmittedAwaitingAnswer',
+  viewOnlyState: 'AosSubmittedAwaitingAnswer',
   viewTemplate: './templates/ViewResponse.html',
   reviewTemplate: './templates/ReviewResponse.html'
 };
@@ -22,7 +22,7 @@ class ReviewAosResponse extends Question {
   }
 
   get responseTemplate() {
-    if (this.req.session.case.state === constants.viewState) {
+    if (this.req.session.case.state === constants.viewOnlyState) {
       return constants.viewTemplate;
     }
     return constants.reviewTemplate;
