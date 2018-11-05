@@ -16,19 +16,18 @@ const excludedWarnings = [
   'The “navigation” role is unnecessary for element “nav”.'
 ];
 const filteredWarnings = r => {
-  if (excludedWarnings.includes(r.message)) {
-    return false;
-  }
-  return true;
+  return !excludedWarnings.includes(r.message);
 };
 
-const excludeErrors = ['Attribute “pattern” is only allowed when the input type is “email”, “password”, “search”, “tel”, “text”, or “url”.']; // eslint-disable-line
-
+/* eslint-disable */
+// FIXME - Ignored errors (temporarily)
+const excludeErrors = [
+  'Attribute “pattern” is only allowed when the input type is “email”, “password”, “search”, “tel”, “text”, or “url”.',
+  'Element “h2” not allowed as child of element “legend” in this context. (Suppressing further errors from this subtree.)'
+];
+/* eslint-enable */
 const filteredErrors = r => {
-  if (excludeErrors.includes(r.message)) {
-    return false;
-  }
-  return true;
+  return !excludeErrors.includes(r.message);
 };
 
 // ensure step has a template - if it doesnt no need to test it
@@ -76,7 +75,7 @@ const w3cjsValidate = html => {
 steps
   .filter(filterSteps)
   .forEach(step => {
-    describe.skip(`Validate html for the page ${step.name}`, () => {
+    describe(`Validate html for the page ${step.name}`, () => {
       let errors = [];
       let warnings = [];
 
