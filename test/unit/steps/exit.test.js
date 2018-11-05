@@ -34,16 +34,12 @@ describe(modulePath, () => {
 
   describe('values', () => {
     it('displays divorce center details', () => {
+      const ignoreContent = ['continue', 'serviceName', 'signOut'];
+
       return content(
         Exit,
         session,
-        {
-          specificValues: [
-            session.case.data.court.northWest.openingHours,
-            session.case.data.court.northWest.phoneNumber,
-            session.case.data.court.northWest.email
-          ]
-        }
+        { ignoreContent }
       );
     });
   });

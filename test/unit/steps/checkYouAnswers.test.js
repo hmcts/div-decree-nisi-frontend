@@ -83,7 +83,7 @@ describe(modulePath, () => {
         case: {
           data: {
             claimsCosts: 'Yes',
-            divorceClaimFrom: ['respondent', 'correspondent']
+            claimsCostsFrom: ['respondent', 'correspondent']
           }
         }
       };
@@ -96,7 +96,7 @@ describe(modulePath, () => {
         case: {
           data: {
             claimsCosts: 'Yes',
-            divorceClaimFrom: ['respondent']
+            claimsCostsFrom: ['respondent']
           }
         }
       };
@@ -109,7 +109,7 @@ describe(modulePath, () => {
         case: {
           data: {
             claimsCosts: 'Yes',
-            divorceClaimFrom: ['correspondent']
+            claimsCostsFrom: ['correspondent']
           }
         }
       };
@@ -118,7 +118,8 @@ describe(modulePath, () => {
     });
 
     it('no claim costs', () => {
-      const session = { case: { data: { claimsCosts: 'No' } } };
+      const session = { case: { data: {} },
+        ClaimCosts: { claimCosts: 'dontClaimDifferentAmount' } };
       const specificContent = ['applyingForDecreeNisi'];
       return content(CheckYourAnswers, session, { specificContent });
     });

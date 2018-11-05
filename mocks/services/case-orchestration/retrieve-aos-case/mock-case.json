@@ -160,7 +160,7 @@
     "paymentPhoneNumber": "1234567332",
     "divorceCostsClaim": "Yes",
     "divorceIsNamed": "Yes",
-    "divorceClaimFrom": [
+    "claimsCostsFrom": [
       "respondent"
     ],
     "jurisdictionIsConnected": true,
