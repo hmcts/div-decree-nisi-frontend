@@ -76,7 +76,7 @@ const w3cjsValidate = html => {
 steps
   .filter(filterSteps)
   .forEach(step => {
-    describe(`Validate html for the page ${step.name}`, () => {
+    describe.skip(`Validate html for the page ${step.name}`, () => {
       let errors = [];
       let warnings = [];
 
