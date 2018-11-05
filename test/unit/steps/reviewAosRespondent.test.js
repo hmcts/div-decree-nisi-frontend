@@ -37,7 +37,13 @@ describe(modulePath, () => {
         data: {}
       }
     };
-    const ignoreContent = [ 'continue', 'respondentDoesNotAgree', 'payEqualAmounts' ];
+    const ignoreContent = [
+      'continue',
+      'respondentDoesNotAgree',
+      'payEqualAmounts',
+      'payCosts',
+      'suggestPayingDifferent'
+    ];
     return content(ReviewAosResponse, session, { ignoreContent });
   });
 
@@ -48,7 +54,12 @@ describe(modulePath, () => {
         data: {}
       }
     };
-    const ignoreContent = [ 'willDefendDivorce', 'agreedToPayCosts' ];
+    const ignoreContent = [
+      'willDefendDivorce',
+      'agreedToPayCosts',
+      'viewPayCosts',
+      'viewSuggestPayingDifferent'
+    ];
     return content(ReviewAosResponse, session, { ignoreContent });
   });
 

@@ -26,6 +26,8 @@
     "payCosts": "to pay the costs that you suggested",
     "notPayCosts": "to not agree to paying any of the costs",
     "suggestPayingDifferent": "to suggest paying a different amount",
+    "viewPayCosts": "to agree to pay some or all of the costs of the divorce",
+    "viewSuggestPayingDifferent": "to suggest that they pay half the costs (50%)",
     "chanceToChangeAmount": "You'll be given a chance to change the amount that you want to claim later in this application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ case.divorceWho }} make.",
     "fields": {
       "reviewAosResponse": {
