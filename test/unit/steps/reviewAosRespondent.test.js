@@ -42,7 +42,8 @@ describe(modulePath, () => {
       'respondentDoesNotAgree',
       'payEqualAmounts',
       'payCosts',
-      'suggestPayingDifferent'
+      'suggestPayingDifferent',
+      'chanceToChangeAmount'
     ];
     return content(ReviewAosResponse, session, { ignoreContent });
   });
@@ -58,7 +59,8 @@ describe(modulePath, () => {
       'willDefendDivorce',
       'agreedToPayCosts',
       'viewPayCosts',
-      'viewSuggestPayingDifferent'
+      'viewSuggestPayingDifferent',
+      'viewChanceToChangeAmount'
     ];
     return content(ReviewAosResponse, session, { ignoreContent });
   });
