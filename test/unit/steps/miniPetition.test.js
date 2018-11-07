@@ -1067,14 +1067,18 @@ describe(modulePath, () => {
         case: {
           data: {
             connections: {},
-            reasonForDivorceAdultery3rdAddress: ['line1', 'line2', 'postcode']
+            reasonForDivorceAdultery3rdAddress: {
+              address: 'line2, line2, line3'
+            }
           }
         }
       };
       return content(
         MiniPetition,
         session,
-        { specificContent: ['coRespondentsCorrespondenceAddress'] });
+        {
+          specificValues: [session.case.data.reasonForDivorceAdultery3rdAddress.address]
+        });
     });
 
     it('shows petitioners solicitors address if allowed and available', () => {
