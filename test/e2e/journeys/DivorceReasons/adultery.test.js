@@ -3,6 +3,7 @@ const request = require('request-promise-native');
 const { merge } = require('lodash');
 const mockCaseResponse = require('mocks/services/case-orchestration/retrieve-aos-case/mock-case');
 const config = require('config');
+const moment = require('moment');
 
 const Start = require('steps/start/Start.step');
 const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
@@ -67,9 +68,9 @@ describe('Adultery DN flow', () => {
       },
       { step: Intolerable, body: { intolerable: 'yes' } },
       { step: AdulteryFirstFoundOut, body: {
-        'changes-adulteryFirstFoundDate-day': '09',
-        'changes-adulteryFirstFoundDate-month': '08',
-        'changes-adulteryFirstFoundDate-year': '2011'
+        'adulteryFirstFoundDate-day': '09',
+        'adulteryFirstFoundDate-month': '08',
+        'adulteryFirstFoundDate-year': '2011'
       } },
       { step: LivedApartSinceAdultery, body: { 'livedApart-livedApartSinceAdultery': 'yes' } },
       { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
@@ -80,7 +81,7 @@ describe('Adultery DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        adulteryFirstFoundDate: { day: '09', month: '08', year: '2011' },
+        adulteryFirstFoundDate: moment('2011-08-09'),
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes'
@@ -104,9 +105,9 @@ describe('Adultery DN flow', () => {
       },
       { step: Intolerable, body: { intolerable: 'yes' } },
       { step: AdulteryFirstFoundOut, body: {
-        'changes-adulteryFirstFoundDate-day': '09',
-        'changes-adulteryFirstFoundDate-month': '08',
-        'changes-adulteryFirstFoundDate-year': '2011'
+        'adulteryFirstFoundDate-day': '09',
+        'adulteryFirstFoundDate-month': '08',
+        'adulteryFirstFoundDate-year': '2011'
       } },
       { step: LivedApartSinceAdultery, body: {
         'livedApart-livedApartSinceAdultery': 'no',
@@ -120,8 +121,9 @@ describe('Adultery DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        adulteryFirstFoundDate: { day: '09', month: '08', year: '2011' },
+        adulteryFirstFoundDate: moment('2011-08-09'),
         claimCosts: 'originalAmount',
+        intolerable: 'yes',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes'
       };

@@ -3,6 +3,7 @@ const request = require('request-promise-native');
 const { merge } = require('lodash');
 const mockCaseResponse = require('mocks/services/case-orchestration/retrieve-aos-case/mock-case');
 const config = require('config');
+const moment = require('moment');
 
 const Start = require('steps/start/Start.step');
 const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
@@ -118,7 +119,7 @@ describe('Unreasonable behaviour', () => {
       const body = {
         behaviourContinuedSinceApplication: 'no',
         claimCosts: 'originalAmount',
-        lastIncidentDate: { day: '20', month: '08', year: '2018' },
+        lastIncidentDate: moment('2018-08-20'),
         livedApartSinceLastIncidentDate: 'yes',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes'
