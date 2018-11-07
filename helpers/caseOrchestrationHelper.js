@@ -3,6 +3,11 @@
 
 const sessionToCosMapping = require('resources/sessionToCosMapping');
 const { get } = require('lodash');
+const moment = require('moment');
+
+moment.fn.toJSON = function toJSON() {
+  return this.utc().format();
+};
 
 const formatSessionForSubmit = req => {
   const { journey } = req;
