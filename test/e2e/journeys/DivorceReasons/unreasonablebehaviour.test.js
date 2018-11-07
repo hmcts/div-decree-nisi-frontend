@@ -3,7 +3,6 @@ const request = require('request-promise-native');
 const { merge } = require('lodash');
 const mockCaseResponse = require('mocks/services/case-orchestration/retrieve-aos-case/mock-case');
 const config = require('config');
-const moment = require('moment');
 
 const Start = require('steps/start/Start.step');
 const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
@@ -26,6 +25,11 @@ const session = {
   reasonForDivorce: 'unreasonable-behaviour',
   respDefendsDivorce: null,
   reasonForDivorceBehaviourDetails: 'details'
+};
+
+const matchParam = (paramName, expected) => actual => {
+  const paramValue = JSON.stringify(actual[paramName]);
+  return JSON.stringify(expected) === paramValue;
 };
 
 let caseOrchestrationServiceSubmitStub = {};
@@ -77,12 +81,17 @@ describe('Unreasonable behaviour', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        behaviourContinuedSinceApplication: 'yes',
+        statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        behaviourContinuedSinceApplication: 'yes',
+        lastIncidentDate: 'Invalid date'
       };
-      sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
+      sinon.assert.calledWith(
+        caseOrchestrationServiceSubmitStub,
+        sinon.match(matchParam('body', body)
+        )
+      );
     });
   });
 
@@ -117,14 +126,18 @@ describe('Unreasonable behaviour', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        behaviourContinuedSinceApplication: 'no',
+        statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
-        lastIncidentDate: moment('2018-08-20'),
-        livedApartSinceLastIncidentDate: 'yes',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        behaviourContinuedSinceApplication: 'no',
+        lastIncidentDate: '2018-08-19T23:00:00Z',
+        livedApartSinceLastIncidentDate: 'yes'
       };
-      sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
+      sinon.assert.calledWith(
+        caseOrchestrationServiceSubmitStub,
+        sinon.match(matchParam('body', body)
+        )
+      );
     });
   });
 });

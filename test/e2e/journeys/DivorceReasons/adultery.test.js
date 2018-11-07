@@ -3,7 +3,6 @@ const request = require('request-promise-native');
 const { merge } = require('lodash');
 const mockCaseResponse = require('mocks/services/case-orchestration/retrieve-aos-case/mock-case');
 const config = require('config');
-const moment = require('moment');
 
 const Start = require('steps/start/Start.step');
 const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
@@ -29,6 +28,12 @@ const session = {
 };
 
 let caseOrchestrationServiceSubmitStub = {};
+
+const matchParam = (paramName, expected) => actual => {
+  const paramValue = JSON.stringify(actual[paramName]);
+  return JSON.stringify(expected) === paramValue;
+};
+
 
 describe('Adultery DN flow', () => {
   before(() => {
@@ -81,12 +86,17 @@ describe('Adultery DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        adulteryFirstFoundDate: moment('2011-08-09'),
+        statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        intolerable: 'yes',
+        adulteryFirstFoundDate: '2011-08-08T23:00:00Z'
       };
-      sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
+      sinon.assert.calledWith(
+        caseOrchestrationServiceSubmitStub,
+        sinon.match(matchParam('body', body)
+        )
+      );
     });
   });
 
@@ -121,13 +131,17 @@ describe('Adultery DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        adulteryFirstFoundDate: moment('2011-08-09'),
+        statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
-        intolerable: 'yes',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        intolerable: 'yes',
+        adulteryFirstFoundDate: '2011-08-08T23:00:00Z'
       };
-      sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
+      sinon.assert.calledWith(
+        caseOrchestrationServiceSubmitStub,
+        sinon.match(matchParam('body', body)
+        )
+      );
     });
   });
 
