@@ -51,10 +51,6 @@ class AdulteryFirstFoundOut extends Question {
   get middleware() {
     return [...super.middleware, idam.protect()];
   }
-
-  values() {
-    return { adulteryFirstFoundDate: this.fields.adulteryFirstFoundDate.value.format('YYYY-MM-DD') };
-  }
 }
 
 module.exports = AdulteryFirstFoundOut;
