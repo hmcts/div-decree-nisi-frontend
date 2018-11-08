@@ -1,6 +1,7 @@
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
 const PetitionProgressBar = require(modulePath);
+const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const idam = require('services/idam');
@@ -317,6 +318,17 @@ describe(modulePath, () => {
   });
 
   describe('navigation', () => {
+    it('redirects dnNoResponse when CCD state: AOSOverdue', () => {
+      const session = {
+        case: {
+          data: {
+            state: 'AOSOverdue'
+          }
+        }
+      };
+      interstitial.navigatesToNext(PetitionProgressBar, DnNoResponse, session);
+    });
+
     it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
       const session = {
         case: {

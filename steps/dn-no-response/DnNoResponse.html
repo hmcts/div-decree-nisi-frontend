@@ -1,0 +1,182 @@
+{% extends "page.njk" %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+  <p>{{ content.courtHearsBothParties | safe }}</p>
+  <div class="notice">
+    <em class="icon icon-important">
+      <span class="visuallyhidden"></span>
+    </em>
+    <p class="bold-small">{{ content.infoToContactRespondent }}</p>
+  </div>
+  <p>{{ content.provideNewAddrToCourt | safe }}</p>
+  <p>{{ content.noResponseOptions | safe }}</p>
+
+  <h2 class="heading-medium">{{ content.whichSituation }}</h2>
+
+ <details class="exit-guidance">
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.haveAnotherAddress.linkSummary }}</span>
+    </summary>
+    
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p>{{ content.haveAnotherAddress.provideAddress }}</p>
+      <p>{{ content.haveAnotherAddress.noExtraPay }}</p>
+    </div>
+  </details>
+   
+ <details class="exit-guidance">
+    <summary aria-controls="details-content-1" aria-expanded="false">
+      <span class="summary">{{ content.sendToWorkAddress.linkSummary }}</span>
+    </summary>
+    
+    <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
+      <p>{{ content.sendToWorkAddress.askToSendApp }}</p>
+      <p class="text"><strong>{{ content.howToApply }}</strong>{{ content.fill }} {{ content.applyD11 | safe }} {{ content.printAndSend }}</p>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
+      <p>{{ content.getNewRefNumb | safe }}</p>
+      <p>{{ content.extraCosts }}</p>
+    </div>
+  </details>
+ 
+ <details class="exit-guidance">
+    <summary aria-controls="details-content-2" aria-expanded="false">
+      <span class="summary">{{ content.needToSearchRecords.linkSummary }}</span>
+    </summary>
+    
+    <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
+      <p>{{ content.needToSearchRecords.canApplyIfRespLivesInEngWales }}</p>
+      <p><strong>{{ content.howToApply }}</strong> {{ content.needToSearchRecords.applyViaSearchRecords }}</p>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
+      <p>{{ content.getNewRefNumb | safe }}</p>
+      <p>{{ content.extraCosts }}</p>
+    </div>
+  </details>
+
+ <details class="exit-guidance">
+    <summary aria-controls="details-content-3" aria-expanded="false">
+      <span class="summary">{{ content.sendEmailToResp.linkSummary }}</span>
+    </summary>
+    
+    <div class="panel panel-border-narrow" id="details-content-3" aria-hidden="true">
+      <p>{{ content.sendEmailToResp.appToEmail }}</p>
+      <p><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.printAndSend }}</p>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
+      <p>{{ content.getNewRefNumb | safe }}</p>
+      <p>{{ content.extraCosts }}</p>
+    </div>
+  </details>
+
+ <details class="exit-guidance">
+    <summary aria-controls="details-content-4" aria-expanded="false">
+      <span class="summary">{{ content.believeRespChoseNotToRespond.linkSummary }}</span>
+    </summary>
+    
+    <div class="panel panel-border-narrow" id="details-content-4" aria-hidden="true">
+      <p>{{ content.believeRespChoseNotToRespond.deliverPapersDirectlyToResp }}</p>
+      <p>{{ content.believeRespChoseNotToRespond.optionsToDeliver }}</p>
+      <ul class="list list-bullet">
+        <li>{{ content.believeRespChoseNotToRespond.privateHireToDeliver }}</li>
+        <li>{{ content.believeRespChoseNotToRespond.courtEmpToDeliver }}</li>
+      </ul>
+      <p><strong>{{ content.believeRespChoseNotToRespond.processServers }}</strong></p>
+      <p>{{ content.believeRespChoseNotToRespond.processServerDetails }}</p>
+      <p><strong>{{ content.believeRespChoseNotToRespond.courtBailif }}</strong></p>
+      <p>{{ content.believeRespChoseNotToRespond.courtBailifDetails1 }}</p>
+      <p>{{ content.believeRespChoseNotToRespond.courtBailifDetails2 }}</p>
+      <p><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.believeRespChoseNotToRespond.formD89 | safe }}</p>
+      <p>{{ content.believeRespChoseNotToRespond.moreToSend }}</p>
+      <ul class="list list-bullet">
+        <li>{{ content.believeRespChoseNotToRespond.respPhoto }}</li>
+        <li>{{ content.believeRespChoseNotToRespond.divorceAppCopy }}</li>
+      </ul>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayBailiffContent }}</p>
+      <p>{{ content.getNewRefNumb | safe }}</p>
+      <p>{{ content.extraCosts }}</p>
+    </div>
+  </details>
+
+
+ <details class="exit-guidance">
+    <summary aria-controls="details-content-5" aria-expanded="false">
+      <span class="summary">{{ content.evidenceRespWontRespond.linkSummary }}</span>
+    </summary>
+    
+    <div class="panel panel-border-narrow" id="details-content-5" aria-hidden="true">
+      <p>{{ content.evidenceRespWontRespond.canApplyForDeemedServ }}</p>
+      <p>{{ content.evidenceRespWontRespond.needToProve }}</p>
+      <p class="text"><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.evidenceRespWontRespond.applyAndSendDocs }}</p>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
+      <p>{{ content.getNewRefNumb | safe }}</p>
+      <p>{{ content.extraCosts }}</p>
+    </div>
+  </details>
+
+
+ <details class="exit-guidance">
+    <summary aria-controls="details-content-6" aria-expanded="false">
+      <span class="summary">{{ content.doneWithAllWaysOfDelivering.linkSummary }}</span>
+    </summary>
+    
+    <div class="panel panel-border-narrow" id="details-content-6" aria-hidden="true">
+      <p>{{ content.doneWithAllWaysOfDelivering.askForDispenseWithService }}</p>
+      <p>{{ content.doneWithAllWaysOfDelivering.allInCourtHands }}</p>
+      <ul class="list list-bullet">
+        <li>{{ content.doneWithAllWaysOfDelivering.relatives }}</li>
+        <li>{{ content.doneWithAllWaysOfDelivering.friends }}</li>
+        <li>{{ content.doneWithAllWaysOfDelivering.lastEmployer }}</li>
+        <li>{{ content.doneWithAllWaysOfDelivering.tradePlace }}</li>
+      </ul>
+      <p>{{ content.doneWithAllWaysOfDelivering.searchInGovtDB }}</p>
+      <p><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.doneWithAllWaysOfDelivering.and }} {{ content.doneWithAllWaysOfDelivering.applyD13bLink | safe }} {{ content.doneWithAllWaysOfDelivering.applyD11AndD13bContent }}</p>
+      <p><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
+      <p>{{ content.getNewRefNumb | safe }}</p>
+      <p>{{ content.extraCosts }}</p>
+    </div>
+  </details>
+
+  {% endblock %}
+  {% block one_third %}
+  <aside class="govuk-related-items" role="complementary">
+
+    <h3 class="heading-small">{{ content.help }}</h3>
+
+    <ul class="font-xsmall">
+      <li>
+        <strong class="bold-xsmall">{{ content.email }}</strong><br>
+        <a href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail }}</a><br>
+      </li>
+      <li>
+        <strong class="bold-xsmall">{{ content.phone }}</strong><br>
+        {{ content.phoneNumber }} <br>
+        {{ content.openTimes }} <br>
+      </li>
+      <li>
+        <strong class="bold-xsmall">{{ content.courtsAndTribunals }}</strong><br>
+        {{ content.courtsCenterPrefix }} 
+        {{ case.court[case.courts].divorceCentre | safe}} <br>
+        {% if case.court[case.courts].poBox %}
+          {{ case.court[case.courts].poBox | safe}} <br>
+        {% endif %}
+        {{ case.court[case.courts].courtCity | safe}} <br>
+        {{ case.court[case.courts].postCode  | safe}} <br>
+      </li>
+    </ul>
+
+    <h3 class="heading-small" id="subsection-title">{{ content.guidence }}</h3>
+
+    <nav role="navigation" aria-labelledby="subsection-title">
+      <ul class="font-xsmall">
+        <li>{{ content.howRespondsLink | safe }}</li>
+        <li>{{ content.decreeNisiLink | safe }}</li>
+        <li>{{ content.decreeAbsoluteLink | safe }}</li>
+        <li>{{ content.childrenAndDivorceLink | safe }}</li>
+        <li>{{ content.moneyAndPropertyLink | safe }}</li>
+     </ul>
+    </nav>
+  </aside>
+{% endblock %}
+
