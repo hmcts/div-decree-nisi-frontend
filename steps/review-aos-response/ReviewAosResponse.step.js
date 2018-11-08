@@ -6,6 +6,17 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 
+const constants = {
+  viewOnlyState: 'AosSubmittedAwaitingAnswer',
+  viewTemplate: './templates/ViewResponse.html',
+  reviewTemplate: './templates/ReviewResponse.html',
+  sep5yr: 'separation-5-years',
+  sep2yr: 'separation-5-years',
+  adultery: 'adultery',
+  yes: 'Yes',
+  no: 'No'
+};
+
 class ReviewAosResponse extends Question {
   static get path() {
     return config.paths.reviewAosResponse;
@@ -13,6 +24,33 @@ class ReviewAosResponse extends Question {
 
   get case() {
     return this.req.session.case.data;
+  }
+
+  get consts() {
+    return constants;
+  }
+
+  exist(key) {
+    return this.case[key] === this.consts.yes;
+  }
+
+  get adultery() {
+    return this.case.reasonForDivorce === this.consts.adultery;
+  }
+
+  get sep2yr() {
+    return this.case.reasonForDivorce === this.consts.sep2yr;
+  }
+
+  get sep5yr() {
+    return this.case.reasonForDivorce === this.consts.sep5yr;
+  }
+
+  get responseTemplate() {
+    if (this.req.session.case.state === this.consts.viewOnlyState) {
+      return this.consts.viewTemplate;
+    }
+    return this.consts.reviewTemplate;
   }
 
   next() {

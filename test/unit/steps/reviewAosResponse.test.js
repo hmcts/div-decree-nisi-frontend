@@ -26,6 +26,7 @@ describe(modulePath, () => {
 
   it('renders the content', () => {
     const session = { case: { data: {} } };
+
     return content(ReviewAosResponse, session);
   });
 

@@ -1,0 +1,37 @@
+
+  <h3 class="heading-small">{{ content.jurisdiction.title }}</h3>
+
+  {% if exist(respJurisdictionAgree) %}
+    <p class="text">{{ content.jurisdiction.respondentAgrees }}</p>
+  {% else %}
+    <p class="text">{{ content.jurisdiction.respDoesNotAgree }}</p> 
+  
+    <p class="text">{{ content.jurisdiction.detailsGiven }}</p> 
+    <div class="panel panel-border-narrow">
+      <p class="text">{{ case.respJurisdictionDisagreeReason | safe }}</p>
+    </div>
+
+    <p class="text">{{ content.jurisdiction.countryTheyResp }}</p> 
+    <div class="panel panel-border-narrow">
+      <p class="text">{{ case.respJurisdictionRespCountryOfResidence | safe }}</p>
+    </div>
+  {% endif %}
+
+  {% if exist(respLegalProceedingsExist) %}
+    <p class="text">{{ content.jurisdiction.otherProceedings }}</p> 
+    <div class="panel panel-border-narrow">
+      <p class="text">{{ case.respLegalProceedingsDescription | safe }}</p>
+    </div>
+  {% else %}
+    <p class="text">{{ content.jurisdiction.noOtherProceedings }}</p>
+  {% endif %}
+
+  <details>
+    <summary aria-controls="details-content-1" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
+      <p class="text">{{ content.jurisdiction.respondentWasAsked }}</p>
+      <p class="text">{{ content.jurisdiction.courtProceedings }}</p>
+    </div>
+  </details>

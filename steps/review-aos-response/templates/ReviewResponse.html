@@ -1,0 +1,31 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import hiddenInput %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+  <p class="text">{{ content.youNeedToRead | safe }}</p>
+
+  <h2 class="heading-medium">{{ content.acknowledgementOfSrvice }}</h2>
+
+  <h3 class="heading-small">{{ content.respondent }}</h3>
+  <p class="text">{{ case.respondentFirstName }} {{ case.respondentLastName }}</p>
+
+  <h3 class="heading-small">{{ content.applicant }}</h3>
+  <p class="text">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
+
+  <br>
+
+  {% include "./howRespondentProceed.html" %}
+  {% include "./jurisdiction.html" %}
+  {% include "./costOrder.html" %}
+
+  <h3 class="heading-small">{{ content.statementOfTruth.title }}</h3>
+  <p class="text">{{ content.statementOfTruth.details }}</p>
+  <p class="text"><em>{{ case.respondentFirstName }} {{ case.respondentLastName }}</em></p>
+
+  {{ hiddenInput(fields.reviewAosResponse, value='yes') }}
+{% endblock %}

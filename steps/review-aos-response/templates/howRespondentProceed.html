@@ -1,0 +1,57 @@
+
+  <h3 class="heading-small">{{ content.respProceed.title }}</h3>
+  {% if not exist(respDefendsDivorce) and respAdmitOrConsentToFact %}
+     <p class="text">{{ content.respProceed.willLetDivorceProceed }}</p>
+  {% elif not exist(respDefendsDivorce) and not respAdmitOrConsentToFact %}
+     <p class="text">{{ content.respProceed.letDivorceProceedButNotAdmit }}</p> 
+  {% elif exist(respDefendsDivorce) and not respAdmitOrConsentToFact %}
+     <p class="text">{{ content.respProceed.willDefendDivorce }}</p>
+  {% endif %}
+
+  {% if adultery %}
+    {% if exist(respAdmitOrConsentToFact) %}
+        <p class="text">{{ content.respProceed.adultery.admitsAdultery }}</p>
+    {% elif not exist(respAdmitOrConsentToFact) %}
+        <p class="text">{{ content.respProceed.adultery.doesNotAdmitAdultery }}</p>
+    {% endif %}
+  {% endif %}
+
+  {% if sep2yr %}
+     {% if exist(respAdmitOrConsentToFact) %}
+        <p class="text">{{ content.respProceed.sep2Yr.respConsent }}</p>
+     {% else %}
+         <p class="text">{{ content.respProceed.sep2Yr.respDoesNotContent }}</p>
+     {% endif %}
+  {% endif %}
+
+  {% if sep5yr and exist(respDefendsDivorce) %}
+    {% if respHardshipDefenseResponse %}
+      <p class="text">{{ content.respProceed.defendingFinancialHardship }}</p>
+      <p class="text">{{ case.respHardshipDefenseResponse | safe }}</p>
+    {% else %}
+      <p class="text">{{ content.respProceed.notDefendingFinancialHardship }}</p>
+    {% endif %}
+  {% endif %}
+
+  {% if sep2yr or sep5yr %}
+    {% if exist(respConsiderFinancialSituation) %}
+         <p class="text">{{ content.respProceed.sep.intendingToDelayDivorce }}</p>
+    {% else %}
+      <p class="text">{{ content.respProceed.sep.notIntendingToDelayDivorce }}</p>
+     {% endif %}
+  {% endif %}
+
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.respProceed.givenOptions }}</p>
+
+      <ul class="bullet list-bullet">
+        <li>{{ content.respProceed.proceedWithDivorce }}</li>
+        <li>{{ content.respProceed.proceedNotAccept }}</li>
+        <li>{{ content.respProceed.disagree }}</li>
+      </ul>
+    </div>
+  </details>
