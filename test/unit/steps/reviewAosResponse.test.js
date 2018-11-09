@@ -33,7 +33,7 @@ describe(modulePath, () => {
       expect(instance.responseTemplate).to.eql(instance.consts.viewTemplate);
     });
 
-    it('Continue button should be rendered', () => {
+    it('Continue button should content not be rendered', () => {
       const session = {
         case: {
           state: 'AosSubmittedAwaitingAnswer',
@@ -64,7 +64,7 @@ describe(modulePath, () => {
           data: {}
         }
       };
-      const specificContent = [commonContent.en.continue];
+      const specificContent = [ 'continue' ];
       return content(ReviewAosResponse, session, { specificContent });
     });
 

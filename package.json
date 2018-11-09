@@ -58,7 +58,7 @@
     "util": "^0.11.0"
   },
   "devDependencies": {
-    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#93da471881c5b0a7c15827f8532661d3bcc8addb",
+    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#9755c87f8b4fb467ce8712674c18b5baf52dc807",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
