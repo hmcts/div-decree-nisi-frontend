@@ -13,19 +13,21 @@
       "willDefendDivorce": "The respondent has stated in their response that they will defend the divorce.",
       "willLetDivorceProceed": "The respondent will let the divorce proceed (doesn't intend to 'defend' it).",
       "letDivorceProceedButNotAdmit": "The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't admit to what you said about them .",
-      "defendingFinancialHardship": "The respondent is defending on the basis that it will cause them severe hardship and provided the following explanation:",
-      "notDefendingFinancialHardship":"The respondent is not defending on the basis that it will cause them severe hardship.",
       "adultery": {
         "admitsAdultery": "The respondent admits to committing the adultery.",
         "doesNotAdmitAdultery": "The respondent does not admit to committing the adultery."
+      },
+      "sep": {
+        "intendingToDelayDivorce":"The respondent is intending to ask the court to delay the divorce until it’s satisfied with their financial situation.",
+        "notIntendingToDelayDivorce":"The respondent is not intending to ask the court to delay the divorce until it’s satisfied with their financial situation."
       },
       "sep2Yr": {
         "respConsent": "The respondent consents to a divorce.",
         "respDoesNotContent": "The respondent does not consent to a divorce."
       },
-      "sep": {
-        "intendingToDelayDivorce":"The respondent is intending to ask the court to delay the divorce until it’s satisfied with their financial situation.",
-        "notIntendingToDelayDivorce":"The respondent is not intending to ask the court to delay the divorce until it’s satisfied with their financial situation."
+      "sep5Yr": {
+        "defendingFinancialHardship": "The respondent is defending on the basis that it will cause them severe hardship and provided the following explanation:",
+        "notDefendingFinancialHardship":"The respondent is not defending on the basis that it will cause them severe hardship."
       },
       "givenOptions": "The respondent was given the following options for their response.",
       "proceedWithDivorce": "to proceed with the divorce",
@@ -52,7 +54,6 @@
       "respondentWasAskedPayCosts": "The respondent was asked if they agreed to pay the costs that you claimed.",
       "followingOptions": "They were given the following options:",
       "payCosts": "to agree to pay some or all of the costs of the divorce",
-      "suggestPayingDifferent": "to suggest that they pay half the costs (50%)",
       "notPayCosts": "to not agree to paying any of the costs",
       "chanceToChangeAmount": "You'll be given a chance to accept their suggestion or change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ case.divorceWho }} make."
     },
@@ -64,7 +65,7 @@
 
     "fields": {
       "reviewAosResponse": {
-        "title": "Have you read your {{ case.divorceWho }}'s response?",
+        "title": "Have you read your spouse response?",
         "yes": "Yes"
       }
     }

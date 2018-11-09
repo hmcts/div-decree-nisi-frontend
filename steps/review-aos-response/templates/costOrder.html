@@ -1,6 +1,6 @@
 
   <h3 class="heading-small">{{ content.costsOrder.title }}</h3>
-  {% if exist(respAgreeToCosts) %}
+  {% if exist(consts.respAgreeToCosts) %}
     <p class="text">{{ content.costsOrder.agreedToPayCosts }}</p>
   {% else %}
     <p class="text">{{ content.costsOrder.notAgreedToPayCosts }}</p>
@@ -20,7 +20,6 @@
       <ul class="bullet list-bullet">
         <li>{{ content.costsOrder.payCosts }}</li>
         <li>{{ content.costsOrder.notPayCosts }}</li>
-        <li>{{ content.costsOrder.suggestPayingDifferent }}</li>
       </ul>
 
       <p class="text">{{ content.costsOrder.chanceToChangeAmount }}</p>

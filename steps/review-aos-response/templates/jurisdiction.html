@@ -1,7 +1,7 @@
 
   <h3 class="heading-small">{{ content.jurisdiction.title }}</h3>
 
-  {% if exist(respJurisdictionAgree) %}
+  {% if exist(consts.respJurisdictionAgree) %}
     <p class="text">{{ content.jurisdiction.respondentAgrees }}</p>
   {% else %}
     <p class="text">{{ content.jurisdiction.respDoesNotAgree }}</p> 
@@ -17,7 +17,7 @@
     </div>
   {% endif %}
 
-  {% if exist(respLegalProceedingsExist) %}
+  {% if exist(consts.respLegalProceedingsExist) %}
     <p class="text">{{ content.jurisdiction.otherProceedings }}</p> 
     <div class="panel panel-border-narrow">
       <p class="text">{{ case.respLegalProceedingsDescription | safe }}</p>
