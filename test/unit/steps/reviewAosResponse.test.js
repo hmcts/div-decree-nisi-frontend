@@ -33,7 +33,7 @@ describe(modulePath, () => {
       expect(instance.responseTemplate).to.eql(instance.consts.viewTemplate);
     });
 
-    it('Continue button should content not be rendered', () => {
+    it('Continue button should not be rendered', () => {
       const session = {
         case: {
           state: 'AosSubmittedAwaitingAnswer',
