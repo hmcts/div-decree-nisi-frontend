@@ -5,6 +5,7 @@ const config = require('config');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const { NOT_FOUND } = require('http-status-codes');
 const redirectToFrontend = require('helpers/redirectToFrontendHelper');
+const redirectToIndexIfNoSession = require('helpers/redirectToIndexHelper');
 
 class Authenticated extends Redirect {
   static get path() {
@@ -24,7 +25,11 @@ class Authenticated extends Redirect {
   }
 
   get middleware() {
-    return [idam.landingPage(), ...super.middleware];
+    return [
+      idam.landingPage(),
+      redirectToIndexIfNoSession,
+      ...super.middleware
+    ];
   }
 }
 
