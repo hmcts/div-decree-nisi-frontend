@@ -37,13 +37,80 @@
     inline = true
   ) }}
 
+  {{ selectionButtons(fields.respConsiderFinancialSituation, "Do you intend to ask the court to delay the divorce until it’s satisfied with your financial situation?",
+  options = [
+    { label: "Yes", value: "Yes" },
+    { label: "No", value: "No" }
+  ],
+  hideQuestion = false,
+  inline = true
+  ) }}
+
+  {{ selectionButtons(fields.respHardshipDefenseResponse, "Are you defending the divorce as it would cause you severe hardship?",
+  options = [
+    { label: "Yes", value: "Yes", target: "hardship-no-container"},
+    { label: "No", value: "No"}
+  ],
+  hideQuestion = false,
+  inline = true
+  ) }}
+
+  <div class="js-hidden" id="hardship-no-container">
+    <div class="form-group">
+      {{ content.fields.respondent.respHardshipDescription.title }}
+      <textarea class="form-control"
+                id="respHardshipDescription"
+                name="respHardshipDescription"
+                rows="4">{% if fields.respHardshipDescription.value %}
+        {{ fields.respHardshipDescription.value }}{% endif %}</textarea>
+    </div>
+  </div>
+
   {{ selectionButtons(fields.respJurisdictionAgree, "Do they agree to jurisdiction?",
     options = [
-      { label: "Yes", value: "Yes" },
-      { label: "No", value: "No" }
+      { label: "Yes", value: "Yes"},
+      { label: "No", value: "No" , target: "jurisdiction-no-container" }
     ],
     hideQuestion = false,
     inline = true
   ) }}
 
+  <div class="js-hidden" id="jurisdiction-no-container">
+    <div class="form-group">
+      {{ content.fields.respondent.respJurisdictionDisagreeReason.title }}
+      <textarea class="form-control"
+                id="respJurisdictionDisagreeReason"
+                name="respJurisdictionDisagreeReason"
+                rows="4">{% if fields.respJurisdictionDisagreeReason.value %}
+        {{ fields.respJurisdictionDisagreeReason.value }}{% endif %}</textarea>
+    </div>
+    <div class="form-group">
+      {{ content.fields.respondent.respJurisdictionRespCountryOfResidence.title }}
+      <textarea class="form-control"
+                id="respJurisdictionRespCountryOfResidence"
+                name="respJurisdictionRespCountryOfResidence"
+                rows="4">{% if fields.respJurisdictionRespCountryOfResidence.value %}
+        {{ fields.respJurisdictionRespCountryOfResidence.value }}{% endif %}</textarea>
+    </div>
+  </div>
+
+  {{ selectionButtons(fields.respLegalProceedingsExist, "Are there any other legal proceedings outside of England and Wales?",
+  options = [
+    { label: "Yes", value: "Yes", target: "legalProceedings-no-container" },
+    { label: "No", value: "No" }
+  ],
+  hideQuestion = false,
+  inline = true
+  ) }}
+
+  <div class="js-hidden" id="legalProceedings-no-container">
+    <div class="form-group">
+      {{ content.fields.respondent.respLegalProceedingsDescription.title }}
+      <textarea class="form-control"
+                id="respLegalProceedingsDescription"
+                name="respLegalProceedingsDescription"
+                rows="4">{% if fields.respLegalProceedingsDescription.value %}
+        {{ fields.respLegalProceedingsDescription.value }}{% endif %}</textarea>
+    </div>
+  </div>
 {% endcall %}

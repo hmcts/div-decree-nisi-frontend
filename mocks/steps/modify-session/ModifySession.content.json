@@ -32,6 +32,20 @@
         "reasonForDivorceDesertionDetails": {
           "title": "Specify the reason for desertion details"
         }
+      },
+      "respondent": {
+        "respHardshipDescription": {
+          "title": "How will the divorce cause you severe hardship?"
+        },
+        "respJurisdictionDisagreeReason": {
+          "title": "Why don't you agree that the court has jurisdiction?"
+        },
+        "respJurisdictionRespCountryOfResidence": {
+          "title": "In which country is your life mainly based?"
+        },
+        "respLegalProceedingsDescription": {
+          "title": "Details of the court cases?"
+        }
       }
     }
   }
