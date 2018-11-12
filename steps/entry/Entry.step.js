@@ -6,6 +6,8 @@ const caseOrchestrationService = require('services/caseOrchestrationService');
 const { NOT_FOUND } = require('http-status-codes');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 
+const authTokenString = '__auth-token';
+
 class Entry extends EntryPoint {
   static get path() {
     return config.paths.entry;
@@ -17,7 +19,9 @@ class Entry extends EntryPoint {
       .onFailure((error, req, res, next) => {
         if (error.statusCode === NOT_FOUND) {
           logger.info('Redirecting user to Petitioner Frontend as no case was found on CCD');
-          res.redirect(config.services.petitionerFrontend.url);
+          const petitionerFrontend = config.services.petitionerFrontend;
+          const queryString = `?${authTokenString}=${req.cookies[authTokenString]}`;
+          res.redirect(`${petitionerFrontend.url}${petitionerFrontend.landing}${queryString}`);
         } else {
           next(error);
         }
