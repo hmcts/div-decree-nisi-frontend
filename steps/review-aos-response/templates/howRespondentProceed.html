@@ -1,17 +1,17 @@
 
   <h3 class="heading-small">{{ content.respProceed.title }}</h3>
-  {% if not exist(consts.respDefendsDivorce) and exist(consts.respAdmitOrConsentToFact) %}
+  {% if notExist(consts.respDefendsDivorce) and exist(consts.respAdmitOrConsentToFact) %}
      <p class="text">{{ content.respProceed.willLetDivorceProceed }}</p>
-  {% elif not exist(consts.respDefendsDivorce) and not exist(consts.respAdmitOrConsentToFact) %}
+  {% elif notExist(consts.respDefendsDivorce) and notExist(consts.respAdmitOrConsentToFact) %}
      <p class="text">{{ content.respProceed.letDivorceProceedButNotAdmit }}</p> 
-  {% elif exist(consts.respDefendsDivorce) and not exist(consts.respAdmitOrConsentToFact) %}
+  {% elif exist(consts.respDefendsDivorce) and notExist(consts.respAdmitOrConsentToFact) %}
      <p class="text">{{ content.respProceed.willDefendDivorce }}</p>
   {% endif %}
 
   {% if adultery %}
     {% if exist(consts.respAdmitOrConsentToFact) %}
         <p class="text">{{ content.respProceed.adultery.admitsAdultery }}</p>
-    {% else %}
+    {% elif notExist(consts.respAdmitOrConsentToFact) %}
         <p class="text">{{ content.respProceed.adultery.doesNotAdmitAdultery }}</p>
     {% endif %}
   {% endif %}
@@ -19,7 +19,7 @@
   {% if sep2yr %}
      {% if exist(consts.respAdmitOrConsentToFact) %}
         <p class="text">{{ content.respProceed.sep2Yr.respConsent }}</p>
-     {% else %}
+     {% elif notExist(consts.respAdmitOrConsentToFact) %}
          <p class="text">{{ content.respProceed.sep2Yr.respDoesNotContent }}</p>
      {% endif %}
   {% endif %}
@@ -28,7 +28,7 @@
     {% if exist(consts.respHardshipDefenseResponse) %}
       <p class="text">{{ content.respProceed.sep5Yr.defendingFinancialHardship }}</p>
       <p class="text">{{ case.respHardshipDescription | safe }}</p>
-    {% else %}
+    {% elif notExist(consts.respHardshipDefenseResponse) %}
       <p class="text">{{ content.respProceed.sep5Yr.notDefendingFinancialHardship }}</p>
     {% endif %}
   {% endif %}
@@ -36,7 +36,7 @@
   {% if sep2yr or sep5yr %}
     {% if exist(consts.respConsiderFinancialSituation) %}
          <p class="text">{{ content.respProceed.sep.intendingToDelayDivorce }}</p>
-    {% else %}
+    {% elif notExist(consts.respConsiderFinancialSituation) %}
       <p class="text">{{ content.respProceed.sep.notIntendingToDelayDivorce }}</p>
      {% endif %}
   {% endif %}

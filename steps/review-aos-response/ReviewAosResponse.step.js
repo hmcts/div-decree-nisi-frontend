@@ -41,6 +41,10 @@ class ReviewAosResponse extends Question {
     return this.case[key] === this.consts.yes;
   }
 
+  notExist(key) {
+    return this.case[key] === this.consts.no;
+  }
+
   get adultery() {
     return this.case.reasonForDivorce === this.consts.adultery;
   }
