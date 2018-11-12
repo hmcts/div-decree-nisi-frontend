@@ -38,6 +38,7 @@ class AdulteryFirstFoundOut extends Question {
   }
 
   next() {
+    this.case.adulteryFirstFoundDate = this.fields.adulteryFirstFoundDate.value;
     return redirectTo(this.journey.steps.LivedApartSinceAdultery);
   }
 
