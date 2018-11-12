@@ -5,7 +5,6 @@ const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const idam = require('services/idam');
-const redirectMiddleware = require('middleware/redirectMiddleware');
 const { middleware, interstitial, sinon, content,
   stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
 const glob = require('glob');
@@ -66,21 +65,14 @@ const contentToNotExist = withoutKeysFrom => {
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
-    sinon.stub(redirectMiddleware, 'redirectOnCondition').callsFake(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
-    redirectMiddleware.redirectOnCondition.restore();
   });
 
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(PetitionProgressBar, [ idam.protect() ]);
-  });
-
-  it('has redirect middleware', () => {
-    return middleware.hasMiddleware(PetitionProgressBar,
-      [ redirectMiddleware.redirectOnCondition ]);
   });
 
   describe('CCD state: Submitted', () => {

@@ -3,7 +3,6 @@ const config = require('config');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const { caseStateMap, permitDNReasonMap } = require('./petitionerStateTemplates');
-const redirectMiddleware = require('middleware/redirectMiddleware');
 
 const constants = {
   AOSOverdue: 'aosoverdue',
@@ -34,8 +33,7 @@ class PetitionProgressBar extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      redirectMiddleware.redirectOnCondition
+      idam.protect()
     ];
   }
 
