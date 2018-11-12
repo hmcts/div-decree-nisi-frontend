@@ -4,11 +4,22 @@
   {{ selectionButtons(fields.respAgreeToCosts, "Will they pay the costs?",
     options = [
       { label: "Yes", value: "Yes" },
-      { label: "No", value: "No" }
+      { label: "No", value: "No", target: "costOrder-no-container" }
     ],
     hideQuestion = false,
     inline = true
   ) }}
+
+  <div class="js-hidden" id="costOrder-no-container">
+    <div class="form-group">
+      {{ content.fields.respondent.respCostsReason.title }}
+      <textarea class="form-control"
+                id="respCostsReason"
+                name="respCostsReason"
+                rows="4">{% if fields.respCostsReason.value %}
+        {{ fields.respCostsReason.value }}{% endif %}</textarea>
+    </div>
+  </div>
 
   {{ selectionButtons(fields.respDefendsDivorce, "Will they defend the divorce?",
     options = [
@@ -48,14 +59,14 @@
 
   {{ selectionButtons(fields.respHardshipDefenseResponse, "Are you defending the divorce as it would cause you severe hardship?",
   options = [
-    { label: "Yes", value: "Yes", target: "hardship-no-container"},
+    { label: "Yes", value: "Yes", target: "hardship-yes-container"},
     { label: "No", value: "No"}
   ],
   hideQuestion = false,
   inline = true
   ) }}
 
-  <div class="js-hidden" id="hardship-no-container">
+  <div class="js-hidden" id="hardship-yes-container">
     <div class="form-group">
       {{ content.fields.respondent.respHardshipDescription.title }}
       <textarea class="form-control"
@@ -96,14 +107,14 @@
 
   {{ selectionButtons(fields.respLegalProceedingsExist, "Are there any other legal proceedings outside of England and Wales?",
   options = [
-    { label: "Yes", value: "Yes", target: "legalProceedings-no-container" },
+    { label: "Yes", value: "Yes", target: "legalProceedings-yes-container" },
     { label: "No", value: "No" }
   ],
   hideQuestion = false,
   inline = true
   ) }}
 
-  <div class="js-hidden" id="legalProceedings-no-container">
+  <div class="js-hidden" id="legalProceedings-yes-container">
     <div class="form-group">
       {{ content.fields.respondent.respLegalProceedingsDescription.title }}
       <textarea class="form-control"

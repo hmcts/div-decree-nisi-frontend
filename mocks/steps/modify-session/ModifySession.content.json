@@ -45,6 +45,9 @@
         },
         "respLegalProceedingsDescription": {
           "title": "Details of the court cases?"
+        },
+        "respCostsReason": {
+          "title": "Provide a brief explanation of why you should not pay?"
         }
       }
     }
