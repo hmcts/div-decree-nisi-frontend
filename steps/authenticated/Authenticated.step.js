@@ -4,7 +4,8 @@ const idam = require('services/idam');
 const config = require('config');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const { NOT_FOUND } = require('http-status-codes');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const redirectToFrontend = require('helpers/redirectToFrontendHelper');
+const redirectToIndex = require('middleware/redirectToIndex');
 
 class Authenticated extends Redirect {
   static get path() {
@@ -16,8 +17,7 @@ class Authenticated extends Redirect {
       .then(redirectTo(this.journey.steps.PetitionProgressBar))
       .onFailure((error, req, res, next) => {
         if (error.statusCode === NOT_FOUND) {
-          logger.info('Redirecting user to Petitioner Frontend as no case was found on CCD');
-          res.redirect(config.services.petitionerFrontend.url);
+          redirectToFrontend(req, res);
         } else {
           next(error);
         }
@@ -25,7 +25,11 @@ class Authenticated extends Redirect {
   }
 
   get middleware() {
-    return [...super.middleware, idam.landingPage];
+    return [
+      idam.landingPage(),
+      redirectToIndex.redirectToIndexIfNoSession,
+      ...super.middleware
+    ];
   }
 }
 
