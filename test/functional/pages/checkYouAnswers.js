@@ -5,6 +5,7 @@ function testCheckYourAnswersPage() {
   const I = this;
 
   I.amOnLoadedPage(CheckYourAnswers.path);
+  I.checkOption(CheckYourAnswers.en.fields.statementOfTruth.yes);
 
   I.see(CheckYourAnswersContent.en.title);
 }
