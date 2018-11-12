@@ -8,19 +8,20 @@
   
     <p class="text">{{ content.jurisdiction.detailsGiven }}</p> 
     <div class="panel panel-border-narrow">
-      <p class="text">{{ case.respJurisdictionDisagreeReason | safe }}</p>
+      <p class="text">"{{ case.respJurisdictionDisagreeReason | safe }}"</p>
     </div>
 
     <p class="text">{{ content.jurisdiction.countryTheyResp }}</p> 
     <div class="panel panel-border-narrow">
-      <p class="text">{{ case.respJurisdictionRespCountryOfResidence | safe }}</p>
+      <p class="text">"{{ case.respJurisdictionRespCountryOfResidence | safe }}"</p>
     </div>
   {% endif %}
 
   {% if exist(consts.respLegalProceedingsExist) %}
     <p class="text">{{ content.jurisdiction.otherProceedings }}</p> 
+    <p class="text">{{ content.jurisdiction.detailsGiven }}</p>
     <div class="panel panel-border-narrow">
-      <p class="text">{{ case.respLegalProceedingsDescription | safe }}</p>
+      <p class="text">"{{ case.respLegalProceedingsDescription | safe }}"</p>
     </div>
   {% elif notExist(consts.respLegalProceedingsExist) %}
     <p class="text">{{ content.jurisdiction.noOtherProceedings }}</p>
