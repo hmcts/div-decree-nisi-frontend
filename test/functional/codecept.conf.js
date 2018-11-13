@@ -1,4 +1,11 @@
 /* eslint-disable no-process-env */
+const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-setter');
+
+if (process.env.POINT_TO_REMOTE) {
+  const configurationFile = './remote-config.json';
+  processEnvironmentSetup.setUpEnvironmentVariables(configurationFile);
+  process.env.CASE_MAINTENANCE_BASE_URL = 'http://div-cms-aat.service.core-compute-aat.internal';
+}
 
 const config = require('config');
 
@@ -21,7 +28,7 @@ exports.config = {
       url: config.tests.functional.url || config.node.baseUrl,
       waitForTimeout,
       waitForAction,
-      show: false,
+      show: true,
       restart: false,
       keepCookies: false,
       keepBrowserState: false,
@@ -31,6 +38,7 @@ exports.config = {
       }
     },
     ElementExist: { require: './helpers/elementExist.js' },
+    CaseHelper: { require: './helpers/caseHelper.js' },
     JSWait: { require: './helpers/JSWait.js' },
     UrlHelper: { require: './helpers/urlHelper.js' }
   },
