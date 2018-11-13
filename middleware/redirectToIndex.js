@@ -9,4 +9,4 @@ const redirectToIndexIfNoSession = (req, res, next) => {
   return next();
 };
 
-module.exports = redirectToIndexIfNoSession;
+module.exports = { redirectToIndexIfNoSession };
