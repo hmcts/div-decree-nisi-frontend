@@ -3,7 +3,7 @@
     "dAATitle": "Your {{ case.divorceWho }} has said that they intend to defend the divorce",
     "dAAHasRespondend": "Your {{ case.divorceWho }} has responded to your application and said that they want to try to prevent the divorce (they intend to defend it).",
     "dAAWhatHappensNext": "What happens next",
-    "dAA28Days": "Your {{ case.divorceWho }} now has 28 days from the date they received your application to submit another form. This form is legally known as the 'answer', in which they'll have to make their case for defending the divorce.",
+    "dAA28Days": "Your {{ case.divorceWho }} now has 21 days from the date they received your application to submit another form. This form is legally known as the 'answer', in which they'll have to make their case for defending the divorce.",
     "dAAUsualyGoToCourt": "You'll usually then both have to go to a court hearing where a judge will make a decision on the divorce. You’ll also need to carry out the rest of your divorce offline.",
     "dAADoesntSubmitAnswer": "If your {{ case.divorceWho }} doesn't submit an answer",
     "dAADoesntReceiveAnswer": "If the court doesn't receive your {{ case.divorceWho }}'s answer by the deadline, it will assume that they don't want to take their defence any further. You'll be able to continue your divorce as if they hadn't said that they intended to defend.",
