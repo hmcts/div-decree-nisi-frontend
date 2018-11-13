@@ -85,6 +85,9 @@ paths:
   petitionProgressBar: /progress-bar/petitioner
   upload: /upload-docs
   exitNoCase: /exit-no-case
+  termsAndConditions: /terms-and-conditions
+  cookiesPolicy: /cookie
+  privacyPolicy: /privacy-policy
   mock:
     idamLogin: /idam-mock-login
     modifySession: /session
