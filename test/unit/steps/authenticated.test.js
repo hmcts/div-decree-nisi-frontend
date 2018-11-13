@@ -37,7 +37,7 @@ describe(modulePath, () => {
     });
 
     it('to error page if error is not 404', () => {
-      const error = new Error('An error has occoured on the Case Orchestartion Service');
+      const error = new Error('An error has occurred on the Case Orchestration Service');
       error.statusCode = INTERNAL_SERVER_ERROR;
       caseOrchestrationService.getApplication.rejects(error);
       return custom(Authenticated)

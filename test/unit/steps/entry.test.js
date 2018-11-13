@@ -5,7 +5,7 @@ const PetitionProgressBar = require('steps/petition-progress-bar/PetitionProgres
 const idam = require('services/idam');
 const { middleware, redirect, sinon, custom, expect } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationService = require('services/caseOrchestrationService');
-const { NOT_FOUND, INTERNAL_SERVER_ERROR } = require('http-status-codes');
+const { NOT_FOUND, INTERNAL_SERVER_ERROR, FORBIDDEN } = require('http-status-codes');
 const config = require('config');
 
 describe(modulePath, () => {
@@ -30,7 +30,7 @@ describe(modulePath, () => {
     });
 
     it('to error page if error is not 404', () => {
-      const error = new Error('An error has occoured on the Case Orchestartion Service');
+      const error = new Error('An error has occurred on the Case Orchestration Service');
       error.statusCode = INTERNAL_SERVER_ERROR;
       caseOrchestrationService.getApplication.rejects(error);
       return custom(Entry)
@@ -39,6 +39,22 @@ describe(modulePath, () => {
         .text(pageContent => {
           return expect(pageContent.indexOf(error) !== -1).to.eql(true);
         });
+    });
+
+    it('to aos if error is 403', () => {
+      const error = new Error('Respondent user');
+      error.statusCode = FORBIDDEN;
+      caseOrchestrationService.getApplication.rejects(error);
+
+      const authTokenString = '__auth-token';
+      const aosFrontend = config.services.aosFrontend;
+      // Undefined since req.cookies['__auth-token'] is not set in the test
+      const queryString = `?${authTokenString}=undefined`;
+      const expectedUrl = `${aosFrontend.url}${aosFrontend.landing}${queryString}`;
+
+      return custom(Entry)
+        .get()
+        .expect('location', expectedUrl);
     });
 
     it('to petitioner frontend  if error is 404', () => {

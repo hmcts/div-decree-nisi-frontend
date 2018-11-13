@@ -3,8 +3,8 @@ const { redirectTo, action } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const config = require('config');
 const caseOrchestrationService = require('services/caseOrchestrationService');
-const { NOT_FOUND } = require('http-status-codes');
-const redirectToFrontend = require('helpers/redirectToFrontendHelper');
+const { NOT_FOUND, FORBIDDEN } = require('http-status-codes');
+const { redirectToFrontend, redirectToAos } = require('helpers/redirectToFrontendHelper');
 
 class Entry extends EntryPoint {
   static get path() {
@@ -17,9 +17,13 @@ class Entry extends EntryPoint {
       .onFailure((error, req, res, next) => {
         if (error.statusCode === NOT_FOUND) {
           redirectToFrontend(req, res);
-        } else {
-          next(error);
         }
+
+        if (error.statusCode === FORBIDDEN) {
+          redirectToAos(req, res);
+        }
+
+        next(error);
       });
   }
 
