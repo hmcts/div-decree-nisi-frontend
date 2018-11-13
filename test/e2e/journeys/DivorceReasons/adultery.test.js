@@ -90,7 +90,7 @@ describe('Adultery DN flow', () => {
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
         intolerable: 'yes',
-        adulteryFirstFoundDate: '2011-08-08T23:00:00Z'
+        adulteryFirstFoundDate: '2011-08-08T23:00:00.000Z'
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -135,7 +135,7 @@ describe('Adultery DN flow', () => {
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
         intolerable: 'yes',
-        adulteryFirstFoundDate: '2011-08-08T23:00:00Z'
+        adulteryFirstFoundDate: '2011-08-08T23:00:00.000Z'
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,

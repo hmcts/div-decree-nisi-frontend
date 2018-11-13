@@ -85,7 +85,7 @@ describe('Unreasonable behaviour', () => {
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
         behaviourContinuedSinceApplication: 'yes',
-        lastIncidentDate: 'Invalid date'
+        lastIncidentDate: null
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -130,7 +130,7 @@ describe('Unreasonable behaviour', () => {
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
         behaviourContinuedSinceApplication: 'no',
-        lastIncidentDate: '2018-08-19T23:00:00Z',
+        lastIncidentDate: '2018-08-19T23:00:00.000Z',
         livedApartSinceLastIncidentDate: 'yes'
       };
       sinon.assert.calledWith(
