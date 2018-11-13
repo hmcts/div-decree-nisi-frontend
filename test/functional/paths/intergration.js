@@ -1,9 +1,13 @@
-const commonContent = require('common/content');
+const CheckYourAnswersContent = require('steps/check-your-answers/CheckYourAnswers.content');
 const config = require('config');
 
 Feature('Integration Tests');
 
 Scenario('Happy Path', async I => {
+  I.createAUser();
+
+  I.createDnCaseForUser('test/resources/basic-divorce-session.json');
+
   I.amOnLoadedPage('/');
 
   I.testHomePage();
@@ -20,11 +24,10 @@ Scenario('Happy Path', async I => {
 
   I.testClaimCostsPage();
 
-  I.testShareCourtDocumentsPage();
+  I.testShareCourtDocumentsPage('no');
 
   I.testCheckYourAnswersPage();
-  I.navByClick(commonContent.en.continue);
-  I.amOnLoadedPage(config.paths.done);
+  I.navByClick(CheckYourAnswersContent.en.submit);
 
-  I.testDonePage();
+  I.amOnLoadedPage(config.paths.done);
 });
