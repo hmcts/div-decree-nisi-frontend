@@ -4,6 +4,8 @@ const caseOrchestrationService = require(moduleName);
 const request = require('request-promise-native');
 const config = require('config');
 const { expect, sinon } = require('@hmcts/one-per-page-test-suite');
+const caseOrchestrationHelper = require('helpers/caseOrchestrationHelper');
+const { NOT_FOUND } = require('http-status-codes');
 
 describe(moduleName, () => {
   beforeEach(() => {
@@ -18,7 +20,7 @@ describe(moduleName, () => {
 
   describe('get case', () => {
     it('gets application from cos', done => {
-      const exampleCosResponse = { foo: 'bar' };
+      const exampleCosResponse = { state: 'someState', foo: 'bar' };
       request.get.resolves(exampleCosResponse);
       const req = { cookies: { '__auth-token': 'token' }, session: {} };
 
@@ -29,6 +31,22 @@ describe(moduleName, () => {
         .then(response => {
           sinon.assert.calledWith(request.get, { uri, headers, json: true });
           expect(response).to.eql({ case: exampleCosResponse });
+        })
+        .then(done, done);
+    });
+
+    it('gets application from cos but returns not found when no state', done => {
+      const exampleCosResponse = { foo: 'bar' };
+      request.get.resolves(exampleCosResponse);
+      const req = { cookies: { '__auth-token': 'token' }, session: {} };
+
+      const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+      const headers = { Authorization: 'Bearer token' };
+
+      caseOrchestrationService.getApplication(req)
+        .catch(error => {
+          sinon.assert.calledWith(request.get, { uri, headers, json: true });
+          expect(NOT_FOUND).to.eql(error.statusCode);
         })
         .then(done, done);
     });
@@ -45,192 +63,49 @@ describe(moduleName, () => {
   });
 
   describe('submission', () => {
-    let session = {};
     let req = {};
     let uri = '';
     let headers = {};
 
+    const exampleSubmitBody = {
+      foo: 'bar',
+      bar: 'foo'
+    };
+
     beforeEach(() => {
-      request.post.resolves();
+      sinon.stub(caseOrchestrationHelper, 'formatSessionForSubmit').returns(exampleSubmitBody);
 
-      req = { cookies: { '__auth-token': 'token' } };
+      req = { cookies: { '__auth-token': 'token' }, session: { case: { caseId: '1234' } } };
 
-      session = {
-        case: {
-          caseId: '1234'
-        },
-        MiniPetition: {
-          changes: {
-            changesDetails: 'changesDetails',
-            statementOfTruthChanges: 'yes',
-            statementOfTruthNoChanges: 'yes'
-          }
-        },
-        ClaimCosts: {
-          claimCosts: 'yes'
-        },
-        CheckYourAnswers: {
-          statementOfTruth: 'yes'
-        },
-        Intolerable: {
-          changes: {
-            intolerable: 'yes'
-          }
-        },
-        Upload: {
-          files: [
-            {
-              name: 'file 1'
-            }
-          ]
-        }
-      };
-
-      uri = `${config.services.orchestrationService.submitCaseUrl}/${session.case.caseId}`; // eslint-disable-line
+      uri = `${config.services.orchestrationService.submitCaseUrl}/${req.session.case.caseId}`;
       headers = { Authorization: 'Bearer token' };
     });
 
-    it('submits adultery case', done => {
-      Object.assign(session, {
-        AdulteryFirstFoundOut: {
-          changes: {
-            adulteryFirstFoundDate: 'adultery first found out date'
-          }
-        },
-        livedApartSinceAdultery: {
-          changes: {
-            livedApartSinceAdultery: 'yes',
-            datesLivedTogether: 'dates Lived Together'
-          }
-        }
-      });
+    afterEach(() => {
+      caseOrchestrationHelper.formatSessionForSubmit.restore();
+    });
 
-      Object.assign(req, { session });
-
-      const body = {
-        changesDetails: 'changesDetails',
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'yes',
-        statementOfTruth: 'yes',
-        intolerable: 'yes',
-        adulteryFirstFoundDate: 'adultery first found out date',
-        livedApartSinceAdultery: 'yes',
-        datesLivedTogether: 'dates Lived Together',
-        files: [ { name: 'file 1' } ]
-      };
+    it('submits case', done => {
+      request.post.resolves();
 
       caseOrchestrationService.submitApplication(req)
         .then(() => {
-          sinon.assert.calledWith(request.post, { uri, headers, json: true, body });
+          sinon.assert.calledWith(request.post, {
+            uri,
+            headers,
+            json: true,
+            body: exampleSubmitBody
+          });
         })
         .then(done, done);
     });
 
-    it('submits seperation', done => {
-      Object.assign(session, {
-        LivedApartSinceSeparation: {
-          changes: {
-            livedApartSinceSeparation: 'yes',
-            approximateDatesOfLivingTogetherField: 'approximate Dates Of Living Together Field'
-          }
-        }
-      });
+    it('throws error if bad response from submission', () => {
+      request.post.rejects();
 
-      Object.assign(req, { session });
-
-      const body = {
-        changesDetails: 'changesDetails',
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'yes',
-        statementOfTruth: 'yes',
-        intolerable: 'yes',
-        livedApartSinceSeparation: 'yes',
-        approximateDatesOfLivingTogetherField: 'approximate Dates Of Living Together Field',
-        files: [ { name: 'file 1' } ]
-      };
-
-      caseOrchestrationService.submitApplication(req)
-        .then(() => {
-          sinon.assert.calledWith(request.post, { uri, headers, json: true, body });
-        })
-        .then(done, done);
+      return expect(caseOrchestrationService.submitApplication(req))
+        .to.be.rejectedWith('Error');
     });
-
-    it('submits desertion case', done => {
-      Object.assign(session, {
-        LivedApartSinceDesertion: {
-          changes: {
-            livedApartSinceDesertion: 'yes',
-            approximateDatesOfLivingTogetherField: 'approximate Dates Of Living Together Field'
-          }
-        }
-      });
-
-      Object.assign(req, { session });
-
-      const body = {
-        changesDetails: 'changesDetails',
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'yes',
-        statementOfTruth: 'yes',
-        intolerable: 'yes',
-        livedApartSinceDesertion: 'yes',
-        approximateDatesOfLivingTogetherField: 'approximate Dates Of Living Together Field',
-        files: [ { name: 'file 1' } ]
-      };
-
-      caseOrchestrationService.submitApplication(req)
-        .then(() => {
-          sinon.assert.calledWith(request.post, { uri, headers, json: true, body });
-        })
-        .then(done, done);
-    });
-
-    it('submits behaviour case', done => {
-      Object.assign(session, {
-        LivedApartSinceDesertion: {
-          changes: {
-            livedApartSinceDesertion: 'yes',
-            approximateDatesOfLivingTogetherField: 'approximate Dates Of Living Together Field'
-          }
-        }
-      });
-
-      Object.assign(req, { session });
-
-      const body = {
-        changesDetails: 'changesDetails',
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'yes',
-        statementOfTruth: 'yes',
-        intolerable: 'yes',
-        livedApartSinceDesertion: 'yes',
-        approximateDatesOfLivingTogetherField: 'approximate Dates Of Living Together Field',
-        files: [ { name: 'file 1' } ]
-      };
-
-      caseOrchestrationService.submitApplication(req)
-        .then(() => {
-          sinon.assert.calledWith(request.post, { uri, headers, json: true, body });
-        })
-        .then(done, done);
-    });
-  });
-
-  it('throws error if bad response from submission', () => {
-    request.post.rejects();
-
-    const req = {
-      cookies: { '__auth-token': 'token' },
-      session: {
-        case: {
-          caseId: '1234'
-        }
-      }
-    };
-
-    return expect(caseOrchestrationService.submitApplication(req))
-      .to.be.rejectedWith('Error');
   });
 
   it('throws error if bad response from get', () => {

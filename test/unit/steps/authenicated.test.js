@@ -7,20 +7,27 @@ const { middleware, redirect, sinon, custom, expect } = require('@hmcts/one-per-
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const { NOT_FOUND, INTERNAL_SERVER_ERROR } = require('http-status-codes');
 const config = require('config');
+const redirectToIndex = require('middleware/redirectToIndex');
 
 describe(modulePath, () => {
   it('has idam.landingPage middleware', () => {
     return middleware.hasMiddleware(Authenticated, [ idam.landingPage() ]);
   });
 
+  it('has conditional redirect middleware', () => {
+    return middleware.hasMiddleware(Authenticated, [ redirectToIndex.redirectToIndexIfNoSession ]);
+  });
+
   context('navigation', () => {
     beforeEach(() => {
       sinon.stub(idam, 'landingPage').returns(middleware.nextMock);
+      sinon.stub(redirectToIndex, 'redirectToIndexIfNoSession').callsFake(middleware.nextMock);
       sinon.stub(caseOrchestrationService, 'getApplication');
     });
 
     afterEach(() => {
       idam.landingPage.restore();
+      redirectToIndex.redirectToIndexIfNoSession.restore();
       caseOrchestrationService.getApplication.restore();
     });
 

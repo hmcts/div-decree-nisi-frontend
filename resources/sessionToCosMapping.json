@@ -7,9 +7,9 @@
 
   "CheckYourAnswers.statementOfTruth": "statementOfTruth",
 
-  "Intolerable.changes.intolerable": "intolerable",
+  "Intolerable.intolerable": "intolerable",
 
-  "AdulteryFirstFoundOut.changes.adulteryFirstFoundDate": "adulteryFirstFoundDate",
+  "AdulteryFirstFoundOut.adulteryFirstFoundDate": "adulteryFirstFoundDate",
 
   "BehaviourContinuedSinceApplication.changes.behaviourContinuedSinceApplication": "behaviourContinuedSinceApplication",
   "BehaviourContinuedSinceApplication.changes.lastIncidentDate": "lastIncidentDate",
@@ -23,8 +23,8 @@
   "LivedApartSinceDesertion.changes.livedApartSinceDesertion": "livedApartSinceDesertion",
   "LivedApartSinceDesertion.changes.approximateDatesOfLivingTogetherField": "approximateDatesOfLivingTogetherField",
 
-  "livedApartSinceAdultery.changes.livedApartSinceAdultery": "livedApartSinceAdultery",
-  "livedApartSinceAdultery.changes.datesLivedTogether": "datesLivedTogether",
+  "LivedApartSinceAdultery.changes.livedApartSinceAdultery": "livedApartSinceAdultery",
+  "LivedApartSinceAdultery.changes.datesLivedTogether": "datesLivedTogether",
 
   "Upload.files": "files"
 }

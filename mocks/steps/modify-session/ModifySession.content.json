@@ -31,6 +31,9 @@
         },
         "reasonForDivorceDesertionDetails": {
           "title": "Specify the reason for desertion details"
+        },
+        "reasonForDivorceAdulteryDetails": {
+          "title": "Adultery Divorce Details"
         }
       }
     }

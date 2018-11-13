@@ -22,6 +22,8 @@ const session = {
   respDefendsDivorce: null
 };
 
+let caseOrchestrationServiceSubmitStub = {};
+
 describe('Sepereration 5 years', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
@@ -33,11 +35,11 @@ describe('Sepereration 5 years', () => {
       }))
       .resolves(merge({}, mockCaseResponse, { data: session }));
 
-    postStub
+    caseOrchestrationServiceSubmitStub = postStub
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.submitCaseUrl}/${mockCaseResponse.caseId}`
-      }))
-      .resolves();
+      }));
+    caseOrchestrationServiceSubmitStub.resolves();
   });
 
   after(() => {
@@ -63,4 +65,14 @@ describe('Sepereration 5 years', () => {
     { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
     { step: Done }
   ]);
+
+  it('submits correct body to case orchestration service', () => {
+    const body = {
+      statementOfTruthChanges: 'yes',
+      claimCosts: 'originalAmount',
+      statementOfTruth: 'yes',
+      livedApartSinceSeparation: 'yes'
+    };
+    sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
+  });
 });

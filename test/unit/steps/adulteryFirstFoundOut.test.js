@@ -26,7 +26,7 @@ describe(modulePath, () => {
 
   it('shows error if no date entered', () => {
     const onlyErrors = ['requireFirstFoundDate'];
-    const fields = { 'changes-adulteryFirstFoundDate-day': '' };
+    const fields = { 'adulteryFirstFoundDate-day': '' };
     const session = {
       case: {
         data: {
@@ -41,9 +41,9 @@ describe(modulePath, () => {
   it('shows error if a date before marriage date is entered', () => {
     const onlyErrors = ['requireFirstFoundDate'];
     const fields = {
-      'changes-adulteryFirstFoundDate-day': '20',
-      'changes-adulteryFirstFoundDate-month': '03',
-      'changes-adulteryFirstFoundDate-year': '1900'
+      'adulteryFirstFoundDate-day': '20',
+      'adulteryFirstFoundDate-month': '03',
+      'adulteryFirstFoundDate-year': '1900'
     };
     const session = {
       case: {
@@ -59,9 +59,9 @@ describe(modulePath, () => {
   it('shows error if a date in future is entered', () => {
     const onlyErrors = ['requireFirstFoundDate'];
     const fields = {
-      'changes-adulteryFirstFoundDate-day': '20',
-      'changes-adulteryFirstFoundDate-month': '03',
-      'changes-adulteryFirstFoundDate-year': '2200'
+      'adulteryFirstFoundDate-day': '20',
+      'adulteryFirstFoundDate-month': '03',
+      'adulteryFirstFoundDate-year': '2200'
     };
     const session = {
       case: {
@@ -76,9 +76,9 @@ describe(modulePath, () => {
 
   it('Redirects to Adulter page if valid date entered', () => {
     const fields = {
-      'changes-adulteryFirstFoundDate-day': '20',
-      'changes-adulteryFirstFoundDate-month': '03',
-      'changes-adulteryFirstFoundDate-year': '2017'
+      'adulteryFirstFoundDate-day': '20',
+      'adulteryFirstFoundDate-month': '03',
+      'adulteryFirstFoundDate-year': '2017'
     };
     const session = {
       case: {

@@ -5,7 +5,7 @@ const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const moment = require('moment');
-const { form, object, date, convert, errorFor } = require('@hmcts/one-per-page/forms');
+const { form, date, convert } = require('@hmcts/one-per-page/forms');
 
 class AdulteryFirstFoundOut extends Question {
   static get path() {
@@ -17,38 +17,35 @@ class AdulteryFirstFoundOut extends Question {
   }
 
   get form() {
-    const validateFirstFoundDate = ({ adulteryFirstFoundDate = '' }) => {
+    const validateFirstFoundDate = firstFoundDate => {
       const marriageDate = moment(this.case.marriageDate).format('YYYY-MM-DD');
       const createdDate = moment(this.case.createdDate).format('YYYY-MM-DD');
-      const hasGivenDate = this.fields.changes.adulteryFirstFoundDate.day.value && this.fields.changes.adulteryFirstFoundDate.month.value && this.fields.changes.adulteryFirstFoundDate.year.value
-         && adulteryFirstFoundDate.isValid() && adulteryFirstFoundDate.isBetween(marriageDate, createdDate, null, []); // eslint-disable-line
+      const hasGivenDate = firstFoundDate.isValid() && firstFoundDate.isBetween(marriageDate, createdDate, null, []); // eslint-disable-line
       return hasGivenDate;
     };
 
-    const fields = {
+    return form({
       adulteryFirstFoundDate: convert(
         d => moment(`${d.year}-${d.month}-${d.day}`, 'YYYY-MM-DD'), // eslint-disable-line
-        date
-      )
-    };
-
-    const changes = object(fields)
-      .check(
-        errorFor('adulteryFirstFoundDate', this.content.errors.requireFirstFoundDate),
-        validateFirstFoundDate);
-
-    return form({ changes });
+        date.required({
+          allRequired: this.content.errors.requireFirstFoundDate,
+          dayRequired: this.content.errors.requireFirstFoundDate,
+          monthRequired: this.content.errors.requireFirstFoundDate,
+          yearRequired: this.content.errors.requireFirstFoundDate
+        })
+      ).check(this.content.errors.requireFirstFoundDate, validateFirstFoundDate)
+    });
   }
 
   next() {
-    this.req.session.adulteryFirstFoundDate = this.fields.changes.adulteryFirstFoundDate.value;
+    this.case.adulteryFirstFoundDate = this.fields.adulteryFirstFoundDate.value;
     return redirectTo(this.journey.steps.LivedApartSinceAdultery);
   }
 
   answers() {
     return answer(this, {
-      question: this.content.fields.changes.adulteryFirstFoundDate.question,
-      answer: this.fields.changes.adulteryFirstFoundDate.value.format('DD/MM/YYYY')
+      question: this.content.fields.adulteryFirstFoundDate.question,
+      answer: this.fields.adulteryFirstFoundDate.value.format('DD/MM/YYYY')
     });
   }
 

@@ -1,19 +1,8 @@
 const request = require('request-promise-native');
 const config = require('config');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
-const sessionToCosMapping = require('resources/sessionToCosMapping');
-const { get } = require('lodash');
-
-const formatSessionForSubmit = session => {
-  return Object.keys(sessionToCosMapping)
-    .reduce((body, key) => {
-      const value = get(session, key);
-      if (value) {
-        body[sessionToCosMapping[key]] = value;
-      }
-      return body;
-    }, {});
-};
+const caseOrchestrationHelper = require('helpers/caseOrchestrationHelper');
+const { NOT_FOUND } = require('http-status-codes');
 
 const authTokenString = '__auth-token';
 
@@ -29,6 +18,13 @@ const methods = {
 
     return request.get({ uri, headers, json: true })
       .then(response => {
+        // if not state or state is d8 state, throw error
+        if (!response.state || config.ccd.d8States.includes(response.state)) {
+          const error = new Error('No case found in a valid state');
+          error.statusCode = NOT_FOUND;
+          throw error;
+        }
+
         return Object.assign(req.session, { case: response });
       })
       .catch(error => {
@@ -41,7 +37,7 @@ const methods = {
 
     const uri = `${config.services.orchestrationService.submitCaseUrl}/${caseId}`;
     const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
-    const body = formatSessionForSubmit(req.session);
+    const body = caseOrchestrationHelper.formatSessionForSubmit(req);
 
     return request.post({ uri, headers, json: true, body })
       .catch(error => {
