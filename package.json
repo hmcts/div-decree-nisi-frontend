@@ -64,6 +64,7 @@
     "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git#c0cdb0ee4eb3ea32dd764e4f4749b8c76fc35316",
     "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#93da471881c5b0a7c15827f8532661d3bcc8addb",
     "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
+    "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#7ca9fcca4372b661a0715df56fe170386c1ed9af",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
