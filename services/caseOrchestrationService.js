@@ -1,19 +1,7 @@
 const request = require('request-promise-native');
 const config = require('config');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
-const sessionToCosMapping = require('resources/sessionToCosMapping');
-const { get } = require('lodash');
-
-const formatSessionForSubmit = session => {
-  return Object.keys(sessionToCosMapping)
-    .reduce((body, key) => {
-      const value = get(session, key);
-      if (value) {
-        body[sessionToCosMapping[key]] = value;
-      }
-      return body;
-    }, {});
-};
+const caseOrchestrationHelper = require('helpers/caseOrchestrationHelper');
 
 const authTokenString = '__auth-token';
 
@@ -41,7 +29,7 @@ const methods = {
 
     const uri = `${config.services.orchestrationService.submitCaseUrl}/${caseId}`;
     const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
-    const body = formatSessionForSubmit(req.session);
+    const body = caseOrchestrationHelper.formatSessionForSubmit(req);
 
     return request.post({ uri, headers, json: true, body })
       .catch(error => {

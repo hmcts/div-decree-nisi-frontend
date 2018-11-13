@@ -30,8 +30,8 @@
     {{ selectionButtons(fields.claimCosts, content.fields.claimCosts.title,
       options = [
         { label: content.fields.claimCosts.originalAmount, value: "originalAmount" },
-        { label: content.fields.claimCosts.suggestedAmount, value: "suggestedAmount" },
-        { label: content.fields.claimCosts.dontClaimDifferentAmount, value: "dontClaimDifferentAmount" }
+        { label: content.fields.claimCosts.suggestedAmount, value: "counterOffer" },
+        { label: content.fields.claimCosts.dontClaimDifferentAmount, value: "endClaim" }
       ]
     ) }}
   {% endcall %}
