@@ -4,9 +4,9 @@ const config = require('config');
 Feature('Integration Tests');
 
 Scenario('Happy Path', async I => {
-  I.createAUser();
+  await I.createAUser();
 
-  I.createDnCaseForUser('test/resources/basic-divorce-session.json');
+  await I.createDnCaseForUser('test/resources/basic-divorce-session.json');
 
   I.amOnLoadedPage('/');
 
