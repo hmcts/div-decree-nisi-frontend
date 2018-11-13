@@ -32,16 +32,16 @@ class IdamHelper extends Helper {
 
       idamConfigHelper.setTestEmail(testEmail);
       idamConfigHelper.setTestPassword(testPassword);
-      return idamExpressTestHarness.createUser(idamArgs, config.tests.e2e.proxy)
+      return idamExpressTestHarness.createUser(idamArgs, config.tests.functional.proxy)
         .then(() => {
           logger.info(`Created IDAM test user: ${testEmail}`);
-          return idamExpressTestHarness.getToken(idamArgs, config.tests.e2e.proxy);
+          return idamExpressTestHarness.getToken(idamArgs, config.tests.functional.proxy);
         })
         .then(response => {
           logger.info(`Retrieved IDAM test user token: ${testEmail}`);
           idamConfigHelper.setTestToken(response.access_token);
           idamArgs.accessToken = response.access_token;
-          return idamExpressTestHarness.generatePin(idamArgs, config.tests.e2e.proxy);
+          return idamExpressTestHarness.generatePin(idamArgs, config.tests.functional.proxy);
         })
         .then(response => {
           logger.info(`Retrieved IDAM test user pin: ${testEmail}`);
@@ -57,7 +57,7 @@ class IdamHelper extends Helper {
 
   _after() {
     if (config.features.idam) {
-      idamExpressTestHarness.removeUser(idamArgs)
+      idamExpressTestHarness.removeUser(idamArgs, config.tests.functional.proxy)
         .then(() => {
           logger.info(`Removed IDAM test user: ${idamArgs.testEmail}`);
         })

@@ -1,10 +1,8 @@
 Feature('Test all pages');
 
 Scenario('Pages', async I => {
-  //Create user
   I.createAUser();
-  //Create case
-  I.createDnCaseForUser('basic-divorce-session');
+  I.createDnCaseForUser('resources/basic-divorce-session.json');
 
   I.amOnLoadedPage('/');
 

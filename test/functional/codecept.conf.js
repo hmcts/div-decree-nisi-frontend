@@ -4,7 +4,6 @@ const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-set
 if (process.env.POINT_TO_REMOTE) {
   const configurationFile = './remote-config.json';
   processEnvironmentSetup.setUpEnvironmentVariables(configurationFile);
-  process.env.CASE_MAINTENANCE_BASE_URL = 'http://div-cms-aat.service.core-compute-aat.internal';
 }
 
 const config = require('config');
@@ -14,8 +13,8 @@ const waitForAction = config.tests.functional.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
 if (config.environment !== 'development') {
-  const proxyServer = config.tests.functional.idam.idamTestApiProxy;
-  const proxyByPass = config.tests.functional.idam.idamTestProxyByPass;
+  const proxyServer = config.tests.functional.proxy;
+  const proxyByPass = config.tests.functional.proxyByPass;
   chromeArgs.push(`--proxy-server=${proxyServer || ''}`);
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass || ''}`);
 }
@@ -28,16 +27,14 @@ exports.config = {
       url: config.tests.functional.url || config.node.baseUrl,
       waitForTimeout,
       waitForAction,
-      show: true,
-      restart: false,
-      keepCookies: false,
-      keepBrowserState: false,
+      show: false,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
       }
     },
     ElementExist: { require: './helpers/elementExist.js' },
+    IdamHelper: { require: './helpers/idamHelper.js' },
     CaseHelper: { require: './helpers/caseHelper.js' },
     JSWait: { require: './helpers/JSWait.js' },
     UrlHelper: { require: './helpers/urlHelper.js' }

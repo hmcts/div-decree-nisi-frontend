@@ -9,6 +9,7 @@ locals {
   evidence_management_client_api_url = "http://div-emca-${local.local_env}.service.core-compute-${local.local_env}.internal"
 
   case_orchestration_service_api_url = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
+  case_maintence_service_api_url = "http://div-cms-${local.local_env}.service.core-compute-${local.local_env}.internal"
 
   health_endpoint = "/health"
 
@@ -88,6 +89,9 @@ module "frontend" {
     ORCHESTRATION_SERVICE_POST_PETITION_URL= "${local.case_orchestration_service_api_url}/submit-dn"
     ORCHESTRATION_SERVICE_HEALTH_URL       = "${local.case_orchestration_service_api_url}${local.health_endpoint}"
     ORCHESTRATION_SERVICE_DRAFT_ENDPOINT   = "${var.case_orchestration_service_draft_endpoint}"
+
+    //Case Maintenance
+    CASE_MAINTENANCE_BASE_URL              = "${local.case_maintence_service_api_url}"
 
     // Encryption secrets
     SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"
