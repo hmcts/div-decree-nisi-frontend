@@ -5,7 +5,7 @@ const request = require('request-promise-native');
 const config = require('config');
 const { expect, sinon } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationHelper = require('helpers/caseOrchestrationHelper');
-const { NOT_FOUND } = require('http-status-codes');
+const { NOT_FOUND, FORBIDDEN } = require('http-status-codes');
 
 describe(moduleName, () => {
   beforeEach(() => {
@@ -22,7 +22,7 @@ describe(moduleName, () => {
     it('gets application from cos', done => {
       const exampleCosResponse = { state: 'someState', foo: 'bar' };
       request.get.resolves(exampleCosResponse);
-      const req = { cookies: { '__auth-token': 'token' }, session: {} };
+      const req = { cookies: { '__auth-token': 'token' }, session: {}, idam: { userDetails: {} } };
 
       const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
       const headers = { Authorization: 'Bearer token' };
@@ -35,10 +35,69 @@ describe(moduleName, () => {
         .then(done, done);
     });
 
+    it('gets application from cos if respondent and petitioner are same', done => {
+      const email = 'some@email.address';
+      const exampleCosResponse = {
+        state: 'someState',
+        data: {
+          respEmailAddress: email,
+          petitionerEmail: email
+        }
+      };
+
+      request.get.resolves(exampleCosResponse);
+      const req = {
+        cookies: { '__auth-token': 'token' },
+        session: {},
+        idam: {
+          userDetails: { email }
+        }
+      };
+
+      const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+      const headers = { Authorization: 'Bearer token' };
+
+      caseOrchestrationService.getApplication(req)
+        .then(response => {
+          sinon.assert.calledWith(request.get, { uri, headers, json: true });
+          expect(response).to.eql({ case: exampleCosResponse });
+        })
+        .then(done, done);
+    });
+
+    it('gets application from cos and respondent user', done => {
+      const email = 'some@email.address';
+      const exampleCosResponse = { data: { respEmailAddress: email } };
+      request.get.resolves(exampleCosResponse);
+      const req = {
+        cookies: { '__auth-token': 'token' },
+        session: {},
+        idam: {
+          userDetails: { email }
+        }
+      };
+
+      const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+      const headers = { Authorization: 'Bearer token' };
+
+      caseOrchestrationService.getApplication(req)
+        .catch(error => {
+          sinon.assert.calledWith(request.get, { uri, headers, json: true });
+          expect(FORBIDDEN).to.eql(error.statusCode);
+        })
+        .then(done, done);
+    });
+
     it('gets application from cos but returns not found when no state', done => {
       const exampleCosResponse = { foo: 'bar' };
       request.get.resolves(exampleCosResponse);
-      const req = { cookies: { '__auth-token': 'token' }, session: {} };
+      const req = {
+        cookies: { '__auth-token': 'token' },
+        session: {},
+        idam: {
+          userDetails: {}
+        }
+      };
 
       const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
       const headers = { Authorization: 'Bearer token' };

@@ -31,7 +31,7 @@ describe(modulePath, () => {
     });
 
     it('sets idamArgs.hostname & idamArgs.redirectUri correctly', () => {
-      const host = 'newHostName:3000';
+      const host = 'newHostName:4000';
       const req = { get: sinon.stub().returns(host) };
       const next = sinon.stub();
 

@@ -115,6 +115,10 @@ variable "petitioner_frontend_url" {
   type = "string"
 }
 
+variable "respondent_frontend_url" {
+  type = "string"
+}
+
 variable "idam_authentication_login_endpoint" {
   default = "/login"
 }

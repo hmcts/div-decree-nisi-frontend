@@ -62,6 +62,8 @@ services:
     draftEndpoint: ORCHESTRATION_SERVICE_DRAFT_ENDPOINT
   petitionerFrontend:
     url: PETITIONER_FRONTEND_URL
+  aosFrontend:
+    url: RESPONDENT_FRONTEND_URL
 
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY
