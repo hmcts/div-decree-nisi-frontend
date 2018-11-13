@@ -22,7 +22,7 @@
   {{ selectionButtons(fields.reasonForDivorce, content.fields.petitioner.reasonForDivorce.title,
     options = [
       { label: content.fields.petitioner.reasonForDivorce.behaviour, value: "unreasonable-behaviour", target: "reason-behaviour-no-container"},
-      { label: content.fields.petitioner.reasonForDivorce.adultery, value: "adultery" },
+      { label: content.fields.petitioner.reasonForDivorce.adultery, value: "adultery", target: "reason-adultery-container" },
       { label: content.fields.petitioner.reasonForDivorce.sepTwoYrs, value: "separation-2-years" },
       { label: content.fields.petitioner.reasonForDivorce.sepFiveYrs, value: "separation-5-years" },
       { label: content.fields.petitioner.reasonForDivorce.desertion, value: "desertion", target: "reason-desertion-no-container" }
@@ -40,6 +40,17 @@
   inline = true
 ) }}
 {% endcall %}
+
+<div class="js-hidden" id="reason-adultery-container">
+  <div class="form-group">
+    {{ content.fields.petitioner.reasonForDivorceAdulteryDetails.title }}
+    <textarea class="form-control"
+              id="reasonForDivorceAdulteryDetails"
+              name="reasonForDivorceAdulteryDetails"
+              rows="4">{% if fields.reasonForDivorceAdulteryDetails.value %}
+      {{ fields.reasonForDivorceAdulteryDetails.value }}{% endif %}</textarea>
+  </div>
+</div>
 
 <div class="js-hidden" id="reason-behaviour-no-container">
   <div class="form-group">

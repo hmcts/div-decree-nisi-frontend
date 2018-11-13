@@ -56,6 +56,7 @@ class ModifySession extends Question {
     const reasonForDivorceDesertionDetails = text;
     const claimsCosts = text;
     const permittedDecreeNisiReason = text;
+    const reasonForDivorceAdulteryDetails = text;
 
     return form({
       divorceWho,
@@ -70,7 +71,8 @@ class ModifySession extends Question {
       reasonForDivorceBehaviourDetails,
       reasonForDivorceDesertionDetails,
       claimsCosts,
-      permittedDecreeNisiReason
+      permittedDecreeNisiReason,
+      reasonForDivorceAdulteryDetails
     });
   }
 

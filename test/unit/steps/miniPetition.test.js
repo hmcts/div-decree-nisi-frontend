@@ -28,7 +28,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(MiniPetition, [ idam.protect() ]);
+    return middleware.hasMiddleware(MiniPetition, [idam.protect()]);
   });
 
   describe('errors', () => {
@@ -327,7 +327,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [ placeOfMarriage ] }
+        { specificValues: [placeOfMarriage] }
       );
     });
 
@@ -343,7 +343,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [ '02 February 2001' ] }
+        { specificValues: ['02 February 2001'] }
       );
     });
 
@@ -360,7 +360,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [ session.case.legalProceedingsDetails ] }
+        { specificValues: [session.case.legalProceedingsDetails] }
       );
     });
 
@@ -397,14 +397,14 @@ describe(modulePath, () => {
           data: {
             connections: {},
             reasonForDivorce: 'unreasonable-behaviour',
-            reasonForDivorceBehaviourDetails: [ 'My wife is lazy' ]
+            reasonForDivorceBehaviourDetails: ['My wife is lazy']
           }
         }
       };
       return content(
         MiniPetition,
         session,
-        { specificValues: [ session.case.reasonForDivorceBehaviourDetails ] }
+        { specificValues: [session.case.reasonForDivorceBehaviourDetails] }
       );
     });
 
@@ -421,7 +421,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [ session.case.reasonForDivorceDesertionDetails ] }
+        { specificValues: [session.case.reasonForDivorceDesertionDetails] }
       );
     });
   });
@@ -526,7 +526,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'costsPetitionerPayedByRespondent' ] });
+          { specificContent: ['costsPetitionerPayedByRespondent'] });
       });
     });
 
@@ -545,7 +545,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'costsPetitionerDivorceCostsdByRespondentAndCorespondent'] }
+          { specificContent: ['costsPetitionerDivorceCostsdByRespondentAndCorespondent'] }
         );
       });
       it('from co-respondent', () => {
@@ -562,7 +562,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'costsPetitionerDivorceCostsdByCorespondent' ] });
+          { specificContent: ['costsPetitionerDivorceCostsdByCorespondent'] });
       });
 
       it('from neither respondent or co-respondent', () => {
@@ -579,7 +579,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'costsPetitionerDivorceCostsdByRespondent' ] });
+          { specificContent: ['costsPetitionerDivorceCostsdByRespondent'] });
       });
     });
 
@@ -597,7 +597,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificContent: [ 'costsPetitionerDivorceCostsdByFinantialOrder' ] });
+        { specificContent: ['costsPetitionerDivorceCostsdByFinantialOrder'] });
     });
 
     it('not claiming costs or applying for financial Order', () => {
@@ -614,7 +614,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificContent: [ 'costsPetitionerDivorceNoCosts' ] });
+        { specificContent: ['costsPetitionerDivorceNoCosts'] });
     });
 
     it('shows details for co-respondent', () => {
@@ -632,7 +632,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificContent: [ 'coRespondent' ] });
+        { specificContent: ['coRespondent'] });
     });
 
     it('shows name for co-respondent', () => {
@@ -650,7 +650,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificContent: [ 'coRespondent' ] });
+        { specificContent: ['coRespondent'] });
     });
 
     context('jurisdiction', () => {
@@ -666,7 +666,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'jurisdictionConnectionBothResident' ] });
+          { specificContent: ['jurisdictionConnectionBothResident'] });
       });
       it('for one resides', () => {
         const session = {
@@ -680,7 +680,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'jurisdictionConnectionOneResides' ] });
+          { specificContent: ['jurisdictionConnectionOneResides'] });
       });
       it('respondent', () => {
         const session = {
@@ -694,7 +694,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'jurisdictionConnectionRespondent' ] });
+          { specificContent: ['jurisdictionConnectionRespondent'] });
       });
       it('petitioner', () => {
         const session = {
@@ -708,7 +708,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'jurisdictionConnectionPetitioner' ] });
+          { specificContent: ['jurisdictionConnectionPetitioner'] });
       });
       it('petitioner six months', () => {
         const session = {
@@ -722,7 +722,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'jurisdictionConnectionPetitionerSixMonths' ] });
+          { specificContent: ['jurisdictionConnectionPetitionerSixMonths'] });
       });
       it('both domiciled', () => {
         const session = {
@@ -736,7 +736,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'jurisdictionConnectionBothDomiciled' ] });
+          { specificContent: ['jurisdictionConnectionBothDomiciled'] });
       });
       it('both domiciled', () => {
         const session = {
@@ -750,7 +750,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'jurisdictionConnectionOther' ] });
+          { specificContent: ['jurisdictionConnectionOther'] });
       });
     });
 
@@ -767,7 +767,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'onGoingCasesNo' ] });
+          { specificContent: ['onGoingCasesNo'] });
       });
       it('Yes', () => {
         const session = {
@@ -781,7 +781,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'onGoingCasesYes' ] });
+          { specificContent: ['onGoingCasesYes'] });
       });
     });
 
@@ -799,7 +799,7 @@ describe(modulePath, () => {
           return content(
             MiniPetition,
             session,
-            { specificContent: [ 'reasonForDivorceAdultery' ] });
+            { specificContent: ['reasonForDivorceAdultery'] });
         });
         it('co-respondent is named', () => {
           const session = {
@@ -814,7 +814,7 @@ describe(modulePath, () => {
           return content(
             MiniPetition,
             session,
-            { specificContent: [ 'reasonForDivorceAdultery' ] });
+            { specificContent: ['reasonForDivorceAdultery'] });
         });
         it('knows where', () => {
           const session = {
@@ -829,7 +829,7 @@ describe(modulePath, () => {
           return content(
             MiniPetition,
             session,
-            { specificContent: [ 'reasonForDivorceAdulteryWhere' ] });
+            { specificContent: ['reasonForDivorceAdulteryWhere'] });
         });
         it('knows when', () => {
           const session = {
@@ -844,7 +844,7 @@ describe(modulePath, () => {
           return content(
             MiniPetition,
             session,
-            { specificContent: [ 'reasonForDivorceAdulteryWhen' ] });
+            { specificContent: ['reasonForDivorceAdulteryWhen'] });
         });
       });
 
@@ -929,7 +929,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'claimingCostsFromRespondentCoRespondent' ] });
+          { specificContent: ['claimingCostsFromRespondentCoRespondent'] });
       });
       it('from co-respondent', () => {
         const session = {
@@ -944,7 +944,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'claimingCostsFromCoRespondent' ] });
+          { specificContent: ['claimingCostsFromCoRespondent'] });
       });
 
       it('from neither respondent or co-respondent', () => {
@@ -960,7 +960,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'claimingCostsFromRespondent' ] });
+          { specificContent: ['claimingCostsFromRespondent'] });
       });
 
       it('not claiming', () => {
@@ -976,7 +976,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'notClaimingForDivorce' ] });
+          { specificContent: ['notClaimingForDivorce'] });
       });
     });
 
@@ -994,7 +994,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'financialOrdersPropertyMoneyPensionsChildren' ] }
+          { specificContent: ['financialOrdersPropertyMoneyPensionsChildren'] }
         );
       });
       it('for children', () => {
@@ -1010,7 +1010,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'financialOrdersChildren' ] });
+          { specificContent: ['financialOrdersChildren'] });
       });
 
       it('from neither respondent or co-respondent', () => {
@@ -1026,7 +1026,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'financialOrdersPropertyMoneyPensions' ] });
+          { specificContent: ['financialOrdersPropertyMoneyPensions'] });
       });
 
       it('not claiming', () => {
@@ -1042,7 +1042,7 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: [ 'financialOrdersNone' ] });
+          { specificContent: ['financialOrdersNone'] });
       });
     });
 
@@ -1058,7 +1058,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificContent: [ 'applicantsCorrespondenceAddress' ] });
+        { specificContent: ['applicantsCorrespondenceAddress'] });
     });
 
 
@@ -1067,19 +1067,96 @@ describe(modulePath, () => {
         case: {
           data: {
             connections: {},
-            reasonForDivorceAdultery3rdAddress: ['line1', 'line2', 'postcode']
+            reasonForDivorceAdultery3rdAddress: {
+              address: 'line2, line2, line3'
+            }
           }
         }
       };
       return content(
         MiniPetition,
         session,
-        { specificContent: [ 'coRespondentsCorrespondenceAddress' ] });
+        {
+          specificValues: [session.case.data.reasonForDivorceAdultery3rdAddress.address]
+        });
+    });
+
+    it('shows petitioners solicitors address if allowed and available', () => {
+      const petitionersSolicitorName = 'Pet Solicitor';
+      const petitionersSolicitorFirm = 'Pet Solicitors Firm';
+      const petitionersSolicitorAddress = 'Pet Solicitors Address';
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            petitionerContactDetailsConfidential: 'share',
+            petitionersSolicitorName,
+            petitionersSolicitorFirm,
+            petitionersSolicitorAddress
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        {
+          specificValues: [
+            petitionersSolicitorName,
+            petitionersSolicitorFirm,
+            petitionersSolicitorAddress
+          ]
+        });
+    });
+
+    it('shows respondent solicitors address if available', () => {
+      const respondentSolicitorName = 'Res Solicitor';
+      const respondentSolicitorCompany = 'Res Solicitors Firm';
+      const respondentSolicitorAddress = {
+        address: 'Res Solicitors Address'
+      };
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            respondentSolicitorName,
+            respondentSolicitorCompany,
+            respondentSolicitorAddress
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        {
+          specificValues: [
+            respondentSolicitorName,
+            respondentSolicitorCompany,
+            respondentSolicitorAddress.address
+          ]
+        });
+    });
+
+    it('shows respondent address if available', () => {
+      const respondentCorrespondenceAddress = {
+        address: 'Respondents Address'
+      };
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            respondentCorrespondenceAddress
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        { specificValues: [respondentCorrespondenceAddress.address] });
     });
   });
 
   describe('answers', () => {
-    it('shows correct answers if user changes detals', () => {
+    it('shows correct answers if user changes details', () => {
       const expectedContent = [
         MiniPetitionContent.en.fields.changes.hasBeenChanges.title,
         MiniPetitionContent.en.fields.changes.hasBeenChanges.yes,

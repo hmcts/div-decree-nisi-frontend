@@ -4,6 +4,14 @@ const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const { caseStateMap, permitDNReasonMap } = require('./petitionerStateTemplates');
 
+const constants = {
+  AOSOverdue: 'aosoverdue',
+  validAnswer: ['yes', 'no'],
+  NotDefined: 'notdefined',
+  DNAwaiting: 'dnawaiting',
+  undefendedReason: '0'
+};
+
 class PetitionProgressBar extends Interstitial {
   static get path() {
     return config.paths.petitionProgressBar;
@@ -34,26 +42,34 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get caseState() {
-    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : 'notdefined';
+    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
+  }
+
+  get showDnNoResponse() {
+    return this.caseState === constants.AOSOverdue;
+  }
+
+  get showReviewAosResponse() {
+    return this.respDefendsDivorce && constants.validAnswer.includes(this.respDefendsDivorce.toLowerCase());
   }
 
   next() {
-    const showReviewAosResponse = this.respDefendsDivorce && ['yes', 'no'].includes(this.respDefendsDivorce.toLowerCase()); // eslint-disable-line
-
     return branch(
+      redirectTo(this.journey.steps.DnNoResponse)
+        .if(this.showDnNoResponse),
       redirectTo(this.journey.steps.ReviewAosResponse)
-        .if(showReviewAosResponse),
+        .if(this.showReviewAosResponse),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
   }
 
   get dnReason() {
-    return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : '0';
+    return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
   }
 
   get stateTemplate() {
     let template = '';
-    if (this.caseState === 'dnawaiting') {
+    if (this.caseState === constants.DNAwaiting) {
       template = permitDNReasonMap.get(this.dnReason);
     } else {
       caseStateMap.forEach(dataMap => {

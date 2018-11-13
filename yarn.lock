@@ -194,10 +194,42 @@
   resolved "https://registry.yarnpkg.com/@hmcts/eslint-config/-/eslint-config-1.4.0.tgz#e713457cee3758a43394c2974913885aaae8a41b"
   integrity sha1-5xNFfO43WKQzlMKXSROIWqropBs=
 
-"@hmcts/look-and-feel@^1.13.2", "@hmcts/look-and-feel@^1.13.3", "@hmcts/look-and-feel@^1.8.0-3":
+"@hmcts/look-and-feel@^1.13.3", "@hmcts/look-and-feel@^1.8.0-3":
   version "1.19.2"
   resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.2.tgz#fa847b916c68bbab4c9f5464e19245e4fbfea716"
   integrity sha512-1gdI+/K2nqEZpHrQhLqtJcmNBLZODJX0t2I65F6ptMj/2yUEN6L7VtNbt3e38eH64Zxa5APS2cypZpEWuL/N/w==
+  dependencies:
+    babel-core "^6.26.0"
+    babel-loader "^7.1.2"
+    babel-preset-env "^1.6.0"
+    check-types "^7.3.0"
+    colors "^1.1.2"
+    config "^1.26.1"
+    copy-webpack-plugin "^4.0.1"
+    css-loader "^0.28.4"
+    deepmerge "2.0.1"
+    diff-so-fancy "^1.1.1"
+    exports-loader "^0.7.0"
+    express "^4.15.3"
+    express-nunjucks "^2.2.3"
+    extract-text-webpack-plugin "^3.0.0"
+    govuk-elements-sass "^3.1.1"
+    govuk_template_jinja "^0.23.0"
+    imports-loader "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274"
+    jquery "^3.2.1"
+    js-yaml "^3.9.1"
+    node-sass "^4.5.3"
+    nunjucks "^3.0.1"
+    sass-loader "^6.0.6"
+    serve-static "^1.13.2"
+    style-loader "^0.20.1"
+    webpack "^3.4.1"
+    webpack-dev-middleware "^2.0.4"
+
+"@hmcts/look-and-feel@^1.19.3":
+  version "1.19.3"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.3.tgz#e3204bbb7ad93a72973b42ac9a54e717f0edb719"
+  integrity sha512-qceUDPhBNC2xPxHuJKq2R38q+sOB3PJivXxl36io3akCSyyBXLbzMX0Mp1ZRiBg8c+yv0kg8xY1ml7kWuU9rdg==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -314,9 +346,9 @@
     slug "^0.9.1"
     url-parse "^1.2.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page.git#6bd206c0208ce35b011bb5818ab15db35aaf9e3d":
-  version "5.0.0"
-  resolved "https://github.com/hmcts/one-per-page.git#6bd206c0208ce35b011bb5818ab15db35aaf9e3d"
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page.git#6a98b95e91a37a1bbf803a949c8277fb76a68131":
+  version "4.1.0"
+  resolved "https://github.com/hmcts/one-per-page.git#6a98b95e91a37a1bbf803a949c8277fb76a68131"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
