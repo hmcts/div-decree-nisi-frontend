@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorClass, errorsFor %}
 
 {% set title %}
   {{ content.title | safe }}
@@ -19,7 +19,6 @@
     <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
       <p class="text">{{ content.shouldPayCosts }}</p>
       <p class="text">{{ content.divorceWillBeGranted }}</p>
-      <p class="text">{{ content.respondents2YearSep }}</p>
       <p class="text">{{ content.rulesInFavour }}</p>
       <p class="text">{{ content.disputeTheCosts }}</p>
     </div>
@@ -29,21 +28,35 @@
 
   {% call formSection() %}
   {% if notExist(consts.respAgreeToCosts) %}
-    {{ selectionButtons(fields.claimCosts, content.fields.claimCosts.title,
+    {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
       options = [
-        { label: content.fields.claimCosts.originalAmount, value: consts.originalAmount },
-         { label: content.fields.claimCosts.specificAmount, value: consts.specificAmount },
-        { label: content.fields.claimCosts.dontClaimDifferentAmount, value: consts.endClaim }
+        { label: content.fields.dnCosts.originalAmount, value: consts.originalAmount },
+        { label: content.fields.dnCosts.specificAmount, value: consts.specificAmount, target: "specific-amount"  }
+      ]
+     ) }}
+    <div id="specific-amount" class="js-hidden form-group {{ errorClass(fields.dnCosts.costsDifferentDetails) }}">
+      <label class="form-label-bold"
+             for="{{ fields.dnCosts.costsDifferentDetails.id }}">
+        {{ content.fields.dnCosts.costsDifferentDetails.title }}
+      </label>
+      {{ errorsFor(fields.dnCosts.costsDifferentDetails) }}
+      <textarea class="form-control"
+         id="{{ fields.dnCosts.costsDifferentDetails.id }}"
+         name="{{ fields.dnCosts.costsDifferentDetails.id }}"
+         rows="4">{% if fields.dnCosts.costsDifferentDetails.value %}{{ fields.dnCosts.costsDifferentDetails.value }}{% endif %}</textarea>
+    </div>
+      {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
+        options = [
+        { label: content.fields.dnCosts.dontClaimDifferentAmount, value: consts.dontClaim }
       ]
     ) }}
   {% else %}
-    {{ selectionButtons(fields.claimCosts, content.fields.claimCosts.title,
+    {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
       options = [
-        { label: content.fields.claimCosts.originalAmount, value: consts.originalAmount },
-        { label: content.fields.claimCosts.dontClaimDifferentAmount, value: consts.endClaim }
+        { label: content.fields.dnCosts.originalAmount, value: consts.originalAmount },
+        { label: content.fields.dnCosts.dontClaimDifferentAmount, value: consts.dontClaim }
       ]
     ) }}
   {% endif %}
   {% endcall %}
-
 {% endblock %}
