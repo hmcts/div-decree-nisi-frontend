@@ -1,7 +1,8 @@
 {
   "en": {
     "title": "Your claim for the divorce costs",
-    "applicationYouAsked": "In your application you asked the court that your {{ case.divorceWho }} pay the costs of the divorce. Your {{ case.divorceWho }} has",
+    "applicationYouAsked": "In your application you asked the court that your {{ case.divorceWho }} pay the costs of the divorce.",
+    "yourSpouseHas": "Your {{ case.divorceWho }} has",
     "courtWillDecide": "It is up to the court to decide how the costs will be split, but it will take into account any requests you and your husband make.",
     "readMore": "Read more about the costs order",
     "shouldPayCosts": "The court will make its decision on whether you should pay any costs if you decide to continue. It will take all your circumstances into account, including your conduct, and your husband/wife's conduct, before and during the divorce.",
@@ -15,8 +16,8 @@
     "fields": {
       "claimCosts": {
         "title": "Your claim for the divorce costs",
-        "originalAmount": "I still want to claim the original amount I requested",
-        "suggestedAmount": "I will accept the amount my husband has suggested",
+        "originalAmount": "I still want to claim my costs and will let the court decide how much.",
+        "specificAmount": "I want to claim a specific amount",
         "dontClaimDifferentAmount": "I don't want to claim my costs anymore"
       }
     }

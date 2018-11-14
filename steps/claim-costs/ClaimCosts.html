@@ -9,6 +9,7 @@
 {% block fields %}
 
   <p class="text">{{ content.applicationYouAsked | safe }}</p>
+  <p class="text">{{ content.yourSpouseHas | safe }}</p>
   <p class="text">{{ content.courtWillDecide | safe }}</p>
 
   <details>
@@ -27,13 +28,22 @@
   <br>
 
   {% call formSection() %}
+  {% if notExist(consts.respAgreeToCosts) %}
     {{ selectionButtons(fields.claimCosts, content.fields.claimCosts.title,
       options = [
-        { label: content.fields.claimCosts.originalAmount, value: "originalAmount" },
-        { label: content.fields.claimCosts.suggestedAmount, value: "counterOffer" },
-        { label: content.fields.claimCosts.dontClaimDifferentAmount, value: "endClaim" }
+        { label: content.fields.claimCosts.originalAmount, value: consts.originalAmount },
+         { label: content.fields.claimCosts.specificAmount, value: consts.specificAmount },
+        { label: content.fields.claimCosts.dontClaimDifferentAmount, value: consts.endClaim }
       ]
     ) }}
+  {% else %}
+    {{ selectionButtons(fields.claimCosts, content.fields.claimCosts.title,
+      options = [
+        { label: content.fields.claimCosts.originalAmount, value: consts.originalAmount },
+        { label: content.fields.claimCosts.dontClaimDifferentAmount, value: consts.endClaim }
+      ]
+    ) }}
+  {% endif %}
   {% endcall %}
 
 {% endblock %}
