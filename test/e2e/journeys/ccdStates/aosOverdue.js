@@ -18,11 +18,12 @@ const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step
 const Done = require('steps/done/Done.step');
 
 const session = {
-  reasonForDivorce: 'separation-5-years',
   respDefendsDivorce: null
 };
 
-describe('Sepereration 5 years', () => {
+let caseOrchestrationServiceSubmitStub = {};
+
+describe('Case State : AOSOverdue', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
@@ -31,19 +32,20 @@ describe('Sepereration 5 years', () => {
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`
       }))
-      .resolves(merge({}, mockCaseResponse, { data: session }));
+      .resolves(merge({}, mockCaseResponse, { state: 'DefendedDivorce', data: session }));
 
-    postStub
+    caseOrchestrationServiceSubmitStub = postStub
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.submitCaseUrl}/${mockCaseResponse.caseId}`
-      }))
-      .resolves();
+      }));
+    caseOrchestrationServiceSubmitStub.resolves();
   });
 
   after(() => {
     request.get.restore();
     request.post.restore();
   });
+
 
   journey.test([
     { step: Start },
@@ -63,4 +65,14 @@ describe('Sepereration 5 years', () => {
     { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
     { step: Done }
   ]);
+
+  it('submits correct body to case orchestration service', () => {
+    const body = {
+      claimCosts: 'originalAmount',
+      livedApartSinceSeparation: 'yes',
+      statementOfTruth: 'yes',
+      statementOfTruthChanges: 'yes'
+    };
+    sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
+  });
 });

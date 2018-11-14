@@ -14,13 +14,13 @@
 
   {% call formSection() %}
 
-    {{ date(fields.changes.adulteryFirstFoundDate, content.fields.changes.adulteryFirstFoundDate.question,
+    {{ date(fields.adulteryFirstFoundDate, content.fields.adulteryFirstFoundDate.question,
       hideQuestion = true,
-      hint = content.fields.changes.adulteryFirstFoundDate.hint,
+      hint = content.fields.adulteryFirstFoundDate.hint,
       labels = {
-        day: content.fields.changes.adulteryFirstFoundDate.dayLabel,
-        month: content.fields.changes.adulteryFirstFoundDate.monthLabel,
-        year: content.fields.changes.adulteryFirstFoundDate.yearLabel
+        day: content.fields.adulteryFirstFoundDate.dayLabel,
+        month: content.fields.adulteryFirstFoundDate.monthLabel,
+        year: content.fields.adulteryFirstFoundDate.yearLabel
       }
     ) }}
 

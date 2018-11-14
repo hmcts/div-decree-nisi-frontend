@@ -62,7 +62,7 @@ class BehaviourContinuedSinceApplication extends Question {
     const skipClaimCosts = this.case.claimsCosts === 'No';
 
     if (hasAnsweredNo) {
-      this.req.session.lastIncidentDate = this.fields.changes.lastIncidentDate.value;
+      this.case.lastIncidentDate = this.fields.changes.lastIncidentDate.value;
     }
     return branch(
       redirectTo(this.journey.steps.ShareCourtDocuments).if(hasAnsweredYes && skipClaimCosts),

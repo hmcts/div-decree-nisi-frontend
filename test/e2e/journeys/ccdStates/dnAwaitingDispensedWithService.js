@@ -1,3 +1,4 @@
+
 const { journey, sinon } = require('@hmcts/one-per-page-test-suite');
 const request = require('request-promise-native');
 const { merge } = require('lodash');
@@ -18,11 +19,13 @@ const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step
 const Done = require('steps/done/Done.step');
 
 const session = {
-  reasonForDivorce: 'separation-2-years',
-  respDefendsDivorce: null
+  respDefendsDivorce: null,
+  permittedDecreeNisiReason: '2'
 };
 
-describe('Sepereration 2 years', () => {
+let caseOrchestrationServiceSubmitStub = {};
+
+describe('Case State : DNAwaiting, permittedDecreeNisiReason: 2', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
@@ -31,19 +34,20 @@ describe('Sepereration 2 years', () => {
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`
       }))
-      .resolves(merge({}, mockCaseResponse, { data: session }));
+      .resolves(merge({}, mockCaseResponse, { state: 'DNAwaiting', data: session }));
 
-    postStub
+    caseOrchestrationServiceSubmitStub = postStub
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.submitCaseUrl}/${mockCaseResponse.caseId}`
-      }))
-      .resolves();
+      }));
+    caseOrchestrationServiceSubmitStub.resolves();
   });
 
   after(() => {
     request.get.restore();
     request.post.restore();
   });
+
 
   journey.test([
     { step: Start },
@@ -63,4 +67,14 @@ describe('Sepereration 2 years', () => {
     { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
     { step: Done }
   ]);
+
+  it('submits correct body to case orchestration service', () => {
+    const body = {
+      claimCosts: 'originalAmount',
+      livedApartSinceSeparation: 'yes',
+      statementOfTruth: 'yes',
+      statementOfTruthChanges: 'yes'
+    };
+    sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
+  });
 });

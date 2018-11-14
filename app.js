@@ -65,7 +65,7 @@ lookAndFeel.configure(app, {
     filters: getFilters(),
     globals: {
       phase: 'ALPHA',
-      feedbackLink: 'https://github.com/hmcts/one-per-page/issues/new',
+      feedbackLink: 'http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/email',
       googleAnalyticsId: config.services.googleAnalytics.id
     }
   }
