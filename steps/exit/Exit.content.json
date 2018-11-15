@@ -1,6 +1,7 @@
 {
   "en": {
     "title": "You've been signed out",
+    "progressNotSaved": "Your progress has not been saved.",
     "signInToReturn": "<a href=\"/\">Sign in</a> to return to the application.",
     "ifYouNeedHelp": "If you need help with this service you can call or email us.",
     "email": "Email: ",
