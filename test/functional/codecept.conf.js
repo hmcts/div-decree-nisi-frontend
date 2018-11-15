@@ -20,7 +20,7 @@ if (config.environment !== 'development') {
 }
 
 exports.config = {
-  tests: './paths/**/*.js',
+  tests: './paths/intergration.js',
   output: config.tests.functional.outputDir,
   helpers: {
     Puppeteer: {
