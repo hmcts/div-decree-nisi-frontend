@@ -1,9 +1,11 @@
+const basicDivorceSession = require('test/resources/basic-divorce-session');
+
 Feature('Test all pages');
 
 Scenario('Pages', async I => {
-  I.createAUser();
+  await I.createAUser();
 
-  I.createDnCaseForUser('test/resources/basic-divorce-session.json');
+  await I.createDnCaseForUser(basicDivorceSession);
 
   I.amOnLoadedPage('/');
 
