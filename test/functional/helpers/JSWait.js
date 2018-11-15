@@ -11,6 +11,16 @@ const filterSteps = step => {
 };
 
 class JSWait extends codecept_helper { // eslint-disable-line camelcase
+  _beforeStep(step) {
+    const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
+
+    // Wait for content to load before checking URL
+    if (step.name === 'seeCurrentUrlEquals' || step.name === 'seeInCurrentUrl') {
+      return helper.waitForElement('#content', 15);
+    }
+    return Promise.resolve();
+  }
+
   async navByClick(text, locator) {
     const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
     const helperIsPuppeteer = this.helpers.Puppeteer;
@@ -42,7 +52,9 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
       helper.page.goto(newUrl);
       await helper.page.waitForNavigation({ waitUntil: 'networkidle0' });
     } else {
-      helper.amOnPage(newUrl);
+      await helper.amOnPage(newUrl);
+      await helper.waitInUrl(newUrl);
+      await helper.waitForElement('#content', 15);
     }
   }
 
