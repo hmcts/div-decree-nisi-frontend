@@ -223,10 +223,10 @@
   resolved "https://registry.yarnpkg.com/@hmcts/eslint-config/-/eslint-config-1.4.0.tgz#e713457cee3758a43394c2974913885aaae8a41b"
   integrity sha1-5xNFfO43WKQzlMKXSROIWqropBs=
 
-"@hmcts/look-and-feel@^1.13.3", "@hmcts/look-and-feel@^1.8.0-3":
-  version "1.19.2"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.2.tgz#fa847b916c68bbab4c9f5464e19245e4fbfea716"
-  integrity sha512-1gdI+/K2nqEZpHrQhLqtJcmNBLZODJX0t2I65F6ptMj/2yUEN6L7VtNbt3e38eH64Zxa5APS2cypZpEWuL/N/w==
+"@hmcts/look-and-feel@^1.19.3":
+  version "1.19.3"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.3.tgz#e3204bbb7ad93a72973b42ac9a54e717f0edb719"
+  integrity sha512-qceUDPhBNC2xPxHuJKq2R38q+sOB3PJivXxl36io3akCSyyBXLbzMX0Mp1ZRiBg8c+yv0kg8xY1ml7kWuU9rdg==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -255,10 +255,42 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@^1.19.3":
-  version "1.19.3"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.3.tgz#e3204bbb7ad93a72973b42ac9a54e717f0edb719"
-  integrity sha512-qceUDPhBNC2xPxHuJKq2R38q+sOB3PJivXxl36io3akCSyyBXLbzMX0Mp1ZRiBg8c+yv0kg8xY1ml7kWuU9rdg==
+"@hmcts/look-and-feel@^1.19.4":
+  version "1.19.4"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.4.tgz#badb94b91eee7be37e0e872c2b9f926b0c3447f7"
+  integrity sha512-mmAMUZmYrovuXRSXIPzNWd8FBsUOvO8Y+Ms3bmZs2y8ifaPg9hq6pAJnXL1ZmlxwCB86dh6qp8LrEdvrSgoCXA==
+  dependencies:
+    babel-core "^6.26.0"
+    babel-loader "^7.1.2"
+    babel-preset-env "^1.6.0"
+    check-types "^7.3.0"
+    colors "^1.1.2"
+    config "^1.26.1"
+    copy-webpack-plugin "^4.0.1"
+    css-loader "^0.28.4"
+    deepmerge "2.0.1"
+    diff-so-fancy "^1.1.1"
+    exports-loader "^0.7.0"
+    express "^4.15.3"
+    express-nunjucks "^2.2.3"
+    extract-text-webpack-plugin "^3.0.0"
+    govuk-elements-sass "^3.1.1"
+    govuk_template_jinja "^0.23.0"
+    imports-loader "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274"
+    jquery "^3.2.1"
+    js-yaml "^3.9.1"
+    node-sass "^4.5.3"
+    nunjucks "^3.0.1"
+    sass-loader "^6.0.6"
+    serve-static "^1.13.2"
+    style-loader "^0.20.1"
+    webpack "^3.4.1"
+    webpack-dev-middleware "^2.0.4"
+
+"@hmcts/look-and-feel@^1.8.0-3":
+  version "1.19.2"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.2.tgz#fa847b916c68bbab4c9f5464e19245e4fbfea716"
+  integrity sha512-1gdI+/K2nqEZpHrQhLqtJcmNBLZODJX0t2I65F6ptMj/2yUEN6L7VtNbt3e38eH64Zxa5APS2cypZpEWuL/N/w==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -323,13 +355,14 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#93da471881c5b0a7c15827f8532661d3bcc8addb":
-  version "2.0.13"
-  resolved "https://github.com/hmcts/one-per-page-test-suite.git#93da471881c5b0a7c15827f8532661d3bcc8addb"
+"@hmcts/one-per-page-test-suite@^2.0.18":
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-2.0.18.tgz#30419b7b83c1bd95a6b5047feaf7652f5ee8ea50"
+  integrity sha512-pusV1jY9JqGzV8yUUTYmAYdI/OSSU+u8GzqM9SlxC9FREJkzM9lrUSgcWpqBRTP7dEV4HoWeDhMWQnDc9z1dGA==
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
-    "@hmcts/look-and-feel" "^1.13.3"
-    "@hmcts/one-per-page" "^4.0.4"
+    "@hmcts/look-and-feel" "^1.19.4"
+    "@hmcts/one-per-page" "^4.0.7"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"
     chai-as-promised "^7.1.1"
@@ -343,6 +376,7 @@
     express-nunjucks "^2.2.3"
     html-entities "^1.2.1"
     jquery "^3.2.1"
+    lodash "^4.17.11"
     mocha "^4.0.1"
     mocha-param "^2.0.0"
     nyc "^13.0.1"
@@ -353,10 +387,10 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@^4.0.4":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.0.7.tgz#53ab451b0cadaf9cf55b6c8cb0dab6fed016ae64"
-  integrity sha512-8XRcKHQbX33naz/n8c4OmKgLrxC6qmLrar/W2xcYMuDo+DLj9TxyBIgVbj7Gg4MHzYg65dthCYAJGau6GFc7lQ==
+"@hmcts/one-per-page@^4.0.7", "@hmcts/one-per-page@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.1.0.tgz#7441190ab91c5910c3e9d6b949e231cd4651fb2b"
+  integrity sha512-uVmP8pjxs2UW8HD2kU97plUlLf1qKo0L2XctTrvk5sL7nUytLFYac06iDcZ3Oqo9vh9gABzz8NZZTeWxTm6Z3w==
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
@@ -381,35 +415,6 @@
     router "^1.3.2"
     slug "^0.9.1"
     url-parse "^1.2.0"
-
-"@hmcts/one-per-page@^4.0.7":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.1.1.tgz#166a2bace8766d6a2cd5adf83c3c58357ab6aa6c"
-  integrity sha512-VWtEForX+MqnJRc9QvbYbFi9GuYLy4WP+fW2H60K8zNpzpt1dfAdoNEq4D4OcJ0xT6+F4zjqoy0+5jTy0UHtNw==
-  dependencies:
-    "@log4js-node/log4js-api" "^1.0.0"
-    body-parser "^1.18.2"
-    callsites "^2.0.0"
-    colors "^1.1.2"
-    config "^1.28.1"
-    connect-redis "^3.3.2"
-    cookie-parser "^1.4.3"
-    csurf "^1.9.0"
-    debug "^3.1.0"
-    deepmerge "2.0.1"
-    express "^4.16.2"
-    express-nunjucks "^2.2.3"
-    express-session "^1.15.6"
-    glob "^7.1.2"
-    http-status-codes "^1.3.0"
-    i18next "^10.2.1"
-    joi "^13.0.2"
-    js-yaml "^3.10.0"
-    nunjucks "^3.0.1"
-    option "^0.2.4"
-    router "^1.3.2"
-    slug "^0.9.2"
-    url-parse "^1.4.3"
 
 "@hmcts/tech-docs@^0.4.0":
   version "0.4.0"
@@ -11427,7 +11432,7 @@ slide@^1.1.5:
   resolved "https://registry.yarnpkg.com/slide/-/slide-1.1.6.tgz#56eb027d65b4d2dce6cb2e2d32c4d4afc9e1d707"
   integrity sha1-VusCfWW00tzmyy4tMsTUr8nh1wc=
 
-slug@^0.9.1, slug@^0.9.2:
+slug@^0.9.2:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/slug/-/slug-0.9.2.tgz#e409e4dae3a4bd2fd283557e2806e0a8abb98242"
   integrity sha512-WULwxWq6NBM/i24pV9st/WI9TwzjXYpNzxbWr9mRDj74Lqwb3ahsnWsWJtXHfBPpBqXb4m1hYt9S7eMyDkZsKA==
@@ -12759,14 +12764,6 @@ url-parse-lax@^1.0.0:
   integrity sha1-evjzA2Rem9eaJy56FKxovAYJ2nM=
   dependencies:
     prepend-http "^1.0.1"
-
-url-parse@^1.2.0:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.4.3.tgz#bfaee455c889023219d757e045fa6a684ec36c15"
-  integrity sha512-rh+KuAW36YKo0vClhQzLLveoj8FwPJNu65xLb7Mrt+eZht0IPT0IXgSv8gcMegZ6NvjJUALf6Mf25POlMwD1Fw==
-  dependencies:
-    querystringify "^2.0.0"
-    requires-port "^1.0.0"
 
 url-parse@^1.4.3:
   version "1.4.4"
