@@ -321,12 +321,11 @@ describe(modulePath, () => {
     it('redirects dnNoResponse when CCD state: AOSOverdue', () => {
       const session = {
         case: {
-          data: {
-            state: 'AOSOverdue'
-          }
+          state: 'AOSOverdue',
+          data: {}
         }
       };
-      interstitial.navigatesToNext(PetitionProgressBar, DnNoResponse, session);
+      return interstitial.navigatesToNext(PetitionProgressBar, DnNoResponse, session);
     });
 
     it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
@@ -337,7 +336,7 @@ describe(modulePath, () => {
           }
         }
       };
-      interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
+      return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
     });
 
     it('redirects reviewAosResponse when CCD has respDefendsDivorce as Yes', () => {
@@ -348,7 +347,7 @@ describe(modulePath, () => {
           }
         }
       };
-      interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
     });
   });
 });
