@@ -109,7 +109,7 @@ tests:
       idamTestSupportCreateAccountEndpoint:
 
 features:
-  idam: true
+  idam: false
 
 journey:
   timeoutDelay: 300

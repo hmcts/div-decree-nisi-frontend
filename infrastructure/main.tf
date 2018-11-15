@@ -93,6 +93,9 @@ module "frontend" {
     //Case Maintenance
     CASE_MAINTENANCE_BASE_URL              = "${local.case_maintence_service_api_url}"
 
+    // Feature toggling through config
+    FEATURE_IDAM                           = "${var.feature_idam}"
+
     // Encryption secrets
     SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"
 
