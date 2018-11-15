@@ -6,18 +6,16 @@
       "requireFirstFoundDate": "Enter a date between the day you got married and the day you submitted your divorce application."
     },
     "fields": {
-      "changes": {
-        "adulteryFirstFoundDate": {
-          "question" : "Enter the Adultery found date",
-          "hint": "For example, 31 3 2002",
-          "dayLabel": "Day",
-          "monthLabel": "Month",
-          "yearLabel": "Year",
-          "allRequired": "Enter a date between the day you got married and the day you submitted your divorce application.",
-          "dayRequired": "Enter the day when Adultery first found",
-          "monthRequired": "Enter the month when Adultery first found",
-          "yearRequired": "Enter the year when Adultery first found"
-        }
+      "adulteryFirstFoundDate": {
+        "question" : "Enter the Adultery found date",
+        "hint": "For example, 31 3 2002",
+        "dayLabel": "Day",
+        "monthLabel": "Month",
+        "yearLabel": "Year",
+        "allRequired": "Enter a date between the day you got married and the day you submitted your divorce application.",
+        "dayRequired": "Enter the day when Adultery first found",
+        "monthRequired": "Enter the month when Adultery first found",
+        "yearRequired": "Enter the year when Adultery first found"
       }
     }
   }

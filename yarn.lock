@@ -287,13 +287,14 @@
     on-finished "^2.3.0"
     winston "^2.4.1"
 
-"@hmcts/one-per-page-test-suite@https://github.com/hmcts/one-per-page-test-suite.git#93da471881c5b0a7c15827f8532661d3bcc8addb":
-  version "2.0.13"
-  resolved "https://github.com/hmcts/one-per-page-test-suite.git#93da471881c5b0a7c15827f8532661d3bcc8addb"
+"@hmcts/one-per-page-test-suite@^2.0.17":
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page-test-suite/-/one-per-page-test-suite-2.0.17.tgz#9ac5f19d4c2264f20f93472c98aab7e92f704158"
+  integrity sha512-pIspx/r0VfcVM7fotgWsnlIzBBDys2YrN+/s6frvxV1/EBT0vuBTlsHCjLfrpmxUztQ3TJOIpsBeGrFTMP3ZtQ==
   dependencies:
     "@hmcts/eslint-config" "^1.3.0"
     "@hmcts/look-and-feel" "^1.13.3"
-    "@hmcts/one-per-page" "^4.0.4"
+    "@hmcts/one-per-page" "^4.0.7"
     "@hmcts/tech-docs" "^0.4.0"
     chai "^4.1.2"
     chai-as-promised "^7.1.1"
@@ -307,6 +308,7 @@
     express-nunjucks "^2.2.3"
     html-entities "^1.2.1"
     jquery "^3.2.1"
+    lodash "^4.17.11"
     mocha "^4.0.1"
     mocha-param "^2.0.0"
     nyc "^13.0.1"
@@ -317,10 +319,38 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@^4.0.4", "@hmcts/one-per-page@^4.0.7":
+"@hmcts/one-per-page@^4.0.7":
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.0.7.tgz#53ab451b0cadaf9cf55b6c8cb0dab6fed016ae64"
   integrity sha512-8XRcKHQbX33naz/n8c4OmKgLrxC6qmLrar/W2xcYMuDo+DLj9TxyBIgVbj7Gg4MHzYg65dthCYAJGau6GFc7lQ==
+  dependencies:
+    "@log4js-node/log4js-api" "^1.0.0"
+    body-parser "^1.18.2"
+    callsites "^2.0.0"
+    colors "^1.1.2"
+    config "^1.28.1"
+    connect-redis "^3.3.2"
+    cookie-parser "^1.4.3"
+    csurf "^1.9.0"
+    debug "^3.1.0"
+    deepmerge "2.0.1"
+    express "^4.16.2"
+    express-nunjucks "^2.2.3"
+    express-session "^1.15.6"
+    glob "^7.1.2"
+    http-status-codes "^1.3.0"
+    i18next "^10.2.1"
+    joi "^13.0.2"
+    js-yaml "^3.10.0"
+    nunjucks "^3.0.1"
+    option "^0.2.4"
+    router "^1.3.2"
+    slug "^0.9.1"
+    url-parse "^1.2.0"
+
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page.git#6a98b95e91a37a1bbf803a949c8277fb76a68131":
+  version "4.1.0"
+  resolved "https://github.com/hmcts/one-per-page.git#6a98b95e91a37a1bbf803a949c8277fb76a68131"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
@@ -10467,6 +10497,39 @@ referrer-policy@1.1.0:
   resolved "https://registry.yarnpkg.com/referrer-policy/-/referrer-policy-1.1.0.tgz#35774eb735bf50fb6c078e83334b472350207d79"
   integrity sha1-NXdOtzW/UPtsB46DM0tHI1AgfXk=
 
+"reform-pattern-library@git+https://github.com/dtaylor7/reform-pattern-library.git":
+  version "1.0.0"
+  uid fd8966a0df4ea45994813b05c1e3cd535646829c
+  resolved "git+https://github.com/dtaylor7/reform-pattern-library.git#fd8966a0df4ea45994813b05c1e3cd535646829c"
+  dependencies:
+    body-parser "^1.18.2"
+    browser-sync "^2.18.13"
+    cookie-parser "^1.4.3"
+    del "^3.0.0"
+    express "^4.16.1"
+    express-session "^1.15.6"
+    govuk-elements-sass "^3.1.2"
+    govuk_frontend_toolkit "^7.1.0"
+    govuk_template_jinja "^0.23.0"
+    gulp "^3.9.1"
+    gulp-autoprefixer "^4.0.0"
+    gulp-cache "^0.4.6"
+    gulp-changed "^3.1.0"
+    gulp-cli "^1.4.0"
+    gulp-eslint "^4.0.0"
+    gulp-imagemin "^3.4.0"
+    gulp-nodemon "^2.2.1"
+    gulp-sass "^3.1.0"
+    gulp-uglify "^3.0.0"
+    heroku-ssl-redirect "0.0.4"
+    marked "^0.3.6"
+    multer "^1.1.0"
+    node-sass "^4.5.3"
+    nunjucks "git+https://git@github.com/gonogo/nunjucks.git"
+    nunjucks-markdown "^2.0.1"
+    require-dir "^0.3.2"
+    run-sequence "^2.2.0"
+
 "reform-pattern-library@https://github.com/dtaylor7/reform-pattern-library.git":
   version "1.0.0"
   resolved "https://github.com/dtaylor7/reform-pattern-library.git#fd8966a0df4ea45994813b05c1e3cd535646829c"
@@ -10843,6 +10906,13 @@ retry@^0.10.0:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/retry/-/retry-0.10.1.tgz#e76388d217992c252750241d3d3956fed98d8ff4"
   integrity sha1-52OI0heZLCUnUCQdPTlW/tmNj/Q=
+
+rewire@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/rewire/-/rewire-4.0.1.tgz#ba1100d400a9da759fe599fc6e0233f0879ed6da"
+  integrity sha512-+7RQ/BYwTieHVXetpKhT11UbfF6v1kGhKFrtZN7UDL2PybMsSt/rpLWeEUGF5Ndsl1D5BxiCB14VDJyoX+noYw==
+  dependencies:
+    eslint "^4.19.1"
 
 rgb2hex@^0.1.9:
   version "0.1.9"

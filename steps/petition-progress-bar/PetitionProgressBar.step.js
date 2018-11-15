@@ -45,14 +45,20 @@ class PetitionProgressBar extends Interstitial {
     return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
   }
 
+  get showDnNoResponse() {
+    return this.caseState === constants.AOSOverdue;
+  }
+
+  get showReviewAosResponse() {
+    return this.respDefendsDivorce && constants.validAnswer.includes(this.respDefendsDivorce.toLowerCase());
+  }
+
   next() {
-    const showDnNoResponse = this.caseState === constants.AOSOverdue;
-    const showReviewAosResponse = !showDnNoResponse && this.respDefendsDivorce && constants.validAnswer.includes(this.respDefendsDivorce.toLowerCase());
     return branch(
       redirectTo(this.journey.steps.DnNoResponse)
-        .if(showDnNoResponse),
+        .if(this.showDnNoResponse),
       redirectTo(this.journey.steps.ReviewAosResponse)
-        .if(showReviewAosResponse),
+        .if(this.showReviewAosResponse),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
   }
