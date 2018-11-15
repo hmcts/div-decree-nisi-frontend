@@ -1,12 +1,13 @@
 const CheckYourAnswersContent = require('steps/check-your-answers/CheckYourAnswers.content');
 const config = require('config');
+const basicDivorceSession = require('test/resources/basic-divorce-session');
 
 Feature('Integration Tests');
 
 Scenario('Happy Path', async I => {
   await I.createAUser();
 
-  await I.createDnCaseForUser('test/resources/basic-divorce-session.json');
+  await I.createDnCaseForUser(basicDivorceSession);
 
   I.amOnLoadedPage('/');
 
