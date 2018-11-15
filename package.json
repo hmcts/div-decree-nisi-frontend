@@ -49,6 +49,7 @@
     "jsoneditor": "^5.24.6",
     "lodash": "^4.17.11",
     "moment": "^2.22.1",
+    "nunjucks": "^2.3.0",
     "os": "^0.1.1",
     "paths": "^0.1.1",
     "reform-pattern-library": "https://github.com/dtaylor7/reform-pattern-library.git",
@@ -87,6 +88,12 @@
     "w3cjs": "^0.4.0",
     "webdriverio": "^4.13.1",
     "zepto-node": "^1.0.0"
+  },
+  "resolutions": {
+    "growl": "^1.10.2",
+    "hoek": "^4.2.1",
+    "minimatch": "^3.0.2",
+    "tunnel-agent": "^0.6.0"
   },
   "nyc": {
     "report-dir": "coverage",
