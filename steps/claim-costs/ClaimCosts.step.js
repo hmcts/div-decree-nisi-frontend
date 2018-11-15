@@ -72,7 +72,7 @@ class ClaimCosts extends Question {
 
     answers.push(answer(this, {
       question: this.content.fields.dnCosts.title,
-      answer: this.content.fields.dnCosts[this.fields.dnCosts.claimCosts.value]
+      answer: this.fields.dnCosts.claimCosts.value
     }));
 
     if (this.fields.dnCosts.claimCosts.value === this.consts.specificAmount) {
