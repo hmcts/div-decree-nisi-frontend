@@ -4,19 +4,16 @@
 
 {% block proposition_header %}{% endblock %}
 
-{% set title %}
-    {{ content.title | safe}}
-{% endset %}
+{% block title %}{% endblock %}
 
 {% block main_content %}
 
-    <p>{{ content.signInToReturn | safe }}</p> <br>
+    <h1 class="heading-large">{{ content.title | safe }}</h1>
+
+    <p>{{ content.progressNotSaved | safe }}</p>
+    <p>{{ content.signInToReturn | safe }}</p>
     <p>{{ content.ifYouNeedHelp | safe }}</p>
     <p>{{ content.phoneToCallIfProblems | safe }}</p>
     <p>{{ content.emailIfProblems |safe }}</p>
-
-{% endblock %}
-
-{% block fields %}
 
 {% endblock %}
