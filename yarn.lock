@@ -319,10 +319,10 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@^4.0.7":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.0.7.tgz#53ab451b0cadaf9cf55b6c8cb0dab6fed016ae64"
-  integrity sha512-8XRcKHQbX33naz/n8c4OmKgLrxC6qmLrar/W2xcYMuDo+DLj9TxyBIgVbj7Gg4MHzYg65dthCYAJGau6GFc7lQ==
+"@hmcts/one-per-page@^4.0.3":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.1.0.tgz#7441190ab91c5910c3e9d6b949e231cd4651fb2b"
+  integrity sha512-uVmP8pjxs2UW8HD2kU97plUlLf1qKo0L2XctTrvk5sL7nUytLFYac06iDcZ3Oqo9vh9gABzz8NZZTeWxTm6Z3w==
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
@@ -348,9 +348,10 @@
     slug "^0.9.1"
     url-parse "^1.2.0"
 
-"@hmcts/one-per-page@https://github.com/hmcts/one-per-page.git#452df42610e62c10096f1008f5e6c92cfb38ebbe":
-  version "4.1.0"
-  resolved "https://github.com/hmcts/one-per-page.git#452df42610e62c10096f1008f5e6c92cfb38ebbe"
+"@hmcts/one-per-page@^4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.0.7.tgz#53ab451b0cadaf9cf55b6c8cb0dab6fed016ae64"
+  integrity sha512-8XRcKHQbX33naz/n8c4OmKgLrxC6qmLrar/W2xcYMuDo+DLj9TxyBIgVbj7Gg4MHzYg65dthCYAJGau6GFc7lQ==
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
