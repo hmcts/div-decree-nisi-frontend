@@ -20,7 +20,7 @@ describe(moduleName, () => {
 
   describe('get case', () => {
     it('gets application from cos', done => {
-      const exampleCosResponse = { state: 'someState', foo: 'bar' };
+      const exampleCosResponse = { courts: 'CTSC', state: 'someState', foo: 'bar' };
       request.get.resolves(exampleCosResponse);
       const req = { cookies: { '__auth-token': 'token' }, session: {} };
 
@@ -36,7 +36,55 @@ describe(moduleName, () => {
     });
 
     it('gets application from cos but returns not found when no state', done => {
-      const exampleCosResponse = { foo: 'bar' };
+      const exampleCosResponse = { courts: 'CTSC', foo: 'bar' };
+      request.get.resolves(exampleCosResponse);
+      const req = { cookies: { '__auth-token': 'token' }, session: {} };
+
+      const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+      const headers = { Authorization: 'Bearer token' };
+
+      caseOrchestrationService.getApplication(req)
+        .catch(error => {
+          sinon.assert.calledWith(request.get, { uri, headers, json: true });
+          expect(NOT_FOUND).to.eql(error.statusCode);
+        })
+        .then(done, done);
+    });
+
+    it('gets application from cos but returns not found when state is AwaitingPayment', done => {
+      const exampleCosResponse = { courts: 'CTSC', state: 'AwaitingPayment', foo: 'bar' };
+      request.get.resolves(exampleCosResponse);
+      const req = { cookies: { '__auth-token': 'token' }, session: {} };
+
+      const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+      const headers = { Authorization: 'Bearer token' };
+
+      caseOrchestrationService.getApplication(req)
+        .catch(error => {
+          sinon.assert.calledWith(request.get, { uri, headers, json: true });
+          expect(NOT_FOUND).to.eql(error.statusCode);
+        })
+        .then(done, done);
+    });
+
+    it('gets application from cos but returns not found when courts is missing', done => {
+      const exampleCosResponse = { state: 'someState', foo: 'bar' };
+      request.get.resolves(exampleCosResponse);
+      const req = { cookies: { '__auth-token': 'token' }, session: {} };
+
+      const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+      const headers = { Authorization: 'Bearer token' };
+
+      caseOrchestrationService.getApplication(req)
+        .catch(error => {
+          sinon.assert.calledWith(request.get, { uri, headers, json: true });
+          expect(NOT_FOUND).to.eql(error.statusCode);
+        })
+        .then(done, done);
+    });
+
+    it('gets application from cos but returns not found when courts is not digital', done => {
+      const exampleCosResponse = { courts: 'eastMidlands', state: 'someState', foo: 'bar' };
       request.get.resolves(exampleCosResponse);
       const req = { cookies: { '__auth-token': 'token' }, session: {} };
 

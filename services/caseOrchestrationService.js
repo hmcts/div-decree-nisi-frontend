@@ -18,8 +18,9 @@ const methods = {
 
     return request.get({ uri, headers, json: true })
       .then(response => {
-        // if not state or state is d8 state, throw error
-        if (!response.state || config.ccd.d8States.includes(response.state)) {
+        const notValidState = !response.state || config.ccd.d8States.includes(response.state);
+        // if not digital court or no state or state is d8 state, throw error
+        if (!config.ccd.courts.includes(response.courts) || notValidState) {
           const error = new Error('No case found in a valid state');
           error.statusCode = NOT_FOUND;
           throw error;

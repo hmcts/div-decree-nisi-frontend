@@ -1,6 +1,6 @@
 {
   "caseId": "1234567890124567",
-  "courts": "dsdf",
+  "courts": "CTSC",
   "state": "DNAwaiting",
   "data": {
     "createdDate":"2018-08-02T00:00:00.000Z",
@@ -247,7 +247,7 @@
             "siteId":"AA04"
         }
     },
-    "courts": "westMidlands",
+    "courts": "CTSC",
     "placeOfMarriage": "At the Holy Trinity Church, in the Parish of Normanton by Derby, in the County of Derby",
     "caseReference": "caseReference",
     "respConfirmReadPetition" : "Yes",

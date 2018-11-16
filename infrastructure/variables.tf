@@ -188,3 +188,8 @@ variable "case_orchestration_service_draft_endpoint" {
 variable "feature_idam" {
   default = true
 }
+
+variable "ccd_digital_courts" {
+  type = "list"
+  default = ["CTSC"]
+}
