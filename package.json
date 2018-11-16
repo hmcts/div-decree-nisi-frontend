@@ -104,6 +104,9 @@
     "instrument": true,
     "exclude": [
       "services/redis.js",
+      "steps/cookies-policy/",
+      "steps/privacy-policy/",
+      "steps/terms-and-conditions/",
       "test/**/*"
     ]
   }
