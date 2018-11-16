@@ -1,14 +1,14 @@
 {
       "en": {
             "title": "Cookies",
-            "intro1": "A cookie is a small piece of data that’s stored on your computer, tablet, or phone when you visit a website. Most websites need cookies to work properly.",
+            "cookieExplanation": "A cookie is a small piece of data that’s stored on your computer, tablet, or phone when you visit a website. Most websites need cookies to work properly.",
             "introDescription": "This service uses them to:",
             "serviceDesc1": "measure how you use the service so it can be updated and improved based on your needs",
             "serviceDesc2": "remember the notifications you’ve seen so that you’re not shown them again",
             "serviceDesc3": "temporarily store the answers you give",
             "findMore": "Find out more about <a href=\"http://www.aboutcookies.org/\">how to manage cookies.</a>",
             "inDivorceTitle": "How cookies are used in the divorce service",
-            "toMesure": "To measure website usage",
+            "toMeasure": "To measure website usage",
             "google1": "We use Google Analytics software to collect information about how you use this service. We do this to help make sure the service is meeting the needs of its users and to help us make improvements, for example improving site search.",
             "googleAnalytics": "Google Analytics stores information about:",
             "ga1": "the pages you visit",
