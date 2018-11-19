@@ -9,8 +9,6 @@ Scenario('Pages', async I => {
 
   I.amOnLoadedPage('/');
 
-  I.testHomePage();
-
   await I.testIdamPage();
 
   I.testProgressBar();
