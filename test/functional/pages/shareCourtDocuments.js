@@ -4,16 +4,21 @@ const ShareCourtDocumentsContent = require(
 );
 const commonContent = require('common/content');
 const Upload = require('steps/upload/Upload.step');
+const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
 
-function testShareCourtDocumentsPage() {
+function testShareCourtDocumentsPage(option = 'yes') {
   const I = this;
 
   I.amOnLoadedPage(ShareCourtDocuments.path);
-  I.checkOption(ShareCourtDocumentsContent.en.fields.upload.yes);
+  I.checkOption(ShareCourtDocumentsContent.en.fields.upload[option]);
 
   I.navByClick(commonContent.en.continue);
 
-  I.seeCurrentUrlEquals(Upload.path);
+  if (option === 'yes') {
+    I.seeCurrentUrlEquals(Upload.path);
+  } else {
+    I.seeCurrentUrlEquals(CheckYourAnswers.path);
+  }
 }
 
 module.exports = { testShareCourtDocumentsPage };

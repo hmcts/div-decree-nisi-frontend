@@ -11,7 +11,7 @@ function testClaimCostsPage() {
   const I = this;
 
   I.amOnLoadedPage(ClaimCosts.path);
-  I.checkOption(ClaimCostsContent.en.fields.claimCosts.suggestedAmount);
+  I.checkOption(ClaimCostsContent.en.fields.claimCosts.originalAmount);
   I.navByClick(commonContent.en.continue);
 
   I.seeCurrentUrlEquals(ShareCourtDocuments.path);
