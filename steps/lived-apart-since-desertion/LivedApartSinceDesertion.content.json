@@ -11,13 +11,13 @@
     "ifMoreThan6Months": "Living together for more than 6 months",
     "ifMoreThan6MonthsDetail": "You can't use a given desertion date if you lived with your {{ case.divorceWho }} again for 6 months or more after that date.",
     "errors": {
-      "required": "Select yes if you lived apart since your {{ case.divorceWho }} deserted you",
+      "required": "Select yes if you've lived apart since your {{ case.divorceWho }} deserted you",
       "requireDatesOfLivingTogether": "Enter approximate dates of when you lived together."
     },
     "fields": {
       "changes": {
         "livedApartSinceDesertion": {
-          "title": "Have you lived apart since desertion?",
+          "title": "Have you lived apart since your {{ case.divorceWho }} deserted you?",
           "yes": "Yes",
           "no": "No"
         },

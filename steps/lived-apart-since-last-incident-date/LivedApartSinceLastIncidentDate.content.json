@@ -11,12 +11,12 @@
     "fields": {
       "changes": {
         "livedApartSinceLastIncidentDate": {
-          "title": "Have you lived apart since ?",
+          "title": "Have you lived apart since {{ case.lastIncidentDate | date}}?",
           "yes": "Yes",
           "no": "No"
         },
         "approximateDatesOfLivingTogetherField": {
-          "title": "Give approximate dates or number of months you lived together"
+          "title": "Provide the approximate dates or the number of months you lived together"
         }
       }
     }

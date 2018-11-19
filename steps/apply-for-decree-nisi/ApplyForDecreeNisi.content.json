@@ -7,9 +7,9 @@
     "decreeNisi": "The 'decree nisi', which shows that the court agrees that you’re entitled to a divorce.",
     "decreeAbsolute": "The ‘decree absolute’, which legally ends the marriage. It cannot be made until at least 6 weeks after the decree nisi.",
     "courtCanCancel": "The court can cancel (legally known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.",
-    "signOutDetail": "Press Continue to sign out. If you want to withdraw your divorce application, you'll need to contact your divorce centre.",
+    "signOutDetail": "Press Continue to sign out. If you want to withdraw your divorce application, contact the Courts and Tribunals Service Centre.",
     "errors": {
-      "required": "Select if you want to continue with your divorce and apply for a decree nisi?"
+      "required": "Choose if you want to continue with your divorce"
     },
     "fields": {
       "applyForDecreeNisi": {

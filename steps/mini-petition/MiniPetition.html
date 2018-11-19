@@ -44,15 +44,6 @@
   <h3 class="heading-small">{{ content.respondent }}</h3>
   <p class="text">{{ case.respondentFirstName }} {{ case.respondentLastName }}</p>
 
-  <details>
-    <summary aria-controls="details-content-0" aria-expanded="false">
-      <span class="summary">{{ content.whatThisMeans }}</span>
-    </summary>
-    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-      <p class="text">{{ content.whatThisMeansApplicantRespondent }}</p>
-    </div>
-  </details>
-
   <!-- EOF Application for divorce -->
 
   <!-- CoRespondent -->
@@ -61,6 +52,15 @@
     <h3 class="heading-small">{{ content.coRespondent }}</h3>
     <p class="text">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
   {% endif %}
+
+ <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.whatThisMeansApplicantRespondent }}</p>
+    </div>
+  </details>
 
   <!-- EOF CoRespondent -->
 
@@ -222,8 +222,18 @@
       <p class="text">{{ content.whatThisMeansJurisdictionNotSure }}</p>
 
       <h3 class="heading-small">{{ content.whatThisMeansJurisdictionResidualJurisdiction }}</h3>
-      <p class="text">{{ content.whatThisMeansJurisdictionEligibleResidualJurisdiction }}</p>
-      <p class="text">{{ content.whatThisMeansJurisdictionResidualJurisdictionComplex }}</p>
+
+      <p class="text">{{ content.whatThisMeansJurisdictionResidualJurisdiction1 }}</p>
+      <ul class="bullet list-bullet">
+        <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction2 }}</li>
+        <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction3 }}</li>
+      </ul>
+    <p class="text">{{ content.whatThisMeansJurisdictionResidualJurisdiction4 }}</p>
+      <ul class="bullet list-bullet">
+        <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction5 }}</li>
+        <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction6 }}</li>
+        <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction7 }}</li>
+      </ul>
 
       <h3 class="heading-small">{{ content.whatThisMeansJurisdictionOtherCourtCases }}</h3>
       <p class="text">{{ content.whatThisMeansJurisdictionCourtNeedsToKnow }}</p>
@@ -240,7 +250,6 @@
   <h2 class="heading-medium">{{ content.reasonForDivorce }}</h2>
 
   {% if case.reasonForDivorce == "adultery" %}
-    <p class="text">{{ content.reasonForDivorceAdultery }}</p>
 
     <p class="text">
       {% if case.reasonForDivorceAdulteryIsNamed == "Yes" %}
@@ -369,7 +378,6 @@
     <div class="panel panel-border-narrow" id="details-content-4" aria-hidden="true">
       <p class="text">{{ content.whatThisMeansFinantialOrdersPropertyMoneyPensions }}</p>
       <p class="text">{{ content.whatThisMeansFinantialOrdersChildren }}</p>
-      <p class="text">{{ content.whatThisMeansFinantialOrdersSolicitors }}</p>
       <p class="text">{{ content.whatThisMeansFinantialOrdersLegalProceedings }}</p>
 
       <h3 class="heading-small">{{ content.whatThisMeansFinantialOrdersConsentOrders }}</h3>
