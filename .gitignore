@@ -28,3 +28,4 @@ package-lock.json
 .nyc_output
 .scannerwork
 dist
+remote-config.json
