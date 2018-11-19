@@ -59,6 +59,8 @@ services:
     draftEndpoint: http://localhost:4013/draftsapi/version/1
   petitionerFrontend:
     url: https://div-pfe-aat.service.core-compute-aat.internal
+  caseMaintenance:
+    baseUrl: http://localhost:3001/case-maintenance
 
 paths:
   adulteryFirstFoundOut: /first-find-out
@@ -98,9 +100,9 @@ tests:
     waitForAction: 1000
     smartWait: 5000
     outputDir: ../../functional-output
+    proxy: http://proxyout.reform.hmcts.net:8080
+    proxyByPass: '*beta*LB.reform.hmcts.net'
     idam:
-      idamTestApiProxy: proxyout.reform.hmcts.net:8080
-      idamTestProxyByPass: '*beta*LB.reform.hmcts.net'
       idamTestUsername:
       idamTestPassword:
       idamTestForename:

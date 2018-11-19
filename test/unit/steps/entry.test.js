@@ -10,12 +10,12 @@ const config = require('config');
 
 describe(modulePath, () => {
   it('has idam.authenticate middleware', () => {
-    return middleware.hasMiddleware(Entry, [ idam.authenticate() ]);
+    return middleware.hasMiddleware(Entry, [ idam.authenticate ]);
   });
 
   context('navigation', () => {
     beforeEach(() => {
-      sinon.stub(idam, 'authenticate').returns(middleware.nextMock);
+      sinon.stub(idam, 'authenticate').callsFake(middleware.nextMock);
       sinon.stub(caseOrchestrationService, 'getApplication');
     });
 

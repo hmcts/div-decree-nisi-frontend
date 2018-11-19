@@ -1,7 +1,6 @@
 const { Page, branch } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
-const idam = require('services/idam');
 
 class Start extends Page {
   static get ignorePa11yWarnings() {
@@ -29,10 +28,6 @@ class Start extends Page {
     } else {
       this.next().redirect(req, res, next);
     }
-  }
-
-  get middleware() {
-    return [...super.middleware, idam.setRedirectUri];
   }
 }
 
