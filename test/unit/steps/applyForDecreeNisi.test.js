@@ -47,7 +47,6 @@ describe(modulePath, () => {
 
   it('returns correct answers', () => {
     const expectedContent = [
-      'broken test',
       ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.title,
       ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.yes
     ];
