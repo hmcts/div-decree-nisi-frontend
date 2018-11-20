@@ -28,7 +28,7 @@ withPipeline("nodejs", product, component) {
     setVaultName('div')
   }
 
-  before('Security Checks') {
+  before('securitychecks') {
     stage('Test HTML') {
       sh 'yarn test:validation'
       sh 'yarn test:a11y'
