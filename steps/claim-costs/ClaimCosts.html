@@ -36,7 +36,7 @@
     {% if notExist(consts.respAgreeToCosts) %}
       {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
         options = [
-         { label: content.fields.dnCosts.specificAmount, value: consts.specificAmount, target: "specific-amount" }
+         { label: content.fields.dnCosts.differentAmount, value: consts.differentAmount, target: "specific-amount" }
        ]
       ) }}
       <div id="specific-amount" class="js-hidden panel panel-border-narrow form-group {{ errorClass(fields.dnCosts.costsDifferentDetails) }}">
@@ -54,7 +54,7 @@
 
       {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
         options = [
-          { label: content.fields.dnCosts.dontClaimDifferentAmount, value: consts.dontClaim }
+          { label: content.fields.dnCosts.endClaim, value: consts.endClaim }
         ]
       ) }}
 

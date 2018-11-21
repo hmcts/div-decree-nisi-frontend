@@ -17,8 +17,8 @@
       "dnCosts": {
         "title": "Your claim for the divorce costs",
         "originalAmount": "I still want to claim my costs and will let the court decide how much.",
-        "specificAmount": "I want to claim a specific amount",
-        "dontClaimDifferentAmount": "I don't want to claim my costs anymore",
+        "differentAmount": "I want to claim a specific amount",
+        "endClaim": "I don't want to claim my costs anymore",
         "costsDifferentDetails": {
           "title": "State what you want to claim and why"
         }

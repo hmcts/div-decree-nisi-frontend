@@ -8,8 +8,8 @@ const Joi = require('joi');
 
 const constants = {
   originalAmount: 'originalAmount',
-  specificAmount: 'differentAmount',
-  dontClaim: 'endClaim',
+  differentAmount: 'differentAmount',
+  endClaim: 'endClaim',
   respAgreeToCosts: 'respAgreeToCosts',
   yes: 'Yes',
   no: 'No'
@@ -35,8 +35,8 @@ class ClaimCosts extends Question {
   get form() {
     const answers = [
       this.consts.originalAmount,
-      this.consts.specificAmount,
-      this.consts.dontClaim
+      this.consts.differentAmount,
+      this.consts.endClaim
     ];
 
     const validAnswers = Joi.string()
@@ -51,7 +51,7 @@ class ClaimCosts extends Question {
 
     const validateCostsDifferentDetails = ({ claimCosts = '', costsDifferentDetails = '' }) => {
       // only validate if user has answered hasBeenChanges
-      const isSpecAmntSelected = claimCosts === this.consts.specificAmount;
+      const isSpecAmntSelected = claimCosts === this.consts.differentAmount;
       if (!isSpecAmntSelected) {
         return true;
       }
@@ -72,10 +72,10 @@ class ClaimCosts extends Question {
 
     answers.push(answer(this, {
       question: this.content.fields.dnCosts.title,
-      answer: this.fields.dnCosts.claimCosts.value
+      answer: this.content.fields.dnCosts[this.fields.dnCosts.claimCosts.value]
     }));
 
-    if (this.fields.dnCosts.claimCosts.value === this.consts.specificAmount) {
+    if (this.fields.dnCosts.claimCosts.value === this.consts.differentAmount) {
       answers.push(answer(this, {
         question: this.content.fields.dnCosts.costsDifferentDetails.title,
         answer: this.fields.dnCosts.costsDifferentDetails.value
