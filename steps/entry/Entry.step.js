@@ -25,7 +25,7 @@ class Entry extends EntryPoint {
   }
 
   get middleware() {
-    return [...super.middleware, idam.authenticate()];
+    return [...super.middleware, idam.authenticate];
   }
 }
 

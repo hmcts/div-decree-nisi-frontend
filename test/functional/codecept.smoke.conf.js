@@ -5,8 +5,8 @@ const waitForAction = config.tests.functional.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
 if (config.environment !== 'development') {
-  const proxyServer = config.tests.functional.idam.idamTestApiProxy;
-  const proxyByPass = config.tests.functional.idam.idamTestProxyByPass;
+  const proxyServer = config.tests.functional.proxy;
+  const proxyByPass = config.tests.functional.proxyByPass;
   chromeArgs.push(`--proxy-server=${proxyServer}`);
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
 }
