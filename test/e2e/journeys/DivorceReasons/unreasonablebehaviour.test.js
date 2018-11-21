@@ -34,7 +34,7 @@ const matchParam = (paramName, expected) => actual => {
 
 let caseOrchestrationServiceSubmitStub = {};
 
-describe('Unreasonable behaviour', () => {
+describe.skip('Unreasonable behaviour', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
