@@ -2,7 +2,7 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
-const { caseStateMap, permitDNReasonMap } = require('./petitionerStateTemplates');
+const { caseStateMap, permitDNReasonMap, caseIdDispalyStateMap } = require('./petitionerStateTemplates');
 
 const constants = {
   AOSOverdue: 'aosoverdue',
@@ -23,6 +23,10 @@ class PetitionProgressBar extends Interstitial {
 
   get caseId() {
     return this.req.session.case.caseId;
+  }
+
+  get isCaseIdToBeDisplayed() {
+    return caseIdDispalyStateMap.includes(this.caseState);
   }
 
   handler(req, res) {

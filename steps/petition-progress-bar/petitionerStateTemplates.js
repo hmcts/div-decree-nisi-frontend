@@ -29,6 +29,8 @@ const caseStateMap = [
   }
 ];
 
+const caseIdDispalyStateMap = ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted'];
+
 const permitDNReasonMap = new Map([
   ['0', './sections/undefended/PetitionProgressBar.undefended.template.html'],
   ['1', './sections/deemedService/PetitionProgressBar.deemedService.template.html'],
@@ -37,4 +39,4 @@ const permitDNReasonMap = new Map([
   ['4', './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html']
 ]);
 
-module.exports = { caseStateMap, permitDNReasonMap };
+module.exports = { caseStateMap, permitDNReasonMap, caseIdDispalyStateMap };

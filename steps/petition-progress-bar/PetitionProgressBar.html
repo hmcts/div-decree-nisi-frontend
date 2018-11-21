@@ -8,7 +8,13 @@
 
 {% block main_content %}
   <p class="font-xsmall">
-    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; {{ caseId | hypenate | safe }} <br>
+    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; 
+    {% if isCaseIdToBeDisplayed %}
+      {{ caseId | hypenate | safe }} 
+    {% else %}
+      {{ case.caseReference | safe }} 
+    {% endif %}
+    <br>
     <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;&nbsp; {{ case.petitionerFirstName }} {{ case.petitionerLastName }}
   </p>
   

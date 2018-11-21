@@ -76,8 +76,10 @@ describe(modulePath, () => {
   });
 
   describe('CCD state: Submitted', () => {
+    const referenceNumber = '1234‐5678‐9012‐4567';
     const session = {
       case: {
+        caseId: referenceNumber.replace(/‐/g, ''),
         state: 'Submitted',
         data: {}
       }
@@ -94,13 +96,19 @@ describe(modulePath, () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.submitted);
     });
+
+    it('displays case id', () => {
+      return content(PetitionProgressBar, session, { specificValues: [ referenceNumber ] });
+    });
   });
 
   describe('CCD state: AOSstarted', () => {
     const session = {
       case: {
         state: 'AOSstarted',
-        data: {}
+        data: {
+          caseReference: 'LV17D80101'
+        }
       }
     };
 
@@ -114,6 +122,15 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.issued);
+    });
+
+    it('displays case reference', () => {
+      return content(
+        PetitionProgressBar,
+        session,
+        {
+          specificValues: [ session.case.data.caseReference ]
+        });
     });
   });
 
