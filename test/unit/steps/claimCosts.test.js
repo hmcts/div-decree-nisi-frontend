@@ -73,7 +73,7 @@ describe(modulePath, () => {
       };
       const expectedContent = [
         ClaimCostsContent.en.fields.dnCosts.title,
-        stepData.dnCosts.claimCosts
+        ClaimCostsContent.en.fields.dnCosts.originalAmount
       ];
       return question.answers(ClaimCosts, stepData, expectedContent, session);
     });
@@ -87,7 +87,7 @@ describe(modulePath, () => {
       };
       const expectedContent = [
         ClaimCostsContent.en.fields.dnCosts.title,
-        stepData.dnCosts.claimCosts,
+        ClaimCostsContent.en.fields.dnCosts.differentAmount,
         ClaimCostsContent.en.fields.dnCosts.costsDifferentDetails.title,
         stepData.dnCosts.costsDifferentDetails
       ];
