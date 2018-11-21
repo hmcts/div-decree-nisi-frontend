@@ -28,3 +28,8 @@
 <h2 class="heading-medium">{{ content.dAADoesntSubmitAnswer }}</h2>
 <p class="text">{{ content.dAADoesntReceiveAnswer }}</p>
 <p class="text">{{ content.dAASentandEmail }}</p>
+<p class="text">{{ content.dAAReadResp }}</p>
+
+ <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+   <input class="button button-start" type="submit" value="{{ content.continue }}">
+</form> 
