@@ -9,7 +9,7 @@
     "courtCanCancel": "The court can cancel (legally known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.",
     "signOutDetail": "Press Continue to sign out. If you want to withdraw your divorce application, contact the Courts and Tribunals Service Centre.",
     "errors": {
-      "required": "Choose if you want to continue with your divorce"
+      "required": "Choose whether you want to continue with your divorce"
     },
     "fields": {
       "applyForDecreeNisi": {
