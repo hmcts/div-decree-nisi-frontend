@@ -1,15 +1,11 @@
 {% call formSection() %}
   {{ selectionButtons(fields.state, "Select case state",
     options = [
-      { label: "AwaitingPayment", value: "AwaitingPayment" },
       { label: "PetitionCompleted", value: "PetitionCompleted" },
       { label: "AosAwaiting", value: "AosAwaiting" },
       { label: "AosStarted", value: "AosStarted" },
       { label: "AosCompleted", value: "AosCompleted" },
       { label: "DNAwaiting", value: "DNAwaiting", target: "no-container"},
-      { label: "DNStarted", value: "DNStarted" },
-      { label: "DNCompleted", value: "DNCompleted" },
-      { label: "Rejected", value: "Rejected" },
       { label: "DefendedDivorce", value: "DefendedDivorce" },
       { label: "AwaitingLegalAdvisorReferral", value: "AwaitingLegalAdvisorReferral"},
       { label: "AOSOverdue", value: "AOSOverdue" },

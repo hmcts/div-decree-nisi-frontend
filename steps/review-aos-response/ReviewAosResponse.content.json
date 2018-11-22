@@ -1,33 +1,71 @@
 {
   "en": {
     "title": "Read your {{ case.divorceWho }}'s response",
-    "youNeedToReed": "You need to read your {{ case.divorceWho }}'s response before you continue. The response is legally known as the 'acknowledgement of service'",
+    "youNeedToRead": "You need to read your {{ case.divorceWho }}'s response before you continue. The response is legally known as the 'acknowledgement of service'",
+   
     "acknowledgementOfSrvice": "Acknowledgement of service",
     "respondent": "Respondent",
     "applicant": "Applicant",
-    "respondentProceed": "How the respondent wants to proceed",
     "whatThisMeans": "What this means",
-    "givenOptions": "The respondent was given the following options for their response.",
-    "proceedWithDivorce": "to proceed with the divorce",
-    "proceedNotAccept": "to proceed, but not accept the allegations",
-    "disagree": "to disagree with the application - if they want to try to prevent the divorce or want to make their own application for divorce (they intend to 'defend' it)",
-    "jurisdictionCourt": "Jurisdiction of the court",
-    "respondentAgrees": "The respondent agrees that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
-    "noOtherProceedings": "They said there are no other proceedings outside of England and Wales which are related to the marriage or which may affect its validity (how legally binding the marriage is).",
-    "respondentWasAsked": "The respondent was asked if they agree with the jurisdiction connections which you give in your divorce application.",
-    "courtProceedings": "They were also asked if there were any other court proceedings which may affect the marriage.",
-    "costsOrder": "Costs order",
-    "respondentDoesNotAgree": "The respondent doesn’t agree to pay all the costs of the divorce, but has made the folllowing suggestion.",
-    "payEqualAmounts": "\"I think we should pay equal amounts for the divorce as we both want it to happen.\"",
-    "respondentWasAskedPayCosts": "The respondent was asked if they agreed to pay the costs that you claimed.",
-    "followingOptions": "They were given the following options:",
-    "payCosts": "to pay the costs that you suggested",
-    "notPayCosts": "to not agree to paying any of the costs",
-    "suggestPayingDifferent": "to suggest paying a different amount",
-    "chanceToChangeAmount": "You'll be given a chance to change the amount that you want to claim later in this application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ case.divorceWho }} make.",
+
+    "respProceed": {
+      "title": "How the respondent wants to proceed",
+      "willDefendDivorce": "The respondent has stated in their response that they will defend the divorce.",
+      "willLetDivorceProceed": "The respondent will let the divorce proceed (doesn't intend to 'defend' it).",
+      "letDivorceProceedButNotAdmit": "The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't admit to what you said about them .",
+      "adultery": {
+        "admitsAdultery": "The respondent admits to committing the adultery.",
+        "doesNotAdmitAdultery": "The respondent does not admit to committing the adultery."
+      },
+      "sep": {
+        "intendingToDelayDivorce":"The respondent is intending to ask the court to delay the divorce until it’s satisfied with their financial situation.",
+        "notIntendingToDelayDivorce":"The respondent is not intending to ask the court to delay the divorce until it’s satisfied with their financial situation."
+      },
+      "sep2Yr": {
+        "respConsent": "The respondent consents to a divorce.",
+        "respDoesNotContent": "The respondent does not consent to a divorce."
+      },
+      "sep5Yr": {
+        "defendingFinancialHardship": "The respondent is defending on the basis that it will cause them severe hardship and provided the following explanation:",
+        "notDefendingFinancialHardship":"The respondent is not defending on the basis that it will cause them severe hardship."
+      },
+      "givenOptions": "The respondent was given the following options for their response.",
+      "proceedWithDivorce": "to proceed with the divorce",
+      "proceedNotAccept": "to proceed, but not accept the allegations",
+      "disagree": "to disagree with the application - if they want to try to prevent the divorce or want to make their own application for divorce (they intend to 'defend' it)"
+    },
+
+    "jurisdiction": {
+      "title": "Jurisdiction of the court",
+      "respondentAgrees": "The respondent agrees that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
+      "respDoesNotAgree": "The respondent does not agree that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
+      "detailsGiven": "They gave the following statement to support this:",
+      "countryTheyResp": "They were asked in which country their life is mainly based. They responded:",
+      "otherProceedings": "They said there are other proceedings outside of England and Wales which are related to the marriage or which may affect its validity (how legally binding the marriage is).",
+      "noOtherProceedings": "They said there are no other proceedings outside of England and Wales which are related to the marriage or which may affect its validity (how legally binding the marriage is).",
+      "respondentWasAsked": "The respondent was asked if they agree with the jurisdiction connections which you give in your divorce application.",
+      "courtProceedings": "They were also asked if there were any other court proceedings which may affect the marriage."
+    },
+
+    "costsOrder": {
+      "title": "Costs order",
+      "agreedToPayCosts": "Your {{ case.divorceWho }} has agreed to pay some or all of the costs of the divorce.",
+      "notAgreedToPayCosts": "Your {{ case.divorceWho }} has said they should not pay costs and given the following explanation about why they should not pay:",
+      "respondentWasAskedPayCosts": "The respondent was asked if they agreed to pay the costs that you claimed.",
+      "followingOptions": "They were given the following options:",
+      "payCosts": "to agree to pay some or all of the costs of the divorce",
+      "notPayCosts": "to not agree to paying any of the costs",
+      "chanceToChangeAmount": "You'll be given a chance to accept their suggestion or change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ case.divorceWho }} make."
+    },
+    
+    "statementOfTruth": {
+      "title": "Statement of Truth",
+      "details":"\"I believe that the facts stated in this application are true.\""
+    },
+
     "fields": {
       "reviewAosResponse": {
-        "title": "Have you read your {{ case.divorceWho }}'s response?",
+        "title": "Have you read your spouse response?",
         "yes": "Yes"
       }
     }
