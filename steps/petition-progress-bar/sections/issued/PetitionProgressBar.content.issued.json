@@ -1,12 +1,12 @@
 {
   "en": {
     "issuedAppStatusMsg": "Your application is in progress",
-    "issuedAppStatusMsgDetails": "Your application has passed checks by court staff and the next stage of your divorce has begun. You’ll be sent a ’notice of proceedings’ by post confirming this.",
+    "issuedAppStatusMsgDetails": "Your application has passed checks by court staff and the next stage of your divorce has begun. You have been sent a copy of the application by email.",
     "issuedWhatHappensNext": "What happens next",
     "issuedWhatHappensNextDetail1": "The service centre sent the application to your {{ case.divorceWho }} by post on {{ case.issueDate | date }}. They were also sent an ‘acknowledgement of service’. This is a form which asks if they:",
     "issuedWhatHappensNextDetails2list1": "agree with what you’ve said in the application",
     "issuedWhatHappensNextDetails2list2": "intend to try to stop the divorce (defend it)",
     "issuedWhatHappensNextDetails2list3": "object to paying the costs (if you've claimed them)",
-    "issuedWhatHappensNextDetails3": "They have been asked to respond within 7 days. Contact the divorce centre if you haven’t heard anything back after 21 days."
+    "issuedWhatHappensNextDetails3": "They have been asked to respond within 7 days. If they don’t respond within 30 days you’ll be sent an email from the court telling you what to do next."
   }
 }
