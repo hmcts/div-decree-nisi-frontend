@@ -33,7 +33,7 @@
     "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "https://github.com/hmcts/nodejs-logging#771bb219e86d79d999d7edb17b10c69194d614fd",
-    "@hmcts/one-per-page": "https://github.com/hmcts/one-per-page.git#1494121b256132cb61b1c23064a3359650fdca06",
+    "@hmcts/one-per-page": "^4.1.1",
     "applicationinsights": "^1.0.3",
     "cookie-parser": "^1.4.3",
     "cookies": "^0.7.1",
