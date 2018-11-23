@@ -50,4 +50,4 @@ Scenario('Pages', async I => {
   await I.testExitIntolerable();
 
   I.checkUrlsNotTested();
-});
+}).retry(10);

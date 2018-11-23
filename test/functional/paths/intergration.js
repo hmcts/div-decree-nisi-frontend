@@ -29,4 +29,4 @@ Scenario('Happy Path', async I => {
   I.navByClick(CheckYourAnswersContent.en.submit);
 
   I.amOnLoadedPage(config.paths.done);
-});
+}).retry(10);

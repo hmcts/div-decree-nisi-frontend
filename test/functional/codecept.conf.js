@@ -12,11 +12,14 @@ const waitForTimeout = config.tests.functional.waitForTimeout;
 const waitForAction = config.tests.functional.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
-if (config.environment !== 'development') {
-  const proxyServer = config.tests.functional.proxy;
-  const proxyByPass = config.tests.functional.proxyByPass;
-  chromeArgs.push(`--proxy-server=${proxyServer || ''}`);
-  chromeArgs.push(`--proxy-bypass-list=${proxyByPass || ''}`);
+const proxyServer = config.tests.functional.proxy;
+if (proxyServer) {
+  chromeArgs.push(`--proxy-server=${proxyServer}`);
+}
+
+const proxyByPass = config.tests.functional.proxyByPass;
+if (proxyByPass) {
+  chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
 }
 
 exports.config = {

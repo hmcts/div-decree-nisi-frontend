@@ -1,6 +1,6 @@
 const IdamMockLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 
-Feature('Smoke test', { retries: 2 });
+Feature('Smoke test');
 
 Scenario('Can see index page', async I => {
   I.amOnLoadedPage('/');
@@ -12,4 +12,4 @@ Scenario('Can see index page', async I => {
   } else {
     I.seeInCurrentUrl('/login?');
   }
-});
+}).retry(10);

@@ -1,13 +1,24 @@
+/* eslint-disable */
+const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-setter');
+
+if (process.env.POINT_TO_REMOTE) {
+  const configurationFile = './remote-config.json';
+  processEnvironmentSetup.setUpEnvironmentVariables(configurationFile);
+}
+
 const config = require('config');
 
 const waitForTimeout = config.tests.functional.waitForTimeout;
 const waitForAction = config.tests.functional.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
-if (config.environment !== 'development') {
-  const proxyServer = config.tests.functional.proxy;
-  const proxyByPass = config.tests.functional.proxyByPass;
+const proxyServer = config.tests.functional.proxy;
+if (proxyServer) {
   chromeArgs.push(`--proxy-server=${proxyServer}`);
+}
+
+const proxyByPass = config.tests.functional.proxyByPass;
+if (proxyByPass) {
   chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
 }
 
