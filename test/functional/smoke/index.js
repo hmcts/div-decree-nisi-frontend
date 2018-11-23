@@ -1,10 +1,15 @@
-const StartPage = require('steps/start/Start.step');
-const StartPageContent = require('steps/start/Start.content');
+const IdamMockLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 
-Feature('Smoke test', { retries: 2 });
+Feature('Smoke test');
 
-Scenario('Can see index page', I => {
+Scenario('Can see index page', async I => {
   I.amOnLoadedPage('/');
-  I.seeCurrentUrlEquals(StartPage.path);
-  I.see(StartPageContent.en.title);
-});
+
+  const currentPath = await I.getCurrentUrl();
+
+  if (currentPath === IdamMockLogin.path) {
+    I.seeCurrentUrlEquals(IdamMockLogin.path);
+  } else {
+    I.seeInCurrentUrl('/login?');
+  }
+}).retry(3);

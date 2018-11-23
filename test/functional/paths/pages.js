@@ -9,8 +9,6 @@ Scenario('Pages', async I => {
 
   I.amOnLoadedPage('/');
 
-  I.testHomePage();
-
   await I.testIdamPage();
 
   I.testProgressBar();
@@ -51,5 +49,11 @@ Scenario('Pages', async I => {
 
   await I.testExitIntolerable();
 
+  I.testCookiesPolicyPage();
+
+  I.testPrivacyPolicyPage();
+
+  I.testTermsAndConditionsPage();
+
   I.checkUrlsNotTested();
-});
+}).retry(3);

@@ -1,12 +1,8 @@
-const { Page, branch } = require('@hmcts/one-per-page');
+const { Redirect, branch } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 
-class Start extends Page {
-  static get ignorePa11yWarnings() {
-    return ['WCAG2AA.Principle1.Guideline1_3.1_3_1.H48'];
-  }
-
+class Start extends Redirect {
   static get path() {
     return config.paths.index;
   }
@@ -20,14 +16,6 @@ class Start extends Page {
       redirectTo(this.journey.steps.PetitionProgressBar).if(hasSession),
       redirectTo(this.journey.steps.Entry)
     );
-  }
-
-  handler(req, res, next) {
-    if (req.method === 'GET') {
-      super.handler(req, res, next);
-    } else {
-      this.next().redirect(req, res, next);
-    }
   }
 }
 
