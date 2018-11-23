@@ -21,5 +21,15 @@ Locally this will also create a new URL of ```"/session"``` where you can view a
 
 ####Test application:
 
-
 `yarn test`
+
+####Run Functional tests locally
+
+1. create local.yml file in config folder with the contents:
+```
+tests:
+  functional:
+    proxy:
+    proxyByPass:
+```
+2. run `yarn test:functional`

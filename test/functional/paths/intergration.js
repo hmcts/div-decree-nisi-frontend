@@ -11,8 +11,6 @@ Scenario('Happy Path', async I => {
 
   I.amOnLoadedPage('/');
 
-  I.testHomePage();
-
   await I.testIdamPage();
 
   I.testProgressBar();
@@ -31,4 +29,4 @@ Scenario('Happy Path', async I => {
   I.navByClick(CheckYourAnswersContent.en.submit);
 
   I.amOnLoadedPage(config.paths.done);
-});
+}).retry(3);
