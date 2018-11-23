@@ -20,7 +20,7 @@
     "respondentsCorrespondenceAddress": "Respondent's correspondence address",
     "coRespondentsCorrespondenceAddress": "Co-respondent's correspondence address",
     "statementOfTruth": "Statement of Truth",
-    "statementOfTruthDescription": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} believes that the facts stated in this application are true.",
+    "statementOfTruthDescription": "\"I believe that the facts stated in this application are true.\"",
     "coRespondent": "Co-respondent",
 
     "reasonForDivorce": "Reason for the divorce",

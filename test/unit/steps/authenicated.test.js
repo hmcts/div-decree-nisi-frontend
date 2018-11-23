@@ -10,12 +10,12 @@ const config = require('config');
 
 describe(modulePath, () => {
   it('has idam.landingPage middleware', () => {
-    return middleware.hasMiddleware(Authenticated, [ idam.landingPage() ]);
+    return middleware.hasMiddleware(Authenticated, [ idam.landingPage ]);
   });
 
   context('navigation', () => {
     beforeEach(() => {
-      sinon.stub(idam, 'landingPage').returns(middleware.nextMock);
+      sinon.stub(idam, 'landingPage').callsFake(middleware.nextMock);
       sinon.stub(caseOrchestrationService, 'getApplication');
     });
 

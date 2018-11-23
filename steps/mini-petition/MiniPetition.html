@@ -441,7 +441,7 @@
 
   <h2 class="heading-medium">{{ content.statementOfTruth }}</h2>
   <p class="text">{{ content.statementOfTruthDescription }}</p>
-
+  <p class="text"><em>{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</em></p>
 
   {% call formSection() %}
     {{ selectionButtons(fields.changes.hasBeenChanges, content.fields.changes.hasBeenChanges.title,
