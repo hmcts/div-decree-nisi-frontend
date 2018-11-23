@@ -416,10 +416,9 @@
     slug "^0.9.1"
     url-parse "^1.2.0"
 
-"@hmcts/one-per-page@^4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.1.1.tgz#166a2bace8766d6a2cd5adf83c3c58357ab6aa6c"
-  integrity sha512-VWtEForX+MqnJRc9QvbYbFi9GuYLy4WP+fW2H60K8zNpzpt1dfAdoNEq4D4OcJ0xT6+F4zjqoy0+5jTy0UHtNw==
+"@hmcts/one-per-page@https://github.com/hmcts/one-per-page.git#722b32c4f119c9b8d16e6d9e939c9838340e1417":
+  version "4.1.2"
+  resolved "https://github.com/hmcts/one-per-page.git#722b32c4f119c9b8d16e6d9e939c9838340e1417"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"
