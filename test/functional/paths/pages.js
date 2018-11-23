@@ -49,5 +49,11 @@ Scenario('Pages', async I => {
 
   await I.testExitIntolerable();
 
+  I.testCookiesPolicyPage();
+
+  I.testPrivacyPolicyPage();
+
+  I.testTermsAndConditionsPage();
+
   I.checkUrlsNotTested();
-}).retry(10);
+}).retry(3);

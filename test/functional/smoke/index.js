@@ -12,4 +12,4 @@ Scenario('Can see index page', async I => {
   } else {
     I.seeInCurrentUrl('/login?');
   }
-}).retry(10);
+}).retry(3);
