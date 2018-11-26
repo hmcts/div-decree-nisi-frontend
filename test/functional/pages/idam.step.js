@@ -1,14 +1,12 @@
 const IdamMockLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const content = require('mocks/steps/idamLogin/IdamLogin.content');
 const PetitionProgressBarPage = require('steps/petition-progress-bar/PetitionProgressBar.step');
-const StartPageContent = require('steps/start/Start.content');
 const idamConfigHelper = require('test/functional/helpers/idamConfigHelper.js');
 
 async function testIdamPage(success = true) {
   const I = this;
 
   I.amOnLoadedPage('/');
-  I.navByClick(StartPageContent.en.startNow);
 
   const currentPath = await I.getCurrentUrl();
 
