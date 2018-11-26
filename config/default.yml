@@ -53,10 +53,9 @@ services:
     expire: 3600000
     enabled: false
   orchestrationService:
-    getCaseUrl: http://localhost:3001/retrieve-aos-case
+    getCaseUrl: http://localhost:4013/draftsapi/version/1
     submitCaseUrl: http://localhost:3001/submit-dn
     health: http://localhost:4013/health
-    draftEndpoint: http://localhost:4013/draftsapi/version/1
   petitionerFrontend:
     url: https://div-pfe-aat.service.core-compute-aat.internal
   caseMaintenance:

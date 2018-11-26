@@ -85,10 +85,9 @@ module "frontend" {
 
     // CCase Orchestration API
     ORCHESTRATION_SERVICE_URL              = "${local.case_orchestration_service_api_url}"
-    ORCHESTRATION_SERVICE_GET_PETITION_URL = "${local.case_orchestration_service_api_url}/retrieve-aos-case"
+    ORCHESTRATION_SERVICE_GET_PETITION_URL = "${var.case_orchestration_service_draft_endpoint}"
     ORCHESTRATION_SERVICE_POST_PETITION_URL= "${local.case_orchestration_service_api_url}/submit-dn"
     ORCHESTRATION_SERVICE_HEALTH_URL       = "${local.case_orchestration_service_api_url}${local.health_endpoint}"
-    ORCHESTRATION_SERVICE_DRAFT_ENDPOINT   = "${var.case_orchestration_service_draft_endpoint}"
 
     //Case Maintenance
     CASE_MAINTENANCE_BASE_URL              = "${local.case_maintence_service_api_url}"
