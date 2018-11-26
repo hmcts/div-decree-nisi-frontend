@@ -30,7 +30,7 @@ describe(modulePath, () => {
 
   describe('errors', () => {
     it('shows error if does not answer question', () => {
-      const onlyErrors = ['required'];
+      const onlyErrors = ['required', 'requireDatesLivedTogether'];
       return question.testErrors(LivedApartSinceAdultery, session, {}, { onlyErrors });
     });
 
