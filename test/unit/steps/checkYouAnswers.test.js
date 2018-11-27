@@ -85,6 +85,9 @@ describe(modulePath, () => {
             claimsCosts: 'Yes',
             claimsCostsFrom: ['respondent', 'correspondent']
           }
+        },
+        ClaimCosts: {
+          claimCosts: 'originalAmount'
         }
       };
       const specificContent = ['applyingForDecreeNisiClaimsCostsRespondentCoRespondent'];
@@ -98,6 +101,9 @@ describe(modulePath, () => {
             claimsCosts: 'Yes',
             claimsCostsFrom: ['respondent']
           }
+        },
+        ClaimCosts: {
+          claimCosts: 'originalAmount'
         }
       };
       const specificContent = ['applyingForDecreeNisiClaimsCostsRespondent'];
@@ -111,15 +117,33 @@ describe(modulePath, () => {
             claimsCosts: 'Yes',
             claimsCostsFrom: ['correspondent']
           }
+        },
+        ClaimCosts: {
+          claimCosts: 'originalAmount'
         }
       };
       const specificContent = ['applyingForDecreeNisiClaimsCostsCoRespondent'];
       return content(CheckYourAnswers, session, { specificContent });
     });
 
+    it('dont claim anymore', () => {
+      const session = {
+        case: {
+          data: {
+            claimsCosts: 'Yes',
+            claimsCostsFrom: ['correspondent']
+          }
+        },
+        ClaimCosts: {
+          claimCosts: 'endClaim'
+        }
+      };
+      const specificContent = ['applyingForDecreeNisi'];
+      return content(CheckYourAnswers, session, { specificContent });
+    });
+
     it('no claim costs', () => {
-      const session = { case: { data: {} },
-        ClaimCosts: { claimCosts: 'dontClaimDifferentAmount' } };
+      const session = { case: { data: {} } };
       const specificContent = ['applyingForDecreeNisi'];
       return content(CheckYourAnswers, session, { specificContent });
     });

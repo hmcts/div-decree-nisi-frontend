@@ -16,8 +16,8 @@
       "claimCosts": {
         "title": "Your claim for the divorce costs",
         "originalAmount": "I still want to claim the original amount I requested",
-        "suggestedAmount": "I will accept the amount my husband has suggested",
-        "dontClaimDifferentAmount": "I don't want to claim my costs anymore"
+        "counterOffer": "I will accept the amount my husband has suggested",
+        "endClaim": "I don't want to claim my costs anymore"
       }
     }
   }
