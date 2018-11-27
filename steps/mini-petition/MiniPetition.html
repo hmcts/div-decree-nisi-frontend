@@ -276,16 +276,9 @@
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatment }}</p>
     <h3 class="heading-small">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
-    <p>"
-      {% for behaviourDetail in case.reasonForDivorceBehaviourDetails %}
-        {{ behaviourDetail }}
-        {% if loop.index == loop.length %}
-          <span>"</span>
-        {% else %}
-          <p></p>
-        {% endif %}
-      {% endfor %}
-    </p>
+    {% for behaviourDetail in case.reasonForDivorceBehaviourDetails %}
+      <p>"{{ behaviourDetail | replace(r/(\r\n|\n|\r)/gm, '<br/>') | safe  }}"</p>
+    {% endfor %}
   {% endif %}
 
   {% if case.reasonForDivorce == "separation-2-years" %}
