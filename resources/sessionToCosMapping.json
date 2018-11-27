@@ -3,7 +3,8 @@
   "MiniPetition.changes.statementOfTruthChanges": "statementOfTruthChanges",
   "MiniPetition.changes.statementOfTruthNoChanges": "statementOfTruthChanges",
 
-  "ClaimCosts.claimCosts": "claimCosts",
+  "ClaimCosts.dnCosts.claimCosts": "claimCosts",
+  "ClaimCosts.dnCosts.costsDifferentDetails": "costsDifferentDetails",
 
   "CheckYourAnswers.statementOfTruth": "statementOfTruth",
 

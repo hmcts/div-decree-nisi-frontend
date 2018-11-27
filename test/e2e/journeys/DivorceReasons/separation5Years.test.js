@@ -61,7 +61,7 @@ describe('Separation 5 years', () => {
         }
       },
       { step: LivedApartSinceSeparation, body: { 'changes-livedApartSinceSeparation': 'yes' } },
-      { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
@@ -95,7 +95,7 @@ describe('Separation 5 years', () => {
         'changes-livedApartSinceSeparation': 'no',
         'changes-approximateDatesOfLivingTogetherField': 'details...'
       } },
-      { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
