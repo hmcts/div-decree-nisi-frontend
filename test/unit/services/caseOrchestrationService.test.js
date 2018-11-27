@@ -20,7 +20,7 @@ describe(moduleName, () => {
 
   describe('get case', () => {
     it('gets application from cos', done => {
-      const exampleCosResponse = { courts: 'CTSC', state: 'someState', foo: 'bar' };
+      const exampleCosResponse = { courts: 'serviceCentre', state: 'someState', foo: 'bar' };
       request.get.resolves(exampleCosResponse);
       const req = { cookies: { '__auth-token': 'token' }, session: {} };
 
@@ -36,7 +36,7 @@ describe(moduleName, () => {
     });
 
     it('gets application from cos but returns not found when no state', done => {
-      const exampleCosResponse = { courts: 'CTSC', foo: 'bar' };
+      const exampleCosResponse = { courts: 'serviceCentre', foo: 'bar' };
       request.get.resolves(exampleCosResponse);
       const req = { cookies: { '__auth-token': 'token' }, session: {} };
 
@@ -52,7 +52,7 @@ describe(moduleName, () => {
     });
 
     it('gets application from cos but returns not found when state is AwaitingPayment', done => {
-      const exampleCosResponse = { courts: 'CTSC', state: 'AwaitingPayment', foo: 'bar' };
+      const exampleCosResponse = { courts: 'serviceCentre', state: 'AwaitingPayment', foo: 'bar' };
       request.get.resolves(exampleCosResponse);
       const req = { cookies: { '__auth-token': 'token' }, session: {} };
 

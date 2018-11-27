@@ -1,8 +1,8 @@
 const { expect, sinon } = require('@hmcts/one-per-page-test-suite');
 
-const modulePath = 'middleware/redirectToIndex';
+const modulePath = 'middleware/redirectToEntry';
 
-const redirectToIndex = require(modulePath);
+const redirectToEntry = require(modulePath);
 
 describe(modulePath, () => {
   let req = {};
@@ -22,18 +22,18 @@ describe(modulePath, () => {
   });
 
   it('should redirect to root when no session cookie', () => {
-    redirectToIndex.redirectToIndexIfNoSession(req, res, next);
+    redirectToEntry.redirectToEntryIfNoSession(req, res, next);
 
-    expect(res.redirect.calledWith('/')).to.equal(true);
+    expect(res.redirect.calledWith('/entry')).to.equal(true);
     expect(next.calledOnce).to.equal(false);
   });
 
   it('should call next when session cookie exists', () => {
     req.cookies.session = 'available';
 
-    redirectToIndex.redirectToIndexIfNoSession(req, res, next);
+    redirectToEntry.redirectToEntryIfNoSession(req, res, next);
 
-    expect(res.redirect.calledWith('/')).to.equal(false);
+    expect(res.redirect.calledWith('/entry')).to.equal(false);
     expect(next.calledOnce).to.equal(true);
   });
 });

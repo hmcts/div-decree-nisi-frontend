@@ -191,5 +191,5 @@ variable "feature_idam" {
 
 variable "ccd_digital_courts" {
   type = "list"
-  default = ["CTSC"]
+  default = ["serviceCentre"]
 }
