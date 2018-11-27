@@ -86,7 +86,7 @@ onePerPage.journey(app, {
   errorPages: { serverError: { template: 'errors/error' } },
   session: {
     redis: { url: config.services.redis.url },
-    cookie: { secure: config.services.redis.useSSL === 'true' },
+    cookie: { secure: true },
     secret: config.session.secret,
     sessionEncryption: req => {
       let key = config.services.redis.encryptionAtRestKey;
