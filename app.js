@@ -64,7 +64,7 @@ lookAndFeel.configure(app, {
   nunjucks: {
     filters: getFilters(),
     globals: {
-      phase: 'ALPHA',
+      phase: 'BETA',
       feedbackLink: 'http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/email',
       googleAnalyticsId: config.services.googleAnalytics.id
     }
