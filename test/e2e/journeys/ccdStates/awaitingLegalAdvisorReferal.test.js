@@ -17,7 +17,7 @@ describe('Case State :  AwaitingLegalAdvisorReferral', () => {
     const getStub = sinon.stub(request, 'get');
     getStub
       .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`
+        uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
       .resolves(merge({}, mockCaseResponse, {
         state: 'AwaitingLegalAdvisorReferral',

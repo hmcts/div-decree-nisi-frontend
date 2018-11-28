@@ -31,7 +31,7 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 1', () => {
 
     getStub
       .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`
+        uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
       .resolves(merge({}, mockCaseResponse, { state: 'DNAwaiting', data: session }));
 

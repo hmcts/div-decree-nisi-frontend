@@ -12,7 +12,7 @@ const methods = {
       return Promise.resolve();
     }
 
-    const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+    const uri = `${config.services.orchestrationService.getCaseUrl}`;
     const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
 
     return request.get({ uri, headers, json: true })
