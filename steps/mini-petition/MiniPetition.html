@@ -276,11 +276,11 @@
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatment }}</p>
     <h3 class="heading-small">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
-    {% for behaviourDetail in case.reasonForDivorceBehaviourDetails %}
-      {% if behaviourDetail | replace(r/(\r\n|\n|\r)/gm, '') | length > 0 %}
-       <p>"{{ behaviourDetail | replace(r/(\r\n|\n|\r)/gm, '<br/>') | safe  }}"</p>
-      {% endif %}
-    {% endfor %}
+    <p>"
+      {% for behaviourDetail in case.reasonForDivorceBehaviourDetails %}
+          {{ behaviourDetail | replace(r/(\r\n|\n|\r)/gm, '<br/>') | safe  }}
+      {% endfor %}
+    "</p>
   {% endif %}
 
   {% if case.reasonForDivorce == "separation-2-years" %}
