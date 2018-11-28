@@ -1,14 +1,17 @@
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
 const PetitionProgressBar = require(modulePath);
+const DoneContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const idam = require('services/idam');
-const { middleware, interstitial, sinon, content,
+const { custom, middleware, interstitial, sinon, content,
   stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
+const httpStatus = require('http-status-codes');
 const glob = require('glob');
-
+const { getExpectedCourtsList, testDivorceUnitDetailsRender,
+  testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
 
 const templates = {
   submitted: './sections/submitted/PetitionProgressBar.submitted.template.html',
@@ -17,17 +20,17 @@ const templates = {
   undefended: './sections/undefended/PetitionProgressBar.undefended.template.html',
   deemedService: './sections/deemedService/PetitionProgressBar.deemedService.template.html',
   dispensedWithService:
-     './sections/dispensedWithService/PetitionProgressBar.dispensedWithService.template.html',
+    './sections/dispensedWithService/PetitionProgressBar.dispensedWithService.template.html',
   defendedWithoutAnswer:
-     './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html',
+    './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html',
   awaitingSubmittedDN:
-     './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
+    './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
   defendedWithAnswer:
-     './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
+    './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
   respondentNotReplied:
-     './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
+    './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
   defendedAwaitingAnswer:
-     './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html'
+    './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html'
 };
 
 // get all content for all pages
@@ -72,7 +75,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(PetitionProgressBar, [ idam.protect() ]);
+    return middleware.hasMiddleware(PetitionProgressBar, [idam.protect()]);
   });
 
   describe('CCD state: Submitted', () => {
@@ -331,6 +334,56 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
+    });
+  });
+
+  describe('court address details', () => {
+    it('should display divorce center details when divorce unit handles case', () => {
+      const session = {
+        case: {
+          data: {
+            courts: 'westMidlands',
+            court: getExpectedCourtsList()
+          }
+        }
+      };
+
+      return custom(PetitionProgressBar)
+        .withSession(session)
+        .get()
+        .expect(httpStatus.OK)
+        .html($ => {
+          const rightHandSideMenu = $('.column-one-third').html();
+
+          testDivorceUnitDetailsRender(rightHandSideMenu);
+          expect(rightHandSideMenu).to.include(DoneContent.en.openTimes)
+            .and.to.include(DoneContent.en.divorceEmail)
+            .and.to.include(DoneContent.en.phoneNumber);
+        });
+    });
+
+    it('should display service center details when service centre handles case', () => {
+      const session = {
+        case: {
+          data: {
+            courts: 'serviceCentre',
+            court: getExpectedCourtsList()
+          }
+        }
+      };
+
+      return custom(PetitionProgressBar)
+        .withSession(session)
+        .get()
+        .expect(httpStatus.OK)
+        .html($ => {
+          const rightHandSideMenu = $('.column-one-third').html();
+
+          testCTSCDetailsRender(rightHandSideMenu);
+          expect(rightHandSideMenu).to.include(DoneContent.en.openTimes)
+            .and.to.include(DoneContent.en.divorceEmail)
+            .and.to.include(DoneContent.en.phoneNumber);
+        });
     });
   });
 
