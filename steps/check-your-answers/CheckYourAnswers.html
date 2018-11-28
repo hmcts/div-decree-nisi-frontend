@@ -37,7 +37,7 @@
     {% endcall %}
 
     <ul class="list-bullet">
-      {% if claimCosts != "dontClaimDifferentAmount" %}
+      {% if claimCosts and claimCosts != "endClaim" %}
         {% if case.claimsCostsFrom|length and "respondent" in case.claimsCostsFrom and "correspondent" in case.claimsCostsFrom  %}
           <li>{{ content.applyingForDecreeNisiClaimsCostsRespondentCoRespondent }}</li>
         {% elseif case.claimsCostsFrom|length and "correspondent" in case.claimsCostsFrom  %}
