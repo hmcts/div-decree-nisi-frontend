@@ -73,7 +73,7 @@ describe.skip('Unreasonable behaviour', () => {
       { step: BehaviourContinuedSinceApplication, body: {
         'changes-behaviourContinuedSinceApplication': 'yes'
       } },
-      { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
@@ -118,7 +118,7 @@ describe.skip('Unreasonable behaviour', () => {
         'changes-livedApartSinceLastIncidentDate': 'yes'
       }
       },  // eslint-disable-line
-      { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }

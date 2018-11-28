@@ -61,7 +61,7 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 1', () => {
       }
     },
     { step: LivedApartSinceSeparation, body: { 'changes-livedApartSinceSeparation': 'yes' } },
-    { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
+    { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
     { step: ShareCourtDocuments, body: { upload: 'no' } },
     { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
     { step: Done }

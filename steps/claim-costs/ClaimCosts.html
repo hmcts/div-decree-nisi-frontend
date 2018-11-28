@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorClass, errorsFor %}
 
 {% set title %}
   {{ content.title | safe }}
@@ -9,6 +9,7 @@
 {% block fields %}
 
   <p class="text">{{ content.applicationYouAsked | safe }}</p>
+  <p class="text">{{ content.yourSpouseHas | safe }}</p>
   <p class="text">{{ content.courtWillDecide | safe }}</p>
 
   <details>
@@ -18,7 +19,6 @@
     <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
       <p class="text">{{ content.shouldPayCosts }}</p>
       <p class="text">{{ content.divorceWillBeGranted }}</p>
-      <p class="text">{{ content.respondents2YearSep }}</p>
       <p class="text">{{ content.rulesInFavour }}</p>
       <p class="text">{{ content.disputeTheCosts }}</p>
     </div>
@@ -27,13 +27,36 @@
   <br>
 
   {% call formSection() %}
-    {{ selectionButtons(fields.claimCosts, content.fields.claimCosts.title,
+    {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
       options = [
-        { label: content.fields.claimCosts.originalAmount, value: "originalAmount" },
-        { label: content.fields.claimCosts.counterOffer, value: "counterOffer" },
-        { label: content.fields.claimCosts.endClaim, value: "endClaim" }
+        { label: content.fields.dnCosts.originalAmount, value: consts.originalAmount }
       ]
-    ) }}
-  {% endcall %}
+     ) }}
 
+    {% if notExist(consts.respAgreeToCosts) %}
+      {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
+        options = [
+         { label: content.fields.dnCosts.differentAmount, value: consts.differentAmount, target: "specific-amount" }
+       ]
+      ) }}
+      <div id="specific-amount" class="js-hidden panel panel-border-narrow form-group {{ errorClass(fields.dnCosts.costsDifferentDetails) }}">
+        <label class="form-label-bold"
+              for="{{ fields.dnCosts.costsDifferentDetails.id }}">
+          {{ content.fields.dnCosts.costsDifferentDetails.title }}
+        </label>
+        {{ errorsFor(fields.dnCosts.costsDifferentDetails) }}
+        <textarea class="form-control"
+          id="{{ fields.dnCosts.costsDifferentDetails.id }}"
+          name="{{ fields.dnCosts.costsDifferentDetails.id }}"
+          rows="4">{% if fields.dnCosts.costsDifferentDetails.value %}{{ fields.dnCosts.costsDifferentDetails.value }}{% endif %}</textarea>
+      </div>
+    {% endif %}
+
+      {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
+        options = [
+          { label: content.fields.dnCosts.endClaim, value: consts.endClaim }
+        ]
+      ) }}
+
+  {% endcall %}
 {% endblock %}

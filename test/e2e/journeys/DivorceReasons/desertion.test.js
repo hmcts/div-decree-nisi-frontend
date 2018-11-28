@@ -64,7 +64,7 @@ describe('Adultery DN flow', () => {
         }
       },
       { step: LivedApartSinceDesertion, body: { 'changes-livedApartSinceDesertion': 'yes' } },
-      { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
@@ -98,7 +98,7 @@ describe('Adultery DN flow', () => {
         'changes-livedApartSinceDesertion': 'no',
         'changes-approximateDatesOfLivingTogetherField': 'details...'
       } },
-      { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }

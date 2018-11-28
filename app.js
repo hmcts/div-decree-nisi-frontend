@@ -64,7 +64,7 @@ lookAndFeel.configure(app, {
   nunjucks: {
     filters: getFilters(),
     globals: {
-      phase: 'ALPHA',
+      phase: 'BETA',
       feedbackLink: 'http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/email',
       googleAnalyticsId: config.services.googleAnalytics.id
     }
@@ -80,13 +80,18 @@ app.use('/images', (req, res) => {
   res.redirect(`/assets/images${req.path}`, '301');
 });
 
+app.set('trust proxy', 1);
+
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
   errorPages: { serverError: { template: 'errors/error' } },
   session: {
     redis: { url: config.services.redis.url },
-    cookie: { secure: config.services.redis.useSSL === 'true' },
+    cookie: {
+      secure: config.session.secure,
+      expires: config.session.expires
+    },
     secret: config.session.secret,
     sessionEncryption: req => {
       let key = config.services.redis.encryptionAtRestKey;
