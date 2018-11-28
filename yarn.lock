@@ -276,9 +276,9 @@
     supertest "^3.1.0"
     zepto-node "^1.0.0"
 
-"@hmcts/one-per-page@^4.0.7", "@hmcts/one-per-page@^4.1.0":
+"@hmcts/one-per-page@^4.0.7", "@hmcts/one-per-page@https://github.com/hmcts/one-per-page.git#c8914ebc6d49bfafaf52128302915a83ce3f5923":
   version "4.1.2"
-  resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-4.1.2.tgz#77d9546a7c5238d18a9023dc38f8324ea59c83a5"
+  resolved "https://github.com/hmcts/one-per-page.git#c8914ebc6d49bfafaf52128302915a83ce3f5923"
   dependencies:
     "@log4js-node/log4js-api" "^1.0.0"
     body-parser "^1.18.2"

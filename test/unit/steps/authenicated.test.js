@@ -20,7 +20,7 @@ describe(modulePath, () => {
 
   context('navigation', () => {
     beforeEach(() => {
-      sinon.stub(idam, 'landingPage').returns(middleware.nextMock);
+      sinon.stub(idam, 'landingPage').callsFake(middleware.nextMock);
       sinon.stub(redirectToEntry, 'redirectToEntryIfNoSession').callsFake(middleware.nextMock);
       sinon.stub(caseOrchestrationService, 'getApplication');
     });
