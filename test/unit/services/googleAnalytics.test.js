@@ -16,7 +16,12 @@ describe('Google analytics', () => {
     const googleAnalyticsId = 'google-analytics-id';
     return custom(exampleStep)
       .withGlobal('googleAnalyticsId', googleAnalyticsId)
-      .withSession({ case: { data: {} } })
+      .withSession({
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {}
+        }
+      })
       .get()
       .expect(httpStatus.OK)
       .text(pageContent => {
