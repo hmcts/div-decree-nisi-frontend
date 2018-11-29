@@ -7,15 +7,15 @@
     },
     "fields": {
       "adulteryFirstFoundDate": {
-        "question" : "Enter the Adultery found date",
+        "question" : "Enter the date that you first found out about the adultery",
         "hint": "For example, 31 3 2002",
         "dayLabel": "Day",
         "monthLabel": "Month",
         "yearLabel": "Year",
         "allRequired": "Enter a date between the day you got married and the day you submitted your divorce application.",
-        "dayRequired": "Enter the day when Adultery first found",
-        "monthRequired": "Enter the month when Adultery first found",
-        "yearRequired": "Enter the year when Adultery first found"
+        "dayRequired": "Enter the day that you found out about the adultery",
+        "monthRequired": "Enter the month that you found out about the adultery",
+        "yearRequired": "Enter the year that you found out about the adultery"
       }
     }
   }

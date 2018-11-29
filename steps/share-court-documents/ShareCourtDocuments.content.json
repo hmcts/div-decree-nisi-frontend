@@ -1,13 +1,13 @@
 {
   "en": {
-    "title": "Do you want to share any other documents with the court?",
-    "extraDocuments": "You can upload any extra documents you want to share with the court. For example, if you have a letter from your husband agreeing to pay the costs.",
+    "title": "Do you need to upload any other documents?",
+    "extraDocuments": "You should only do this if you have acquired new documents since you first applied which are relevant to your application.",
     "errors": {
       "required": "Select Yes if you want to share any other documents with the court"
     },
     "fields": {
       "upload": {
-        "title": "Do you have any extra documents you want to send to the court?",
+        "title": "Do you need to upload any other documents?",
         "yes": "Yes",
         "no": "No"
       }

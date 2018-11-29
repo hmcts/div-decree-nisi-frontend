@@ -69,10 +69,7 @@ describe(modulePath, () => {
     });
 
     it('returns correct answers', () => {
-      const expectedContent = [
-        ReviewAosResponseContent.en.fields.reviewAosResponse.title,
-        ReviewAosResponseContent.en.fields.reviewAosResponse.yes
-      ];
+      const expectedContent = [ ReviewAosResponseContent.en.fields.reviewAosResponse.yes ];
       const session = {
         case: {
           data: {

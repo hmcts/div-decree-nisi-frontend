@@ -117,7 +117,6 @@ describe(modulePath, () => {
   it('returns correct answers if answered yes', () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
-      LivedApartSinceLastIncidentDateContent.en.fields.changes.livedApartSinceLastIncidentDate.title,
       LivedApartSinceLastIncidentDateContent.en.fields.changes.livedApartSinceLastIncidentDate.yes
     ];
 
@@ -137,7 +136,6 @@ describe(modulePath, () => {
   it('returns correct answers if answered no', () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
-      LivedApartSinceLastIncidentDateContent.en.fields.changes.livedApartSinceLastIncidentDate.title,
       LivedApartSinceLastIncidentDateContent.en.fields.changes.livedApartSinceLastIncidentDate.no
     ];
 

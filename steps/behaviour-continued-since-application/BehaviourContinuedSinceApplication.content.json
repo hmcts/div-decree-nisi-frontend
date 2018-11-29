@@ -11,12 +11,12 @@
     "fields": {
       "changes": {
         "behaviourContinuedSinceApplication": {
-          "title": "Is behaviour still continuing?",
+          "title": "Is your {{ case.divorceWho }}'s behaviour still continuing?",
           "yes": "Yes",
           "no": "No"
         },
         "lastIncidentDate": {
-          "question" : "Enter the last incident date",
+          "question" : "When did the most recent example take place?",
           "hint": "For example, 31 3 2002",
           "dayLabel": "Day",
           "monthLabel": "Month",
