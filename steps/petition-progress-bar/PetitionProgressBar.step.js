@@ -8,7 +8,7 @@ const constants = {
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no'],
   NotDefined: 'notdefined',
-  DNAwaiting: 'dnawaiting',
+  DNAwaiting: ['dnawaiting', 'awaitingdecreenisi'],
   undefendedReason: '0'
 };
 
@@ -73,7 +73,7 @@ class PetitionProgressBar extends Interstitial {
 
   get stateTemplate() {
     let template = '';
-    if (this.caseState === constants.DNAwaiting) {
+    if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
     } else {
       caseStateMap.forEach(dataMap => {

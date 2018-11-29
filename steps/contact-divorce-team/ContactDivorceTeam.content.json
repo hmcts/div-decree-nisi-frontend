@@ -1,0 +1,12 @@
+{
+    "en": {
+        "title": "There is a problem with your application",
+        "info": "You need to contact us about your divorce application.",
+        "contactTitle": "Contact us",
+        "email": "Email",
+        "phone": "Phone",
+        "divorceEmail": "divorce@justice.gov.uk",
+        "openTimes": "(Monday to Friday, 8.30am to 5pm)",
+        "phoneNumber" : "0300 303 0642"
+    }
+}

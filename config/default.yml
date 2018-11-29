@@ -92,6 +92,7 @@ paths:
   termsAndConditions: /terms-and-conditions
   cookiesPolicy: /cookie
   privacyPolicy: /privacy-policy
+  contactDivorceTeam: /contact-your-divorce
   mock:
     idamLogin: /idam-mock-login
     modifySession: /session

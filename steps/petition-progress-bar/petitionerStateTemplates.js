@@ -22,10 +22,6 @@ const caseStateMap = [
   {
     template: './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
     state: ['aosoverdue']
-  },
-  {
-    template: './sections/undefended/PetitionProgressBar.undefended.template.html',
-    state: ['notdefined']
   }
 ];
 
