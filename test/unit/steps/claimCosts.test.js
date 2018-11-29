@@ -21,40 +21,77 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(ClaimCosts, [ idam.protect() ]);
   });
 
-  it('renders the content', () => {
-    return content(ClaimCosts, session);
+  describe('renders content', () => {
+    it('renders the content', () => {
+      return content(ClaimCosts, session);
+    });
+
+    it('loads fields from the session', () => {
+      const stepData = { 'dnCosts-claimCosts': 'endClaim' };
+      return question.rendersValues(ClaimCosts, stepData, session);
+    });
   });
 
-  it('shows error if does not answer question', () => {
-    return question.testErrors(ClaimCosts, session);
+  describe('Test errors', () => {
+    it('Error if does not answer question', () => {
+      const onlyErrors = ['required'];
+      return question.testErrors(ClaimCosts, session, {}, { onlyErrors });
+    });
+
+    it('Error if answered differentAmount and no data entered', () => {
+      const onlyErrors = ['requiredCostsDifferentDetails'];
+      const fields = { 'dnCosts-claimCosts': 'differentAmount',
+        'dnCosts-costsDifferentDetails': '' };
+      return question.testErrors(ClaimCosts, session, fields, { onlyErrors });
+    });
   });
 
-  it('redirects to ShareCourtDocuments if answer is originalAmount', () => {
-    const fields = { claimCosts: 'originalAmount' };
-    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
+  describe('Navigation', () => {
+    it('To ShareCourtDocuments if answer is originalAmount', () => {
+      const fields = { 'dnCosts-claimCosts': 'originalAmount' };
+      return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
+    });
+
+    it('To ShareCourtDocuments if answer is differentAmount and details provided', () => {
+      const fields = { 'dnCosts-claimCosts': 'differentAmount',
+        'dnCosts-costsDifferentDetails': 'I want to pay 60%' };
+      return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
+    });
+
+    it('To ShareCourtDocuments if answer is endClaim', () => {
+      const fields = { 'dnCosts-claimCosts': 'endClaim' };
+      return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
+    });
   });
 
-  it('redirects to ShareCourtDocuments if answer is counterOffer', () => {
-    const fields = { claimCosts: 'counterOffer' };
-    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
-  });
+  describe('Returns correct answers', () => {
+    it('claimCosts : originalAmount ', () => {
+      const stepData = {
+        dnCosts: {
+          claimCosts: 'originalAmount'
+        }
+      };
+      const expectedContent = [
+        ClaimCostsContent.en.fields.dnCosts.title,
+        ClaimCostsContent.en.fields.dnCosts.originalAmount
+      ];
+      return question.answers(ClaimCosts, stepData, expectedContent, session);
+    });
 
-  it('redirects to ShareCourtDocuments if answer is endClaim', () => {
-    const fields = { claimCosts: 'endClaim' };
-    return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
-  });
-
-  it('loads fields from the session', () => {
-    const stepData = { claimCosts: 'endClaim' };
-    return question.rendersValues(ClaimCosts, stepData, session);
-  });
-
-  it('returns correct answers', () => {
-    const expectedContent = [
-      ClaimCostsContent.en.fields.claimCosts.title,
-      ClaimCostsContent.en.fields.claimCosts.originalAmount
-    ];
-    const stepData = { claimCosts: 'originalAmount' };
-    return question.answers(ClaimCosts, stepData, expectedContent, session);
+    it('claimCosts : differentAmount, costsDifferentDetails: I want to pay 60% ', () => {
+      const stepData = {
+        dnCosts: {
+          claimCosts: 'differentAmount',
+          costsDifferentDetails: 'I want to pay 60%'
+        }
+      };
+      const expectedContent = [
+        ClaimCostsContent.en.fields.dnCosts.title,
+        ClaimCostsContent.en.fields.dnCosts.differentAmount,
+        ClaimCostsContent.en.fields.dnCosts.costsDifferentDetails.title,
+        stepData.dnCosts.costsDifferentDetails
+      ];
+      return question.answers(ClaimCosts, stepData, expectedContent, session);
+    });
   });
 });

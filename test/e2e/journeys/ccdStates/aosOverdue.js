@@ -18,13 +18,12 @@ const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step
 const Done = require('steps/done/Done.step');
 
 const session = {
-  reasonForDivorce: 'separation-5-years',
   respDefendsDivorce: null
 };
 
 let caseOrchestrationServiceSubmitStub = {};
 
-describe('Sepereration 5 years', () => {
+describe('Case State : AOSOverdue', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
@@ -33,7 +32,7 @@ describe('Sepereration 5 years', () => {
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`
       }))
-      .resolves(merge({}, mockCaseResponse, { data: session }));
+      .resolves(merge({}, mockCaseResponse, { state: 'DefendedDivorce', data: session }));
 
     caseOrchestrationServiceSubmitStub = postStub
       .withArgs(sinon.match({
@@ -46,6 +45,7 @@ describe('Sepereration 5 years', () => {
     request.get.restore();
     request.post.restore();
   });
+
 
   journey.test([
     { step: Start },
@@ -60,7 +60,7 @@ describe('Sepereration 5 years', () => {
       }
     },
     { step: LivedApartSinceSeparation, body: { 'changes-livedApartSinceSeparation': 'yes' } },
-    { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
+    { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
     { step: ShareCourtDocuments, body: { upload: 'no' } },
     { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
     { step: Done }
@@ -68,10 +68,10 @@ describe('Sepereration 5 years', () => {
 
   it('submits correct body to case orchestration service', () => {
     const body = {
-      statementOfTruthChanges: 'yes',
       claimCosts: 'originalAmount',
+      livedApartSinceSeparation: 'yes',
       statementOfTruth: 'yes',
-      livedApartSinceSeparation: 'yes'
+      statementOfTruthChanges: 'yes'
     };
     sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
   });

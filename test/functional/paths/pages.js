@@ -1,9 +1,13 @@
+const basicDivorceSession = require('test/resources/basic-divorce-session');
+
 Feature('Test all pages');
 
 Scenario('Pages', async I => {
-  I.amOnLoadedPage('/');
+  await I.createAUser();
 
-  I.testHomePage();
+  await I.createDnCaseForUser(basicDivorceSession);
+
+  I.amOnLoadedPage('/');
 
   await I.testIdamPage();
 
@@ -45,5 +49,11 @@ Scenario('Pages', async I => {
 
   await I.testExitIntolerable();
 
+  I.testCookiesPolicyPage();
+
+  I.testPrivacyPolicyPage();
+
+  I.testTermsAndConditionsPage();
+
   I.checkUrlsNotTested();
-});
+}).retry(3);

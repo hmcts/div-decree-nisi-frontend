@@ -188,3 +188,12 @@ variable "evidence_management_client_api_upload_endpoint" {
 variable "case_orchestration_service_draft_endpoint" {
   default = "/draftsapi/version/1"
 }
+
+variable "feature_idam" {
+  default = true
+}
+
+variable "ccd_digital_courts" {
+  type = "string"
+  default = "[\"serviceCentre\"]"
+}

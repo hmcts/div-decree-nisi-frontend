@@ -56,6 +56,14 @@ class ModifySession extends Question {
     const reasonForDivorceDesertionDetails = text;
     const claimsCosts = text;
     const permittedDecreeNisiReason = text;
+    const respConsiderFinancialSituation = text;
+    const respHardshipDefenseResponse = text;
+    const respLegalProceedingsExist = text;
+    const respHardshipDescription = text;
+    const respJurisdictionDisagreeReason = text;
+    const respJurisdictionRespCountryOfResidence = text;
+    const respLegalProceedingsDescription = text;
+    const respCostsReason = text;
     const reasonForDivorceAdulteryDetails = text;
 
     return form({
@@ -72,6 +80,14 @@ class ModifySession extends Question {
       reasonForDivorceDesertionDetails,
       claimsCosts,
       permittedDecreeNisiReason,
+      respConsiderFinancialSituation,
+      respHardshipDefenseResponse,
+      respLegalProceedingsExist,
+      respHardshipDescription,
+      respJurisdictionDisagreeReason,
+      respJurisdictionRespCountryOfResidence,
+      respLegalProceedingsDescription,
+      respCostsReason,
       reasonForDivorceAdulteryDetails
     });
   }
