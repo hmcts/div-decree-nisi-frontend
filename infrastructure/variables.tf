@@ -190,6 +190,6 @@ variable "feature_idam" {
 }
 
 variable "ccd_digital_courts" {
-  type = "list"
-  default = ["serviceCentre"]
+  type = "string"
+  default = "[\"serviceCentre\"]"
 }
