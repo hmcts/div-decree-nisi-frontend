@@ -30,20 +30,6 @@ describe(modulePath, () => {
       expect(idamArgs.hasOwnProperty('idamClientID'));
     });
 
-    it('sets idamArgs.hostname & idamArgs.redirectUri correctly', () => {
-      const host = 'newHostName:4000';
-      const req = { get: sinon.stub().returns(host) };
-      const next = sinon.stub();
-
-      expect(idam.hasOwnProperty('setRedirectUri')).to.eql(true);
-      idam.setRedirectUri(req, {}, next);
-
-      const newArgs = idam.getIdamArgs();
-      expect(newArgs.redirectUri).to
-        .eql(`https://${req.get('host')}${config.paths.authenticated}`);
-      expect(newArgs.hostName).to.eql('newHostName');
-    });
-
     it('exports a authenticate function', () => {
       expect(idam.hasOwnProperty('authenticate')).to.eql(true);
     });

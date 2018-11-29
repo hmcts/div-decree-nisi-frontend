@@ -2,8 +2,8 @@ environment: development
 NODE_ENV: development
 
 node:
-  port: 4000
-  baseUrl: https://localhost:4000
+  port: 3000
+  baseUrl: https://localhost:3000
 
 session:
   secret: sessionSecret
@@ -30,10 +30,10 @@ services:
     encryptionAtRestKey: encryptionAtRestKey
   idam:
     apiHealth: https://localhost:8001/health
-    authenticationHealth: https://localhost:4000/health
+    authenticationHealth: https://localhost:3000/health
     apiUrl: http://localhost:8001
     secret: '123456'
-    loginUrl: https://localhost:4000/idam-mock-login
+    loginUrl: https://localhost:3000/idam-mock-login
     clientId: 'divorce'
   saucelabs:
     browser: 'chrome'
@@ -43,7 +43,7 @@ services:
     waitForTimeout: 30000
   googleAnalytics:
     id: TBD
-    trackingUrl: https://localhost:4000/
+    trackingUrl: https://localhost:3000/
   applicationInsights:
     instrumentationKey: 'dummy-key'
   evidenceManagmentClient:
@@ -55,8 +55,8 @@ services:
     expire: 3600000
     enabled: false
   orchestrationService:
-    getCaseUrl: http://localhost:4001/retrieve-aos-case
-    submitCaseUrl: http://localhost:4001/submit-dn
+    getCaseUrl: http://localhost:3001/retrieve-aos-case
+    submitCaseUrl: http://localhost:3001/submit-dn
     health: http://localhost:4013/health
     draftEndpoint: http://localhost:4013/draftsapi/version/1
   petitionerFrontend:

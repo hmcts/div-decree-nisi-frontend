@@ -45,7 +45,7 @@ spec:
 
         # This is the port your process is listening on in the container
         ports:
-        - containerPort: 4000
+        - containerPort: 3000
           name: http
         imagePullPolicy: Always
 ---
@@ -64,7 +64,7 @@ spec:
   - name: http
     protocol: TCP
     port: 80
-    targetPort: 4000
+    targetPort: 3000
   selector:
     app: ${SERVICE_NAME}
 ---

@@ -7,4 +7,4 @@ RUN yarn --production && yarn setup && yarn cache clean
 
 CMD [ "yarn", "start" ]
 
-EXPOSE 4000
+EXPOSE 3000
