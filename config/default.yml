@@ -60,7 +60,8 @@ services:
     health: http://localhost:4013/health
     draftEndpoint: http://localhost:4013/draftsapi/version/1
   petitionerFrontend:
-    url: https://div-pfe-aat.service.core-compute-aat.internal
+    url: https://localhost:8080
+    landing: /authenticated
   caseMaintenance:
     baseUrl: http://localhost:3001/case-maintenance
 
@@ -118,3 +119,9 @@ features:
 
 journey:
   timeoutDelay: 300
+
+ccd:
+  d8States:
+    - 'AwaitingPayment'
+  courts:
+    - 'serviceCentre'
