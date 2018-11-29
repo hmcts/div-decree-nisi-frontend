@@ -10,12 +10,12 @@ const config = require('config');
 
 describe(modulePath, () => {
   it('has idam.authenticate middleware', () => {
-    return middleware.hasMiddleware(Entry, [ idam.authenticate() ]);
+    return middleware.hasMiddleware(Entry, [ idam.authenticate ]);
   });
 
   context('navigation', () => {
     beforeEach(() => {
-      sinon.stub(idam, 'authenticate').returns(middleware.nextMock);
+      sinon.stub(idam, 'authenticate').callsFake(middleware.nextMock);
       sinon.stub(caseOrchestrationService, 'getApplication');
     });
 
@@ -45,9 +45,16 @@ describe(modulePath, () => {
       const error = new Error('The case does not exist on CCD');
       error.statusCode = NOT_FOUND;
       caseOrchestrationService.getApplication.rejects(error);
+
+      const authTokenString = '__auth-token';
+      const petitionerFrontend = config.services.petitionerFrontend;
+      // Undefined since req.cookies['__auth-token'] is not set in the test
+      const queryString = `?${authTokenString}=undefined`;
+      const expectedUrl = `${petitionerFrontend.url}${petitionerFrontend.landing}${queryString}`;
+
       return custom(Entry)
         .get()
-        .expect('location', config.services.petitionerFrontend.url);
+        .expect('location', expectedUrl);
     });
   });
 });

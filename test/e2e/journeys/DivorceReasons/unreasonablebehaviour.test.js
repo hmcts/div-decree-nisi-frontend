@@ -34,7 +34,7 @@ const matchParam = (paramName, expected) => actual => {
 
 let caseOrchestrationServiceSubmitStub = {};
 
-describe('Unreasonable behaviour', () => {
+describe.skip('Unreasonable behaviour', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
@@ -73,7 +73,7 @@ describe('Unreasonable behaviour', () => {
       { step: BehaviourContinuedSinceApplication, body: {
         'changes-behaviourContinuedSinceApplication': 'yes'
       } },
-      { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
@@ -118,7 +118,7 @@ describe('Unreasonable behaviour', () => {
         'changes-livedApartSinceLastIncidentDate': 'yes'
       }
       },  // eslint-disable-line
-      { step: ClaimCosts, body: { claimCosts: 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }

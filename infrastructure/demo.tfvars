@@ -13,3 +13,5 @@ google_analytics_tracking_id = "TBD"
 rate_limiter_enabled = false
 
 petitioner_frontend_url = "https://div-pfe-aat.service.core-compute-aat.internal"
+
+ccd_digital_courts = "[\"serviceCentre\", \"eastMidlands\", \"westMidlands\", \"southWest\", \"northWest\"]"

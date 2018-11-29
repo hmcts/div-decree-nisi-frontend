@@ -787,35 +787,6 @@ describe(modulePath, () => {
 
     context('reasons for divorce', () => {
       context('adultery', () => {
-        it('base content', () => {
-          const session = {
-            case: {
-              data: {
-                connections: {},
-                reasonForDivorce: 'adultery'
-              }
-            }
-          };
-          return content(
-            MiniPetition,
-            session,
-            { specificContent: ['reasonForDivorceAdultery'] });
-        });
-        it('co-respondent is named', () => {
-          const session = {
-            case: {
-              data: {
-                connections: {},
-                reasonForDivorce: 'adultery',
-                reasonForDivorceAdulteryIsNamed: 'Yes'
-              }
-            }
-          };
-          return content(
-            MiniPetition,
-            session,
-            { specificContent: ['reasonForDivorceAdultery'] });
-        });
         it('knows where', () => {
           const session = {
             case: {

@@ -27,7 +27,9 @@ data:
   SESSION_SECRET: "${SESSION_SECRET}"
   IDAM_SECRET: "${IDAM_SECRET}"
   REDIS_ENCRYPTION_SECRET: "${REDIS_ENCRYPTION_SECRET}"
-  PETITIONER_FRONTEND_URL: "https://div-pfe-prod-staging.service.core-compute-prod.internal"
+  PETITIONER_FRONTEND_URL: "https://div-pfe-aat.service.core-compute-aat.internal"
   EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL: "http://div-emca-aat.service.core-compute-aat.internal/health"
   EVIDENCE_MANAGEMENT_CLIENT_API_URL: "http://div-emca-aat.service.core-compute-aat.internal/"
   EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT: "/emclientapi/version/1/upload"
+  CASE_MAINTENANCE_BASE_URL: "http://div-cms-aat.service.core-compute-aat.internal"
+  CCD_DIGITAL_COURTS: '["serviceCentre", "eastMidlands", "westMidlands", "southWest", "northWest"]'

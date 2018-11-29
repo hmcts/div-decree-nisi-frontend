@@ -1,23 +1,27 @@
 {
   "en": {
     "title": "Your claim for the divorce costs",
-    "applicationYouAsked": "In your application you asked the court that your {{ case.divorceWho }} pay the costs of the divorce. Your {{ case.divorceWho }} has",
+    "applicationYouAsked": "In your application you asked the court that your {{ case.divorceWho }} pay some or all of the costs of the divorce.",
+    "yourSpouseHas": "Your {{ case.divorceWho }} has",
     "courtWillDecide": "It is up to the court to decide how the costs will be split, but it will take into account any requests you and your husband make.",
     "readMore": "Read more about the costs order",
-    "shouldPayCosts": "The court will make its decision on whether you should pay any costs if you decide to continue. It will take all your circumstances into account, including your conduct, and your husband/wife's conduct, before and during the divorce.",
+    "shouldPayCosts": "The court will make its decision on whether you should pay any costs when you submit your application for decree nisi.",
     "divorceWillBeGranted": "You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made.",
-    "respondents2YearSep": "In divorces based on 2 years separation, the court will usually make an order that the respondent pay half of the applicant's costs.",
     "rulesInFavour": "If the court rules in your favour, your husband will be ordered to pay you back your costs within 14 days of the order being made.",
     "disputeTheCosts": "Your husband can dispute the costs order. They'll need to tell the court why they don't think they should pay at least 14 days before the hearing.",
     "errors": {
-      "required": "Select what you want to claim?"
+      "required": "Select what you want to claim?",
+      "requiredCostsDifferentDetails": "State what you want to claim and why"
     },
     "fields": {
-      "claimCosts": {
+      "dnCosts": {
         "title": "Your claim for the divorce costs",
-        "originalAmount": "I still want to claim the original amount I requested",
-        "suggestedAmount": "I will accept the amount my husband has suggested",
-        "dontClaimDifferentAmount": "I don't want to claim my costs anymore"
+        "originalAmount": "I still want to claim my costs and will let the court decide how much.",
+        "differentAmount": "I want to claim a specific amount",
+        "endClaim": "I don't want to claim my costs anymore",
+        "costsDifferentDetails": {
+          "title": "State what you want to claim and why"
+        }
       }
     }
   }

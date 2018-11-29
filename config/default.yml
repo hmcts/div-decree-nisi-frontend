@@ -7,6 +7,8 @@ node:
 
 session:
   secret: sessionSecret
+  secure: true
+  expires: 3600000 # 60 minutes
 
 ssl:
   hpkp:
@@ -58,7 +60,10 @@ services:
     health: http://localhost:4013/health
     draftEndpoint: http://localhost:4013/draftsapi/version/1
   petitionerFrontend:
-    url: https://div-pfe-aat.service.core-compute-aat.internal
+    url: https://localhost:8080
+    landing: /authenticated
+  caseMaintenance:
+    baseUrl: http://localhost:3001/case-maintenance
 
 paths:
   adulteryFirstFoundOut: /first-find-out
@@ -85,6 +90,9 @@ paths:
   petitionProgressBar: /progress-bar/petitioner
   upload: /upload-docs
   exitNoCase: /exit-no-case
+  termsAndConditions: /terms-and-conditions
+  cookiesPolicy: /cookie
+  privacyPolicy: /privacy-policy
   mock:
     idamLogin: /idam-mock-login
     modifySession: /session
@@ -95,9 +103,9 @@ tests:
     waitForAction: 1000
     smartWait: 5000
     outputDir: ../../functional-output
+    proxy: http://proxyout.reform.hmcts.net:8080
+    proxyByPass: '*beta*LB.reform.hmcts.net'
     idam:
-      idamTestApiProxy: proxyout.reform.hmcts.net:8080
-      idamTestProxyByPass: '*beta*LB.reform.hmcts.net'
       idamTestUsername:
       idamTestPassword:
       idamTestForename:
@@ -111,3 +119,9 @@ features:
 
 journey:
   timeoutDelay: 300
+
+ccd:
+  d8States:
+    - 'AwaitingPayment'
+  courts:
+    - 'serviceCentre'

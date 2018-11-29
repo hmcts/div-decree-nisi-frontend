@@ -150,8 +150,7 @@ describe(modulePath, () => {
   it('returns correct answers if answered yes', () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
-      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.title,
-      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.yes // eslint-disable-line
+      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.yes
     ];
 
     const stepData = {
@@ -174,8 +173,7 @@ describe(modulePath, () => {
   it('returns correct answers if answered no', () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
-      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.title,
-      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.no // eslint-disable-line
+      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.no
     ];
 
     const stepData = {

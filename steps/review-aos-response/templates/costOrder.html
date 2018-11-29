@@ -1,0 +1,27 @@
+
+  <h3 class="heading-small">{{ content.costsOrder.title }}</h3>
+  {% if exist(consts.respAgreeToCosts) %}
+    <p class="text">{{ content.costsOrder.agreedToPayCosts }}</p>
+  {% elif notExist(consts.respAgreeToCosts) %}
+    <p class="text">{{ content.costsOrder.notAgreedToPayCosts }}</p>
+    <div class="panel panel-border-narrow">
+      <p class="text">"{{ case.respCostsReason | safe }}"</p>
+    </div>
+  {% endif %} 
+
+  <details>
+    <summary aria-controls="details-content-2" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
+      <p class="text">{{ content.costsOrder.respondentWasAskedPayCosts }}</p>
+      <p class="text">{{ content.costsOrder.followingOptions }}</p>
+
+      <ul class="bullet list-bullet">
+        <li>{{ content.costsOrder.payCosts }}</li>
+        <li>{{ content.costsOrder.notPayCosts }}</li>
+      </ul>
+      <br />
+      <p class="text">{{ content.costsOrder.chanceToChangeAmount }}</p>
+    </div>
+  </details>

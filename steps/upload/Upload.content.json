@@ -10,9 +10,9 @@
     "entireDocument": "The image must be of the entire document and has to be readable by court staff. You can upload most types of image.",
     "cantUpload": "I can't upload my documents",
     "sendByPost": "How to send in your documents by post",
-    "continueWithApplication": "Continue with this application. When you're finished you'll be given a reference number and the address of the court dealing with your divorce.",
+    "continueWithApplication": "Continue with this application. When you're finished you'll be given a reference number and the address of the Courts and Tribunals Service Centre.",
     "writeTheReference": "Write the reference number on the back of each document.",
-    "postToCourt": "Post all your documents to the court.",
+    "postToCourt": "Post all your documents to the service centre.",
 
     "uploadedFiles": "Uploaded files",
     "noFiles": "No files uploaded",

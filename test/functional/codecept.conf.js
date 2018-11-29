@@ -1,4 +1,10 @@
 /* eslint-disable no-process-env */
+const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-setter');
+
+if (process.env.POINT_TO_REMOTE) {
+  const configurationFile = './remote-config.json';
+  processEnvironmentSetup.setUpEnvironmentVariables(configurationFile);
+}
 
 const config = require('config');
 
@@ -6,11 +12,14 @@ const waitForTimeout = config.tests.functional.waitForTimeout;
 const waitForAction = config.tests.functional.waitForAction;
 const chromeArgs = [ '--no-sandbox' ];
 
-if (config.environment !== 'development') {
-  const proxyServer = config.tests.functional.idam.idamTestApiProxy;
-  const proxyByPass = config.tests.functional.idam.idamTestProxyByPass;
-  chromeArgs.push(`--proxy-server=${proxyServer || ''}`);
-  chromeArgs.push(`--proxy-bypass-list=${proxyByPass || ''}`);
+const proxyServer = config.tests.functional.proxy;
+if (proxyServer) {
+  chromeArgs.push(`--proxy-server=${proxyServer}`);
+}
+
+const proxyByPass = config.tests.functional.proxyByPass;
+if (proxyByPass) {
+  chromeArgs.push(`--proxy-bypass-list=${proxyByPass}`);
 }
 
 exports.config = {
@@ -22,15 +31,14 @@ exports.config = {
       waitForTimeout,
       waitForAction,
       show: false,
-      restart: false,
-      keepCookies: false,
-      keepBrowserState: false,
       chrome: {
         ignoreHTTPSErrors: true,
         args: chromeArgs
       }
     },
     ElementExist: { require: './helpers/elementExist.js' },
+    IdamHelper: { require: './helpers/idamHelper.js' },
+    CaseHelper: { require: './helpers/caseHelper.js' },
     JSWait: { require: './helpers/JSWait.js' },
     UrlHelper: { require: './helpers/urlHelper.js' }
   },
