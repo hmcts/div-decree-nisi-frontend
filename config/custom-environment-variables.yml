@@ -70,3 +70,6 @@ journey:
 
 features:
   idam: FEATURES_IDAM
+  
+ccd:
+  courts: CCD_DIGITAL_COURTS

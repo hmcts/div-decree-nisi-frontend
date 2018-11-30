@@ -10,8 +10,8 @@
     "notSure": "You can contact the court if you’re not sure.",
 
     "errors": {
-      "required": "Select yes if you lived apart since you found out about the adultery?",
-      "requireDatesLivedTogether": "Enter approximate dates or number of months you lived together"
+      "required": "Select yes if you've lived apart since you found out about the adultery",
+      "requireDatesLivedTogether": "Give the approximate dates or the number of months you lived together"
     },
     "fields": {
       "livedApart": {
@@ -21,7 +21,7 @@
           "no": "No"
         },
         "datesLivedTogether": {
-          "title": "Give approximate dates or number of months you lived together"
+          "title": "Give the approximate dates or the number of months you lived together"
         }
       }
     }

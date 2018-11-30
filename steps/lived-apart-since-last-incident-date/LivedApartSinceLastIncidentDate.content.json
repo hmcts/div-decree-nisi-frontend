@@ -6,17 +6,17 @@
     "detailsHowLongLivedTogetherSinceLastIncidentDateDetail" : "You may not be granted a divorce if you live together as a couple for more than 6 months after the behaviour occurs. This could be over a single 6 month period, or if you live together on and off for several periods adding up to more than 6 months",
     "errors": {
       "required": "Select yes if you lived apart since {{ case.lastIncidentDate | date}}",
-      "requireDatesOfLivingTogether": "Enter approximate dates of when you lived together."
+      "requireDatesOfLivingTogether": "Enter the periods in which you lived together."
     },
     "fields": {
       "changes": {
         "livedApartSinceLastIncidentDate": {
-          "title": "Have you lived apart since ?",
+          "title": "Have you lived apart since {{ case.lastIncidentDate | date}}?",
           "yes": "Yes",
           "no": "No"
         },
         "approximateDatesOfLivingTogetherField": {
-          "title": "Give approximate dates or number of months you lived together"
+          "title": "Provide the approximate dates or the number of months you lived together"
         }
       }
     }

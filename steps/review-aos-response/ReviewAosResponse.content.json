@@ -65,7 +65,7 @@
 
     "fields": {
       "reviewAosResponse": {
-        "title": "Have you read your spouse response?",
+        "title": "Have you read your {{ case.divorceWho }}'s response?",
         "yes": "Yes"
       }
     }
