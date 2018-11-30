@@ -40,7 +40,7 @@ describe(moduleName, () => {
       request.get.resolves(exampleCosResponse);
       const req = { cookies: { '__auth-token': 'token' }, session: {} };
 
-      const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+      const uri = `${config.services.orchestrationService.getCaseUrl}`;
       const headers = { Authorization: 'Bearer token' };
 
       caseOrchestrationService.getApplication(req)
@@ -56,7 +56,7 @@ describe(moduleName, () => {
       request.get.resolves(exampleCosResponse);
       const req = { cookies: { '__auth-token': 'token' }, session: {} };
 
-      const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+      const uri = `${config.services.orchestrationService.getCaseUrl}`;
       const headers = { Authorization: 'Bearer token' };
 
       caseOrchestrationService.getApplication(req)
@@ -72,7 +72,7 @@ describe(moduleName, () => {
       request.get.resolves(exampleCosResponse);
       const req = { cookies: { '__auth-token': 'token' }, session: {} };
 
-      const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+      const uri = `${config.services.orchestrationService.getCaseUrl}`;
       const headers = { Authorization: 'Bearer token' };
 
       caseOrchestrationService.getApplication(req)
@@ -88,7 +88,7 @@ describe(moduleName, () => {
       request.get.resolves(exampleCosResponse);
       const req = { cookies: { '__auth-token': 'token' }, session: {} };
 
-      const uri = `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`;
+      const uri = `${config.services.orchestrationService.getCaseUrl}`;
       const headers = { Authorization: 'Bearer token' };
 
       caseOrchestrationService.getApplication(req)
