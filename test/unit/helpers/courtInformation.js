@@ -6,7 +6,8 @@ module.exports = {
     return courtsList;
   },
   testDivorceUnitDetailsRender(html) {
-    expect(html).to.include('West Midlands Regional Divorce Centre')
+    expect(html).to.include('Your divorce centre')
+      .and.to.include('West Midlands Regional Divorce Centre')
       .and.to.include('PO Box 3650')
       .and.to.include('Stoke-on-Trent')
       .and.to.include('ST4 9NH');

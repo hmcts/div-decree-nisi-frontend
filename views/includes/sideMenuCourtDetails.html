@@ -11,6 +11,8 @@
     <li>
         {% if case.court[case.courts].serviceCentreName %}
             <strong class="bold-xsmall">{{ case.court[case.courts].serviceCentreName }}</strong><br>
+        {% else %}
+            <strong class="bold-xsmall">{{ content.yourCourt }}</strong><br>
         {% endif %}
         {{ content.careOf if case.court[case.courts].serviceCentreName }}{{ case.court[case.courts].divorceCentre | safe}} <br>
         {% if case.court[case.courts].poBox %}
