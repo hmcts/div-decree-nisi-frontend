@@ -1,7 +1,8 @@
 {
   "en": {
     "title": "Your divorce",
-    "referenceNumber": "Case number",
+    "caseNumber": "Case number",
+    "referenceNumber": "Reference number",
     "name": "Name",
 
     "youApply": "You apply",

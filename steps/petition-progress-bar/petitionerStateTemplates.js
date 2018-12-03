@@ -1,11 +1,11 @@
 const caseStateMap = [
   {
     template: './sections/submitted/PetitionProgressBar.submitted.template.html',
-    state: ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'issued', 'pendingrejection', 'petitioncompleted']
+    state: ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted']
   },
   {
     template: './sections/issued/PetitionProgressBar.issued.template.html',
-    state: ['aosstarted', 'aosawaiting']
+    state: ['aosstarted', 'aosawaiting', 'issued']
   },
   {
     template: './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',

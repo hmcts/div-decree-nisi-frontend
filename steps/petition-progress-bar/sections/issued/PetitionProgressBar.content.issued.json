@@ -1,6 +1,7 @@
 {
   "en": {
     "issuedAppStatusMsg": "Your application is in progress",
+    "issuedCaseNumberInfo": "Your case number is:",
     "issuedAppStatusMsgDetails": "Your application has passed checks by court staff and the next stage of your divorce has begun. You have been sent a copy of the application by email.",
     "issuedWhatHappensNext": "What happens next",
     "issuedWhatHappensNextDetail1": "The service centre sent the application to your {{ case.divorceWho }} by post on {{ case.issueDate | date }}. They were also sent an ‘acknowledgement of service’. This is a form which asks if they:",

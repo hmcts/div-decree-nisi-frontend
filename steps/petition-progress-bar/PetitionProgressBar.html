@@ -8,10 +8,11 @@
 
 {% block main_content %}
   <p class="font-xsmall">
-    <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; 
     {% if isCaseIdToBeDisplayed %}
+      <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; 
       {{ caseId | hypenate | safe }} 
     {% else %}
+      <strong class="bold-xsmall">{{ content.caseNumber }}:</strong>&nbsp;&nbsp;&nbsp; 
       {{ case.caseReference | safe }} 
     {% endif %}
     <br>
