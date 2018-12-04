@@ -16,6 +16,7 @@ const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
 const Done = require('steps/done/Done.step');
+const Entry = require('steps/entry/Entry.step');
 
 const session = {
   respDefendsDivorce: null
@@ -50,6 +51,7 @@ describe('Case State : AOSOverdue', () => {
   journey.test([
     { step: Start },
     { step: IdamLogin, body: { success: 'yes' } },
+    { step: Entry },
     { step: petitionProgressBar },
     { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
     {

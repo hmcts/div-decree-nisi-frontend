@@ -1,6 +1,6 @@
 const Cookies = require('cookies');
 const crypto = require('crypto');
-const aosCase = require('./case-orchestration/retrieve-aos-case/mock-case');
+const aosCase = require('./case-orchestration/retrieve-case/mock-case');
 
 const randomStringLength = 64;
 
