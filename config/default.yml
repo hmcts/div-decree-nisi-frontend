@@ -62,6 +62,9 @@ services:
   petitionerFrontend:
     url: https://localhost:8080
     landing: /authenticated
+  aosFrontend:
+    url: https://localhost:2000
+    landing: /authenticated
   caseMaintenance:
     baseUrl: http://localhost:3001/case-maintenance
 

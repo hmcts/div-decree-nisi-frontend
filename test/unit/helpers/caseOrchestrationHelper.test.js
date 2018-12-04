@@ -5,76 +5,185 @@ const { expect, sinon } = require('@hmcts/one-per-page-test-suite');
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, date, convert, text } = require('@hmcts/one-per-page/forms');
 const moment = require('moment');
-
-const caseOrchestrationHelper = rewire(moduleName);
-
-class Step extends Question {
-  get form() {
-    return form({
-      date: convert(
-        d => moment(`${d.year}-${d.month}-${d.day}`, 'YYYY-MM-DD').endOf('day'),
-        date
-      ),
-      text,
-      unAnsweredField: text
-    });
-  }
-}
-
-class OtherStep extends Question {
-  get form() {
-    return form({
-      shouldNotApear: text
-    });
-  }
-}
-
-const req = {
-  journey: {
-    steps: { [Step.name]: Step, [OtherStep.name]: OtherStep }
-  },
-  session: {
-    Step: {
-      date: { year: '2010', month: '10', day: '10' },
-      text: 'foo'
-    }
-  }
-};
-const res = {};
-
-let body = {};
+const caseOrchestrationHelper = require(moduleName);
+const config = require('config');
+const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
+const { NOT_FOUND, MULTIPLE_CHOICES, IM_A_TEAPOT } = require('http-status-codes');
 
 describe(moduleName, () => {
-  before(() => {
-    const stepInstance = new Step(req, res);
-    stepInstance.retrieve();
+  describe('#formatSessionForSubmit', () => {
+    const caseOrchestrationHelperRewired = rewire(moduleName);
 
-    req.journey.instance = sinon.stub().returns(stepInstance);
+    class Step extends Question {
+      get form() {
+        return form({
+          date: convert(
+            d => moment(`${d.year}-${d.month}-${d.day}`, 'YYYY-MM-DD').endOf('day'),
+            date
+          ),
+          text,
+          unAnsweredField: text
+        });
+      }
+    }
 
-    const map = {
-      'Step.date': 'date',
-      'Step.text': 'text',
-      'Step.unAnsweredField': 'unAnsweredField',
-      'OtherStep.shouldNotApear': 'shouldNotApear'
+    class OtherStep extends Question {
+      get form() {
+        return form({
+          shouldNotApear: text
+        });
+      }
+    }
+
+    const req = {
+      journey: {
+        steps: { [Step.name]: Step, [OtherStep.name]: OtherStep }
+      },
+      session: {
+        Step: {
+          date: { year: '2010', month: '10', day: '10' },
+          text: 'foo'
+        }
+      }
     };
-    caseOrchestrationHelper.__set__('sessionToCosMapping', map);
+    const res = {};
 
-    body = caseOrchestrationHelper.formatSessionForSubmit(req);
+    let body = {};
+    before(() => {
+      const stepInstance = new Step(req, res);
+      stepInstance.retrieve();
+
+      req.journey.instance = sinon.stub().returns(stepInstance);
+
+      const map = {
+        'Step.date': 'date',
+        'Step.text': 'text',
+        'Step.unAnsweredField': 'unAnsweredField',
+        'OtherStep.shouldNotApear': 'shouldNotApear'
+      };
+      caseOrchestrationHelperRewired.__set__('sessionToCosMapping', map);
+
+      body = caseOrchestrationHelperRewired.formatSessionForSubmit(req);
+    });
+
+    it('should only include answered fields', () => {
+      expect(body).to.not.have.property('unAnsweredField');
+    });
+
+    it('should not include unanswered steps', () => {
+      expect(body).to.not.have.property('shouldNotApear');
+    });
+
+    it('returns correct value for date', () => {
+      expect(JSON.stringify(body)).to.include('2010-10-10');
+    });
+
+    it('returns correct value for text', () => {
+      expect(body).to.include({ text: 'foo' });
+    });
   });
 
-  it('should only include answered fields', () => {
-    expect(body).to.not.have.property('unAnsweredField');
+  describe('#validateResponse', () => {
+    let req = {};
+    let response = {};
+
+    beforeEach(() => {
+      req = {
+        idam: {
+          userDetails: {}
+        }
+      };
+      response = {
+        data: {}
+      };
+    });
+
+    context('rejects with redirectToPetitionerError', () => {
+      it('if there is no state', () => {
+        return expect(caseOrchestrationHelper.validateResponse(req, response))
+          .to.be.rejectedWith(caseOrchestrationHelper.redirectToPetitionerError);
+      });
+
+      it('if the state is in blacklist', () => {
+        response.state = config.ccd.d8States[0];
+        return expect(caseOrchestrationHelper.validateResponse(req, response))
+          .to.be.rejectedWith(caseOrchestrationHelper.redirectToPetitionerError);
+      });
+    });
+
+    context('rejects with redirectToRespondentError', () => {
+      beforeEach(() => {
+        response.state = 'aValidState';
+        response.data.courts = config.ccd.courts[0];
+      });
+
+      it('if petitioner email does not match idam email', () => {
+        response.data.petitionerEmail = 'email@email.com';
+        req.idam.userDetails.email = 'anotheremail@email.com';
+        return expect(caseOrchestrationHelper.validateResponse(req, response))
+          .to.be.rejectedWith(caseOrchestrationHelper.redirectToRespondentError);
+      });
+
+      it('if the state is in blacklist', () => {
+        response.data.petitionerEmail = 'email@email.com';
+        response.data.respEmailAddress = 'email@email.com';
+        req.idam.userDetails.email = 'email@email.com';
+        return expect(caseOrchestrationHelper.validateResponse(req, response))
+          .to.be.rejectedWith(caseOrchestrationHelper.redirectToRespondentError);
+      });
+    });
+
+    it('resolves if state is good and user is petitioner', () => {
+      response.state = 'aValidState';
+      response.data.courts = config.ccd.courts[0];
+      response.data.petitionerEmail = 'email@email.com';
+      req.idam.userDetails.email = 'email@email.com';
+      return expect(caseOrchestrationHelper.validateResponse(req, response))
+        .to.eventually.equal(response);
+    });
   });
 
-  it('should not include unanswered steps', () => {
-    expect(body).to.not.have.property('shouldNotApear');
-  });
+  describe('#handleErrorCodes', () => {
+    const error = {};
+    beforeEach(() => {
+      sinon.stub(redirectToFrontendHelper, 'redirectToFrontend');
+      sinon.stub(redirectToFrontendHelper, 'redirectToAos');
+    });
 
-  it('returns correct value for date', () => {
-    expect(JSON.stringify(body)).to.include('2010-10-10');
-  });
+    afterEach(() => {
+      redirectToFrontendHelper.redirectToFrontend.restore();
+      redirectToFrontendHelper.redirectToAos.restore();
+    });
 
-  it('returns correct value for text', () => {
-    expect(body).to.include({ text: 'foo' });
+    it('redirect to petitioner frontend if error is NOT_FOUND', () => {
+      error.statusCode = NOT_FOUND;
+      caseOrchestrationHelper.handleErrorCodes(error);
+      expect(redirectToFrontendHelper.redirectToFrontend.calledOnce).to.eql(true);
+    });
+
+    it('redirect to petitioner frontend if error is REDIRECT_TO_PETITIONER_FE', () => {
+      caseOrchestrationHelper.handleErrorCodes(caseOrchestrationHelper.redirectToPetitionerError);
+      expect(redirectToFrontendHelper.redirectToFrontend.calledOnce).to.eql(true);
+    });
+
+    it('redirect to contactDivorceTeam if error is MULTIPLE_CHOICES', () => {
+      const res = { redirect: sinon.stub() };
+      error.statusCode = MULTIPLE_CHOICES;
+      caseOrchestrationHelper.handleErrorCodes(error, {}, res);
+      expect(res.redirect.calledOnce).to.eql(true);
+    });
+
+    it('redirect to respondent frontend if error is REDIRECT_TO_RESPONDENT_FE', () => {
+      caseOrchestrationHelper.handleErrorCodes(caseOrchestrationHelper.redirectToRespondentError);
+      expect(redirectToFrontendHelper.redirectToAos.calledOnce).to.eql(true);
+    });
+
+    it('calls next with error if error not recognised', () => {
+      const next = sinon.stub();
+      error.statusCode = IM_A_TEAPOT;
+      caseOrchestrationHelper.handleErrorCodes(error, {}, {}, next);
+      expect(next.calledOnce).to.eql(true);
+      expect(next.calledWith(error)).to.eql(true);
+    });
   });
 });

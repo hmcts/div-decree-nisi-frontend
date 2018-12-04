@@ -2,12 +2,11 @@ const modulePath = 'steps/entry/Entry.step';
 
 const Entry = require(modulePath);
 const PetitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
-const ContactDivorceTeam = require('steps/contact-divorce-team/ContactDivorceTeam.step');
 const idam = require('services/idam');
 const { middleware, redirect, sinon, custom, expect } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationService = require('services/caseOrchestrationService');
-const { NOT_FOUND, INTERNAL_SERVER_ERROR, MULTIPLE_CHOICES } = require('http-status-codes');
-const config = require('config');
+const { INTERNAL_SERVER_ERROR } = require('http-status-codes');
+const caseOrchestrationHelper = require('helpers/caseOrchestrationHelper');
 
 describe(modulePath, () => {
   it('has idam.authenticate middleware', () => {
@@ -18,11 +17,13 @@ describe(modulePath, () => {
     beforeEach(() => {
       sinon.stub(idam, 'authenticate').callsFake(middleware.nextMock);
       sinon.stub(caseOrchestrationService, 'getApplication');
+      sinon.spy(caseOrchestrationHelper, 'handleErrorCodes');
     });
 
     afterEach(() => {
       idam.authenticate.restore();
       caseOrchestrationService.getApplication.restore();
+      caseOrchestrationHelper.handleErrorCodes.restore();
     });
 
     it('to PetitionProgressBar page', () => {
@@ -30,7 +31,7 @@ describe(modulePath, () => {
       return redirect.navigatesToNext(Entry, PetitionProgressBar, null);
     });
 
-    it('to error page if error is not 404', () => {
+    it('calls caseOrchestrationHelper.handleErrorCodes on failure', () => {
       const error = new Error('An error has occoured on the Case Orchestartion Service');
       error.statusCode = INTERNAL_SERVER_ERROR;
       caseOrchestrationService.getApplication.rejects(error);
@@ -38,31 +39,9 @@ describe(modulePath, () => {
         .get()
         .expect(INTERNAL_SERVER_ERROR)
         .text(pageContent => {
-          return expect(pageContent.indexOf(error) !== -1).to.eql(true);
+          expect(pageContent.indexOf(error) !== -1).to.eql(true);
+          return expect(caseOrchestrationHelper.handleErrorCodes.calledOnce).to.eql(true);
         });
-    });
-
-    it('to contact divorce team page if error is 300', () => {
-      const error = new Error('Multiple cases found on Case orchestration service');
-      error.statusCode = MULTIPLE_CHOICES;
-      caseOrchestrationService.getApplication.rejects(error);
-      return redirect.navigatesToNext(Entry, ContactDivorceTeam);
-    });
-
-    it('to petitioner frontend  if error is 404', () => {
-      const error = new Error('The case does not exist on CCD');
-      error.statusCode = NOT_FOUND;
-      caseOrchestrationService.getApplication.rejects(error);
-
-      const authTokenString = '__auth-token';
-      const petitionerFrontend = config.services.petitionerFrontend;
-      // Undefined since req.cookies['__auth-token'] is not set in the test
-      const queryString = `?${authTokenString}=undefined`;
-      const expectedUrl = `${petitionerFrontend.url}${petitionerFrontend.landing}${queryString}`;
-
-      return custom(Entry)
-        .get()
-        .expect('location', expectedUrl);
     });
   });
 });

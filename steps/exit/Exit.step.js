@@ -7,10 +7,6 @@ class Exit extends ExitPoint {
     return config.paths.exit;
   }
 
-  get case() {
-    return this.req.session.case.data;
-  }
-
   get middleware() {
     return [
       idam.protect(),

@@ -1,5 +1,6 @@
 const Cookies = require('cookies');
 const crypto = require('crypto');
+const aosCase = require('./case-orchestration/retrieve-aos-case/mock-case');
 
 const randomStringLength = 64;
 
@@ -27,7 +28,7 @@ const divIdamExpressMiddleware = {
         const token = crypto.randomBytes(randomStringLength).toString('hex');
         const userDetails = {
           id: `idamUserId-${token}`,
-          email: 'user@email.com'
+          email: aosCase.data.petitionerEmail
         };
 
         cookies.set('mockIdamUserDetails', JSON.stringify(userDetails));
