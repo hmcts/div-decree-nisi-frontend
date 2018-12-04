@@ -35,7 +35,7 @@ const matchParam = (paramName, expected) => actual => {
 };
 
 
-describe.skip('Adultery DN flow', () => {
+describe('Adultery DN flow', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
