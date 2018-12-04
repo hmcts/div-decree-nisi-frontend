@@ -25,18 +25,18 @@ describe(modulePath, () => {
 
   describe('values', () => {
     it('displays reference number', () => {
-      const referenceNumber = '1234‐5678‐9012‐4567';
       const session = {
         case: {
-          caseId: referenceNumber.replace(/‐/g, ''),
-          data: {}
+          data: {
+            caseReference: 'LV17D80101'
+          }
         }
       };
       return content(
         Done,
         session,
         {
-          specificValues: [ referenceNumber ]
+          specificValues: [ session.case.data.caseReference ]
         }
       );
     });

@@ -19,8 +19,7 @@
 {% include "reform-progress-list/template.njk" %}
 
 <h2 class="heading-medium">{{ content.submittedAppStatusMsg }}</h2>
-<p>{{ content.submittedAppStatusMsgDetails1 }}</p>
-<p><b>{{ caseId | hypenate | safe }}</b></p>
+<p>{{ content.submittedAppStatusMsgDetails1 }}<b>{{ caseId | hypenate | safe }}</b></p>
 <p>{{ content.submittedAppStatusMsgDetails2 }}</p>
 
 <h2 class="heading-medium">{{ content.submittedWhatHappensNext }}</h2>

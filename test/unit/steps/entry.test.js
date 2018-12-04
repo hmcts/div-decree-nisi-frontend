@@ -2,10 +2,11 @@ const modulePath = 'steps/entry/Entry.step';
 
 const Entry = require(modulePath);
 const PetitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
+const ContactDivorceTeam = require('steps/contact-divorce-team/ContactDivorceTeam.step');
 const idam = require('services/idam');
 const { middleware, redirect, sinon, custom, expect } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationService = require('services/caseOrchestrationService');
-const { NOT_FOUND, INTERNAL_SERVER_ERROR } = require('http-status-codes');
+const { NOT_FOUND, INTERNAL_SERVER_ERROR, MULTIPLE_CHOICES } = require('http-status-codes');
 const config = require('config');
 
 describe(modulePath, () => {
@@ -39,6 +40,13 @@ describe(modulePath, () => {
         .text(pageContent => {
           return expect(pageContent.indexOf(error) !== -1).to.eql(true);
         });
+    });
+
+    it('to contact divorce team page if error is 300', () => {
+      const error = new Error('Multiple cases found on Case orchestration service');
+      error.statusCode = MULTIPLE_CHOICES;
+      caseOrchestrationService.getApplication.rejects(error);
+      return redirect.navigatesToNext(Entry, ContactDivorceTeam);
     });
 
     it('to petitioner frontend  if error is 404', () => {

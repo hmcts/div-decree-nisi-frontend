@@ -1,11 +1,11 @@
 const caseStateMap = [
   {
     template: './sections/submitted/PetitionProgressBar.submitted.template.html',
-    state: ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'issued', 'pendingrejection', 'petitioncompleted']
+    state: ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted']
   },
   {
     template: './sections/issued/PetitionProgressBar.issued.template.html',
-    state: ['aosstarted', 'aosawaiting']
+    state: ['aosstarted', 'aosawaiting', 'issued']
   },
   {
     template: './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
@@ -22,12 +22,10 @@ const caseStateMap = [
   {
     template: './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
     state: ['aosoverdue']
-  },
-  {
-    template: './sections/undefended/PetitionProgressBar.undefended.template.html',
-    state: ['notdefined']
   }
 ];
+
+const caseIdDispalyStateMap = ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted'];
 
 const permitDNReasonMap = new Map([
   ['0', './sections/undefended/PetitionProgressBar.undefended.template.html'],
@@ -37,4 +35,4 @@ const permitDNReasonMap = new Map([
   ['4', './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html']
 ]);
 
-module.exports = { caseStateMap, permitDNReasonMap };
+module.exports = { caseStateMap, permitDNReasonMap, caseIdDispalyStateMap };

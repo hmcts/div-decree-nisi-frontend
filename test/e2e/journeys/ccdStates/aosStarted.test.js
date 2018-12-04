@@ -1,7 +1,7 @@
 const { journey, sinon } = require('@hmcts/one-per-page-test-suite');
 const request = require('request-promise-native');
 const { merge } = require('lodash');
-const mockCaseResponse = require('mocks/services/case-orchestration/retrieve-aos-case/mock-case');
+const mockCaseResponse = require('mocks/services/case-orchestration/retrieve-case/mock-case');
 const config = require('config');
 
 const Start = require('steps/start/Start.step');
@@ -18,7 +18,7 @@ describe('Case State : AOSStarted, AOSAwaiting', () => {
 
     getStub
       .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.getCaseUrl}?checkCcd=true`
+        uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
       .resolves(merge({}, mockCaseResponse, { state: 'AOSStarted', data: session }));
   });

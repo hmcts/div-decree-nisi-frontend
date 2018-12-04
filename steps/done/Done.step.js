@@ -11,10 +11,6 @@ class Done extends ExitPoint {
     return this.req.session.case.data;
   }
 
-  get caseId() {
-    return this.req.session.case.caseId;
-  }
-
   get middleware() {
     return [
       idam.protect(),

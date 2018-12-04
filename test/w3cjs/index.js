@@ -3,7 +3,7 @@ const steps = require('steps')();
 const { custom, expect } = require('@hmcts/one-per-page-test-suite');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 const httpStatus = require('http-status-codes');
-const cosMockCase = require('mocks/services/case-orchestration/retrieve-aos-case/mock-case');
+const cosMockCase = require('mocks/services/case-orchestration/retrieve-case/mock-case');
 const config = require('config');
 
 // Ignored warnings
