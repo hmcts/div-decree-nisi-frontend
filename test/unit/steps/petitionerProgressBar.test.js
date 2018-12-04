@@ -1,7 +1,7 @@
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
 const PetitionProgressBar = require(modulePath);
-const DoneContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
+const PetProgressBarContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
@@ -341,6 +341,7 @@ describe(modulePath, () => {
     it('should display divorce center details when divorce unit handles case', () => {
       const session = {
         case: {
+          state: 'AwaitingLegalAdvisorReferral',
           data: {
             courts: 'westMidlands',
             court: getExpectedCourtsList()
@@ -356,15 +357,16 @@ describe(modulePath, () => {
           const rightHandSideMenu = $('.column-one-third').html();
 
           testDivorceUnitDetailsRender(rightHandSideMenu);
-          expect(rightHandSideMenu).to.include(DoneContent.en.openTimes)
-            .and.to.include(DoneContent.en.divorceEmail)
-            .and.to.include(DoneContent.en.phoneNumber);
+          expect(rightHandSideMenu).to.include(PetProgressBarContent.en.openTimes)
+            .and.to.include(PetProgressBarContent.en.divorceEmail)
+            .and.to.include(PetProgressBarContent.en.phoneNumber);
         });
     });
 
     it('should display service center details when service centre handles case', () => {
       const session = {
         case: {
+          state: 'AwaitingLegalAdvisorReferral',
           data: {
             courts: 'serviceCentre',
             court: getExpectedCourtsList()
@@ -380,9 +382,9 @@ describe(modulePath, () => {
           const rightHandSideMenu = $('.column-one-third').html();
 
           testCTSCDetailsRender(rightHandSideMenu);
-          expect(rightHandSideMenu).to.include(DoneContent.en.openTimes)
-            .and.to.include(DoneContent.en.divorceEmail)
-            .and.to.include(DoneContent.en.phoneNumber);
+          expect(rightHandSideMenu).to.include(PetProgressBarContent.en.openTimes)
+            .and.to.include(PetProgressBarContent.en.divorceEmail)
+            .and.to.include(PetProgressBarContent.en.phoneNumber);
         });
     });
   });
