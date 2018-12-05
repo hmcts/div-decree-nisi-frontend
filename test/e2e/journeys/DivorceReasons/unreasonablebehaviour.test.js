@@ -3,6 +3,7 @@ const request = require('request-promise-native');
 const { merge } = require('lodash');
 const mockCaseResponse = require('mocks/services/case-orchestration/retrieve-case/mock-case');
 const config = require('config');
+const moment = require('moment');
 
 const Start = require('steps/start/Start.step');
 const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
@@ -34,7 +35,7 @@ const matchParam = (paramName, expected) => actual => {
 
 let caseOrchestrationServiceSubmitStub = {};
 
-describe.skip('Unreasonable behaviour', () => {
+describe('Unreasonable behaviour', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
@@ -85,7 +86,7 @@ describe.skip('Unreasonable behaviour', () => {
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
         behaviourContinuedSinceApplication: 'yes',
-        lastIncidentDate: null
+        lastIncidentDate: moment('')
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -130,7 +131,7 @@ describe.skip('Unreasonable behaviour', () => {
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
         behaviourContinuedSinceApplication: 'no',
-        lastIncidentDate: '2018-08-19T23:00:00.000Z',
+        lastIncidentDate: moment('2018-08-20T00:00:00.000'),
         livedApartSinceLastIncidentDate: 'yes'
       };
       sinon.assert.calledWith(

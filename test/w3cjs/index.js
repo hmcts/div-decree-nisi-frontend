@@ -13,7 +13,8 @@ const excludedWarnings = [
   'The “main” role is unnecessary for element “main”.',
   'The “contentinfo” role is unnecessary for element “footer”.',
   'The “complementary” role is unnecessary for element “aside”.',
-  'The “navigation” role is unnecessary for element “nav”.'
+  'The “navigation” role is unnecessary for element “nav”.',
+  'The first occurrence of ID “dnCosts-claimCosts” was here.'
 ];
 const filteredWarnings = r => {
   return !excludedWarnings.includes(r.message);
@@ -23,7 +24,8 @@ const filteredWarnings = r => {
 // FIXME - Ignored errors (temporarily)
 const excludeErrors = [
   'Attribute “pattern” is only allowed when the input type is “email”, “password”, “search”, “tel”, “text”, or “url”.',
-  'Element “h2” not allowed as child of element “legend” in this context. (Suppressing further errors from this subtree.)'
+  'Element “h2” not allowed as child of element “legend” in this context. (Suppressing further errors from this subtree.)',
+  "Duplicate ID “dnCosts-claimCosts”."
 ];
 /* eslint-enable */
 const filteredErrors = r => {
@@ -75,7 +77,7 @@ const w3cjsValidate = html => {
 steps
   .filter(filterSteps)
   .forEach(step => {
-    describe.skip(`Validate html for the page ${step.name}`, () => {
+    describe(`Validate html for the page ${step.name}`, () => {
       let errors = [];
       let warnings = [];
 
