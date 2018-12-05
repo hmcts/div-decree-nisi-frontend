@@ -49,27 +49,7 @@
 
     <h3 class="heading-small">{{ content.help }}</h3>
 
-    <ul class="font-xsmall">
-      <li>
-        <strong class="bold-xsmall">{{ content.email }}</strong><br>
-        <a href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail }}</a><br>
-      </li>
-      <li>
-        <strong class="bold-xsmall">{{ content.phone }}</strong><br>
-        {{ content.phoneNumber }} <br>
-        {{ content.openTimes }} <br>
-      </li>
-      <li>
-        <strong class="bold-xsmall">{{ content.courtsAndTribunals }}</strong><br>
-        {{ content.courtsCenterPrefix }} 
-        {{ case.court[case.courts].divorceCentre | safe}} <br>
-        {% if case.court[case.courts].poBox %}
-          {{ case.court[case.courts].poBox | safe}} <br>
-        {% endif %}
-        {{ case.court[case.courts].courtCity | safe}} <br>
-        {{ case.court[case.courts].postCode  | safe}} <br>
-      </li>
-    </ul>
+    {% include "includes/sideMenuCourtDetails.html" %}
 
     <h3 class="heading-small" id="subsection-title">{{ content.guidence }}</h3>
 
