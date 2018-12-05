@@ -26,7 +26,7 @@ const session = {
 
 let caseOrchestrationServiceSubmitStub = {};
 
-describe('Adultery DN flow', () => {
+describe('Desertion DN flow', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');

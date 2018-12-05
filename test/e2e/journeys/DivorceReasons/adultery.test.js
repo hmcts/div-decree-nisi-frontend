@@ -15,6 +15,7 @@ const AdulteryFirstFoundOut = require('steps/adultery-first-found-out/AdulteryFi
 const LivedApartSinceAdultery = require(
   'steps/lived-apart-since-adultery/LivedApartSinceAdultery.step'
 );
+const moment = require('moment');
 
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
@@ -90,7 +91,7 @@ describe('Adultery DN flow', () => {
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
         intolerable: 'yes',
-        adulteryFirstFoundDate: '2011-08-08T23:00:00.000Z'
+        adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000')
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -135,7 +136,7 @@ describe('Adultery DN flow', () => {
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
         intolerable: 'yes',
-        adulteryFirstFoundDate: '2011-08-08T23:00:00.000Z'
+        adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000')
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
