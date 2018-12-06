@@ -34,7 +34,7 @@ describe(modulePath, () => {
 
     it('#sessionJson returns json object of case', () => {
       expect(modifySessionInstance.sessionJson)
-        .to.eql('{"foo":"bar","reasonForDivorce":"reasonForDivorce"}');
+        .to.eql('{"case":{"foo":"bar","reasonForDivorce":"reasonForDivorce"}}');
     });
 
     it('#retrieve returns correct fields populated', () => {
@@ -44,7 +44,12 @@ describe(modulePath, () => {
 
     describe('#updateSession', () => {
       it('replaces case data if raw session sent', () => {
-        const req = { body: { case: JSON.stringify({ bar: 'foo' }) }, session: { case: {} } };
+        const req = {
+          body: {
+            session: JSON.stringify({ case: { bar: 'foo' } })
+          },
+          session: { case: {} }
+        };
         modifySessionInstance.updateSession(req);
         expect(req.session.case).to.eql({ bar: 'foo' });
       });
