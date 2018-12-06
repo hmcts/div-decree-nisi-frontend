@@ -93,12 +93,23 @@ class ModifySession extends Question {
   }
 
   get sessionJson() {
-    return JSON.stringify(this.req.session.case);
+    const blackList = ['cookie', 'temp'];
+
+    const session = Object.keys(this.req.session)
+      .filter(key => {
+        return !blackList.includes(key);
+      })
+      .reduce((newSession, key) => {
+        newSession[key] = this.req.session[key];
+        return newSession;
+      }, {});
+
+    return JSON.stringify(session);
   }
 
   updateSession(req) {
-    if (req.body.case) {
-      Object.assign(req.session, { case: JSON.parse(req.body.case) });
+    if (req.body.session) {
+      Object.assign(req.session, JSON.parse(req.body.session));
     } else {
       Object.keys(req.body).forEach(key => {
         // state is the only value that us nested under case
