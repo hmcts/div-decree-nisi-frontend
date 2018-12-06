@@ -75,7 +75,7 @@ class Upload extends Question {
 
       answers.push(answer(this, {
         question: this.content.fields.files.title,
-        answer: files.join(', ')
+        answer: files
       }));
     }
 
