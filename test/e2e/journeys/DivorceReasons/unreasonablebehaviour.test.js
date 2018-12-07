@@ -82,6 +82,7 @@ describe('Unreasonable behaviour', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
@@ -127,6 +128,7 @@ describe('Unreasonable behaviour', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',

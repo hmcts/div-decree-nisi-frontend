@@ -69,6 +69,7 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 1', () => {
 
   it('submits correct body to case orchestration service', () => {
     const body = {
+      applyForDecreeNisi: 'yes',
       claimCosts: 'originalAmount',
       livedApartSinceSeparation: 'yes',
       statementOfTruth: 'yes',

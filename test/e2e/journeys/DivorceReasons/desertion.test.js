@@ -72,6 +72,7 @@ describe('Desertion DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
         claimCosts: 'originalAmount',
         livedApartSinceDesertion: 'yes',
         statementOfTruth: 'yes',
@@ -106,6 +107,7 @@ describe('Desertion DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
         approximateDatesOfLivingTogetherField: 'details...',
         claimCosts: 'originalAmount',
         livedApartSinceDesertion: 'no',

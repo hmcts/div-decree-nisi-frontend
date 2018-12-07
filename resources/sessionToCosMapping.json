@@ -1,4 +1,6 @@
 {
+  "ApplyForDecreeNisi.applyForDecreeNisi": "applyForDecreeNisi",
+
   "MiniPetition.changes.changesDetails": "changesDetails",
   "MiniPetition.changes.statementOfTruthChanges": "statementOfTruthChanges",
   "MiniPetition.changes.statementOfTruthNoChanges": "statementOfTruthChanges",
@@ -27,6 +29,5 @@
   "LivedApartSinceAdultery.changes.livedApartSinceAdultery": "livedApartSinceAdultery",
   "LivedApartSinceAdultery.changes.datesLivedTogether": "datesLivedTogether",
 
-  "Upload.files": "files",
-  "ApplyForDecreeNisi.applyForDecreeNisi": "applyForDecreeNisi"
+  "Upload.files": "files"
 }
