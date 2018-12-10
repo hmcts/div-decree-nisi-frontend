@@ -68,6 +68,7 @@ describe('Case State : AOSOverdue', () => {
 
   it('submits correct body to case orchestration service', () => {
     const body = {
+      applyForDecreeNisi: 'yes',
       claimCosts: 'originalAmount',
       livedApartSinceSeparation: 'yes',
       statementOfTruth: 'yes',
