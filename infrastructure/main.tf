@@ -11,8 +11,6 @@ locals {
   case_orchestration_service_api_url = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
   case_maintence_service_api_url = "http://div-cms-${local.local_env}.service.core-compute-${local.local_env}.internal"
 
-  respondent_frontend_url           = "${var.respondent_frontend_url == "" ? "https://div-rfe-${local.local_env}.service.core-compute-${local.local_env}.internal" : var.respondent_frontend_url}"
-
   health_endpoint = "/health"
 
   asp_name = "${var.env == "prod" ? "div-dn-prod" : "${var.raw_product}-${var.env}"}"
@@ -117,7 +115,8 @@ module "frontend" {
     // Petitioner Front End
     PETITIONER_FRONTEND_URL = "${var.petitioner_frontend_url}"
 
-    RESPONDENT_FRONTEND_URL = "${local.respondent_frontend_url}"
+    // Respondent Front End
+    RESPONDENT_FRONTEND_URL = "${var.respondent_frontend_url}"
 
     // CCD Filters
     CCD_DIGITAL_COURTS = "${var.ccd_digital_courts}"
