@@ -99,10 +99,11 @@
     "zepto-node": "^1.0.0"
   },
   "resolutions": {
+    "hoek": "^4.2.1",
+    "lodash": "^4.17.5",
     "minimatch": "^3.0.4",
     "tunnel-agent": "^0.6.0",
-    "hoek": "^4.2.1",
-    "lodash": "^4.17.5"
+    "underscore.string": "^3.3.5"
   },
   "nyc": {
     "report-dir": "coverage",
