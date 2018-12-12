@@ -9,6 +9,7 @@ const caseOrchestrationHelper = require(moduleName);
 const config = require('config');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 const { NOT_FOUND, MULTIPLE_CHOICES, IM_A_TEAPOT } = require('http-status-codes');
+const idam = require('services/idam');
 
 describe(moduleName, () => {
   describe('#formatSessionForSubmit', () => {
@@ -173,10 +174,15 @@ describe(moduleName, () => {
       expect(res.redirect.calledOnce).to.eql(true);
     });
 
-    it('redirect to respondent frontend if error is REDIRECT_TO_RESPONDENT_FE', () => {
-      caseOrchestrationHelper.handleErrorCodes(caseOrchestrationHelper.redirectToRespondentError);
-      expect(redirectToFrontendHelper.redirectToAos.calledOnce).to.eql(true);
-    });
+    it('redirect to respondent frontend & logouts out of idam if error is REDIRECT_TO_RESPONDENT_FE'
+      , () => {
+        const idamLogoutMiddleware = sinon.stub().callsArg(2);
+        sinon.stub(idam, 'logout').returns(idamLogoutMiddleware);
+        caseOrchestrationHelper.handleErrorCodes(caseOrchestrationHelper.redirectToRespondentError);
+        expect(redirectToFrontendHelper.redirectToAos.calledOnce).to.eql(true);
+        expect(idam.logout.calledOnce).to.eql(true);
+        idam.logout.restore();
+      });
 
     it('calls next with error if error not recognised', () => {
       const next = sinon.stub();

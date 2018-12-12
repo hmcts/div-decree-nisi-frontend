@@ -3,6 +3,7 @@ const { get } = require('lodash');
 const config = require('config');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 const { NOT_FOUND, MULTIPLE_CHOICES } = require('http-status-codes');
+const idamService = require('services/idam');
 
 const REDIRECT_TO_PETITIONER_FE = Symbol('redirect_to_pfe');
 const redirectToPetitionerError = new Error('No valid state or no court included');
@@ -79,7 +80,9 @@ const handleErrorCodes = (error, req, res, next) => {
     res.redirect(config.paths.contactDivorceTeam);
     break;
   case REDIRECT_TO_RESPONDENT_FE:
-    redirectToFrontendHelper.redirectToAos(req, res);
+    idamService.logout()(req, res, () => {
+      redirectToFrontendHelper.redirectToAos(req, res);
+    });
     break;
   default:
     next(error);
