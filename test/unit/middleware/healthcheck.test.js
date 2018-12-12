@@ -63,7 +63,7 @@ describe(modulePath, () => {
       .then(done, done);
   });
 
-  it('throws an error if healthcheck fails for idam-authentication', () => {
+  it.skip('throws an error if healthcheck fails for idam-authentication', () => {
     setupHealthChecks(app);
 
     const idamCallback = healthcheck.web.firstCall.args[1].callback;
@@ -75,7 +75,7 @@ describe(modulePath, () => {
   it('throws an error if healthcheck fails for idam-app', () => {
     setupHealthChecks(app);
 
-    const idamCallback = healthcheck.web.secondCall.args[1].callback;
+    const idamCallback = healthcheck.web.firstCall.args[1].callback;
     idamCallback('error');
 
     sinon.assert.calledWith(logger.error, 'Health check failed on idam-app: error');
