@@ -42,6 +42,7 @@ services:
     secret: IDAM_SECRET
     loginUrl: IDAM_LOGIN_URL
     clientId: IDAM_CLIENT_ID
+    proxy: IDAM_PROXY
   googleAnalytics:
     id: GOOGLE_ANALYTICS_ID
     trackingUrl: GOOGLE_ANALYTICS_TRACKING_URL
