@@ -14,11 +14,9 @@ const request = require('request-promise-native');
 
 const app = {};
 let res = {};
-let requestStub = {};
 
 describe(modulePath, () => {
   beforeEach(() => {
-    requestStub = sinon.stub();
     app.use = sinon.stub();
     sinon.stub(redis, 'ping').resolves('PONG');
     sinon.stub(healthcheck, 'web');
@@ -26,7 +24,7 @@ describe(modulePath, () => {
     sinon.stub(healthcheck, 'status');
     sinon.stub(logger, 'error');
     sinon.stub(outputs, 'up');
-    sinon.stub(request, 'defaults').returns(requestStub);
+    sinon.stub(request, 'get');
     res = { status: OK };
   });
 
@@ -37,7 +35,7 @@ describe(modulePath, () => {
     healthcheck.status.restore();
     logger.error.restore();
     outputs.up.restore();
-    request.defaults.restore();
+    request.get.restore();
   });
 
   it('set a middleware on the healthcheck endpoint', () => {
@@ -68,9 +66,9 @@ describe(modulePath, () => {
     });
   });
 
-  describe('idam-authentication', () => {
+  describe('idam-web-app', () => {
     it('passes healthcheck', () => {
-      requestStub.resolves(JSON.stringify({ status: 'UP' }));
+      request.get.resolves(JSON.stringify({ status: 'UP' }));
       setupHealthChecks(app);
 
       const rawPromise = healthcheck.raw.secondCall.args[0];
@@ -81,7 +79,7 @@ describe(modulePath, () => {
     });
 
     it('throws an error if healthcheck returns with bad status', () => {
-      requestStub.resolves(JSON.stringify({ status: 'DOWN' }));
+      request.get.resolves(JSON.stringify({ status: 'DOWN' }));
       setupHealthChecks(app);
 
       const rawPromise = healthcheck.raw.secondCall.args[0];
@@ -92,19 +90,19 @@ describe(modulePath, () => {
     });
 
     it('throws an error if healthcheck responds with bad response code', () => {
-      requestStub.rejects('error');
+      request.get.rejects('error');
       setupHealthChecks(app);
 
       const rawPromise = healthcheck.raw.secondCall.args[0];
       return rawPromise()
         .then(() => {
           sinon.assert
-            .calledWith(logger.error, 'Health check failed on idam-authentication: error');
+            .calledWith(logger.error, 'Health check failed on idam-web-app: error');
         });
     });
   });
 
-  describe('idam-app', () => {
+  describe('idam-api', () => {
     it('passes healthcheck', () => {
       setupHealthChecks(app);
 
@@ -120,7 +118,7 @@ describe(modulePath, () => {
       const idamCallback = healthcheck.web.firstCall.args[1].callback;
       idamCallback('error');
 
-      sinon.assert.calledWith(logger.error, 'Health check failed on idam-app: error');
+      sinon.assert.calledWith(logger.error, 'Health check failed on idam-api: error');
     });
   });
 

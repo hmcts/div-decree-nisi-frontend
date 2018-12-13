@@ -24,28 +24,29 @@ const checks = () => {
           return healthcheck.status(false);
         });
     }),
-    'idam-authentication': healthcheck.raw(() => {
-      const proxyRequest = request
-        .defaults({ proxy: config.services.idam.proxy });
-      const requestOptions = Object.assign(
-        { uri: config.services.idam.authenticationHealth },
-        options
-      );
+    'idam-web-app': healthcheck.raw(() => {
+      const requestOptions = Object.assign({
+        uri: config.services.idam.authenticationHealth,
+        proxy: config.services.idam.proxy
+      }, options);
 
-      return proxyRequest(requestOptions)
+      return request.get(
+        config.services.idam.authenticationHealth,
+        requestOptions
+      )
         .then(body => {
           const response = JSON.parse(body);
           return healthcheck.status(response);
         })
         .catch(error => {
-          logger.error(`Health check failed on idam-authentication: ${error}`);
+          logger.error(`Health check failed on idam-web-app: ${error}`);
           return healthcheck.status(false);
         });
     }),
-    'idam-app': healthcheck.web(config.services.idam.apiHealth, {
+    'idam-api': healthcheck.web(config.services.idam.apiHealth, {
       callback: (error, res) => { // eslint-disable-line id-blacklist
         if (error) {
-          logger.error(`Health check failed on idam-app: ${error}`);
+          logger.error(`Health check failed on idam-api: ${error}`);
         }
         return !error && res.status === OK ? outputs.up() : outputs.down(error);
       }
