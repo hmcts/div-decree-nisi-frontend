@@ -115,6 +115,9 @@ module "frontend" {
     // Petitioner Front End
     PETITIONER_FRONTEND_URL = "${var.petitioner_frontend_url}"
 
+    // Respondent Front End
+    RESPONDENT_FRONTEND_URL = "${var.respondent_frontend_url}"
+
     // CCD Filters
     CCD_DIGITAL_COURTS = "${var.ccd_digital_courts}"
   }

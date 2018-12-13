@@ -16,5 +16,6 @@ capacity = "2"
 rate_limiter_enabled = false
 
 petitioner_frontend_url = "https://div-pfe-aat.service.core-compute-aat.internal"
+respondent_frontend_url = "https://div-rfe-aat.service.core-compute-aat.internal"
 
 ccd_digital_courts = "[\"serviceCentre\", \"eastMidlands\", \"westMidlands\", \"southWest\", \"northWest\"]"
