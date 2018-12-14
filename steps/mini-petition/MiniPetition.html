@@ -278,10 +278,15 @@
     <h3 class="heading-small">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
     <p>"
       {% for behaviourDetail in case.reasonForDivorceBehaviourDetails %}
-          {{ behaviourDetail | replace(r/(\r\n|\n)/gm, '<br/>') | safe  }}
+        {% if behaviourDetail | length > 0 and behaviourDetail !== '\r' %}
+          {{ behaviourDetail | nl2br | safe }}
           {% if not loop.last %}
             <br/>
+            {% if behaviourDetail.slice(-1)  !== '\r' %}
+              <br />
+            {% endif %}
           {% endif %}
+        {% endif %}
       {% endfor %}
     "</p>
   {% endif %}
