@@ -1,76 +1,25 @@
 const modulePath = 'steps/authenticated/Authenticated.step';
 
 const Authenticated = require(modulePath);
-const PetitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
-const ContactDivorceTeam = require('steps/contact-divorce-team/ContactDivorceTeam.step');
 const idam = require('services/idam');
-const { middleware, redirect, sinon, custom, expect } = require('@hmcts/one-per-page-test-suite');
-const caseOrchestrationService = require('services/caseOrchestrationService');
-const { NOT_FOUND, INTERNAL_SERVER_ERROR, MULTIPLE_CHOICES } = require('http-status-codes');
-const config = require('config');
-const redirectToEntry = require('middleware/redirectToEntry');
+const { middleware, sinon, expect } = require('@hmcts/one-per-page-test-suite');
+const Entry = require('steps/entry/Entry.step');
 
 describe(modulePath, () => {
-  it('has idam.landingPage middleware', () => {
+  beforeEach(() => {
+    sinon.stub(idam, 'protect').returns(middleware.nextMock);
+  });
+
+  afterEach(() => {
+    idam.protect.restore();
+  });
+
+  it('has idam middleware', () => {
     return middleware.hasMiddleware(Authenticated, [ idam.landingPage ]);
   });
 
-  it('has conditional redirect middleware', () => {
-    return middleware.hasMiddleware(Authenticated, [ redirectToEntry.redirectToEntryIfNoSession ]);
-  });
-
-  context('navigation', () => {
-    beforeEach(() => {
-      sinon.stub(idam, 'landingPage').callsFake(middleware.nextMock);
-      sinon.stub(redirectToEntry, 'redirectToEntryIfNoSession').callsFake(middleware.nextMock);
-      sinon.stub(caseOrchestrationService, 'getApplication');
-    });
-
-    afterEach(() => {
-      idam.landingPage.restore();
-      redirectToEntry.redirectToEntryIfNoSession.restore();
-      caseOrchestrationService.getApplication.restore();
-    });
-
-    it('to PetitionProgressBar page', () => {
-      caseOrchestrationService.getApplication.resolves();
-      return redirect.navigatesToNext(Authenticated, PetitionProgressBar);
-    });
-
-    it('to error page if error is not 404', () => {
-      const error = new Error('An error has occoured on the Case Orchestartion Service');
-      error.statusCode = INTERNAL_SERVER_ERROR;
-      caseOrchestrationService.getApplication.rejects(error);
-      return custom(Authenticated)
-        .get()
-        .expect(INTERNAL_SERVER_ERROR)
-        .text(pageContent => {
-          return expect(pageContent.indexOf(error) !== -1).to.eql(true);
-        });
-    });
-
-    it('to contact divorce team page if error is 300', () => {
-      const error = new Error('Multiple cases found on Case orchestration service');
-      error.statusCode = MULTIPLE_CHOICES;
-      caseOrchestrationService.getApplication.rejects(error);
-
-      return redirect.navigatesToNext(Authenticated, ContactDivorceTeam);
-    });
-
-    it('to petitioner frontend  if error is 404', () => {
-      const error = new Error('The case does not exist on CCD');
-      error.statusCode = NOT_FOUND;
-      caseOrchestrationService.getApplication.rejects(error);
-
-      const authTokenString = '__auth-token';
-      const petitionerFrontend = config.services.petitionerFrontend;
-      // Undefined since req.cookies['__auth-token'] is not set in the test
-      const queryString = `?${authTokenString}=undefined`;
-      const expectedUrl = `${petitionerFrontend.url}${petitionerFrontend.landing}${queryString}`;
-
-      return custom(Authenticated)
-        .get()
-        .expect('location', expectedUrl);
-    });
+  it('navigates to Entry step', () => {
+    const stepInstance = new Authenticated({ journey: { steps: { Entry } } });
+    expect(stepInstance.next().nextStep.path).to.eql(Entry.path);
   });
 });

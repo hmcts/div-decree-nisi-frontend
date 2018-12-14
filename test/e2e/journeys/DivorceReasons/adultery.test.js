@@ -16,6 +16,7 @@ const LivedApartSinceAdultery = require(
   'steps/lived-apart-since-adultery/LivedApartSinceAdultery.step'
 );
 const moment = require('moment');
+const Entry = require('steps/entry/Entry.step');
 
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
@@ -63,6 +64,7 @@ describe('Adultery DN flow', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
@@ -87,6 +89,7 @@ describe('Adultery DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
@@ -105,6 +108,7 @@ describe('Adultery DN flow', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
@@ -132,6 +136,7 @@ describe('Adultery DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
@@ -150,6 +155,7 @@ describe('Adultery DN flow', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {

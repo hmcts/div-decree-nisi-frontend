@@ -64,7 +64,7 @@
     "@hmcts/div-idam-test-harness": "^1.3.0",
     "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#a459aaa16a92cb13e0dac35c32bf559ad79de6a6",
     "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
-    "@hmcts/one-per-page-test-suite": "^2.0.20",
+    "@hmcts/one-per-page-test-suite": "^2.0.21",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
@@ -99,10 +99,11 @@
     "zepto-node": "^1.0.0"
   },
   "resolutions": {
+    "hoek": "^4.2.1",
+    "lodash": "^4.17.5",
     "minimatch": "^3.0.4",
     "tunnel-agent": "^0.6.0",
-    "hoek": "^4.2.1",
-    "lodash": "^4.17.5"
+    "underscore.string": "^3.3.5"
   },
   "nyc": {
     "report-dir": "coverage",

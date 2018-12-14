@@ -42,6 +42,7 @@ services:
     secret: IDAM_SECRET
     loginUrl: IDAM_LOGIN_URL
     clientId: IDAM_CLIENT_ID
+    proxy: IDAM_PROXY
   googleAnalytics:
     id: GOOGLE_ANALYTICS_ID
     trackingUrl: GOOGLE_ANALYTICS_TRACKING_URL
@@ -62,6 +63,8 @@ services:
     draftEndpoint: ORCHESTRATION_SERVICE_DRAFT_ENDPOINT
   petitionerFrontend:
     url: PETITIONER_FRONTEND_URL
+  aosFrontend:
+    url: RESPONDENT_FRONTEND_URL
   caseMaintenance:
     baseUrl: CASE_MAINTENANCE_BASE_URL
 
@@ -70,6 +73,6 @@ journey:
 
 features:
   idam: FEATURES_IDAM
-  
+
 ccd:
   courts: CCD_DIGITAL_COURTS

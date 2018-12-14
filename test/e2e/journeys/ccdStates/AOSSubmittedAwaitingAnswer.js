@@ -7,6 +7,7 @@ const Start = require('steps/start/Start.step');
 const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const reviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
+const Entry = require('steps/entry/Entry.step');
 
 const session = {
   respDefendsDivorce: 'Yes'
@@ -29,6 +30,7 @@ describe('AosSubmittedAwaitingAnswer DN flow', () => {
   journey.test([
     { step: Start },
     { step: IdamLogin, body: { success: 'yes' } },
+    { step: Entry },
     { step: petitionProgressBar },
     { step: reviewAosResponse }
   ]);

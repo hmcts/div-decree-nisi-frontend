@@ -85,7 +85,10 @@ app.set('trust proxy', 1);
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
-  errorPages: { serverError: { template: 'errors/error' } },
+  errorPages: { serverError: { template: 'errors/error' }, notFound: { template: 'errors/error' } },
+  noSessionHandler: (req, res) => {
+    return res.redirect(config.paths.entry);
+  },
   session: {
     redis: { url: config.services.redis.url },
     cookie: {

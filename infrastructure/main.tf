@@ -1,3 +1,7 @@
+provider "azurerm" {
+  version = "1.19.0"
+}
+
 locals {
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   public_hostname = "${var.product}-${var.component}-${var.env}.service.${local.aseName}.internal"
@@ -114,6 +118,9 @@ module "frontend" {
 
     // Petitioner Front End
     PETITIONER_FRONTEND_URL = "${var.petitioner_frontend_url}"
+
+    // Respondent Front End
+    RESPONDENT_FRONTEND_URL = "${var.respondent_frontend_url}"
 
     // CCD Filters
     CCD_DIGITAL_COURTS = "${var.ccd_digital_courts}"
