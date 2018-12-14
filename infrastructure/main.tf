@@ -124,6 +124,10 @@ module "frontend" {
 
     // CCD Filters
     CCD_DIGITAL_COURTS = "${var.ccd_digital_courts}"
+
+    WEBSITE_LOCAL_CACHE_OPTION = "Never"
+    WEBSITE_LOCAL_CACHE_SIZEINMB = 0
+    WEBSITE_DYNAMIC_CACHE = 0
   }
 }
 
