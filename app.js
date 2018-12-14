@@ -24,9 +24,6 @@ setupRateLimiter(app);
 // Parsing cookies
 app.use(cookieParser());
 
-// Get user details from idam, sets req.idam.userDetails
-app.use(idam.userDetails());
-
 lookAndFeel.configure(app, {
   baseUrl: '/',
   express: {
@@ -79,6 +76,9 @@ app.use('/public', (req, res) => {
 app.use('/images', (req, res) => {
   res.redirect(`/assets/images${req.path}`, '301');
 });
+
+// Get user details from idam, sets req.idam.userDetails
+app.use(idam.userDetails());
 
 app.set('trust proxy', 1);
 
