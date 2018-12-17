@@ -16,7 +16,8 @@ const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
 );
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon,
+  content, expect } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -1123,6 +1124,60 @@ describe(modulePath, () => {
         MiniPetition,
         session,
         { specificValues: [respondentCorrespondenceAddress.address] });
+    });
+  });
+
+
+  describe('Returns correct values()', () => {
+    it('hasBeenChanges : yes ', () => {
+      const changesDetailsVal = 'details...';
+      const fields = {
+        changes: {
+          hasBeenChanges: 'yes',
+          changesDetails: changesDetailsVal,
+          statementOfTruthNoChanges: 'yes',
+          statementOfTruthChanges: 'yes'
+        }
+      };
+      const req = {
+        journey: {},
+        session: { MiniPetition: fields }
+      };
+
+      const res = {};
+      const step = new MiniPetition(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('changes.statementOfTruthChanges', 'yes');
+      expect(_values).to.have.property('changes.changesDetails', changesDetailsVal);
+      expect(_values).to.not.have.property('changes.statementOfTruthNoChanges');
+    });
+
+    it('hasBeenChanges : no ', () => {
+      const changesDetailsVal = 'Details given';
+      const fields = {
+        changes: {
+          hasBeenChanges: 'no',
+          changesDetails: changesDetailsVal,
+          statementOfTruthNoChanges: 'yes',
+          statementOfTruthChanges: 'yes'
+        }
+      };
+      const req = {
+        journey: {},
+        session: { MiniPetition: fields }
+      };
+
+      const res = {};
+      const step = new MiniPetition(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.have.property('changes.statementOfTruthNoChanges', 'yes');
+      expect(_values).to.not.have.property('changes.changesDetails');
+      expect(_values).to.not.have.property('changes.statementOfTruthChanges');
     });
   });
 

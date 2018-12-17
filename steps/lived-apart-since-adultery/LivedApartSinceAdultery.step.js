@@ -52,11 +52,11 @@ class LivedApartSinceAdultery extends Question {
   values() {
     const selectedValue = this.fields.livedApart.livedApartSinceAdultery.value;
     if (selectedValue === 'yes') {
-      return { 'changes.livedApartSinceAdultery': selectedValue };
+      return { 'livedApart.livedApartSinceAdultery': selectedValue };
     } else if (selectedValue === 'no') {
       return {
-        'changes.livedApartSinceAdultery': selectedValue,
-        'changes.datesLivedTogether': this.fields.livedApart.datesLivedTogether.value
+        'livedApart.livedApartSinceAdultery': selectedValue,
+        'livedApart.datesLivedTogether': this.fields.livedApart.datesLivedTogether.value
       };
     }
     return {};

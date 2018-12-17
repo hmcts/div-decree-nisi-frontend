@@ -5,7 +5,8 @@ const LivedApartSinceDesertion = require(modulePath);
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon,
+  content, expect } = require('@hmcts/one-per-page-test-suite');
 
 const session = { case: { data: {} } };
 
@@ -133,5 +134,57 @@ describe(modulePath, () => {
     };
 
     return question.answers(LivedApartSinceDesertion, stepData, expectedContent, session);
+  });
+
+  describe('Returns correct values()', () => {
+    it('livedApartSinceDesertion : yes ', () => {
+      const selectedValue = 'yes';
+      const detailsGiven = 'We are living together after desertion';
+      const fields = {
+        changes: {
+          livedApartSinceDesertion: selectedValue,
+          approximateDatesOfLivingTogetherField: detailsGiven
+        }
+      };
+      const req = {
+        journey: {},
+        session: { LivedApartSinceDesertion: fields }
+      };
+
+      const res = {};
+      const step = new LivedApartSinceDesertion(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('changes.livedApartSinceDesertion', selectedValue);
+      expect(_values).to.not.have.property('changes.approximateDatesOfLivingTogetherField');
+    });
+
+    it('livedApartSinceDesertion : no ', () => {
+      const selectedValue = 'no';
+      const detailsGiven = 'We are living together after desertion';
+      const fields = {
+        changes: {
+          livedApartSinceDesertion: selectedValue,
+          approximateDatesOfLivingTogetherField: detailsGiven
+        }
+      };
+      const req = {
+        journey: {},
+        session: { LivedApartSinceDesertion: fields }
+      };
+
+      const res = {};
+      const step = new LivedApartSinceDesertion(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('changes.livedApartSinceDesertion', selectedValue);
+      expect(_values).to.have.property(
+        'changes.approximateDatesOfLivingTogetherField', detailsGiven
+      );
+    });
   });
 });
