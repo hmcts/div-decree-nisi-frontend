@@ -10,7 +10,6 @@ const config = require('config');
 const outputs = require('@hmcts/nodejs-healthcheck/healthcheck/outputs');
 const { OK } = require('http-status-codes');
 const redis = require('services/redis');
-const request = require('request-promise-native');
 
 const app = {};
 let res = {};
@@ -24,7 +23,6 @@ describe(modulePath, () => {
     sinon.stub(healthcheck, 'status');
     sinon.stub(logger, 'error');
     sinon.stub(outputs, 'up');
-    sinon.stub(request, 'get');
     res = { status: OK };
   });
 
@@ -35,7 +33,6 @@ describe(modulePath, () => {
     healthcheck.status.restore();
     logger.error.restore();
     outputs.up.restore();
-    request.get.restore();
   });
 
   it('set a middleware on the healthcheck endpoint', () => {
@@ -43,103 +40,62 @@ describe(modulePath, () => {
     sinon.assert.calledWith(app.use, config.paths.health);
   });
 
-  describe('redis', () => {
-    it('throws an error if healthcheck fails', () => {
-      redis.ping.rejects('error');
-      setupHealthChecks(app);
+  it('throws an error if healthcheck fails for redis', done => {
+    redis.ping.rejects('error');
+    setupHealthChecks(app);
 
-      const rawPromise = healthcheck.raw.firstCall.args[0];
-      return rawPromise()
-        .then(() => {
-          sinon.assert.calledWith(logger.error, 'Health check failed on redis: error');
-        });
-    });
-
-    it('passes healthcheck if redis running', () => {
-      setupHealthChecks(app);
-
-      const rawPromise = healthcheck.raw.firstCall.args[0];
-      return rawPromise()
-        .then(() => {
-          sinon.assert.calledWith(healthcheck.status, true);
-        });
-    });
+    const rawPromise = healthcheck.raw.firstCall.args[0];
+    rawPromise()
+      .then(() => {
+        sinon.assert.calledWith(logger.error, 'Health check failed on redis: error');
+      })
+      .then(done, done);
   });
 
-  describe('idam-web-app', () => {
-    it('passes healthcheck', () => {
-      request.get.resolves(JSON.stringify({ status: 'UP' }));
-      setupHealthChecks(app);
+  it('passes healthcheck for redis if redis is running', done => {
+    setupHealthChecks(app);
 
-      const rawPromise = healthcheck.raw.secondCall.args[0];
-      return rawPromise()
-        .then(() => {
-          sinon.assert.calledWith(healthcheck.status, { status: 'UP' });
-        });
-    });
-
-    it('throws an error if healthcheck returns with bad status', () => {
-      request.get.resolves(JSON.stringify({ status: 'DOWN' }));
-      setupHealthChecks(app);
-
-      const rawPromise = healthcheck.raw.secondCall.args[0];
-      return rawPromise()
-        .then(() => {
-          sinon.assert.calledWith(healthcheck.status, { status: 'DOWN' });
-        });
-    });
-
-    it('throws an error if healthcheck responds with bad response code', () => {
-      request.get.rejects('error');
-      setupHealthChecks(app);
-
-      const rawPromise = healthcheck.raw.secondCall.args[0];
-      return rawPromise()
-        .then(() => {
-          sinon.assert
-            .calledWith(logger.error, 'Health check failed on idam-web-app: error');
-        });
-    });
+    const rawPromise = healthcheck.raw.firstCall.args[0];
+    rawPromise()
+      .then(() => {
+        sinon.assert.calledWith(healthcheck.status, true);
+      })
+      .then(done, done);
   });
 
-  describe('idam-api', () => {
-    it('passes healthcheck', () => {
-      setupHealthChecks(app);
+  it('throws an error if healthcheck fails for idam-web-app', () => {
+    setupHealthChecks(app);
 
-      const idamCallback = healthcheck.web.firstCall.args[1].callback;
-      idamCallback(null, res);
+    const idamCallback = healthcheck.web.firstCall.args[1].callback;
+    idamCallback('error');
 
-      sinon.assert.called(outputs.up);
-    });
-
-    it('throws an error if healthcheck fails', () => {
-      setupHealthChecks(app);
-
-      const idamCallback = healthcheck.web.firstCall.args[1].callback;
-      idamCallback('error');
-
-      sinon.assert.calledWith(logger.error, 'Health check failed on idam-api: error');
-    });
+    sinon.assert.calledWith(logger.error, 'Health check failed on idam-web-app: error');
   });
 
-  describe('case-orchistration-service', () => {
-    it('passes healthcheck', () => {
-      setupHealthChecks(app);
+  it('throws an error if healthcheck fails for idam-api', () => {
+    setupHealthChecks(app);
 
-      const idamCallback = healthcheck.web.secondCall.args[1].callback;
-      idamCallback(null, res);
+    const idamCallback = healthcheck.web.secondCall.args[1].callback;
+    idamCallback('error');
 
-      sinon.assert.called(outputs.up);
-    });
+    sinon.assert.calledWith(logger.error, 'Health check failed on idam-api: error');
+  });
 
-    it('throws an error if healthcheck fails', () => {
-      setupHealthChecks(app);
+  it('returns up if no error passed', () => {
+    setupHealthChecks(app);
 
-      const idamCallback = healthcheck.web.secondCall.args[1].callback;
-      idamCallback('error');
+    const idamCallback = healthcheck.web.firstCall.args[1].callback;
+    idamCallback(null, res);
 
-      sinon.assert
-        .calledWith(logger.error, 'Health check failed on case-orchistration-service: error');
-    });
+    sinon.assert.called(outputs.up);
+  });
+
+  it('throws an error if healthcheck fails for idam-api', () => {
+    setupHealthChecks(app);
+
+    const idamCallback = healthcheck.web.secondCall.args[1].callback;
+    idamCallback(null, res);
+
+    sinon.assert.called(outputs.up);
   });
 });
