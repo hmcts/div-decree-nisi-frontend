@@ -1132,9 +1132,7 @@ describe(modulePath, () => {
         MiniPetitionContent.en.fields.changes.hasBeenChanges.title,
         MiniPetitionContent.en.fields.changes.hasBeenChanges.yes,
         MiniPetitionContent.en.fields.changes.changesDetails.title,
-        'details...',
-        MiniPetitionContent.en.fields.changes.statementOfTruthChanges.title,
-        MiniPetitionContent.en.fields.changes.statementOfTruthChanges.yes
+        'details...'
       ];
       const stepData = {
         changes: {
@@ -1155,9 +1153,7 @@ describe(modulePath, () => {
     it('shows correct answers if user has no changes', () => {
       const expectedContent = [
         MiniPetitionContent.en.fields.changes.hasBeenChanges.title,
-        MiniPetitionContent.en.fields.changes.hasBeenChanges.no,
-        MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.title,
-        MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.yes
+        MiniPetitionContent.en.fields.changes.hasBeenChanges.no
       ];
       const stepData = {
         changes: {

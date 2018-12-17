@@ -93,21 +93,6 @@ class MiniPetition extends Question {
         question: this.content.fields.changes.changesDetails.title,
         answer: this.fields.changes.changesDetails.value
       }));
-      answers.push(answer(this, {
-        question: this.content.fields.changes.statementOfTruthChanges.title,
-        answer: this.content.fields
-          .changes.statementOfTruthChanges[
-            this.fields.changes.statementOfTruthChanges.value
-          ]
-      }));
-    } else {
-      answers.push(answer(this, {
-        question: this.content.fields.changes.statementOfTruthNoChanges.title,
-        answer: this.content.fields
-          .changes.statementOfTruthNoChanges[
-            this.fields.changes.statementOfTruthNoChanges.value
-          ]
-      }));
     }
 
     return answers;
