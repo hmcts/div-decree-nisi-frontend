@@ -1,0 +1,10 @@
+{
+  "en": {
+    "rRTitle": "Your {{ case.divorceWho }} has not admitted to committing adultery",
+    "rRtheFact": "The court needs to be sure that adultery took place for it to be used as the reason for divorce (legally known as the 'fact').",
+    "rRtoMoveForwardYouNeedTo": "To move your divorce forwards you need to either:",
+    "rRchangeReasonForDivorce": "change your reason for divorce",
+    "rRprovideEvidenceOfTheAdultery": "provide evidence of the adultery",
+    "rRyouCanRead": "You can read your {{ case.divorceWho }}'s response on the next page."
+  }
+}

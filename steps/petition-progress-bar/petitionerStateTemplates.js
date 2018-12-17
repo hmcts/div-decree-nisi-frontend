@@ -20,6 +20,10 @@ const caseStateMap = [
     state: ['aossubmittedawaitinganswer']
   },
   {
+    template: './sections/respondentReplied/PetitionProgressBar.respondentReplied.template.html',
+    state: ['aoscompleted']
+  },
+  {
     template: './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
     state: ['aosoverdue']
   }

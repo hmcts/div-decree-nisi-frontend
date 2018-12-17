@@ -5,6 +5,7 @@ const idam = require('services/idam');
 const { caseStateMap, permitDNReasonMap, caseIdDispalyStateMap } = require('./petitionerStateTemplates');
 
 const constants = {
+  AOSCompleted: 'aoscompleted',
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no'],
   NotDefined: 'notdefined',
@@ -54,7 +55,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get showReviewAosResponse() {
-    return this.respDefendsDivorce && constants.validAnswer.includes(this.respDefendsDivorce.toLowerCase());
+    return (this.respDefendsDivorce && constants.validAnswer.includes(this.respDefendsDivorce.toLowerCase())) || this.caseState === constants.AOSCompleted;;
   }
 
   next() {
