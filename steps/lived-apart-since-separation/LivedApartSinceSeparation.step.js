@@ -70,6 +70,19 @@ class LivedApartSinceSeparation extends Question {
     return answers;
   }
 
+  values() {
+    const selectedValue = this.fields.changes.livedApartSinceSeparation.value;
+    if (selectedValue === 'yes') {
+      return { 'changes.livedApartSinceSeparation': selectedValue };
+    } else if (selectedValue === 'no') {
+      return {
+        'changes.livedApartSinceSeparation': selectedValue,
+        'changes.approximateDatesOfLivingTogetherField': this.fields.changes.approximateDatesOfLivingTogetherField.value
+      };
+    }
+    return {};
+  }
+
   next() {
     const skipClaimCosts = this.case.claimsCosts === 'No';
     return branch(

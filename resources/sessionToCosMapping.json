@@ -26,8 +26,8 @@
   "LivedApartSinceDesertion.changes.livedApartSinceDesertion": "livedApartSinceDesertion",
   "LivedApartSinceDesertion.changes.approximateDatesOfLivingTogetherField": "approximateDatesOfLivingTogetherField",
 
-  "LivedApartSinceAdultery.changes.livedApartSinceAdultery": "livedApartSinceAdultery",
-  "LivedApartSinceAdultery.changes.datesLivedTogether": "datesLivedTogether",
+  "LivedApartSinceAdultery.livedApart.livedApartSinceAdultery": "livedApartSinceAdultery",
+  "LivedApartSinceAdultery.livedApart.datesLivedTogether": "datesLivedTogether",
 
   "Upload.files": "files"
 }

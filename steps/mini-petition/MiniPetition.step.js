@@ -113,7 +113,26 @@ class MiniPetition extends Question {
     return answers;
   }
 
+  values() {
+    const hasBeenChanges = this.fields.changes.hasBeenChanges.value;
+    if (hasBeenChanges === 'yes') {
+      return {
+        'changes.changesDetails': this.fields.changes.changesDetails.value,
+        'changes.statementOfTruthChanges': this.fields.changes.statementOfTruthChanges.value
+      };
+    } else if (hasBeenChanges === 'no') {
+      return {
+        'changes.changesDetails': this.fields.changes.changesDetails.value,
+        'changes.statementOfTruthNoChanges': this.fields.changes.statementOfTruthNoChanges.value
+      };
+    }
+    return {};
+  }
+
   next() {
+    if (this.fields.changes.hasBeenChanges.value === 'no') {
+      this.fields.changes.statementOfTruthChanges.value = '';
+    }
     const reasonForDivorce = this.case.reasonForDivorce.toLowerCase();
     return branch(
       redirectTo(this.journey.steps.Intolerable)
