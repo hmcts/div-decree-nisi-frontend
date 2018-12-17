@@ -23,8 +23,16 @@ describe(modulePath, () => {
   });
 
   describe('renders content', () => {
-    it('renders the content', () => {
-      return content(ClaimCosts, session);
+    it('renders the content when respondent agrees to pay', () => {
+      const sess = { case: { data: { respAgreeToCosts: 'Yes' } } };
+      const ignoreContent = ['respNotPay'];
+      return content(ClaimCosts, sess, { ignoreContent });
+    });
+
+    it('renders the content when respondent does not agree to pay', () => {
+      const sess = { case: { data: { respAgreeToCosts: 'No', respCostsReason: 'Test Reason' } } };
+      const ignoreContent = ['respPay'];
+      return content(ClaimCosts, sess, { ignoreContent });
     });
 
     it('loads fields from the session', () => {

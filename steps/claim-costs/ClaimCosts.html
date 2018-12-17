@@ -9,7 +9,19 @@
 {% block fields %}
 
   <p class="text">{{ content.applicationYouAsked | safe }}</p>
-  <p class="text">{{ content.yourSpouseHas | safe }}</p>
+  <p class="text">
+    {{ content.yourSpouseHas | safe }}
+    {% if notExist(consts.respAgreeToCosts) %}
+      {{ content.respNotPay }}
+    {% else %}
+      {{ content.respPay }}
+    {% endif %}
+  </p>
+  {% if notExist(consts.respAgreeToCosts) %}
+    <div class="panel panel-border-narrow">
+      <p class="text">{{ case.respCostsReason | safe }}</p>
+    </div>
+  {% endif %}
   <p class="text">{{ content.courtWillDecide | safe }}</p>
 
   <details>
