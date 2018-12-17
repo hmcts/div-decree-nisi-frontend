@@ -9,7 +9,7 @@ const caseStateMap = [
   },
   {
     template: './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
-    state: ['awaitinglegaladvisorreferral']
+    state: ['awaitinglegaladvisorreferral', 'awaitingconsideration']
   },
   {
     template: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
