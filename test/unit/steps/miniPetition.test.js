@@ -264,6 +264,23 @@ describe(modulePath, () => {
         }
       );
     });
+    it('displays case number', () => {
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            caseReference: 'TESTD80101'
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        {
+          specificValues: [session.case.data.caseReference]
+        }
+      );
+    });
     it('displays petitioner and respondent names', () => {
       const session = {
         case: {

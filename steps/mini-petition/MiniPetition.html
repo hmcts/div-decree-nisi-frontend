@@ -38,6 +38,9 @@
   <h3 class="heading-small">{{ content.issued }}</h3>
   <p class="text">{{ case.issueDate | date }}</p>
 
+  <h3 class="heading-small">{{ content.caseNumber }}</h3>
+  <p class="text">{{ case.caseReference | safe }} </p>
+
   <h3 class="heading-small">{{ content.applicant }}</h3>
   <p class="text">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
 
