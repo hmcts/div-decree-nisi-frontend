@@ -19,8 +19,19 @@
 
 {% include "reform-progress-list/template.njk" %}
 
+{% if isAdulteryButNotAdmitted %}
 
-{% if case.respAdmitOrConsentToFact == "Yes" %}
+<h2 class="heading-medium">{{ content.undefendedDoesNotAdmitAdulteryTitle }}</h2>
+<p class="text">{{ content.undefendedDoesNotAdmitAdulteryTheFact }}</p>
+<p class="text">{{ content.undefendedDoesNotAdmitAdulteryToMoveForwardYouNeedTo }}</p>
+<ul class="bullet list-bullet">
+  <li>{{ content.undefendedDoesNotAdmitAdulteryChangeReasonForDivorce }}</li>
+  <li>{{ content.undefendedDoesNotAdmitAdulteryProvideEvidenceOfTheAdultery }}</li>
+</ul>
+<br>
+<p class="text">{{ content.undefendedDoesNotAdmitAdulteryYouCanRead }}</p>
+
+{% else %}
 
 <h2 class="heading-medium">{{ content.undefendedAppStatusMsg }}</h2>
 
@@ -44,19 +55,7 @@
   </div>
 </details>
 <br>
-{% endif %}
 
-{% if case.respAdmitOrConsentToFact == "No" %}
-
-<h2 class="heading-medium">{{ content.undefendedDoesNotAdmitAdulteryTitle }}</h2>
-<p class="text">{{ content.undefendedDoesNotAdmitAdulteryTheFact }}</p>
-<p class="text">{{ content.undefendedDoesNotAdmitAdulteryToMoveForwardYouNeedTo }}</p>
-<ul class="bullet list-bullet">
-  <li>{{ content.undefendedDoesNotAdmitAdulteryChangeReasonForDivorce }}</li>
-  <li>{{ content.undefendedDoesNotAdmitAdulteryProvideEvidenceOfTheAdultery }}</li>
-</ul>
-<br>
-<p class="text">{{ content.undefendedDoesNotAdmitAdulteryYouCanRead }}</p>
 {% endif %}
 
 <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
