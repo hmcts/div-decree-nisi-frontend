@@ -19,29 +19,45 @@
 
 {% include "reform-progress-list/template.njk" %}
 
+
+{% if case.respAdmitOrConsentToFact == "Yes" %}
+
 <h2 class="heading-medium">{{ content.undefendedAppStatusMsg }}</h2>
 
 <p>{{ content.undefendedAppStatusMsgDetails1 }}</p>
 <p>{{ content.undefendedAppStatusMsgDetails2 }}</p>
 
 <details>
-<summary aria-controls="details-content-0" aria-expanded="false">
-  <span class="summary">{{ content.undefendedReadMore }}</span>
-</summary>
+  <summary aria-controls="details-content-0" aria-expanded="false">
+    <span class="summary">{{ content.undefendedReadMore }}</span>
+  </summary>
 
-<div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-  <p>{{ content.undefendedOrderForDivorce }}</p>
+  <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+    <p>{{ content.undefendedOrderForDivorce }}</p>
 
-  <ol class="list list-number">
-    <li>{{ content.undefendedCourtAgrees }}</li>
-    <li>{{ content.undefendedCannotBeMade6Weeks }}</li>
-  </ol>
+    <ol class="list list-number">
+      <li>{{ content.undefendedCourtAgrees }}</li>
+      <li>{{ content.undefendedCannotBeMade6Weeks }}</li>
+    </ol>
 
-  <p>{{ content.undefendedUntilTheDecreeAbsolute }}</p>
-</div>
+    <p>{{ content.undefendedUntilTheDecreeAbsolute }}</p>
+  </div>
 </details>
-
 <br>
+{% endif %}
+
+{% if case.respAdmitOrConsentToFact == "No" %}
+
+<h2 class="heading-medium">{{ content.undefendedDoesNotAdmitAdulteryTitle }}</h2>
+<p class="text">{{ content.undefendedDoesNotAdmitAdulteryTheFact }}</p>
+<p class="text">{{ content.undefendedDoesNotAdmitAdulteryToMoveForwardYouNeedTo }}</p>
+<ul class="bullet list-bullet">
+  <li>{{ content.undefendedDoesNotAdmitAdulteryChangeReasonForDivorce }}</li>
+  <li>{{ content.undefendedDoesNotAdmitAdulteryProvideEvidenceOfTheAdultery }}</li>
+</ul>
+<br>
+<p class="text">{{ content.undefendedDoesNotAdmitAdulteryYouCanRead }}</p>
+{% endif %}
 
 <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 

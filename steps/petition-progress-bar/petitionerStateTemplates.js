@@ -20,7 +20,7 @@ const caseStateMap = [
     state: ['aossubmittedawaitinganswer']
   },
   {
-    template: './sections/respondentReplied/PetitionProgressBar.respondentReplied.template.html',
+    template: './sections/undefended/PetitionProgressBar.undefended.template.html',
     state: ['aoscompleted']
   },
   {
