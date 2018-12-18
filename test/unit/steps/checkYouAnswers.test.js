@@ -87,7 +87,9 @@ describe(modulePath, () => {
           }
         },
         ClaimCosts: {
-          claimCosts: 'originalAmount'
+          dnCosts: {
+            claimCosts: 'originalAmount'
+          }
         }
       };
       const specificContent = ['applyingForDecreeNisiClaimsCostsRespondentCoRespondent'];
@@ -103,7 +105,9 @@ describe(modulePath, () => {
           }
         },
         ClaimCosts: {
-          claimCosts: 'originalAmount'
+          dnCosts: {
+            claimCosts: 'originalAmount'
+          }
         }
       };
       const specificContent = ['applyingForDecreeNisiClaimsCostsRespondent'];
@@ -119,7 +123,9 @@ describe(modulePath, () => {
           }
         },
         ClaimCosts: {
-          claimCosts: 'originalAmount'
+          dnCosts: {
+            claimCosts: 'originalAmount'
+          }
         }
       };
       const specificContent = ['applyingForDecreeNisiClaimsCostsCoRespondent'];
@@ -135,7 +141,9 @@ describe(modulePath, () => {
           }
         },
         ClaimCosts: {
-          claimCosts: 'endClaim'
+          dnCosts: {
+            claimCosts: 'endClaim'
+          }
         }
       };
       const specificContent = ['applyingForDecreeNisi'];
