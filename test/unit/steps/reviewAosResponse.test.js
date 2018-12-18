@@ -374,7 +374,10 @@ describe(modulePath, () => {
           }
         };
         const specificValues = [ session.case.data.respLegalProceedingsDescription ];
-        const specificContent = ['jurisdiction.otherProceedings'];
+        const specificContent = [
+          'jurisdiction.otherProceedings',
+          'jurisdiction.otherCourtDetails'
+        ];
         return content(ReviewAosResponse, session, { specificContent, specificValues });
       });
 
@@ -386,7 +389,10 @@ describe(modulePath, () => {
             }
           }
         };
-        const specificContent = ['jurisdiction.noOtherProceedings'];
+        const specificContent = [
+          'jurisdiction.noOtherProceedings',
+          'jurisdiction.otherCourtDetails'
+        ];
         return content(ReviewAosResponse, session, { specificContent });
       });
     });

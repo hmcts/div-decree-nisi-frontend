@@ -37,6 +37,7 @@
 
     "jurisdiction": {
       "title": "Jurisdiction of the court",
+      "otherCourtDetails":"Other court cases that could affect jurisdiction",
       "respondentAgrees": "The respondent agrees that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
       "respDoesNotAgree": "The respondent does not agree that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
       "detailsGiven": "They gave the following statement to support this:",

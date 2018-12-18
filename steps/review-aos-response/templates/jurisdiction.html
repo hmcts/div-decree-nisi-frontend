@@ -17,6 +17,8 @@
     </div>
   {% endif %}
 
+  <h3 class="heading-small">{{ content.jurisdiction.otherCourtDetails }}</h3>
+
   {% if exist(consts.respLegalProceedingsExist) %}
     <p class="text">{{ content.jurisdiction.otherProceedings }}</p> 
     <p class="text">{{ content.jurisdiction.detailsGiven }}</p>
