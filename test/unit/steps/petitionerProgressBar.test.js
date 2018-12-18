@@ -274,6 +274,27 @@ describe(modulePath, () => {
     });
   });
 
+  describe('CCD state: AosCompleted', () => {
+    const session = {
+      case: {
+        state: 'AosCompleted',
+        data: {}
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.undefended);
+      const specificContentToNotExist = contentToNotExist('undefended');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.undefended);
+    });
+  });
+
   describe('CCD state: AOSOverdue', () => {
     const session = {
       case: {
@@ -416,6 +437,19 @@ describe(modulePath, () => {
         case: {
           data: {
             respDefendsDivorce: 'Yes'
+          }
+        }
+      };
+      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    // eslint-disable-next-line max-len
+    it('redirects reviewAosResponse when CCD has reasonForDivorce as adultery & respAdmitOrConsentToFact is No', () => {
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'adultery',
+            respAdmitOrConsentToFact: 'No'
           }
         }
       };
