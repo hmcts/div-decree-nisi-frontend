@@ -20,12 +20,7 @@
   {% if notExist(consts.respAgreeToCosts) %}
     <div class="panel panel-border-narrow">
       <p class="text">"
-        {% for reason in case.respCostsReason %}
-          {{ reason | nl2br | safe  }}
-          {% if not last.loop %}
-            <br />
-          {% endif %}
-        {% endfor %}
+        {{ case.respCostsReason | nl2br | safe }}
       "</p>
     </div>
     <br />
