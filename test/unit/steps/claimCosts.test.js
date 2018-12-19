@@ -4,7 +4,8 @@ const ClaimCosts = require(modulePath);
 const ClaimCostsContent = require('steps/claim-costs/ClaimCosts.content');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon,
+  content, expect } = require('@hmcts/one-per-page-test-suite');
 
 const session = { case: { data: {} } };
 
@@ -22,8 +23,16 @@ describe(modulePath, () => {
   });
 
   describe('renders content', () => {
-    it('renders the content', () => {
-      return content(ClaimCosts, session);
+    it('renders the content when respondent agrees to pay', () => {
+      const sess = { case: { data: { respAgreeToCosts: 'Yes' } } };
+      const ignoreContent = ['respNotPay'];
+      return content(ClaimCosts, sess, { ignoreContent });
+    });
+
+    it('renders the content when respondent does not agree to pay', () => {
+      const sess = { case: { data: { respAgreeToCosts: 'No', respCostsReason: 'Test Reason' } } };
+      const ignoreContent = ['respPay'];
+      return content(ClaimCosts, sess, { ignoreContent });
     });
 
     it('loads fields from the session', () => {
@@ -92,6 +101,76 @@ describe(modulePath, () => {
         stepData.dnCosts.costsDifferentDetails
       ];
       return question.answers(ClaimCosts, stepData, expectedContent, session);
+    });
+  });
+
+  describe('Returns correct values()', () => {
+    it('claimCosts : originalAmount ', () => {
+      const claimCostsValue = 'originalAmount';
+      const fields = {
+        dnCosts: {
+          claimCosts: claimCostsValue
+        }
+      };
+      const req = {
+        journey: {},
+        session: { ClaimCosts: fields }
+      };
+
+      const res = {};
+      const step = new ClaimCosts(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('dnCosts.claimCosts', claimCostsValue);
+      expect(_values).to.not.have.property('dnCosts.costsDifferentDetails');
+    });
+
+    it('claimCosts : differentAmount ', () => {
+      const claimCostsValue = 'differentAmount';
+      const diffCostValue = 'I want to pay 70%';
+      const fields = {
+        dnCosts: {
+          claimCosts: claimCostsValue,
+          costsDifferentDetails: diffCostValue
+        }
+      };
+      const req = {
+        journey: {},
+        session: { ClaimCosts: fields }
+      };
+
+      const res = {};
+      const step = new ClaimCosts(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('dnCosts.claimCosts', claimCostsValue);
+      expect(_values).to.have.property('dnCosts.costsDifferentDetails', diffCostValue);
+    });
+
+    it('claimCosts : endClaim ', () => {
+      const claimCostsValue = 'endClaim';
+      const fields = {
+        dnCosts: {
+          claimCosts: claimCostsValue
+        }
+      };
+      const req = {
+        journey: {},
+        session: { ClaimCosts: fields }
+      };
+
+      const res = {};
+      const step = new ClaimCosts(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('dnCosts.claimCosts', claimCostsValue);
+      expect(_values).to.not.have.property('dnCosts.costsDifferentDetails');
     });
   });
 });

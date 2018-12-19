@@ -85,6 +85,23 @@ class ClaimCosts extends Question {
     return answers;
   }
 
+  values() {
+    const claimcostsValue = this.fields.dnCosts.claimCosts.value;
+
+    switch (claimcostsValue) {
+    case this.consts.originalAmount:
+      return { 'dnCosts.claimCosts': claimcostsValue };
+    case this.consts.differentAmount:
+      return {
+        'dnCosts.claimCosts': claimcostsValue,
+        'dnCosts.costsDifferentDetails': this.fields.dnCosts.costsDifferentDetails.value
+      };
+    case this.consts.endClaim:
+      return { 'dnCosts.claimCosts': claimcostsValue };
+    default: return {};
+    }
+  }
+
 
   next() {
     return redirectTo(this.journey.steps.ShareCourtDocuments);
