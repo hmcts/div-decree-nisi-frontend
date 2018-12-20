@@ -197,7 +197,7 @@
     <p class="text">{{ content.onGoingCasesNo }}</p>
   {% else %}
     <p class="text">{{ content.onGoingCasesYes }}</p>
-    <p class="text">"{{ case.legalProceedingsDetails }}"</p>
+    <p class="text">"{{ case.legalProceedingsDetails | striptags(true) | escape | nl2br }}"</p>
   {% endif %}
 
   <details>
