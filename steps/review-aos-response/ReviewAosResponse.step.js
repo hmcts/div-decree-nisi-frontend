@@ -88,10 +88,12 @@ class ReviewAosResponse extends Question {
   answers() {
     const respondentAnswer = this.case[
       this.consts.respWillDefendDivorce
-    ].toLowerCase();
+    ];
     return answer(this, {
       question: this.content.fields.reviewAosResponse.title,
-      answer: this.content.fields.reviewAosResponse[respondentAnswer]
+      answer: this.content.fields.reviewAosResponse[
+        respondentAnswer ? respondentAnswer.toLowerCase() : ''
+      ]
     });
   }
 
