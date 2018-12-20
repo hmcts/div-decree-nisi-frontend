@@ -11,7 +11,7 @@
     "respProceed": {
       "title": "How the respondent wants to proceed",
       "willDefendDivorce": "The respondent has stated in their response that they will defend the divorce.",
-      "willLetDivorceProceed": "The respondent will let the divorce proceed (doesn't intend to 'defend' it).",
+      "willLetDivorceProceed": "The respondent will let the divorce proceed and won't try to prevent it (doesn't intend to 'defend' it).",
       "letDivorceProceedButNotAdmit": "The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't admit to what you said about them .",
       "adultery": {
         "admitsAdultery": "The respondent admits to committing the adultery.",
@@ -66,8 +66,10 @@
 
     "fields": {
       "reviewAosResponse": {
-        "title": "Have you read your {{ case.divorceWho }}'s response?",
-        "yes": "Yes"
+        "title": "Your {{ case.divorceWho }}'s response",
+        "no": "The respondent will let the divorce proceed and won't try to prevent it (doesn't intend to 'defend' it)",
+        "nonoadmission": "The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't accept the allegations made in the application",
+        "yes": "The respondent will try to prevent the divorce based on this application (they intend to 'defend' it)"
       }
     }
   }

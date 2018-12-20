@@ -19,7 +19,7 @@ const Done = require('steps/done/Done.step');
 const Entry = require('steps/entry/Entry.step');
 
 const session = {
-  respDefendsDivorce: null,
+  respWillDefendDivorce: null,
   permittedDecreeNisiReason: '0'
 };
 

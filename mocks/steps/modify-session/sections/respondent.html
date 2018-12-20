@@ -21,10 +21,11 @@
     </div>
   </div>
 
-  {{ selectionButtons(fields.respDefendsDivorce, "Will they defend the divorce?",
+  {{ selectionButtons(fields.respWillDefendDivorce, "Will they defend the divorce?",
     options = [
       { label: "Yes", value: "Yes" },
-      { label: "No", value: "No" }
+      { label: "No and I Admit", value: "No" },
+      { label: "No and I will not admit", value: "NoNoAdmission" }
     ],
     hideQuestion = false,
     inline = true
