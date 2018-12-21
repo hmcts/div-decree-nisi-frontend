@@ -95,7 +95,8 @@ describe('Adultery DN flow', () => {
         statementOfTruth: 'yes',
         intolerable: 'yes',
         adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
-        livedApartSinceAdultery: 'yes'
+        livedApartSinceAdultery: 'yes',
+        uploadAnyOtherDocuments: 'no'
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -144,7 +145,8 @@ describe('Adultery DN flow', () => {
         intolerable: 'yes',
         adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
         livedApartSinceAdultery: 'no',
-        datesLivedTogether: '3 months'
+        datesLivedTogether: '3 months',
+        uploadAnyOtherDocuments: 'no'
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
