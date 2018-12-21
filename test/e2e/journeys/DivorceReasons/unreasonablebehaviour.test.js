@@ -87,9 +87,9 @@ describe('Unreasonable behaviour', () => {
         applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         behaviourContinuedSinceApplication: 'yes',
-        uploadAnyOtherDocuments: 'no',
         lastIncidentDate: moment('')
       };
       sinon.assert.calledWith(
@@ -135,8 +135,8 @@ describe('Unreasonable behaviour', () => {
         applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
-        statementOfTruth: 'yes',
         uploadAnyOtherDocuments: 'no',
+        statementOfTruth: 'yes',
         behaviourContinuedSinceApplication: 'no',
         lastIncidentDate: moment('2018-08-20T00:00:00.000'),
         livedApartSinceLastIncidentDate: 'yes'

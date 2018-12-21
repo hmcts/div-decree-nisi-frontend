@@ -92,11 +92,11 @@ describe('Adultery DN flow', () => {
         applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         intolerable: 'yes',
         adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
-        livedApartSinceAdultery: 'yes',
-        uploadAnyOtherDocuments: 'no'
+        livedApartSinceAdultery: 'yes'
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -141,12 +141,12 @@ describe('Adultery DN flow', () => {
         applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         intolerable: 'yes',
         adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
         livedApartSinceAdultery: 'no',
-        datesLivedTogether: '3 months',
-        uploadAnyOtherDocuments: 'no'
+        datesLivedTogether: '3 months'
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
