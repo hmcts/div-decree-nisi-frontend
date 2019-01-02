@@ -2,6 +2,8 @@ const modulePath = 'steps/review-aos-response/ReviewAosResponse.step';
 
 const ReviewAosResponse = require(modulePath);
 const ReviewAosResponseContent = require('steps/review-aos-response/ReviewAosResponse.content');
+const RespNotAdmitAdultery = require('steps/resp-not-admit-adultery/RespNotAdmitAdultery.step');
+
 const commonContent = require('common/content');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const idam = require('services/idam');
@@ -80,9 +82,29 @@ describe(modulePath, () => {
       return question.answers(ReviewAosResponse, {}, expectedContent, session);
     });
 
-    it('redirects to next page', () => {
+    it('redirects to ApplyForDecreeNisi page', () => {
       const fields = { reviewAosResponse: 'yes' };
-      return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi);
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'unreasonable-behaviour'
+          }
+        }
+      };
+      return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
+    });
+
+    it('redirects to RespNotAdmitAdultery page', () => {
+      const fields = { reviewAosResponse: 'yes' };
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'adultery',
+            respAdmitOrConsentToFact: 'No'
+          }
+        }
+      };
+      return question.redirectWithField(ReviewAosResponse, fields, RespNotAdmitAdultery, session);
     });
   });
 
