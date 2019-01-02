@@ -2,9 +2,9 @@
 
 (function (global) {
 
-  var csrfToken = jQuery('input[name="_csrf"]').attr('value');
-
   var documentUpload = function() {
+
+    var csrfToken = jQuery('input[name="_csrf"]').attr('value');
 
     return {
       $zone: null,

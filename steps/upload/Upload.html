@@ -76,7 +76,8 @@
     <div class="fallback">
       <form method="POST" accept-charset="utf-8" class="form"
         enctype="multipart/form-data"
-        autocomplete="off">
+        autocomplete="off"
+        action="?_csrf={{ csurfCsrfToken }}">
         <label for="noJsFiles" class="file-select-button">
           {{ content.selectFiles }}
         </label>
@@ -144,6 +145,7 @@
   <br>
 
   <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+    <input type="hidden" name="_csrf" value="{{ csurfCsrfToken }}">
     <input class="button" type="submit" value="Continue">
   </form>
 
