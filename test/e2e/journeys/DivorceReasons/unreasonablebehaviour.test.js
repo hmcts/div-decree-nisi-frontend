@@ -134,8 +134,8 @@ describe('Unreasonable behaviour', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
         petitionChanged: 'no',
+        claimCosts: 'originalAmount',
         statementOfTruth: 'yes',
         behaviourContinuedSinceApplication: 'no',
         lastIncidentDate: moment('2018-08-20T00:00:00.000'),

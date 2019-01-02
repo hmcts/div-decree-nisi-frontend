@@ -74,6 +74,7 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 3', () => {
       applyForDecreeNisi: 'yes',
       claimCosts: 'originalAmount',
       livedApartSinceSeparation: 'yes',
+      petitionChanged: 'no',
       statementOfTruth: 'yes',
       statementOfTruthChanges: 'yes'
     };

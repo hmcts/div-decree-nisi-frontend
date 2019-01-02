@@ -73,6 +73,7 @@ describe('Case State : AOSOverdue', () => {
       applyForDecreeNisi: 'yes',
       claimCosts: 'originalAmount',
       livedApartSinceSeparation: 'yes',
+      petitionChanged: 'no',
       statementOfTruth: 'yes',
       statementOfTruthChanges: 'yes'
     };
