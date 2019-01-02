@@ -74,6 +74,7 @@ describe('Separation 5 years', () => {
         applyForDecreeNisi: 'yes',
         claimCosts: 'originalAmount',
         livedApartSinceSeparation: 'yes',
+        petitionChanged: 'no',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes'
       };
@@ -111,6 +112,7 @@ describe('Separation 5 years', () => {
         approximateDatesOfLivingTogetherField: 'details...',
         claimCosts: 'originalAmount',
         livedApartSinceSeparation: 'no',
+        petitionChanged: 'no',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes'
       };
