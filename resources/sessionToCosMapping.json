@@ -1,6 +1,7 @@
 {
   "ApplyForDecreeNisi.applyForDecreeNisi": "applyForDecreeNisi",
 
+  "MiniPetition.changes.hasBeenChanges": "petitionChanged",
   "MiniPetition.changes.changesDetails": "changesDetails",
   "MiniPetition.changes.statementOfTruthChanges": "statementOfTruthChanges",
   "MiniPetition.changes.statementOfTruthNoChanges": "statementOfTruthChanges",
