@@ -98,6 +98,7 @@ paths:
   cookiesPolicy: /cookie
   privacyPolicy: /privacy-policy
   contactDivorceTeam: /contact-your-divorce
+  respNotAdmitAdultery: /resp-does-not-admit-adultery-options 
   mock:
     idamLogin: /idam-mock-login
     modifySession: /session
