@@ -3,12 +3,22 @@
 {% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
 
 {% set title %}
-  {{ content.title | safe }}
+  {% if respNotAdmittedAdultery %}
+    {{ content.adultery.title | safe }}
+  {% else %}
+    {{ content.otherReasons.title | safe }}
+  {% endif %}
 {% endset %}
 
 {% block fields %}
 
-  <p class="text">{{ content.extraDocuments | safe }}</p>
+
+  {% if respNotAdmittedAdultery %}
+    <p class="text">{{ content.adultery.adulteryDoc | safe }}</p>
+    <p class="text">{{ content.adultery.extraDocs | safe }}</p>
+  {% else %}
+     <p class="text">{{ content.otherReasons.extraDocuments | safe }}</p>
+  {% endif %}
 
   {% call formSection() %}
     {{ selectionButtons(fields.upload, content.fields.upload.title,

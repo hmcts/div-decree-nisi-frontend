@@ -19,13 +19,49 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(ShareCourtDocuments, [ idam.protect() ]);
   });
 
-  it('renders the content', () => {
-    const session = { case: { data: {} } };
-    return content(ShareCourtDocuments, session);
+  describe('Renders content', () => {
+    it('renders the common content', () => {
+      const session = { case: { data: {} } };
+      const ignoreContent = ['adultery', 'otherReasons'];
+      return content(ShareCourtDocuments, session, { ignoreContent });
+    });
+
+    it('renders the adultery related content', () => {
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'adultery',
+            respAdmitOrConsentToFact: 'No'
+          }
+        }
+      };
+      const specificContent = [
+        'adultery.title',
+        'adultery.adulteryDoc',
+        'adultery.extraDocs'
+      ];
+      return content(ShareCourtDocuments, session, { specificContent });
+    });
+
+    it('renders the other reasons for divorce related content', () => {
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'unreasonable-behaviour'
+          }
+        }
+      };
+      const specificContent = [
+        'otherReasons.title',
+        'otherReasons.extraDocuments'
+      ];
+      return content(ShareCourtDocuments, session, { specificContent });
+    });
   });
 
   it('shows error if does not answer question', () => {
-    return question.testErrors(ShareCourtDocuments);
+    const session = { case: { data: {} } };
+    return question.testErrors(ShareCourtDocuments, session);
   });
 
   it('redirects to CheckYourAnswers if answer is no', () => {
@@ -39,7 +75,8 @@ describe(modulePath, () => {
   });
 
   it('loads fields from the session', () => {
+    const session = { case: { data: {} } };
     const sessionData = { upload: 'yes' };
-    return question.rendersValues(ShareCourtDocuments, sessionData);
+    return question.rendersValues(ShareCourtDocuments, sessionData, session);
   });
 });
