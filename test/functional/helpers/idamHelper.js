@@ -23,7 +23,7 @@ class IdamHelper extends Helper {
         length: 16,
         charset: 'numeric'
       });
-      const emailName = `hmcts.divorce.reform-${randomString}`;
+      const emailName = `hmcts.divorce.reform+automatedtest-${randomString}`;
       const testEmail = `${emailName}@gmail.com`;
       const testPassword = randomstring.generate(9);
 
