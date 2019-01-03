@@ -78,7 +78,8 @@ describe('Desertion DN flow', () => {
         claimCosts: 'originalAmount',
         livedApartSinceDesertion: 'yes',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        statementOfTruthChanges: 'yes',
+        uploadAnyOtherDocuments: 'no'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
@@ -115,7 +116,8 @@ describe('Desertion DN flow', () => {
         claimCosts: 'originalAmount',
         livedApartSinceDesertion: 'no',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        statementOfTruthChanges: 'yes',
+        uploadAnyOtherDocuments: 'no'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });

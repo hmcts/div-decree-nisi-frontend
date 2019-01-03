@@ -75,7 +75,8 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 1', () => {
       claimCosts: 'originalAmount',
       livedApartSinceSeparation: 'yes',
       statementOfTruth: 'yes',
-      statementOfTruthChanges: 'yes'
+      statementOfTruthChanges: 'yes',
+      uploadAnyOtherDocuments: 'no'
     };
     sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
   });
