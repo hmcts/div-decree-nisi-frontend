@@ -53,6 +53,7 @@
             {{ hiddenInput(fields.statementOfTruth, value='yes') }}
           {%- endblock %}
 
+          <input type="hidden" name="_csrf" value="{{ csurfCsrfToken }}">
           <input class="button" type="submit" value="{{ pageContent.sendApplication | default(defaultContent.sendApplication) }}">
         </form>
       {% endif %}
