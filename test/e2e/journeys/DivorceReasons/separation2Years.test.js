@@ -75,7 +75,8 @@ describe('separation 2 years', () => {
         claimCosts: 'originalAmount',
         livedApartSinceSeparation: 'yes',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        statementOfTruthChanges: 'yes',
+        uploadAnyOtherDocuments: 'no'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
@@ -113,7 +114,8 @@ describe('separation 2 years', () => {
         claimCosts: 'originalAmount',
         livedApartSinceSeparation: 'no',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        statementOfTruthChanges: 'yes',
+        uploadAnyOtherDocuments: 'no'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
