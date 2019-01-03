@@ -243,6 +243,7 @@ describe('Respondent Admitted Adultery : no', () => {
         applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         intolerable: 'yes',
         adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
