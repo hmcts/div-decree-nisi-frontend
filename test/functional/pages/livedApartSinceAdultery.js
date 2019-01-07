@@ -12,7 +12,7 @@ function testLivedApartSinceAdulteryPage() {
 
   I.amOnLoadedPage(livedApartSinceAdultery.path);
   I.checkOption(livedApartSinceAdulteryContent.en.fields.livedApart.livedApartSinceAdultery.no);
-  I.fillField('livedApart-datesLivedTogether', 'some details');
+  I.fillField('livedApart.datesLivedTogether', 'some details');
   I.navByClick(commonContent.en.continue);
   I.seeCurrentUrlEquals(ClaimsCosts.path);
 
