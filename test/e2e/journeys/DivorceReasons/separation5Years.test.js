@@ -20,7 +20,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'separation-5-years',
-  respDefendsDivorce: null
+  respWillDefendDivorce: null
 };
 
 let caseOrchestrationServiceSubmitStub = {};

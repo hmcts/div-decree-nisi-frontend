@@ -6,7 +6,7 @@ const { caseStateMap, permitDNReasonMap, caseIdDispalyStateMap } = require('./pe
 
 const constants = {
   AOSOverdue: 'aosoverdue',
-  validAnswer: ['yes', 'no'],
+  validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
   DNAwaiting: ['dnawaiting', 'awaitingdecreenisi'],
   undefendedReason: '0'
@@ -41,8 +41,8 @@ class PetitionProgressBar extends Interstitial {
     ];
   }
 
-  get respDefendsDivorce() {
-    return this.case.respDefendsDivorce;
+  get respWillDefendDivorce() {
+    return this.case.respWillDefendDivorce;
   }
 
   get caseState() {
@@ -54,7 +54,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get showReviewAosResponse() {
-    return this.respDefendsDivorce && constants.validAnswer.includes(this.respDefendsDivorce.toLowerCase());
+    return this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase());
   }
 
   next() {

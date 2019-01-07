@@ -263,7 +263,7 @@
     "caseReference": "LV17D80101",
     "respConfirmReadPetition" : "Yes",
     "respAdmitOrConsentToFact" : "Yes",
-    "respDefendsDivorce" : null,
+    "respWillDefendDivorce" : null,
     "respJurisdictionAgree" : "No",
     "respJurisdictionDisagreeReason" : "Some Jurisdiction disagree reason",
     "respJurisdictionRespCountryOfResidence" : "UK",

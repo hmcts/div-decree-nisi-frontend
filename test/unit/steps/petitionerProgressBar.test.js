@@ -400,22 +400,22 @@ describe(modulePath, () => {
       return interstitial.navigatesToNext(PetitionProgressBar, DnNoResponse, session);
     });
 
-    it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
+    it('rediects to ApplyForDecreeNisi when CCD has respWillDefendDivorce as null', () => {
       const session = {
         case: {
           data: {
-            respDefendsDivorce: null
+            respWillDefendDivorce: null
           }
         }
       };
       return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
     });
 
-    it('redirects reviewAosResponse when CCD has respDefendsDivorce as Yes', () => {
+    it('redirects reviewAosResponse when CCD has respWillDefendDivorce as Yes', () => {
       const session = {
         case: {
           data: {
-            respDefendsDivorce: 'Yes'
+            respWillDefendDivorce: 'Yes'
           }
         }
       };

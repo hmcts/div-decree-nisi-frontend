@@ -25,7 +25,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'unreasonable-behaviour',
-  respDefendsDivorce: null,
+  respWillDefendDivorce: null,
   reasonForDivorceBehaviourDetails: 'details'
 };
 

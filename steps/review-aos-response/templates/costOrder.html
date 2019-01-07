@@ -5,7 +5,7 @@
   {% elif notExist(consts.respAgreeToCosts) %}
     <p class="text">{{ content.costsOrder.notAgreedToPayCosts }}</p>
     <div class="panel panel-border-narrow">
-      <p class="text">"{{ case.respCostsReason | safe }}"</p>
+      <p class="text">"{{ case.respCostsReason | nl2br | safe }}"</p>
     </div>
   {% endif %} 
 
