@@ -8,5 +8,5 @@
     "undefendedCourtAgrees": "The 'decree nisi', which shows that the court agrees that you’re entitled to a divorce.",
     "undefendedCannotBeMade6Weeks": "The ‘decree absolute’, which legally ends the marriage. It cannot be made until at least 6 weeks after the decree nisi.",
     "undefendedUntilTheDecreeAbsolute": "The court can cancel (legally known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce."
- }
+  }
 }
