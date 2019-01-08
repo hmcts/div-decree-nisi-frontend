@@ -77,7 +77,7 @@ describe('Desertion DN flow', () => {
         applyForDecreeNisi: 'yes',
         claimCosts: 'originalAmount',
         livedApartSinceDesertion: 'yes',
-        petitionChanged: 'no',
+        hasBeenChanges: 'no',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes'
       };
@@ -114,7 +114,7 @@ describe('Desertion DN flow', () => {
         applyForDecreeNisi: 'yes',
         approximateDatesOfLivingTogetherField: 'details...',
         claimCosts: 'originalAmount',
-        petitionChanged: 'no',
+        hasBeenChanges: 'no',
         livedApartSinceDesertion: 'no',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes'
