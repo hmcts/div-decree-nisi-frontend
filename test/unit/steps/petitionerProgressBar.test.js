@@ -32,7 +32,9 @@ const templates = {
   defendedAwaitingAnswer:
     './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html',
   respNotAdmitAdultery:
-    './sections/respNotAdmitAdultery/PetitionProgressBar.respNotAdmitAdultery.template.html'
+    './sections/respNotAdmitAdultery/PetitionProgressBar.respNotAdmitAdultery.template.html',
+  sep2YrWithNoConsent:
+    './sections/sep2YrWithNoConsent/PetitionProgressBar.sep2YrWithNoConsent.template.html'
 };
 
 // get all content for all pages
@@ -297,6 +299,31 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.respNotAdmitAdultery);
+    });
+  });
+
+  describe('CCD state: AosCompleted and Reason 2 year separation with No consent', () => {
+    const session = {
+      case: {
+        state: 'AosCompleted',
+        data: {
+          reasonForDivorce: 'separation-2-years',
+          respWillDefendDivorce: 'Yes',
+          respAdmitOrConsentToFact: 'No'
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.sep2YrWithNoConsent);
+      const specificContentToNotExist = contentToNotExist('sep2YrWithNoConsent');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.sep2YrWithNoConsent);
     });
   });
 
