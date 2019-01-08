@@ -2,18 +2,23 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
-const { caseStateMap, permitDNReasonMap, caseIdDispalyStateMap } = require('./petitionerStateTemplates');
+const {
+  caseStateMap, permitDNReasonMap,
+  caseIdDispalyStateMap, aosCompletedOptionsMap
+} = require('./petitionerStateTemplates');
 
 const constants = {
   adultery: 'adultery',
+  sep2Yr: 'separation-2-years',
   AOSOverdue: 'aosoverdue',
+  AOSCompleted: 'aoscompleted',
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
-  DNAwaiting: ['dnawaiting', 'awaitingdecreenisi'],
+  DNAwaiting: 'dnawaiting',
   undefendedReason: '0',
-  no: 'No'
+  no: 'No',
+  yes: 'Yes'
 };
-
 class PetitionProgressBar extends Interstitial {
   static get path() {
     return config.paths.petitionProgressBar;
@@ -64,14 +69,16 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get showReviewAosResponse() {
-    return (this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase())) || this.isAdulteryButNotAdmitted;
+    return (this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase()));
   }
 
-  get isAdulteryButNotAdmitted() {
+  get aosCompletedOptions() {
     if (this.reasonForDivorce === constants.adultery && this.respAdmitOrConsentToFact === constants.no) {
-      return true;
+      return 'respNotAdmittedAdultery';
+    } else if (this.reasonForDivorce === constants.sep2Yr && this.respAdmitOrConsentToFact === constants.yes) {
+      return 'sep2YrWithConsent';
     }
-    return false;
+    return '';
   }
 
   next() {
@@ -90,9 +97,14 @@ class PetitionProgressBar extends Interstitial {
 
   get stateTemplate() {
     let template = '';
-    if (constants.DNAwaiting.includes(this.caseState)) {
+    switch (this.caseState) {
+    case constants.DNAwaiting:
       template = permitDNReasonMap.get(this.dnReason);
-    } else {
+      break;
+    case constants.AOSCompleted:
+      template = aosCompletedOptionsMap.get(this.aosCompletedOptions);
+      break;
+    default:
       caseStateMap.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
           template = dataMap.template;

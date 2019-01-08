@@ -30,7 +30,9 @@ const templates = {
   respondentNotReplied:
     './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
   defendedAwaitingAnswer:
-    './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html'
+    './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html',
+  respNotAdmitAdultery:
+    './sections/respNotAdmitAdultery/PetitionProgressBar.respNotAdmitAdultery.template.html'
 };
 
 // get all content for all pages
@@ -278,20 +280,23 @@ describe(modulePath, () => {
     const session = {
       case: {
         state: 'AosCompleted',
-        data: {}
+        data: {
+          reasonForDivorce: 'adultery',
+          respAdmitOrConsentToFact: 'No'
+        }
       }
     };
 
     it('renders the correct content', () => {
-      const specificContent = Object.keys(pageContent.undefended);
-      const specificContentToNotExist = contentToNotExist('undefended');
+      const specificContent = Object.keys(pageContent.respNotAdmitAdultery);
+      const specificContentToNotExist = contentToNotExist('respNotAdmitAdultery');
 
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
-      expect(instance.stateTemplate).to.eql(templates.undefended);
+      expect(instance.stateTemplate).to.eql(templates.respNotAdmitAdultery);
     });
   });
 
@@ -437,19 +442,6 @@ describe(modulePath, () => {
         case: {
           data: {
             respWillDefendDivorce: 'Yes'
-          }
-        }
-      };
-      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
-    });
-
-    // eslint-disable-next-line max-len
-    it('redirects reviewAosResponse when CCD has reasonForDivorce as adultery & respAdmitOrConsentToFact is No', () => {
-      const session = {
-        case: {
-          data: {
-            reasonForDivorce: 'adultery',
-            respAdmitOrConsentToFact: 'No'
           }
         }
       };
