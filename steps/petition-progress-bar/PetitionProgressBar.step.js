@@ -64,7 +64,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get showReviewAosResponse() {
-    return (this.respDefendsDivorce && constants.validAnswer.includes(this.respDefendsDivorce.toLowerCase())) || this.isAdulteryButNotAdmitted;
+    return (this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase())) || this.isAdulteryButNotAdmitted;
   }
 
   get isAdulteryButNotAdmitted() {
