@@ -5,11 +5,13 @@ const idam = require('services/idam');
 const { caseStateMap, permitDNReasonMap, caseIdDispalyStateMap } = require('./petitionerStateTemplates');
 
 const constants = {
+  adultery: 'adultery',
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
   DNAwaiting: ['dnawaiting', 'awaitingdecreenisi'],
-  undefendedReason: '0'
+  undefendedReason: '0',
+  no: 'No'
 };
 
 class PetitionProgressBar extends Interstitial {
@@ -27,6 +29,14 @@ class PetitionProgressBar extends Interstitial {
 
   get isCaseIdToBeDisplayed() {
     return caseIdDispalyStateMap.includes(this.caseState);
+  }
+
+  get respAdmitOrConsentToFact() {
+    return this.case.respAdmitOrConsentToFact;
+  }
+
+  get reasonForDivorce() {
+    return this.case.reasonForDivorce;
   }
 
   handler(req, res) {
@@ -54,7 +64,14 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get showReviewAosResponse() {
-    return this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase());
+    return (this.respDefendsDivorce && constants.validAnswer.includes(this.respDefendsDivorce.toLowerCase())) || this.isAdulteryButNotAdmitted;
+  }
+
+  get isAdulteryButNotAdmitted() {
+    if (this.reasonForDivorce === constants.adultery && this.respAdmitOrConsentToFact === constants.no) {
+      return true;
+    }
+    return false;
   }
 
   next() {
@@ -85,6 +102,5 @@ class PetitionProgressBar extends Interstitial {
     return template;
   }
 }
-
 
 module.exports = PetitionProgressBar;

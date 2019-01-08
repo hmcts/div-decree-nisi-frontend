@@ -7,6 +7,12 @@
     "undefendedOrderForDivorce": "The court order for divorce (known as a decree) is made in 2 stages. You’re only divorced once both stages are complete.",
     "undefendedCourtAgrees": "The 'decree nisi', which shows that the court agrees that you’re entitled to a divorce.",
     "undefendedCannotBeMade6Weeks": "The ‘decree absolute’, which legally ends the marriage. It cannot be made until at least 6 weeks after the decree nisi.",
-    "undefendedUntilTheDecreeAbsolute": "The court can cancel (legally known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce."
+    "undefendedUntilTheDecreeAbsolute": "The court can cancel (legally known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.",
+    "undefendedDoesNotAdmitAdulteryTitle": "Your {{ case.divorceWho }} has not admitted to committing adultery",
+    "undefendedDoesNotAdmitAdulteryTheFact": "The court needs to be sure that adultery took place for it to be used as the reason for divorce (legally known as the 'fact').",
+    "undefendedDoesNotAdmitAdulteryToMoveForwardYouNeedTo": "To move your divorce forwards you need to either:",
+    "undefendedDoesNotAdmitAdulteryChangeReasonForDivorce": "change your reason for divorce",
+    "undefendedDoesNotAdmitAdulteryProvideEvidenceOfTheAdultery": "provide evidence of the adultery",
+    "undefendedDoesNotAdmitAdulteryYouCanRead": "You can read your {{ case.divorceWho }}'s response on the next page."
   }
 }
