@@ -75,8 +75,8 @@ class PetitionProgressBar extends Interstitial {
   get aosCompletedOptions() {
     if (this.reasonForDivorce === constants.adultery && this.respAdmitOrConsentToFact === constants.no) {
       return 'respNotAdmittedAdultery';
-    } else if (this.reasonForDivorce === constants.sep2Yr && this.respAdmitOrConsentToFact === constants.yes) {
-      return 'sep2YrWithConsent';
+    } else if (this.reasonForDivorce === constants.sep2Yr && this.respAdmitOrConsentToFact === constants.no) {
+      return 'sep2YrWithNoConsent';
     }
     return '';
   }

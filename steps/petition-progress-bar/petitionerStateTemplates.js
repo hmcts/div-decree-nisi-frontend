@@ -37,7 +37,7 @@ const permitDNReasonMap = new Map([
 
 const aosCompletedOptionsMap = new Map([
   ['respNotAdmittedAdultery', './sections/respNotAdmitAdultery/PetitionProgressBar.respNotAdmitAdultery.template.html'],
-  ['sep2YrWithConsent', './sections/sep2YrWithConsent/PetitionProgressBar.sep2YrWithConsent.template.html']
+  ['sep2YrWithNoConsent', './sections/sep2YrWithNoConsent/PetitionProgressBar.sep2YrWithNoConsent.template.html']
 ]);
 
 module.exports = {

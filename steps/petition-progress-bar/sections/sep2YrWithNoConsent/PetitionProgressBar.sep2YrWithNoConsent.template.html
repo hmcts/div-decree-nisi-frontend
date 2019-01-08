@@ -1,0 +1,30 @@
+{% set items = {
+  one: {
+    label: content.youApply,
+    complete: true
+  },
+  two: {
+    label: content.husbandWifeMustRespond,
+    complete: true
+  },
+  three: {
+    label: content.getDecreeNisi,
+    current: true
+  },
+  four: {
+    label: content.madeFinal
+  }
+}
+%}
+
+{% include "reform-progress-list/template.njk" %}
+
+<h2 class="heading-medium">{{ content.respDoesNotConsentTitle }}</h2>
+<p class="text">{{ content.respDoesNotConsentParagraph1 }}</p>
+<p class="text">{{ content.respDoesNotConsentParagraph2 }}</p>
+<p class="text">{{ content.respDoesNotConsentParagraph3 }}</p>
+
+<form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+
+<input class="button button-start" type="submit" value="{{ content.continue }}">
+</form>
