@@ -7,7 +7,7 @@ const BehaviourContinuedSinceApplicationContent = require('steps/behaviour-conti
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-last-incident-date/LivedApartSinceLastIncidentDate.step'); // eslint-disable-line
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
 
 describe(modulePath, () => {
@@ -191,5 +191,54 @@ describe(modulePath, () => {
     };
 
     return question.answers(BehaviourContinuedSinceApplication, stepData, expectedContent, session);
+  });
+
+
+  describe('Returns correct values()', () => {
+    it('behaviourContinuedSinceApplication : yes ', () => {
+      const selectedValue = 'yes';
+      const fields = {
+        changes: {
+          behaviourContinuedSinceApplication: selectedValue,
+          lastIncidentDate: '20/08/1990'
+        }
+      };
+      const req = {
+        journey: {},
+        session: { case: { data: {} }, BehaviourContinuedSinceApplication: fields }
+      };
+
+      const res = {};
+      const step = new BehaviourContinuedSinceApplication(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('changes.behaviourContinuedSinceApplication', selectedValue);
+      expect(_values).to.not.have.property('changes.lastIncidentDate');
+    });
+
+    it('behaviourContinuedSinceApplication : no ', () => {
+      const selectedValue = 'no';
+      const fields = {
+        changes: {
+          behaviourContinuedSinceApplication: selectedValue,
+          lastIncidentDate: '20/08/1990'
+        }
+      };
+      const req = {
+        journey: {},
+        session: { case: { data: {} }, BehaviourContinuedSinceApplication: fields }
+      };
+
+      const res = {};
+      const step = new BehaviourContinuedSinceApplication(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('changes.behaviourContinuedSinceApplication', selectedValue);
+      expect(_values).to.have.property('changes.lastIncidentDate');
+    });
   });
 });

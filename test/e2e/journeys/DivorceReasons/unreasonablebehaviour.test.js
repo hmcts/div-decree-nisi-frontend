@@ -25,7 +25,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'unreasonable-behaviour',
-  respDefendsDivorce: null,
+  respWillDefendDivorce: null,
   reasonForDivorceBehaviourDetails: 'details'
 };
 
@@ -89,8 +89,7 @@ describe('Unreasonable behaviour', () => {
         claimCosts: 'originalAmount',
         uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
-        behaviourContinuedSinceApplication: 'yes',
-        lastIncidentDate: moment('')
+        behaviourContinuedSinceApplication: 'yes'
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,

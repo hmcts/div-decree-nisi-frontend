@@ -27,7 +27,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'adultery',
-  respDefendsDivorce: null,
+  respWillDefendDivorce: null,
   reasonForDivorceAdulteryDetails: 'details'
 };
 

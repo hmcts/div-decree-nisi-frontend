@@ -10,7 +10,7 @@ const reviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.s
 const Entry = require('steps/entry/Entry.step');
 
 const session = {
-  respDefendsDivorce: 'Yes'
+  respWillDefendDivorce: 'Yes'
 };
 
 describe('AosSubmittedAwaitingAnswer DN flow', () => {

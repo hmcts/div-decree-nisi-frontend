@@ -10,7 +10,7 @@ const constants = {
   viewOnlyState: 'AosSubmittedAwaitingAnswer',
   viewTemplate: './templates/ViewResponse.html',
   reviewTemplate: './templates/ReviewResponse.html',
-  respDefendsDivorce: 'respDefendsDivorce',
+  respWillDefendDivorce: 'respWillDefendDivorce',
   respAdmitOrConsentToFact: 'respAdmitOrConsentToFact',
   respConsiderFinancialSituation: 'respConsiderFinancialSituation',
   respHardshipDefenseResponse: 'respHardshipDefenseResponse',
@@ -21,7 +21,8 @@ const constants = {
   sep2yr: 'separation-2-years',
   adultery: 'adultery',
   yes: 'Yes',
-  no: 'No'
+  no: 'No',
+  notAccept: 'NoNoAdmission'
 };
 
 class ReviewAosResponse extends Question {
@@ -43,6 +44,10 @@ class ReviewAosResponse extends Question {
 
   notExist(key) {
     return this.case[key] === this.consts.no;
+  }
+
+  notAccepted(key) {
+    return this.case[key] === this.consts.notAccept;
   }
 
   get adultery() {
@@ -89,9 +94,14 @@ class ReviewAosResponse extends Question {
   }
 
   answers() {
+    const respondentAnswer = this.case[
+      this.consts.respWillDefendDivorce
+    ];
     return answer(this, {
       question: this.content.fields.reviewAosResponse.title,
-      answer: this.content.fields.reviewAosResponse.yes
+      answer: this.content.fields.reviewAosResponse[
+        respondentAnswer ? respondentAnswer.toLowerCase() : ''
+      ]
     });
   }
 

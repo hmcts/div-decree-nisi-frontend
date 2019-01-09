@@ -1,10 +1,10 @@
 
   <h3 class="heading-small">{{ content.respProceed.title }}</h3>
-  {% if notExist(consts.respDefendsDivorce) and exist(consts.respAdmitOrConsentToFact) %}
+  {% if notExist(consts.respWillDefendDivorce) %}
      <p class="text">{{ content.respProceed.willLetDivorceProceed }}</p>
-  {% elif notExist(consts.respDefendsDivorce) and notExist(consts.respAdmitOrConsentToFact) %}
+  {% elif notAccepted(consts.respWillDefendDivorce) %}
      <p class="text">{{ content.respProceed.letDivorceProceedButNotAdmit }}</p> 
-  {% elif exist(consts.respDefendsDivorce) and notExist(consts.respAdmitOrConsentToFact) %}
+  {% elif exist(consts.respWillDefendDivorce) %}
      <p class="text">{{ content.respProceed.willDefendDivorce }}</p>
   {% endif %}
 
@@ -24,7 +24,7 @@
      {% endif %}
   {% endif %}
 
-  {% if sep5yr and exist(consts.respDefendsDivorce) %}
+  {% if sep5yr and exist(consts.respWillDefendDivorce) %}
     {% if exist(consts.respHardshipDefenseResponse) %}
       <p class="text">{{ content.respProceed.sep5Yr.defendingFinancialHardship }}</p>
       <div class="panel panel-border-narrow">
