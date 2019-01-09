@@ -102,11 +102,15 @@ class MiniPetition extends Question {
     const hasBeenChanges = this.fields.changes.hasBeenChanges.value;
     if (hasBeenChanges === 'yes') {
       return {
+        'changes.hasBeenChanges': hasBeenChanges,
         'changes.changesDetails': this.fields.changes.changesDetails.value,
         'changes.statementOfTruthChanges': this.fields.changes.statementOfTruthChanges.value
       };
     } else if (hasBeenChanges === 'no') {
-      return { 'changes.statementOfTruthNoChanges': this.fields.changes.statementOfTruthNoChanges.value };
+      return {
+        'changes.hasBeenChanges': hasBeenChanges,
+        'changes.statementOfTruthNoChanges': this.fields.changes.statementOfTruthNoChanges.value
+      };
     }
     return {};
   }
