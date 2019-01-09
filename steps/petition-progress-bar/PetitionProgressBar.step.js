@@ -14,7 +14,7 @@ const constants = {
   AOSCompleted: 'aoscompleted',
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
-  DNAwaiting: 'dnawaiting',
+  DNAwaiting: 'awaitingdecreenisi',
   undefendedReason: '0',
   no: 'No',
   yes: 'Yes'

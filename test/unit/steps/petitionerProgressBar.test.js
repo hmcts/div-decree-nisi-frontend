@@ -142,7 +142,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 0 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '0'
         }
@@ -165,7 +165,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 1 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '1'
         }
@@ -188,7 +188,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 2 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '2'
         }
@@ -211,7 +211,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 3 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '3'
         }
@@ -235,7 +235,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 4 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '4'
         }
