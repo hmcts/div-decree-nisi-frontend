@@ -1,6 +1,7 @@
 {
   "en": {
     "undefendedAppStatusMsg": "You can continue with your divorce",
+    "undefendedButNotAdmit": "Your {{ case.divorceWho }} has responded to your application and said that they don't intend to defend the divorce (they won't try to prevent it), but doesn't accept the allegations made in the application.",
     "undefendedAppStatusMsgDetails1": "Your {{ case.divorceWho }} has responded to your application and said that they don't intend to defend the divorce (they won't try to prevent it).",
     "undefendedAppStatusMsgDetails2": "You can now continue with the next stage and apply for your decree nisi.",
     "undefendedReadMore": "Read more about the decree nisi",
