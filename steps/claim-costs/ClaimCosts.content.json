@@ -4,7 +4,7 @@
     "applicationYouAsked": "In your application you asked the court that your {{ case.divorceWho }} pay some or all of the costs of the divorce.",
     "yourSpouseHas": "Your {{ case.divorceWho }} has",
     "respPay": "agreed to pay some or all of the costs of the divorce.",
-    "respNotPay": "said they should not pay the costs and given the following explanation:",
+    "respNotPay": "said they should not pay the costs and has given the following explanation:",
     "courtWillDecide": "It is up to the court to decide how the costs will be split, but it will take into account any requests you and your husband make.",
     "readMore": "Read more about the costs order",
     "shouldPayCosts": "The court will make its decision on whether you should pay any costs when you submit your application for decree nisi.",
