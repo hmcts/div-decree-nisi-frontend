@@ -56,6 +56,19 @@ class BehaviourContinuedSinceApplication extends Question {
     return form({ changes });
   }
 
+  values() {
+    const behaviourContinues = this.fields.changes.behaviourContinuedSinceApplication.value;
+    if (behaviourContinues === 'yes') {
+      return { 'changes.behaviourContinuedSinceApplication': behaviourContinues };
+    } else if (behaviourContinues === 'no') {
+      return {
+        'changes.behaviourContinuedSinceApplication': behaviourContinues,
+        'changes.lastIncidentDate': this.fields.changes.lastIncidentDate.value
+      };
+    }
+    return {};
+  }
+
   next() {
     const hasAnsweredYes = this.fields.changes.behaviourContinuedSinceApplication.value === 'yes';
     const hasAnsweredNo = this.fields.changes.behaviourContinuedSinceApplication.value === 'no';

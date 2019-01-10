@@ -158,6 +158,36 @@ describe(modulePath, () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.undefended);
     });
+
+    it('renders content for when respondent does not admit fact', () => {
+      const noAdmitSession = {
+        case: {
+          state: 'DNawaiting',
+          data: {
+            permittedDecreeNisiReason: '0',
+            respAdmitOrConsentToFact: 'No'
+          }
+        }
+      };
+      const specificContent = ['undefendedButNotAdmit'];
+
+      return content(PetitionProgressBar, noAdmitSession, { specificContent });
+    });
+
+    it('renders content for when respondent does admit fact', () => {
+      const yesAdmitSession = {
+        case: {
+          state: 'DNawaiting',
+          data: {
+            permittedDecreeNisiReason: '0',
+            respAdmitOrConsentToFact: 'Yes'
+          }
+        }
+      };
+      const specificContent = ['undefendedAppStatusMsgDetails1'];
+
+      return content(PetitionProgressBar, yesAdmitSession, { specificContent });
+    });
   });
 
   describe('CCD state: DNawaiting, DNReason : 1 ', () => {
