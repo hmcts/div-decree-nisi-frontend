@@ -55,15 +55,13 @@ const validateResponse = (req, response) => {
   const notValidState = !response.state || config.ccd.d8States.includes(response.state);
   const noDigitalCourt = !config.ccd.courts.includes(response.data.courts);
 
-  const petitionerEmailDoesNotMatchIdamEmail = idam.userDetails.email !== response.data.petitionerEmail; // eslint-disable-line max-len
-  const idamEmailIsRespondentEmail = idam.userDetails.email === response.data.respEmailAddress; // eslint-disable-line max-len
+  const userIsRespondent = idam.userDetails.email === response.data.respEmailAddress; // eslint-disable-line max-len
 
   switch (true) {
   case notValidState:
   case noDigitalCourt:
     return Promise.reject(redirectToPetitionerError);
-  case petitionerEmailDoesNotMatchIdamEmail:
-  case idamEmailIsRespondentEmail:
+  case userIsRespondent:
     return Promise.reject(redirectToRespondentError);
   default:
     return Promise.resolve(response);
