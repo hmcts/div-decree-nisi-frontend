@@ -2,14 +2,15 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
-const { caseStateMap, permitDNReasonMap, caseIdDispalyStateMap } = require('./petitionerStateTemplates');
+const { caseStateMap, permitDNReasonMap, caseIdDisplayStateMap } = require('./petitionerStateTemplates');
 
 const constants = {
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
   DNAwaiting: ['dnawaiting', 'awaitingdecreenisi'],
-  undefendedReason: '0'
+  undefendedReason: '0',
+  yes: 'yes'
 };
 
 class PetitionProgressBar extends Interstitial {
@@ -26,7 +27,11 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get isCaseIdToBeDisplayed() {
-    return caseIdDispalyStateMap.includes(this.caseState);
+    return caseIdDisplayStateMap.includes(this.caseState);
+  }
+
+  get respondentAdmitsToFact() {
+    return this.case.respAdmitOrConsentToFact && this.case.respAdmitOrConsentToFact.toLowerCase() === constants.yes;
   }
 
   handler(req, res) {
