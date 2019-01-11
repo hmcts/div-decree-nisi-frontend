@@ -30,7 +30,9 @@ const templates = {
   respondentNotReplied:
     './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
   defendedAwaitingAnswer:
-    './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html'
+    './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html',
+  respNotAdmitAdultery:
+    './sections/respNotAdmitAdultery/PetitionProgressBar.respNotAdmitAdultery.template.html'
 };
 
 // get all content for all pages
@@ -140,7 +142,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 0 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '0'
         }
@@ -193,7 +195,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 1 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '1'
         }
@@ -216,7 +218,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 2 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '2'
         }
@@ -239,7 +241,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 3 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '3'
         }
@@ -263,7 +265,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 4 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '4'
         }
@@ -301,6 +303,30 @@ describe(modulePath, () => {
     it('returns correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.defendedAwaitingAnswer);
+    });
+  });
+
+  describe('CCD state: AosCompleted', () => {
+    const session = {
+      case: {
+        state: 'AosCompleted',
+        data: {
+          reasonForDivorce: 'adultery',
+          respAdmitOrConsentToFact: 'No'
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.respNotAdmitAdultery);
+      const specificContentToNotExist = contentToNotExist('respNotAdmitAdultery');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.respNotAdmitAdultery);
     });
   });
 

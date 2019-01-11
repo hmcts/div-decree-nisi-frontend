@@ -2,36 +2,29 @@ const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
-const { caseStateMap, permitDNReasonMap, caseIdDisplayStateMap } = require('./petitionerStateTemplates');
+const {
+  caseStateMap,
+  permitDNReasonMap,
+  caseIdDisplayStateMap,
+  aosCompletedOptionsMap
+} = require('./petitionerStateTemplates');
 
 const constants = {
+  adultery: 'adultery',
+  sep2Yr: 'separation-2-years',
+  AOSCompleted: 'aoscompleted',
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
-  DNAwaiting: ['dnawaiting', 'awaitingdecreenisi'],
+  DNAwaiting: 'awaitingdecreenisi',
   undefendedReason: '0',
+  no: 'no',
   yes: 'yes'
 };
 
 class PetitionProgressBar extends Interstitial {
   static get path() {
     return config.paths.petitionProgressBar;
-  }
-
-  get case() {
-    return this.req.session.case.data;
-  }
-
-  get caseId() {
-    return this.req.session.case.caseId;
-  }
-
-  get isCaseIdToBeDisplayed() {
-    return caseIdDisplayStateMap.includes(this.caseState);
-  }
-
-  get respondentAdmitsToFact() {
-    return this.case.respAdmitOrConsentToFact && this.case.respAdmitOrConsentToFact.toLowerCase() === constants.yes;
   }
 
   handler(req, res) {
@@ -46,12 +39,37 @@ class PetitionProgressBar extends Interstitial {
     ];
   }
 
+  get case() {
+    return this.req.session.case.data;
+  }
+
+  get caseId() {
+    return this.req.session.case.caseId;
+  }
+
+  get isCaseIdToBeDisplayed() {
+    return caseIdDisplayStateMap.includes(this.caseState);
+  }
+
+  get respAdmitOrConsentToFact() {
+    return this.case.respAdmitOrConsentToFact;
+  }
+
+
   get respWillDefendDivorce() {
     return this.case.respWillDefendDivorce;
   }
 
+  get reasonForDivorce() {
+    return this.case.reasonForDivorce;
+  }
+
   get caseState() {
     return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
+  }
+
+  get dnReason() {
+    return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
   }
 
   get showDnNoResponse() {
@@ -60,6 +78,15 @@ class PetitionProgressBar extends Interstitial {
 
   get showReviewAosResponse() {
     return this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase());
+  }
+
+  get aosCompletedOptions() {
+    if (this.reasonForDivorce === constants.adultery && this.respAdmitOrConsentToFact === constants.no) {
+      return 'respNotAdmittedAdultery';
+    } else if (this.reasonForDivorce === constants.sep2Yr && this.respAdmitOrConsentToFact === constants.yes) {
+      return 'sep2YrWithConsent';
+    }
+    return '';
   }
 
   next() {
@@ -72,15 +99,16 @@ class PetitionProgressBar extends Interstitial {
     );
   }
 
-  get dnReason() {
-    return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
-  }
-
   get stateTemplate() {
     let template = '';
-    if (constants.DNAwaiting.includes(this.caseState)) {
+    switch (this.caseState) {
+    case constants.DNAwaiting:
       template = permitDNReasonMap.get(this.dnReason);
-    } else {
+      break;
+    case constants.AOSCompleted:
+      template = aosCompletedOptionsMap.get(this.aosCompletedOptions);
+      break;
+    default:
       caseStateMap.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
           template = dataMap.template;
@@ -90,6 +118,5 @@ class PetitionProgressBar extends Interstitial {
     return template;
   }
 }
-
 
 module.exports = PetitionProgressBar;

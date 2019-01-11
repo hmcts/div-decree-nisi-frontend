@@ -53,7 +53,7 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const session = {
         case: {
-          state: 'DNAwaiting',
+          state: 'AwaitingDecreeNisi',
           data: {
             respWillDefendDivorce: 'Yes'
           }
@@ -66,7 +66,7 @@ describe(modulePath, () => {
     it('Continue button should be rendered', () => {
       const session = {
         case: {
-          state: 'DNAwaiting',
+          state: 'AwaitingDecreeNisi',
           data: {
             respWillDefendDivorce: 'Yes'
           }
