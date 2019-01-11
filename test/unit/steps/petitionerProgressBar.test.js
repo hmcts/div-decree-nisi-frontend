@@ -164,7 +164,7 @@ describe(modulePath, () => {
     it('renders content for when respondent does not admit fact', () => {
       const noAdmitSession = {
         case: {
-          state: 'DNawaiting',
+          state: 'AwaitingDecreeNisi',
           data: {
             permittedDecreeNisiReason: '0',
             respAdmitOrConsentToFact: 'No'
@@ -179,7 +179,7 @@ describe(modulePath, () => {
     it('renders content for when respondent does admit fact', () => {
       const yesAdmitSession = {
         case: {
-          state: 'DNawaiting',
+          state: 'AwaitingDecreeNisi',
           data: {
             permittedDecreeNisiReason: '0',
             respAdmitOrConsentToFact: 'Yes'
