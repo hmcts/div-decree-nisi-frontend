@@ -27,18 +27,6 @@ class PetitionProgressBar extends Interstitial {
     return config.paths.petitionProgressBar;
   }
 
-  handler(req, res) {
-    req.session.entryPoint = this.name;
-    super.handler(req, res);
-  }
-
-  get middleware() {
-    return [
-      ...super.middleware,
-      idam.protect()
-    ];
-  }
-
   get case() {
     return this.req.session.case.data;
   }
@@ -51,25 +39,32 @@ class PetitionProgressBar extends Interstitial {
     return caseIdDisplayStateMap.includes(this.caseState);
   }
 
-  get respAdmitOrConsentToFact() {
-    return this.case.respAdmitOrConsentToFact;
+  handler(req, res) {
+    req.session.entryPoint = this.name;
+    super.handler(req, res);
   }
 
-
-  get respWillDefendDivorce() {
-    return this.case.respWillDefendDivorce;
-  }
-
-  get reasonForDivorce() {
-    return this.case.reasonForDivorce;
+  get middleware() {
+    return [
+      ...super.middleware,
+      idam.protect()
+    ];
   }
 
   get caseState() {
     return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
   }
 
-  get dnReason() {
-    return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
+  get reasonForDivorce() {
+    return this.case.reasonForDivorce;
+  }
+
+  get respAdmitsToFact() {
+    return this.case.respAdmitOrConsentToFact && this.case.respAdmitOrConsentToFact.toLowerCase() === constants.yes;
+  }
+
+  get respWillDefendDivorce() {
+    return this.case.respWillDefendDivorce && this.case.respWillDefendDivorce.toLowerCase() === constants.yes;
   }
 
   get showDnNoResponse() {
@@ -77,16 +72,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get showReviewAosResponse() {
-    return this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase());
-  }
-
-  get aosCompletedOptions() {
-    if (this.reasonForDivorce === constants.adultery && this.respAdmitOrConsentToFact === constants.no) {
-      return 'respNotAdmittedAdultery';
-    } else if (this.reasonForDivorce === constants.sep2Yr && this.respAdmitOrConsentToFact === constants.yes) {
-      return 'sep2YrWithConsent';
-    }
-    return '';
+    return this.respWillDefendDivorce;
   }
 
   next() {
@@ -97,6 +83,19 @@ class PetitionProgressBar extends Interstitial {
         .if(this.showReviewAosResponse),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
+  }
+
+  get dnReason() {
+    return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
+  }
+
+  get aosCompletedOptions() {
+    if (this.reasonForDivorce === constants.adultery && !this.respAdmitsToFact) {
+      return 'respNotAdmittedAdultery';
+    } else if (this.reasonForDivorce === constants.sep2Yr && this.respAdmitsToFact) {
+      return 'sep2YrWithConsent';
+    }
+    return '';
   }
 
   get stateTemplate() {
