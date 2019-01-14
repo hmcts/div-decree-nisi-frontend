@@ -118,7 +118,7 @@
     "whatThisMeansCostOrdersHelpWithCostsOrders": "Help with costs orders",
     "whatThisMeansCostOrdersClaimingCosts": "Claiming costs",
     "whatThisMeansCostOrdersApplicantWasAsked": "You were asked if you want the court to order your {{ case.divorceWho }} (and the co-respondent if applicable) to pay some or all of the divorce costs.",
-    "whatThisMeansCostOrdersFees": "This could include all the fees during the divorce, such as the £550 application fee, solicitor fees, and any extra court fees.",
+    "whatThisMeansCostOrdersFees": "This could include all the fees during the divorce, such as the £{{ feesIssueApplication }} application fee, solicitor fees, and any extra court fees.",
 
     "whatThisMeansFinantialOrders": "Help with financial orders",
 
