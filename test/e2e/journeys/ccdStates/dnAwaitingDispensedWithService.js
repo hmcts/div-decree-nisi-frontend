@@ -59,12 +59,12 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 2', () => {
     {
       step: MiniPetition,
       body: {
-        'changes-hasBeenChanges': 'no',
-        'changes-statementOfTruthNoChanges': 'yes'
+        'changes.hasBeenChanges': 'no',
+        'changes.statementOfTruthNoChanges': 'yes'
       }
     },
-    { step: LivedApartSinceSeparation, body: { 'changes-livedApartSinceSeparation': 'yes' } },
-    { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
+    { step: LivedApartSinceSeparation, body: { 'changes.livedApartSinceSeparation': 'yes' } },
+    { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
     { step: ShareCourtDocuments, body: { upload: 'no' } },
     { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
     { step: Done }

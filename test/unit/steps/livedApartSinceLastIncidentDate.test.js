@@ -35,14 +35,14 @@ describe(modulePath, () => {
 
   it('shows error if answered no and no data entered', () => {
     const onlyErrors = ['requireDatesOfLivingTogether'];
-    const fields = { 'changes-livedApartSinceLastIncidentDate': 'no',
-      'changes-approximateDatesOfLivingTogetherField': '' };
+    const fields = { 'changes.livedApartSinceLastIncidentDate': 'no',
+      'changes.approximateDatesOfLivingTogetherField': '' };
     return question.testErrors(LivedApartSinceLastIncidentDate, session, fields, { onlyErrors });
   });
 
   it('redirects to ClaimCosts if answered no, details, claimsCosts is Yes', () => {
-    const fields = { 'changes-livedApartSinceLastIncidentDate': 'no',
-      'changes-approximateDatesOfLivingTogetherField': 'details...' };
+    const fields = { 'changes.livedApartSinceLastIncidentDate': 'no',
+      'changes.approximateDatesOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {
@@ -60,7 +60,7 @@ describe(modulePath, () => {
 
   it('redirects to ClaimCosts if answered yes and claimsCosts is Yes', () => {
     const fields = {
-      'changes-livedApartSinceLastIncidentDate': 'yes'
+      'changes.livedApartSinceLastIncidentDate': 'yes'
     };
     const sessionData = {
       case: {
@@ -79,8 +79,8 @@ describe(modulePath, () => {
 
 
   it('redirects to ShareCourtDocuments if answered no, details, claimsCosts is No', () => {
-    const fields = { 'changes-livedApartSinceLastIncidentDate': 'no',
-      'changes-approximateDatesOfLivingTogetherField': 'details...' };
+    const fields = { 'changes.livedApartSinceLastIncidentDate': 'no',
+      'changes.approximateDatesOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {
@@ -98,7 +98,7 @@ describe(modulePath, () => {
 
   it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
     const fields = {
-      'changes-livedApartSinceLastIncidentDate': 'yes'
+      'changes.livedApartSinceLastIncidentDate': 'yes'
     };
     const sessionData = {
       case: {
