@@ -17,8 +17,8 @@ locals {
 
   health_endpoint = "/health"
 
-  asp_name = "${var.env == "prod" ? "div-dn-prod" : "${var.raw_product}-${var.env}"}"
-  asp_rg = "${var.env == "prod" ? "div-dn-prod" : "${var.raw_product}-${var.env}"}"
+  asp_name = "${var.env == "prod" ? "div-dn-prod" : "${var.raw_product}-1-${var.env}"}"
+  asp_rg = "${var.env == "prod" ? "div-dn-prod" : "${var.raw_product}-1-${var.env}"}"
 }
 
 module "redis-cache" {
