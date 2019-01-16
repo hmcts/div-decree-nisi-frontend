@@ -90,6 +90,7 @@ describe('Adultery DN flow', () => {
     it('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
         uploadAnyOtherDocuments: 'no',
@@ -139,6 +140,7 @@ describe('Adultery DN flow', () => {
     it('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
         uploadAnyOtherDocuments: 'no',
