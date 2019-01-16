@@ -36,7 +36,7 @@ const checks = () => {
     'idam-api': healthcheck.web(config.services.idam.apiHealth,
       healthOptions('Health check failed on idam-api:')
     ),
-    'case-orchestration-service': healthcheck.web(config.services.caseOrchestration.health,
+    'case-orchestration-service': healthcheck.web(config.services.orchestrationService.health,
       healthOptions('Health check failed on case-orchestration-service:')
     )
   };
