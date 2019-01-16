@@ -16,6 +16,7 @@ const LivedApartSinceAdultery = require(
   'steps/lived-apart-since-adultery/LivedApartSinceAdultery.step'
 );
 const moment = require('moment');
+const Entry = require('steps/entry/Entry.step');
 
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
@@ -24,7 +25,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'adultery',
-  respDefendsDivorce: null,
+  respWillDefendDivorce: null,
   reasonForDivorceAdulteryDetails: 'details'
 };
 
@@ -63,6 +64,7 @@ describe('Adultery DN flow', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
@@ -87,11 +89,15 @@ describe('Adultery DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         intolerable: 'yes',
-        adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000')
+        adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
+        livedApartSinceAdultery: 'yes'
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -105,6 +111,7 @@ describe('Adultery DN flow', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
@@ -132,11 +139,16 @@ describe('Adultery DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         intolerable: 'yes',
-        adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000')
+        adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
+        livedApartSinceAdultery: 'no',
+        datesLivedTogether: '3 months'
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -150,6 +162,7 @@ describe('Adultery DN flow', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {

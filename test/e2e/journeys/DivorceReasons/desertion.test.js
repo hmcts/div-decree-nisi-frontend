@@ -12,6 +12,7 @@ const MiniPetition = require('steps/mini-petition/MiniPetition.step');
 const LivedApartSinceDesertion = require(
   'steps/lived-apart-since-desertion/LivedApartSinceDesertion.step'
 );
+const Entry = require('steps/entry/Entry.step');
 
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
@@ -20,7 +21,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'desertion',
-  respDefendsDivorce: null,
+  respWillDefendDivorce: null,
   reasonForDivorceDesertionDetails: 'details'
 };
 
@@ -54,6 +55,7 @@ describe('Desertion DN flow', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
@@ -72,10 +74,13 @@ describe('Desertion DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
         claimCosts: 'originalAmount',
         livedApartSinceDesertion: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        statementOfTruthChanges: 'yes',
+        uploadAnyOtherDocuments: 'no'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
@@ -85,6 +90,7 @@ describe('Desertion DN flow', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
@@ -106,11 +112,14 @@ describe('Desertion DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
         approximateDatesOfLivingTogetherField: 'details...',
         claimCosts: 'originalAmount',
+        hasBeenChanges: 'no',
         livedApartSinceDesertion: 'no',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        statementOfTruthChanges: 'yes',
+        uploadAnyOtherDocuments: 'no'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });

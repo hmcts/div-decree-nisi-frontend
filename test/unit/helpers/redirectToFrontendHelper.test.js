@@ -5,7 +5,7 @@ const authTokenString = '__auth-token';
 
 const modulePath = 'helpers/redirectToFrontendHelper';
 
-const redirectToFrontend = require(modulePath);
+const { redirectToFrontend, redirectToAos } = require(modulePath);
 
 describe(modulePath, () => {
   let req = {};
@@ -23,12 +23,22 @@ describe(modulePath, () => {
     };
   });
 
-  it('should redirect to frontend on call', () => {
+  it('should redirect to petitioner frontend on call', () => {
     const petitionerFrontend = config.services.petitionerFrontend;
     const landingUrl = `${petitionerFrontend.url}${petitionerFrontend.landing}`;
     const expectedUrl = `${landingUrl}?${authTokenString}=someValue`;
 
     redirectToFrontend(req, res);
+
+    expect(res.redirect.calledWith(expectedUrl)).to.equal(true);
+  });
+
+  it('should redirect to AOS on call', () => {
+    const aosFrontend = config.services.aosFrontend;
+    const landingUrl = `${aosFrontend.url}${aosFrontend.landing}`;
+    const expectedUrl = `${landingUrl}?${authTokenString}=someValue`;
+
+    redirectToAos(req, res);
 
     expect(res.redirect.calledWith(expectedUrl)).to.equal(true);
   });

@@ -38,6 +38,9 @@
   <h3 class="heading-small">{{ content.issued }}</h3>
   <p class="text">{{ case.issueDate | date }}</p>
 
+  <h3 class="heading-small">{{ content.caseNumber }}</h3>
+  <p class="text">{{ case.caseReference | safe }} </p>
+
   <h3 class="heading-small">{{ content.applicant }}</h3>
   <p class="text">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
 
@@ -194,7 +197,7 @@
     <p class="text">{{ content.onGoingCasesNo }}</p>
   {% else %}
     <p class="text">{{ content.onGoingCasesYes }}</p>
-    <p class="text">"{{ case.legalProceedingsDetails }}"</p>
+    <p class="text">"{{ case.legalProceedingsDetails | striptags(true) | escape | nl2br }}"</p>
   {% endif %}
 
   <details>
@@ -278,7 +281,15 @@
     <h3 class="heading-small">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
     <p>"
       {% for behaviourDetail in case.reasonForDivorceBehaviourDetails %}
-          {{ behaviourDetail | replace(r/(\r\n|\n|\r)/gm, '<br/>') | safe  }}
+        {% if behaviourDetail | length > 0 and behaviourDetail !== '\r' %}
+          {{ behaviourDetail | nl2br | safe }}
+          {% if not loop.last %}
+            <br/>
+            {% if behaviourDetail.slice(-1)  !== '\r' %}
+              <br />
+            {% endif %}
+          {% endif %}
+        {% endif %}
       {% endfor %}
     "</p>
   {% endif %}

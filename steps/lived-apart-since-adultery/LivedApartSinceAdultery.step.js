@@ -49,6 +49,19 @@ class LivedApartSinceAdultery extends Question {
     return form({ livedApart });
   }
 
+  values() {
+    const selectedValue = this.fields.livedApart.livedApartSinceAdultery.value;
+    if (selectedValue === 'yes') {
+      return { 'livedApart.livedApartSinceAdultery': selectedValue };
+    } else if (selectedValue === 'no') {
+      return {
+        'livedApart.livedApartSinceAdultery': selectedValue,
+        'livedApart.datesLivedTogether': this.fields.livedApart.datesLivedTogether.value
+      };
+    }
+    return {};
+  }
+
   answers() {
     const answers = [];
 

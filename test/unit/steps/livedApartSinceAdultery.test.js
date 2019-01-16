@@ -7,7 +7,8 @@ const LivedApartSinceAdulteryContent = require(
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon,
+  content, expect } = require('@hmcts/one-per-page-test-suite');
 
 const session = { case: { data: {} } };
 
@@ -110,5 +111,55 @@ describe(modulePath, () => {
       }
     };
     return question.answers(LivedApartSinceAdultery, stepData, expectedContent, session);
+  });
+
+  describe('Returns correct values()', () => {
+    it('livedApartSinceAdultery : yes ', () => {
+      const selectedValue = 'yes';
+      const detailsGiven = 'We are living together after adultery';
+      const fields = {
+        livedApart: {
+          livedApartSinceAdultery: selectedValue,
+          datesLivedTogether: detailsGiven
+        }
+      };
+      const req = {
+        journey: {},
+        session: { LivedApartSinceAdultery: fields }
+      };
+
+      const res = {};
+      const step = new LivedApartSinceAdultery(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('livedApart.livedApartSinceAdultery', selectedValue);
+      expect(_values).to.not.have.property('livedApart.datesLivedTogether');
+    });
+
+    it('livedApartSinceAdultery : no ', () => {
+      const selectedValue = 'no';
+      const detailsGiven = 'We are living together after adultery';
+      const fields = {
+        livedApart: {
+          livedApartSinceAdultery: selectedValue,
+          datesLivedTogether: detailsGiven
+        }
+      };
+      const req = {
+        journey: {},
+        session: { LivedApartSinceAdultery: fields }
+      };
+
+      const res = {};
+      const step = new LivedApartSinceAdultery(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('livedApart.livedApartSinceAdultery', selectedValue);
+      expect(_values).to.have.property('livedApart.datesLivedTogether', detailsGiven);
+    });
   });
 });

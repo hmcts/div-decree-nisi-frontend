@@ -24,9 +24,6 @@ setupRateLimiter(app);
 // Parsing cookies
 app.use(cookieParser());
 
-// Get user details from idam, sets req.idam.userDetails
-app.use(idam.userDetails());
-
 lookAndFeel.configure(app, {
   baseUrl: '/',
   express: {
@@ -80,12 +77,18 @@ app.use('/images', (req, res) => {
   res.redirect(`/assets/images${req.path}`, '301');
 });
 
+// Get user details from idam, sets req.idam.userDetails
+app.use(idam.userDetails());
+
 app.set('trust proxy', 1);
 
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
-  errorPages: { serverError: { template: 'errors/error' } },
+  errorPages: { serverError: { template: 'errors/error' }, notFound: { template: 'errors/error' } },
+  noSessionHandler: (req, res) => {
+    return res.redirect(config.paths.entry);
+  },
   session: {
     redis: { url: config.services.redis.url },
     cookie: {
@@ -102,7 +105,8 @@ onePerPage.journey(app, {
     }
   },
   timeoutDelay: config.journey.timeoutDelay,
-  i18n: { filters: getFilters() }
+  i18n: { filters: getFilters() },
+  useCsrfToken: true
 });
 
 app.use(logging.Express.accessLogger());

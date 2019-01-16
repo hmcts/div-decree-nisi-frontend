@@ -26,7 +26,9 @@ describe(modulePath, () => {
       const session = {
         case: {
           state: 'AosSubmittedAwaitingAnswer',
-          data: {}
+          data: {
+            respWillDefendDivorce: 'Yes'
+          }
         }
       };
       const instance = stepAsInstance(ReviewAosResponse, session);
@@ -37,7 +39,9 @@ describe(modulePath, () => {
       const session = {
         case: {
           state: 'AosSubmittedAwaitingAnswer',
-          data: {}
+          data: {
+            respWillDefendDivorce: 'Yes'
+          }
         }
       };
       const specificContentToNotExist = [commonContent.en.continue];
@@ -50,7 +54,9 @@ describe(modulePath, () => {
       const session = {
         case: {
           state: 'DNAwaiting',
-          data: {}
+          data: {
+            respWillDefendDivorce: 'Yes'
+          }
         }
       };
       const instance = stepAsInstance(ReviewAosResponse, session);
@@ -61,7 +67,9 @@ describe(modulePath, () => {
       const session = {
         case: {
           state: 'DNAwaiting',
-          data: {}
+          data: {
+            respWillDefendDivorce: 'Yes'
+          }
         }
       };
       const specificContent = [ 'continue' ];
@@ -73,7 +81,7 @@ describe(modulePath, () => {
       const session = {
         case: {
           data: {
-            reviewAosResponse: 'yes'
+            respWillDefendDivorce: 'Yes'
           }
         }
       };
@@ -94,7 +102,8 @@ describe(modulePath, () => {
             petitionerFirstName: 'petitioner',
             petitionerLastName: 'name',
             respondentFirstName: 'respondent',
-            respondentLastName: 'name'
+            respondentLastName: 'name',
+            respWillDefendDivorce: 'Yes'
           }
         }
       };
@@ -118,7 +127,7 @@ describe(modulePath, () => {
 
     describe('How Respondnet wants to proceed section', () => {
       it('renders common conent in this section', () => {
-        const session = { case: { data: {} } };
+        const session = { case: { data: { respWillDefendDivorce: 'Yes' } } };
         const specificContent = [
           'respProceed.title',
           'whatThisMeans',
@@ -131,12 +140,12 @@ describe(modulePath, () => {
       });
 
       describe('Adultery : ', () => {
-        it(`respDefendsDivorce: No,
+        it(`respWillDefendDivorce: No,
             respAdmitOrConsentToFact: Yes`, () => {
           const session = {
             case: {
               data: {
-                respDefendsDivorce: 'No',
+                respWillDefendDivorce: 'No',
                 respAdmitOrConsentToFact: 'Yes',
                 reasonForDivorce: 'adultery'
               }
@@ -149,12 +158,12 @@ describe(modulePath, () => {
           return content(ReviewAosResponse, session, { specificContent });
         });
 
-        it(`respDefendsDivorce: Yes,
+        it(`respWillDefendDivorce: Yes,
             respAdmitOrConsentToFact: No`, () => {
           const session = {
             case: {
               data: {
-                respDefendsDivorce: 'Yes',
+                respWillDefendDivorce: 'Yes',
                 respAdmitOrConsentToFact: 'No',
                 reasonForDivorce: 'adultery'
               }
@@ -169,13 +178,13 @@ describe(modulePath, () => {
       });
 
       describe('Separation 2 yr : ', () => {
-        it(`respDefendsDivorce: No,
+        it(`respWillDefendDivorce: No,
             respAdmitOrConsentToFact: Yes,
             respConsiderFinancialSituation: Yes`, () => {
           const session = {
             case: {
               data: {
-                respDefendsDivorce: 'No',
+                respWillDefendDivorce: 'No',
                 respAdmitOrConsentToFact: 'Yes',
                 reasonForDivorce: 'separation-2-years',
                 respConsiderFinancialSituation: 'Yes'
@@ -190,13 +199,13 @@ describe(modulePath, () => {
           return content(ReviewAosResponse, session, { specificContent });
         });
 
-        it(`respDefendsDivorce: Yes,
+        it(`respWillDefendDivorce: Yes,
             respAdmitOrConsentToFact: No,
             respConsiderFinancialSituation: No`, () => {
           const session = {
             case: {
               data: {
-                respDefendsDivorce: 'Yes',
+                respWillDefendDivorce: 'Yes',
                 respAdmitOrConsentToFact: 'No',
                 reasonForDivorce: 'separation-2-years',
                 respConsiderFinancialSituation: 'No'
@@ -213,13 +222,13 @@ describe(modulePath, () => {
       });
 
       describe('Separation 5 yr content and values : ', () => {
-        it(`respDefendsDivorce: No,
+        it(`respWillDefendDivorce: No,
               respAdmitOrConsentToFact: Yes,
               respConsiderFinancialSituation: Yes`, () => {
           const session = {
             case: {
               data: {
-                respDefendsDivorce: 'No',
+                respWillDefendDivorce: 'No',
                 respAdmitOrConsentToFact: 'Yes',
                 reasonForDivorce: 'separation-5-years',
                 respConsiderFinancialSituation: 'Yes'
@@ -233,14 +242,14 @@ describe(modulePath, () => {
           return content(ReviewAosResponse, session, { specificContent });
         });
 
-        it(`respDefendsDivorce: Yes,
+        it(`respWillDefendDivorce: Yes,
               respAdmitOrConsentToFact: No,
               respConsiderFinancialSituation: No
               respHardshipDefenseResponse: Yes`, () => {
           const session = {
             case: {
               data: {
-                respDefendsDivorce: 'Yes',
+                respWillDefendDivorce: 'Yes',
                 respAdmitOrConsentToFact: 'No',
                 reasonForDivorce: 'separation-5-years',
                 respConsiderFinancialSituation: 'No',
@@ -258,14 +267,14 @@ describe(modulePath, () => {
           return content(ReviewAosResponse, session, { specificContent, specificValues });
         });
 
-        it(`respDefendsDivorce: Yes,
+        it(`respWillDefendDivorce: Yes,
               respAdmitOrConsentToFact: No,
               respConsiderFinancialSituation: No
               respHardshipDefenseResponse: No `, () => {
           const session = {
             case: {
               data: {
-                respDefendsDivorce: 'Yes',
+                respWillDefendDivorce: 'Yes',
                 respAdmitOrConsentToFact: 'No',
                 reasonForDivorce: 'separation-5-years',
                 respConsiderFinancialSituation: 'No',
@@ -283,13 +292,12 @@ describe(modulePath, () => {
       });
 
       describe('Desertion : ', () => {
-        it(`respDefendsDivorce: No,
+        it(`respWillDefendDivorce: No,
             respAdmitOrConsentToFact: No`, () => {
           const session = {
             case: {
               data: {
-                respDefendsDivorce: 'No',
-                respAdmitOrConsentToFact: 'No',
+                respWillDefendDivorce: 'NoNoAdmission',
                 reasonForDivorce: 'desertion'
               }
             }
@@ -300,13 +308,12 @@ describe(modulePath, () => {
       });
 
       describe('UnReasonable behaviour : ', () => {
-        it(`respDefendsDivorce: No,
+        it(`respWillDefendDivorce: No,
             respAdmitOrConsentToFact: No`, () => {
           const session = {
             case: {
               data: {
-                respDefendsDivorce: 'No',
-                respAdmitOrConsentToFact: 'No',
+                respWillDefendDivorce: 'NoNoAdmission',
                 reasonForDivorce: 'unreasonable-behaviour'
               }
             }
@@ -319,7 +326,7 @@ describe(modulePath, () => {
 
     describe('Jurisdiction of the court section', () => {
       it('renders common conent in this section', () => {
-        const session = { case: { data: {} } };
+        const session = { case: { data: { respWillDefendDivorce: 'Yes' } } };
         const specificContent = [
           'jurisdiction.title',
           'whatThisMeans',
@@ -333,7 +340,8 @@ describe(modulePath, () => {
         const session = {
           case: {
             data: {
-              respJurisdictionAgree: 'Yes'
+              respJurisdictionAgree: 'Yes',
+              respWillDefendDivorce: 'Yes'
             }
           }
         };
@@ -347,7 +355,8 @@ describe(modulePath, () => {
             data: {
               respJurisdictionAgree: 'No',
               respJurisdictionDisagreeReason: 'Disagreed due to some reason',
-              respJurisdictionRespCountryOfResidence: 'India'
+              respJurisdictionRespCountryOfResidence: 'India',
+              respWillDefendDivorce: 'Yes'
             }
           }
         };
@@ -369,12 +378,16 @@ describe(modulePath, () => {
           case: {
             data: {
               respLegalProceedingsExist: 'Yes',
-              respLegalProceedingsDescription: 'Description for legal proceedings'
+              respLegalProceedingsDescription: 'Description for legal proceedings',
+              respWillDefendDivorce: 'Yes'
             }
           }
         };
         const specificValues = [ session.case.data.respLegalProceedingsDescription ];
-        const specificContent = ['jurisdiction.otherProceedings'];
+        const specificContent = [
+          'jurisdiction.otherProceedings',
+          'jurisdiction.otherCourtDetails'
+        ];
         return content(ReviewAosResponse, session, { specificContent, specificValues });
       });
 
@@ -382,18 +395,22 @@ describe(modulePath, () => {
         const session = {
           case: {
             data: {
-              respLegalProceedingsExist: 'No'
+              respLegalProceedingsExist: 'No',
+              respWillDefendDivorce: 'Yes'
             }
           }
         };
-        const specificContent = ['jurisdiction.noOtherProceedings'];
+        const specificContent = [
+          'jurisdiction.noOtherProceedings',
+          'jurisdiction.otherCourtDetails'
+        ];
         return content(ReviewAosResponse, session, { specificContent });
       });
     });
 
     describe('Costs order section', () => {
       it('renders common conent in this section', () => {
-        const session = { case: { data: {} } };
+        const session = { case: { data: { respWillDefendDivorce: 'Yes' } } };
         const specificContent = [
           'costsOrder.title',
           'whatThisMeans',
@@ -410,7 +427,8 @@ describe(modulePath, () => {
         const session = {
           case: {
             data: {
-              respAgreeToCosts: 'Yes'
+              respAgreeToCosts: 'Yes',
+              respWillDefendDivorce: 'Yes'
             }
           }
         };
@@ -424,7 +442,8 @@ describe(modulePath, () => {
           case: {
             data: {
               respAgreeToCosts: 'No',
-              respCostsReason: 'Respondent given reason for costs'
+              respCostsReason: 'Respondent given reason for costs',
+              respWillDefendDivorce: 'Yes'
             }
           }
         };

@@ -1,3 +1,7 @@
+provider "azurerm" {
+  version = "1.19.0"
+}
+
 locals {
   aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
   public_hostname = "${var.product}-${var.component}-${var.env}.service.${local.aseName}.internal"
@@ -35,11 +39,12 @@ module "frontend" {
   is_frontend                     = "${var.env != "preview" ? 1: 0}"
   subscription                    = "${var.subscription}"
   additional_host_name            = "${var.env != "preview" ? var.additional_host_name : "null"}"
-  https_only                      = "true"
+  https_only                      = "false"
   capacity                        = "${var.capacity}"
   common_tags                     = "${var.common_tags}"
   asp_name                        = "${local.asp_name}"
   asp_rg                          = "${local.asp_rg}"
+  instance_size                   = "I3"
 
   app_settings = {
 
@@ -115,8 +120,15 @@ module "frontend" {
     // Petitioner Front End
     PETITIONER_FRONTEND_URL = "${var.petitioner_frontend_url}"
 
+    // Respondent Front End
+    RESPONDENT_FRONTEND_URL = "${var.respondent_frontend_url}"
+
     // CCD Filters
     CCD_DIGITAL_COURTS = "${var.ccd_digital_courts}"
+
+    WEBSITE_LOCAL_CACHE_OPTION = "Never"
+    WEBSITE_LOCAL_CACHE_SIZEINMB = 0
+    WEBSITE_DYNAMIC_CACHE = 0
   }
 }
 

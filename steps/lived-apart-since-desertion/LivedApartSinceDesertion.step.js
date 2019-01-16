@@ -70,6 +70,19 @@ class LivedApartSinceDesertion extends Question {
     return answers;
   }
 
+  values() {
+    const livedApartSinceDesertion = this.fields.changes.livedApartSinceDesertion.value;
+    if (livedApartSinceDesertion === 'yes') {
+      return { 'changes.livedApartSinceDesertion': livedApartSinceDesertion };
+    } else if (livedApartSinceDesertion === 'no') {
+      return {
+        'changes.livedApartSinceDesertion': livedApartSinceDesertion,
+        'changes.approximateDatesOfLivingTogetherField': this.fields.changes.approximateDatesOfLivingTogetherField.value
+      };
+    }
+    return {};
+  }
+
   next() {
     const skipClaimCosts = this.case.claimsCosts === 'No';
     return branch(

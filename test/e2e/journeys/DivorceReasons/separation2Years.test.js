@@ -9,6 +9,7 @@ const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
+const Entry = require('steps/entry/Entry.step');
 const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
 );
@@ -19,7 +20,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'separation-2-years',
-  respDefendsDivorce: null
+  respWillDefendDivorce: null
 };
 
 let caseOrchestrationServiceSubmitStub = {};
@@ -51,6 +52,7 @@ describe('separation 2 years', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
@@ -69,10 +71,13 @@ describe('separation 2 years', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
         claimCosts: 'originalAmount',
         livedApartSinceSeparation: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        statementOfTruthChanges: 'yes',
+        uploadAnyOtherDocuments: 'no'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
@@ -82,6 +87,7 @@ describe('separation 2 years', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
@@ -104,11 +110,14 @@ describe('separation 2 years', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
         approximateDatesOfLivingTogetherField: 'details...',
         claimCosts: 'originalAmount',
         livedApartSinceSeparation: 'no',
+        hasBeenChanges: 'no',
         statementOfTruth: 'yes',
-        statementOfTruthChanges: 'yes'
+        statementOfTruthChanges: 'yes',
+        uploadAnyOtherDocuments: 'no'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });

@@ -158,6 +158,36 @@ describe(modulePath, () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.undefended);
     });
+
+    it('renders content for when respondent does not admit fact', () => {
+      const noAdmitSession = {
+        case: {
+          state: 'DNawaiting',
+          data: {
+            permittedDecreeNisiReason: '0',
+            respAdmitOrConsentToFact: 'No'
+          }
+        }
+      };
+      const specificContent = ['undefendedButNotAdmit'];
+
+      return content(PetitionProgressBar, noAdmitSession, { specificContent });
+    });
+
+    it('renders content for when respondent does admit fact', () => {
+      const yesAdmitSession = {
+        case: {
+          state: 'DNawaiting',
+          data: {
+            permittedDecreeNisiReason: '0',
+            respAdmitOrConsentToFact: 'Yes'
+          }
+        }
+      };
+      const specificContent = ['undefendedAppStatusMsgDetails1'];
+
+      return content(PetitionProgressBar, yesAdmitSession, { specificContent });
+    });
   });
 
   describe('CCD state: DNawaiting, DNReason : 1 ', () => {
@@ -400,22 +430,22 @@ describe(modulePath, () => {
       return interstitial.navigatesToNext(PetitionProgressBar, DnNoResponse, session);
     });
 
-    it('rediects to ApplyForDecreeNisi when CCD has respDefendsDivorce as null', () => {
+    it('rediects to ApplyForDecreeNisi when CCD has respWillDefendDivorce as null', () => {
       const session = {
         case: {
           data: {
-            respDefendsDivorce: null
+            respWillDefendDivorce: null
           }
         }
       };
       return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
     });
 
-    it('redirects reviewAosResponse when CCD has respDefendsDivorce as Yes', () => {
+    it('redirects reviewAosResponse when CCD has respWillDefendDivorce as Yes', () => {
       const session = {
         case: {
           data: {
-            respDefendsDivorce: 'Yes'
+            respWillDefendDivorce: 'Yes'
           }
         }
       };

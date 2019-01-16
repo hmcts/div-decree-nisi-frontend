@@ -4,7 +4,8 @@ const LivedApartSinceSeparation = require(modulePath);
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon,
+  content, expect } = require('@hmcts/one-per-page-test-suite');
 
 const session = { case: { data: {} } };
 
@@ -99,5 +100,57 @@ describe(modulePath, () => {
       ShareCourtDocuments,
       sessionData
     );
+  });
+
+  describe('Returns correct values()', () => {
+    it('livedApartSinceSeparation : yes ', () => {
+      const selectedValue = 'yes';
+      const detailsGiven = 'We are living together';
+      const fields = {
+        changes: {
+          livedApartSinceSeparation: selectedValue,
+          approximateDatesOfLivingTogetherField: detailsGiven
+        }
+      };
+      const req = {
+        journey: {},
+        session: { LivedApartSinceSeparation: fields }
+      };
+
+      const res = {};
+      const step = new LivedApartSinceSeparation(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('changes.livedApartSinceSeparation', selectedValue);
+      expect(_values).to.not.have.property('changes.approximateDatesOfLivingTogetherField');
+    });
+
+    it('livedApartSinceSeparation : no ', () => {
+      const selectedValue = 'no';
+      const detailsGiven = 'We are living together';
+      const fields = {
+        changes: {
+          livedApartSinceSeparation: selectedValue,
+          approximateDatesOfLivingTogetherField: detailsGiven
+        }
+      };
+      const req = {
+        journey: {},
+        session: { LivedApartSinceSeparation: fields }
+      };
+
+      const res = {};
+      const step = new LivedApartSinceSeparation(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('changes.livedApartSinceSeparation', selectedValue);
+      expect(_values).to.have.property(
+        'changes.approximateDatesOfLivingTogetherField', detailsGiven
+      );
+    });
   });
 });

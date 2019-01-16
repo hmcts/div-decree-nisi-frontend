@@ -15,8 +15,10 @@ class CheckYourAnswers extends CYA {
     return this.req.session.case.data;
   }
 
-  get claimCosts() {
-    if (this.req.session.ClaimCosts) return this.req.session.ClaimCosts.claimCosts;
+  get dnClaimCosts() {
+    if (this.req.session.ClaimCosts) {
+      return this.req.session.ClaimCosts.dnCosts.claimCosts;
+    }
     return false;
   }
 

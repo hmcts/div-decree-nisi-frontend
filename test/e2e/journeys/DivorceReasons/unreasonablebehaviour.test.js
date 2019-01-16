@@ -10,6 +10,7 @@ const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
+const Entry = require('steps/entry/Entry.step');
 
 const BehaviourContinuedSinceApplication = require(
   'steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.step'
@@ -24,7 +25,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'unreasonable-behaviour',
-  respDefendsDivorce: null,
+  respWillDefendDivorce: null,
   reasonForDivorceBehaviourDetails: 'details'
 };
 
@@ -62,6 +63,7 @@ describe('Unreasonable behaviour', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
@@ -82,11 +84,13 @@ describe('Unreasonable behaviour', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
-        behaviourContinuedSinceApplication: 'yes',
-        lastIncidentDate: moment('')
+        behaviourContinuedSinceApplication: 'yes'
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -100,6 +104,7 @@ describe('Unreasonable behaviour', () => {
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
       { step: petitionProgressBar },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
@@ -127,8 +132,11 @@ describe('Unreasonable behaviour', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
+        applyForDecreeNisi: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         behaviourContinuedSinceApplication: 'no',
         lastIncidentDate: moment('2018-08-20T00:00:00.000'),

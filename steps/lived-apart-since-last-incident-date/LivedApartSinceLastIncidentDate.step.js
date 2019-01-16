@@ -70,6 +70,19 @@ class LivedApartSinceLastIncidentDate extends Question {
     return answers;
   }
 
+  values() {
+    const livedApartSinceLastIncidentDate = this.fields.changes.livedApartSinceLastIncidentDate.value;
+    if (livedApartSinceLastIncidentDate === 'yes') {
+      return { 'changes.livedApartSinceLastIncidentDate': livedApartSinceLastIncidentDate };
+    } else if (livedApartSinceLastIncidentDate === 'no') {
+      return {
+        'changes.livedApartSinceLastIncidentDate': livedApartSinceLastIncidentDate,
+        'changes.approximateDatesOfLivingTogetherField': this.fields.changes.approximateDatesOfLivingTogetherField.value
+      };
+    }
+    return {};
+  }
+
   next() {
     const skipClaimCosts = this.case.claimsCosts === 'No';
     return branch(

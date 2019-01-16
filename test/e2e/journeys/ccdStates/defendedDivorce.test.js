@@ -7,9 +7,10 @@ const config = require('config');
 const Start = require('steps/start/Start.step');
 const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
+const Entry = require('steps/entry/Entry.step');
 
 const session = {
-  respDefendsDivorce: null
+  respWillDefendDivorce: null
 };
 
 describe('Case State : DefendedDivorce', () => {
@@ -31,6 +32,7 @@ describe('Case State : DefendedDivorce', () => {
   journey.test([
     { step: Start },
     { step: IdamLogin, body: { success: 'yes' } },
+    { step: Entry },
     { step: petitionProgressBar }
   ]);
 });

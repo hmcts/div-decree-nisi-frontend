@@ -16,7 +16,8 @@ const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
 );
 const idam = require('services/idam');
-const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { middleware, question, sinon,
+  content, expect } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -261,6 +262,23 @@ describe(modulePath, () => {
         session,
         {
           specificValues: ['02 February 2006']
+        }
+      );
+    });
+    it('displays case number', () => {
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            caseReference: 'TESTD80101'
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        {
+          specificValues: [session.case.data.caseReference]
         }
       );
     });
@@ -1153,15 +1171,67 @@ describe(modulePath, () => {
     });
   });
 
+
+  describe('Returns correct values()', () => {
+    it('hasBeenChanges : yes ', () => {
+      const changesDetailsVal = 'details...';
+      const fields = {
+        changes: {
+          hasBeenChanges: 'yes',
+          changesDetails: changesDetailsVal,
+          statementOfTruthNoChanges: 'yes',
+          statementOfTruthChanges: 'yes'
+        }
+      };
+      const req = {
+        journey: {},
+        session: { MiniPetition: fields }
+      };
+
+      const res = {};
+      const step = new MiniPetition(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.be.an('object');
+      expect(_values).to.have.property('changes.statementOfTruthChanges', 'yes');
+      expect(_values).to.have.property('changes.changesDetails', changesDetailsVal);
+      expect(_values).to.not.have.property('changes.statementOfTruthNoChanges');
+    });
+
+    it('hasBeenChanges : no ', () => {
+      const changesDetailsVal = 'Details given';
+      const fields = {
+        changes: {
+          hasBeenChanges: 'no',
+          changesDetails: changesDetailsVal,
+          statementOfTruthNoChanges: 'yes',
+          statementOfTruthChanges: 'yes'
+        }
+      };
+      const req = {
+        journey: {},
+        session: { MiniPetition: fields }
+      };
+
+      const res = {};
+      const step = new MiniPetition(req, res);
+      step.retrieve().validate();
+
+      const _values = step.values();
+      expect(_values).to.have.property('changes.statementOfTruthNoChanges', 'yes');
+      expect(_values).to.not.have.property('changes.changesDetails');
+      expect(_values).to.not.have.property('changes.statementOfTruthChanges');
+    });
+  });
+
   describe('answers', () => {
     it('shows correct answers if user changes details', () => {
       const expectedContent = [
         MiniPetitionContent.en.fields.changes.hasBeenChanges.title,
         MiniPetitionContent.en.fields.changes.hasBeenChanges.yes,
         MiniPetitionContent.en.fields.changes.changesDetails.title,
-        'details...',
-        MiniPetitionContent.en.fields.changes.statementOfTruthChanges.title,
-        MiniPetitionContent.en.fields.changes.statementOfTruthChanges.yes
+        'details...'
       ];
       const stepData = {
         changes: {
@@ -1182,9 +1252,7 @@ describe(modulePath, () => {
     it('shows correct answers if user has no changes', () => {
       const expectedContent = [
         MiniPetitionContent.en.fields.changes.hasBeenChanges.title,
-        MiniPetitionContent.en.fields.changes.hasBeenChanges.no,
-        MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.title,
-        MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.yes
+        MiniPetitionContent.en.fields.changes.hasBeenChanges.no
       ];
       const stepData = {
         changes: {

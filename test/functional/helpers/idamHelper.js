@@ -23,8 +23,8 @@ class IdamHelper extends Helper {
         length: 16,
         charset: 'numeric'
       });
-      const emailName = `simulate-delivered-${randomString}`;
-      const testEmail = `${emailName}@notifications.service.gov.uk`;
+      const emailName = `hmcts.divorce.reform+dn-automatedtest-${randomString}`;
+      const testEmail = `${emailName}@gmail.com`;
       const testPassword = randomstring.generate(9);
 
       idamArgs.testEmail = testEmail;

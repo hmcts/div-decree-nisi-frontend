@@ -10,9 +10,9 @@
 
     "respProceed": {
       "title": "How the respondent wants to proceed",
-      "willDefendDivorce": "The respondent has stated in their response that they will defend the divorce.",
+      "willDefendDivorce": "The respondent will try to prevent the divorce based on this application (they intend to 'defend' it).",
       "willLetDivorceProceed": "The respondent will let the divorce proceed (doesn't intend to 'defend' it).",
-      "letDivorceProceedButNotAdmit": "The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't admit to what you said about them .",
+      "letDivorceProceedButNotAdmit": "The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't accept the allegations made in the application.",
       "adultery": {
         "admitsAdultery": "The respondent admits to committing the adultery.",
         "doesNotAdmitAdultery": "The respondent does not admit to committing the adultery."
@@ -37,6 +37,7 @@
 
     "jurisdiction": {
       "title": "Jurisdiction of the court",
+      "otherCourtDetails":"Other court cases that could affect jurisdiction",
       "respondentAgrees": "The respondent agrees that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
       "respDoesNotAgree": "The respondent does not agree that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
       "detailsGiven": "They gave the following statement to support this:",
@@ -65,8 +66,10 @@
 
     "fields": {
       "reviewAosResponse": {
-        "title": "Have you read your {{ case.divorceWho }}'s response?",
-        "yes": "Yes"
+        "title": "Your {{ case.divorceWho }}'s response",
+        "no": "The respondent will let the divorce proceed (doesn't intend to 'defend' it).",
+        "nonoadmission": "The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't accept the allegations made in the application.",
+        "yes": "The respondent will try to prevent the divorce based on this application (they intend to 'defend' it)."
       }
     }
   }

@@ -9,11 +9,14 @@ let Helper = codecept_helper; // eslint-disable-line
 
 class CaseHelper extends Helper {
   createDnCaseForUser(caseData) {
+    caseData.D8PetitionerEmail = idamConfigHelper.getTestEmail();
+
     const params = {
       baseUrl: config.services.caseMaintenance.baseUrl,
       authToken: idamConfigHelper.getTestToken(),
       caseData
     };
+
     return divTestHarness.createDnCase(params, config.tests.functional.proxy)
       .then(createCaseResponse => {
         logger.info(`Created case ${createCaseResponse.id} for ${idamConfigHelper.getTestEmail()}`);

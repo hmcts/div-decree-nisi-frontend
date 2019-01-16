@@ -1,10 +1,15 @@
 {
+  "ApplyForDecreeNisi.applyForDecreeNisi": "applyForDecreeNisi",
+
+  "MiniPetition.changes.hasBeenChanges": "hasBeenChanges",
   "MiniPetition.changes.changesDetails": "changesDetails",
   "MiniPetition.changes.statementOfTruthChanges": "statementOfTruthChanges",
   "MiniPetition.changes.statementOfTruthNoChanges": "statementOfTruthChanges",
 
   "ClaimCosts.dnCosts.claimCosts": "claimCosts",
   "ClaimCosts.dnCosts.costsDifferentDetails": "costsDifferentDetails",
+
+  "ShareCourtDocuments.upload": "uploadAnyOtherDocuments",
 
   "CheckYourAnswers.statementOfTruth": "statementOfTruth",
 
@@ -24,8 +29,8 @@
   "LivedApartSinceDesertion.changes.livedApartSinceDesertion": "livedApartSinceDesertion",
   "LivedApartSinceDesertion.changes.approximateDatesOfLivingTogetherField": "approximateDatesOfLivingTogetherField",
 
-  "LivedApartSinceAdultery.changes.livedApartSinceAdultery": "livedApartSinceAdultery",
-  "LivedApartSinceAdultery.changes.datesLivedTogether": "datesLivedTogether",
+  "LivedApartSinceAdultery.livedApart.livedApartSinceAdultery": "livedApartSinceAdultery",
+  "LivedApartSinceAdultery.livedApart.datesLivedTogether": "datesLivedTogether",
 
   "Upload.files": "files"
 }
