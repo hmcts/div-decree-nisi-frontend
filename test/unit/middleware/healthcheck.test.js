@@ -85,6 +85,17 @@ describe(modulePath, () => {
     );
   });
 
+  it('throws an error if healthcheck fails for case-orchestration-service', () => {
+    setupHealthChecks(app);
+
+    const cosCallback = healthcheck.web.thirdCall.args[1].callback;
+    cosCallback('error');
+
+    sinon.assert.calledWith(logger.error,
+      { error: 'error', message: 'Health check failed on case-orchestration-service:' }
+    );
+  });
+
   it('returns up if no error passed', () => {
     setupHealthChecks(app);
 
