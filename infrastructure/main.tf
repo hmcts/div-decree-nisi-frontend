@@ -40,11 +40,12 @@ module "frontend" {
   is_frontend                     = "${var.env != "preview" ? 1: 0}"
   subscription                    = "${var.subscription}"
   additional_host_name            = "${var.env != "preview" ? var.additional_host_name : "null"}"
-  https_only                      = "true"
+  https_only                      = "false"
   capacity                        = "${var.capacity}"
   common_tags                     = "${var.common_tags}"
   asp_name                        = "${local.asp_name}"
   asp_rg                          = "${local.asp_rg}"
+  instance_size                   = "I3"
 
   app_settings = {
 
