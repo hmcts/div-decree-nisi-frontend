@@ -40,6 +40,7 @@
     {% include "modify-session/sections/petitioner.html" %}
     {% include "modify-session/sections/respondent.html" %}
 
+    <input type="hidden" name="_csrf" value="{{ csurfCsrfToken }}">
     <input class="button" type="submit" value="Set">
 
   </form>
