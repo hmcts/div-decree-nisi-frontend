@@ -6,7 +6,7 @@ const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 describe(modulePath, () => {
   afterEach(() => {
-    feesAndPaymentsService.get.restore();
+    feesAndPaymentsService.getFee.restore();
   });
 
   it('gets the application fee from the service', done => {
@@ -24,7 +24,7 @@ describe(modulePath, () => {
       }
     };
 
-    sinon.stub(feesAndPaymentsService, 'get').withArgs('petition-issue-fee')
+    sinon.stub(feesAndPaymentsService, 'getFee').withArgs('petition-issue-fee')
       .resolves({
         feeCode: 'FEE0002',
         version: 4,
@@ -47,7 +47,7 @@ describe(modulePath, () => {
     };
     const req = sinon.stub();
 
-    sinon.stub(feesAndPaymentsService, 'get')
+    sinon.stub(feesAndPaymentsService, 'getFee')
       .rejects({});
 
     getFeeFromFeesAndPayments('petition-issue-fee')(req, res, next)

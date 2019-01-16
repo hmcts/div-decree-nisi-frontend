@@ -7,7 +7,7 @@ const getFeeFromFeesAndPayments = feeUrl => {
     if (!res.locals.applicationFee) {
       res.locals.applicationFee = {};
     }
-    return feesAndPaymentsService.get(feeUrl)
+    return feesAndPaymentsService.getFee(feeUrl)
       .then(response => {
         // set fee returned from Fees and payments service
         logger.info(' Fee amount set to ', response.amount);
