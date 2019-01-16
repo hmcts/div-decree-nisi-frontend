@@ -6,9 +6,17 @@ const redis = require('services/redis');
 const outputs = require('@hmcts/nodejs-healthcheck/healthcheck/outputs');
 const { OK } = require('http-status-codes');
 
-const options = {
-  timeout: config.health.timeout,
-  deadline: config.health.deadline
+const healthOptions = message => {
+  return {
+    callback: (error, res) => { // eslint-disable-line id-blacklist
+      if (error) {
+        logger.error({ message, error });
+      }
+      return !error && res.status === OK ? outputs.up() : outputs.down(error);
+    },
+    timeout: config.health.timeout,
+    deadline: config.health.deadline
+  };
 };
 
 const checks = () => {
@@ -22,30 +30,15 @@ const checks = () => {
           return false;
         });
     }),
-    'idam-web-app': healthcheck.web(config.services.idam.authenticationHealth, {
-      callback: (error, res) => { // eslint-disable-line id-blacklist
-        if (error) {
-          logger.error(`Health check failed on idam-web-app: ${error}`);
-        }
-        return !error && res.status === OK ? outputs.up() : outputs.down(error);
-      }
-    }, options),
-    'idam-api': healthcheck.web(config.services.idam.apiHealth, {
-      callback: (error, res) => { // eslint-disable-line id-blacklist
-        if (error) {
-          logger.error(`Health check failed on idam-api: ${error}`);
-        }
-        return !error && res.status === OK ? outputs.up() : outputs.down(error);
-      }
-    }, options),
-    'case-orchistration-service': healthcheck.web(config.services.orchestrationService.health, {
-      callback: (error, res) => { // eslint-disable-line id-blacklist
-        if (error) {
-          logger.error(`Health check failed on case-orchistration-service: ${error}`);
-        }
-        return !error && res.status === OK ? outputs.up() : outputs.down(error);
-      }
-    }, options)
+    'idam-web-app': healthcheck.web(config.services.idam.authenticationHealth,
+      healthOptions('Health check failed on idam-web-app:')
+    ),
+    'idam-api': healthcheck.web(config.services.idam.apiHealth,
+      healthOptions('Health check failed on idam-api:')
+    ),
+    'case-orchestration-service': healthcheck.web(config.services.caseOrchestration.health,
+      healthOptions('Health check failed on case-orchestration-service:')
+    )
   };
 };
 
