@@ -124,14 +124,14 @@
 
     "whatThisMeansFinantialOrdersPropertyMoneyPensions": "You were asked if you want the court to decide how your property, money, pensions and assets will be split.",
     "whatThisMeansFinantialOrdersChildren": "These decisions are called 'financial orders'. Financial orders can also be made for children.",
-    "whatThisMeansFinantialOrdersLegalProceedings": "To formally start legal proceedings, you would need to complete another form (known as Form A) and pay a fee of £255. This means that you don't have to proceed with the financial order at this point.",
+    "whatThisMeansFinantialOrdersLegalProceedings": "To formally start legal proceedings, you would need to complete another form (known as Form A) and pay a fee of £{{ applicationFinancialOrderFee }}. This means that you don't have to proceed with the financial order at this point.",
     "whatThisMeansFinantialOrdersConsentOrders": "Consent orders",
     "whatThisMeansFinantialOrdersSpltMoney": "If you both agree on how to split your money and property and want to make it legally binding, you can apply for a type of financial order called a 'consent order'.",
     "whatThisMeansFinantialOrdersConsentOrder": "You'll need to get a solicitor to draft the consent order, and then send it to the court with a £50 fee.",
     "whatThisMeansFinantialOrdersLegalAdvice": "You should get legal advice if you're not sure what to do.",
     "whatThisMeansFinantialOrdersChildMaintenance": "Orders for child maintenance",
     "whatThisMeansFinantialOrdersCertainCircumstances": "The court can only make financial orders for children under certain circumstances. You'll usually either need to come to an agreement with your {{ case.divorceWho }} (which you can then make legally binding with a consent order) or use the Child Maintenance Service.",
-    "changeOrAddWarning": "If you change or add anything which means the application has to be sent to your {{ case.divorceWho }} again you may have to pay a £95 fee.",
+    "changeOrAddWarning": "If you change or add anything which means the application has to be sent to your {{ case.divorceWho }} again you may have to pay a £{{ amendFee }} fee.",
     "errors": {
       "requireStatmentOfTruth": "Confirm that the information in your application is true",
       "requireChanges": "Answer if there any changes to your application",
