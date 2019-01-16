@@ -9,6 +9,7 @@ const feeTypes = {
   amendFee: 'amend-fee',
   defendPetitionFee: 'defended-petition-fee',
   generalAppFee: 'general-application-fee',
+  enforcementFee: 'enforcement-fee',
   appFinancialOrderFee: 'application-financial-order-fee',
   appWithoutNoticeFee: 'application-without-notice-fee',
   getAllFees: 'get-all-fees'
@@ -54,6 +55,10 @@ const getAllFees = () => {
   return getFee(feeTypes.getAllFees);
 };
 
+const enforcementFee = () => {
+  return getFee(feeTypes.enforcementFee);
+};
+
 
 module.exports = {
   getFee,
@@ -61,6 +66,7 @@ module.exports = {
   amendFee,
   defendPetitionFee,
   generalAppFee,
+  enforcementFee,
   appFinancialOrderFee,
   appWithoutNoticeFee,
   getAllFees
