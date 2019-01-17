@@ -54,7 +54,7 @@ describe(modulePath, () => {
         }
       };
       const fields = {
-        'changes.hasBeenChanges': 'yes'
+        'changes-hasBeenChanges': 'yes'
       };
       const onlyErrors = ['requireStatmentOfTruth', 'requireChangeDetails'];
       return question.testErrors(MiniPetition, session, fields, { onlyErrors });
@@ -69,7 +69,7 @@ describe(modulePath, () => {
         }
       };
       const fields = {
-        'changes.hasBeenChanges': 'no'
+        'changes-hasBeenChanges': 'no'
       };
       const onlyErrors = ['requireStatmentOfTruth'];
       return question.testErrors(MiniPetition, session, fields, { onlyErrors });
@@ -79,9 +79,9 @@ describe(modulePath, () => {
   describe('redirects', () => {
     it('redirects to Intolerable if answered changes yes and reasonForDivorce is adultery', () => {
       const fields = {
-        'changes.hasBeenChanges': 'yes',
-        'changes.changesDetails': 'details...',
-        'changes.statementOfTruthChanges': 'yes'
+        'changes-hasBeenChanges': 'yes',
+        'changes-changesDetails': 'details...',
+        'changes-statementOfTruthChanges': 'yes'
       };
       const session = {
         case: {
@@ -96,8 +96,8 @@ describe(modulePath, () => {
 
     it('redirects to Intolerable if answered changes no and reasonForDivorce is adultery', () => {
       const fields = {
-        'changes.hasBeenChanges': 'no',
-        'changes.statementOfTruthNoChanges': 'yes'
+        'changes-hasBeenChanges': 'no',
+        'changes-statementOfTruthNoChanges': 'yes'
       };
       const session = {
         case: {
@@ -114,9 +114,9 @@ describe(modulePath, () => {
       // eslint-disable-next-line max-len
       () => {
         const fields = {
-          'changes.hasBeenChanges': 'yes',
-          'changes.changesDetails': 'details...',
-          'changes.statementOfTruthChanges': 'yes'
+          'changes-hasBeenChanges': 'yes',
+          'changes-changesDetails': 'details...',
+          'changes-statementOfTruthChanges': 'yes'
         };
         const session = {
           case: {
@@ -133,8 +133,8 @@ describe(modulePath, () => {
       // eslint-disable-next-line max-len
       () => {
         const fields = {
-          'changes.hasBeenChanges': 'no',
-          'changes.statementOfTruthNoChanges': 'yes'
+          'changes-hasBeenChanges': 'no',
+          'changes-statementOfTruthNoChanges': 'yes'
         };
         const session = {
           case: {
@@ -149,9 +149,9 @@ describe(modulePath, () => {
 
     it('redirects to LivedApartSinceDesertion with desertion and answer yes', () => {
       const fields = {
-        'changes.hasBeenChanges': 'yes',
-        'changes.changesDetails': 'details...',
-        'changes.statementOfTruthChanges': 'yes'
+        'changes-hasBeenChanges': 'yes',
+        'changes-changesDetails': 'details...',
+        'changes-statementOfTruthChanges': 'yes'
       };
       const session = {
         case: {
@@ -166,8 +166,8 @@ describe(modulePath, () => {
 
     it('redirects to LivedApartSinceDesertion with desertion and answer no', () => {
       const fields = {
-        'changes.hasBeenChanges': 'no',
-        'changes.statementOfTruthNoChanges': 'yes'
+        'changes-hasBeenChanges': 'no',
+        'changes-statementOfTruthNoChanges': 'yes'
       };
       const session = {
         case: {
@@ -182,9 +182,9 @@ describe(modulePath, () => {
 
     it('redirects to LivedApartSinceSeparation with separation-2-years and answer yes', () => {
       const fields = {
-        'changes.hasBeenChanges': 'yes',
-        'changes.changesDetails': 'details...',
-        'changes.statementOfTruthChanges': 'yes'
+        'changes-hasBeenChanges': 'yes',
+        'changes-changesDetails': 'details...',
+        'changes-statementOfTruthChanges': 'yes'
       };
       const session = {
         case: {
@@ -199,8 +199,8 @@ describe(modulePath, () => {
 
     it('redirects to LivedApartSinceSeparation with separation-2-years and answer no', () => {
       const fields = {
-        'changes.hasBeenChanges': 'no',
-        'changes.statementOfTruthNoChanges': 'yes'
+        'changes-hasBeenChanges': 'no',
+        'changes-statementOfTruthNoChanges': 'yes'
       };
       const session = {
         case: {
@@ -215,9 +215,9 @@ describe(modulePath, () => {
 
     it('redirects to LivedApartSinceSeparation with separation-5-years and answer yes', () => {
       const fields = {
-        'changes.hasBeenChanges': 'yes',
-        'changes.changesDetails': 'details...',
-        'changes.statementOfTruthChanges': 'yes'
+        'changes-hasBeenChanges': 'yes',
+        'changes-changesDetails': 'details...',
+        'changes-statementOfTruthChanges': 'yes'
       };
       const session = {
         case: {
@@ -232,8 +232,8 @@ describe(modulePath, () => {
 
     it('redirects to LivedApartSinceSeparation with separation-5-years and answer no', () => {
       const fields = {
-        'changes.hasBeenChanges': 'no',
-        'changes.statementOfTruthNoChanges': 'yes'
+        'changes-hasBeenChanges': 'no',
+        'changes-statementOfTruthNoChanges': 'yes'
       };
       const session = {
         case: {
