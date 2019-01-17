@@ -43,8 +43,8 @@ describe(modulePath, () => {
 
   it('shows error if answered no and no date entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
-    const fields = { 'changes.behaviourContinuedSinceApplication': 'no',
-      'changes.lastIncidentDate-day': '' };
+    const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
+      'changes-lastIncidentDate-day': '' };
     const session = {
       case: {
         data: {
@@ -57,10 +57,10 @@ describe(modulePath, () => {
 
   it('shows error if answered no and a date before last application date is entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
-    const fields = { 'changes.behaviourContinuedSinceApplication': 'no',
-      'changes.lastIncidentDate-day': '20',
-      'changes.lastIncidentDate-month': '03',
-      'changes.lastIncidentDate-year': '1900' };
+    const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
+      'changes-lastIncidentDate-day': '20',
+      'changes-lastIncidentDate-month': '03',
+      'changes-lastIncidentDate-year': '1900' };
     const session = {
       case: {
         data: {
@@ -73,10 +73,10 @@ describe(modulePath, () => {
 
   it('shows error if answered no and a date in future is entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
-    const fields = { 'changes.behaviourContinuedSinceApplication': 'no',
-      'changes.lastIncidentDate-day': '20',
-      'changes.lastIncidentDate-month': '03',
-      'changes.lastIncidentDate-year': '2200' };
+    const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
+      'changes-lastIncidentDate-day': '20',
+      'changes-lastIncidentDate-month': '03',
+      'changes-lastIncidentDate-year': '2200' };
     const session = {
       case: {
         data: {
@@ -88,10 +88,10 @@ describe(modulePath, () => {
   });
 
   it('redirects to LivedApartSinceLastIncidentDate if selected no and valid date', () => {
-    const fields = { 'changes.behaviourContinuedSinceApplication': 'no',
-      'changes.lastIncidentDate.day': '20',
-      'changes.lastIncidentDate.month': '09',
-      'changes.lastIncidentDate.year': '2018' };
+    const fields = { 'changes-behaviourContinuedSinceApplication': 'no',
+      'changes-lastIncidentDate-day': '20',
+      'changes-lastIncidentDate-month': '09',
+      'changes-lastIncidentDate-year': '2018' };
     const session = {
       case: {
         data: {
@@ -109,7 +109,7 @@ describe(modulePath, () => {
 
   it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
     const fields = {
-      'changes.behaviourContinuedSinceApplication': 'yes'
+      'changes-behaviourContinuedSinceApplication': 'yes'
     };
     const session = {
       case: {
@@ -129,7 +129,7 @@ describe(modulePath, () => {
 
   it('redirects to ClaimCosts if answered yes and claimsCosts is Yes', () => {
     const fields = {
-      'changes.behaviourContinuedSinceApplication': 'yes'
+      'changes-behaviourContinuedSinceApplication': 'yes'
     };
     const session = {
       case: {

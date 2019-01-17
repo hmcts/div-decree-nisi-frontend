@@ -61,12 +61,12 @@ describe('Desertion DN flow', () => {
       {
         step: MiniPetition,
         body: {
-          'changes.hasBeenChanges': 'no',
-          'changes.statementOfTruthNoChanges': 'yes'
+          'changes-hasBeenChanges': 'no',
+          'changes-statementOfTruthNoChanges': 'yes'
         }
       },
-      { step: LivedApartSinceDesertion, body: { 'changes.livedApartSinceDesertion': 'yes' } },
-      { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
+      { step: LivedApartSinceDesertion, body: { 'changes-livedApartSinceDesertion': 'yes' } },
+      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
@@ -96,15 +96,15 @@ describe('Desertion DN flow', () => {
       {
         step: MiniPetition,
         body: {
-          'changes.hasBeenChanges': 'no',
-          'changes.statementOfTruthNoChanges': 'yes'
+          'changes-hasBeenChanges': 'no',
+          'changes-statementOfTruthNoChanges': 'yes'
         }
       },
       { step: LivedApartSinceDesertion, body: {
-        'changes.livedApartSinceDesertion': 'no',
-        'changes.approximateDatesOfLivingTogetherField': 'details...'
+        'changes-livedApartSinceDesertion': 'no',
+        'changes-approximateDatesOfLivingTogetherField': 'details...'
       } },
-      { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }

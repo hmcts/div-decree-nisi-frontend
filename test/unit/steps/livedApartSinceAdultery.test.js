@@ -37,13 +37,13 @@ describe(modulePath, () => {
 
     it('shows error if user answers no and does not enter date', () => {
       const onlyErrors = ['requireDatesLivedTogether'];
-      const fields = { 'livedApart.livedApartSinceAdultery': 'no' };
+      const fields = { 'livedApart-livedApartSinceAdultery': 'no' };
       return question.testErrors(LivedApartSinceAdultery, session, fields, { onlyErrors });
     });
   });
 
   it('redirects to ClaimCosts if answer is yes', () => {
-    const fields = { 'livedApart.livedApartSinceAdultery': 'yes' };
+    const fields = { 'livedApart-livedApartSinceAdultery': 'yes' };
     const sessionData = {
       case: {
         data: {
@@ -55,7 +55,7 @@ describe(modulePath, () => {
   });
 
   it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
-    const fields = { 'livedApart.livedApartSinceAdultery': 'yes' };
+    const fields = { 'livedApart-livedApartSinceAdultery': 'yes' };
     const sessionData = {
       case: {
         data: {
@@ -73,16 +73,16 @@ describe(modulePath, () => {
 
   it('redirects to ClaimCosts if answer is no and dates givent', () => {
     const fields = {
-      'livedApart.livedApartSinceAdultery': 'no',
-      'livedApart.datesLivedTogether': '3 months'
+      'livedApart-livedApartSinceAdultery': 'no',
+      'livedApart-datesLivedTogether': '3 months'
     };
     return question.redirectWithField(LivedApartSinceAdultery, fields, ClaimCosts, session);
   });
 
   it('redirects to ShareCourtDocuments if answered no, dates, claimsCosts is No', () => {
     const fields = {
-      'livedApart.livedApartSinceAdultery': 'no',
-      'livedApart.datesLivedTogether': '3 months'
+      'livedApart-livedApartSinceAdultery': 'no',
+      'livedApart-datesLivedTogether': '3 months'
     };
     const sessionData = {
       case: {
