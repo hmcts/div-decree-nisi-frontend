@@ -278,9 +278,10 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@https://github.com/hmcts/look-and-feel.git#21d029946eed3eaad0ea8ebbe7aa3d5d87158bd2":
-  version "1.19.5"
-  resolved "https://github.com/hmcts/look-and-feel.git#21d029946eed3eaad0ea8ebbe7aa3d5d87158bd2"
+"@hmcts/look-and-feel@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-2.0.0.tgz#380ba100b250628d018c0ca88ff3f17f6337e934"
+  integrity sha512-w7zvhhYq6H1VuO/xJDV2X+JNFQhDc9ULBTJmsUOTuBZMkns0ox1WAMGEW5IiuTl/r9Ki/jGdPhum0nOXtmAqQA==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -11042,39 +11043,6 @@ referrer-policy@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/referrer-policy/-/referrer-policy-1.1.0.tgz#35774eb735bf50fb6c078e83334b472350207d79"
   integrity sha1-NXdOtzW/UPtsB46DM0tHI1AgfXk=
-
-"reform-pattern-library@git+https://github.com/hmcts/reform-pattern-library.git":
-  version "1.0.0"
-  uid "4c75c1e9352e08eb0ed939221203ef1db35b4a54"
-  resolved "git+https://github.com/hmcts/reform-pattern-library.git#4c75c1e9352e08eb0ed939221203ef1db35b4a54"
-  dependencies:
-    body-parser "^1.18.2"
-    browser-sync "^2.18.13"
-    cookie-parser "^1.4.3"
-    del "^3.0.0"
-    express "^4.16.1"
-    express-session "^1.15.6"
-    govuk-elements-sass "^3.1.2"
-    govuk_frontend_toolkit "^7.1.0"
-    govuk_template_jinja "^0.23.0"
-    gulp "^3.9.1"
-    gulp-autoprefixer "^4.0.0"
-    gulp-cache "^0.4.6"
-    gulp-changed "^3.1.0"
-    gulp-cli "^1.4.0"
-    gulp-eslint "^4.0.0"
-    gulp-imagemin "^3.4.0"
-    gulp-nodemon "^2.2.1"
-    gulp-sass "^3.1.0"
-    gulp-uglify "^3.0.0"
-    heroku-ssl-redirect "0.0.4"
-    marked "^0.3.6"
-    multer "^1.1.0"
-    node-sass "^4.5.3"
-    nunjucks "git+https://git@github.com/gonogo/nunjucks.git"
-    nunjucks-markdown "^2.0.1"
-    require-dir "^0.3.2"
-    run-sequence "^2.2.0"
 
 "reform-pattern-library@https://github.com/hmcts/reform-pattern-library.git":
   version "1.0.0"
