@@ -7,17 +7,20 @@ const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
 
 describe(moduleName, () => {
   beforeEach(() => {
-    sinon.stub(request, 'getFee');
+    sinon.stub(request, 'get');
   });
 
   afterEach(() => {
-    request.getFee.restore();
+    request.get.restore();
   });
 
   it('should call the fee and payments service', done => {
-    feesAndPaymentService.getFee({})
-      .then(() => {
-        expect(request.getFee.calledOnce).to.eql(true);
+    const exampleCosResponse = { amount: '95' };
+    request.get.resolves(exampleCosResponse);
+    feesAndPaymentService.getFee('amend-fee')
+      .then(response => {
+        expect(request.get.calledOnce).to.eql(true);
+        expect(response).to.eql('95');
       })
       .then(done, done);
   });
