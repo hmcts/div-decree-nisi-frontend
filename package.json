@@ -44,7 +44,6 @@
     "express-limiter": "^1.6.1",
     "formidable": "^1.2.1",
     "glob": "^7.1.2",
-    "hard-source-webpack-plugin": "^0.13.1",
     "helmet": "^3.12.0",
     "http-status-codes": "^1.3.0",
     "i18next": "^11.3.1",
