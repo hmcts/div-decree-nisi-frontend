@@ -20,7 +20,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'separation-5-years',
-  respDefendsDivorce: null
+  respWillDefendDivorce: null
 };
 
 let caseOrchestrationServiceSubmitStub = {};
@@ -74,6 +74,7 @@ describe('Separation 5 years', () => {
         applyForDecreeNisi: 'yes',
         claimCosts: 'originalAmount',
         livedApartSinceSeparation: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes',
         uploadAnyOtherDocuments: 'no'
@@ -112,6 +113,7 @@ describe('Separation 5 years', () => {
         approximateDatesOfLivingTogetherField: 'details...',
         claimCosts: 'originalAmount',
         livedApartSinceSeparation: 'no',
+        hasBeenChanges: 'no',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes',
         uploadAnyOtherDocuments: 'no'

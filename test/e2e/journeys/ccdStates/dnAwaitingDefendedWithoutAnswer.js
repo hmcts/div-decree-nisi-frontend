@@ -19,7 +19,7 @@ const Done = require('steps/done/Done.step');
 const Entry = require('steps/entry/Entry.step');
 
 const session = {
-  respDefendsDivorce: null,
+  respWillDefendDivorce: null,
   permittedDecreeNisiReason: '3'
 };
 
@@ -74,6 +74,7 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 3', () => {
       applyForDecreeNisi: 'yes',
       claimCosts: 'originalAmount',
       livedApartSinceSeparation: 'yes',
+      hasBeenChanges: 'no',
       statementOfTruth: 'yes',
       statementOfTruthChanges: 'yes',
       uploadAnyOtherDocuments: 'no'

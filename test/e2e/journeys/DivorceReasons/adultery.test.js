@@ -25,7 +25,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'adultery',
-  respDefendsDivorce: null,
+  respWillDefendDivorce: null,
   reasonForDivorceAdulteryDetails: 'details'
 };
 
@@ -90,6 +90,7 @@ describe('Adultery DN flow', () => {
     it('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
         uploadAnyOtherDocuments: 'no',
@@ -139,6 +140,7 @@ describe('Adultery DN flow', () => {
     it('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
         uploadAnyOtherDocuments: 'no',

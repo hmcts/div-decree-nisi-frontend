@@ -21,7 +21,11 @@
 
 <h2 class="heading-medium">{{ content.undefendedAppStatusMsg }}</h2>
 
-<p>{{ content.undefendedAppStatusMsgDetails1 }}</p>
+{% if respondentAdmitsToFact %}
+  <p>{{ content.undefendedAppStatusMsgDetails1 }}</p>
+{% else %}
+  <p>{{ content.undefendedButNotAdmit }}</p>
+{% endif %}
 <p>{{ content.undefendedAppStatusMsgDetails2 }}</p>
 
 <details>

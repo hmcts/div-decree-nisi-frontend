@@ -10,7 +10,7 @@ const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgres
 const Entry = require('steps/entry/Entry.step');
 
 const session = {
-  respDefendsDivorce: null
+  respWillDefendDivorce: null
 };
 
 describe(

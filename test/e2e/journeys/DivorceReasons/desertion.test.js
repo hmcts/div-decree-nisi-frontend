@@ -21,7 +21,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'desertion',
-  respDefendsDivorce: null,
+  respWillDefendDivorce: null,
   reasonForDivorceDesertionDetails: 'details'
 };
 
@@ -77,6 +77,7 @@ describe('Desertion DN flow', () => {
         applyForDecreeNisi: 'yes',
         claimCosts: 'originalAmount',
         livedApartSinceDesertion: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes',
         uploadAnyOtherDocuments: 'no'
@@ -114,6 +115,7 @@ describe('Desertion DN flow', () => {
         applyForDecreeNisi: 'yes',
         approximateDatesOfLivingTogetherField: 'details...',
         claimCosts: 'originalAmount',
+        hasBeenChanges: 'no',
         livedApartSinceDesertion: 'no',
         statementOfTruth: 'yes',
         statementOfTruthChanges: 'yes',
