@@ -1,8 +1,19 @@
 const modulePath = 'middleware/feesAndPaymentsMiddleware';
 const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
-const { getFeeFromFeesAndPayments } = require(modulePath);
+const {
+  getFeeFromFeesAndPayments,
+  feeTypes
+} = require(modulePath);
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
+const appFee = (feeType, amount) => {
+  return {
+    feeCode: feeType,
+    version: 4,
+    amount,
+    description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+  };
+};
 
 describe(modulePath, () => {
   afterEach(() => {
@@ -15,24 +26,12 @@ describe(modulePath, () => {
       locals: { applicationFee: {} }
     };
     const req = sinon.stub();
-    const appFeeIssue = {
-      'petition-issue-fee': {
-        feeCode: 'FEE0002',
-        version: 4,
-        amount: 550.00,
-        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
-      }
-    };
 
-    sinon.stub(feesAndPaymentsService, 'getFee').withArgs('petition-issue-fee')
-      .resolves({
-        feeCode: 'FEE0002',
-        version: 4,
-        amount: 550.00,
-        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
-      });
-    getFeeFromFeesAndPayments('petition-issue-fee')(req, res, next).then(() => {
-      expect(res.locals.applicationFee).to.eql(appFeeIssue);
+    sinon.stub(feesAndPaymentsService, 'getFee').withArgs(feeTypes.issueFee)
+      .resolves(appFee(feeTypes.issueFee, '550'));
+
+    getFeeFromFeesAndPayments(feeTypes.issueFee)(req, res, next).then(() => {
+      expect(res.locals.applicationFee[feeTypes.issueFee]).to.eql('550');
       expect(next.calledOnce).to.eql(true);
       done();
     }).catch(error => {
@@ -50,7 +49,7 @@ describe(modulePath, () => {
     sinon.stub(feesAndPaymentsService, 'getFee')
       .rejects({});
 
-    getFeeFromFeesAndPayments('petition-issue-fee')(req, res, next)
+    getFeeFromFeesAndPayments(feeTypes.issueFee)(req, res, next)
       .then(() => {
         expect(next.calledOnce).to.eql(true);
         done();

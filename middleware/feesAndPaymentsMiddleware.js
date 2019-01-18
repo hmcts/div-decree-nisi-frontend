@@ -2,16 +2,24 @@ const feesAndPaymentsService = require('services/feesAndPaymentsService');
 const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 
 
-const getFeeFromFeesAndPayments = feeUrl => {
+const feeTypes = {
+  issueFee: 'petition-issue-fee',
+  amendFee: 'amend-fee',
+  defendPetitionFee: 'defended-petition-fee',
+  generalAppFee: 'general-application-fee',
+  enforcementFee: 'enforcement-fee',
+  appFinancialOrderFee: 'application-financial-order-fee',
+  appWithoutNoticeFee: 'application-without-notice-fee'
+};
+
+const getFeeFromFeesAndPayments = feeType => {
   return (req, res, next) => {
     if (!res.locals.applicationFee) {
       res.locals.applicationFee = {};
     }
-    return feesAndPaymentsService.getFee(feeUrl)
+    return feesAndPaymentsService.getFee(feeType)
       .then(response => {
-        // set fee returned from Fees and payments service
-        logger.info(' Fee amount set to ', response.amount);
-        res.locals.applicationFee[feeUrl] = response;
+        res.locals.applicationFee[feeType] = response.amount;
         return next();
       })
       .catch(error => {
@@ -21,4 +29,8 @@ const getFeeFromFeesAndPayments = feeUrl => {
   };
 };
 
-module.exports = { getFeeFromFeesAndPayments };
+
+module.exports = {
+  getFeeFromFeesAndPayments,
+  feeTypes
+};

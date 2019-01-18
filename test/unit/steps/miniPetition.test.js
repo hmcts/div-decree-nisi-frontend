@@ -16,17 +16,28 @@ const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
 );
 const idam = require('services/idam');
+
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
+
 const { middleware, question, sinon,
   content, expect } = require('@hmcts/one-per-page-test-suite');
-
 
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
+
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   afterEach(() => {
     idam.protect.restore();
+    feesAndPaymentsService.getFee.restore();
   });
 
   it('has idam.protect middleware', () => {
