@@ -25,12 +25,12 @@ const formatSessionForSubmit = req => {
     // rest of the items in array is path to field
     const fieldPath = sessionFieldPathAsArray.join('.');
 
-    // get step that corrisponds to the value in session
+    // get step that corresponds to the value in session
     const step = journey.instance(journey.steps[stepName]);
 
     // if step has been answered
     if (step && step.fields) {
-      // retreive all values as json for step
+      // retrieve all values as json for step
       const values = step.retrieve().values();
       // retrieve the field we need
       const value = get(values, fieldPath);

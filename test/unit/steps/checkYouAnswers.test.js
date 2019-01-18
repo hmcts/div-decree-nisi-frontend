@@ -64,7 +64,7 @@ describe(modulePath, () => {
       caseOrchestrationService.submitApplication.restore();
     });
 
-    it('to Done if statment of true answered', () => {
+    it('to Done if statement of true answered', () => {
       caseOrchestrationService.submitApplication.resolves();
       const fields = { statementOfTruth: 'yes' };
       return question.redirectWithField(CheckYourAnswers, fields, Done);
@@ -77,7 +77,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('claims costs statment of truth', () => {
+  describe('claims costs statement of truth', () => {
     it('from respondent and correspondent', () => {
       const session = {
         case: {
