@@ -243,6 +243,7 @@ describe('Respondent Admitted Adultery : no', () => {
         applyForDecreeNisi: 'yes',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        hasBeenChanges: 'no',
         uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         intolerable: 'yes',
