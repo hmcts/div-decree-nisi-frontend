@@ -243,9 +243,9 @@ describe('Respondent Admitted Adultery : no', () => {
     it('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
+        hasBeenChanges: 'no',
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
-        hasBeenChanges: 'no',
         uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         intolerable: 'yes',
