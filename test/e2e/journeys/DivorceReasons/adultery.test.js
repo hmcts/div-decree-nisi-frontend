@@ -182,7 +182,7 @@ describe('Adultery DN flow', () => {
 describe('Respondent Admitted Adultery : no', () => {
   const sess = {
     reasonForDivorce: 'adultery',
-    respDefendsDivorce: 'Yes',
+    respWillDefendDivorce: 'Yes',
     respAdmitOrConsentToFact: 'No',
     reasonForDivorceAdulteryDetails: 'details'
   };
