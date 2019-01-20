@@ -31,7 +31,7 @@ describe(modulePath, () => {
       .resolves(appFee(feeTypes.issueFee, '550'));
 
     getFeeFromFeesAndPayments(feeTypes.issueFee)(req, res, next).then(() => {
-      expect(res.locals.applicationFee[feeTypes.issueFee]).to.eql(appFee(feeTypes.issueFee, '550'));
+      expect(res.locals.applicationFee[feeTypes.issueFee]).to.eql('550');
       expect(next.calledOnce).to.eql(true);
       done();
     }).catch(error => {

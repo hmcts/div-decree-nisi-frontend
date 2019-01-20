@@ -54,16 +54,6 @@ describe(modulePath, () => {
         }
       }
     };
-    const response = {
-      locals: {
-        applicationFee: {
-          'petition-issue-fee': { amount: '550' },
-          'amend-fee': { amount: '95' },
-          'application-financial-order-fee': { amount: '245' }
-        }
-      }
-    };
-    const instance = new MiniPetition({ journey: {}, session }, response);
     return content(
       MiniPetition,
       session,
@@ -72,9 +62,6 @@ describe(modulePath, () => {
       sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.issueFee);
       sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.amendFee);
       sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.appFinancialOrderFee);
-      expect(instance.feesIssueApplication()).to.eql('550');
-      expect(instance.amendFee()).to.eql('95');
-      expect(instance.applicationFinancialOrderFee()).to.eql('245');
     });
   });
 
