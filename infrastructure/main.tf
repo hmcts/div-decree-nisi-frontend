@@ -101,7 +101,7 @@ module "frontend" {
 
     //Fees and Payments
     FEES_AND_PAYMENTS_URL = "${local.fees_payment_service_api_url}"
-    FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.fees_payment_service_api_url}${var.health_endpoint}"
+    FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.fees_payment_service_api_url}${local.health_endpoint}"
 
     // Feature toggling through config
     FEATURES_IDAM                           = "${var.feature_idam}"
