@@ -23,7 +23,7 @@
     "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner",
     "test:functional": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/functional/codecept.conf.js --steps --invert",
     "test:functional:remote": "NODE_PATH=. POINT_TO_REMOTE=true LOG_LEVEL=INFO codeceptjs run -c test/functional/codecept.conf.js --steps --invert",
-    "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --inspect-brk --exit test/w3cjs",
+    "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --exit test/w3cjs",
     "lint": "eslint ."
   },
   "pre-commit": "lint",
