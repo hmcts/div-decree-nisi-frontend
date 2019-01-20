@@ -6,7 +6,7 @@ const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
 const feeCodeEndpoint = '/fees-and-payments/version/1/';
 
 const getFee = feeType => {
-  logger.info({
+  logger.error({
     message: 'config loaded',
     config
   });
