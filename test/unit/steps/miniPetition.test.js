@@ -19,6 +19,7 @@ const idam = require('services/idam');
 
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
+const { feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { middleware, question, sinon,
   content, expect } = require('@hmcts/one-per-page-test-suite');
 
@@ -42,6 +43,39 @@ describe(modulePath, () => {
 
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(MiniPetition, [idam.protect()]);
+  });
+
+
+  it('getFeeFromFeesAndPayments middleware call', () => { // eslint-disable-line max-len
+    const session = {
+      case: {
+        data: {
+          connections: {}
+        }
+      }
+    };
+    const response = {
+      locals: {
+        applicationFee: {
+          'petition-issue-fee': '550',
+          'amend-fee': '95',
+          'application-financial-order-fee': '245'
+        }
+      }
+    };
+    const instance = new MiniPetition({ journey: {}, session }, response);
+    return content(
+      MiniPetition,
+      session,
+      { specificContent: ['title'] }
+    ).then(() => {
+      sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.issueFee);
+      sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.amendFee);
+      sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.appFinancialOrderFee);
+      expect(instance.feesIssueApplication()).to.eql('550');
+      expect(instance.amendFee()).to.eql('95');
+      expect(instance.applicationFinancialOrderFee()).to.eql('245');
+    });
   });
 
   describe('errors', () => {
