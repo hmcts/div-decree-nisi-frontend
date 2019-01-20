@@ -56,7 +56,7 @@ services:
     expire: 3600000
     enabled: false
   orchestrationService:
-    getCaseUrl: http://localhost:3001/retrieve-case
+    getCaseUrl: http://localhost:3001/case-orchestration/retrieve-case
     submitCaseUrl: http://localhost:3001/submit-dn
     health: http://localhost:3001/health
     draftEndpoint: http://localhost:3001/draftsapi/version/1
