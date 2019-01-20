@@ -69,8 +69,8 @@ services:
   caseMaintenance:
     baseUrl: http://localhost:3001/case-maintenance
   feesAndPayments:
-    url: "http://div-fps-aat.service.core-compute-aat.internal"
-    health: "http://div-fps-aat.service.core-compute-aat.internal/health"
+    url: http://localhost:3001
+    health: http://localhost:3001/health
 
 paths:
   adulteryFirstFoundOut: /first-find-out
