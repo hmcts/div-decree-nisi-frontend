@@ -20,7 +20,7 @@ const getFeeFromFeesAndPayments = feeType => {
     return feesAndPaymentsService.getFee(feeType)
       .then(response => {
         logger.error('amount fetched ', response.amount);
-        res.locals.applicationFee[feeType] = response.amount;
+        res.locals.applicationFee[feeType] = response;
         return next();
       })
       .catch(error => {

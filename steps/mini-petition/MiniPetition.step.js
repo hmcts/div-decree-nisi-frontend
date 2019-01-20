@@ -133,15 +133,15 @@ class MiniPetition extends Question {
 
   feesIssueApplication() {
     logger.error(this.res.locals);
-    return this.res.locals.applicationFee[feeTypes.issueFee];
+    return this.res.locals.applicationFee[feeTypes.issueFee].amount;
   }
 
   amendFee() {
-    return this.res.locals.applicationFee[feeTypes.amendFee];
+    return this.res.locals.applicationFee[feeTypes.amendFee].amount;
   }
 
   applicationFinancialOrderFee() {
-    return this.res.locals.applicationFee[feeTypes.appFinancialOrderFee];
+    return this.res.locals.applicationFee[feeTypes.appFinancialOrderFee].amount;
   }
 
   get middleware() {

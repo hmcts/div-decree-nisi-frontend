@@ -57,9 +57,9 @@ describe(modulePath, () => {
     const response = {
       locals: {
         applicationFee: {
-          'petition-issue-fee': '550',
-          'amend-fee': '95',
-          'application-financial-order-fee': '245'
+          'petition-issue-fee': { amount: '550' },
+          'amend-fee': { amount: '95' },
+          'application-financial-order-fee': { amount: '245' }
         }
       }
     };
