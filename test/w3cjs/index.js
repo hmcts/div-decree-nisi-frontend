@@ -1,10 +1,12 @@
 const w3cjs = require('w3cjs');
 const steps = require('steps')();
-const { custom, expect } = require('@hmcts/one-per-page-test-suite');
+const { sinon, custom, expect } = require('@hmcts/one-per-page-test-suite');
 const resolveTemplate = require('@hmcts/one-per-page/src/middleware/resolveTemplate');
 const httpStatus = require('http-status-codes');
 const cosMockCase = require('mocks/services/case-orchestration/retrieve-case/mock-case');
 const config = require('config');
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
+
 
 // Ignored warnings
 const excludedWarnings = [
@@ -82,6 +84,14 @@ steps
       let warnings = [];
 
       before(() => {
+        sinon.stub(feesAndPaymentsService, 'getFee')
+          .resolves({
+            feeCode: 'FEE0002',
+            version: 4,
+            amount: 550.00,
+            description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+          });
+
         return stepHtml(step)
           .then(html => w3cjsValidate(html))
           .then(results => {
@@ -91,6 +101,10 @@ steps
           .catch(error => {
             expect(error).to.eql(false, `Error with WC3 module: ${error}`);
           });
+      });
+
+      after(() => {
+        feesAndPaymentsService.getFee.restore();
       });
 
       it('should not have any html errors', () => {
