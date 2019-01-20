@@ -8,6 +8,8 @@ const Joi = require('joi');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 
+const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+
 class MiniPetition extends Question {
   static get path() {
     return config.paths.miniPetition;
@@ -130,6 +132,7 @@ class MiniPetition extends Question {
   }
 
   feesIssueApplication() {
+    logger.error(this.res.locals);
     return this.res.locals.applicationFee[feeTypes.issueFee];
   }
 
