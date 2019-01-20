@@ -129,15 +129,15 @@ class MiniPetition extends Question {
     );
   }
 
-  get feesIssueApplication() {
+  feesIssueApplication() {
     return this.res.locals.applicationFee[feeTypes.issueFee];
   }
 
-  get amendFee() {
+  amendFee() {
     return this.res.locals.applicationFee[feeTypes.amendFee];
   }
 
-  get applicationFinancialOrderFee() {
+  applicationFinancialOrderFee() {
     return this.res.locals.applicationFee[feeTypes.appFinancialOrderFee];
   }
 
@@ -147,7 +147,7 @@ class MiniPetition extends Question {
       idam.protect(),
       getFeeFromFeesAndPayments(feeTypes.issueFee),
       getFeeFromFeesAndPayments(feeTypes.amendFee),
-      getFeeFromFeesAndPayments(feeTypes.applicationFinancialOrderFee)
+      getFeeFromFeesAndPayments(feeTypes.appFinancialOrderFee)
     ];
   }
 }
