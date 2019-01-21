@@ -69,14 +69,14 @@ describe('Unreasonable behaviour', () => {
       {
         step: MiniPetition,
         body: {
-          'changes-hasBeenChanges': 'no',
-          'changes-statementOfTruthNoChanges': 'yes'
+          'changes.hasBeenChanges': 'no',
+          'changes.statementOfTruthNoChanges': 'yes'
         }
       },
       { step: BehaviourContinuedSinceApplication, body: {
-        'changes-behaviourContinuedSinceApplication': 'yes'
+        'changes.behaviourContinuedSinceApplication': 'yes'
       } },
-      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
@@ -110,21 +110,21 @@ describe('Unreasonable behaviour', () => {
       {
         step: MiniPetition,
         body: {
-          'changes-hasBeenChanges': 'no',
-          'changes-statementOfTruthNoChanges': 'yes'
+          'changes.hasBeenChanges': 'no',
+          'changes.statementOfTruthNoChanges': 'yes'
         }
       },
       { step: BehaviourContinuedSinceApplication, body: {
-        'changes-behaviourContinuedSinceApplication': 'no',
-        'changes-lastIncidentDate-day': '20',
-        'changes-lastIncidentDate-month': '08',
-        'changes-lastIncidentDate-year': '2018'
+        'changes.behaviourContinuedSinceApplication': 'no',
+        'changes.lastIncidentDate.day': '20',
+        'changes.lastIncidentDate.month': '08',
+        'changes.lastIncidentDate.year': '2018'
       } },
       { step: LivedApartSinceLastIncidentDate, body: {
-        'changes-livedApartSinceLastIncidentDate': 'yes'
+        'changes.livedApartSinceLastIncidentDate': 'yes'
       }
       },  // eslint-disable-line
-      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
