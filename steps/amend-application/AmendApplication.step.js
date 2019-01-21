@@ -1,7 +1,9 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo, action } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
+const caseOrchestrationService = require('services/caseOrchestrationService');
+const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 
 class AmendApplication extends Interstitial {
   static get path() {
@@ -17,7 +19,10 @@ class AmendApplication extends Interstitial {
   }
 
   next() {
-    return redirectTo(this.journey.steps.ShareCourtDocuments);
+    return action(caseOrchestrationService.amendApplication)
+    // eslint-disable-next-line max-len
+      .then(redirectToFrontendHelper.redirectToFrontendAmend(this.req, this.res))
+      .onFailure(redirectTo(this.journey.steps.AmendErrorStep));
   }
 }
 

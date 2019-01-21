@@ -15,6 +15,13 @@ const redirectToFrontend = (req, res) => {
   redirectToUrl(req, res, `${petitionerFrontend.url}${petitionerFrontend.landing}`);
 };
 
+const redirectToFrontendAmend = (req, res) => {
+  logger.info('Redirecting user to Petitioner Frontend to amend application');
+
+  const petitionerFrontend = config.services.petitionerFrontend;
+  redirectToUrl(req, res, `${petitionerFrontend.url}${petitionerFrontend.helpWithFees}`);
+};
+
 const redirectToAos = (req, res) => {
   logger.info('Redirecting user to AOS. User is a respondent user');
 
@@ -22,4 +29,4 @@ const redirectToAos = (req, res) => {
   redirectToUrl(req, res, `${aosFrontend.url}${aosFrontend.landing}`);
 };
 
-module.exports = { redirectToFrontend, redirectToAos };
+module.exports = { redirectToFrontend, redirectToAos, redirectToFrontendAmend };

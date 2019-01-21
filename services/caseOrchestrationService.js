@@ -39,6 +39,22 @@ const methods = {
         logger.error(`Trying to submit case to case orchestartion service: ${error}`);
         throw error;
       });
+  },
+
+  //  Triggers the amend application on backend
+  amendApplication: req => {
+    //  In case we need to send some trigger
+    const { amendApptrigger } = 'someTrigger';
+    // The url configuration will be added to infrastructure later when it is available from backend, and the line below modified accordingly
+    const uri = `${config.services.orchestrationService.amendCaseUrl}/${amendApptrigger}`;
+    const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
+    //  finish next line later
+    const body = 'some request body';
+    return request.post({ uri, headers, json: true, body })
+      .catch(error => {
+        logger.error(`Trying to submit amend request to case orchestartion service: ${error}`);
+        throw error;
+      });
   }
 };
 
