@@ -212,6 +212,9 @@ describe('Respondent Admitted Adultery : no', () => {
   });
 
   describe('Intolerable: yes, livedApartSinceAdultery: yes', () => {
+    if (!config.features.release520) {
+      return;
+    }
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },

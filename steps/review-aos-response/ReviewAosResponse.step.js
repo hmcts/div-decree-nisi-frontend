@@ -76,7 +76,7 @@ class ReviewAosResponse extends Question {
 
     return branch(
       redirectTo(this.journey.steps.RespNotAdmitAdultery)
-        .if(respNotAdmitAdultery),
+        .if(config.features.release520 && respNotAdmitAdultery),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
   }

@@ -73,6 +73,7 @@ journey:
 
 features:
   idam: FEATURES_IDAM
+  release520: FEATURE_RELEASE_520
 
 ccd:
   courts: CCD_DIGITAL_COURTS
