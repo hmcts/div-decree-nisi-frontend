@@ -31,8 +31,8 @@ const templates = {
     './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
   defendedAwaitingAnswer:
     './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html',
-  respNotAdmitAdultery:
-    './sections/respNotAdmitAdultery/PetitionProgressBar.respNotAdmitAdultery.template.html'
+  aosCompleted:
+    './sections/aosCompleted/PetitionProgressBar.aosCompleted.template.html'
 };
 
 // get all content for all pages
@@ -306,7 +306,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: AosCompleted', () => {
+  describe('CCD state: AosCompleted, D8ReasonForDivorce : adultery, RespAdmitOrConsentToFact : no', () => {
     const session = {
       case: {
         state: 'AosCompleted',
@@ -318,15 +318,15 @@ describe(modulePath, () => {
     };
 
     it('renders the correct content', () => {
-      const specificContent = Object.keys(pageContent.respNotAdmitAdultery);
-      const specificContentToNotExist = contentToNotExist('respNotAdmitAdultery');
+      const specificContent = Object.keys(pageContent.aosCompleted);
+      const specificContentToNotExist = contentToNotExist('aosCompleted');
 
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
-      expect(instance.stateTemplate).to.eql(templates.respNotAdmitAdultery);
+      expect(instance.stateTemplate).to.eql(templates.aosCompleted);
     });
   });
 

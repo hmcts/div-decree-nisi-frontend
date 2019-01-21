@@ -5,8 +5,7 @@ const idam = require('services/idam');
 const {
   caseStateMap,
   permitDNReasonMap,
-  caseIdDisplayStateMap,
-  aosCompletedOptionsMap
+  caseIdDisplayStateMap
 } = require('./petitionerStateTemplates');
 
 const constants = {
@@ -89,25 +88,11 @@ class PetitionProgressBar extends Interstitial {
     return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
   }
 
-  get aosCompletedOptions() {
-    if (this.reasonForDivorce === constants.adultery && !this.respAdmitsToFact) {
-      return 'respNotAdmittedAdultery';
-    } else if (this.reasonForDivorce === constants.sep2Yr && this.respAdmitsToFact) {
-      return 'sep2YrWithConsent';
-    }
-    return '';
-  }
-
   get stateTemplate() {
     let template = '';
-    switch (this.caseState) {
-    case constants.DNAwaiting:
+    if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
-      break;
-    case constants.AOSCompleted:
-      template = aosCompletedOptionsMap.get(this.aosCompletedOptions);
-      break;
-    default:
+    } else {
       caseStateMap.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
           template = dataMap.template;
