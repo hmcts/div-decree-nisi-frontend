@@ -1,7 +1,8 @@
 const { Page } = require('@hmcts/one-per-page');
 const config = require('config');
 const { stopHere } = require('@hmcts/one-per-page/flow');
-const { appWithoutNoticeFee, enforcementFee } = require('middleware/feesAndPaymentsMiddleware');
+
+const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 
 class DnNoResponse extends Page {
   static get path() {
@@ -17,11 +18,19 @@ class DnNoResponse extends Page {
   }
 
   get feeToResendApplication() {
-    return appWithoutNoticeFee;
+    return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.appWithoutNoticeFee] : '';
   }
 
   get enforcemetFee() {
-    return enforcementFee;
+    return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.enforcementFee] : '';
+  }
+
+  get middleware() {
+    return [
+      ...super.middleware,
+      getFeeFromFeesAndPayments(feeTypes.appWithoutNoticeFee),
+      getFeeFromFeesAndPayments(feeTypes.enforcementFee)
+    ];
   }
 }
 

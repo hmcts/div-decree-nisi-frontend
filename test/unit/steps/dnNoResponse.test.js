@@ -1,11 +1,30 @@
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
 const DnNoResponseContent = require('steps/dn-no-response/DnNoResponse.content');
-const { custom, expect, content } = require('@hmcts/one-per-page-test-suite');
+const { custom, expect, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const httpStatus = require('http-status-codes');
 const { getExpectedCourtsList, testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
 
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
+
+const { feeTypes } = require('middleware/feesAndPaymentsMiddleware');
+
 describe('DnNoResponse step', () => {
+  beforeEach(() => {
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
+  });
+
+  afterEach(() => {
+    feesAndPaymentsService.getFee.restore();
+  });
+
+
   it('renders the content', () => {
     const ignoreContent = ['continue'];
     const session = { case: { data: {} } };
@@ -15,6 +34,24 @@ describe('DnNoResponse step', () => {
       'doneWithAllWaysOfDelivering.applyD13bLink'
     ];
     return content(DnNoResponse, session, { specificContent, ignoreContent });
+  });
+
+  it('getFeeFromFeesAndPayments middleware call', () => { // eslint-disable-line max-len
+    const session = {
+      case: {
+        data: {
+          connections: {}
+        }
+      }
+    };
+    return content(
+      DnNoResponse,
+      session,
+      { specificContent: ['title'] }
+    ).then(() => {
+      sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.appWithoutNoticeFee);
+      sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.enforcementFee);
+    });
   });
 
   describe('court address details', () => {
