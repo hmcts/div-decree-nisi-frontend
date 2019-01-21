@@ -22,6 +22,10 @@ const caseStateMap = [
   {
     template: './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
     state: ['aosoverdue']
+  },
+  {
+    template: './sections/aosCompleted/PetitionProgressBar.aosCompleted.template.html',
+    state: ['aoscompleted']
   }
 ];
 
@@ -35,14 +39,8 @@ const permitDNReasonMap = new Map([
   ['4', './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html']
 ]);
 
-const aosCompletedOptionsMap = new Map([
-  ['respNotAdmittedAdultery', './sections/respNotAdmitAdultery/PetitionProgressBar.respNotAdmitAdultery.template.html'],
-  ['sep2YrWithConsent', './sections/sep2YrWithConsent/PetitionProgressBar.sep2YrWithConsent.template.html']
-]);
-
 module.exports = {
   caseStateMap,
   permitDNReasonMap,
-  caseIdDisplayStateMap,
-  aosCompletedOptionsMap
+  caseIdDisplayStateMap
 };
