@@ -123,6 +123,7 @@ tests:
 
 features:
   idam: false
+  release520: false
 
 journey:
   timeoutDelay: 300

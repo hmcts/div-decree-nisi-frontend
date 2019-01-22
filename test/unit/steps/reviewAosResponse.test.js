@@ -10,6 +10,8 @@ const idam = require('services/idam');
 const { middleware, sinon, content,
   stepAsInstance, question, expect } = require('@hmcts/one-per-page-test-suite');
 
+const config = require('config');
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -103,6 +105,9 @@ describe(modulePath, () => {
     });
 
     it('redirects to RespNotAdmitAdultery page', () => {
+      if (!config.features.release520) {
+        return true;
+      }
       const fields = { reviewAosResponse: 'yes' };
       const session = {
         case: {

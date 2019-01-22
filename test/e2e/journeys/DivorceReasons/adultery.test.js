@@ -72,18 +72,18 @@ describe('Adultery DN flow', () => {
       {
         step: MiniPetition,
         body: {
-          'changes-hasBeenChanges': 'no',
-          'changes-statementOfTruthNoChanges': 'yes'
+          'changes.hasBeenChanges': 'no',
+          'changes.statementOfTruthNoChanges': 'yes'
         }
       },
       { step: Intolerable, body: { intolerable: 'yes' } },
       { step: AdulteryFirstFoundOut, body: {
-        'adulteryFirstFoundDate-day': '09',
-        'adulteryFirstFoundDate-month': '08',
-        'adulteryFirstFoundDate-year': '2011'
+        'adulteryFirstFoundDate.day': '09',
+        'adulteryFirstFoundDate.month': '08',
+        'adulteryFirstFoundDate.year': '2011'
       } },
-      { step: LivedApartSinceAdultery, body: { 'livedApart-livedApartSinceAdultery': 'yes' } },
-      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
+      { step: LivedApartSinceAdultery, body: { 'livedApart.livedApartSinceAdultery': 'yes' } },
+      { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
@@ -119,21 +119,21 @@ describe('Adultery DN flow', () => {
       {
         step: MiniPetition,
         body: {
-          'changes-hasBeenChanges': 'no',
-          'changes-statementOfTruthNoChanges': 'yes'
+          'changes.hasBeenChanges': 'no',
+          'changes.statementOfTruthNoChanges': 'yes'
         }
       },
       { step: Intolerable, body: { intolerable: 'yes' } },
       { step: AdulteryFirstFoundOut, body: {
-        'adulteryFirstFoundDate-day': '09',
-        'adulteryFirstFoundDate-month': '08',
-        'adulteryFirstFoundDate-year': '2011'
+        'adulteryFirstFoundDate.day': '09',
+        'adulteryFirstFoundDate.month': '08',
+        'adulteryFirstFoundDate.year': '2011'
       } },
       { step: LivedApartSinceAdultery, body: {
-        'livedApart-livedApartSinceAdultery': 'no',
-        'livedApart-datesLivedTogether': '3 months'
+        'livedApart.livedApartSinceAdultery': 'no',
+        'livedApart.datesLivedTogether': '3 months'
       } },
-      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
@@ -170,8 +170,8 @@ describe('Adultery DN flow', () => {
       {
         step: MiniPetition,
         body: {
-          'changes-hasBeenChanges': 'no',
-          'changes-statementOfTruthNoChanges': 'yes'
+          'changes.hasBeenChanges': 'no',
+          'changes.statementOfTruthNoChanges': 'yes'
         }
       },
       { step: Intolerable, body: { intolerable: 'no' } },
@@ -212,6 +212,9 @@ describe('Respondent Admitted Adultery : no', () => {
   });
 
   describe('Intolerable: yes, livedApartSinceAdultery: yes', () => {
+    if (!config.features.release520) {
+      return;
+    }
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
