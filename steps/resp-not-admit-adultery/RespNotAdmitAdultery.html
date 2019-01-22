@@ -1,0 +1,34 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+  <p class="text">{{ content.fact | safe }}</p>
+
+  <p class="text">{{ content.options | safe }}</p>
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.amendPetition, content.fields.amendPetition.title,
+      options = [
+        { label: content.fields.amendPetition.yes, value: "yes" },
+        { label: content.fields.amendPetition.no, value: "no", target: "no-container"}
+      ],
+      hint=false,
+      hideQuestion=true,
+      inline=false,
+      type='radio'
+    ) }}
+  {% endcall %}
+
+  <!-- Dropdown area if answered no -->
+  <div class="js-hidden" id="no-container">
+    <p class="text">{{ content.onlyDoThis | safe}}</p>
+    <p class="text">{{ content.evidence | safe}}</p>
+  </div>
+
+{% endblock %}
