@@ -1,6 +1,6 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
@@ -70,7 +70,15 @@ class ReviewAosResponse extends Question {
   }
 
   next() {
-    return redirectTo(this.journey.steps.ApplyForDecreeNisi);
+    const respNotAdmitAdultery = () => {
+      return this.adultery && this.notExist(this.consts.respAdmitOrConsentToFact);
+    };
+
+    return branch(
+      redirectTo(this.journey.steps.RespNotAdmitAdultery)
+        .if(config.features.release520 && respNotAdmitAdultery),
+      redirectTo(this.journey.steps.ApplyForDecreeNisi)
+    );
   }
 
   get form() {

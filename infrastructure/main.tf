@@ -104,6 +104,7 @@ module "frontend" {
 
     // Feature toggling through config
     FEATURES_IDAM                           = "${var.feature_idam}"
+    FEATURE_RELEASE_520                     = "${var.feature_release_520}"
 
     // Encryption secrets
     SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"
