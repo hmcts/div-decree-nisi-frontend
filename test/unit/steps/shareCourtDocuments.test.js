@@ -5,6 +5,7 @@ const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step
 const Upload = require('steps/upload/Upload.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const config = require('config');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -27,6 +28,9 @@ describe(modulePath, () => {
     });
 
     it('renders the adultery related content', () => {
+      if (!config.features.release520) {
+        return true;
+      }
       const session = {
         case: {
           data: {

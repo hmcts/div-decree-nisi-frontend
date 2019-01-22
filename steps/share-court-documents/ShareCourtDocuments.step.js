@@ -34,7 +34,7 @@ class ShareCourtDocuments extends Question {
   }
 
   get respNotAdmittedAdultery() {
-    return this.case.reasonForDivorce === constants.adultery && this.case.respAdmitOrConsentToFact === constants.no;
+    return config.features.release520 && this.case.reasonForDivorce === constants.adultery && this.case.respAdmitOrConsentToFact === constants.no;
   }
 
   answers() {
