@@ -2,6 +2,7 @@ const { branch } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
+const { parseBool } = require('@hmcts/one-per-page/util');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
@@ -34,7 +35,7 @@ class ShareCourtDocuments extends Question {
   }
 
   get respNotAdmittedAdultery() {
-    return config.features.release520 && this.case.reasonForDivorce === constants.adultery && this.case.respAdmitOrConsentToFact === constants.no;
+    return parseBool(config.features.release520) && this.case.reasonForDivorce === constants.adultery && this.case.respAdmitOrConsentToFact === constants.no;
   }
 
   answers() {
