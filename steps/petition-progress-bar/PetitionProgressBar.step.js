@@ -91,6 +91,7 @@ class PetitionProgressBar extends Interstitial {
 
   get stateTemplate() {
     let template = '';
+
     if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
     } else if (config.features.release520) {
