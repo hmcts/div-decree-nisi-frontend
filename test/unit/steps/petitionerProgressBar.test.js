@@ -1,5 +1,6 @@
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
+const config = require('config');
 const PetitionProgressBar = require(modulePath);
 const PetProgressBarContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
@@ -318,17 +319,22 @@ describe(modulePath, () => {
       }
     };
 
-    it('renders the correct content', () => {
-      const specificContent = Object.keys(pageContent.aosCompleted);
-      const specificContentToNotExist = contentToNotExist('aosCompleted');
 
-      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
-    });
+    if (config.features.release520) {
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.aosCompleted);
+        const specificContentToNotExist = contentToNotExist('aosCompleted');
 
-    it('renders the correct template', () => {
-      const instance = stepAsInstance(PetitionProgressBar, session);
-      expect(instance.stateTemplate).to.eql(templates.aosCompleted);
-    });
+        return content(PetitionProgressBar,
+          session,
+          { specificContent, specificContentToNotExist });
+      });
+
+      it('renders the correct template', () => {
+        const instance = stepAsInstance(PetitionProgressBar, session);
+        expect(instance.stateTemplate).to.eql(templates.aosCompleted);
+      });
+    }
   });
 
   describe('CCD state: AOSOverdue', () => {

@@ -5,7 +5,8 @@ const idam = require('services/idam');
 const {
   caseStateMap,
   permitDNReasonMap,
-  caseIdDisplayStateMap
+  caseIdDisplayStateMap,
+  caseStateMap520
 } = require('./petitionerStateTemplates');
 
 const constants = {
@@ -92,6 +93,12 @@ class PetitionProgressBar extends Interstitial {
     let template = '';
     if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
+    } else if (config.features.release520) {
+      caseStateMap520.forEach(dataMap => {
+        if (dataMap.state.includes(this.caseState)) {
+          template = dataMap.template;
+        }
+      });
     } else {
       caseStateMap.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
