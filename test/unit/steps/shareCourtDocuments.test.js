@@ -7,6 +7,8 @@ const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const config = require('config');
 
+const { parseBool } = require('@hmcts/one-per-page/util');
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -28,7 +30,7 @@ describe(modulePath, () => {
     });
 
     it('renders the adultery related content', () => {
-      if (!config.features.release520) {
+      if (!parseBool(config.features.release520)) {
         return true;
       }
       const session = {
