@@ -7,9 +7,18 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 
+const constants = {
+  adultery: 'adultery',
+  no: 'No'
+};
+
 class ShareCourtDocuments extends Question {
   static get path() {
     return config.paths.shareCoreDocuments;
+  }
+
+  get case() {
+    return this.req.session.case.data;
   }
 
   get form() {
@@ -22,6 +31,10 @@ class ShareCourtDocuments extends Question {
       .joi(this.content.errors.required, validAnswers);
 
     return form({ upload });
+  }
+
+  get respNotAdmittedAdultery() {
+    return config.features.release520 && this.case.reasonForDivorce === constants.adultery && this.case.respAdmitOrConsentToFact === constants.no;
   }
 
   answers() {
