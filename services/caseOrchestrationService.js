@@ -24,7 +24,7 @@ const methods = {
       })
       .catch(error => {
         logger.error({
-          message: logger.wrapWithUserInfo(req, 'Trying to retrieve case from case orchestartion service'),
+          message: logger.wrapWithUserInfo(req, 'Trying to retrieve case from case orchestration service'),
           error
         });
         throw error;
@@ -40,7 +40,7 @@ const methods = {
     return request.post({ uri, headers, json: true, body })
       .catch(error => {
         logger.error({
-          message: logger.wrapWithUserInfo(req, 'Trying to submit case to case orchestartion service'),
+          message: logger.wrapWithUserInfo(req, 'Trying to submit case to case orchestration service'),
           error
         });
         throw error;
