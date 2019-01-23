@@ -16,5 +16,6 @@ capacity = "2"
 rate_limiter_enabled = false
 
 petitioner_frontend_url = "https://div-pfe-sprod.service.core-compute-sprod.internal"
+respondent_frontend_url = "https://div-rfe-sprod.service.core-compute-sprod.internal"
 
 ccd_digital_courts = "[\"serviceCentre\"]"
