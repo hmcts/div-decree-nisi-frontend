@@ -319,7 +319,6 @@ describe(modulePath, () => {
       }
     };
 
-
     if (config.features.release520) {
       it('renders the correct content', () => {
         const specificContent = Object.keys(pageContent.aosCompleted);
