@@ -1,5 +1,6 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const {
@@ -94,7 +95,7 @@ class PetitionProgressBar extends Interstitial {
 
     if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
-    } else if (config.features.release520) {
+    } else if (parseBool(config.features.release520)) {
       caseStateMap520.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
           template = dataMap.template;

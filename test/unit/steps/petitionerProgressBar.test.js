@@ -1,6 +1,7 @@
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
 const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 const PetitionProgressBar = require(modulePath);
 const PetProgressBarContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
@@ -319,7 +320,7 @@ describe(modulePath, () => {
       }
     };
 
-    if (config.features.release520) {
+    if (parseBool(config.features.release520)) {
       it('renders the correct content', () => {
         const specificContent = Object.keys(pageContent.aosCompleted);
         const specificContentToNotExist = contentToNotExist('aosCompleted');
