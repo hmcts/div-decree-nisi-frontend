@@ -1,6 +1,5 @@
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
-
+const logger = require('services/logger').getLogger(__filename);
 
 const feeTypes = {
   issueFee: 'petition-issue-fee',
@@ -23,7 +22,7 @@ const getFeeFromFeesAndPayments = feeType => {
         return next();
       })
       .catch(error => {
-        logger.error(error);
+        logger.error(`Failed to fetch fee details for the feeType ${feeType}: ${error}`);
         next(error);
       });
   };
