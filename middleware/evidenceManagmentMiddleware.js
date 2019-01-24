@@ -1,5 +1,5 @@
 const httpStatus = require('http-status-codes');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 const evidenceManagmentService = require('services/evidenceManagmentService');
 const evidenceManagmentServiceMock = require('mocks/services/evidenceManagmentService');
 const { map } = require('lodash');
@@ -76,7 +76,7 @@ const errorHandler = (error = errors.unknown, req, res) => {
   }
 
   logger.error({
-    message: 'Error when uploading to Evidence Management:',
+    message: logger.wrapWithUserInfo(req, 'Error when uploading to Evidence Management:'),
     errorToReturn,
     error
   });
