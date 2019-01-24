@@ -10,6 +10,8 @@ const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgres
 const dnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
 const Entry = require('steps/entry/Entry.step');
 
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
+
 describe('AOSOverdue DN flow', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
@@ -19,10 +21,19 @@ describe('AOSOverdue DN flow', () => {
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
       .resolves(merge({}, mockCaseResponse, { state: 'AOSOverdue' }));
+
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   after(() => {
     request.get.restore();
+    feesAndPaymentsService.getFee.restore();
   });
 
   journey.test([

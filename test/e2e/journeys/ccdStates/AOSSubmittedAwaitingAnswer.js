@@ -9,6 +9,8 @@ const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgres
 const reviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const Entry = require('steps/entry/Entry.step');
 
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
+
 const session = {
   respWillDefendDivorce: 'Yes'
 };
@@ -23,9 +25,18 @@ describe('AosSubmittedAwaitingAnswer DN flow', () => {
       .resolves(merge({}, mockCaseResponse, {
         state: 'AosSubmittedAwaitingAnswer', data: session
       }));
+
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
   after(() => {
     request.get.restore();
+    feesAndPaymentsService.getFee.restore();
   });
   journey.test([
     { step: Start },

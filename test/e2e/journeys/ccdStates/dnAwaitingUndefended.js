@@ -18,6 +18,8 @@ const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step
 const Done = require('steps/done/Done.step');
 const Entry = require('steps/entry/Entry.step');
 
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
+
 const session = {
   respWillDefendDivorce: null,
   permittedDecreeNisiReason: '0'
@@ -41,11 +43,20 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 0', () => {
         uri: `${config.services.orchestrationService.submitCaseUrl}/${mockCaseResponse.caseId}`
       }));
     caseOrchestrationServiceSubmitStub.resolves();
+
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   after(() => {
     request.get.restore();
     request.post.restore();
+    feesAndPaymentsService.getFee.restore();
   });
 
 

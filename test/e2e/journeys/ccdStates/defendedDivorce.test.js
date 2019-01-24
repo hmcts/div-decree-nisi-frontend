@@ -9,6 +9,8 @@ const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const Entry = require('steps/entry/Entry.step');
 
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
+
 const session = {
   respWillDefendDivorce: null
 };
@@ -22,10 +24,19 @@ describe('Case State : DefendedDivorce', () => {
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
       .resolves(merge({}, mockCaseResponse, { state: 'DefendedDivorce', data: session }));
+
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   after(() => {
     request.get.restore();
+    feesAndPaymentsService.getFee.restore();
   });
 
 

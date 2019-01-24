@@ -15,23 +15,23 @@
     },
   
     "sendToWorkAddress": {
-      "linkSummary": "I need to send the application to a non-residential address, eg a work address (£50)",
+      "linkSummary": "I need to send the application to a non-residential address, eg a work address (£{{ feeToResendApplication }})",
       "askToSendApp": "You can ask for the application to be sent to a non-residential address."
     },
 
     "needToSearchRecords": {
-      "linkSummary": "I need to search government records for my {{ case.divorceWho }}’s address (£50)",
+      "linkSummary": "I need to search government records for my {{ case.divorceWho }}’s address (£{{ feeToResendApplication }})",
       "canApplyIfRespLivesInEngWales": "You can apply for a search of government databases (eg the electoral role) for your {{ case.divorceWho }}’s address. Your {{ case.divorceWho }} must live in England or Wales.",
       "applyViaSearchRecords": "Contact the service centre and ask for the form to be sent to you."  
     },
 
     "sendEmailToResp": {
-      "linkSummary": "I need to send the application to my {{ case.divorceWho }}'s email address (£50)",
+      "linkSummary": "I need to send the application to my {{ case.divorceWho }}'s email address (£{{ feeToResendApplication }})",
       "appToEmail": "You can ask for the application to be delivered by email."
     },
 
     "believeRespChoseNotToRespond": {
-      "linkSummary": "I believe my {{ case.divorceWho }} lives at that address, but chose not to respond (£110)",
+      "linkSummary": "I believe my {{ case.divorceWho }} lives at that address, but chose not to respond (£{{ enforcemetFee }})",
       "deliverPapersDirectlyToResp": "If you think that your {{ case.divorceWho }} is deliberately not responding you can pay a professional to deliver (serve) the divorce papers directly to them.",
       "optionsToDeliver": "You can do this by using either a:",
       "privateHireToDeliver": "Process server (a privately hired professional)",
@@ -48,14 +48,14 @@
     },
 
     "evidenceRespWontRespond": {
-      "linkSummary": "I have evidence that my {{ case.divorceWho }} received the application, but can't or won't respond (£50)",
+      "linkSummary": "I have evidence that my {{ case.divorceWho }} received the application, but can't or won't respond (£{{ feeToResendApplication }})",
       "canApplyForDeemedServ": "If you know your {{ case.divorceWho }} received the application, but can’t or won’t respond, you can apply to the court for a ‘deemed service’. This means that the court will decide that your {{ case.divorceWho }} has received the application, and that you can continue without their response.",
       "needToProve": "You need to be able to prove that your {{ case.divorceWho }} received the application (eg, you have a text message from {{ case.divorceWho }} saying they received it).",
       "applyAndSendDocs": "Send the form and documents to the Courts and Tribunals Service Centre."  
     },
 
     "doneWithAllWaysOfDelivering":{
-      "linkSummary": "I’ve tried every possible way of delivering the application (£50)",
+      "linkSummary": "I’ve tried every possible way of delivering the application (£{{feeToResendApplication }})",
       "askForDispenseWithService":"Under exceptional circumstances, you can ask the court to ‘dispense with service’ (decide your {{ case.divorceWho }} doesn’t have to be served the divorce application).",
       "allInCourtHands":"It’s up to the court to decide whether to grant this. Before it can be considered, you’ll need to show that you’ve done everything you can to find them by contacting their:",
       "relatives":"relatives (including children)",
@@ -72,8 +72,8 @@
     "fill": "Download and complete ",
     "applyD11": "<a href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=98\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D11</a>.",
     "howToPay": "How to pay: ",
-    "howToPayContent": "Call the service centre to make the £50 payment by card (between 8.30am and 5pm) or include a cheque with your form.",
-    "howToPayBailiffContent": "Call the service centre to make the £110 payment by card (between 8.30am and 5pm) or include a cheque with your form.",
+    "howToPayContent": "Call the service centre to make the £{{ feeToResendApplication }} payment by card (between 8.30am and 5pm) or include a cheque with your form.",
+    "howToPayBailiffContent": "Call the service centre to make the £{{ enforcemetFee }} payment by card (between 8.30am and 5pm) or include a cheque with your form.",
     "getNewRefNumb": "If you're eligible for help with fees you'll need to apply again and <a href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get a new reference number</a>.",
     "extraCosts": "If you asked the court to order your {{ case.divorceWho }} to pay your costs, then these extra costs will also be taken into account.",
     "printAndSend": "Send the form to the Courts and Tribunals Service Centre.",

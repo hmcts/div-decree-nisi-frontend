@@ -56,10 +56,10 @@ services:
     expire: 3600000
     enabled: false
   orchestrationService:
-    getCaseUrl: http://localhost:3001/retrieve-case
-    submitCaseUrl: http://localhost:3001/submit-dn
-    health: http://localhost:3001/health
-    draftEndpoint: http://localhost:3001/draftsapi/version/1
+    getCaseUrl: http://localhost:3001/case-orchestration/retrieve-case
+    submitCaseUrl: http://localhost:3001/case-orchestration/submit-dn
+    health: http://localhost:3001/case-orchestration/health
+    draftEndpoint: http://localhost:3001/case-orchestration/draftsapi/version/1
   petitionerFrontend:
     url: https://localhost:8080
     landing: /authenticated
@@ -68,6 +68,9 @@ services:
     landing: /authenticated
   caseMaintenance:
     baseUrl: http://localhost:3001/case-maintenance
+  feesAndPayments:
+    url: http://localhost:3001
+    health: http://localhost:3001/health
 
 paths:
   adulteryFirstFoundOut: /first-find-out
