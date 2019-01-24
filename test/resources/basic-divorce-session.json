@@ -9,7 +9,7 @@
   "D8MarriagePlaceOfMarriage": "London, UK",
   "D8MarriageDate": "2001-02-02",
   "D8PetitionerNameDifferentToMarriageCert": "YES",
-  "D8PetitionerEmail": "email@email.com",
+  "D8PetitionerEmail": "divdnhappypath@mailinator.com",
   "D8PetitionerPhoneNumber": "01234567890",
   "D8PetitionerFirstName": "John",
   "D8PetitionerLastName": "Smith",
@@ -99,5 +99,7 @@
   "D8DerivedReasonForDivorceAdultery3rdAddr": "Headquarters 1120 N Street Sacramento 916-654-5266\t\nP.O. Box 942873 Sacramento, CA 94273-0001",
   "D8Cohort": "onlineSubmissionPrivateBeta",
   "D8InferredPetitionerGender": "female",
-  "D8InferredRespondentGender": "male"
+  "D8InferredRespondentGender": "male",
+  "D8caseReference": "LV18D81234",
+  "D8StatementOfTruth": "YES"
 }
