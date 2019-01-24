@@ -388,6 +388,48 @@ describe(modulePath, () => {
     });
   });
 
+  describe('CCD state: AwaitingPronouncement', () => {
+    const session = {
+      case: {
+        state: 'AwaitingPronouncement',
+        data: {}
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
+      const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
+    });
+  });
+
+  describe('CCD state: AwaitingClarification', () => {
+    const session = {
+      case: {
+        state: 'AwaitingClarification',
+        data: {}
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
+      const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
+    });
+  });
+
   describe('court address details', () => {
     it('should display divorce center details when divorce unit handles case', () => {
       const session = {
