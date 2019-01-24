@@ -35,14 +35,14 @@ describe(modulePath, () => {
 
   it('shows error if answered no and no data entered', () => {
     const onlyErrors = ['requireDatesOfLivingTogether'];
-    const fields = { 'changes-livedApartSinceDesertion': 'no',
-      'changes-approximateDatesOfLivingTogetherField': '' };
+    const fields = { 'changes.livedApartSinceDesertion': 'no',
+      'changes.approximateDatesOfLivingTogetherField': '' };
     return question.testErrors(LivedApartSinceDesertion, session, fields, { onlyErrors });
   });
 
   it('redirects to ClaimCosts if answer is no and details are provided', () => {
-    const fields = { 'changes-livedApartSinceDesertion': 'no',
-      'changes-approximateDatesOfLivingTogetherField': 'details...' };
+    const fields = { 'changes.livedApartSinceDesertion': 'no',
+      'changes.approximateDatesOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {
@@ -55,7 +55,7 @@ describe(modulePath, () => {
 
   it('redirects to ClaimCosts if answered yes', () => {
     const fields = {
-      'changes-livedApartSinceDesertion': 'yes'
+      'changes.livedApartSinceDesertion': 'yes'
     };
     const sessionData = {
       case: {
@@ -70,7 +70,7 @@ describe(modulePath, () => {
 
   it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
     const fields = {
-      'changes-livedApartSinceDesertion': 'yes'
+      'changes.livedApartSinceDesertion': 'yes'
     };
     const sessionData = {
       case: {
@@ -89,8 +89,8 @@ describe(modulePath, () => {
 
 
   it('redirects to ShareCourtDocuments if answered yes and claimsCosts is No', () => {
-    const fields = { 'changes-livedApartSinceDesertion': 'no',
-      'changes-approximateDatesOfLivingTogetherField': 'details...' };
+    const fields = { 'changes.livedApartSinceDesertion': 'no',
+      'changes.approximateDatesOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {

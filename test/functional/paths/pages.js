@@ -15,6 +15,8 @@ Scenario('Pages', async I => {
 
   I.testDnNoResponse();
 
+  I.testRespNotAdmitAdultery();
+
   I.testAdulteryFirstFound();
 
   I.testApplyForDecreeNisiPage();
