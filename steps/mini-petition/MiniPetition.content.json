@@ -24,7 +24,7 @@
     "statementOfTruthDescription": "\"I believe that the facts stated in this application are true.\"",
     "coRespondent": "Co-respondent",
 
-    "reasonForDivorce": "Reason for the divorce",
+    "reasonForDivorce": "Reason for the divorce (and supporting information)",
     "reasonForDivorceAdulteryCorrespondentNamed": "The marriage has broken down irretrievably, based on the fact that {{ case.respondentFirstName }} {{ case.respondentLastName }} committed adultery with the co-respondent, and {{ case.petitionerFirstName }} {{ case.petitionerLastName }} finds it intolerable to live with {{ case.respondentFirstName }} {{ case.respondentLastName }}.",
     "reasonForDivorceAdulteryCorrespondentNotNamed": "The marriage has broken down irretrievably, based on the fact that {{ case.respondentFirstName }} {{ case.respondentLastName }} committed adultery, and {{ case.petitionerFirstName }} {{ case.petitionerLastName }} finds it intolerable to live with {{ case.respondentFirstName }} {{ case.respondentLastName }}.",
     "reasonForDivorceAdulteryWhere": "Where the adultery took place",
@@ -34,7 +34,13 @@
     "reasonForDivorceUnreasonableBehaviourDescription": "Description of the behaviour",
     "reasonForDivorceSeperationTwoYears": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
     "reasonForDivorceSeperationTwoYearsBrokendDown": "The marriage has broken down irretrievably, based on the fact that the parties to the marriage have lived apart for a continuous period of at least two years immediately preceding the presentation of the application and {{ case.respondentFirstName }} {{ case.respondentLastName }} consents to a decree being granted.",
-    "reasonForDivorceSeperationFiveYears": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
+    "reasonForDivorceSeperationFiveYears": {
+      "oldSepDate" : "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
+      "petitionerStates": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} stated that:",
+      "decidedDate" : "the applicant decided that the marriage was over on {{ case.reasonForDivorceDecisionDate | date }}",
+      "livingApartDate" : "the applicant and the respondent started living apart on {{ case.reasonForDivorceLivingApartDate | date }}",
+      "mostRecentDateConsidered": "The most recent date is considered legally to be the date of separation"
+    },
     "reasonForDivorceSeperationFiveYearsBrokendDown": "The marriage has broken down irretrievably, based on the fact that the parties to the marriage have lived apart for a continuous period of at least five years immediately preceding the presentation of the application.",
     "reasonForDivorceDesertion": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the date of desertion as {{ case.reasonForDivorceDesertionDate | date }}.",
     "reasonForDivorceDesertionBrokendDown": "The marriage has broken down irretrievably, based on the fact that {{ case.respondentFirstName }} {{ case.respondentLastName }} has deserted {{ case.petitionerFirstName }} {{ case.petitionerLastName }} for a continuous period of at least two years immediately preceding the presentation of the application.",

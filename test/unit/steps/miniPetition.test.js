@@ -875,15 +875,42 @@ describe(modulePath, () => {
           case: {
             data: {
               connections: {},
-              reasonForDivorce: 'separation-5-years'
+              reasonForDivorce: 'separation-5-years',
+              reasonForDivorceSeperationDate: '02 November 2014'
             }
           }
         };
         const specificContent = [
           'reasonForDivorceSeperationFiveYearsBrokendDown',
-          'reasonForDivorceSeperationFiveYears'
+          'reasonForDivorceSeperationFiveYears.oldSepDate'
         ];
-        return content(MiniPetition, session, { specificContent });
+        const specificValues = [session.case.data.reasonForDivorceSeperationDate];
+        return content(MiniPetition, session, { specificContent, specificValues });
+      });
+
+      it('separation 5 years', () => {
+        const session = {
+          case: {
+            data: {
+              connections: {},
+              reasonForDivorce: 'separation-5-years',
+              reasonForDivorceDecisionDate: '03 November 2014',
+              reasonForDivorceLivingApartDate: '06 November 2014'
+            }
+          }
+        };
+        const specificContent = [
+          'reasonForDivorceSeperationFiveYearsBrokendDown',
+          'reasonForDivorceSeperationFiveYears.petitionerStates',
+          'reasonForDivorceSeperationFiveYears.decidedDate',
+          'reasonForDivorceSeperationFiveYears.livingApartDate',
+          'reasonForDivorceSeperationFiveYears.mostRecentDateConsidered'
+        ];
+        const specificValues = [
+          session.case.data.reasonForDivorceDecisionDate,
+          session.case.data.reasonForDivorceLivingApartDate
+        ];
+        return content(MiniPetition, session, { specificContent, specificValues });
       });
 
       it('desertion', () => {
