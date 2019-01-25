@@ -17,7 +17,7 @@ const handleResponse = (body, resolve, reject) => {
   }
 
   if (error) {
-    logger.error(null, 'evidence_upload_error',
+    logger.errorWithReq(null, 'evidence_upload_error',
       'Error when uploading to Evidence Management:',
       body
     );
@@ -26,14 +26,14 @@ const handleResponse = (body, resolve, reject) => {
 
   const dataIsNotValid = !Array.isArray(body) || !body[0].status || body[0].status !== 'OK';
   if (dataIsNotValid) {
-    logger.error(null, 'evidence_upload_not_valid',
+    logger.errorWithReq(null, 'evidence_upload_not_valid',
       'Evidence management data not valid',
       body
     );
     return reject(Array.isArray(body) ? body[0] : body);
   }
 
-  logger.info(null, 'evidence_uploaded',
+  logger.infoWithReq(null, 'evidence_uploaded',
     'Uploaded files to Evidence Management Client',
     body
   );
@@ -59,7 +59,7 @@ const sendFile = req => {
               const errorToReturn = new Error(error || response.body || defaultEMCErrorMessage);
               errorToReturn.status = response.statusCode;
 
-              logger.error(req, 'evidence_error_response',
+              logger.errorWithReq(req, 'evidence_error_response',
                 'Error when uploading to Evidence Management',
                 errorToReturn
               );

@@ -75,7 +75,7 @@ const errorHandler = (error = errors.unknown, req, res) => {
     errorToReturn = errors.unknown;
   }
 
-  logger.error(req, 'evidence_upload_error', 'Error when uploading to Evidence Management:',
+  logger.errorWithReq(req, 'evidence_upload_error', 'Error when uploading to Evidence Management:',
     errorToReturn,
     error.message
   );

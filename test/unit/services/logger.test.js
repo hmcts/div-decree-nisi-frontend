@@ -4,7 +4,7 @@ const { sinon } = require('@hmcts/one-per-page-test-suite');
 const nodeJsLogger = require('@hmcts/nodejs-logging').Logger.getLogger('name');
 const logger = require(modulePath);
 
-const reqWithIdam = {
+const req = {
   originalUrl: 'url',
   method: 'POST',
   httpVersionMajor: '1',
@@ -21,24 +21,12 @@ describe(modulePath, () => {
         statusCode: 200,
         end: sinon.stub()
       };
-      middleware(reqWithIdam, res, sinon.stub());
+      middleware(req, res, sinon.stub());
       res.end();
     });
   });
 
   describe('#getLogger', () => {
-    const req = {
-      idam: {
-        userDetails: {
-          id: '123'
-        }
-      },
-      session: {
-        case: {
-          id: '456'
-        }
-      }
-    };
     const tag = 'tag';
     const message = 'message';
     const someArg = {};
@@ -58,7 +46,7 @@ describe(modulePath, () => {
     it('calls logger.info', () => {
       const getLogger = logger.getLogger('name');
 
-      getLogger.info(req, tag, message, someArg);
+      getLogger.infoWithReq(req, tag, message, someArg);
 
       sinon.assert.calledWith(
         nodeJsLogger.info,
@@ -72,7 +60,7 @@ describe(modulePath, () => {
     it('calls logger.warn', () => {
       const getLogger = logger.getLogger('name');
 
-      getLogger.warn(req, tag, message, someArg);
+      getLogger.warnWithReq(req, tag, message, someArg);
 
       sinon.assert.calledWith(
         nodeJsLogger.warn,
@@ -86,7 +74,7 @@ describe(modulePath, () => {
     it('calls logger.error', () => {
       const getLogger = logger.getLogger('name');
 
-      getLogger.error(req, tag, message, someArg);
+      getLogger.errorWithReq(req, tag, message, someArg);
 
       sinon.assert.calledWith(
         nodeJsLogger.error,

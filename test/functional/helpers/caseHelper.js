@@ -18,7 +18,7 @@ class CaseHelper extends Helper {
 
     return divTestHarness.createDnCase(params, config.tests.functional.proxy)
       .then(createCaseResponse => {
-        logger.info(null, 'case_created',
+        logger.infoWithReq(null, 'case_created',
           'Case created',
           createCaseResponse.id,
           idamConfigHelper.getTestEmail()
@@ -26,7 +26,7 @@ class CaseHelper extends Helper {
         caseConfigHelper.setTestCaseId(createCaseResponse.id);
       })
       .catch(error => {
-        logger.info(null, 'case_create_error',
+        logger.infoWithReq(null, 'case_create_error',
           'Error creating case',
           error
         );

@@ -23,7 +23,7 @@ const methods = {
         return Object.assign(req.session, { case: response });
       })
       .catch(error => {
-        logger.error(req, 'error_retrieving_application',
+        logger.errorWithReq(req, 'error_retrieving_application',
           'Error retrieving case from case orchestration service',
           error.message
         );
@@ -39,7 +39,7 @@ const methods = {
 
     return request.post({ uri, headers, json: true, body })
       .catch(error => {
-        logger.error(req, 'error_submitting_application',
+        logger.errorWithReq(req, 'error_submitting_application',
           'Error submitting case to case orchestration service',
           error.message
         );

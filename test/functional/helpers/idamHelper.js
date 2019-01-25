@@ -34,21 +34,34 @@ class IdamHelper extends Helper {
       idamConfigHelper.setTestPassword(testPassword);
       return idamExpressTestHarness.createUser(idamArgs, config.tests.functional.proxy)
         .then(() => {
-          logger.info(null, 'idam_user_created', `Created IDAM test user: ${testEmail}`);
+          logger.infoWithReq(
+            null,
+            'idam_user_created',
+            `Created IDAM test user: ${testEmail}`
+          );
           return idamExpressTestHarness.getToken(idamArgs, config.tests.functional.proxy);
         })
         .then(response => {
-          logger.info(null, 'idam_user_created', `Retrieved IDAM test user token: ${testEmail}`);
+          logger.infoWithReq(
+            null,
+            'idam_user_created',
+            `Retrieved IDAM test user token: ${testEmail}`
+          );
           idamConfigHelper.setTestToken(response.access_token);
           idamArgs.accessToken = response.access_token;
           return idamExpressTestHarness.generatePin(idamArgs, config.tests.functional.proxy);
         })
         .then(response => {
-          logger.info(null, 'idam_user_created', `Retrieved IDAM test user pin: ${testEmail}`);
+          logger.infoWithReq(
+            null,
+            'idam_user_created',
+            `Retrieved IDAM test user pin: ${testEmail}`
+          );
           idamConfigHelper.setPin(response.pin);
         })
         .catch(error => {
-          logger.warn(null, 'idam_user_created',
+          logger.warnWithReq(
+            null, 'idam_user_created',
             'Unable to create IDAM test user/token',
             error
           );
@@ -62,10 +75,19 @@ class IdamHelper extends Helper {
     if (config.features.idam) {
       idamExpressTestHarness.removeUser(idamArgs, config.tests.functional.proxy)
         .then(() => {
-          logger.info(null, 'idam_user_removed', `Removed IDAM test user: ${idamArgs.testEmail}`);
+          logger.infoWithReq(
+            null,
+            'idam_user_removed',
+            `Removed IDAM test user: ${idamArgs.testEmail}`
+          );
         })
         .catch(error => {
-          logger.warn(null, 'idam_user_remove_error', 'Unable to remove IDAM test user', error);
+          logger.warnWithReq(
+            null,
+            'idam_user_remove_error',
+            'Unable to remove IDAM test user',
+            error
+          );
         });
     }
   }
