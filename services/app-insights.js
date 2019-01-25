@@ -6,7 +6,7 @@ const start = () => {
     appInsights.setup(config.services.applicationInsights.instrumentationKey)
       .setAutoCollectConsole(true, true)
       .start();
-    appInsights.defaultClient.commonProperties = { appName: 'div-dn' };
+    appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cloudRole] = 'div-dn';
   }
 };
 
