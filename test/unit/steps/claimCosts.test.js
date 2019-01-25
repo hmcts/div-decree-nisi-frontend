@@ -36,7 +36,7 @@ describe(modulePath, () => {
     });
 
     it('loads fields from the session', () => {
-      const stepData = { 'dnCosts-claimCosts': 'endClaim' };
+      const stepData = { 'dnCosts.claimCosts': 'endClaim' };
       return question.rendersValues(ClaimCosts, stepData, session);
     });
   });
@@ -49,26 +49,26 @@ describe(modulePath, () => {
 
     it('Error if answered differentAmount and no data entered', () => {
       const onlyErrors = ['requiredCostsDifferentDetails'];
-      const fields = { 'dnCosts-claimCosts': 'differentAmount',
-        'dnCosts-costsDifferentDetails': '' };
+      const fields = { 'dnCosts.claimCosts': 'differentAmount',
+        'dnCosts.costsDifferentDetails': '' };
       return question.testErrors(ClaimCosts, session, fields, { onlyErrors });
     });
   });
 
   describe('Navigation', () => {
     it('To ShareCourtDocuments if answer is originalAmount', () => {
-      const fields = { 'dnCosts-claimCosts': 'originalAmount' };
+      const fields = { 'dnCosts.claimCosts': 'originalAmount' };
       return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
     });
 
     it('To ShareCourtDocuments if answer is differentAmount and details provided', () => {
-      const fields = { 'dnCosts-claimCosts': 'differentAmount',
-        'dnCosts-costsDifferentDetails': 'I want to pay 60%' };
+      const fields = { 'dnCosts.claimCosts': 'differentAmount',
+        'dnCosts.costsDifferentDetails': 'I want to pay 60%' };
       return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
     });
 
     it('To ShareCourtDocuments if answer is endClaim', () => {
-      const fields = { 'dnCosts-claimCosts': 'endClaim' };
+      const fields = { 'dnCosts.claimCosts': 'endClaim' };
       return question.redirectWithField(ClaimCosts, fields, ShareCourtDocuments, session);
     });
   });

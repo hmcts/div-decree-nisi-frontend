@@ -58,12 +58,12 @@ describe('Separation 5 years', () => {
       {
         step: MiniPetition,
         body: {
-          'changes-hasBeenChanges': 'no',
-          'changes-statementOfTruthNoChanges': 'yes'
+          'changes.hasBeenChanges': 'no',
+          'changes.statementOfTruthNoChanges': 'yes'
         }
       },
-      { step: LivedApartSinceSeparation, body: { 'changes-livedApartSinceSeparation': 'yes' } },
-      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
+      { step: LivedApartSinceSeparation, body: { 'changes.livedApartSinceSeparation': 'yes' } },
+      { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
@@ -93,15 +93,15 @@ describe('Separation 5 years', () => {
       {
         step: MiniPetition,
         body: {
-          'changes-hasBeenChanges': 'no',
-          'changes-statementOfTruthNoChanges': 'yes'
+          'changes.hasBeenChanges': 'no',
+          'changes.statementOfTruthNoChanges': 'yes'
         }
       },
       { step: LivedApartSinceSeparation, body: {
-        'changes-livedApartSinceSeparation': 'no',
-        'changes-approximateDatesOfLivingTogetherField': 'details...'
+        'changes.livedApartSinceSeparation': 'no',
+        'changes.approximateDatesOfLivingTogetherField': 'details...'
       } },
-      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
+      { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
