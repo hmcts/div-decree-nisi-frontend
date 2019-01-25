@@ -11,7 +11,7 @@ const saveFileFromRequest = (req = {}) => {
       if (error) {
         logger.error(null, 'parse_error',
           'Unable to parse request',
-          error
+          error.message
         );
         return reject(error);
       }
@@ -27,7 +27,7 @@ const saveFileFromBuffer = (buffer, fileName) => {
       if (error) {
         logger.error(null, 'file_save_error',
           'Unable to create temporary file',
-          error
+          error.message
         );
         return reject(error);
       }
@@ -55,7 +55,7 @@ const removeFile = file => {
     .catch(error => {
       logger.error(null, 'file_remove_error',
         'Unable to remove file',
-        error
+        error.message
       );
       throw error;
     });
