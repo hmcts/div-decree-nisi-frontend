@@ -1,6 +1,5 @@
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 const config = require('config');
-const util = require('util');
 const idamConfigHelper = require('./idamConfigHelper');
 const caseConfigHelper = require('./caseConfigHelper');
 const divTestHarness = require('@hmcts/div-test-harness');
@@ -19,11 +18,18 @@ class CaseHelper extends Helper {
 
     return divTestHarness.createDnCase(params, config.tests.functional.proxy)
       .then(createCaseResponse => {
-        logger.info(`Created case ${createCaseResponse.id} for ${idamConfigHelper.getTestEmail()}`);
+        logger.info(null, 'case_created',
+          'Case created',
+          createCaseResponse.id,
+          idamConfigHelper.getTestEmail()
+        );
         caseConfigHelper.setTestCaseId(createCaseResponse.id);
       })
       .catch(error => {
-        logger.info(`Error creating case: ${util.inspect(error)}`);
+        logger.info(null, 'case_create_error',
+          'Error creating case',
+          error
+        );
       });
   }
 }

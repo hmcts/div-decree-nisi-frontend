@@ -9,10 +9,10 @@ const saveFileFromRequest = (req = {}) => {
     const form = new formidable.IncomingForm();
     form.parse(req, (error, fields, files) => {
       if (error) {
-        logger.error({
-          message: logger.wrapWithUserInfo(req, 'Unable to parse request'),
+        logger.error(null, 'parse_error',
+          'Unable to parse request',
           error
-        });
+        );
         return reject(error);
       }
       req.body = fields;
@@ -25,19 +25,19 @@ const saveFileFromBuffer = (buffer, fileName) => {
   return new Promise((resolve, reject) => {
     const tmpFileCreated = (error, path) => {
       if (error) {
-        logger.error({
-          message: 'Unable to create temporary file',
+        logger.error(null, 'file_save_error',
+          'Unable to create temporary file',
           error
-        });
+        );
         return reject(error);
       }
 
       return fs.writeFile(path, buffer, writeBufferError => {
         if (writeBufferError) {
-          logger.error({
-            message: 'Unable to write buffer to temporary file',
-            error: writeBufferError
-          });
+          logger.error(null, 'file_save_error',
+            'Unable to write buffer to temporary file',
+            writeBufferError
+          );
           return reject(writeBufferError);
         }
 
@@ -53,10 +53,10 @@ const removeFile = file => {
   const unlink = util.promisify(fs.unlink);
   return unlink(file.path)
     .catch(error => {
-      logger.error({
-        message: 'Unable to remove file',
+      logger.error(null, 'file_remove_error',
+        'Unable to remove file',
         error
-      });
+      );
       throw error;
     });
 };
