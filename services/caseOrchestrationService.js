@@ -23,10 +23,10 @@ const methods = {
         return Object.assign(req.session, { case: response });
       })
       .catch(error => {
-        logger.error({
-          message: logger.wrapWithUserInfo(req, 'Trying to retrieve case from case orchestration service'),
-          error
-        });
+        logger.errorWithReq(req, 'error_retrieving_application',
+          'Error retrieving case from case orchestration service',
+          error.message
+        );
         throw error;
       });
   },
@@ -39,10 +39,10 @@ const methods = {
 
     return request.post({ uri, headers, json: true, body })
       .catch(error => {
-        logger.error({
-          message: logger.wrapWithUserInfo(req, 'Trying to submit case to case orchestration service'),
-          error
-        });
+        logger.errorWithReq(req, 'error_submitting_application',
+          'Error submitting case to case orchestration service',
+          error.message
+        );
         throw error;
       });
   }
