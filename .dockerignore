@@ -1,8 +1,1 @@
-.github/
-infrastructure/
-kubernetes/
-node_modules/
-test/
-
-Jenkinsfile*
-README.md
+node_modules
