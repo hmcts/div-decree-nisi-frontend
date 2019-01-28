@@ -10,8 +10,6 @@ function testMiniPetitionPage() {
   I.checkOption(MiniPetitionContent.en.fields.changes.hasBeenChanges.no);
   I.checkOption(MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.yes);
   I.navByClick(commonContent.en.continue);
-
-  I.seeCurrentUrlEquals(LivedApartSinceSeparation.path);
 }
 
 module.exports = { testMiniPetitionPage };
