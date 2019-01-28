@@ -21,6 +21,7 @@ class CaseHelper extends Helper {
       .then(createCaseResponse => {
         logger.info(`Created case ${createCaseResponse.id} for ${idamConfigHelper.getTestEmail()}`);
         caseConfigHelper.setTestCaseId(createCaseResponse.id);
+        console.log(`Created case id in CCD ${createCaseResponse.id} for ${idamConfigHelper.getTestEmail()}`); // eslint-disable-line
       })
       .catch(error => {
         logger.info(`Error creating case: ${util.inspect(error)}`);

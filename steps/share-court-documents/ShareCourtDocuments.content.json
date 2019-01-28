@@ -1,7 +1,14 @@
 {
   "en": {
-    "title": "Do you need to upload any other documents?",
-    "extraDocuments": "You should only do this if you have acquired new documents since you first applied which are relevant to your application.",
+    "otherReasons" : {
+      "title": "Do you need to upload any other documents?",
+      "extraDocuments": "You should only do this if you have acquired new documents since you first applied which are relevant to your application."  
+    },
+    "adultery": {
+      "title": "Do you need to upload evidence of the adultery?",
+      "adulteryDoc": "You should only do this if your {{ case.divorceWho }} hasn't admitted to committing adultery.",
+      "extraDocs": "You can also upload any new documents you've acquired since you first applied which are relevant to your application."
+    },
     "errors": {
       "required": "Select Yes if you want to share any other documents with the court"
     },

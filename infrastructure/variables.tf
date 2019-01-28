@@ -193,7 +193,16 @@ variable "feature_idam" {
   default = true
 }
 
+variable "feature_release_520" {
+  default = false
+}
+
 variable "ccd_digital_courts" {
   type = "string"
   default = "[\"serviceCentre\"]"
+}
+
+variable "appinsights_instrumentation_key" {
+  description = "Instrumentation key of the App Insights instance this webapp should use. Module will create own App Insights resource if this is not provided"
+  default     = ""
 }

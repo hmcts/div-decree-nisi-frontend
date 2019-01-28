@@ -2,7 +2,7 @@
 const config = require('config');
 const superagent = require('superagent');
 const httpStatus = require('http-status-codes');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 const errors = require('resources/errors');
 const fileManagment = require('services/fileManagement');
 
@@ -60,7 +60,7 @@ const sendFile = req => {
               errorToReturn.status = response.statusCode;
 
               logger.error({
-                message: 'Error when uploading to Evidence Management:',
+                message: logger.wrapWithUserInfo(req, 'Error when uploading to Evidence Management'),
                 error: errorToReturn
               });
 
