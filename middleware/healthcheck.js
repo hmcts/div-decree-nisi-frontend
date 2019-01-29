@@ -1,7 +1,7 @@
 const healthcheck = require('@hmcts/nodejs-healthcheck');
 const config = require('config');
 const os = require('os');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 const redis = require('services/redis');
 const outputs = require('@hmcts/nodejs-healthcheck/healthcheck/outputs');
 const { OK } = require('http-status-codes');
@@ -10,7 +10,7 @@ const healthOptions = message => {
   return {
     callback: (error, res) => { // eslint-disable-line id-blacklist
       if (error) {
-        logger.error({ message, error });
+        logger.errorWithReq(null, 'health_check_error', message, error);
       }
       return !error && res.status === OK ? outputs.up() : outputs.down(error);
     },
@@ -26,7 +26,7 @@ const checks = () => {
         return healthcheck.status(_ === 'PONG');
       })
         .catch(error => {
-          logger.error(`Health check failed on redis: ${error}`);
+          logger.errorWithReq(null, 'health_check_error', 'Health check failed on redis', error);
           return false;
         });
     }),

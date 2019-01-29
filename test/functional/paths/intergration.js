@@ -19,7 +19,7 @@ Scenario('Happy Path', async I => {
 
   I.testMiniPetitionPage();
 
-  I.testLivedApartSinceSeparationPage();
+  I.testBehaviourContinuedSinceApplicationPage();
 
   I.testClaimCostsPage();
 
