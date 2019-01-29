@@ -53,7 +53,10 @@ const methods = {
     const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
     return request.put({ uri, headers, json: true })
       .catch(error => {
-        logger.error(`Trying to submit amend request to case orchestartion service: ${error}`);
+        logger.errorWithReq(req, 'error_amending_application',
+          'Error sending request to case orchestration service amend application endpoint',
+          error.message
+        );
         throw error;
       });
   }

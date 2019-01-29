@@ -16,7 +16,7 @@ const redirectToFrontend = (req, res) => {
 };
 
 const redirectToFrontendAmend = (req, res) => {
-  logger.info('Redirecting user to Petitioner Frontend to amend application');
+  logger.infoWithReq(req, 'redirect_to_petitioner', 'Redirecting user to Petitioner Frontend to amend application');
 
   const petitionerFrontend = config.services.petitionerFrontend;
   redirectToUrl(req, res, `${petitionerFrontend.url}${petitionerFrontend.landing}`);
