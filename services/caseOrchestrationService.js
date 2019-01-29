@@ -47,7 +47,7 @@ const methods = {
       });
   },
 
-  //  Triggers the amend application on backend /amended-petition-draft
+  //  Triggers the amend application process
   amendApplication: req => {
     const uri = `${config.services.orchestrationService.amendPetitionUrl}`;
     const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };

@@ -41,7 +41,8 @@ class RespNotAdmitAdultery extends Question {
     };
 
     return branch(
-      redirectTo(this.journey.steps.AmendApplication).if(amendPetition),
+      redirectTo(this.journey.steps.AmendApplication)
+        .if(config.features.release520 && amendPetition),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
   }
