@@ -22,7 +22,7 @@ const getFeeFromFeesAndPayments = feeType => {
         return next();
       })
       .catch(error => {
-        logger.error(`Failed to fetch fee details for the feeType ${feeType}: ${error}`);
+        logger.errorWithReq(req, 'Failed to fetch fee details for the feeType', feeType, error.message);
         next(error);
       });
   };
