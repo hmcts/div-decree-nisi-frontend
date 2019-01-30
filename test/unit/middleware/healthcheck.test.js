@@ -124,9 +124,7 @@ describe(modulePath, () => {
       const feesCallback = healthcheck.web.lastCall.args[1].callback;
       feesCallback('error');
 
-      sinon.assert.calledWith(logger.error,
-        { error: 'error', message: 'Health check failed on fees-payments-service:' }
-      );
+      sinon.assert.calledWith(logger.error);
     });
   });
 });
