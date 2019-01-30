@@ -9,14 +9,14 @@ const redirectToUrl = (req, res, baseUrl) => {
 };
 
 const redirectToFrontend = (req, res) => {
-  logger.info({ message: logger.wrapWithUserInfo(req, 'Redirecting user to Petitioner Frontend as no case was found on CCD') });
+  logger.infoWithReq(req, 'redirect_to_petitioner', 'Redirecting user to Petitioner Frontend as no case was found on CCD');
 
   const petitionerFrontend = config.services.petitionerFrontend;
   redirectToUrl(req, res, `${petitionerFrontend.url}${petitionerFrontend.landing}`);
 };
 
 const redirectToAos = (req, res) => {
-  logger.info({ message: logger.wrapWithUserInfo(req, 'Redirecting user to AOS. User is a respondent user') });
+  logger.infoWithReq(req, 'redirecting_to_respondent', 'Redirecting user to AOS. User is a respondent user');
 
   const aosFrontend = config.services.aosFrontend;
   redirectToUrl(req, res, `${aosFrontend.url}${aosFrontend.landing}`);

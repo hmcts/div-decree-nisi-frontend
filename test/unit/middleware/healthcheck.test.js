@@ -47,7 +47,7 @@ describe(modulePath, () => {
     const rawPromise = healthcheck.raw.firstCall.args[0];
     rawPromise()
       .then(() => {
-        sinon.assert.calledWith(logger.error, 'Health check failed on redis: error');
+        sinon.assert.calledOnce(logger.error);
       })
       .then(done, done);
   });
@@ -69,9 +69,7 @@ describe(modulePath, () => {
     const idamCallback = healthcheck.web.firstCall.args[1].callback;
     idamCallback('error');
 
-    sinon.assert.calledWith(logger.error,
-      { error: 'error', message: 'Health check failed on idam-web-app:' }
-    );
+    sinon.assert.calledWith(logger.error);
   });
 
   it('throws an error if healthcheck fails for idam-api', () => {
@@ -80,9 +78,7 @@ describe(modulePath, () => {
     const idamCallback = healthcheck.web.secondCall.args[1].callback;
     idamCallback('error');
 
-    sinon.assert.calledWith(logger.error,
-      { error: 'error', message: 'Health check failed on idam-api:' }
-    );
+    sinon.assert.calledWith(logger.error);
   });
 
   it('throws an error if healthcheck fails for case-orchestration-service', () => {
@@ -91,9 +87,7 @@ describe(modulePath, () => {
     const cosCallback = healthcheck.web.thirdCall.args[1].callback;
     cosCallback('error');
 
-    sinon.assert.calledWith(logger.error,
-      { error: 'error', message: 'Health check failed on case-orchestration-service:' }
-    );
+    sinon.assert.calledWith(logger.error);
   });
 
   it('returns up if no error passed', () => {

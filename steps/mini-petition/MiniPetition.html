@@ -301,7 +301,16 @@
 
   {% if case.reasonForDivorce == "separation-5-years" %}
     <p class="text">{{ content.reasonForDivorceSeperationFiveYearsBrokendDown }}
-    <p class="text">{{ content.reasonForDivorceSeperationFiveYears }}</p>
+    {% if case.reasonForDivorceDecisionDate and case.reasonForDivorceLivingApartDate %}
+      <p class="text">{{ content.reasonForDivorceSeperationFiveYears.petitionerStates }}</p>
+      <ul class="list list-bullet">
+        <li>{{ content.reasonForDivorceSeperationFiveYears.decidedDate }}</li>
+        <li>{{ content.reasonForDivorceSeperationFiveYears.livingApartDate }}</li>
+      </ul>
+      <p class="text">{{ content.reasonForDivorceSeperationFiveYears.mostRecentDateConsidered }}</p>
+    {% else %}
+      <p class="text">{{ content.reasonForDivorceSeperationFiveYears.oldSepDate }}</p>
+    {% endif %}
   {% endif %}
 
   {% if case.reasonForDivorce == "desertion" %}

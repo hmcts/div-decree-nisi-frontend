@@ -118,8 +118,8 @@ describe(moduleName, () => {
         response.data.courts = config.ccd.courts[0];
       });
 
-      it('if petitioner email does not match idam email', () => {
-        response.data.petitionerEmail = 'email@email.com';
+      it('if respondent email match with idam email', () => {
+        response.data.respEmailAddress = 'anotheremail@email.com';
         req.idam.userDetails.email = 'anotheremail@email.com';
         return expect(caseOrchestrationHelper.validateResponse(req, response))
           .to.be.rejectedWith(caseOrchestrationHelper.redirectToRespondentError);

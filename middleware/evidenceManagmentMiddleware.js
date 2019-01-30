@@ -75,11 +75,10 @@ const errorHandler = (error = errors.unknown, req, res) => {
     errorToReturn = errors.unknown;
   }
 
-  logger.error({
-    message: logger.wrapWithUserInfo(req, 'Error when uploading to Evidence Management:'),
+  logger.errorWithReq(req, 'evidence_upload_error', 'Error when uploading to Evidence Management:',
     errorToReturn,
-    error
-  });
+    error.message
+  );
 
   const isJsRequest = req.query && req.query.js;
 
