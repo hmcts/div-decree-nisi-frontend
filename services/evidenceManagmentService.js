@@ -9,7 +9,7 @@ const fileManagment = require('services/fileManagement');
 const evidenceManagmentClientUploadUrl = `${config.services.evidenceManagmentClient.url}${config.services.evidenceManagmentClient.uploadEndpoint}`;
 const defaultEMCErrorMessage = 'Error uploading to evidence management client';
 
-const handleResponse = (body, resolve, reject) => {
+const handleResponse = (req, body, resolve, reject) => {
   let error = body.error && body.error.length ? body.error : null;
 
   if (Array.isArray(body) && body[0].error) {
@@ -17,7 +17,7 @@ const handleResponse = (body, resolve, reject) => {
   }
 
   if (error) {
-    logger.errorWithReq(null, 'evidence_upload_error',
+    logger.errorWithReq(req, 'evidence_upload_error',
       'Error when uploading to Evidence Management:',
       body
     );
@@ -26,14 +26,14 @@ const handleResponse = (body, resolve, reject) => {
 
   const dataIsNotValid = !Array.isArray(body) || !body[0].status || body[0].status !== 'OK';
   if (dataIsNotValid) {
-    logger.errorWithReq(null, 'evidence_upload_not_valid',
+    logger.errorWithReq(req, 'evidence_upload_not_valid',
       'Evidence management data not valid',
       body
     );
     return reject(Array.isArray(body) ? body[0] : body);
   }
 
-  logger.infoWithReq(null, 'evidence_uploaded',
+  logger.infoWithReq(req, 'evidence_uploaded',
     'Uploaded files to Evidence Management Client',
     body
   );
@@ -53,7 +53,7 @@ const sendFile = req => {
           .set('enctype', 'multipart/form-data')
           .attach('file', file.path, file.name)
           .end((error, response = { statusCode: null }) => {
-            fileManagment.removeFile(file);
+            fileManagment.removeFile(req, file);
 
             if (error || response.statusCode !== httpStatus.OK) {
               const errorToReturn = new Error(error || response.body || defaultEMCErrorMessage);
@@ -70,7 +70,7 @@ const sendFile = req => {
               return reject(errorToReturn);
             }
 
-            return handleResponse(response.body, resolve, reject);
+            return handleResponse(req, response.body, resolve, reject);
           });
       });
     });
