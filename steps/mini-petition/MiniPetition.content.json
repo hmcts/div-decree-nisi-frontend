@@ -37,8 +37,8 @@
     "reasonForDivorceSeperationFiveYears": {
       "oldSepDate" : "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
       "petitionerStates": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} stated that:",
-      "decidedDate" : "The applicant decided that the marriage was over on {{ case.reasonForDivorceDecisionDate | date }}",
-      "livingApartDate" : "The applicant and respondent started living apart on {{ case.reasonForDivorceLivingApartDate | date }}",
+      "decidedDate" : "The applicant decided that the marriage was over on {{ case.reasonForDivorceDecisionDate | date }}.",
+      "livingApartDate" : "The applicant and respondent started living apart on {{ case.reasonForDivorceLivingApartDate | date }}.",
       "mostRecentDateConsidered": "The most recent date is considered legally to be the date of separation"
     },
     "reasonForDivorceSeperationFiveYearsBrokendDown": "The marriage has broken down irretrievably, based on the fact that the applicant and the respondent have been separated for 5 years.",
