@@ -1,6 +1,6 @@
 #!groovy
 
-@Library("Infrastructure@feature/cnp-1130-acr-tasks")
+@Library("Infrastructure")
 
 String product = "div"
 String component = "dn"
