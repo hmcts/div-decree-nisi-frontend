@@ -153,6 +153,7 @@ describe(modulePath, () => {
       return content(ReviewAosResponse, session, { specificContent, specificValues });
     });
 
+
     describe('How Respondnet wants to proceed section', () => {
       it('renders common conent in this section', () => {
         const session = {
