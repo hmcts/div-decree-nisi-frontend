@@ -52,7 +52,9 @@
 
       <ul class="bullet list-bullet">
         <li>{{ content.respProceed.proceedWithDivorce }}</li>
-        <li>{{ content.respProceed.proceedNotAccept }}</li>
+        {% if behaviour or desertion %}
+          <li>{{ content.respProceed.proceedNotAccept }}</li>
+        {% endif %}
         <li>{{ content.respProceed.disagree }}</li>
       </ul>
     </div>

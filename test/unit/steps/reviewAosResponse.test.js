@@ -155,7 +155,14 @@ describe(modulePath, () => {
 
     describe('How Respondnet wants to proceed section', () => {
       it('renders common conent in this section', () => {
-        const session = { case: { data: { respWillDefendDivorce: 'Yes' } } };
+        const session = {
+          case: {
+            data: {
+              respWillDefendDivorce: 'Yes',
+              reasonForDivorce: 'desertion'
+            }
+          }
+        };
         const specificContent = [
           'respProceed.title',
           'whatThisMeans',
