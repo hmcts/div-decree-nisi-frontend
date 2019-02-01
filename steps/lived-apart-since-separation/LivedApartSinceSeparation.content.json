@@ -1,29 +1,20 @@
 {
   "en": {
-    "title": "Have you lived apart since separating from your {{ case.divorceWho }}?",
-    "mustHaveLivedApart": "You must have lived apart from your {{ case.divorceWho }} for at least 2 years since {{ case.marriageDate | date }}. Any time that you've lived together as a couple doesn't count towards your separation period.",
+    "title": "Have you lived apart since you applied for a divorce?",
     "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
-    "detailsHowLongLivedTogetherSinceSeparation" : "Provide details of how long you've lived together since you separated",
-    "detailsHowLongLivedTogetherSinceSeparationDetail" : "The court will add up any time that you've lived together since you separated. The combined total could affect the date that you can apply using this reason for divorce.",
-    "ifLessThan6Months": "If it was less than 6 months",
-    "ifLessThan6MonthsDetail1": "If you've lived together for a total of less than 6 months since you separated, you can still use this date. However, you'll need to make up any time during which you were living together.",
-    "ifLessThan6MonthsDetail2": "For example if you separated on March 2014, lived together from May 2014 to July 2014 (3 months), then lived apart from Aug 2014, the earliest you could apply for divorce based on your original separation date would be June 2016 (2 years and 3 months from March 2014).",
-    "ifMoreThan6Months": "If it was more than 6 months",
-    "ifMoreThan6MonthsDetail1": "If you've lived together for a total of more than 6 months since you separated, then you can't rely on that period of separation as the basis for your 2 year separation period.",
-    "ifMoreThan6MonthsDetail2": "If this is the case for you, you'll have to use the next date that you separated as a starting point for your 2 years separation period.",
     "errors": {
       "required": "Select yes if you lived apart since separating from your {{ case.divorceWho }}?",
-      "requireDatesOfLivingTogether": "Enter approximate dates of when you lived together."
+      "requireDatesOfLivingTogether": "Enter details of how long you've lived together and the circumstances."
     },
     "fields": {
       "changes": {
         "livedApartSinceSeparation": {
-          "title": "Have you lived apart since separating from your {{ case.divorceWho }}?",
+          "title": "Have you lived apart since you applied for a divorce?",
           "yes": "Yes",
           "no": "No"
         },
-        "approximateDatesOfLivingTogetherField": {
-          "title": "Give the approximate dates or the number of months you lived together"
+        "detailsOfLivingTogetherField": {
+          "title": "Provide details of how long you've lived together and the circumstances"
         }
       }
     }

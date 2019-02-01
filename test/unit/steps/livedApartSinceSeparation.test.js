@@ -34,13 +34,13 @@ describe(modulePath, () => {
   it('shows error if answered no and no data entered', () => {
     const onlyErrors = ['requireDatesOfLivingTogether'];
     const fields = { 'changes.livedApartSinceSeparation': 'no',
-      'changes.approximateDatesOfLivingTogetherField': '' };
+      'changes.detailsOfLivingTogetherField': '' };
     return question.testErrors(LivedApartSinceSeparation, session, fields, { onlyErrors });
   });
 
   it('redirects to ClaimCosts if answered no, details, claimsCosts is Yes', () => {
     const fields = { 'changes.livedApartSinceSeparation': 'no',
-      'changes.approximateDatesOfLivingTogetherField': 'details...' };
+      'changes.detailsOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {
@@ -67,7 +67,7 @@ describe(modulePath, () => {
 
   it('redirects to ShareCourtDocuments if answered no, details, claimsCosts is No', () => {
     const fields = { 'changes.livedApartSinceSeparation': 'no',
-      'changes.approximateDatesOfLivingTogetherField': 'details...' };
+      'changes.detailsOfLivingTogetherField': 'details...' };
     const sessionData = {
       case: {
         data: {
@@ -109,7 +109,7 @@ describe(modulePath, () => {
       const fields = {
         changes: {
           livedApartSinceSeparation: selectedValue,
-          approximateDatesOfLivingTogetherField: detailsGiven
+          detailsOfLivingTogetherField: detailsGiven
         }
       };
       const req = {
@@ -124,7 +124,7 @@ describe(modulePath, () => {
       const _values = step.values();
       expect(_values).to.be.an('object');
       expect(_values).to.have.property('changes.livedApartSinceSeparation', selectedValue);
-      expect(_values).to.not.have.property('changes.approximateDatesOfLivingTogetherField');
+      expect(_values).to.not.have.property('changes.detailsOfLivingTogetherField');
     });
 
     it('livedApartSinceSeparation : no ', () => {
@@ -133,7 +133,7 @@ describe(modulePath, () => {
       const fields = {
         changes: {
           livedApartSinceSeparation: selectedValue,
-          approximateDatesOfLivingTogetherField: detailsGiven
+          detailsOfLivingTogetherField: detailsGiven
         }
       };
       const req = {
@@ -149,7 +149,7 @@ describe(modulePath, () => {
       expect(_values).to.be.an('object');
       expect(_values).to.have.property('changes.livedApartSinceSeparation', selectedValue);
       expect(_values).to.have.property(
-        'changes.approximateDatesOfLivingTogetherField', detailsGiven
+        'changes.detailsOfLivingTogetherField', detailsGiven
       );
     });
   });
