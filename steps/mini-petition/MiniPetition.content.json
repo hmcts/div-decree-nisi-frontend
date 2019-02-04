@@ -25,14 +25,14 @@
     "coRespondent": "Co-respondent",
 
     "reasonForDivorce": "Reason for the divorce (and supporting information)",
-    "reasonForDivorceAdulteryCorrespondentNamed": "The marriage has broken down irretrievably, based on the fact that {{ case.respondentFirstName }} {{ case.respondentLastName }} committed adultery with the co-respondent, and {{ case.petitionerFirstName }} {{ case.petitionerLastName }} finds it intolerable to live with {{ case.respondentFirstName }} {{ case.respondentLastName }}.",
-    "reasonForDivorceAdulteryCorrespondentNotNamed": "The marriage has broken down irretrievably, based on the fact that {{ case.respondentFirstName }} {{ case.respondentLastName }} committed adultery, and {{ case.petitionerFirstName }} {{ case.petitionerLastName }} finds it intolerable to live with {{ case.respondentFirstName }} {{ case.respondentLastName }}.",
+    "reasonForDivorceAdulteryCorrespondentNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery with the co-respondent, and the applicant finds it intolerable to live with the respondent.",
+    "reasonForDivorceAdulteryCorrespondentNotNamed": "The marriage has broken down irretrievably, based on the fact that the respondent committed adultery, and the applicant finds it intolerable to live with the respondent.",
     "reasonForDivorceAdulteryWhere": "Where the adultery took place",
     "reasonForDivorceAdulteryWhen": "When the adultery took place",
-    "reasonForDivorceUnreasonableBehaviourBrokenDown": "The marriage has broken down irretrievably, based on the fact that {{ case.respondentFirstName }} {{ case.respondentLastName }} has behaved in such a way that {{ case.petitionerFirstName }} {{ case.petitionerLastName }} cannot reasonably be expected to live with {{ case.respondentFirstName }} {{ case.respondentLastName }}.",
-    "reasonForDivorceUnreasonableBehaviourStatment": "This is supported by the following statement from {{ case.petitionerFirstName }} {{ case.petitionerLastName }}.",
+    "reasonForDivorceUnreasonableBehaviourBrokenDown": "The marriage has broken down irretrievably, based on the fact that the respondent has behaved in such a way that the applicant cannot reasonably be expected to live with the respondent.",
+    "reasonForDivorceUnreasonableBehaviourStatment": "This is supported by the following statement from the applicant.",
     "reasonForDivorceUnreasonableBehaviourDescription": "Description of the behaviour",
-    "reasonForDivorceSeperationTwoYears": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
+    "reasonForDivorceSeperationTwoYears": "The applicant has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
     "reasonForDivorceSeperationTwoYearsBrokendDown": "The marriage has broken down irretrievably, based on the fact that the parties to the marriage have lived apart for a continuous period of at least two years immediately preceding the presentation of the application and {{ case.respondentFirstName }} {{ case.respondentLastName }} consents to a decree being granted.",
     "reasonForDivorceSeperationFiveYears": {
       "oldSepDate" : "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
@@ -46,16 +46,16 @@
     "reasonForDivorceDesertionBrokendDown": "The marriage has broken down irretrievably, based on the fact that {{ case.respondentFirstName }} {{ case.respondentLastName }} has deserted {{ case.petitionerFirstName }} {{ case.petitionerLastName }} for a continuous period of at least two years immediately preceding the presentation of the application.",
     "reasonForDivorceDesertionStatment": "This is supported by the following statement from {{ case.petitionerFirstName }} {{ case.petitionerLastName }}.",
 
-    "notClaimingForDivorce": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} is not claiming the costs of the divorce.",
-    "claimingCostsFromRespondentCoRespondent": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} is also applying to the court to claim the costs of the divorce from {{ case.respondentFirstName }} {{ case.respondentLastName }}.",
-    "claimingCostsFromCoRespondent": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} is also applying to the court to claim the costs of the divorce from the co-respondent.",
-    "claimingCostsFromRespondent": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} is also applying to the court to claim the costs of the divorce from {{ case.respondentFirstName }} {{ case.respondentLastName }}.",
+    "notClaimingForDivorce": "The applicant is not claiming the costs of the divorce.",
+    "claimingCostsFromRespondentCoRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the respondent.",
+    "claimingCostsFromCoRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the co-respondent.",
+    "claimingCostsFromRespondent": "The applicant is also applying to the court to claim the costs of the divorce from the respondent.",
 
     "financialOrders": "Financial orders",
-    "financialOrdersPropertyMoneyPensionsChildren": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} is applying to the court for financial orders for themselves and for their children.",
-    "financialOrdersChildren": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} is applying to the court for financial orders for their children.",
-    "financialOrdersPropertyMoneyPensions": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} is applying to the court for a financial order in which the court decides on the financial matters of the applicant and the respondent.",
-    "financialOrdersNone": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} is not applying for a financial order.",
+    "financialOrdersPropertyMoneyPensionsChildren": "The applicant is applying to the court for financial orders for themselves and for their children.",
+    "financialOrdersChildren": "The applicant is applying to the court for financial orders for their children.",
+    "financialOrdersPropertyMoneyPensions": "The applicant is applying to the court for a financial order in which the court decides on the financial matters of the applicant and the respondent.",
+    "financialOrdersNone": "The applicant is not applying for a financial order.",
 
     "applicantsCorrespondenceAddress": "Applicant's correspondence address",
 
@@ -119,7 +119,7 @@
 
     "otherCourtCases": "Other court cases that could affect jurisdiction",
     "onGoingCasesNo": "There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.",
-    "onGoingCasesYes": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the following court cases which are related to the marriage, property or children.",
+    "onGoingCasesYes": "The applicant has given the following court cases which are related to the marriage, property or children.",
 
     "whatThisMeansCostOrdersHelpWithCostsOrders": "Help with costs orders",
     "whatThisMeansCostOrdersClaimingCosts": "Claiming costs",
