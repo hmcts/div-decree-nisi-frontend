@@ -119,7 +119,7 @@
 
     "otherCourtCases": "Other court cases that could affect jurisdiction",
     "onGoingCasesNo": "There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.",
-    "onGoingCasesYes": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the following court cases which are related to the marriage, property or children.",
+    "onGoingCasesYes": "The applicant has given the following court cases which are related to the marriage, property or children.",
 
     "whatThisMeansCostOrdersHelpWithCostsOrders": "Help with costs orders",
     "whatThisMeansCostOrdersClaimingCosts": "Claiming costs",
