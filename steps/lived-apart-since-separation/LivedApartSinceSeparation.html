@@ -29,17 +29,17 @@
 <!-- Dropdown area if answered no -->
 <div class="js-hidden" id="no-container">
         <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="false">
-            <div class="form-group {{ errorClass(fields.changes.detailsOfLivingTogetherField) }}">
+            <div class="form-group {{ errorClass(fields.changes.approximateDatesOfLivingTogetherField) }}">
                 <label class="form-label-bold"
-                       for="{{ fields.changes.detailsOfLivingTogetherField.id }}">
-                    {{ content.fields.changes.detailsOfLivingTogetherField.title }}
+                       for="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}">
+                    {{ content.fields.changes.approximateDatesOfLivingTogetherField.title }}
                 </label>
-                {{ errorsFor(fields.changes.detailsOfLivingTogetherField) }}
+                {{ errorsFor(fields.changes.approximateDatesOfLivingTogetherField) }}
                 <textarea class="form-control"
-                          id="{{ fields.changes.detailsOfLivingTogetherField.id }}"
-                          name="{{ fields.changes.detailsOfLivingTogetherField.id }}"
-                          rows="4">{% if fields.changes.detailsOfLivingTogetherField.value %}
-          {{ fields.changes.detailsOfLivingTogetherField.value }}{% endif %}</textarea>
+                          id="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
+                          name="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
+                          rows="4">{% if fields.changes.approximateDatesOfLivingTogetherField.value %}
+          {{ fields.changes.approximateDatesOfLivingTogetherField.value }}{% endif %}</textarea>
             </div>
         </div>
 </div>

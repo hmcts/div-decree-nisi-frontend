@@ -17,7 +17,7 @@ class LivedApartSinceSeparation extends Question {
   }
 
   get form() {
-    const validateDatesOfLivingTogether = ({ livedApartSinceSeparation = '', detailsOfLivingTogetherField = '' }) => {
+    const validateDatesOfLivingTogether = ({ livedApartSinceSeparation = '', approximateDatesOfLivingTogetherField = '' }) => {
       // only validate if user has answered livedApartSinceSeparation
       const hasntAnsweredQuestion = !livedApartSinceSeparation.length;
       if (hasntAnsweredQuestion) {
@@ -25,7 +25,7 @@ class LivedApartSinceSeparation extends Question {
       }
       const hasAnsweredYes = livedApartSinceSeparation === 'yes';
       const hasAnsweredNo = livedApartSinceSeparation === 'no';
-      const hasGivenDetails = detailsOfLivingTogetherField.length > 0;
+      const hasGivenDetails = approximateDatesOfLivingTogetherField.length > 0;
       return hasAnsweredYes || (hasAnsweredNo && hasGivenDetails);
     };
 
@@ -38,12 +38,12 @@ class LivedApartSinceSeparation extends Question {
 
     const fields = {
       livedApartSinceSeparation,
-      detailsOfLivingTogetherField: text
+      approximateDatesOfLivingTogetherField: text
     };
 
     const changes = object(fields)
       .check(
-        errorFor('detailsOfLivingTogetherField', this.content.errors.requireDatesOfLivingTogether),
+        errorFor('approximateDatesOfLivingTogetherField', this.content.errors.requireDatesOfLivingTogether),
         validateDatesOfLivingTogether);
 
     return form({ changes });
@@ -62,8 +62,8 @@ class LivedApartSinceSeparation extends Question {
     if (this.fields.changes.livedApartSinceSeparation.value === 'no') {
       answers.push(answer(this, {
         // eslint-disable-next-line max-len
-        question: this.content.fields.changes.detailsOfLivingTogetherField.title,
-        answer: this.fields.changes.detailsOfLivingTogetherField.value
+        question: this.content.fields.changes.approximateDatesOfLivingTogetherField.title,
+        answer: this.fields.changes.approximateDatesOfLivingTogetherField.value
       }));
     }
 
@@ -77,7 +77,7 @@ class LivedApartSinceSeparation extends Question {
     } else if (selectedValue === 'no') {
       return {
         'changes.livedApartSinceSeparation': selectedValue,
-        'changes.detailsOfLivingTogetherField': this.fields.changes.detailsOfLivingTogetherField.value
+        'changes.approximateDatesOfLivingTogetherField': this.fields.changes.approximateDatesOfLivingTogetherField.value
       };
     }
     return {};
