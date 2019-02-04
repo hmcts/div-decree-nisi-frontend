@@ -1,15 +1,11 @@
-FROM node:8.12.0-stretch as base
-ENV WORKDIR=/opt/app \
-    APP_USER=hmcts
-WORKDIR ${WORKDIR}
-RUN addgroup --system --gid 1001 $APP_USER \
-    && adduser --system --gid 1001 -uid 1001 --disabled-password --disabled-login $APP_USER \
-    && chown -R $APP_USER:$APP_USER $WORKDIR
+FROM hmcts.azurecr.io/hmcts/base/node/stretch-slim-lts-10 as base
+RUN apt-get update && apt-get install -y bzip2 git
 COPY package.json yarn.lock ./
 RUN yarn install --production \
-    && chown -R $APP_USER:$APP_USER $WORKDIR
+    # Specific to this app as static dependencies
+    # are generated at runtime
+    && chown -R hmcts:hmcts $WORKDIR/node_modules
 
 FROM base as runtime
 COPY . .
-USER $APP_USER
-CMD [ "yarn", "start" ]
+USER hmcts
