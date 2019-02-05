@@ -15,6 +15,9 @@ const saveFileFromRequest = (req = {}) => {
         return reject(error);
       }
       req.body = fields;
+      logger.infoWithReq(req, 'parse_success',
+        'File parsed successfully'
+      );
       return resolve(files.file);
     });
   });

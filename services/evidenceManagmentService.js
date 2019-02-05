@@ -70,6 +70,10 @@ const sendFile = req => {
               return reject(errorToReturn);
             }
 
+            logger.infoWithReq(req, 'evidence_saved',
+              'Saved file in Evidence Management Client'
+            );
+
             return handleResponse(req, response.body, resolve, reject);
           });
       });
