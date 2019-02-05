@@ -25,8 +25,8 @@ class LivedApartSinceSeparation extends Question {
       }
       const hasAnsweredYes = livedApartSinceSeparation === 'yes';
       const hasAnsweredNo = livedApartSinceSeparation === 'no';
-      const hasGivenDates = approximateDatesOfLivingTogetherField.length > 0;
-      return hasAnsweredYes || (hasAnsweredNo && hasGivenDates);
+      const hasGivenDetails = approximateDatesOfLivingTogetherField.length > 0;
+      return hasAnsweredYes || (hasAnsweredNo && hasGivenDetails);
     };
 
     const validate = Joi.string()
