@@ -35,8 +35,8 @@ const handleResponse = (req, body, resolve, reject) => {
 
   logger.infoWithReq(req, 'evidence_uploaded',
     'Uploaded files to Evidence Management Client',
-    body.fileUrl,
-    body.mimeType
+    body[0].fileUrl,
+    body[0].mimeType
   );
 
   return resolve(body);
