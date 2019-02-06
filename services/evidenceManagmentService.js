@@ -19,7 +19,7 @@ const handleResponse = (req, body, resolve, reject) => {
   if (error) {
     logger.errorWithReq(req, 'evidence_upload_error',
       'Error when uploading to Evidence Management:',
-      body
+      error.message
     );
     return reject(error);
   }
@@ -28,14 +28,15 @@ const handleResponse = (req, body, resolve, reject) => {
   if (dataIsNotValid) {
     logger.errorWithReq(req, 'evidence_upload_not_valid',
       'Evidence management data not valid',
-      body
+      body[0].status
     );
     return reject(Array.isArray(body) ? body[0] : body);
   }
 
   logger.infoWithReq(req, 'evidence_uploaded',
     'Uploaded files to Evidence Management Client',
-    body
+    body.fileUrl,
+    body.mimeType
   );
 
   return resolve(body);
