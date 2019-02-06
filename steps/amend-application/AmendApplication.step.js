@@ -1,5 +1,5 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
-const { redirectTo, action } = require('@hmcts/one-per-page/flow');
+const { action } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const caseOrchestrationService = require('services/caseOrchestrationService');
@@ -20,9 +20,7 @@ class AmendApplication extends Interstitial {
 
   next() {
     return action(caseOrchestrationService.amendApplication)
-    // eslint-disable-next-line max-len
-      .then(redirectToFrontendHelper.redirectToFrontendAmend(this.req, this.res))
-      .onFailure(redirectTo(this.journey.steps.AmendErrorStep));
+      .then(redirectToFrontendHelper.redirectToFrontendAmend);
   }
 }
 

@@ -49,7 +49,8 @@ const methods = {
 
   //  Triggers the amend application process
   amendApplication: req => {
-    const uri = `${config.services.orchestrationService.amendPetitionUrl}`;
+    const { caseId } = req.session.case;
+    const uri = `${config.services.orchestrationService.amendPetitionUrl}/${caseId}`;
     const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
     return request.put({ uri, headers, json: true })
       .catch(error => {

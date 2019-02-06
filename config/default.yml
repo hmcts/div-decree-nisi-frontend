@@ -100,7 +100,7 @@ paths:
   privacyPolicy: /privacy-policy
   contactDivorceTeam: /contact-your-divorce
   amendApplication: /amend-application
-  respNotAdmitAdultery: /resp-does-not-admit-adultery-options 
+  respNotAdmitAdultery: /resp-does-not-admit-adultery-options
   mock:
     idamLogin: /idam-mock-login
     modifySession: /session

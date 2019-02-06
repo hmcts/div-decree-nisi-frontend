@@ -1,0 +1,24 @@
+const modulePath = 'steps/amend-application/AmendApplication.step';
+
+const AmendApplication = require(modulePath);
+const idam = require('services/idam');
+const { middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
+
+describe(modulePath, () => {
+  beforeEach(() => {
+    sinon.stub(idam, 'protect').returns(middleware.nextMock);
+  });
+
+  afterEach(() => {
+    idam.protect.restore();
+  });
+
+  it('has idam.protect middleware', () => {
+    return middleware.hasMiddleware(AmendApplication, [idam.protect()]);
+  });
+
+  it('renders the content', () => {
+    const session = { case: { data: {} } };
+    return content(AmendApplication, session);
+  });
+});
