@@ -8,11 +8,7 @@
 
 {% block fields %}
 
-<p class="text">{{ content.mustHaveLivedApart | safe }}</p>
-
-<div class="panel panel-border-wide">
-  <p class="text">{{ content.livingApart }}</p>
-</div>
+<p class="text">{{ content.livingApart | safe }}</p>
 
 <br>
 
@@ -32,41 +28,20 @@
 
 <!-- Dropdown area if answered no -->
 <div class="js-hidden" id="no-container">
-  <h3 class="heading-medium">{{ content.detailsHowLongLivedTogetherSinceSeparation }}</h3>
-  <p class="text">{{ content.detailsHowLongLivedTogetherSinceSeparationDetail | safe }}</p>
-
-  <details>
-    <summary aria-controls="details-content-1" aria-expanded="false">
-      <span class="summary">{{ content.ifLessThan6Months }}</span>
-    </summary>
-    <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
-      <p class="text">{{ content.ifLessThan6MonthsDetail1 }}</p>
-      <p class="text">{{ content.ifLessThan6MonthsDetail2 }}</p>
-    </div>
-  </details>
-
-  <details>
-    <summary aria-controls="details-content-2" aria-expanded="false">
-      <span class="summary">{{ content.ifMoreThan6Months }}</span>
-    </summary>
-    <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
-      <p class="text">{{ content.ifMoreThan6MonthsDetail1 }}</p>
-      <p class="text">{{ content.ifMoreThan6MonthsDetail2 }}</p>
-    </div>
-  </details>
-
-  <div class="form-group {{ errorClass(fields.changes.approximateDatesOfLivingTogetherField) }}">
-    <label class="form-label-bold"
-           for="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}">
-      {{ content.fields.changes.approximateDatesOfLivingTogetherField.title }}
-    </label>
-    {{ errorsFor(fields.changes.approximateDatesOfLivingTogetherField) }}
-    <textarea class="form-control"
-              id="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
-              name="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
-              rows="4">{% if fields.changes.approximateDatesOfLivingTogetherField.value %}
-      {{ fields.changes.approximateDatesOfLivingTogetherField.value }}{% endif %}</textarea>
-  </div>
+        <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="false">
+            <div class="form-group {{ errorClass(fields.changes.approximateDatesOfLivingTogetherField) }}">
+                <label class="form-label-bold"
+                       for="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}">
+                    {{ content.fields.changes.approximateDatesOfLivingTogetherField.title }}
+                </label>
+                {{ errorsFor(fields.changes.approximateDatesOfLivingTogetherField) }}
+                <textarea class="form-control"
+                          id="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
+                          name="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
+                          rows="4">{% if fields.changes.approximateDatesOfLivingTogetherField.value %}
+          {{ fields.changes.approximateDatesOfLivingTogetherField.value }}{% endif %}</textarea>
+            </div>
+        </div>
 </div>
 <!-- end of dropdown area -->
 

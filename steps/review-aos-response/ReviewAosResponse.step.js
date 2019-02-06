@@ -20,6 +20,8 @@ const constants = {
   respAgreeToCosts: 'respAgreeToCosts',
   sep5yr: 'separation-5-years',
   sep2yr: 'separation-2-years',
+  desertion: 'desertion',
+  behaviour: 'unreasonable-behaviour',
   adultery: 'adultery',
   yes: 'Yes',
   no: 'No',
@@ -49,6 +51,14 @@ class ReviewAosResponse extends Question {
 
   notAccepted(key) {
     return this.case[key] === this.consts.notAccept;
+  }
+
+  get behaviour() {
+    return this.case.reasonForDivorce === this.consts.behaviour;
+  }
+
+  get desertion() {
+    return this.case.reasonForDivorce === this.consts.desertion;
   }
 
   get adultery() {
