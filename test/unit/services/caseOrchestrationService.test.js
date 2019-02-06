@@ -125,9 +125,17 @@ describe(moduleName, () => {
   });
 
   describe('Amend Application', () => {
-    const req = { cookies: { '__auth-token': 'token' } };
-    const uri = `${config.services.orchestrationService.amendPetitionUrl}`;
-    const headers = { Authorization: 'Bearer token' };
+    let req = {};
+    let uri = '';
+    let headers = {};
+
+    beforeEach(() => {
+      req = { cookies: { '__auth-token': 'token' }, session: { case: { caseId: '1234' } } };
+      const { caseId } = req.session.case;
+      uri = `${config.services.orchestrationService.amendPetitionUrl}/${caseId}`;
+      headers = { Authorization: 'Bearer token' };
+    });
+
 
     it('sends the amend instruction to endpoint', done => {
       request.put.resolves();

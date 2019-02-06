@@ -18,7 +18,14 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
+    const ignoreContent = ['continue'];
     const session = { case: { data: {} } };
-    return content(AmendApplication, session);
+    const specificContent = [
+      'start',
+      'amendmentFee',
+      'ifYouWantYour',
+      'notAbleToRead'
+    ];
+    return content(AmendApplication, session, { specificContent, ignoreContent });
   });
 });
