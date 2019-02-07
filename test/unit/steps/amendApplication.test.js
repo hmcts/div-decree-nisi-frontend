@@ -36,11 +36,16 @@ describe(modulePath, () => {
     return content(AmendApplication, session, { specificContent, ignoreContent });
   });
 
-  it('calls the COS amend petition endpoint and redirects to PFE', () => {
+  it('Sends request to amend endpoint and redirects to PFE', done => {
     const step = stepAsInstance(AmendApplication, {
     });
-    step.next().performAction();
-    expect(caseOrchestrationService.amendApplication.calledOnce).to.eql(true);
-    // expect(redirectToFrontendHelper.redirectToFrontendAmend.calledOnce).to.eql(true);
+    caseOrchestrationService.amendApplication.resolves();
+    step.next().redirect().then(() => {
+      expect(caseOrchestrationService.amendApplication.calledOnce).to.eql(true);
+      expect(redirectToFrontendHelper.redirectToFrontendAmend.calledOnce).to.eql(true);
+      done();
+    }).catch(error => {
+      done(error);
+    });
   });
 });
