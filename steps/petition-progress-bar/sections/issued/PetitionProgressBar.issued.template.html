@@ -18,20 +18,20 @@
 
 {% include "reform-progress-list/template.njk" %}
 
-<h2 class="heading-medium">{{ content.issuedAppStatusMsg }}</h2>
+<h2 class="govuk-heading-m">{{ content.issuedAppStatusMsg }}</h2>
 <p>{{ content.issuedCaseNumberInfo }}<b> {{ case.caseReference | safe }} </b></p>
 <p>{{ content.issuedAppStatusMsgDetails }}</p>
 
-<h2 class="heading-medium">{{ content.issuedWhatHappensNext | safe }}</h2>
+<h2 class="govuk-heading-m">{{ content.issuedWhatHappensNext | safe }}</h2>
 <p class="text">{{ content.issuedWhatHappensNextDetail1 | safe }}</p>
-<ul class="list list-bullet">
+<ul class="govuk-list govuk-list--bullet">
   <li>{{ content.issuedWhatHappensNextDetails2list1 }}</li>
   <li>{{ content.issuedWhatHappensNextDetails2list2 }}</li>
   <li>{{ content.issuedWhatHappensNextDetails2list3 }}</li>
 </ul>
 <p class="text">{{ content.issuedWhatHappensNextDetails3 | safe }}</p>
 
-<h2 class="heading-medium">{{ content.needHelp }}</h2>
+<h2 class="govuk-heading-m">{{ content.needHelp }}</h2>
 <p class="text">{{ content.needHelpDetails | safe }} {{ content.solicitorLink | safe }}</p>
- <h2 class="heading-medium">{{ content.imporveService }}</h2>
+ <h2 class="govuk-heading-m">{{ content.imporveService }}</h2>
 <p class="text">{{ content.imporveServiceDetails | safe }} {{ content.feedbackLink | safe }}</p>

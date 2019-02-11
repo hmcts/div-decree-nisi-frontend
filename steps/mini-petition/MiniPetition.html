@@ -9,7 +9,7 @@
 {% block fields %}
   <p class="text">{{ content.applicationStillTrue | safe }}</p>
 
-  <h2 class="heading-medium">{{ content.applicationForDivorce }}</h2>
+  <h2 class="govuk-heading-m">{{ content.applicationForDivorce }}</h2>
 
   <p class="text">
     {% if case.claimsCosts == "Yes" and case.financialOrderFor == "Yes" %}
@@ -56,7 +56,7 @@
     <p class="text">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
   {% endif %}
 
- <details>
+ <details class="govuk-details">
     <summary aria-controls="details-content-0" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeans }}</span>
     </summary>
@@ -70,7 +70,7 @@
 
   <!-- About the marriage  -->
 
-  <h2 class="heading-medium">{{ content.aboutTheMarriage }}</h2>
+  <h2 class="govuk-heading-m">{{ content.aboutTheMarriage }}</h2>
 
   <h3 class="heading-small">{{ content.whoMarriageIsBetween }}</h3>
   <p class="text">{{ content.marriageIsBetween }}</p>
@@ -81,7 +81,7 @@
   <h3 class="heading-small">{{ content.dateOfMarriage }}</h3>
   <p class="text">{{ case.marriageDate | date }}</p>
 
-  <details>
+  <details class="govuk-details">
     <summary aria-controls="details-content-7" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeans }}</span>
     </summary>
@@ -95,7 +95,7 @@
 
   <!-- Jurisdiction -->
 
-  <h2 class="heading-medium">{{ content.jurisdiction }}</h2>
+  <h2 class="govuk-heading-m">{{ content.jurisdiction }}</h2>
 
   {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
     <ul class="list-bullet">
@@ -200,7 +200,7 @@
     <p class="text">"{{ case.legalProceedingsDetails | striptags(true) | escape | nl2br }}"</p>
   {% endif %}
 
-  <details>
+  <details class="govuk-details">
     <summary aria-controls="details-content-1" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeans }}</span>
     </summary>
@@ -217,7 +217,7 @@
       <p class="text">{{ content.whatThisMeansJurisdictiondomicileIsUsually }}</p>
       <p class="text">{{ content.whatThisMeansJurisdictionDomicileComplex }}</p>
       <p class="text">{{ content.whatThisMeansJurisdictionWhenBorn | safe }}</p>
-      <ul class="bullet list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.whatThisMeansJurisdictionCountryYourFather }}</li>
         <li>{{ content.whatThisMeansJurisdictionCountryYourMother }}</li>
       </ul>
@@ -227,12 +227,12 @@
       <h3 class="heading-small">{{ content.whatThisMeansJurisdictionResidualJurisdiction }}</h3>
 
       <p class="text">{{ content.whatThisMeansJurisdictionResidualJurisdiction1 }}</p>
-      <ul class="bullet list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction2 }}</li>
         <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction3 }}</li>
       </ul>
     <p class="text">{{ content.whatThisMeansJurisdictionResidualJurisdiction4 }}</p>
-      <ul class="bullet list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction5 }}</li>
         <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction6 }}</li>
         <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction7 }}</li>
@@ -250,7 +250,7 @@
 
   <!-- Reason for divorce -->
 
-  <h2 class="heading-medium">{{ content.reasonForDivorce }}</h2>
+  <h2 class="govuk-heading-m">{{ content.reasonForDivorce }}</h2>
 
   {% if case.reasonForDivorce == "adultery" %}
 
@@ -303,7 +303,7 @@
     <p class="text">{{ content.reasonForDivorceSeperationFiveYearsBrokendDown }}
     {% if case.reasonForDivorceDecisionDate and case.reasonForDivorceLivingApartDate %}
       <p class="text">{{ content.reasonForDivorceSeperationFiveYears.petitionerStates }}</p>
-      <ul class="list list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.reasonForDivorceSeperationFiveYears.decidedDate }}</li>
         <li>{{ content.reasonForDivorceSeperationFiveYears.livingApartDate }}</li>
       </ul>
@@ -320,7 +320,7 @@
     <p class="text">"{{ case.reasonForDivorceDesertionDetails }}"</p>
   {% endif %}
 
-  <details>
+  <details class="govuk-details">
     <summary aria-controls="details-content-2" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeans }}</span>
     </summary>
@@ -350,7 +350,7 @@
 
   <!-- Additional applications  -->
 
-  <h2 class="heading-medium">{{ content.additionalApplications }}</h2>
+  <h2 class="govuk-heading-m">{{ content.additionalApplications }}</h2>
 
   <!-- Cost Orders -->
 
@@ -367,7 +367,7 @@
     <p class="text">{{ content.notClaimingForDivorce }}</p>
   {% endif %}
 
-  <details>
+  <details class="govuk-details">
     <summary aria-controls="details-content-3" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeansCostOrdersHelpWithCostsOrders }}</span>
     </summary>
@@ -395,7 +395,7 @@
     <p class="text">{{ content.financialOrdersNone }}</p>
   {% endif %}
 
-  <details>
+  <details class="govuk-details">
     <summary aria-controls="details-content-4" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeansFinantialOrders }}</span>
     </summary>
@@ -422,7 +422,7 @@
   <!-- Petitioner Address -->
 
   {% if case.petitionerContactDetailsConfidential == "share" %}
-    <h2 class="heading-medium">{{ content.applicantsCorrespondenceAddress }}</h2>
+    <h2 class="govuk-heading-m">{{ content.applicantsCorrespondenceAddress }}</h2>
 
     {% if case.petitionersSolicitorName != "" and not(case.petitionerHomeAddress|length) %}
       <p class="text">{{ case.petitionersSolicitorName }}</p>
@@ -437,7 +437,7 @@
 
   <!-- Respondent Address -->
 
-  <h2 class="heading-medium">{{ content.respondentsCorrespondenceAddress }}</h2>
+  <h2 class="govuk-heading-m">{{ content.respondentsCorrespondenceAddress }}</h2>
   {% if case.respondentSolicitorAddress|length %}
     <p class="text">{{ case.respondentSolicitorName }}</p>
     <p class="text">{{ case.respondentSolicitorCompany }}</p>
@@ -454,7 +454,7 @@
   <!-- CoRespondent Address -->
 
   {% if case.reasonForDivorceAdultery3rdAddress|length %}
-    <h2 class="heading-medium">{{ content.coRespondentsCorrespondenceAddress }}</h2>
+    <h2 class="govuk-heading-m">{{ content.coRespondentsCorrespondenceAddress }}</h2>
     <p class="text">{{ case.reasonForDivorceAdultery3rdAddress.address | address | safe }}</p>
   {% endif %}
 
@@ -463,7 +463,7 @@
 
 
 
-  <h2 class="heading-medium">{{ content.statementOfTruth }}</h2>
+  <h2 class="govuk-heading-m">{{ content.statementOfTruth }}</h2>
   <p class="text">{{ content.statementOfTruthDescription }}</p>
   <p class="text"><em>{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</em></p>
 
@@ -482,7 +482,7 @@
         <em class="icon icon-important">
           <span class="visuallyhidden"></span>
         </em>
-        <p class="bold-small">{{ content.changeOrAddWarning }}</p>
+        <p class="govuk-!-font-size-19 govuk-!-font-weight-bold">{{ content.changeOrAddWarning }}</p>
       </div>
       <div class="form-group {{ errorClass(fields.changes.changesDetails) }}">
         <label class="form-label-bold"

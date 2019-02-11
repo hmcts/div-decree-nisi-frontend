@@ -3,7 +3,7 @@
   {% if notExist(consts.respWillDefendDivorce) %}
      <p class="text">{{ content.respProceed.willLetDivorceProceed }}</p>
   {% elif notAccepted(consts.respWillDefendDivorce) %}
-     <p class="text">{{ content.respProceed.letDivorceProceedButNotAdmit }}</p> 
+     <p class="text">{{ content.respProceed.letDivorceProceedButNotAdmit }}</p>
   {% elif exist(consts.respWillDefendDivorce) %}
      <p class="text">{{ content.respProceed.willDefendDivorce }}</p>
   {% endif %}
@@ -43,14 +43,14 @@
      {% endif %}
   {% endif %}
 
-  <details>
+  <details class="govuk-details">
     <summary aria-controls="details-content-0" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeans }}</span>
     </summary>
     <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
       <p class="text">{{ content.respProceed.givenOptions }}</p>
 
-      <ul class="bullet list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.respProceed.proceedWithDivorce }}</li>
         {% if behaviour or desertion %}
           <li>{{ content.respProceed.proceedNotAccept }}</li>

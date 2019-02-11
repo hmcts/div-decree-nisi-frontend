@@ -7,9 +7,9 @@
     <div class="panel panel-border-narrow">
       <p class="text">"{{ case.respCostsReason | nl2br | safe }}"</p>
     </div>
-  {% endif %} 
+  {% endif %}
 
-  <details>
+  <details class="govuk-details">
     <summary aria-controls="details-content-2" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeans }}</span>
     </summary>
@@ -17,7 +17,7 @@
       <p class="text">{{ content.costsOrder.respondentWasAskedPayCosts }}</p>
       <p class="text">{{ content.costsOrder.followingOptions }}</p>
 
-      <ul class="bullet list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.costsOrder.payCosts }}</li>
         <li>{{ content.costsOrder.notPayCosts }}</li>
       </ul>

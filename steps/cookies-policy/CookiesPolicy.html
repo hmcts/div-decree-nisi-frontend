@@ -9,18 +9,18 @@
 {% block main_content %}
 <p class="text">{{ content.info }}</p>
 <p class="text">{{ content.thisServiceUsesThemTo | safe }}</p>
-<ul class="list list-bullet">
+<ul class="govuk-list govuk-list--bullet">
     <li>{{ content.measureHow | safe }}</li>
     <li>{{ content.rememberNotifications | safe }}</li>
     <li>{{ content.temporarilyStore | safe }}</li>
 </ul>
 <p class="text">{{ content.moreInformation | safe }}</p>
 
-<h2 class="heading-medium">{{ content.howCookiesAreUsed | safe }}</h2>
+<h2 class="govuk-heading-m">{{ content.howCookiesAreUsed | safe }}</h2>
 <h3 class="heading-small">{{ content.toMeasureWebsiteUsage | safe }}</h3>
 <p class="text">{{ content.ga1 | safe }}</p>
 <p class="text">{{ content.ga2 | safe }}</p>
-<ul class="list list-bullet">
+<ul class="govuk-list govuk-list--bullet">
     <li>{{ content.ga3 | safe }}</li>
     <li>{{ content.ga4 | safe }}</li>
     <li>{{ content.ga5 | safe }}</li>

@@ -18,18 +18,18 @@
 
 {% include "reform-progress-list/template.njk" %}
 
-<h2 class="heading-medium">{{ content.dAATitle }}</h2>
+<h2 class="govuk-heading-m">{{ content.dAATitle }}</h2>
 <p class="text">{{ content.dAAHasRespondend }}</p>
 
-<h2 class="heading-medium">{{ content.dAAWhatHappensNext }}</h2>
+<h2 class="govuk-heading-m">{{ content.dAAWhatHappensNext }}</h2>
 <p class="text">{{ content.dAA28Days }}</p>
 <p class="text">{{ content.dAAUsualyGoToCourt }}</p>
 
-<h2 class="heading-medium">{{ content.dAADoesntSubmitAnswer }}</h2>
+<h2 class="govuk-heading-m">{{ content.dAADoesntSubmitAnswer }}</h2>
 <p class="text">{{ content.dAADoesntReceiveAnswer }}</p>
 <p class="text">{{ content.dAASentandEmail }}</p>
 <p class="text">{{ content.dAAReadResp }}</p>
 
  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
    <input class="button button-start" type="submit" value="{{ content.continue }}">
-</form> 
+</form>

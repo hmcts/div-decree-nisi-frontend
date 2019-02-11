@@ -19,7 +19,7 @@
 
 {% include "reform-progress-list/template.njk" %}
 
-<h2 class="heading-medium">{{ content.undefendedAppStatusMsg }}</h2>
+<h2 class="govuk-heading-m">{{ content.undefendedAppStatusMsg }}</h2>
 
 {% if respondentAdmitsToFact %}
   <p>{{ content.undefendedAppStatusMsgDetails1 }}</p>
@@ -28,7 +28,7 @@
 {% endif %}
 <p>{{ content.undefendedAppStatusMsgDetails2 }}</p>
 
-<details>
+<details class="govuk-details">
 <summary aria-controls="details-content-0" aria-expanded="false">
   <span class="summary">{{ content.undefendedReadMore }}</span>
 </summary>
@@ -36,7 +36,7 @@
 <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
   <p>{{ content.undefendedOrderForDivorce }}</p>
 
-  <ol class="list list-number">
+  <ol class="govuk-list govuk-list--number">
     <li>{{ content.undefendedCourtAgrees }}</li>
     <li>{{ content.undefendedCannotBeMade6Weeks }}</li>
   </ol>

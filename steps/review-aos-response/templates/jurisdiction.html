@@ -4,14 +4,14 @@
   {% if exist(consts.respJurisdictionAgree) %}
     <p class="text">{{ content.jurisdiction.respondentAgrees }}</p>
   {% elif notExist(consts.respJurisdictionAgree) %}
-    <p class="text">{{ content.jurisdiction.respDoesNotAgree }}</p> 
-  
-    <p class="text">{{ content.jurisdiction.detailsGiven }}</p> 
+    <p class="text">{{ content.jurisdiction.respDoesNotAgree }}</p>
+
+    <p class="text">{{ content.jurisdiction.detailsGiven }}</p>
     <div class="panel panel-border-narrow">
       <p class="text">"{{ case.respJurisdictionDisagreeReason | safe }}"</p>
     </div>
 
-    <p class="text">{{ content.jurisdiction.countryTheyResp }}</p> 
+    <p class="text">{{ content.jurisdiction.countryTheyResp }}</p>
     <div class="panel panel-border-narrow">
       <p class="text">"{{ case.respJurisdictionRespCountryOfResidence | nl2br | safe }}"</p>
     </div>
@@ -20,7 +20,7 @@
   <h3 class="heading-small">{{ content.jurisdiction.otherCourtDetails }}</h3>
 
   {% if exist(consts.respLegalProceedingsExist) %}
-    <p class="text">{{ content.jurisdiction.otherProceedings }}</p> 
+    <p class="text">{{ content.jurisdiction.otherProceedings }}</p>
     <p class="text">{{ content.jurisdiction.detailsGiven }}</p>
     <div class="panel panel-border-narrow">
       <p class="text">"{{ case.respLegalProceedingsDescription | nl2br | safe }}"</p>
@@ -29,7 +29,7 @@
     <p class="text">{{ content.jurisdiction.noOtherProceedings }}</p>
   {% endif %}
 
-  <details>
+  <details class="govuk-details">
     <summary aria-controls="details-content-1" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeans }}</span>
     </summary>

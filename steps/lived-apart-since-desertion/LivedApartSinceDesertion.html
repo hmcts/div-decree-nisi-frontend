@@ -32,10 +32,10 @@
 
 <!-- Dropdown area if answered no -->
   <div class="js-hidden" id="no-container">
-    <h3 class="heading-medium">{{ content.detailsHowLongLivedTogetherSinceDesertion }}</h3>
+    <h3 class="govuk-heading-m">{{ content.detailsHowLongLivedTogetherSinceDesertion }}</h3>
     <p class="text">{{ content.detailsHowLongLivedTogetherSinceDesertionDetail | safe }}</p>
 
-    <details>
+    <details class="govuk-details">
       <summary aria-controls="details-content-1" aria-expanded="false">
         <span class="summary">{{ content.ifLessThan6Months }}</span>
       </summary>
@@ -46,7 +46,7 @@
     </details>
     <br>
 
-    <details>
+    <details class="govuk-details">
       <summary aria-controls="details-content-2" aria-expanded="false">
         <span class="summary">{{ content.ifMoreThan6Months }}</span>
       </summary>

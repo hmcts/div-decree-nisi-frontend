@@ -1,14 +1,14 @@
 {% extends "look-and-feel/layouts/error.html" %}
 
 {% block two_thirds -%}
-    <a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
-    {{ header(title, size='xlarge') }}
+    <a class="govuk-back-link" href="#" onclick="history.go(-1); return false;">Back</a>
+    {{ header(title, size='xl') }}
     <p> {{ message }} </p>
 
     {% if nextSteps %}
         <p>
             You can either:
-            <ul class="list list-bullet">
+            <ul class="govuk-list govuk-list--bullet">
             {% for option in nextSteps %}
                 <li>{{ option | safe }}</li>
             {% endfor %}

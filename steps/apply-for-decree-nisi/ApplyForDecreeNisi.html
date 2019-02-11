@@ -10,14 +10,14 @@
 
   <p class="text">{{ content.amendOrAdd | safe }}</p>
 
-  <details>
+  <details class="govuk-details">
     <summary aria-controls="details-content-0" aria-expanded="false">
       <span class="summary">{{ content.readMore }}</span>
     </summary>
     <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
       <p class="text">{{ content.orderForDivorce }}</p>
 
-      <ol class="bullet list-number">
+      <ol class="govuk-list govuk-list--number">
         <li>{{ content.decreeNisi }}</li>
         <li>{{ content.decreeAbsolute }}</li>
       </ol>

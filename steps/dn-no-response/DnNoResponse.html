@@ -10,29 +10,29 @@
     <em class="icon icon-important">
       <span class="visuallyhidden"></span>
     </em>
-    <p class="bold-small">{{ content.infoToContactRespondent }}</p>
+    <p class="govuk-!-font-size-19 govuk-!-font-weight-bold">{{ content.infoToContactRespondent }}</p>
   </div>
   <p>{{ content.provideNewAddrToCourt | safe }}</p>
   <p>{{ content.noResponseOptions | safe }}</p>
 
-  <h2 class="heading-medium">{{ content.whichSituation }}</h2>
+  <h2 class="govuk-heading-m">{{ content.whichSituation }}</h2>
 
  <details class="exit-guidance">
     <summary aria-controls="details-content-0" aria-expanded="false">
       <span class="summary">{{ content.haveAnotherAddress.linkSummary }}</span>
     </summary>
-    
+
     <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
       <p>{{ content.haveAnotherAddress.provideAddress }}</p>
       <p>{{ content.haveAnotherAddress.noExtraPay }}</p>
     </div>
   </details>
-   
+
  <details class="exit-guidance">
     <summary aria-controls="details-content-1" aria-expanded="false">
       <span class="summary">{{ content.sendToWorkAddress.linkSummary }}</span>
     </summary>
-    
+
     <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
       <p>{{ content.sendToWorkAddress.askToSendApp }}</p>
       <p class="text"><strong>{{ content.howToApply }}</strong>{{ content.fill }} {{ content.applyD11 | safe }} {{ content.printAndSend }}</p>
@@ -41,12 +41,12 @@
       <p>{{ content.extraCosts }}</p>
     </div>
   </details>
- 
+
  <details class="exit-guidance">
     <summary aria-controls="details-content-2" aria-expanded="false">
       <span class="summary">{{ content.needToSearchRecords.linkSummary }}</span>
     </summary>
-    
+
     <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
       <p>{{ content.needToSearchRecords.canApplyIfRespLivesInEngWales }}</p>
       <p><strong>{{ content.howToApply }}</strong> {{ content.needToSearchRecords.applyViaSearchRecords }}</p>
@@ -60,7 +60,7 @@
     <summary aria-controls="details-content-3" aria-expanded="false">
       <span class="summary">{{ content.sendEmailToResp.linkSummary }}</span>
     </summary>
-    
+
     <div class="panel panel-border-narrow" id="details-content-3" aria-hidden="true">
       <p>{{ content.sendEmailToResp.appToEmail }}</p>
       <p><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.printAndSend }}</p>
@@ -74,11 +74,11 @@
     <summary aria-controls="details-content-4" aria-expanded="false">
       <span class="summary">{{ content.believeRespChoseNotToRespond.linkSummary }}</span>
     </summary>
-    
+
     <div class="panel panel-border-narrow" id="details-content-4" aria-hidden="true">
       <p>{{ content.believeRespChoseNotToRespond.deliverPapersDirectlyToResp }}</p>
       <p>{{ content.believeRespChoseNotToRespond.optionsToDeliver }}</p>
-      <ul class="list list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.believeRespChoseNotToRespond.privateHireToDeliver }}</li>
         <li>{{ content.believeRespChoseNotToRespond.courtEmpToDeliver }}</li>
       </ul>
@@ -89,7 +89,7 @@
       <p>{{ content.believeRespChoseNotToRespond.courtBailifDetails2 }}</p>
       <p><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.believeRespChoseNotToRespond.formD89 | safe }}</p>
       <p>{{ content.believeRespChoseNotToRespond.moreToSend }}</p>
-      <ul class="list list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.believeRespChoseNotToRespond.respPhoto }}</li>
         <li>{{ content.believeRespChoseNotToRespond.divorceAppCopy }}</li>
       </ul>
@@ -104,7 +104,7 @@
     <summary aria-controls="details-content-5" aria-expanded="false">
       <span class="summary">{{ content.evidenceRespWontRespond.linkSummary }}</span>
     </summary>
-    
+
     <div class="panel panel-border-narrow" id="details-content-5" aria-hidden="true">
       <p>{{ content.evidenceRespWontRespond.canApplyForDeemedServ }}</p>
       <p>{{ content.evidenceRespWontRespond.needToProve }}</p>
@@ -120,11 +120,11 @@
     <summary aria-controls="details-content-6" aria-expanded="false">
       <span class="summary">{{ content.doneWithAllWaysOfDelivering.linkSummary }}</span>
     </summary>
-    
+
     <div class="panel panel-border-narrow" id="details-content-6" aria-hidden="true">
       <p>{{ content.doneWithAllWaysOfDelivering.askForDispenseWithService }}</p>
       <p>{{ content.doneWithAllWaysOfDelivering.allInCourtHands }}</p>
-      <ul class="list list-bullet">
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.doneWithAllWaysOfDelivering.relatives }}</li>
         <li>{{ content.doneWithAllWaysOfDelivering.friends }}</li>
         <li>{{ content.doneWithAllWaysOfDelivering.lastEmployer }}</li>
@@ -149,7 +149,7 @@
     <h3 class="heading-small" id="subsection-title">{{ content.guidence }}</h3>
 
     <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="font-xsmall">
+      <ul class="govuk-body-s">
         <li>{{ content.howRespondsLink | safe }}</li>
         <li>{{ content.decreeNisiLink | safe }}</li>
         <li>{{ content.decreeAbsoluteLink | safe }}</li>
