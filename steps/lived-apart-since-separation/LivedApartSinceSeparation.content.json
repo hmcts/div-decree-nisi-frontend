@@ -3,8 +3,8 @@
     "title": "Have you lived apart since you applied for a divorce?",
     "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
     "errors": {
-      "required": "Select yes if you lived apart since separating from your {{ case.divorceWho }}?",
-      "requireDatesOfLivingTogether": "Enter details of how long you've lived together and the circumstances."
+      "required": "Select whether you have lived apart from your {{ case.divorceWho }} since you applied for a divorce.",
+      "requireDatesOfLivingTogether": "To proceed, provide details of how long you've lived together and the circumstances."
     },
     "fields": {
       "changes": {
