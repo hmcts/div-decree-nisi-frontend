@@ -35,7 +35,8 @@ describe(modulePath, () => {
 
   it('should redirect to Petitioner Frontend to amend application', () => {
     const petitionerFrontend = config.services.petitionerFrontend;
-    const landingUrl = `${petitionerFrontend.url}${petitionerFrontend.landing}`;
+    // eslint-disable-next-line
+    const landingUrl = `${petitionerFrontend.url}${petitionerFrontend.landing}?toNextUnansweredPage=true`;
     const expectedUrl = `${landingUrl}?${authTokenString}=someValue`;
 
     redirectToFrontendAmend(req, res);
