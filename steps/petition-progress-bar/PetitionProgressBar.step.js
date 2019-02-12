@@ -8,7 +8,7 @@ const constants = {
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
-  DNAwaiting: ['dnawaiting', 'awaitingdecreenisi'],
+  DNAwaiting: ['dnawaiting', 'awaitingdecreenisi', 'aoscompleted'],
   undefendedReason: '0',
   yes: 'yes'
 };
