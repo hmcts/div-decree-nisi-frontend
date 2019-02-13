@@ -40,6 +40,10 @@ class PetitionProgressBar extends Interstitial {
     return caseIdDisplayStateMap.includes(this.caseState);
   }
 
+  get respAdmitsToFact() {
+    return this.case.respAdmitOrConsentToFact && this.case.respAdmitOrConsentToFact.toLowerCase() === constants.yes;
+  }
+
   handler(req, res) {
     req.session.entryPoint = this.name;
     super.handler(req, res);
@@ -52,6 +56,10 @@ class PetitionProgressBar extends Interstitial {
     ];
   }
 
+  get respWillDefendDivorce() {
+    return this.case.respWillDefendDivorce;
+  }
+
   get caseState() {
     return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
   }
@@ -60,19 +68,15 @@ class PetitionProgressBar extends Interstitial {
     return this.case.reasonForDivorce;
   }
 
-  get respAdmitsToFact() {
-    return this.case.respAdmitOrConsentToFact && this.case.respAdmitOrConsentToFact.toLowerCase() === constants.yes;
-  }
-
-  get respWillDefendDivorce() {
-    return this.case.respWillDefendDivorce && this.case.respWillDefendDivorce.toLowerCase() === constants.yes;
-  }
-
   get showDnNoResponse() {
     return this.caseState === constants.AOSOverdue;
   }
 
   get showReviewAosResponse() {
+    return this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase());
+  }
+
+  get showRee() {
     return this.caseState === constants.AOSCompleted;
   }
 
@@ -81,7 +85,7 @@ class PetitionProgressBar extends Interstitial {
       redirectTo(this.journey.steps.DnNoResponse)
         .if(this.showDnNoResponse),
       redirectTo(this.journey.steps.ReviewAosResponse)
-        .if(this.showReviewAosResponse),
+        .if(this.showReviewAosResponse || this.showRee),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
   }
@@ -92,7 +96,6 @@ class PetitionProgressBar extends Interstitial {
 
   get stateTemplate() {
     let template = '';
-
     if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
     } else if (parseBool(config.features.release520)) {
@@ -111,5 +114,6 @@ class PetitionProgressBar extends Interstitial {
     return template;
   }
 }
+
 
 module.exports = PetitionProgressBar;
