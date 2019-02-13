@@ -73,7 +73,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get showReviewAosResponse() {
-    return this.respWillDefendDivorce || this.caseState === constants.AOSCompleted;
+    return this.caseState === constants.AOSCompleted;
   }
 
   next() {
