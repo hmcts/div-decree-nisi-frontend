@@ -5,7 +5,6 @@ const { parseBool } = require('@hmcts/one-per-page/util');
 const PetitionProgressBar = require(modulePath);
 const PetProgressBarContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
-const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const idam = require('services/idam');
 const { custom, middleware, interstitial, sinon, content,
@@ -535,17 +534,6 @@ describe(modulePath, () => {
         }
       };
       return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
-    });
-
-    it('redirects reviewAosResponse when CCD has respWillDefendDivorce as Yes', () => {
-      const session = {
-        case: {
-          data: {
-            respWillDefendDivorce: 'Yes'
-          }
-        }
-      };
-      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
     });
   });
 });
