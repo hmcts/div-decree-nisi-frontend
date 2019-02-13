@@ -1,6 +1,6 @@
 const request = require('request-promise-native');
 const config = require('config');
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 const caseOrchestrationHelper = require('helpers/caseOrchestrationHelper');
 
 const authTokenString = '__auth-token';
@@ -17,13 +17,22 @@ const methods = {
 
     return request.get({ uri, headers, json: true })
       .then(response => {
+        logger.infoWithReq(req, 'case_retrieved',
+          'Successfully retrieved case'
+        );
         return caseOrchestrationHelper.validateResponse(req, response);
       })
       .then(response => {
+        logger.infoWithReq(req, 'case_validated',
+          'Successfully validated case'
+        );
         return Object.assign(req.session, { case: response });
       })
       .catch(error => {
-        logger.error(`Trying to retrieve case from case orchestartion service: ${error}`);
+        logger.errorWithReq(req, 'error_retrieving_application',
+          'Error retrieving case from case orchestration service',
+          error.message
+        );
         throw error;
       });
   },
@@ -35,8 +44,16 @@ const methods = {
     const body = caseOrchestrationHelper.formatSessionForSubmit(req);
 
     return request.post({ uri, headers, json: true, body })
+      .then(() => {
+        logger.infoWithReq(req, 'application_submitted',
+          'Successfully submitted DN case'
+        );
+      })
       .catch(error => {
-        logger.error(`Trying to submit case to case orchestartion service: ${error}`);
+        logger.errorWithReq(req, 'error_submitting_application',
+          'Error submitting case to case orchestration service',
+          error.message
+        );
         throw error;
       });
   }

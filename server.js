@@ -1,5 +1,5 @@
 require('./services/app-insights')();
-const logger = require('@hmcts/nodejs-logging').Logger.getLogger(__filename);
+const logger = require('services/logger').getLogger(__filename);
 const app = require('./app');
 const config = require('config');
 const path = require('path');
@@ -23,7 +23,7 @@ if (['development'].includes(config.environment)) {
   http = app.listen(config.node.port);
 }
 
-logger.info(`Application running: ${config.node.baseUrl}`);
+logger.infoWithReq(null, 'app_running', 'Application running:', config.node.baseUrl);
 
 process.on('SIGTERM', () => {
   http.close(() => {

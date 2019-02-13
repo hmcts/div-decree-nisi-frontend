@@ -10,6 +10,7 @@ const evidenceManagmentService = require(modulePath);
 describe(modulePath, () => {
   describe('#handleResponse', () => {
     let body = {};
+    const req = {};
 
     beforeEach(() => {
       body = [{ status: 'OK' }];
@@ -17,7 +18,7 @@ describe(modulePath, () => {
 
     it('resolves with body if valid', () => {
       const resolve = sinon.stub();
-      evidenceManagmentService.handleResponse(body, resolve);
+      evidenceManagmentService.handleResponse(req, body, resolve);
       expect(resolve.calledOnce).to.eql(true);
       expect(resolve.calledWith(body)).to.eql(true);
     });
@@ -26,7 +27,7 @@ describe(modulePath, () => {
       body = [{ status: 'BAD' }];
       const resolve = sinon.stub();
       const reject = sinon.stub();
-      evidenceManagmentService.handleResponse(body, resolve, reject);
+      evidenceManagmentService.handleResponse(req, body, resolve, reject);
       expect(reject.calledOnce).to.eql(true);
     });
 
@@ -34,7 +35,7 @@ describe(modulePath, () => {
       body = { error: 'true' };
       const resolve = sinon.stub();
       const reject = sinon.stub();
-      evidenceManagmentService.handleResponse(body, resolve, reject);
+      evidenceManagmentService.handleResponse(req, body, resolve, reject);
       expect(reject.calledOnce).to.eql(true);
     });
   });
@@ -74,7 +75,7 @@ describe(modulePath, () => {
       evidenceManagmentService.sendFile(req)
         .then(() => {
           expect(fileManagement.removeFile.calledOnce).to.equal(true);
-          expect(fileManagement.removeFile.calledWith(file)).to.equal(true);
+          expect(fileManagement.removeFile.calledWith(req, file)).to.equal(true);
           expect(superagent.post.calledOnce).to.equal(true);
           expect(superagentStub.set.called).to.equal(true);
           expect(superagentStub.attach.calledOnce).to.equal(true);

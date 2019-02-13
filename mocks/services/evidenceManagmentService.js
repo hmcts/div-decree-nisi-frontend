@@ -48,7 +48,7 @@ const sendFile = req => {
     .then(resp => {
       return new Promise((resolve, reject) => {
         evidenceManagmentService
-          .handleResponse(resp, resolve, reject);
+          .handleResponse(req, resp, resolve, reject);
       });
     });
 };
