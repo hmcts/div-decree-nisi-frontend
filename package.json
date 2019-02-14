@@ -29,7 +29,7 @@
   "pre-commit": "lint",
   "dependencies": {
     "@hmcts/div-idam-express-middleware": "^6.3.5",
-    "@hmcts/look-and-feel": "^2.0.2",
+    "@hmcts/look-and-feel": "^2.1.1",
     "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
     "@hmcts/nodejs-logging": "^3.0.0",
