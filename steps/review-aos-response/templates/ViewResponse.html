@@ -13,6 +13,11 @@
   <h3 class="heading-small">{{ content.respondent }}</h3>
   <p class="text">{{ case.respondentFirstName }} {{ case.respondentLastName }}</p>
 
+  {% if case.reasonForDivorceAdulteryWishToName == "Yes" %}
+    <h3 class="heading-small">{{ content.corespondent }}</h3>
+    <p class="text">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
+  {% endif %}
+
   <h3 class="heading-small">{{ content.applicant }}</h3>
   <p class="text">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
   
