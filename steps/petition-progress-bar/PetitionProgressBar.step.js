@@ -1,15 +1,25 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
-const { caseStateMap, permitDNReasonMap, caseIdDisplayStateMap } = require('./petitionerStateTemplates');
+const {
+  caseStateMap,
+  permitDNReasonMap,
+  caseIdDisplayStateMap,
+  caseStateMap520
+} = require('./petitionerStateTemplates');
 
 const constants = {
+  adultery: 'adultery',
+  sep2Yr: 'separation-2-years',
+  AOSCompleted: 'aoscompleted',
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
-  DNAwaiting: ['dnawaiting', 'awaitingdecreenisi'],
+  DNAwaiting: 'awaitingdecreenisi',
   undefendedReason: '0',
+  no: 'no',
   yes: 'yes'
 };
 
@@ -30,7 +40,7 @@ class PetitionProgressBar extends Interstitial {
     return caseIdDisplayStateMap.includes(this.caseState);
   }
 
-  get respondentAdmitsToFact() {
+  get respAdmitsToFact() {
     return this.case.respAdmitOrConsentToFact && this.case.respAdmitOrConsentToFact.toLowerCase() === constants.yes;
   }
 
@@ -58,8 +68,16 @@ class PetitionProgressBar extends Interstitial {
     return this.caseState === constants.AOSOverdue;
   }
 
+  get reasonForDivorce() {
+    return this.case.reasonForDivorce;
+  }
+
+  get aosIsCompleted() {
+    return this.caseState === constants.AOSCompleted;
+  }
+
   get showReviewAosResponse() {
-    return this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase());
+    return (this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase())) || this.aosIsCompleted;
   }
 
   next() {
@@ -80,6 +98,12 @@ class PetitionProgressBar extends Interstitial {
     let template = '';
     if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
+    } else if (parseBool(config.features.release520)) {
+      caseStateMap520.forEach(dataMap => {
+        if (dataMap.state.includes(this.caseState)) {
+          template = dataMap.template;
+        }
+      });
     } else {
       caseStateMap.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {

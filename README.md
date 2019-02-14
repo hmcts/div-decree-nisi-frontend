@@ -41,4 +41,3 @@ Create remote-config.json file
 Copy SCM config
 Add "TEST_URL" with AAT url
 Run `yarn test:functional:remote
-`

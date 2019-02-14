@@ -34,7 +34,7 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 3', () => {
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
-      .resolves(merge({}, mockCaseResponse, { state: 'DNAwaiting', data: session }));
+      .resolves(merge({}, mockCaseResponse, { state: 'AwaitingDecreeNisi', data: session }));
 
     caseOrchestrationServiceSubmitStub = postStub
       .withArgs(sinon.match({
