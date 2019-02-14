@@ -1,3 +1,4 @@
+/* eslint-disable no-console,prefer-template */
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { parseBool } = require('@hmcts/one-per-page/util');
@@ -57,7 +58,11 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get respWillDefendDivorce() {
-    return this.case.respWillDefendDivorce;
+    return this.case.respWillDefendDivorce && this.case.respWillDefendDivorce.toLowerCase() === constants.yes;
+  }
+
+  get respWillNotDefendDivorce() {
+    return this.case.respWillDefendDivorce && this.case.respWillDefendDivorce.toLowerCase() === constants.no;
   }
 
   get caseState() {
@@ -72,12 +77,16 @@ class PetitionProgressBar extends Interstitial {
     return this.caseState === constants.AOSOverdue;
   }
 
-  get showReviewAosResponse() {
-    return this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase());
+  get aosIsCompleted() {
+    return this.caseState === constants.AOSCompleted;
   }
 
-  get showRee() {
-    return this.caseState === constants.AOSCompleted;
+  get showReviewAosResponse() {
+    return this.respWillNotDefendDivorce;
+  }
+
+  get blerp() {
+    return this.respWillNotDefendDivorce && this.aosIsCompleted;
   }
 
   next() {
@@ -85,7 +94,7 @@ class PetitionProgressBar extends Interstitial {
       redirectTo(this.journey.steps.DnNoResponse)
         .if(this.showDnNoResponse),
       redirectTo(this.journey.steps.ReviewAosResponse)
-        .if(this.showReviewAosResponse || this.showRee),
+        .if(this.showReviewAosResponse || this.blerp),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
   }
