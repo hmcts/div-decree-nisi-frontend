@@ -10,10 +10,10 @@ const reviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.s
 const Entry = require('steps/entry/Entry.step');
 
 const session = {
-  respWillDefendDivorce: 'Yes'
+  respWillDefendDivorce: 'No'
 };
 
-describe('AosSubmittedAwaitingAnswer DN flow', () => {
+describe('AosCompleted DN flow', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
     getStub
@@ -21,7 +21,7 @@ describe('AosSubmittedAwaitingAnswer DN flow', () => {
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
       .resolves(merge({}, mockCaseResponse, {
-        state: 'AosSubmittedAwaitingAnswer', data: session
+        state: 'AosCompleted', data: session
       }));
   });
   after(() => {
