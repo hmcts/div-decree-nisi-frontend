@@ -58,23 +58,19 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get respWillDefendDivorce() {
-    return this.case.respWillDefendDivorce && this.case.respWillDefendDivorce.toLowerCase() === constants.yes;
-  }
-
-  get respWillNotDefendDivorce() {
-    return this.case.respWillDefendDivorce && this.case.respWillDefendDivorce.toLowerCase() === constants.no;
+    return this.case.respWillDefendDivorce;
   }
 
   get caseState() {
     return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
   }
 
-  get reasonForDivorce() {
-    return this.case.reasonForDivorce;
-  }
-
   get showDnNoResponse() {
     return this.caseState === constants.AOSOverdue;
+  }
+
+  get reasonForDivorce() {
+    return this.case.reasonForDivorce;
   }
 
   get aosIsCompleted() {
@@ -82,11 +78,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get showReviewAosResponse() {
-    return this.respWillNotDefendDivorce;
-  }
-
-  get blerp() {
-    return this.aosIsCompleted;
+    return (this.respWillDefendDivorce && constants.validAnswer.includes(this.respWillDefendDivorce.toLowerCase())) || this.aosIsCompleted;
   }
 
   next() {
@@ -94,7 +86,7 @@ class PetitionProgressBar extends Interstitial {
       redirectTo(this.journey.steps.DnNoResponse)
         .if(this.showDnNoResponse),
       redirectTo(this.journey.steps.ReviewAosResponse)
-        .if(this.showReviewAosResponse || this.blerp),
+        .if(this.showReviewAosResponse),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
   }
