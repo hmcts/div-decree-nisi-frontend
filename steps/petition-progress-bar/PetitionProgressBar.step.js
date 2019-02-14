@@ -86,7 +86,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get blerp() {
-    return this.respWillNotDefendDivorce && this.aosIsCompleted;
+    return this.aosIsCompleted;
   }
 
   next() {
