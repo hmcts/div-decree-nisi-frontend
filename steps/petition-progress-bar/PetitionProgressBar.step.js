@@ -1,4 +1,3 @@
-/* eslint-disable no-console,prefer-template */
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { parseBool } = require('@hmcts/one-per-page/util');

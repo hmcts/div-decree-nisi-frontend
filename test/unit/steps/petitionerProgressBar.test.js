@@ -537,13 +537,11 @@ describe(modulePath, () => {
       return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
     });
 
-    // eslint-disable-next-line max-len
-    it('redirects reviewAosResponse when CCD has respWillDefendDivorce: No & state: AOSCompleted', () => {
+    it('redirects reviewAosResponse when CCD has respWillDefendDivorce as Yes', () => {
       const session = {
         case: {
-          state: 'AOSCompleted',
           data: {
-            respWillDefendDivorce: 'No'
+            respWillDefendDivorce: 'Yes'
           }
         }
       };
