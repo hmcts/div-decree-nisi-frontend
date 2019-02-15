@@ -1,5 +1,7 @@
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
+const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 const PetitionProgressBar = require(modulePath);
 const PetProgressBarContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
@@ -30,7 +32,9 @@ const templates = {
   respondentNotReplied:
     './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
   defendedAwaitingAnswer:
-    './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html'
+    './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html',
+  aosCompleted:
+    './sections/aosCompleted/PetitionProgressBar.aosCompleted.template.html'
 };
 
 // get all content for all pages
@@ -140,7 +144,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 0 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '0'
         }
@@ -162,7 +166,7 @@ describe(modulePath, () => {
     it('renders content for when respondent does not admit fact', () => {
       const noAdmitSession = {
         case: {
-          state: 'DNawaiting',
+          state: 'AwaitingDecreeNisi',
           data: {
             permittedDecreeNisiReason: '0',
             respAdmitOrConsentToFact: 'No'
@@ -177,7 +181,7 @@ describe(modulePath, () => {
     it('renders content for when respondent does admit fact', () => {
       const yesAdmitSession = {
         case: {
-          state: 'DNawaiting',
+          state: 'AwaitingDecreeNisi',
           data: {
             permittedDecreeNisiReason: '0',
             respAdmitOrConsentToFact: 'Yes'
@@ -193,7 +197,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 1 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '1'
         }
@@ -216,7 +220,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 2 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '2'
         }
@@ -239,7 +243,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 3 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '3'
         }
@@ -263,7 +267,7 @@ describe(modulePath, () => {
   describe('CCD state: DNawaiting, DNReason : 4 ', () => {
     const session = {
       case: {
-        state: 'DNawaiting',
+        state: 'AwaitingDecreeNisi',
         data: {
           permittedDecreeNisiReason: '4'
         }
@@ -302,6 +306,35 @@ describe(modulePath, () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.defendedAwaitingAnswer);
     });
+  });
+
+  // eslint-disable-next-line max-len
+  describe('CCD state: AosCompleted, D8ReasonForDivorce : adultery, RespAdmitOrConsentToFact : no', () => {
+    const session = {
+      case: {
+        state: 'AosCompleted',
+        data: {
+          reasonForDivorce: 'adultery',
+          respAdmitOrConsentToFact: 'No'
+        }
+      }
+    };
+
+    if (parseBool(config.features.release520)) {
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.aosCompleted);
+        const specificContentToNotExist = contentToNotExist('aosCompleted');
+
+        return content(PetitionProgressBar,
+          session,
+          { specificContent, specificContentToNotExist });
+      });
+
+      it('renders the correct template', () => {
+        const instance = stepAsInstance(PetitionProgressBar, session);
+        expect(instance.stateTemplate).to.eql(templates.aosCompleted);
+      });
+    }
   });
 
   describe('CCD state: AOSOverdue', () => {

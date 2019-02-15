@@ -6,7 +6,7 @@
     "detailsAboutLastIncidentDateDetail" : "If you're not sure of the exact date, use the closest date you remember.",
     "errors": {
       "required": "Select yes if your {{ case.divorceWho }}'s behaviour still continuing?",
-      "requireLastIncidentDate": "Enter a date between the day you submitted your application and today’s date."
+      "requireLastIncidentDate": "Enter a date between the date of your marriage and today’s date."
     },
     "fields": {
       "changes": {

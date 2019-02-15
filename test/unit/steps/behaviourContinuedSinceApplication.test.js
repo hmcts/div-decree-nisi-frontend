@@ -33,9 +33,7 @@ describe(modulePath, () => {
     const onlyErrors = ['required'];
     const session = {
       case: {
-        data: {
-          createdDate: '2018-08-02T00:00:00.000Z'
-        }
+        data: {}
       }
     };
     return question.testErrors(BehaviourContinuedSinceApplication, session, {}, { onlyErrors });
@@ -47,24 +45,22 @@ describe(modulePath, () => {
       'changes.lastIncidentDate-day': '' };
     const session = {
       case: {
-        data: {
-          createdDate: '2018-08-02T00:00:00.000Z'
-        }
+        data: {}
       }
     };
     return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
   });
 
-  it('shows error if answered no and a date before last application date is entered', () => {
+  it('shows error if answered no and a date before marriage date is entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
     const fields = { 'changes.behaviourContinuedSinceApplication': 'no',
       'changes.lastIncidentDate-day': '20',
       'changes.lastIncidentDate-month': '03',
-      'changes.lastIncidentDate-year': '1900' };
+      'changes.lastIncidentDate-year': '2016' };
     const session = {
       case: {
         data: {
-          createdDate: '2018-08-02T00:00:00.000Z'
+          marriageDate: '2018-08-02T00:00:00.000Z'
         }
       }
     };
@@ -79,9 +75,7 @@ describe(modulePath, () => {
       'changes.lastIncidentDate-year': '2200' };
     const session = {
       case: {
-        data: {
-          createdDate: '2018-08-02T00:00:00.000Z'
-        }
+        data: { }
       }
     };
     return question.testErrors(BehaviourContinuedSinceApplication, session, fields, { onlyErrors });
@@ -91,10 +85,11 @@ describe(modulePath, () => {
     const fields = { 'changes.behaviourContinuedSinceApplication': 'no',
       'changes.lastIncidentDate.day': '20',
       'changes.lastIncidentDate.month': '09',
-      'changes.lastIncidentDate.year': '2018' };
+      'changes.lastIncidentDate.year': '2017' };
     const session = {
       case: {
         data: {
+          marriageDate: '2016-08-02T00:00:00.000Z',
           createdDate: '2018-08-02T00:00:00.000Z'
         }
       }
@@ -161,9 +156,7 @@ describe(modulePath, () => {
 
     const session = {
       case: {
-        data: {
-          createdDate: '2018-08-02T00:00:00.000Z'
-        }
+        data: {}
       }
     };
 
@@ -184,9 +177,7 @@ describe(modulePath, () => {
 
     const session = {
       case: {
-        data: {
-          createdDate: '2018-08-02T00:00:00.000Z'
-        }
+        data: {}
       }
     };
 
