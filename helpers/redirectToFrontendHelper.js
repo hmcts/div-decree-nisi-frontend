@@ -15,6 +15,13 @@ const redirectToFrontend = (req, res) => {
   redirectToUrl(req, res, `${petitionerFrontend.url}${petitionerFrontend.landing}`);
 };
 
+const redirectToFrontendAmend = (req, res) => {
+  logger.infoWithReq(req, 'redirect_to_petitioner', 'Redirecting user to Petitioner Frontend to amend application');
+
+  const petitionerFrontend = config.services.petitionerFrontend;
+  res.redirect(`${petitionerFrontend.url}${petitionerFrontend.landing}?toNextUnansweredPage=true&${authTokenString}=${req.cookies[authTokenString]}`);
+};
+
 const redirectToAos = (req, res) => {
   logger.infoWithReq(req, 'redirecting_to_respondent', 'Redirecting user to AOS. User is a respondent user');
 
@@ -22,4 +29,4 @@ const redirectToAos = (req, res) => {
   redirectToUrl(req, res, `${aosFrontend.url}${aosFrontend.landing}`);
 };
 
-module.exports = { redirectToFrontend, redirectToAos };
+module.exports = { redirectToFrontend, redirectToAos, redirectToFrontendAmend };

@@ -73,6 +73,10 @@ class ReviewAosResponse extends Question {
     return this.case.reasonForDivorce === this.consts.sep5yr;
   }
 
+  get doesNotConsent() {
+    return this.case.respAdmitOrConsentToFact === this.consts.no;
+  }
+
   get responseTemplate() {
     if (this.req.session.case.state === this.consts.viewOnlyState) {
       return this.consts.viewTemplate;
@@ -85,7 +89,13 @@ class ReviewAosResponse extends Question {
       return this.adultery && this.notExist(this.consts.respAdmitOrConsentToFact);
     };
 
+    const ammendAplication = () => {
+      return this.sep2yr && this.doesNotConsent;
+    };
+
     return branch(
+      redirectTo(this.journey.steps.AmendApplication)
+        .if(parseBool(config.features.release520) && ammendAplication),
       redirectTo(this.journey.steps.RespNotAdmitAdultery)
         .if(parseBool(config.features.release520) && respNotAdmitAdultery),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)

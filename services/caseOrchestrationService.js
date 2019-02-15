@@ -56,6 +56,21 @@ const methods = {
         );
         throw error;
       });
+  },
+
+  //  Triggers the amend application process
+  amendApplication: req => {
+    const { caseId } = req.session.case;
+    const uri = `${config.services.orchestrationService.amendPetitionUrl}/${caseId}`;
+    const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
+    return request.put({ uri, headers, json: true })
+      .catch(error => {
+        logger.errorWithReq(req, 'error_amending_application',
+          'Error sending request to case orchestration service amend application endpoint',
+          error.message
+        );
+        throw error;
+      });
   }
 };
 
