@@ -30,6 +30,13 @@
       <p class="text">{{ content.respDoesNotAdmitAdulteryYouCanRead }}</p>
 {% endif %}
 
+{% if not respAdmitsToFact and reasonForDivorce == "separation-2-years" %}
+    <h2 class="heading-medium">{{ content.respDoesNotConsent2YearSepTitle }}</h2>
+    <p class="text">{{ content.respDoesNotConsent2YearSepYouMustHave }}</p>
+    <p class="text">{{ content.respDoesNotConsent2YearSepYouHaveToPay }}</p>
+    <p class="text">{{ content.respDoesNotConsent2YearSepReadResponse }}</p>
+{% endif %}
+
 <!--TODO
  Add functionality for other scenarios as in backlog
  -->
