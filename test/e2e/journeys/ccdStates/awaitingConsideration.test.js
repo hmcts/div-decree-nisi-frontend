@@ -14,6 +14,8 @@ const session = {
 };
 
 describe('Case State :  AwaitingConsideration', () => {
+  const sandbox = sinon.createSandbox();
+
   before(() => {
     const getStub = sinon.stub(request, 'get');
     getStub
@@ -24,10 +26,12 @@ describe('Case State :  AwaitingConsideration', () => {
         state: 'AwaitingConsideration',
         data: session
       }));
+    sandbox.replace(config, 'features', { release520: false });
   });
 
   after(() => {
     request.get.restore();
+    sandbox.restore();
   });
 
   journey.test([
