@@ -20,6 +20,8 @@ const constants = {
   respAgreeToCosts: 'respAgreeToCosts',
   sep5yr: 'separation-5-years',
   sep2yr: 'separation-2-years',
+  desertion: 'desertion',
+  behaviour: 'unreasonable-behaviour',
   adultery: 'adultery',
   yes: 'Yes',
   no: 'No',
@@ -51,6 +53,14 @@ class ReviewAosResponse extends Question {
     return this.case[key] === this.consts.notAccept;
   }
 
+  get behaviour() {
+    return this.case.reasonForDivorce === this.consts.behaviour;
+  }
+
+  get desertion() {
+    return this.case.reasonForDivorce === this.consts.desertion;
+  }
+
   get adultery() {
     return this.case.reasonForDivorce === this.consts.adultery;
   }
@@ -61,6 +71,10 @@ class ReviewAosResponse extends Question {
 
   get sep5yr() {
     return this.case.reasonForDivorce === this.consts.sep5yr;
+  }
+
+  get doesNotConsent() {
+    return this.case.respAdmitOrConsentToFact === this.consts.no;
   }
 
   get responseTemplate() {
@@ -75,7 +89,13 @@ class ReviewAosResponse extends Question {
       return this.adultery && this.notExist(this.consts.respAdmitOrConsentToFact);
     };
 
+    const ammendAplication = () => {
+      return this.sep2yr && this.doesNotConsent;
+    };
+
     return branch(
+      redirectTo(this.journey.steps.AmendApplication)
+        .if(parseBool(config.features.release520) && ammendAplication),
       redirectTo(this.journey.steps.RespNotAdmitAdultery)
         .if(parseBool(config.features.release520) && respNotAdmitAdultery),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)

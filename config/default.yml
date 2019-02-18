@@ -60,6 +60,7 @@ services:
     submitCaseUrl: http://localhost:3001/case-orchestration/submit-dn
     health: http://localhost:3001/case-orchestration/health
     draftEndpoint: http://localhost:3001/case-orchestration/draftsapi/version/1
+    amendPetitionUrl: http://localhost:3001/case-orchestration/amend-petition
   petitionerFrontend:
     url: https://localhost:8080
     landing: /authenticated
@@ -101,7 +102,8 @@ paths:
   cookiesPolicy: /cookie
   privacyPolicy: /privacy-policy
   contactDivorceTeam: /contact-your-divorce
-  respNotAdmitAdultery: /resp-does-not-admit-adultery-options 
+  amendApplication: /amend-application
+  respNotAdmitAdultery: /resp-does-not-admit-adultery-options
   mock:
     idamLogin: /idam-mock-login
     modifySession: /session

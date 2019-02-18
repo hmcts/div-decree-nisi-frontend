@@ -8,6 +8,8 @@ const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNi
 const Exit = require('steps/exit/Exit.step');
 const idam = require('services/idam');
 const { middleware, sinon, content, question } = require('@hmcts/one-per-page-test-suite');
+const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 const { feeTypes } = require('middleware/feesAndPaymentsMiddleware');
@@ -86,6 +88,9 @@ describe(modulePath, () => {
     });
 
     it('redirects to AmendPetition page', () => {
+      if (!parseBool(config.features.release520)) {
+        return true;
+      }
       const fields = { amendPetition: 'yes' };
       return question.redirectWithField(RespNotAdmitAdultery, fields, Exit);
     });

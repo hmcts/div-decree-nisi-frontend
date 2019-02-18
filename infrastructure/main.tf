@@ -99,6 +99,7 @@ module "frontend" {
     ORCHESTRATION_SERVICE_POST_PETITION_URL= "${local.case_orchestration_service_api_url}/submit-dn"
     ORCHESTRATION_SERVICE_HEALTH_URL       = "${local.case_orchestration_service_api_url}${local.health_endpoint}"
     ORCHESTRATION_SERVICE_DRAFT_ENDPOINT   = "${var.case_orchestration_service_draft_endpoint}"
+    ORCHESTRATION_SERVICE_AMEND_PETITION_URL   = "${local.case_orchestration_service_api_url}/amend-petition"
 
     //Case Maintenance
     CASE_MAINTENANCE_BASE_URL              = "${local.case_maintence_service_api_url}"

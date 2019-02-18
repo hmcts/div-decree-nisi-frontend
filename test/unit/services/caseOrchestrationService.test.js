@@ -11,11 +11,13 @@ describe(moduleName, () => {
   beforeEach(() => {
     sinon.stub(request, 'get');
     sinon.stub(request, 'post');
+    sinon.stub(request, 'put');
   });
 
   afterEach(() => {
     request.get.restore();
     request.post.restore();
+    request.put.restore();
   });
 
   describe('#getApplication', () => {
@@ -120,5 +122,40 @@ describe(moduleName, () => {
 
     return expect(caseOrchestrationService.getApplication(req))
       .to.be.rejectedWith('Error');
+  });
+
+  describe('Amend Application', () => {
+    let req = {};
+    let uri = '';
+    let headers = {};
+
+    beforeEach(() => {
+      req = { cookies: { '__auth-token': 'token' }, session: { case: { caseId: '1234' } } };
+      const { caseId } = req.session.case;
+      uri = `${config.services.orchestrationService.amendPetitionUrl}/${caseId}`;
+      headers = { Authorization: 'Bearer token' };
+    });
+
+
+    it('sends the amend instruction to endpoint', done => {
+      request.put.resolves();
+
+      caseOrchestrationService.amendApplication(req)
+        .then(() => {
+          sinon.assert.calledWith(request.put, {
+            uri,
+            headers,
+            json: true
+          });
+        })
+        .then(done, done);
+    });
+
+    it('throws error if bad response from amend application endpoint', () => {
+      request.put.rejects();
+
+      return expect(caseOrchestrationService.amendApplication(req))
+        .to.be.rejectedWith('Error');
+    });
   });
 });

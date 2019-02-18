@@ -58,7 +58,7 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const session = {
         case: {
-          state: 'DNAwaiting',
+          state: 'AwaitingDecreeNisi',
           data: {
             respWillDefendDivorce: 'Yes'
           }
@@ -71,7 +71,7 @@ describe(modulePath, () => {
     it('Continue button should be rendered', () => {
       const session = {
         case: {
-          state: 'DNAwaiting',
+          state: 'AwaitingDecreeNisi',
           data: {
             respWillDefendDivorce: 'Yes'
           }
@@ -153,9 +153,17 @@ describe(modulePath, () => {
       return content(ReviewAosResponse, session, { specificContent, specificValues });
     });
 
+
     describe('How Respondnet wants to proceed section', () => {
       it('renders common conent in this section', () => {
-        const session = { case: { data: { respWillDefendDivorce: 'Yes' } } };
+        const session = {
+          case: {
+            data: {
+              respWillDefendDivorce: 'Yes',
+              reasonForDivorce: 'desertion'
+            }
+          }
+        };
         const specificContent = [
           'respProceed.title',
           'whatThisMeans',
