@@ -7,8 +7,6 @@ const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const config = require('config');
 
-const { parseBool } = require('@hmcts/one-per-page/util');
-
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -23,6 +21,12 @@ describe(modulePath, () => {
   });
 
   describe('Renders content', () => {
+    const sandbox = sinon.createSandbox();
+
+    after(() => {
+      sandbox.restore();
+    });
+
     it('renders the common content', () => {
       const session = { case: { data: {} } };
       const ignoreContent = ['adultery', 'otherReasons'];
@@ -30,9 +34,7 @@ describe(modulePath, () => {
     });
 
     it('renders the adultery related content', () => {
-      if (!parseBool(config.features.release520)) {
-        return true;
-      }
+      sandbox.replace(config, 'features', { release520: true });
       const session = {
         case: {
           data: {
