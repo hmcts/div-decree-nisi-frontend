@@ -349,21 +349,25 @@ describe(modulePath, () => {
       }
     };
 
-    if (parseBool(config.features.release520)) {
-      it('renders the correct content', () => {
-        const specificContent = Object.keys(pageContent.aosCompleted);
-        const specificContentToNotExist = contentToNotExist('aosCompleted');
+    it('renders the correct content', () => {
+      if (!parseBool(config.features.release520)) {
+        return true;
+      }
+      const specificContent = Object.keys(pageContent.aosCompleted);
+      const specificContentToNotExist = contentToNotExist('aosCompleted');
 
-        return content(PetitionProgressBar,
-          session,
-          { specificContent, specificContentToNotExist });
-      });
+      return content(PetitionProgressBar,
+        session,
+        { specificContent, specificContentToNotExist });
+    });
 
-      it('renders the correct template', () => {
-        const instance = stepAsInstance(PetitionProgressBar, session);
-        expect(instance.stateTemplate).to.eql(templates.aosCompleted);
-      });
-    }
+    it('renders the correct template', () => {
+      if (!parseBool(config.features.release520)) {
+        return true;
+      }
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      return expect(instance.stateTemplate).to.eql(templates.aosCompleted);
+    });
   });
 
   describe('CCD state: AOSOverdue', () => {
