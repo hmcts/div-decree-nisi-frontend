@@ -1,5 +1,4 @@
 const { journey, sinon } = require('@hmcts/one-per-page-test-suite');
-const { parseBool } = require('@hmcts/one-per-page/util');
 const request = require('request-promise-native');
 const { merge } = require('lodash');
 const mockCaseResponse = require('mocks/services/case-orchestration/retrieve-case/mock-case');
@@ -190,7 +189,11 @@ describe('Respondent Admitted Adultery : no', () => {
     reasonForDivorceAdulteryDetails: 'details'
   };
 
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config, 'features', { release520: true });
+
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
 
@@ -210,12 +213,10 @@ describe('Respondent Admitted Adultery : no', () => {
   after(() => {
     request.get.restore();
     request.post.restore();
+    sandbox.restore();
   });
 
   describe('Intolerable: yes, livedApartSinceAdultery: yes', () => {
-    if (!parseBool(config.features.release520)) {
-      return;
-    }
     journey.test([
       { step: Start },
       { step: IdamLogin, body: { success: 'yes' } },
@@ -227,18 +228,18 @@ describe('Respondent Admitted Adultery : no', () => {
       {
         step: MiniPetition,
         body: {
-          'changes-hasBeenChanges': 'no',
-          'changes-statementOfTruthNoChanges': 'yes'
+          'changes.hasBeenChanges': 'no',
+          'changes.statementOfTruthNoChanges': 'yes'
         }
       },
       { step: Intolerable, body: { intolerable: 'yes' } },
       { step: AdulteryFirstFoundOut, body: {
-        'adulteryFirstFoundDate-day': '09',
-        'adulteryFirstFoundDate-month': '08',
-        'adulteryFirstFoundDate-year': '2011'
+        'adulteryFirstFoundDate.day': '09',
+        'adulteryFirstFoundDate.month': '08',
+        'adulteryFirstFoundDate.year': '2011'
       } },
-      { step: LivedApartSinceAdultery, body: { 'livedApart-livedApartSinceAdultery': 'yes' } },
-      { step: ClaimCosts, body: { 'dnCosts-claimCosts': 'originalAmount' } },
+      { step: LivedApartSinceAdultery, body: { 'livedApart.livedApartSinceAdultery': 'yes' } },
+      { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
       { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
       { step: Done }
