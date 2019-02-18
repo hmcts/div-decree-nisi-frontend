@@ -192,7 +192,7 @@ describe('Respondent Admitted Adultery : no', () => {
   const sandbox = sinon.createSandbox();
 
   before(() => {
-    sandbox.replace(config, 'features', { release520: true });
+    sandbox.replace(config.features, 'release520', true);
 
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');

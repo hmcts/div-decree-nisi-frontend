@@ -111,7 +111,7 @@ describe(modulePath, () => {
     });
 
     it('redirects to RespNotAdmitAdultery page', () => {
-      sandbox.replace(config, 'features', { release520: true });
+      sandbox.replace(config.features, 'release520', true);
 
       const fields = { reviewAosResponse: 'yes' };
       const session = {

@@ -323,7 +323,7 @@ describe(modulePath, () => {
     };
 
     beforeEach(() => {
-      sandbox.replace(config, 'features', { release520: true });
+      sandbox.replace(config.features, 'release520', true);
     });
 
     it('renders the correct content', () => {
@@ -413,7 +413,7 @@ describe(modulePath, () => {
     };
 
     beforeEach(() => {
-      sandbox.replace(config, 'features', { release520: false });
+      sandbox.replace(config.features, 'release520', false);
     });
 
     it('renders the correct content', () => {
@@ -438,7 +438,7 @@ describe(modulePath, () => {
     };
 
     beforeEach(() => {
-      sandbox.replace(config, 'features', { release520: false });
+      sandbox.replace(config.features, 'release520', false);
     });
 
     it('renders the correct content', () => {
@@ -463,7 +463,7 @@ describe(modulePath, () => {
     };
 
     beforeEach(() => {
-      sandbox.replace(config, 'features', { release520: false });
+      sandbox.replace(config.features, 'release520', false);
     });
 
     it('renders the correct content', () => {

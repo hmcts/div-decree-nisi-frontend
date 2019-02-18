@@ -34,7 +34,7 @@ describe(modulePath, () => {
     });
 
     it('renders the adultery related content', () => {
-      sandbox.replace(config, 'features', { release520: true });
+      sandbox.replace(config.features, 'release520', true);
       const session = {
         case: {
           data: {

@@ -60,7 +60,7 @@ describe(modulePath, () => {
     });
 
     it('redirects to AmendPetition page', () => {
-      sandbox.replace(config, 'features', { release520: true });
+      sandbox.replace(config.features, 'release520', true);
       const fields = { amendPetition: 'yes' };
       return question.redirectWithField(RespNotAdmitAdultery, fields, AmendApplication);
     });

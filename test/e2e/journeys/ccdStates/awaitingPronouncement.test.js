@@ -26,7 +26,7 @@ describe('Case State :  AwaitingPronouncement', () => {
         state: 'AwaitingPronouncement',
         data: session
       }));
-    sandbox.replace(config, 'features', { release520: false });
+    sandbox.replace(config.features, 'release520', false);
   });
 
   after(() => {

@@ -26,7 +26,7 @@ describe('Case State :  AwaitingClarification', () => {
         state: 'AwaitingClarification',
         data: session
       }));
-    sandbox.replace(config, 'features', { release520: false });
+    sandbox.replace(config.features, 'release520', false);
   });
 
   after(() => {

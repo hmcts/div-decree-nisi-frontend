@@ -1230,7 +1230,7 @@ describe(modulePath, () => {
     const sandbox = sinon.createSandbox();
 
     before(() => {
-      sandbox.replace(config, 'features', { release520: false });
+      sandbox.replace(config.features, 'release520', false);
     });
 
     after(() => {
