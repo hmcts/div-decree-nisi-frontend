@@ -354,9 +354,7 @@ describe(modulePath, () => {
     };
 
     it('renders the correct content', () => {
-      if (!parseBool(config.features.release520)) {
-        return true;
-      }
+      sandbox.replace(config.features, 'release520', true);
       const specificContent = Object.keys(pageContent.aosCompleted);
       const specificContentToNotExist = contentToNotExist('aosCompleted');
 
@@ -366,9 +364,7 @@ describe(modulePath, () => {
     });
 
     it('renders the correct template', () => {
-      if (!parseBool(config.features.release520)) {
-        return true;
-      }
+      sandbox.replace(config.features, 'release520', true);
       const instance = stepAsInstance(PetitionProgressBar, session);
       return expect(instance.stateTemplate).to.eql(templates.aosCompleted);
     });
