@@ -7,7 +7,6 @@ const config = require('config');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 const idam = require('services/idam');
-const { parseBool } = require('@hmcts/one-per-page/util');
 
 const Start = require('steps/start/Start.step');
 const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
@@ -25,10 +24,10 @@ const session = {
 
 
 describe('Case State : AosCompleted', () => {
-  if (!parseBool(config.features.release520)) {
-    return;
-  }
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config.features, 'release520', true);
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
     sinon.stub(caseOrchestrationService, 'amendApplication');
     sinon.stub(redirectToFrontendHelper, 'redirectToFrontendAmend');
@@ -41,9 +40,15 @@ describe('Case State : AosCompleted', () => {
       .resolves(merge({}, mockCaseResponse, { state: 'AosCompleted',
         data: session }));
   });
+
   after(() => {
     request.get.restore();
+    idam.protect.restore();
+    caseOrchestrationService.amendApplication.restore();
+    redirectToFrontendHelper.redirectToFrontendAmend.restore();
+    sandbox.restore();
   });
+
   journey.test([
     { step: Start },
     { step: IdamLogin, body: { success: 'yes' } },
