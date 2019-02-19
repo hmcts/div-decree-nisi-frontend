@@ -5,6 +5,10 @@
     "respDoesNotAdmitAdulteryToMoveForwardYouNeedTo": "To move your divorce forwards you need to either:",
     "respDoesNotAdmitAdulteryChangeReasonForDivorce": "change your reason for divorce",
     "respDoesNotAdmitAdulteryProvideEvidenceOfTheAdultery": "provide evidence of the adultery",
-    "respDoesNotAdmitAdulteryYouCanRead": "You can read your {{ case.divorceWho }}'s response on the next page."
+    "respDoesNotAdmitAdulteryYouCanRead": "You can read your {{ case.divorceWho }}'s response on the next page.",
+    "respDoesNotConsent2YearSepTitle": "Your {{ case.divorceWho }} has not given their consent to a divorce",
+    "respDoesNotConsent2YearSepYouMustHave": "You must have your {{ case.divorceWho }}'s consent to use the '2 years separation with consent' reason for divorce.",
+    "respDoesNotConsent2YearSepYouHaveToPay": "If you want to continue you need to change your reason for divorce. You'll have to pay a fee of £95. Your application will need to be sent to your {{ case.divorceWho }} again.",
+    "respDoesNotConsent2YearSepReadResponse": "Read your {{ case.divorceWho }}'s response on the next page."
   }
 }

@@ -337,6 +337,39 @@ describe(modulePath, () => {
     }
   });
 
+  // eslint-disable-next-line max-len
+  describe('CCD state: AosCompleted, D8ReasonForDivorce : separation-2-years, RespAdmitOrConsentToFact : no', () => {
+    const session = {
+      case: {
+        state: 'AosCompleted',
+        data: {
+          reasonForDivorce: 'separation-2-years',
+          respAdmitOrConsentToFact: 'No'
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      if (!parseBool(config.features.release520)) {
+        return true;
+      }
+      const specificContent = Object.keys(pageContent.aosCompleted);
+      const specificContentToNotExist = contentToNotExist('aosCompleted');
+
+      return content(PetitionProgressBar,
+        session,
+        { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      if (!parseBool(config.features.release520)) {
+        return true;
+      }
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      return expect(instance.stateTemplate).to.eql(templates.aosCompleted);
+    });
+  });
+
   describe('CCD state: AOSOverdue', () => {
     const session = {
       case: {
