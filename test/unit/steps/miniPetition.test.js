@@ -460,6 +460,18 @@ describe(modulePath, () => {
         'reasonForDivorceAdulteryCorrespondentNotNamed',
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
+        'reasonForDivorceSeparationTwoYearsBrokenDown',
+        'reasonForDivorceAdulteryDescription',
+        'reasonForDivorceInfo',
+        'reasonForDivorceStatement',
+        'reasonForDivorceSeperationTwoYearsDecidedDate',
+        'reasonForDivorceSeperationTwoYearsLivingApartDate',
+        'mostRecentDateIsSeperation',
+        'reasonForDivorceSeperationFiveYearsInfo',
+        'reasonForDivorceBehaviourBrokendDown',
+        'reasonForDivorceBrokendDown',
+        'reasonForDivorceDesertionInfo',
+        'reasonForDivorceDesertionDescription',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',
         'reasonForDivorceUnreasonableBehaviourStatment',
         'reasonForDivorceUnreasonableBehaviourDescription',
@@ -881,8 +893,7 @@ describe(modulePath, () => {
           }
         };
         const specificContent = [
-          'reasonForDivorceSeperationFiveYearsBrokendDown',
-          'reasonForDivorceSeperationFiveYears.oldSepDate'
+          'reasonForDivorceSeperationFiveYearsBrokendDown'
         ];
         const specificValues = [session.case.data.reasonForDivorceSeperationDate];
         return content(MiniPetition, session, { specificContent, specificValues });
@@ -901,7 +912,6 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeperationFiveYearsBrokendDown',
-          'reasonForDivorceSeperationFiveYears.petitionerStates',
           'reasonForDivorceSeperationFiveYears.decidedDate',
           'reasonForDivorceSeperationFiveYears.livingApartDate',
           'reasonForDivorceSeperationFiveYears.mostRecentDateConsidered'
