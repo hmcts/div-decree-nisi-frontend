@@ -140,7 +140,7 @@
     "reasonForDivorceSeperationDateIsSameOrAfterLimitDate": false,
     "reasonForDivorceAdultery3rdPartyFirstName": "John",
     "reasonForDivorceAdultery3rdPartyLastName": "Smith",
-    "reasonForDivorceAdulteryDetails": "Here are some adultery details",
+    "reasonForDivorceAdulteryDetails": "This is supported by the following statement from the applicant.",
     "reasonForDivorceAdulteryKnowWhen": "Yes",
     "reasonForDivorceAdulteryWishToName": "Yes",
     "reasonForDivorceAdulteryKnowWhere": "Yes",
