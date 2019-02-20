@@ -892,9 +892,7 @@ describe(modulePath, () => {
             }
           }
         };
-        const specificContent = [
-          'reasonForDivorceSeperationFiveYearsBrokendDown'
-        ];
+        const specificContent = ['reasonForDivorceSeperationFiveYearsBrokendDown'];
         const specificValues = [session.case.data.reasonForDivorceSeperationDate];
         return content(MiniPetition, session, { specificContent, specificValues });
       });
