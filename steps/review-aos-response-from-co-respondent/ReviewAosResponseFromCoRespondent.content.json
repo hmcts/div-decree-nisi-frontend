@@ -1,0 +1,25 @@
+{
+  "en": {
+    "title": "Read the co-respondent's response",
+    "youNeedToRead": "You need to read the co-respondents's response before you continue. The response is legally known as the 'acknowledgement of service'",
+    "acknowledgementOfSrvice": "Acknowledgement of service",
+    "applicant": "Applicant",
+    "respondent": "Respondent",
+    "corespondent": "Co-respondent",
+    "theCoRespondentResponseToAdultery": "The co-respondent's response to the adultery allegations",
+    "theCoRespondentResponseToAdulteryYes": "The co-respondent admits to committing the adultery.",
+    "theCoRespondentResponseToAdulteryNo": "The co-respondent does not admit to committing the adultery.",
+    "theCoRespondentDefendsTheDivorce": "How the co-respondent wants to proceed",
+    "theCoRespondentDefendsTheDivorceYes": "The co-respondent will not let the divorce proceed (intends to 'defend' it)",
+    "theCoRespondentDefendsTheDivorceNo": "The co-respondent will let the divorce proceed (doesn't intend to 'defend' it)",
+    "theCoRespondentAgreeToPayCosts": "Who pays for the divorce",
+    "theCoRespondentAgreeToPayCostsYes": "The co-respondent has agreed to pay some or all of the costs of the divorce.",
+    "theCoRespondentAgreeToPayCostsNo": "The co-respondent has not agreed to pay some or all of the costs of the divorce.",
+    "whatThisMeans": "What this means",
+    "theCoRespondentWasAsked": "The co-respondent was asked if they agreed to pay the costs that you claimed.",
+    "theCoRespondentGivenOptions": "They were given the following options:",
+    "theCoRespondentAgreeToPaySome": "to agree to pay some or all of the costs of the divorce",
+    "theCoRespondentNotAgreePay": "to not agree to paying any of the costs",
+    "theCoRespondentGivenChanceToChanges": "You'll be given a chance to change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split."
+  }
+}
