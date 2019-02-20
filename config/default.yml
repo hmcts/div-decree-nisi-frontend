@@ -101,6 +101,7 @@ paths:
   contactDivorceTeam: /contact-your-divorce
   amendApplication: /amend-application
   respNotAdmitAdultery: /resp-does-not-admit-adultery-options
+  reviewAosResponseFromCoRespondent: /review-aos-response-from-co-respondent
   mock:
     idamLogin: /idam-mock-login
     modifySession: /session
