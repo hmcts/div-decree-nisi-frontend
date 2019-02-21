@@ -141,13 +141,18 @@ class MiniPetition extends Question {
     return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.appFinancialOrderFee] : '';
   }
 
+  get feeToResendApplication() {
+    return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.appWithoutNoticeFee] : '';
+  }
+
   get middleware() {
     return [
       ...super.middleware,
       idam.protect(),
       getFeeFromFeesAndPayments(feeTypes.issueFee),
       getFeeFromFeesAndPayments(feeTypes.amendFee),
-      getFeeFromFeesAndPayments(feeTypes.appFinancialOrderFee)
+      getFeeFromFeesAndPayments(feeTypes.appFinancialOrderFee),
+      getFeeFromFeesAndPayments(feeTypes.appWithoutNoticeFee)
     ];
   }
 }

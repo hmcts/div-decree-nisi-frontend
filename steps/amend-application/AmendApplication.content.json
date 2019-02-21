@@ -3,7 +3,7 @@
     "title": "Amend your application",
     "start": "Start",
     "ifYouWantYour": "If you want your divorce to continue, you need to resubmit the application using a different reason (fact) for divorce.",
-    "amendmentFee": "You’ll also have to pay an amendment fee of £95.",
+    "amendmentFee": "You’ll also have to pay an amendment fee of £{{ amendFee }}.",
     "notAbleToRead": "You won’t be able to read your {{ case.divorceWho }}’s response after you started amending your application. Go back a screen if you want to read it again."
   }
 }
