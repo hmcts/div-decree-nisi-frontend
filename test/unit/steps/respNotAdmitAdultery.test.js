@@ -34,7 +34,7 @@ describe(modulePath, () => {
         case: {
           state: 'DNAwaiting',
           data: {
-            reasonForDivorce: 'Adultery',
+            reasonForDivorce: 'adultery',
             respAdmitOrConsentToFact: 'Yes'
           }
         }
@@ -47,7 +47,7 @@ describe(modulePath, () => {
       const session = {
         case: {
           data: {
-            reasonForDivorce: 'Adultery',
+            reasonForDivorce: 'adultery',
             respAdmitOrConsentToFact: 'No'
           }
         }
@@ -73,7 +73,7 @@ describe(modulePath, () => {
       const session = {
         case: {
           data: {
-            reasonForDivorce: 'Adultery',
+            reasonForDivorce: 'adultery',
             reasonForDivorceAdulteryWishToName: 'Yes',
             coRespondentAnswers: {
               aos: {

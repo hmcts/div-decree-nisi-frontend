@@ -19,6 +19,8 @@ Scenario('Pages', async I => {
 
   I.testRespNotAdmitAdultery();
 
+  I.testReviewAosResponseFromCoRespondent();
+
   I.testAdulteryFirstFound();
 
   I.testApplyForDecreeNisiPage();
