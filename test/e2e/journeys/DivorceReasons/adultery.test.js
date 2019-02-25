@@ -297,7 +297,6 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
 
   after(() => {
     request.get.restore();
-    request.post.restore();
     sandbox.restore();
   });
 
@@ -345,7 +344,6 @@ describe('Respondent Admitted Adultery : yes, AdulteryWishToName: Yes', () => {
 
   after(() => {
     request.get.restore();
-    request.post.restore();
     sandbox.restore();
   });
 
