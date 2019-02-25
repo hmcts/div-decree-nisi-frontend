@@ -130,7 +130,7 @@
     "admitAdultery": "YES",
     "defendsDivorce": "NO",
     "costs": {
-      "greeToCosts": "YES",
+      "agreeToCosts": "YES",
       "reason": "It's the right thing to do..."
     }
   }
