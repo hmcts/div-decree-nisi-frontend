@@ -127,10 +127,10 @@
   "D8DerivedPetitionerCurrentFullName": "Brad Tom",
   "D8InferredPetitionerGender": "male",
   "coRespondentAnswers": {
-    "admitAdultery": "Yes",
-    "defendsDivorce": "No",
+    "admitAdultery": "YES",
+    "defendsDivorce": "NO",
     "costs": {
-      "greeToCosts": "Yes",
+      "greeToCosts": "YES",
       "reason": "It's the right thing to do..."
     }
   }
