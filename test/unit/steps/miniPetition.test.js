@@ -828,7 +828,11 @@ describe(modulePath, () => {
           return content(
             MiniPetition,
             session,
-            { specificContent: ['reasonForDivorceAdulteryWhere', 'reasonForDivorceStatement', 'reasonForDivorceAdulteryDescription'] });
+            { specificContent: [
+              'reasonForDivorceAdulteryWhere',
+              'reasonForDivorceStatement',
+              'reasonForDivorceAdulteryDescription'
+            ] });
         });
         it('knows when', () => {
           const session = {
@@ -843,7 +847,11 @@ describe(modulePath, () => {
           return content(
             MiniPetition,
             session,
-            { specificContent: ['reasonForDivorceAdulteryWhen', 'reasonForDivorceStatement', 'reasonForDivorceAdulteryDescription'] });
+            { specificContent: [
+              'reasonForDivorceAdulteryWhen',
+              'reasonForDivorceStatement',
+              'reasonForDivorceAdulteryDescription'
+            ] });
         });
       });
 
@@ -894,7 +902,10 @@ describe(modulePath, () => {
             }
           }
         };
-        const specificContent = ['reasonForDivorceSeperationFiveYearsBrokendDown', 'reasonForDivorceSeperationFiveYearsInfo'];
+        const specificContent = [
+          'reasonForDivorceSeperationFiveYearsBrokendDown',
+          'reasonForDivorceSeperationFiveYearsInfo'
+        ];
         const specificValues = [session.case.data.reasonForDivorceSeperationDate];
         return content(MiniPetition, session, { specificContent, specificValues });
       });
