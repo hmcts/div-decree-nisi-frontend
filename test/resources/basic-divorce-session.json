@@ -125,13 +125,5 @@
   },
   "D8ReasonForDivorce": "unreasonable-behaviour",
   "D8DerivedPetitionerCurrentFullName": "Brad Tom",
-  "D8InferredPetitionerGender": "male",
-  "coRespondentAnswers": {
-    "admitAdultery": "YES",
-    "defendsDivorce": "NO",
-    "costs": {
-      "agreeToCosts": "YES",
-      "reason": "It's the right thing to do..."
-    }
-  }
+  "D8InferredPetitionerGender": "male"
 }
