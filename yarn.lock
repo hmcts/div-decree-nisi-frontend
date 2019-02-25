@@ -214,7 +214,7 @@
   resolved "https://registry.yarnpkg.com/@hmcts/eslint-config/-/eslint-config-1.4.0.tgz#e713457cee3758a43394c2974913885aaae8a41b"
   integrity sha1-5xNFfO43WKQzlMKXSROIWqropBs=
 
-"@hmcts/look-and-feel@^1.19.6", "@hmcts/look-and-feel@^1.8.0-3":
+"@hmcts/look-and-feel@^1.19.6":
   version "1.19.6"
   resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.6.tgz#5d391700a28b1a47fe56e2e6ecc571a4315fbb9e"
   integrity sha512-UDhFx61uZMQF6ftwOhphuqzCkAoevGzQ4W4Ulz9v71TjWYpfsy07nNXzpmMUu/e/6x/HS/sJFRMPovkLaBUZDg==
@@ -246,10 +246,42 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-2.0.2.tgz#6ae83813d9620d56130a4e13d802bcf8c3c6b083"
-  integrity sha512-N16WQ7fr75M6u3zA6i6CvoXMRC2s3azeaLev0MBgxMpKU6oESnj1r/QqjEEkBgEtA1WQmWFAGxB+6f766vpj5w==
+"@hmcts/look-and-feel@^1.8.0-3":
+  version "1.19.4"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-1.19.4.tgz#badb94b91eee7be37e0e872c2b9f926b0c3447f7"
+  integrity sha512-mmAMUZmYrovuXRSXIPzNWd8FBsUOvO8Y+Ms3bmZs2y8ifaPg9hq6pAJnXL1ZmlxwCB86dh6qp8LrEdvrSgoCXA==
+  dependencies:
+    babel-core "^6.26.0"
+    babel-loader "^7.1.2"
+    babel-preset-env "^1.6.0"
+    check-types "^7.3.0"
+    colors "^1.1.2"
+    config "^1.26.1"
+    copy-webpack-plugin "^4.0.1"
+    css-loader "^0.28.4"
+    deepmerge "2.0.1"
+    diff-so-fancy "^1.1.1"
+    exports-loader "^0.7.0"
+    express "^4.15.3"
+    express-nunjucks "^2.2.3"
+    extract-text-webpack-plugin "^3.0.0"
+    govuk-elements-sass "^3.1.1"
+    govuk_template_jinja "^0.23.0"
+    imports-loader "github:webpack-contrib/imports-loader#abea1c24f84b1343f9a277e33c8d89c83c013274"
+    jquery "^3.2.1"
+    js-yaml "^3.9.1"
+    node-sass "^4.5.3"
+    nunjucks "^3.0.1"
+    sass-loader "^6.0.6"
+    serve-static "^1.13.2"
+    style-loader "^0.20.1"
+    webpack "^3.4.1"
+    webpack-dev-middleware "^2.0.4"
+
+"@hmcts/look-and-feel@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-2.1.1.tgz#bf44b008f5962f3ed8714db26cc4c9e81bf086b8"
+  integrity sha512-0uX3jP2j0bSdhEVsYS6yhXh6tOLSSqvrlCqoHYcChVBT6mVcu6pn2qfVg+ZxmAOz7cW58WGCKIoANVEirWSckw==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
