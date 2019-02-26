@@ -254,6 +254,7 @@
 
   {% if case.reasonForDivorce == "adultery" %}
 
+    <p class="text">{{content.reasonForDivorceInfo}}</p>
     <p class="text">
       {% if case.reasonForDivorceAdulteryIsNamed == "Yes" %}
         {{ content.reasonForDivorceAdulteryCorrespondentNamed }}
@@ -262,7 +263,7 @@
       {% endif %}
     </p>
 
-    <p class="text">"{{ case.reasonForDivorceAdulteryDetails }}"</p>
+    <p class="text">{{ content.reasonForDivorceStatement }}</p>
 
     {% if case.reasonForDivorceAdulteryKnowWhere == "Yes" %}
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhere }}</p>
@@ -273,9 +274,14 @@
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhen }}</p>
       <p class="text">"{{ case.reasonForDivorceAdulteryWhenDetails }}"</p>
     {% endif %}
+
+    <h3 class="heading-small">{{ content.reasonForDivorceAdulteryDescription }}</h3>
+    <p class="text">"{{ case.reasonForDivorceAdulteryDetails }}"</p>
   {% endif %}
 
+
   {% if case.reasonForDivorce == "unreasonable-behaviour" %}
+  <p class="text">{{ content.reasonForDivorceBehaviourBrokendDown }}</p>
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
     <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatment }}</p>
     <h3 class="heading-small">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
@@ -297,26 +303,29 @@
   {% if case.reasonForDivorce == "separation-2-years" %}
     <p class="text">{{ content.reasonForDivorceSeperationTwoYearsBrokendDown }}
     <p class="text">{{ content.reasonForDivorceSeperationTwoYears }}</p>
+    <ul class="list list-bullet">
+        <li>{{ content.reasonForDivorceSeperationTwoYearsDecidedDate }}</li>
+        <li>{{ content.reasonForDivorceSeperationTwoYearsLivingApartDate }}</li>
+      </ul>
+    <p class="text">{{ content.mostRecentDateIsSeperation }}</p>
   {% endif %}
 
   {% if case.reasonForDivorce == "separation-5-years" %}
     <p class="text">{{ content.reasonForDivorceSeperationFiveYearsBrokendDown }}
-    {% if case.reasonForDivorceDecisionDate and case.reasonForDivorceLivingApartDate %}
-      <p class="text">{{ content.reasonForDivorceSeperationFiveYears.petitionerStates }}</p>
+    <p class="text">{{ content.reasonForDivorceSeperationFiveYearsInfo }}</p>
       <ul class="list list-bullet">
         <li>{{ content.reasonForDivorceSeperationFiveYears.decidedDate }}</li>
         <li>{{ content.reasonForDivorceSeperationFiveYears.livingApartDate }}</li>
       </ul>
       <p class="text">{{ content.reasonForDivorceSeperationFiveYears.mostRecentDateConsidered }}</p>
-    {% else %}
-      <p class="text">{{ content.reasonForDivorceSeperationFiveYears.oldSepDate }}</p>
-    {% endif %}
   {% endif %}
 
   {% if case.reasonForDivorce == "desertion" %}
     <p class="text">{{ content.reasonForDivorceDesertionBrokendDown }}
+    <p class="text">{{ content.reasonForDivorceDesertionInfo }}</p>
     <p class="text">{{ content.reasonForDivorceDesertion }}</p>
     <p class="text">{{ content.reasonForDivorceDesertionStatment }}</p>
+    <h3 class="heading-small">{{ content.reasonForDivorceDesertionDescription }}</h3>
     <p class="text">"{{ case.reasonForDivorceDesertionDetails }}"</p>
   {% endif %}
 
