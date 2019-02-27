@@ -461,6 +461,16 @@ describe(modulePath, () => {
         'reasonForDivorceAdulteryCorrespondentNotNamed',
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
+        'reasonForDivorceAdulteryDescription',
+        'reasonForDivorceInfo',
+        'reasonForDivorceStatement',
+        'reasonForDivorceSeperationTwoYearsDecidedDate',
+        'reasonForDivorceSeperationTwoYearsLivingApartDate',
+        'mostRecentDateIsSeperation',
+        'reasonForDivorceSeperationFiveYearsInfo',
+        'reasonForDivorceBehaviourBrokendDown',
+        'reasonForDivorceDesertionInfo',
+        'reasonForDivorceDesertionDescription',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',
         'reasonForDivorceUnreasonableBehaviourStatment',
         'reasonForDivorceUnreasonableBehaviourDescription',
@@ -819,7 +829,11 @@ describe(modulePath, () => {
           return content(
             MiniPetition,
             session,
-            { specificContent: ['reasonForDivorceAdulteryWhere'] });
+            { specificContent: [
+              'reasonForDivorceAdulteryWhere',
+              'reasonForDivorceStatement',
+              'reasonForDivorceAdulteryDescription'
+            ] });
         });
         it('knows when', () => {
           const session = {
@@ -834,7 +848,11 @@ describe(modulePath, () => {
           return content(
             MiniPetition,
             session,
-            { specificContent: ['reasonForDivorceAdulteryWhen'] });
+            { specificContent: [
+              'reasonForDivorceAdulteryWhen',
+              'reasonForDivorceStatement',
+              'reasonForDivorceAdulteryDescription'
+            ] });
         });
       });
 
@@ -850,7 +868,8 @@ describe(modulePath, () => {
         const specificContent = [
           'reasonForDivorceUnreasonableBehaviourBrokenDown',
           'reasonForDivorceUnreasonableBehaviourStatment',
-          'reasonForDivorceUnreasonableBehaviourDescription'
+          'reasonForDivorceUnreasonableBehaviourDescription',
+          'reasonForDivorceBehaviourBrokendDown'
         ];
         return content(MiniPetition, session, { specificContent });
       });
@@ -866,7 +885,10 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeperationTwoYearsBrokendDown',
-          'reasonForDivorceSeperationTwoYears'
+          'reasonForDivorceSeperationTwoYears',
+          'reasonForDivorceSeperationTwoYearsDecidedDate',
+          'reasonForDivorceSeperationTwoYearsLivingApartDate',
+          'mostRecentDateIsSeperation'
         ];
         return content(MiniPetition, session, { specificContent });
       });
@@ -883,7 +905,7 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeperationFiveYearsBrokendDown',
-          'reasonForDivorceSeperationFiveYears.oldSepDate'
+          'reasonForDivorceSeperationFiveYearsInfo'
         ];
         const specificValues = [session.case.data.reasonForDivorceSeperationDate];
         return content(MiniPetition, session, { specificContent, specificValues });
@@ -902,7 +924,6 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeperationFiveYearsBrokendDown',
-          'reasonForDivorceSeperationFiveYears.petitionerStates',
           'reasonForDivorceSeperationFiveYears.decidedDate',
           'reasonForDivorceSeperationFiveYears.livingApartDate',
           'reasonForDivorceSeperationFiveYears.mostRecentDateConsidered'
@@ -926,7 +947,9 @@ describe(modulePath, () => {
         const specificContent = [
           'reasonForDivorceDesertionBrokendDown',
           'reasonForDivorceDesertion',
-          'reasonForDivorceDesertionStatment'
+          'reasonForDivorceDesertionStatment',
+          'reasonForDivorceDesertionInfo',
+          'reasonForDivorceDesertionDescription'
         ];
         return content(MiniPetition, session, { specificContent });
       });

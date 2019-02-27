@@ -27,7 +27,6 @@ describe(modulePath, () => {
     return content(LivedApartSinceDesertion, session);
   });
 
-
   it('shows error if does not answer question', () => {
     const onlyErrors = ['required'];
     return question.testErrors(LivedApartSinceDesertion, session, {}, { onlyErrors });

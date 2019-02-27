@@ -1,4 +1,5 @@
 {% extends "page.njk" %}
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
 
 {% block back %}{% endblock %}
 {% block title %}{% endblock %}
@@ -18,7 +19,8 @@
 
   <p class="text">{{ content.emailConfirmation | safe }}</p>
 
-  {% set items = {
+  {{
+    progressList({
       one: {
         label: content.youApplied,
         complete: true
@@ -34,9 +36,8 @@
       four: {
         label: content.madeFinal
       }
-    }
-  %}
-  {% include "reform-progress-list/template.njk" %}
+    })
+  }}
 
   <br>
 

@@ -1,22 +1,23 @@
-{% set items = {
-  one: {
-    label: content.youApply,
-    complete: true
-  },
-  two: {
-    label: content.husbandWifeMustRespond,
-    complete: true
-  },
-  three: {
-    label: content.getDecreeNisi
-  },
-  four: {
-    label: content.madeFinal
-  }
-}
-%}
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
 
-{% include "reform-progress-list/template.njk" %}
+{{
+  progressList({
+    one: {
+      label: content.youApply,
+      complete: true
+    },
+    two: {
+      label: content.husbandWifeMustRespond,
+      complete: true
+    },
+    three: {
+      label: content.getDecreeNisi
+    },
+    four: {
+      label: content.madeFinal
+    }
+  })
+}}
 
 {% if not respAdmitsToFact and reasonForDivorce == "adultery" %}
       <h2 class="heading-medium">{{ content.respDoesNotAdmitAdulteryTitle }}</h2>
