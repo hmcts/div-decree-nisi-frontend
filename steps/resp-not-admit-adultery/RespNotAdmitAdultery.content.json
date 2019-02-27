@@ -11,7 +11,7 @@
     "fields": {
       "amendPetition": {
         "title": "Select an option, how do you want to proceed?",
-        "yes": "Change your reason for divorce (and pay a fee of £95)",
+        "yes": "Change your reason for divorce (and pay a fee of £{{ amendFee }})",
         "no": "Keep using adultery and provide evidence"
       }
     }

@@ -107,4 +107,24 @@ describe(modulePath, () => {
 
     sinon.assert.called(outputs.up);
   });
+
+  describe('fees-and-payments service', () => {
+    it('passes healthcheck', () => {
+      setupHealthChecks(app);
+
+      const feesCallback = healthcheck.web.lastCall.args[1].callback;
+      feesCallback(null, res);
+
+      sinon.assert.called(outputs.up);
+    });
+
+    it('throws an error if healthcheck fails for fees-and-payments', () => {
+      setupHealthChecks(app);
+
+      const feesCallback = healthcheck.web.lastCall.args[1].callback;
+      feesCallback('error');
+
+      sinon.assert.calledWith(logger.error);
+    });
+  });
 });

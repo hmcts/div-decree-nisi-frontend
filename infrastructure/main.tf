@@ -14,6 +14,7 @@ locals {
 
   case_orchestration_service_api_url = "http://div-cos-${local.local_env}.service.core-compute-${local.local_env}.internal"
   case_maintence_service_api_url = "http://div-cms-${local.local_env}.service.core-compute-${local.local_env}.internal"
+  fees_payment_service_api_url = "http://div-fps-${local.local_env}.service.core-compute-${local.local_env}.internal"
 
   health_endpoint = "/health"
 
@@ -102,6 +103,10 @@ module "frontend" {
 
     //Case Maintenance
     CASE_MAINTENANCE_BASE_URL              = "${local.case_maintence_service_api_url}"
+
+    //Fees and Payments
+    FEES_AND_PAYMENTS_URL = "${local.fees_payment_service_api_url}"
+    FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.fees_payment_service_api_url}${local.health_endpoint}"
 
     // Feature toggling through config
     FEATURES_IDAM                           = "${var.feature_idam}"

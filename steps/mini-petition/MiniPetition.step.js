@@ -6,6 +6,7 @@ const idam = require('services/idam');
 const Joi = require('joi');
 
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
+const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 
 class MiniPetition extends Question {
   static get path() {
@@ -128,8 +129,31 @@ class MiniPetition extends Question {
     );
   }
 
+  get feesIssueApplication() {
+    return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.issueFee] : '';
+  }
+
+  get amendFee() {
+    return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.amendFee] : '';
+  }
+
+  get applicationFinancialOrderFee() {
+    return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.appFinancialOrderFee] : '';
+  }
+
+  get feeToResendApplication() {
+    return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.appWithoutNoticeFee] : '';
+  }
+
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      getFeeFromFeesAndPayments(feeTypes.issueFee),
+      getFeeFromFeesAndPayments(feeTypes.amendFee),
+      getFeeFromFeesAndPayments(feeTypes.appFinancialOrderFee),
+      getFeeFromFeesAndPayments(feeTypes.appWithoutNoticeFee)
+    ];
   }
 }
 

@@ -5,6 +5,7 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
+const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { parseBool } = require('@hmcts/one-per-page/util');
 
 class RespNotAdmitAdultery extends Question {
@@ -48,9 +49,16 @@ class RespNotAdmitAdultery extends Question {
     );
   }
 
+  get amendFee() {
+    return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.amendFee] : '';
+  }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      getFeeFromFeesAndPayments(feeTypes.amendFee)
+    ];
   }
 }
 

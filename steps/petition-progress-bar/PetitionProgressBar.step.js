@@ -3,6 +3,7 @@ const config = require('config');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
+const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const {
   caseStateMap,
   permitDNReasonMap,
@@ -52,8 +53,13 @@ class PetitionProgressBar extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect()
+      idam.protect(),
+      getFeeFromFeesAndPayments(feeTypes.amendFee)
     ];
+  }
+
+  get amendFee() {
+    return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.amendFee] : '';
   }
 
   get respWillDefendDivorce() {
