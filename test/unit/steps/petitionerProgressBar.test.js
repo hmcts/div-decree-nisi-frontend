@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
 const config = require('config');
@@ -587,6 +588,30 @@ describe(modulePath, () => {
         case: {
           data: {
             respWillDefendDivorce: 'Yes'
+          }
+        }
+      };
+      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    it('to reviewAosResponse when reason is two years and respWillDefendDivorce is Yes', () => {
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'separation-2-years',
+            respWillDefendDivorce: 'Yes'
+          }
+        }
+      };
+      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    it('to reviewAosResponse when reason is two years and respWillDefendDivorce is No', () => {
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'separation-2-years',
+            respWillDefendDivorce: 'No'
           }
         }
       };
