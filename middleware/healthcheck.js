@@ -30,9 +30,6 @@ const checks = () => {
           return false;
         });
     }),
-    'idam-web-app': healthcheck.web(config.services.idam.authenticationHealth,
-      healthOptions('Health check failed on idam-web-app:')
-    ),
     'idam-api': healthcheck.web(config.services.idam.apiHealth,
       healthOptions('Health check failed on idam-api:')
     ),
