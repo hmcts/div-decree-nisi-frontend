@@ -1,22 +1,23 @@
-{% set items = {
-  one: {
-    label: content.youApply,
-    complete: true
-  },
-  two: {
-    label: content.husbandWifeMustRespond,
-    complete: true
-  },
-  three: {
-    label: content.getDecreeNisi
-  },
-  four: {
-    label: content.madeFinal
-  }
-}
-%}
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
 
-{% include "reform-progress-list/template.njk" %}
+{{
+  progressList({
+    one: {
+      label: content.youApply,
+      complete: true
+    },
+    two: {
+      label: content.husbandWifeMustRespond,
+      complete: true
+    },
+    three: {
+      label: content.getDecreeNisi
+    },
+    four: {
+      label: content.madeFinal
+    }
+  })
+}}
 
 {% if not respAdmitsToFact and reasonForDivorce == "adultery" %}
       <h2 class="heading-medium">{{ content.respDoesNotAdmitAdulteryTitle }}</h2>
@@ -28,6 +29,13 @@
       </ul>
       <br>
       <p class="text">{{ content.respDoesNotAdmitAdulteryYouCanRead }}</p>
+{% endif %}
+
+{% if not respAdmitsToFact and reasonForDivorce == "separation-2-years" %}
+    <h2 class="heading-medium">{{ content.respDoesNotConsent2YearSepTitle }}</h2>
+    <p class="text">{{ content.respDoesNotConsent2YearSepYouMustHave }}</p>
+    <p class="text">{{ content.respDoesNotConsent2YearSepYouHaveToPay }}</p>
+    <p class="text">{{ content.respDoesNotConsent2YearSepReadResponse }}</p>
 {% endif %}
 
 <!--TODO

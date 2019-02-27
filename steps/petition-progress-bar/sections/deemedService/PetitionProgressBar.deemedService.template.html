@@ -1,4 +1,7 @@
-{% set items = {
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
+
+{{
+  progressList({
     one: {
       label: content.youApply,
       complete: true
@@ -14,10 +17,8 @@
     four: {
       label: content.madeFinal
     }
-  }
-%}
-
-{% include "reform-progress-list/template.njk" %}
+  })
+}}
 
 <h2 class="heading-medium">{{ content.deemedServiceAppStatusMsg }}</h2>
 <p>{{ content.deemedServiceAppStatusMsgDetails1 }}</p>

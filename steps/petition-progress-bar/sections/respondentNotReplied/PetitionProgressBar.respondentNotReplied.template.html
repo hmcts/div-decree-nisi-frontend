@@ -1,22 +1,23 @@
-{% set items = {
-  one: {
-    label: content.youApply,
-    complete: true
-  },
-  two: {
-    label: content.husbandWifeMustRespond,
-    current: true
-  },
-  three: {
-    label: content.getDecreeNisi
-  },
-  four: {
-    label: content.madeFinal
-  }
-}
-%}
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
 
-{% include "reform-progress-list/template.njk" %}
+{{
+  progressList({
+    one: {
+      label: content.youApply,
+      complete: true
+    },
+    two: {
+      label: content.husbandWifeMustRespond,
+      current: true
+    },
+    three: {
+      label: content.getDecreeNisi
+    },
+    four: {
+      label: content.madeFinal
+    }
+  })
+}}
 
 <h2 class="heading-medium">{{ content.rNRTitle }}</h2>
 <p class="text">{{ content.rNRSentApplication }}</p>

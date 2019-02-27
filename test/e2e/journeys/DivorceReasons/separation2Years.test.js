@@ -9,6 +9,7 @@ const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
+const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const Entry = require('steps/entry/Entry.step');
 const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
@@ -20,7 +21,7 @@ const Done = require('steps/done/Done.step');
 
 const session = {
   reasonForDivorce: 'separation-2-years',
-  respWillDefendDivorce: null
+  respWillDefendDivorce: 'no'
 };
 
 let caseOrchestrationServiceSubmitStub = {};
@@ -54,6 +55,7 @@ describe('separation 2 years', () => {
       { step: IdamLogin, body: { success: 'yes' } },
       { step: Entry },
       { step: petitionProgressBar },
+      { step: ReviewAosResponse, body: { reviewAosResponse: 'yes' } },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
         step: MiniPetition,
@@ -89,6 +91,7 @@ describe('separation 2 years', () => {
       { step: IdamLogin, body: { success: 'yes' } },
       { step: Entry },
       { step: petitionProgressBar },
+      { step: ReviewAosResponse, body: { reviewAosResponse: 'yes' } },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
         step: MiniPetition,

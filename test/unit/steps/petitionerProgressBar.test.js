@@ -1,7 +1,7 @@
+/* eslint-disable max-lines */
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
 const config = require('config');
-const { parseBool } = require('@hmcts/one-per-page/util');
 const PetitionProgressBar = require(modulePath);
 const PetProgressBarContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
@@ -70,12 +70,15 @@ const contentToNotExist = withoutKeysFrom => {
 };
 
 describe(modulePath, () => {
+  const sandbox = sinon.createSandbox();
+
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
   });
 
   afterEach(() => {
     idam.protect.restore();
+    sandbox.restore();
   });
 
   it('has idam.protect middleware', () => {
@@ -320,21 +323,52 @@ describe(modulePath, () => {
       }
     };
 
-    if (parseBool(config.features.release520)) {
-      it('renders the correct content', () => {
-        const specificContent = Object.keys(pageContent.aosCompleted);
-        const specificContentToNotExist = contentToNotExist('aosCompleted');
+    beforeEach(() => {
+      sandbox.replace(config.features, 'release520', true);
+    });
 
-        return content(PetitionProgressBar,
-          session,
-          { specificContent, specificContentToNotExist });
-      });
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.aosCompleted);
+      const specificContentToNotExist = contentToNotExist('aosCompleted');
 
-      it('renders the correct template', () => {
-        const instance = stepAsInstance(PetitionProgressBar, session);
-        expect(instance.stateTemplate).to.eql(templates.aosCompleted);
-      });
-    }
+      return content(PetitionProgressBar,
+        session,
+        { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.aosCompleted);
+    });
+  });
+
+  // eslint-disable-next-line max-len
+  describe('CCD state: AosCompleted, D8ReasonForDivorce : separation-2-years, RespAdmitOrConsentToFact : no', () => {
+    const session = {
+      case: {
+        state: 'AosCompleted',
+        data: {
+          reasonForDivorce: 'separation-2-years',
+          respAdmitOrConsentToFact: 'No'
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      sandbox.replace(config.features, 'release520', true);
+      const specificContent = Object.keys(pageContent.aosCompleted);
+      const specificContentToNotExist = contentToNotExist('aosCompleted');
+
+      return content(PetitionProgressBar,
+        session,
+        { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      sandbox.replace(config.features, 'release520', true);
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      return expect(instance.stateTemplate).to.eql(templates.aosCompleted);
+    });
   });
 
   describe('CCD state: AOSOverdue', () => {
@@ -408,6 +442,10 @@ describe(modulePath, () => {
       }
     };
 
+    beforeEach(() => {
+      sandbox.replace(config.features, 'release520', false);
+    });
+
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
       const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
@@ -429,6 +467,10 @@ describe(modulePath, () => {
       }
     };
 
+    beforeEach(() => {
+      sandbox.replace(config.features, 'release520', false);
+    });
+
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
       const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
@@ -449,6 +491,10 @@ describe(modulePath, () => {
         data: {}
       }
     };
+
+    beforeEach(() => {
+      sandbox.replace(config.features, 'release520', false);
+    });
 
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
@@ -542,6 +588,30 @@ describe(modulePath, () => {
         case: {
           data: {
             respWillDefendDivorce: 'Yes'
+          }
+        }
+      };
+      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    it('to reviewAosResponse when reason is two years and respWillDefendDivorce is Yes', () => {
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'separation-2-years',
+            respWillDefendDivorce: 'Yes'
+          }
+        }
+      };
+      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    it('to reviewAosResponse when reason is two years and respWillDefendDivorce is No', () => {
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'separation-2-years',
+            respWillDefendDivorce: 'No'
           }
         }
       };
