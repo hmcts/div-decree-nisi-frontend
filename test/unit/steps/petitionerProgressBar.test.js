@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
 const config = require('config');
@@ -13,6 +14,8 @@ const httpStatus = require('http-status-codes');
 const glob = require('glob');
 const { getExpectedCourtsList, testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
+
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 const templates = {
   submitted: './sections/submitted/PetitionProgressBar.submitted.template.html',
@@ -73,11 +76,19 @@ describe(modulePath, () => {
 
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   afterEach(() => {
     idam.protect.restore();
     sandbox.restore();
+    feesAndPaymentsService.getFee.restore();
   });
 
   it('has idam.protect middleware', () => {
@@ -97,7 +108,6 @@ describe(modulePath, () => {
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.submitted);
       const specificContentToNotExist = contentToNotExist('submitted');
-
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
@@ -124,7 +134,6 @@ describe(modulePath, () => {
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.issued);
       const specificContentToNotExist = contentToNotExist('issued');
-
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
@@ -156,7 +165,6 @@ describe(modulePath, () => {
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.undefended);
       const specificContentToNotExist = contentToNotExist('undefended');
-
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
@@ -176,7 +184,6 @@ describe(modulePath, () => {
         }
       };
       const specificContent = ['undefendedButNotAdmit'];
-
       return content(PetitionProgressBar, noAdmitSession, { specificContent });
     });
 
@@ -423,7 +430,6 @@ describe(modulePath, () => {
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
       const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
-
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
@@ -473,7 +479,6 @@ describe(modulePath, () => {
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
       const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
-
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
@@ -498,7 +503,6 @@ describe(modulePath, () => {
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
       const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
-
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
@@ -587,6 +591,30 @@ describe(modulePath, () => {
         case: {
           data: {
             respWillDefendDivorce: 'Yes'
+          }
+        }
+      };
+      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    it('to reviewAosResponse when reason is two years and respWillDefendDivorce is Yes', () => {
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'separation-2-years',
+            respWillDefendDivorce: 'Yes'
+          }
+        }
+      };
+      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    it('to reviewAosResponse when reason is two years and respWillDefendDivorce is No', () => {
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'separation-2-years',
+            respWillDefendDivorce: 'No'
           }
         }
       };

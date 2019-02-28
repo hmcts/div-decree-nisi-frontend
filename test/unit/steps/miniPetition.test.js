@@ -16,6 +16,9 @@ const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
 );
 const idam = require('services/idam');
+
+const feesAndPaymentsService = require('services/feesAndPaymentsService');
+const { feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const config = require('config');
 const { middleware, question, sinon,
   content, expect } = require('@hmcts/one-per-page-test-suite');
@@ -23,14 +26,43 @@ const { middleware, question, sinon,
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
+
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   afterEach(() => {
     idam.protect.restore();
+    feesAndPaymentsService.getFee.restore();
   });
 
   it('has idam.protect middleware', () => {
     return middleware.hasMiddleware(MiniPetition, [idam.protect()]);
+  });
+
+
+  it('getFeeFromFeesAndPayments middleware call', () => { // eslint-disable-line max-len
+    const session = {
+      case: {
+        data: {
+          connections: {}
+        }
+      }
+    };
+    return content(
+      MiniPetition,
+      session,
+      { specificContent: ['title'] }
+    ).then(() => {
+      sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.issueFee);
+      sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.amendFee);
+      sinon.assert.calledWith(feesAndPaymentsService.getFee, feeTypes.appFinancialOrderFee);
+    });
   });
 
   describe('errors', () => {
@@ -461,6 +493,16 @@ describe(modulePath, () => {
         'reasonForDivorceAdulteryCorrespondentNotNamed',
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
+        'reasonForDivorceAdulteryDescription',
+        'reasonForDivorceInfo',
+        'reasonForDivorceStatement',
+        'reasonForDivorceSeperationTwoYearsDecidedDate',
+        'reasonForDivorceSeperationTwoYearsLivingApartDate',
+        'mostRecentDateIsSeperation',
+        'reasonForDivorceSeperationFiveYearsInfo',
+        'reasonForDivorceBehaviourBrokendDown',
+        'reasonForDivorceDesertionInfo',
+        'reasonForDivorceDesertionDescription',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',
         'reasonForDivorceUnreasonableBehaviourStatment',
         'reasonForDivorceUnreasonableBehaviourDescription',
@@ -819,7 +861,11 @@ describe(modulePath, () => {
           return content(
             MiniPetition,
             session,
-            { specificContent: ['reasonForDivorceAdulteryWhere'] });
+            { specificContent: [
+              'reasonForDivorceAdulteryWhere',
+              'reasonForDivorceStatement',
+              'reasonForDivorceAdulteryDescription'
+            ] });
         });
         it('knows when', () => {
           const session = {
@@ -834,7 +880,11 @@ describe(modulePath, () => {
           return content(
             MiniPetition,
             session,
-            { specificContent: ['reasonForDivorceAdulteryWhen'] });
+            { specificContent: [
+              'reasonForDivorceAdulteryWhen',
+              'reasonForDivorceStatement',
+              'reasonForDivorceAdulteryDescription'
+            ] });
         });
       });
 
@@ -850,7 +900,8 @@ describe(modulePath, () => {
         const specificContent = [
           'reasonForDivorceUnreasonableBehaviourBrokenDown',
           'reasonForDivorceUnreasonableBehaviourStatment',
-          'reasonForDivorceUnreasonableBehaviourDescription'
+          'reasonForDivorceUnreasonableBehaviourDescription',
+          'reasonForDivorceBehaviourBrokendDown'
         ];
         return content(MiniPetition, session, { specificContent });
       });
@@ -866,7 +917,10 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeperationTwoYearsBrokendDown',
-          'reasonForDivorceSeperationTwoYears'
+          'reasonForDivorceSeperationTwoYears',
+          'reasonForDivorceSeperationTwoYearsDecidedDate',
+          'reasonForDivorceSeperationTwoYearsLivingApartDate',
+          'mostRecentDateIsSeperation'
         ];
         return content(MiniPetition, session, { specificContent });
       });
@@ -883,7 +937,7 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeperationFiveYearsBrokendDown',
-          'reasonForDivorceSeperationFiveYears.oldSepDate'
+          'reasonForDivorceSeperationFiveYearsInfo'
         ];
         const specificValues = [session.case.data.reasonForDivorceSeperationDate];
         return content(MiniPetition, session, { specificContent, specificValues });
@@ -902,7 +956,6 @@ describe(modulePath, () => {
         };
         const specificContent = [
           'reasonForDivorceSeperationFiveYearsBrokendDown',
-          'reasonForDivorceSeperationFiveYears.petitionerStates',
           'reasonForDivorceSeperationFiveYears.decidedDate',
           'reasonForDivorceSeperationFiveYears.livingApartDate',
           'reasonForDivorceSeperationFiveYears.mostRecentDateConsidered'
@@ -926,7 +979,9 @@ describe(modulePath, () => {
         const specificContent = [
           'reasonForDivorceDesertionBrokendDown',
           'reasonForDivorceDesertion',
-          'reasonForDivorceDesertionStatment'
+          'reasonForDivorceDesertionStatment',
+          'reasonForDivorceDesertionInfo',
+          'reasonForDivorceDesertionDescription'
         ];
         return content(MiniPetition, session, { specificContent });
       });
