@@ -77,7 +77,7 @@ class ReviewAosResponse extends Question {
     return this.case.respAdmitOrConsentToFact === this.consts.no;
   }
 
-  get adulteryWhishToName() {
+  get adulteryWishToName() {
     return this.case.reasonForDivorceAdulteryWishToName && this.case.reasonForDivorceAdulteryWishToName === this.consts.yes;
   }
 
@@ -102,7 +102,7 @@ class ReviewAosResponse extends Question {
     };
 
     const reviewAosRespCoRespondent = () => {
-      return this.adultery && this.adulteryWhishToName && this.recievedAosFromCoResp && this.exist(this.consts.respAdmitOrConsentToFact);
+      return this.adultery && this.adulteryWishToName && this.recievedAosFromCoResp && this.exist(this.consts.respAdmitOrConsentToFact);
     };
 
     return branch(

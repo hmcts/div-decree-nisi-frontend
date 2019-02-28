@@ -17,7 +17,7 @@ class RespNotAdmitAdultery extends Question {
     return this.req.session.case.data;
   }
 
-  get adulteryWhishToName() {
+  get adulteryWishToName() {
     return this.case.reasonForDivorceAdulteryWishToName === 'Yes';
   }
 
@@ -51,7 +51,7 @@ class RespNotAdmitAdultery extends Question {
     };
 
     const reviewAosRespCoRespondent = () => {
-      return this.fields.amendPetition.value === 'no' && this.recievedAosFromCoResp && this.adulteryWhishToName;
+      return this.fields.amendPetition.value === 'no' && this.recievedAosFromCoResp && this.adulteryWishToName;
     };
 
     return branch(
