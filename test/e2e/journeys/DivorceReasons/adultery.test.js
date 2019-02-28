@@ -313,11 +313,19 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
       .resolves(merge({}, mockCaseResponse, { data: sess }));
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   after(() => {
     request.get.restore();
     sandbox.restore();
+    feesAndPaymentsService.getFee.restore();
   });
 
   describe('View Co-Respondents response', () => {
@@ -360,11 +368,20 @@ describe('Respondent Admitted Adultery : yes, AdulteryWishToName: Yes', () => {
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
       .resolves(merge({}, mockCaseResponse, { data: sess }));
+
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
   });
 
   after(() => {
     request.get.restore();
     sandbox.restore();
+    feesAndPaymentsService.getFee.restore();
   });
 
   describe('View Co-Respondents response', () => {
