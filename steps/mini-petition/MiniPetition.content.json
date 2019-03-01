@@ -49,6 +49,7 @@
     },
     "reasonForDivorceSeperationFiveYearsBrokendDown": "The marriage has broken down irretrievably. The applicant is relying on the following fact to support their application.",
     "reasonForDivorceDesertion": "The applicant has given the date of desertion as {{ case.reasonForDivorceDesertionDate | date }}.",
+    "reasonForDivorceDesertionAgreed": "The applicant stated that the respondent left without their agreement.",
     "reasonForDivorceDesertionBrokendDown": "The marriage has broken down irretrievably. The applicant is relying on the following fact to support their application.",
     "reasonForDivorceBehaviourBrokendDown": "The marriage has broken down irretrievably. The applicant is relying on the following fact to support their application.",
     "reasonForDivorceDesertionStatment": "This is supported by the following statement from the applicant",

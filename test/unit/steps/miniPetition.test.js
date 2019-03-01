@@ -502,6 +502,7 @@ describe(modulePath, () => {
         'reasonForDivorceSeperationFiveYearsInfo',
         'reasonForDivorceBehaviourBrokendDown',
         'reasonForDivorceDesertionInfo',
+        'reasonForDivorceDesertionAgreed',
         'reasonForDivorceDesertionDescription',
         'reasonForDivorceUnreasonableBehaviourBrokenDown',
         'reasonForDivorceUnreasonableBehaviourStatment',
@@ -972,13 +973,15 @@ describe(modulePath, () => {
           case: {
             data: {
               connections: {},
-              reasonForDivorce: 'desertion'
+              reasonForDivorce: 'desertion',
+              reasonForDivorceDesertionAgreed: 'Yes'
             }
           }
         };
         const specificContent = [
           'reasonForDivorceDesertionBrokendDown',
           'reasonForDivorceDesertion',
+          'reasonForDivorceDesertionAgreed',
           'reasonForDivorceDesertionStatment',
           'reasonForDivorceDesertionInfo',
           'reasonForDivorceDesertionDescription'
