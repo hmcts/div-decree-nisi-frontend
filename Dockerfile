@@ -8,3 +8,4 @@ RUN yarn install --production
 FROM base as runtime
 COPY . .
 EXPOSE 3000
+
