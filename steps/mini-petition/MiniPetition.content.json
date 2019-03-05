@@ -68,17 +68,32 @@
     "applicantsCorrespondenceAddress": "Applicant's correspondence address",
 
     "whatThisMeansReasonForDivorceLegalGround": "The only legal ground for divorce in England and Wales is if the marriage has broken down irretrievably.",
-    "whatThisMeansReasonForDivorceChosenReason": "You had to choose a reason for the breakdown of the marriage (legally known as the 'fact') from the following list.",
+    "whatThisMeansReasonForDivorceChosenReason": "The applicant had to choose a reason for the breakdown of the marriage (legally known as the 'fact') from the following list.",
+
     "whatThisMeansReasonForDivorceBehaviour": "Behaviour",
-    "whatThisMeansReasonForDivorceBehaviourDescription": "Your {{ case.divorceWho }} has behaved in such a way that you can't reasonably be expected to live with them any more.",
+    "whatThisMeansReasonForDivorceBehaviourDescription1": "The respondent has behaved in such a way that the applicant cannot reasonably be expected to live with them.",
+    "whatThisMeansReasonForDivorceBehaviourDescription2": "The applicant must provide enough examples of the respondent's behaviour to satisfy the court that they can't reasonably be expected to live with them. The examples must be of the respondent's behaviour, and examples where the applicant and respondent are both at fault cannot be used.",
+    "whatThisMeansReasonForDivorceBehaviourDescription3": "If the applicant lives with the respondent as a couple for more than 6 months after the most recent example of behaviour, the court will take this into account in its judgement of whether or not the marriage has broken down irretrievably. This could be over a single 6 month period, or if they live together on and off for several periods adding up to more than 6 months.",
+
     "whatThisMeansReasonForDivorceAdultery": "Adultery",
-    "whatThisMeansReasonForDivorceAdulteryDescription": "Your {{ case.divorceWho }} has committed adultery with a member of the opposite sex and you find it intolerable to live with them.",
+    "whatThisMeansReasonForDivorceAdulteryDescription1": "The respondent committed adultery, and the applicant finds it intolerable to live with them.",
+    "whatThisMeansReasonForDivorceAdulteryDescription2": "Adultery can only be used if it was with a member of the opposite sex.",
+    "whatThisMeansReasonForDivorceAdulteryDescription3": "The applicant has the option of naming the person with whom the respondent committed adultery (known as the co-respondent). Co-respondents are sent a copy of the divorce application and asked if they want to defend the allegations.",
+    "whatThisMeansReasonForDivorceAdulteryDescription4": "Adultery can't be used as a reason if the applicant and respondent lived together as a couple for more than 6 months after the applicant found out about it. This could have been in one go, or if they lived together on and off for several periods of time adding up to more than 6 months.",
+
     "whatThisMeansReasonForDivorceSeparatedTwoYears": "Separated for 2 years with consent",
-    "whatThisMeansReasonForDivorceSeparatedTwoYearsDescription": "Your {{ case.divorceWho }} agrees to a divorce and you have been separated for the past 2 years or more.",
+    "whatThisMeansReasonForDivorceSeparatedTwoYearsDescription1": "The applicant and respondent must have spent the past 2 years living apart to use this reason for divorce.",
+    "whatThisMeansReasonForDivorceSeparatedTwoYearsDescription2": "They are allowed to have spent some time living together, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the 2 year period. They’ll need to have lived apart for longer to make up any time that they spent living together.",
+    "whatThisMeansReasonForDivorceSeparatedTwoYearsDescription3": "The respondent must give their consent to a divorce for this reason to be used.",
+
     "whatThisMeansReasonForDivorceSeparatedFiveYears": "Separated for 5 years",
-    "whatThisMeansReasonForDivorceSeparatedFiveYearsDescription": "You have been separated for the past 5 years or more.",
+    "whatThisMeansReasonForDivorceSeparatedFiveYearsDescription1": "The applicant and respondent must have spent the past 5 years living apart to use this reason for divorce.",
+    "whatThisMeansReasonForDivorceSeparatedFiveYearsDescription2": "They are allowed to have spent some time living together, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the 5 year period. They’ll need to have lived apart for longer to make up any time that they spent living together.",
+
     "whatThisMeansReasonForDivorceDesertion": "Desertion",
-    "whatThisMeansReasonForDivorceDesertionDescription": "Your {{ case.divorceWho }} abandoned you (left without your agreement) more than 2 years ago.",
+    "whatThisMeansReasonForDivorceDesertionDescription1": "The respondent left the applicant without their agreement at least 2 years ago, and they have lived apart since.",
+    "whatThisMeansReasonForDivorceDesertionDescription2": "The applicant and respondent are allowed to have spent some time living together since the desertion, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the 2 year period. They’ll need to have lived apart for longer to make up any time that they spent living together.",
+    "whatThisMeansReasonForDivorceDesertionDescription3": "The respondent must have chosen to leave the applicant. For example, it can't be used if they have been sent to prison.",
 
     "whatThisMeansJurisdictionCourtsOfEnglandAndWales": "The courts of England and Wales must have the jurisdiction (the legal power) to be able to grant a divorce. You confirmed that the legal statement, or statements, given in the application apply to either, or both you and your {{ case.divorceWho }}.",
     "whatThisMeansJurisdictionEachLegalStatment": "Each legal statement includes some or all of the following legal connections to England and Wales.",
@@ -94,9 +109,9 @@
     "whatThisMeansJurisdictionCountryYourMother": "the country your mother considered her permanent home if your parents were unmarried, or your father had died",
     "whatThisMeansJurisdictionDomicileOfOrigin": "If you leave your domicile of origin and settle in another country as an adult, the new country may become your <b>domicile of choice</b>.",
     "whatThisMeansJurisdictionNotSure": "If you're not sure about your domicile you should get legal advice.",
-    
+
     "whatThisMeansJurisdictionResidualJurisdiction": "Residual jurisdiction",
-    
+
     "whatThisMeansJurisdictionResidualJurisdiction1": "The court may have residual jurisdiction if none of the other connections apply, and both of the following are true:",
     "whatThisMeansJurisdictionResidualJurisdiction2": "either the applicant (petitioner) or the respondent is domiciled in England or Wales",
     "whatThisMeansJurisdictionResidualJurisdiction3": "neither the applicant nor the respondent is able to apply (on the basis of their nationality or residence) for a divorce in another member state of the EU",
