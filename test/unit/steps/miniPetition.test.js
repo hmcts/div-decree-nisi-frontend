@@ -871,6 +871,27 @@ describe(modulePath, () => {
               'reasonForDivorceAdulteryDescription'
             ] });
         });
+        it('knows where & second hand info ', () => {
+          const session = {
+            case: {
+              data: {
+                connections: {},
+                reasonForDivorce: 'adultery',
+                reasonForDivorceAdulteryKnowWhere: 'Yes',
+                reasonForDivorceAdulterySecondHandInfo: 'Yes'
+              }
+            }
+          };
+          return content(
+            MiniPetition,
+            session,
+            { specificContent: [
+              'reasonForDivorceAdulteryWhere',
+              'reasonForDivorceStatement',
+              'reasonForDivorceAdulteryDescription',
+              'statementOfSecondHandInformationAboutAdultery'
+            ] });
+        });
         it('knows when', () => {
           const session = {
             case: {
