@@ -321,9 +321,12 @@
   {% endif %}
 
   {% if case.reasonForDivorce == "desertion" %}
-    <p class="text">{{ content.reasonForDivorceDesertionBrokendDown }}
+    <p class="text">{{ content.reasonForDivorceDesertionBrokendDown }}</p>
     <p class="text">{{ content.reasonForDivorceDesertionInfo }}</p>
     <p class="text">{{ content.reasonForDivorceDesertion }}</p>
+    {% if case.reasonForDivorceDesertionAgreed == "Yes" %}
+       <p class="text">{{ content.reasonForDivorceDesertionAgreed }}</p>
+    {% endif %}
     <p class="text">{{ content.reasonForDivorceDesertionStatment }}</p>
     <h3 class="heading-small">{{ content.reasonForDivorceDesertionDescription }}</h3>
     <p class="text">"{{ case.reasonForDivorceDesertionDetails }}"</p>
