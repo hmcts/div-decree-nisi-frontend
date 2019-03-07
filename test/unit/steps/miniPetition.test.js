@@ -436,10 +436,10 @@ describe(modulePath, () => {
         session,
         {
           specificValues: [
-            session.case.reasonForDivorceAdulteryDetails,
-            session.case.reasonForDivorceAdulteryWhereDetails,
-            session.case.reasonForDivorceAdulteryWhenDetails,
-            session.case.reasonForDivorceAdulterySecondHandInfoDetails
+            session.case.data.reasonForDivorceAdulteryDetails,
+            session.case.data.reasonForDivorceAdulteryWhereDetails,
+            session.case.data.reasonForDivorceAdulteryWhenDetails,
+            session.case.data.reasonForDivorceAdulterySecondHandInfoDetails
           ]
         }
       );
