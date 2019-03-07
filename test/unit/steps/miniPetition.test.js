@@ -358,8 +358,8 @@ describe(modulePath, () => {
         session,
         {
           specificValues: [
-            session.case.reasonForDivorceAdultery3rdPartyFirstName,
-            session.case.reasonForDivorceAdultery3rdPartyLastName
+            session.case.data.reasonForDivorceAdultery3rdPartyFirstName,
+            session.case.data.reasonForDivorceAdultery3rdPartyLastName
           ]
         }
       );
@@ -458,7 +458,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [session.case.reasonForDivorceBehaviourDetails] }
+        { specificValues: [session.case.data.reasonForDivorceBehaviourDetails] }
       );
     });
 
@@ -475,7 +475,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [session.case.reasonForDivorceDesertionDetails] }
+        { specificValues: [session.case.data.reasonForDivorceDesertionDetails] }
       );
     });
   });
