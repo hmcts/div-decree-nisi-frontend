@@ -8,7 +8,11 @@
 {% endset %}
 
 {% block main_content %}
-  <p class="text">{{ content.youNeedToRead }}</p>
+  {% if case.coRespondentAnswers.admitAdultery %}
+    <p class="text">{{ content.youNeedToRead }}</p>
+  {% else %}
+    <p class="text">{{ content.corespondentDidNotRespond }}</p>
+  {% endif %}
 
   <h2 class="heading-medium">{{ content.acknowledgementOfSrvice }}</h2>
 
@@ -21,28 +25,33 @@
   <h3 class="heading-small">{{ content.corespondent }}</h3>
   <p class="text">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
 
-  <h3 class="heading-small">{{ content.theCoRespondentResponseToAdultery }}</h3>
-  {% if case.coRespondentAnswers.admitAdultery == "Yes" %}
-    <p class="text">{{ content.theCoRespondentResponseToAdulteryYes }}</p>
-  {% else %}
-    <p class="text">{{ content.theCoRespondentResponseToAdulteryNo }}</p>
+  {% if case.coRespondentAnswers.admitAdultery %}
+    <h3 class="heading-small">{{ content.theCoRespondentResponseToAdultery }}</h3>
+    {% if case.coRespondentAnswers.admitAdultery == "Yes" %}
+      <p class="text">{{ content.theCoRespondentResponseToAdulteryYes }}</p>
+    {% else %}
+      <p class="text">{{ content.theCoRespondentResponseToAdulteryNo }}</p>
+    {% endif %}
   {% endif %}
 
-  <h3 class="heading-small">{{ content.theCoRespondentDefendsTheDivorce }}</h3>
-  {% if case.coRespondentAnswers.defendsDivorce == "Yes" %}
-    <p class="text">{{ content.theCoRespondentDefendsTheDivorceYes }}</p>
-  {% else %}
-    <p class="text">{{ content.theCoRespondentDefendsTheDivorceNo }}</p>
+  {% if case.coRespondentAnswers.defendsDivorce %}
+    <h3 class="heading-small">{{ content.theCoRespondentDefendsTheDivorce }}</h3>
+    {% if case.coRespondentAnswers.defendsDivorce == "Yes" %}
+      <p class="text">{{ content.theCoRespondentDefendsTheDivorceYes }}</p>
+    {% else %}
+      <p class="text">{{ content.theCoRespondentDefendsTheDivorceNo }}</p>
+    {% endif %}
   {% endif %}
 
-  <h3 class="heading-small">{{ content.theCoRespondentAgreeToPayCosts }}</h3>
-  {% if case.coRespondentAnswers.costs.agreeToCosts == "Yes" %}
-    <p class="text">{{ content.theCoRespondentAgreeToPayCostsYes }}</p>
-  {% else %}
-    <p class="text">{{ content.theCoRespondentAgreeToPayCostsNo }}</p>
-    <p class="text">{{ case.coRespondentAnswers.costs.reason | safe }}</p>
+  {% if case.coRespondentAnswers.costs.agreeToCosts %}
+    <h3 class="heading-small">{{ content.theCoRespondentAgreeToPayCosts }}</h3>
+    {% if case.coRespondentAnswers.costs.agreeToCosts == "Yes" %}
+      <p class="text">{{ content.theCoRespondentAgreeToPayCostsYes }}</p>
+    {% else %}
+      <p class="text">{{ content.theCoRespondentAgreeToPayCostsNo }}</p>
+      <p class="text">{{ case.coRespondentAnswers.costs.reason | safe }}</p>
+    {% endif %}
   {% endif %}
-
   <details>
     <summary aria-controls="details-content-0" aria-expanded="false">
       <span class="summary">{{ content.whatThisMeans }}</span>

@@ -38,7 +38,8 @@ describe(modulePath, () => {
       const ignoreContent = [
         'theCoRespondentResponseToAdulteryNo',
         'theCoRespondentDefendsTheDivorceNo',
-        'theCoRespondentAgreeToPayCostsNo'
+        'theCoRespondentAgreeToPayCostsNo',
+        'corespondentDidNotRespond'
       ];
 
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
@@ -62,7 +63,31 @@ describe(modulePath, () => {
       const ignoreContent = [
         'theCoRespondentResponseToAdulteryYes',
         'theCoRespondentDefendsTheDivorceYes',
-        'theCoRespondentAgreeToPayCostsYes'
+        'theCoRespondentAgreeToPayCostsYes',
+        'corespondentDidNotRespond'
+      ];
+      return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
+    });
+
+    it('When co-respondent has not answered', () => {
+      const session = {
+        case: {
+          data: {
+          }
+        }
+      };
+      const ignoreContent = [
+        'theCoRespondentResponseToAdulteryNo',
+        'theCoRespondentResponseToAdulteryYes',
+        'theCoRespondentDefendsTheDivorceNo',
+        'theCoRespondentDefendsTheDivorceYes',
+        'theCoRespondentAgreeToPayCostsYes',
+        'theCoRespondentAgreeToPayCostsNo',
+        'corespondentDidNotRespond',
+        'theCoRespondentResponseToAdultery',
+        'theCoRespondentDefendsTheDivorce',
+        'theCoRespondentAgreeToPayCosts',
+        'youNeedToRead'
       ];
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
     });
@@ -118,7 +143,8 @@ describe(modulePath, () => {
       const ignoreContent = [
         'theCoRespondentResponseToAdulteryYes',
         'theCoRespondentDefendsTheDivorceYes',
-        'theCoRespondentAgreeToPayCostsNo'
+        'theCoRespondentAgreeToPayCostsNo',
+        'corespondentDidNotRespond'
       ];
       const specificValuesToNotExist = ['It is the right thing to do...'];
       return content(ReviewAosResponseFromCoRespondent, session, {
