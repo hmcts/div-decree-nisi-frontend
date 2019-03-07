@@ -16,6 +16,7 @@ const { getExpectedCourtsList, testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
 
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
+const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 
 const templates = {
   submitted: './sections/submitted/PetitionProgressBar.submitted.template.html',
@@ -149,6 +150,35 @@ describe(modulePath, () => {
         {
           specificValues: [ session.case.data.caseReference ]
         });
+    });
+  });
+
+  describe('CCD state: AmendPetition', () => {
+    const session = {
+      case: {
+        state: 'AmendPetition',
+        data: {
+          caseReference: 'LV17D80101'
+        }
+      }
+    };
+
+    beforeEach(() => {
+      sinon.stub(redirectToFrontendHelper, 'redirectToFrontendAmend');
+    });
+
+    afterEach(() => {
+      redirectToFrontendHelper.redirectToFrontendAmend.restore();
+    });
+
+    it('triggers a redirect based on state', () => {
+      stepAsInstance(PetitionProgressBar, session);
+      sinon.assert.calledOnce(redirectToFrontendHelper.redirectToFrontendAmend);
+    });
+
+    it('no template for this state should exist', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql('');
     });
   });
 
