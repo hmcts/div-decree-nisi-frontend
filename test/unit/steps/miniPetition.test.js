@@ -425,7 +425,9 @@ describe(modulePath, () => {
             reasonForDivorceAdulteryKnowWhen: 'Yes',
             reasonForDivorceAdulteryDetails: 'Here are some adultery details',
             reasonForDivorceAdulteryWhereDetails: 'Where the adultery happened',
-            reasonForDivorceAdulteryWhenDetails: 'When the adultery happened'
+            reasonForDivorceAdulteryWhenDetails: 'When the adultery happened',
+            reasonForDivorceAdulterySecondHandInfo: 'Yes',
+            reasonForDivorceAdulterySecondHandInfoDetails: 'A trusted source'
           }
         }
       };
@@ -436,7 +438,8 @@ describe(modulePath, () => {
           specificValues: [
             session.case.reasonForDivorceAdulteryDetails,
             session.case.reasonForDivorceAdulteryWhereDetails,
-            session.case.reasonForDivorceAdulteryWhenDetails
+            session.case.reasonForDivorceAdulteryWhenDetails,
+            session.case.reasonForDivorceAdulterySecondHandInfoDetails
           ]
         }
       );
@@ -494,6 +497,7 @@ describe(modulePath, () => {
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
         'reasonForDivorceAdulteryDescription',
+        'statementOfSecondHandInformationAboutAdultery',
         'reasonForDivorceInfo',
         'reasonForDivorceStatement',
         'reasonForDivorceSeperationTwoYearsDecidedDate',
