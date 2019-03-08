@@ -87,6 +87,7 @@ describe(modulePath, () => {
     });
 
     it('redirects to ApplyForDecreeNisi page', () => {
+      sandbox.replace(config.features, 'release520', false);
       const fields = { amendPetition: 'no' };
       return question.redirectWithField(RespNotAdmitAdultery, fields, ApplyForDecreeNisi);
     });

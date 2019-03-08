@@ -2,6 +2,9 @@
 const modulePath = 'steps/review-aos-response-from-co-respondent/ReviewAosResponseFromCoRespondent.step.js';
 
 const ReviewAosResponseFromCoRespondent = require(modulePath);
+const ReviewCRContent = require(
+  'steps/review-aos-response-from-co-respondent/ReviewAosResponseFromCoRespondent.content'
+);
 const idam = require('services/idam');
 const { middleware, sinon, content, question } = require('@hmcts/one-per-page-test-suite');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
@@ -154,13 +157,55 @@ describe(modulePath, () => {
     });
   });
 
-  it('navigates to ApplyForDecreeNisi page', () => {
+  it('returns correct answers - if co-respondent defends divorce', () => {
+    const expectedContent = [ ReviewCRContent.en.fields.reviewAosCRResponse.yes ];
     const session = {
       case: {
         data: {
           coRespondentAnswers: {
+            defendsDivorce: 'Yes'
+          }
+        }
+      }
+    };
+    return question.answers(ReviewAosResponseFromCoRespondent, {}, expectedContent, session);
+  });
+
+  it('returns correct answers - if co-respondent not defending divorce', () => {
+    const expectedContent = [ ReviewCRContent.en.fields.reviewAosCRResponse.no ];
+    const session = {
+      case: {
+        data: {
+          coRespondentAnswers: {
+            defendsDivorce: 'No'
+          }
+        }
+      }
+    };
+    return question.answers(ReviewAosResponseFromCoRespondent, {}, expectedContent, session);
+  });
+
+  it('navigates to ApplyForDecreeNisi page', () => {
+    const fields = { reviewAosCRResponse: 'yes' };
+    const session = {
+      case: {
+        data: {
+          coRespondentAnswers: {
+            contactInfo: {
+              emailAddress: 'testadulterycr@mailinator.com',
+              consentToReceivingEmails: 'Yes',
+              contactMethodIsDigital: 'Yes',
+              phoneNumber: '+4433344443443'
+            },
+            aos: {
+              received: 'Yes',
+              letterHolderId: '809112',
+              dateReceived: '2019-03-06'
+            },
+            confirmReadPetition: 'Yes',
+            statementOfTruth: 'Yes',
             admitAdultery: 'Yes',
-            defendsDivorce: 'Yes',
+            defendsDivorce: 'No',
             costs: {
               agreeToCosts: 'Yes'
             }
@@ -168,10 +213,12 @@ describe(modulePath, () => {
         }
       }
     };
+
     return question.redirectWithField(
       ReviewAosResponseFromCoRespondent,
-      session,
-      ApplyForDecreeNisi
+      fields,
+      ApplyForDecreeNisi,
+      session
     );
   });
 });

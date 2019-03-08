@@ -21,6 +21,14 @@
     "theCoRespondentGivenOptions": "They were given the following options:",
     "theCoRespondentAgreeToPaySome": "to agree to pay some or all of the costs of the divorce",
     "theCoRespondentNotAgreePay": "to not agree to paying any of the costs",
-    "theCoRespondentGivenChanceToChanges": "You'll be given a chance to change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split."
+    "theCoRespondentGivenChanceToChanges": "You'll be given a chance to change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split.",
+
+    "fields": {
+      "reviewAosCRResponse": {
+        "title": "The co-respondent's response",
+        "no": "The co-respondent will let the divorce proceed (doesn't intend to 'defend' it).",
+        "yes": "The co-respondent don’t accept the allegations made in the application (they intend to 'defend' it)."
+      }
+    }
   }
 }

@@ -122,7 +122,7 @@
       "marriage"
     ],
     "legalProceedingsDetails": "The legal proceeding details",
-    "reasonForDivorce": "separation-5-years",
+    "reasonForDivorce": "adultery",
     "reasonForDivorceBehaviourDetails": [
       "My wife is lazy and doesn't do anything around the house. He has refused to get a job and just sits watching TV all day. Despite the fact that I am the one who works to support us, my wife controls the finances and will only give me money to buy food and things for the house. He not shown any affection towards me in years."
     ],
@@ -263,7 +263,7 @@
     "caseReference": "LV17D80101",
     "respConfirmReadPetition" : "Yes",
     "respAdmitOrConsentToFact" : "Yes",
-    "respWillDefendDivorce" : null,
+    "respWillDefendDivorce" : "Yes",
     "respJurisdictionAgree" : "No",
     "respJurisdictionDisagreeReason" : "Some Jurisdiction disagree reason",
     "respJurisdictionRespCountryOfResidence" : "UK",
@@ -276,6 +276,26 @@
     "respPhoneNumber" : "12344555",
     "respStatementOfTruth" : "Yes",
     "respConsentToEmail" : "No",
+    "coRespondentAnswers": {  
+      "contactInfo":{  
+         "emailAddress":"testadulterycr@mailinator.com",
+         "consentToReceivingEmails":"Yes",
+         "contactMethodIsDigital":"Yes",
+         "phoneNumber":"+4433344443443"
+      },
+      "aos":{  
+         "received":"Yes",
+         "letterHolderId":"809112",
+         "dateReceived":"2019-03-06"
+      },
+      "confirmReadPetition":"Yes",
+      "statementOfTruth":"Yes",
+      "admitAdultery":"Yes",
+      "defendsDivorce":"No",
+      "costs":{  
+         "agreeToCosts":"Yes"
+      }
+    },
     "respConsiderFinancialSituation" : "Yes",
     "respHardshipDefenseResponse" : "No",
     "respHardshipDescription" : "Some Hardship Description goes here"
