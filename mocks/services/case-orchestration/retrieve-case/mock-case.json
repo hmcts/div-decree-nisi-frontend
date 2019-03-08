@@ -146,8 +146,6 @@
     "reasonForDivorceAdulteryKnowWhere": "Yes",
     "reasonForDivorceAdulteryWhereDetails": "Where the adultery happened",
     "reasonForDivorceAdulteryWhenDetails": "When the adultery happened",
-    "reasonForDivorceAdulterySecondHandInfo": "Yes",
-    "reasonForDivorceAdulterySecondHandInfoDetails": "A trusted source of mine gave me this information",
     "reasonForDivorceAdulteryIsNamed": "Yes",
     "financialOrder": "Yes",
     "financialOrderFor": [
