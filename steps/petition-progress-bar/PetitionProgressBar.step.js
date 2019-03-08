@@ -4,7 +4,6 @@ const { parseBool } = require('@hmcts/one-per-page/util');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
-const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 const {
   caseStateMap,
   permitDNReasonMap,
@@ -16,7 +15,6 @@ const constants = {
   adultery: 'adultery',
   sep2Yr: 'separation-2-years',
   AOSCompleted: 'aoscompleted',
-  AmendPetition: 'amendpetition',
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
@@ -27,14 +25,6 @@ const constants = {
 };
 
 class PetitionProgressBar extends Interstitial {
-  constructor(props) {
-    super(props);
-    if (constants.AmendPetition.includes(this.caseState)) {
-      redirectToFrontendHelper
-        .redirectToFrontendAmend(this.req, this.res);
-    }
-  }
-
   static get path() {
     return config.paths.petitionProgressBar;
   }
