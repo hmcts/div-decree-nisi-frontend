@@ -358,8 +358,8 @@ describe(modulePath, () => {
         session,
         {
           specificValues: [
-            session.case.reasonForDivorceAdultery3rdPartyFirstName,
-            session.case.reasonForDivorceAdultery3rdPartyLastName
+            session.case.data.reasonForDivorceAdultery3rdPartyFirstName,
+            session.case.data.reasonForDivorceAdultery3rdPartyLastName
           ]
         }
       );
@@ -425,7 +425,9 @@ describe(modulePath, () => {
             reasonForDivorceAdulteryKnowWhen: 'Yes',
             reasonForDivorceAdulteryDetails: 'Here are some adultery details',
             reasonForDivorceAdulteryWhereDetails: 'Where the adultery happened',
-            reasonForDivorceAdulteryWhenDetails: 'When the adultery happened'
+            reasonForDivorceAdulteryWhenDetails: 'When the adultery happened',
+            reasonForDivorceAdulterySecondHandInfo: 'Yes',
+            reasonForDivorceAdulterySecondHandInfoDetails: 'A trusted source'
           }
         }
       };
@@ -434,9 +436,10 @@ describe(modulePath, () => {
         session,
         {
           specificValues: [
-            session.case.reasonForDivorceAdulteryDetails,
-            session.case.reasonForDivorceAdulteryWhereDetails,
-            session.case.reasonForDivorceAdulteryWhenDetails
+            session.case.data.reasonForDivorceAdulteryDetails,
+            session.case.data.reasonForDivorceAdulteryWhereDetails,
+            session.case.data.reasonForDivorceAdulteryWhenDetails,
+            session.case.data.reasonForDivorceAdulterySecondHandInfoDetails
           ]
         }
       );
@@ -455,7 +458,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [session.case.reasonForDivorceBehaviourDetails] }
+        { specificValues: [session.case.data.reasonForDivorceBehaviourDetails] }
       );
     });
 
@@ -472,7 +475,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [session.case.reasonForDivorceDesertionDetails] }
+        { specificValues: [session.case.data.reasonForDivorceDesertionDetails] }
       );
     });
   });
@@ -494,6 +497,7 @@ describe(modulePath, () => {
         'reasonForDivorceAdulteryWhere',
         'reasonForDivorceAdulteryWhen',
         'reasonForDivorceAdulteryDescription',
+        'statementOfSecondHandInformationAboutAdultery',
         'reasonForDivorceInfo',
         'reasonForDivorceStatement',
         'reasonForDivorceSeperationTwoYearsDecidedDate',
@@ -866,6 +870,27 @@ describe(modulePath, () => {
               'reasonForDivorceAdulteryWhere',
               'reasonForDivorceStatement',
               'reasonForDivorceAdulteryDescription'
+            ] });
+        });
+        it('knows where & second hand info ', () => {
+          const session = {
+            case: {
+              data: {
+                connections: {},
+                reasonForDivorce: 'adultery',
+                reasonForDivorceAdulteryKnowWhere: 'Yes',
+                reasonForDivorceAdulterySecondHandInfo: 'Yes'
+              }
+            }
+          };
+          return content(
+            MiniPetition,
+            session,
+            { specificContent: [
+              'reasonForDivorceAdulteryWhere',
+              'reasonForDivorceStatement',
+              'reasonForDivorceAdulteryDescription',
+              'statementOfSecondHandInformationAboutAdultery'
             ] });
         });
         it('knows when', () => {
