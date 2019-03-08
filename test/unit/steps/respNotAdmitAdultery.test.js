@@ -6,6 +6,8 @@ const RespNotAdmitAdulteryContent = require(
 );
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const AmendApplication = require('steps/amend-application/AmendApplication.step');
+// eslint-disable-next-line max-len
+const ReviewAosResponseFromCoRespondent = require('steps/review-aos-response-from-co-respondent/ReviewAosResponseFromCoRespondent.step');
 const idam = require('services/idam');
 const { middleware, sinon, content, question } = require('@hmcts/one-per-page-test-suite');
 const config = require('config');
@@ -62,7 +64,7 @@ describe(modulePath, () => {
         case: {
           state: 'DNAwaiting',
           data: {
-            reasonForDivorce: 'Adultery',
+            reasonForDivorce: 'adultery',
             respAdmitOrConsentToFact: 'Yes'
           }
         }
@@ -75,7 +77,7 @@ describe(modulePath, () => {
       const session = {
         case: {
           data: {
-            reasonForDivorce: 'Adultery',
+            reasonForDivorce: 'adultery',
             respAdmitOrConsentToFact: 'No'
           }
         }
@@ -93,6 +95,26 @@ describe(modulePath, () => {
       sandbox.replace(config.features, 'release520', true);
       const fields = { amendPetition: 'yes' };
       return question.redirectWithField(RespNotAdmitAdultery, fields, AmendApplication);
+    });
+
+    it('redirects to ReviewAosResponseFromCoRespondent page', () => {
+      sandbox.replace(config.features, 'release520', true);
+      const fields = { amendPetition: 'no' };
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'adultery',
+            reasonForDivorceAdulteryWishToName: 'Yes',
+            coRespondentAnswers: {
+              aos: {
+                received: 'Yes'
+              }
+            }
+          }
+        }
+      };
+      // eslint-disable-next-line max-len
+      return question.redirectWithField(RespNotAdmitAdultery, fields, ReviewAosResponseFromCoRespondent, session);
     });
   });
 });

@@ -17,6 +17,8 @@ const AdulteryFirstFoundOut = require('steps/adultery-first-found-out/AdulteryFi
 const LivedApartSinceAdultery = require(
   'steps/lived-apart-since-adultery/LivedApartSinceAdultery.step'
 );
+// eslint-disable-next-line max-len
+const ReviewAosResponseFromCoRespondent = require('steps/review-aos-response-from-co-respondent/ReviewAosResponseFromCoRespondent.step');
 const moment = require('moment');
 const Entry = require('steps/entry/Entry.step');
 
@@ -283,5 +285,114 @@ describe('Respondent Admitted Adultery : no', () => {
         )
       );
     });
+  });
+});
+
+describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
+  const sess = {
+    reasonForDivorce: 'adultery',
+    respWillDefendDivorce: 'No',
+    respAdmitOrConsentToFact: 'No',
+    reasonForDivorceAdulteryWishToName: 'Yes',
+    coRespondentAnswers: {
+      aos: {
+        received: 'Yes'
+      }
+    }
+  };
+
+  const sandbox = sinon.createSandbox();
+
+  before(() => {
+    sandbox.replace(config.features, 'release520', true);
+
+    const getStub = sinon.stub(request, 'get');
+
+    getStub
+      .withArgs(sinon.match({
+        uri: `${config.services.orchestrationService.getCaseUrl}`
+      }))
+      .resolves(merge({}, mockCaseResponse, { data: sess }));
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
+  });
+
+  after(() => {
+    request.get.restore();
+    sandbox.restore();
+    feesAndPaymentsService.getFee.restore();
+  });
+
+  describe('View Co-Respondents response', () => {
+    journey.test([
+      { step: Start },
+      { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
+      { step: petitionProgressBar },
+      { step: reviewAosResponse, body: { reviewAosResponse: 'yes' } },
+      { step: respNotAdmitAdultery, body: { amendPetition: 'no' } },
+      { step: ReviewAosResponseFromCoRespondent },
+      { step: ApplyForDecreeNisi }
+
+    ]);
+  });
+});
+
+describe('Respondent Admitted Adultery : yes, AdulteryWishToName: Yes', () => {
+  const sess = {
+    reasonForDivorce: 'adultery',
+    respWillDefendDivorce: 'No',
+    respAdmitOrConsentToFact: 'Yes',
+    reasonForDivorceAdulteryWishToName: 'Yes',
+    coRespondentAnswers: {
+      aos: {
+        received: 'Yes'
+      }
+    }
+  };
+
+  const sandbox = sinon.createSandbox();
+
+  before(() => {
+    sandbox.replace(config.features, 'release520', true);
+
+    const getStub = sinon.stub(request, 'get');
+
+    getStub
+      .withArgs(sinon.match({
+        uri: `${config.services.orchestrationService.getCaseUrl}`
+      }))
+      .resolves(merge({}, mockCaseResponse, { data: sess }));
+
+    sinon.stub(feesAndPaymentsService, 'getFee')
+      .resolves({
+        feeCode: 'FEE0002',
+        version: 4,
+        amount: 550.00,
+        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+      });
+  });
+
+  after(() => {
+    request.get.restore();
+    sandbox.restore();
+    feesAndPaymentsService.getFee.restore();
+  });
+
+  describe('View Co-Respondents response', () => {
+    journey.test([
+      { step: Start },
+      { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
+      { step: petitionProgressBar },
+      { step: reviewAosResponse, body: { reviewAosResponse: 'yes' } },
+      { step: ReviewAosResponseFromCoRespondent },
+      { step: ApplyForDecreeNisi }
+    ]);
   });
 });

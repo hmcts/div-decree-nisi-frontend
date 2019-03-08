@@ -6,6 +6,9 @@ const RespNotAdmitAdultery = require('steps/resp-not-admit-adultery/RespNotAdmit
 
 const commonContent = require('common/content');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
+// eslint-disable-next-line max-len
+const ReviewAosResponseFromCoRespondent = require('steps/review-aos-response-from-co-respondent/ReviewAosResponseFromCoRespondent.step');
+const AmendApplication = require('steps/amend-application/AmendApplication.step');
 const idam = require('services/idam');
 const { middleware, sinon, content,
   stepAsInstance, question, expect } = require('@hmcts/one-per-page-test-suite');
@@ -490,6 +493,50 @@ describe(modulePath, () => {
         const specificContent = ['costsOrder.notAgreedToPayCosts'];
         const specificValues = [ session.case.data.respCostsReason ];
         return content(ReviewAosResponse, session, { specificContent, specificValues });
+      });
+    });
+    describe('Next step ', () => {
+      const sandbox = sinon.createSandbox();
+
+      afterEach(() => {
+        sandbox.restore();
+      });
+
+      it('redirects to ReviewAosResponseFromCoRespondent page', () => {
+        sandbox.replace(config.features, 'release520', true);
+
+        const fields = { reviewAosResponse: 'yes' };
+        const session = {
+          case: {
+            data: {
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulteryWishToName: 'Yes',
+              respAdmitOrConsentToFact: 'Yes',
+              coRespondentAnswers: {
+                aos: {
+                  received: 'Yes'
+                }
+              }
+            }
+          }
+        };
+        // eslint-disable-next-line max-len
+        return question.redirectWithField(ReviewAosResponse, fields, ReviewAosResponseFromCoRespondent, session);
+      });
+
+      it('redirects to AmendApplication page', () => {
+        sandbox.replace(config.features, 'release520', true);
+
+        const fields = { reviewAosResponse: 'yes' };
+        const session = {
+          case: {
+            data: {
+              reasonForDivorce: 'separation-2-years',
+              respAdmitOrConsentToFact: 'No'
+            }
+          }
+        };
+        return question.redirectWithField(ReviewAosResponse, fields, AmendApplication, session);
       });
     });
   });

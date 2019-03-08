@@ -1,0 +1,76 @@
+{% extends "page.njk" %}
+
+{% set titleSize = 'large' %}
+
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block main_content %}
+  {% if case.coRespondentAnswers.admitAdultery %}
+    <p class="text">{{ content.youNeedToRead }}</p>
+  {% else %}
+    <p class="text">{{ content.corespondentDidNotRespond }}</p>
+  {% endif %}
+
+  <h2 class="heading-medium">{{ content.acknowledgementOfSrvice }}</h2>
+
+  <h3 class="heading-small">{{ content.applicant }}</h3>
+  <p class="text">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
+
+  <h3 class="heading-small">{{ content.respondent }}</h3>
+  <p class="text">{{ case.respondentFirstName }} {{ case.respondentLastName }}</p>
+
+  <h3 class="heading-small">{{ content.corespondent }}</h3>
+  <p class="text">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
+
+  {% if case.coRespondentAnswers.admitAdultery %}
+    <h3 class="heading-small">{{ content.theCoRespondentResponseToAdultery }}</h3>
+    {% if case.coRespondentAnswers.admitAdultery == "Yes" %}
+      <p class="text">{{ content.theCoRespondentResponseToAdulteryYes }}</p>
+    {% else %}
+      <p class="text">{{ content.theCoRespondentResponseToAdulteryNo }}</p>
+    {% endif %}
+  {% endif %}
+
+  {% if case.coRespondentAnswers.defendsDivorce %}
+    <h3 class="heading-small">{{ content.theCoRespondentDefendsTheDivorce }}</h3>
+    {% if case.coRespondentAnswers.defendsDivorce == "Yes" %}
+      <p class="text">{{ content.theCoRespondentDefendsTheDivorceYes }}</p>
+    {% else %}
+      <p class="text">{{ content.theCoRespondentDefendsTheDivorceNo }}</p>
+    {% endif %}
+  {% endif %}
+
+  {% if case.coRespondentAnswers.costs.agreeToCosts %}
+    <h3 class="heading-small">{{ content.theCoRespondentAgreeToPayCosts }}</h3>
+    {% if case.coRespondentAnswers.costs.agreeToCosts == "Yes" %}
+      <p class="text">{{ content.theCoRespondentAgreeToPayCostsYes }}</p>
+    {% else %}
+      <p class="text">{{ content.theCoRespondentAgreeToPayCostsNo }}</p>
+      <p class="text">{{ case.coRespondentAnswers.costs.reason | safe }}</p>
+    {% endif %}
+  {% endif %}
+  <details>
+    <summary aria-controls="details-content-0" aria-expanded="false">
+      <span class="summary">{{ content.whatThisMeans }}</span>
+    </summary>
+    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p class="text">{{ content.theCoRespondentWasAsked }}</p>
+      <p class="text">{{ content.theCoRespondentGivenOptions }}</p>
+      <ul class="bullet list-bullet">
+        <li>{{ content.theCoRespondentAgreeToPaySome }}</li>
+        <li>{{ content.theCoRespondentNotAgreePay }}</li>
+      </ul>
+      <br>
+      <p class="text">{{ content.theCoRespondentGivenChanceToChanges }}</p>
+    </div>
+  </details>
+
+  <br>
+  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+    <input class="button button-start" type="submit" value="{{ content.continue }}">
+  </form>
+  <br>
+{% endblock %}
