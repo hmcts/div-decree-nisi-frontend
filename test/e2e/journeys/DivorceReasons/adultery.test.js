@@ -246,6 +246,7 @@ describe('Respondent Admitted Adultery : no', () => {
       { step: petitionProgressBar },
       { step: reviewAosResponse, body: { reviewAosResponse: 'yes' } },
       { step: respNotAdmitAdultery, body: { amendPetition: 'no' } },
+      { step: ReviewAosResponseFromCoRespondent, body: { reviewAosCRResponse: 'yes' } },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
         step: MiniPetition,
@@ -336,7 +337,7 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
       { step: petitionProgressBar },
       { step: reviewAosResponse, body: { reviewAosResponse: 'yes' } },
       { step: respNotAdmitAdultery, body: { amendPetition: 'no' } },
-      { step: ReviewAosResponseFromCoRespondent },
+      { step: ReviewAosResponseFromCoRespondent, body: { reviewAosCRResponse: 'yes' } },
       { step: ApplyForDecreeNisi }
 
     ]);
@@ -391,7 +392,7 @@ describe('Respondent Admitted Adultery : yes, AdulteryWishToName: Yes', () => {
       { step: Entry },
       { step: petitionProgressBar },
       { step: reviewAosResponse, body: { reviewAosResponse: 'yes' } },
-      { step: ReviewAosResponseFromCoRespondent },
+      { step: ReviewAosResponseFromCoRespondent, body: { reviewAosCRResponse: 'yes' } },
       { step: ApplyForDecreeNisi }
     ]);
   });
