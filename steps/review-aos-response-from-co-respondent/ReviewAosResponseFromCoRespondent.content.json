@@ -26,8 +26,8 @@
     "fields": {
       "reviewAosCRResponse": {
         "title": "The co-respondent's response",
-        "no": "The co-respondent will let the divorce proceed (doesn't intend to 'defend' it).",
-        "yes": "The co-respondent don’t accept the allegations made in the application (they intend to 'defend' it)."
+        "no": "The co-respondent does not dispute the allegations made in the application (they do not intend to defend).",
+        "yes": "The co-respondent disputes the allegations made in the application (they intend to defend)."
       }
     }
   }
