@@ -425,9 +425,7 @@ describe(modulePath, () => {
             reasonForDivorceAdulteryKnowWhen: 'Yes',
             reasonForDivorceAdulteryDetails: 'Here are some adultery details',
             reasonForDivorceAdulteryWhereDetails: 'Where the adultery happened',
-            reasonForDivorceAdulteryWhenDetails: 'When the adultery happened',
-            reasonForDivorceAdulterySecondHandInfo: 'Yes',
-            reasonForDivorceAdulterySecondHandInfoDetails: 'A trusted source'
+            reasonForDivorceAdulteryWhenDetails: 'When the adultery happened'
           }
         }
       };
@@ -438,8 +436,7 @@ describe(modulePath, () => {
           specificValues: [
             session.case.data.reasonForDivorceAdulteryDetails,
             session.case.data.reasonForDivorceAdulteryWhereDetails,
-            session.case.data.reasonForDivorceAdulteryWhenDetails,
-            session.case.data.reasonForDivorceAdulterySecondHandInfoDetails
+            session.case.data.reasonForDivorceAdulteryWhenDetails
           ]
         }
       );
@@ -870,27 +867,6 @@ describe(modulePath, () => {
               'reasonForDivorceAdulteryWhere',
               'reasonForDivorceStatement',
               'reasonForDivorceAdulteryDescription'
-            ] });
-        });
-        it('knows where & second hand info ', () => {
-          const session = {
-            case: {
-              data: {
-                connections: {},
-                reasonForDivorce: 'adultery',
-                reasonForDivorceAdulteryKnowWhere: 'Yes',
-                reasonForDivorceAdulterySecondHandInfo: 'Yes'
-              }
-            }
-          };
-          return content(
-            MiniPetition,
-            session,
-            { specificContent: [
-              'reasonForDivorceAdulteryWhere',
-              'reasonForDivorceStatement',
-              'reasonForDivorceAdulteryDescription',
-              'statementOfSecondHandInformationAboutAdultery'
             ] });
         });
         it('knows when', () => {
@@ -1362,6 +1338,70 @@ describe(modulePath, () => {
         }
       };
       return question.answers(MiniPetition, stepData, expectedContent, session);
+    });
+  });
+
+  describe('Adultery - second hand info provided', () => {
+    const sandbox = sinon.createSandbox();
+
+    before(() => {
+      sandbox.replace(config.features, 'release520', true);
+    });
+
+    after(() => {
+      sandbox.restore();
+    });
+
+    it('knows where & second hand info ', () => {
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery',
+            reasonForDivorceAdulteryKnowWhere: 'Yes',
+            reasonForDivorceAdulterySecondHandInfo: 'Yes'
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        { specificContent: [
+          'reasonForDivorceAdulteryWhere',
+          'reasonForDivorceStatement',
+          'reasonForDivorceAdulteryDescription',
+          'statementOfSecondHandInformationAboutAdultery'
+        ] });
+    });
+
+    it('displays reason for divorce adultery details', () => {
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery',
+            reasonForDivorceAdulteryKnowWhere: 'Yes',
+            reasonForDivorceAdulteryKnowWhen: 'Yes',
+            reasonForDivorceAdulteryDetails: 'Here are some adultery details',
+            reasonForDivorceAdulteryWhereDetails: 'Where the adultery happened',
+            reasonForDivorceAdulteryWhenDetails: 'When the adultery happened',
+            reasonForDivorceAdulterySecondHandInfo: 'Yes',
+            reasonForDivorceAdulterySecondHandInfoDetails: 'A trusted source'
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        {
+          specificValues: [
+            session.case.data.reasonForDivorceAdulteryDetails,
+            session.case.data.reasonForDivorceAdulteryWhereDetails,
+            session.case.data.reasonForDivorceAdulteryWhenDetails,
+            session.case.data.reasonForDivorceAdulterySecondHandInfoDetails
+          ]
+        }
+      );
     });
   });
 });

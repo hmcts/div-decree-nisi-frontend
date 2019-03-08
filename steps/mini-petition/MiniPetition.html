@@ -277,8 +277,10 @@
 
     <h3 class="heading-small">{{ content.reasonForDivorceAdulteryDescription }}</h3>
     <p class="text">"{{ case.reasonForDivorceAdulteryDetails }}"</p>
-    <p class="text">{{ content.statementOfSecondHandInformationAboutAdultery }}</p>
-    <p class="text">"{{ case.reasonForDivorceAdulterySecondHandInfoDetails }}"</p>
+    {% if isAdulterySecondHandInfoProvided %}
+      <p class="text">{{ content.statementOfSecondHandInformationAboutAdultery }}</p>
+      <p class="text">"{{ case.reasonForDivorceAdulterySecondHandInfoDetails }}"</p>
+    {% endif %}
   {% endif %}
 
 
