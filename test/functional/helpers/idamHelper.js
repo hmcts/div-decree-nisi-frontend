@@ -23,9 +23,9 @@ class IdamHelper extends Helper {
         length: 16,
         charset: 'numeric'
       });
-      const emailName = `hmcts.divorce.reform+dn-automatedtest-${randomString}`;
-      const testEmail = `${emailName}@gmail.com`;
-      const testPassword = randomstring.generate(9);
+      const emailName = `divorce+dn-test-${randomString}`;
+      const testEmail = `${emailName}@example.com`;
+      const testPassword = 'genericPassword1';
 
       idamArgs.testEmail = testEmail;
       idamArgs.testPassword = testPassword;
