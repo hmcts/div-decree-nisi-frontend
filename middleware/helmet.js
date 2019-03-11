@@ -14,7 +14,7 @@ const setupHelmet = app => {
       connectSrc: ['\'self\''],
       mediaSrc: ['\'self\''],
       frameSrc: ['\'none\''],
-      imgSrc: ['\'self\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk']
+      imgSrc: ['\'self\'', 'www.google-analytics.com', 'hmctspiwik.useconnect.co.uk', 'www.googletagmanager.com']
     }
   }));
 
