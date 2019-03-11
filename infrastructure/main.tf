@@ -109,7 +109,7 @@ module "frontend" {
     FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.fees_payment_service_api_url}${local.health_endpoint}"
 
     // Feature toggling through config
-    FEATURES_IDAM                           = "${var.feature_idam}"
+    FEATURE_IDAM                            = "${var.feature_idam}"
     FEATURE_RELEASE_520                     = "${var.feature_release_520}"
 
     // Encryption secrets
