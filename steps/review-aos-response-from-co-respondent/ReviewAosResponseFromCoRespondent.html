@@ -1,13 +1,13 @@
-{% extends "page.njk" %}
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import hiddenInput %}
 
 {% set titleSize = 'large' %}
-
-
 {% set title %}
   {{ content.title | safe }}
 {% endset %}
 
-{% block main_content %}
+{% block fields %}
   {% if case.coRespondentAnswers.admitAdultery %}
     <p class="text">{{ content.youNeedToRead }}</p>
   {% else %}
@@ -67,10 +67,8 @@
       <p class="text">{{ content.theCoRespondentGivenChanceToChanges }}</p>
     </div>
   </details>
+  <br>
 
-  <br>
-  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-    <input class="button button-start" type="submit" value="{{ content.continue }}">
-  </form>
-  <br>
+
+  {{ hiddenInput(fields.reviewAosCRResponse, value='yes') }}
 {% endblock %}

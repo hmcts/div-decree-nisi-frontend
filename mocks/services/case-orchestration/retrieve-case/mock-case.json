@@ -278,6 +278,26 @@
     "respPhoneNumber" : "12344555",
     "respStatementOfTruth" : "Yes",
     "respConsentToEmail" : "No",
+    "coRespondentAnswers": {  
+      "contactInfo":{  
+         "emailAddress":"testadulterycr@mailinator.com",
+         "consentToReceivingEmails":"Yes",
+         "contactMethodIsDigital":"Yes",
+         "phoneNumber":"+4433344443443"
+      },
+      "aos":{  
+         "received":"Yes",
+         "letterHolderId":"809112",
+         "dateReceived":"2019-03-06"
+      },
+      "confirmReadPetition":"Yes",
+      "statementOfTruth":"Yes",
+      "admitAdultery":"Yes",
+      "defendsDivorce":"No",
+      "costs":{  
+         "agreeToCosts":"Yes"
+      }
+    },
     "respConsiderFinancialSituation" : "Yes",
     "respHardshipDefenseResponse" : "No",
     "respHardshipDescription" : "Some Hardship Description goes here"
