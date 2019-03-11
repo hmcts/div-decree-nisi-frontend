@@ -8,7 +8,10 @@ const ReviewCRContent = require(
 const idam = require('services/idam');
 const { middleware, sinon, content, question } = require('@hmcts/one-per-page-test-suite');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
-
+const RespNotAdmitAdultery = require(
+  'steps/resp-not-admit-adultery/RespNotAdmitAdultery.step'
+);
+const config = require('config');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -220,5 +223,63 @@ describe(modulePath, () => {
       ApplyForDecreeNisi,
       session
     );
+  });
+
+  describe('Redirects', () => {
+    const sandbox = sinon.createSandbox();
+
+    after(() => {
+      sandbox.restore();
+    });
+
+    it('To RespNotAdmitAdultery page - CoRespondent Answers not received', () => {
+      sandbox.replace(config.features, 'release520', true);
+
+      const fields = { reviewAosCRResponse: 'yes' };
+      const session = {
+        case: {
+          data: {
+            reasonForDivorce: 'adultery',
+            respAdmitOrConsentToFact: 'No',
+            coRespondentAnswers: {
+              admitAdultery: 'Yes',
+              defendsDivorce: 'Yes',
+              costs: {
+                agreeToCosts: 'Yes'
+              }
+            }
+          }
+        }
+      };
+      return question.redirectWithField(
+        ReviewAosResponseFromCoRespondent,
+        fields,
+        RespNotAdmitAdultery,
+        session
+      );
+    });
+
+    it('navigates to ApplyForDecreeNisi page', () => {
+      const fields = { reviewAosCRResponse: 'yes' };
+      const session = {
+        case: {
+          data: {
+            coRespondentAnswers: {
+              admitAdultery: 'Yes',
+              defendsDivorce: 'Yes',
+              costs: {
+                agreeToCosts: 'Yes'
+              }
+            }
+          }
+        }
+      };
+      return question.redirectWithField(
+        ReviewAosResponseFromCoRespondent,
+        fields,
+        ApplyForDecreeNisi,
+        session
+      );
+    });
   });
 });

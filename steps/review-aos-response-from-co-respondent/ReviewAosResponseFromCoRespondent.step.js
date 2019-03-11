@@ -1,11 +1,16 @@
 const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
-const { redirectTo } = require('@hmcts/one-per-page/flow');
+const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
+const { parseBool } = require('@hmcts/one-per-page/util');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 
+const constants = {
+  respAdmitOrConsentToFact: 'respAdmitOrConsentToFact',
+  no: 'No'
+};
 class ReviewAosResponseFromCoRespondent extends Question {
   static get path() {
     return config.paths.reviewAosResponseFromCoRespondent;
@@ -42,7 +47,15 @@ class ReviewAosResponseFromCoRespondent extends Question {
   }
 
   next() {
-    return redirectTo(this.journey.steps.ApplyForDecreeNisi);
+    const respNotAdmitAdultery = () => {
+      return this.case[constants.respAdmitOrConsentToFact] === constants.no;
+    };
+
+    return branch(
+      redirectTo(this.journey.steps.RespNotAdmitAdultery)
+        .if(parseBool(config.features.release520) && respNotAdmitAdultery),
+      redirectTo(this.journey.steps.ApplyForDecreeNisi)
+    );
   }
 }
 

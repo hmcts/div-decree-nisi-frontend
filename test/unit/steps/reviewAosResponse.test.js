@@ -113,7 +113,7 @@ describe(modulePath, () => {
       return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
     });
 
-    it('redirects to RespNotAdmitAdultery page', () => {
+    it('redirects to RespNotAdmitAdultery page - CoRespondent Answers not received', () => {
       sandbox.replace(config.features, 'release520', true);
 
       const fields = { reviewAosResponse: 'yes' };
@@ -502,7 +502,7 @@ describe(modulePath, () => {
         sandbox.restore();
       });
 
-      it('redirects to ReviewAosResponseFromCoRespondent page', () => {
+      it('redirects to CoRespondent response - respAdmitOrConsentToFact: Yes', () => {
         sandbox.replace(config.features, 'release520', true);
 
         const fields = { reviewAosResponse: 'yes' };
@@ -512,6 +512,28 @@ describe(modulePath, () => {
               reasonForDivorce: 'adultery',
               reasonForDivorceAdulteryWishToName: 'Yes',
               respAdmitOrConsentToFact: 'Yes',
+              coRespondentAnswers: {
+                aos: {
+                  received: 'Yes'
+                }
+              }
+            }
+          }
+        };
+        // eslint-disable-next-line max-len
+        return question.redirectWithField(ReviewAosResponse, fields, ReviewAosResponseFromCoRespondent, session);
+      });
+
+      it('redirects to CoRespondent response - respAdmitOrConsentToFact: No', () => {
+        sandbox.replace(config.features, 'release520', true);
+
+        const fields = { reviewAosResponse: 'yes' };
+        const session = {
+          case: {
+            data: {
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulteryWishToName: 'Yes',
+              respAdmitOrConsentToFact: 'No',
               coRespondentAnswers: {
                 aos: {
                   received: 'Yes'

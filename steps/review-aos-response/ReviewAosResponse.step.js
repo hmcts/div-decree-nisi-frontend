@@ -81,7 +81,7 @@ class ReviewAosResponse extends Question {
     return this.case.reasonForDivorceAdulteryWishToName && this.case.reasonForDivorceAdulteryWishToName === this.consts.yes;
   }
 
-  get recievedAosFromCoResp() {
+  get receivedAosFromCoResp() {
     return this.case.coRespondentAnswers && this.case.coRespondentAnswers.aos.received === this.consts.yes;
   }
 
@@ -102,16 +102,16 @@ class ReviewAosResponse extends Question {
     };
 
     const reviewAosRespCoRespondent = () => {
-      return this.adultery && this.adulteryWishToName && this.recievedAosFromCoResp && this.exist(this.consts.respAdmitOrConsentToFact);
+      return this.adultery && this.adulteryWishToName && this.receivedAosFromCoResp;
     };
 
     return branch(
       redirectTo(this.journey.steps.AmendApplication)
         .if(parseBool(config.features.release520) && ammendAplication),
-      redirectTo(this.journey.steps.RespNotAdmitAdultery)
-        .if(parseBool(config.features.release520) && respNotAdmitAdultery),
       redirectTo(this.journey.steps.ReviewAosResponseFromCoRespondent)
         .if(parseBool(config.features.release520) && reviewAosRespCoRespondent),
+      redirectTo(this.journey.steps.RespNotAdmitAdultery)
+        .if(parseBool(config.features.release520) && respNotAdmitAdultery),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
   }
