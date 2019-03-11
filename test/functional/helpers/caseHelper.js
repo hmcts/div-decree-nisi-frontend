@@ -24,7 +24,6 @@ class CaseHelper extends Helper {
           idamConfigHelper.getTestEmail()
         );
         caseConfigHelper.setTestCaseId(createCaseResponse.id);
-        console.log(`Created case id in CCD ${createCaseResponse.id} for ${idamConfigHelper.getTestEmail()}`); // eslint-disable-line
       })
       .catch(error => {
         logger.infoWithReq(null, 'case_create_error',

@@ -3,6 +3,7 @@ const logger = require('services/logger').getLogger(__filename);
 const randomstring = require('randomstring');
 const idamExpressTestHarness = require('@hmcts/div-idam-test-harness');
 const idamConfigHelper = require('./idamConfigHelper');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const Helper = codecept_helper; // eslint-disable-line
 
@@ -18,7 +19,7 @@ const idamArgs = {
 
 class IdamHelper extends Helper {
   createAUser() {
-    if (config.features.idam) {
+    if (parseBool(config.features.idam)) {
       const randomString = randomstring.generate({
         length: 16,
         charset: 'numeric'
@@ -72,7 +73,7 @@ class IdamHelper extends Helper {
   }
 
   _after() {
-    if (config.features.idam) {
+    if (parseBool(config.features.idam)) {
       idamExpressTestHarness.removeUser(idamArgs, config.tests.functional.proxy)
         .then(() => {
           logger.infoWithReq(
