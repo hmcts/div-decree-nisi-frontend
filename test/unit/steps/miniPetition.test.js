@@ -1403,5 +1403,32 @@ describe(modulePath, () => {
         }
       );
     });
+
+    it('displays adultery details without any error - second hand info: No ', () => {
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            reasonForDivorce: 'adultery',
+            reasonForDivorceAdulteryKnowWhere: 'Yes',
+            reasonForDivorceAdulteryKnowWhen: 'Yes',
+            reasonForDivorceAdulteryDetails: 'Here are some adultery details',
+            reasonForDivorceAdulteryWhereDetails: 'Where the adultery happened',
+            reasonForDivorceAdulteryWhenDetails: 'When the adultery happened'
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        {
+          specificValues: [
+            session.case.data.reasonForDivorceAdulteryDetails,
+            session.case.data.reasonForDivorceAdulteryWhereDetails,
+            session.case.data.reasonForDivorceAdulteryWhenDetails
+          ]
+        }
+      );
+    });
   });
 });

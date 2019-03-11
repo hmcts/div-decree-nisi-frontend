@@ -147,7 +147,7 @@ class MiniPetition extends Question {
   }
 
   get isAdulterySecondHandInfoProvided() {
-    return parseBool(config.features.release520) && this.case.reasonForDivorceAdulterySecondHandInfo && this.case.reasonForDivorceAdulterySecondHandInfo === 'Yes';
+    return parseBool(config.features.release520) && this.case.reasonForDivorceAdulterySecondHandInfo === 'Yes';
   }
 
   get middleware() {
