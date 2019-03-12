@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 locals {
-  aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
+  aseName = "core-compute-${var.env}"
   public_hostname = "${var.product}-${var.component}-${var.env}.service.${local.aseName}.internal"
   local_env = "${(var.env == "preview" || var.env == "spreview") ? (var.env == "preview" ) ? "aat" : "saat" : var.env}"
 
@@ -30,7 +30,7 @@ module "redis-cache" {
   product  = "${var.env != "preview" ? "${var.product}-redis" : "${var.product}-${var.reform_service_name}-redis"}"
   location = "${var.location}"
   env      = "${var.env}"
-  subnetid = "${data.terraform_remote_state.core_apps_infrastructure.subnet_ids[1]}"
+  subnetid = "${data.azurerm_subnet.core_infra_redis_subnet.id}"
   common_tags = "${var.common_tags}"
 }
 
