@@ -9,7 +9,7 @@ http_proxy = ""
 
 idam_authentication_web_url = "https://hmcts-access.service.gov.uk"
 idam_api_url = "https://idam-api.platform.hmcts.net"
-google_analytics_tracking_id = "UA-93824767-3"
+google_analytics_tracking_id = "UA-93824767-4"
 
 capacity = "2"
 
