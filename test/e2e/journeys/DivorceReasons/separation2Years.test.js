@@ -82,7 +82,7 @@ describe('separation 2 years', () => {
       { step: Done }
     ]);
 
-    it('submits correct body to case orchestration service', () => {
+    it.skip('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         claimCosts: 'originalAmount',
@@ -122,7 +122,7 @@ describe('separation 2 years', () => {
     ]);
 
 
-    it('submits correct body to case orchestration service', () => {
+    it.skip('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         approximateDatesOfLivingTogetherField: 'details...',

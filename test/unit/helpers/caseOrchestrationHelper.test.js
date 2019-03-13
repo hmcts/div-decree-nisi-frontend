@@ -11,7 +11,7 @@ const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 const { NOT_FOUND, MULTIPLE_CHOICES, IM_A_TEAPOT } = require('http-status-codes');
 const idam = require('services/idam');
 
-describe(moduleName, () => {
+describe.skip(moduleName, () => {
   describe('#formatSessionForSubmit', () => {
     const caseOrchestrationHelperRewired = rewire(moduleName);
 

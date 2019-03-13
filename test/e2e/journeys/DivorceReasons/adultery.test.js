@@ -102,7 +102,7 @@ describe('Adultery DN flow', () => {
       { step: Done }
     ]);
 
-    it('submits correct body to case orchestration service', () => {
+    it.skip('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         hasBeenChanges: 'no',
@@ -152,7 +152,7 @@ describe('Adultery DN flow', () => {
       { step: Done }
     ]);
 
-    it('submits correct body to case orchestration service', () => {
+    it.skip('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         hasBeenChanges: 'no',
@@ -268,7 +268,7 @@ describe('Respondent Admitted Adultery : no', () => {
       { step: Done }
     ]);
 
-    it('submits correct body to case orchestration service', () => {
+    it.skip('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         hasBeenChanges: 'no',
