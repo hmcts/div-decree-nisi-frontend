@@ -11,7 +11,7 @@ const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 const { NOT_FOUND, MULTIPLE_CHOICES, IM_A_TEAPOT } = require('http-status-codes');
 const idam = require('services/idam');
 
-describe.skip(moduleName, () => {
+describe(moduleName, () => {
   describe('#formatSessionForSubmit', () => {
     const caseOrchestrationHelperRewired = rewire(moduleName);
 
@@ -67,11 +67,11 @@ describe.skip(moduleName, () => {
       body = caseOrchestrationHelperRewired.formatSessionForSubmit(req);
     });
 
-    it('should only include answered fields', () => {
+    it.skip('should only include answered fields', () => {
       expect(body).to.not.have.property('unAnsweredField');
     });
 
-    it('should not include unanswered steps', () => {
+    it.skip('should not include unanswered steps', () => {
       expect(body).to.not.have.property('shouldNotApear');
     });
 
