@@ -721,7 +721,7 @@ describe(modulePath, () => {
         const session = {
           case: {
             data: {
-              connections: { A: '' },
+              connections: { A: '', C: '' },
               reasonForDivorce: 'adultery'
             }
           }
@@ -729,7 +729,13 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: ['jurisdictionConnectionBothResident'] });
+          {
+            specificContent:
+            [
+              'jurisdictionConnectionBothResident',
+              'jurisdictionConnectionRespondent'
+            ]
+          });
       });
       it('for one resides', () => {
         const session = {
