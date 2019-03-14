@@ -106,9 +106,11 @@ describe(moduleName, () => {
       });
 
       it('if the state is in blacklist', () => {
-        response.state = config.ccd.d8States[0];
-        return expect(caseOrchestrationHelper.validateResponse(req, response))
-          .to.be.rejectedWith(caseOrchestrationHelper.redirectToPetitionerError);
+        config.ccd.d8States.forEach(state => {
+          response.state = state;
+          expect(caseOrchestrationHelper.validateResponse(req, response))
+            .to.be.rejectedWith(caseOrchestrationHelper.redirectToPetitionerError);
+        });
       });
     });
 
