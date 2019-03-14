@@ -28,7 +28,7 @@
   },
   "pre-commit": "lint",
   "dependencies": {
-    "@hmcts/div-idam-express-middleware": "^6.3.5",
+    "@hmcts/div-idam-express-middleware": "^6.4.0",
     "@hmcts/look-and-feel": "^2.1.1",
     "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/nodejs-healthcheck": "^1.4.6",
@@ -61,7 +61,7 @@
     "util": "^0.11.0"
   },
   "devDependencies": {
-    "@hmcts/div-idam-test-harness": "https://github.com/hmcts/div-idam-test-harness.git#3185b70f07f9b1f957e231022316d0b1dc84ee5a",
+    "@hmcts/div-idam-test-harness": "^1.5.0",
     "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#a459aaa16a92cb13e0dac35c32bf559ad79de6a6",
     "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/one-per-page-test-suite": "^3.0.0",
