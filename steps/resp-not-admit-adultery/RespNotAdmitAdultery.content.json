@@ -1,9 +1,8 @@
 {
   "en": {
     "title": "How do you want to proceed?",
-    "fact": "The court needs to be sure that adultery took place for it to be used as the reason for divorce (legally known as the 'fact')",
-    "options": "As your {{ case.divorceWho }} hasn't admitted the adultery, you now need to choose from the following options:",
-    "onlyDoThis": "You should only do this if you can prove the adultery took place. If you haven't already sent the court evidence of the adultery, you'll be able to upload more later in this application.",
+    "options": "As your {{ case.divorceWho }} hasn't admitted the adultery, you need to choose whether to continue using this reason for divorce.",
+    "onlyDoThis": "The court will make a judgement on the information and evidence available. If you have further any evidence you'll be able to upload it later in this application.",
     "evidence": "Evidence can include messages (eg letters, text messages, emails), photos, or an admission of the adultery from the person your {{ case.divorceWho }} committed adultery with.",
     "errors": {
       "required": "Select an option, how do you want to proceed?"
@@ -11,8 +10,8 @@
     "fields": {
       "amendPetition": {
         "title": "Select an option, how do you want to proceed?",
-        "yes": "Change your reason for divorce (and pay a fee of £{{ amendFee }})",
-        "no": "Keep using adultery and provide evidence"
+        "yes": "Change my reason for divorce (and pay a fee of £{{ amendFee }})",
+        "no": "Keep using adultery and let the court make a judgement"
       }
     }
   }
