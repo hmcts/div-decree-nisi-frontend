@@ -1,11 +1,9 @@
 {
   "en": {
     "respDoesNotAdmitAdulteryTitle": "Your {{ case.divorceWho }} has not admitted to committing adultery",
-    "respDoesNotAdmitAdulteryTheFact": "The court needs to be sure that adultery took place for it to be used as the reason for divorce (legally known as the 'fact').",
-    "respDoesNotAdmitAdulteryToMoveForwardYouNeedTo": "To move your divorce forwards you need to either:",
-    "respDoesNotAdmitAdulteryChangeReasonForDivorce": "change your reason for divorce",
-    "respDoesNotAdmitAdulteryProvideEvidenceOfTheAdultery": "provide evidence of the adultery",
-    "respDoesNotAdmitAdulteryYouCanRead": "You can read your {{ case.divorceWho }}'s response on the next page.",
+    "respDoesNotAdmitAdulteryPar1": "As your {{ case.divorceWho }} has not admitted to adultery, the court will make a judgement based on the information available. This will include the response of the co-respondent if you have named one and any further evidence you provide.",
+    "respDoesNotAdmitAdulteryPar2": "Alternatively, you can change your reason for divorce by amending your application.",
+    "respDoesNotAdmitAdulteryPar3": "You'll be asked to choose one of these options after you've read your {{ case.divorceWho }}'s response.",
     "respDoesNotConsent2YearSepTitle": "Your {{ case.divorceWho }} has not given their consent to a divorce",
     "respDoesNotConsent2YearSepYouMustHave": "You must have your {{ case.divorceWho }}'s consent to use the '2 years separation with consent' reason for divorce.",
     "respDoesNotConsent2YearSepYouHaveToPay": "If you want to continue you need to change your reason for divorce. You'll have to pay a fee of £{{ amendFee }}. Your application will need to be sent to your {{ case.divorceWho }} again.",

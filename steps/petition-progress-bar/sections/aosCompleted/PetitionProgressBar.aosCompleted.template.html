@@ -11,7 +11,8 @@
       complete: true
     },
     three: {
-      label: content.getDecreeNisi
+      label: content.getDecreeNisi,
+      current: true
     },
     four: {
       label: content.madeFinal
@@ -21,14 +22,9 @@
 
 {% if not respAdmitsToFact and reasonForDivorce == "adultery" %}
       <h2 class="heading-medium">{{ content.respDoesNotAdmitAdulteryTitle }}</h2>
-      <p class="text">{{ content.respDoesNotAdmitAdulteryTheFact }}</p>
-      <p class="text">{{ content.respDoesNotAdmitAdulteryToMoveForwardYouNeedTo }}</p>
-      <ul class="bullet list-bullet">
-        <li>{{ content.respDoesNotAdmitAdulteryChangeReasonForDivorce }}</li>
-        <li>{{ content.respDoesNotAdmitAdulteryProvideEvidenceOfTheAdultery }}</li>
-      </ul>
-      <br>
-      <p class="text">{{ content.respDoesNotAdmitAdulteryYouCanRead }}</p>
+      <p class="text">{{ content.respDoesNotAdmitAdulteryPar1 }}</p>
+      <p class="text">{{ content.respDoesNotAdmitAdulteryPar2 }}</p>
+      <p class="text">{{ content.respDoesNotAdmitAdulteryPar3 }}</p>
 {% endif %}
 
 {% if not respAdmitsToFact and reasonForDivorce == "separation-2-years" %}
