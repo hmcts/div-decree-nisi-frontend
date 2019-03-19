@@ -129,5 +129,4 @@ class PetitionProgressBar extends Interstitial {
   }
 }
 
-
 module.exports = PetitionProgressBar;

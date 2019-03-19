@@ -345,6 +345,25 @@ describe(modulePath, () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.defendedAwaitingAnswer);
     });
+
+    it('renders content for when case was not amended', () => {
+      const specificContent = ['dAAHasRespondend'];
+      return content(PetitionProgressBar, session, { specificContent });
+    });
+
+    it('renders content for amended case', () => {
+      const amendedCaseSession = {
+        case: {
+          state: 'AosSubmittedAwaitingAnswer',
+          data: {
+            previousCaseId: '12345'
+          }
+        }
+      };
+
+      const specificContent = ['dAAHasRespondendForAmendedCase'];
+      return content(PetitionProgressBar, amendedCaseSession, { specificContent });
+    });
   });
 
   // eslint-disable-next-line max-len
