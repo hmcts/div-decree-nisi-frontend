@@ -300,6 +300,7 @@
     },
     "respConsiderFinancialSituation" : "Yes",
     "respHardshipDefenseResponse" : "No",
-    "respHardshipDescription" : "Some Hardship Description goes here"
+    "respHardshipDescription" : "Some Hardship Description goes here",
+    "previousCaseId": "12345"
   }
 }

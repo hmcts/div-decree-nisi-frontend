@@ -187,6 +187,21 @@ describe(modulePath, () => {
       return content(PetitionProgressBar, noAdmitSession, { specificContent });
     });
 
+    it('renders content for when respondent does not admit fact - amended case', () => {
+      const noAdmitSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            permittedDecreeNisiReason: '0',
+            respAdmitOrConsentToFact: 'No',
+            previousCaseId: '12345'
+          }
+        }
+      };
+      const specificContent = ['undefendedAmendedCaseButNotAdmit'];
+      return content(PetitionProgressBar, noAdmitSession, { specificContent });
+    });
+
     it('renders content for when respondent does admit fact', () => {
       const yesAdmitSession = {
         case: {
@@ -198,6 +213,22 @@ describe(modulePath, () => {
         }
       };
       const specificContent = ['undefendedAppStatusMsgDetails1'];
+
+      return content(PetitionProgressBar, yesAdmitSession, { specificContent });
+    });
+
+    it('renders content for when respondent does admit fact - amended case', () => {
+      const yesAdmitSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            permittedDecreeNisiReason: '0',
+            respAdmitOrConsentToFact: 'Yes',
+            previousCaseId: '12345'
+          }
+        }
+      };
+      const specificContent = ['undefendedAmendedAppStatusMsgDetails1'];
 
       return content(PetitionProgressBar, yesAdmitSession, { specificContent });
     });
@@ -271,7 +302,6 @@ describe(modulePath, () => {
       expect(instance.stateTemplate).to.eql(templates.defendedWithoutAnswer);
     });
   });
-
 
   describe('CCD state: DNawaiting, DNReason : 4 ', () => {
     const session = {
