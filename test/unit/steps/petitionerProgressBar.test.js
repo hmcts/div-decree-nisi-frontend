@@ -466,6 +466,25 @@ describe(modulePath, () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.defendedWithAnswer);
     });
+
+    it('renders content for when case was not amended', () => {
+      const specificContent = ['defendedServiceAppStatusMsgDetails1'];
+      return content(PetitionProgressBar, session, { specificContent });
+    });
+
+    it('renders content for amended case', () => {
+      const amendedCaseSession = {
+        case: {
+          state: 'DefendedDivorce',
+          data: {
+            previousCaseId: '12345'
+          }
+        }
+      };
+
+      const specificContent = ['defendedServiceAmendedAppStatusMsgDetails1'];
+      return content(PetitionProgressBar, amendedCaseSession, { specificContent });
+    });
   });
 
   describe('CCD state: AwaitingLegalAdvisorReferral', () => {
