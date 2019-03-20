@@ -212,8 +212,8 @@ describe(modulePath, () => {
           }
         }
       };
-      const specificContent = ['undefendedAppStatusMsgDetails1'];
 
+      const specificContent = ['undefendedAppStatusMsgDetails1'];
       return content(PetitionProgressBar, yesAdmitSession, { specificContent });
     });
 
@@ -228,8 +228,8 @@ describe(modulePath, () => {
           }
         }
       };
-      const specificContent = ['undefendedAmendedAppStatusMsgDetails1'];
 
+      const specificContent = ['undefendedAmendedAppStatusMsgDetails1'];
       return content(PetitionProgressBar, yesAdmitSession, { specificContent });
     });
   });
@@ -254,6 +254,35 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.deemedService);
+    });
+
+    it('renders content for when respondent does admit fact', () => {
+      const yesAdmitSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            permittedDecreeNisiReason: '1'
+          }
+        }
+      };
+
+      const specificContent = ['deemedServiceAppStatusMsgDetails1'];
+      return content(PetitionProgressBar, yesAdmitSession, { specificContent });
+    });
+
+    it('renders content for when respondent does admit fact - amended case', () => {
+      const yesAdmitSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            permittedDecreeNisiReason: '1',
+            previousCaseId: '12345'
+          }
+        }
+      };
+
+      const specificContent = ['deemedServiceAmendedAppStatusMsgDetails1'];
+      return content(PetitionProgressBar, yesAdmitSession, { specificContent });
     });
   });
 
