@@ -1,0 +1,27 @@
+nodejs:
+    environment:
+        # TODO - this should be changed once we deploy AAT to AKS
+        BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
+        PUBLIC_HOSTNAME: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
+        
+        REFORM_ENVIRONMENT: "aat"
+        DEPLOYMENT_ENV: "aat"
+        APPLICATION_INSIGHTS_IKEY: "63c30ef9-a27b-4d38-8afc-4c180fb6ac33"
+        APPINSIGHTS_INSTRUMENTATIONKEY: "019ed56f-e01d-4651-895d-bc6334f3d1b1"
+        IDAM_APP_HEALHCHECK_URL: "https://preprod-idamapi.reform.hmcts.net:3511/health"
+        IDAM_API_URL: "https://preprod-idamapi.reform.hmcts.net:3511"
+        GOOGLE_ANALYTICS_ID: "TBD"
+        IDAM_LOGIN_URL: "https://idam.preprod.ccidam.reform.hmcts.net/login"
+        IDAM_AUTHENTICATION_HEALHCHECK_URL: "https://idam.preprod.ccidam.reform.hmcts.net/health"
+        ORCHESTRATION_SERVICE_HEALTH_URL: "http://div-cos-aat.service.core-compute-aat.internal/health"
+        ORCHESTRATION_SERVICE_GET_PETITION_URL: "http://div-cos-aat.service.core-compute-aat.internal/retrieve-case"
+        ORCHESTRATION_SERVICE_POST_PETITION_URL: "http://div-cos-aat.service.core-compute-aat.internal/submit-dn"
+        ORCHESTRATION_SERVICE_DRAFT_ENDPOINT: "http://div-cos-aat.service.core-compute-aat.internal/draftsapi/version/1"
+        ORCHESTRATION_SERVICE_AMEND_PETITION_URL: "http://div-cos-aat.service.core-compute-aat.internal/amend-petition"
+        PETITIONER_FRONTEND_URL: "https://div-pfe-aat.service.core-compute-aat.internal"
+        RESPONDENT_FRONTEND_URL: "https://div-rfe-aat.service.core-compute-aat.internal"
+        EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL: "http://div-emca-aat.service.core-compute-aat.internal/health"
+        EVIDENCE_MANAGEMENT_CLIENT_API_URL: "http://div-emca-aat.service.core-compute-aat.internal/"
+        CASE_MAINTENANCE_BASE_URL: "http://div-cms-aat.service.core-compute-aat.internal"
+        FEES_AND_PAYMENTS_URL: "http://div-fps-aat.service.core-compute-aat.internal"
+        FEES_AND_PAYMENTS_HEALTHCHECK_URL: "http://div-fps-aat.service.core-compute-aat.internal/health"
