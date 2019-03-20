@@ -1,7 +1,7 @@
 {
   "caseId": "1234567890124567",
   "courts": "serviceCentre",
-  "state": "DefendedDivorce",
+  "state": "AwaitingDecreeNisi",
   "data": {
     "createdDate":"2018-08-02T00:00:00.000Z",
     "issueDate":"2018-10-02T00:00:00.000Z",
@@ -265,7 +265,7 @@
     "caseReference": "LV17D80101",
     "respConfirmReadPetition" : "Yes",
     "respAdmitOrConsentToFact" : "Yes",
-    "respWillDefendDivorce" : "Yes",
+    "respWillDefendDivorce" : null,
     "respJurisdictionAgree" : "No",
     "respJurisdictionDisagreeReason" : "Some Jurisdiction disagree reason",
     "respJurisdictionRespCountryOfResidence" : "UK",
