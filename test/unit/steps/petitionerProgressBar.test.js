@@ -307,6 +307,35 @@ describe(modulePath, () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.dispensedWithService);
     });
+
+    it('renders content for when respondent does admit fact', () => {
+      const yesAdmitSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            permittedDecreeNisiReason: '2'
+          }
+        }
+      };
+
+      const specificContent = ['dWSAppStatusMsgDetails1'];
+      return content(PetitionProgressBar, yesAdmitSession, { specificContent });
+    });
+
+    it('renders content for when respondent does admit fact - amended case', () => {
+      const yesAdmitSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            permittedDecreeNisiReason: '2',
+            previousCaseId: '12345'
+          }
+        }
+      };
+
+      const specificContent = ['dWSAmendedAppStatusMsgDetails1'];
+      return content(PetitionProgressBar, yesAdmitSession, { specificContent });
+    });
   });
 
   describe('CCD state: DNawaiting, DNReason : 3 ', () => {
