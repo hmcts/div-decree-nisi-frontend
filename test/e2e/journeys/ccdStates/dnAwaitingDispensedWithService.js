@@ -81,12 +81,15 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 2', () => {
     { step: Done }
   ]);
 
-  it.skip('submits correct body to case orchestration service', () => {
+  it('submits correct body to case orchestration service', () => {
     const body = {
       applyForDecreeNisi: 'yes',
+      approximateDatesOfLivingTogetherField: null,
+      changesDetails: null,
       claimCosts: 'originalAmount',
-      livedApartSinceSeparation: 'yes',
+      costsDifferentDetails: null,
       hasBeenChanges: 'no',
+      livedApartSinceSeparation: 'yes',
       statementOfTruth: 'yes',
       statementOfTruthChanges: 'yes',
       uploadAnyOtherDocuments: 'no'

@@ -83,15 +83,18 @@ describe('Desertion DN flow', () => {
       { step: Done }
     ]);
 
-    it.skip('submits correct body to case orchestration service', () => {
+    it('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
-        claimCosts: 'originalAmount',
-        livedApartSinceDesertion: 'yes',
         hasBeenChanges: 'no',
-        statementOfTruth: 'yes',
+        changesDetails: null,
         statementOfTruthChanges: 'yes',
-        uploadAnyOtherDocuments: 'no'
+        claimCosts: 'originalAmount',
+        costsDifferentDetails: null,
+        uploadAnyOtherDocuments: 'no',
+        statementOfTruth: 'yes',
+        livedApartSinceDesertion: 'yes',
+        approximateDatesOfLivingTogetherField: null
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
@@ -121,16 +124,18 @@ describe('Desertion DN flow', () => {
       { step: Done }
     ]);
 
-    it.skip('submits correct body to case orchestration service', () => {
+    it('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
-        approximateDatesOfLivingTogetherField: 'details...',
-        claimCosts: 'originalAmount',
         hasBeenChanges: 'no',
-        livedApartSinceDesertion: 'no',
-        statementOfTruth: 'yes',
+        changesDetails: null,
         statementOfTruthChanges: 'yes',
-        uploadAnyOtherDocuments: 'no'
+        claimCosts: 'originalAmount',
+        costsDifferentDetails: null,
+        uploadAnyOtherDocuments: 'no',
+        statementOfTruth: 'yes',
+        livedApartSinceDesertion: 'no',
+        approximateDatesOfLivingTogetherField: 'details...'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
