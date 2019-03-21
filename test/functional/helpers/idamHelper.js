@@ -26,10 +26,12 @@ class IdamHelper extends Helper {
       });
       const emailName = `divorce+dn-test-${randomString}`;
       const testEmail = `${emailName}@example.com`;
-      const testPassword = 'genericPassword1';
+      const testPassword = 'genericPassword123';
 
       idamArgs.testEmail = testEmail;
       idamArgs.testPassword = testPassword;
+      idamArgs.testGroupCode = 'citizens';
+      idamArgs.roles = [{ code: 'citizen' }];
 
       idamConfigHelper.setTestEmail(testEmail);
       idamConfigHelper.setTestPassword(testPassword);
