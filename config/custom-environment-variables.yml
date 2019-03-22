@@ -76,7 +76,7 @@ journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY
 
 features:
-  idam: FEATURES_IDAM
+  idam: FEATURE_IDAM
   release520: FEATURE_RELEASE_520
 
 ccd:
