@@ -28,7 +28,7 @@
     {% if exist(consts.respHardshipDefenseResponse) %}
       <p class="text">{{ content.respProceed.sep5Yr.defendingFinancialHardship }}</p>
       <div class="panel panel-border-narrow">
-        <p class="text">"{{ case.respHardshipDescription | safe }}"</p>
+        <p class="text">"{{ case.respHardshipDescription | nl2br | safe }}"</p>
       </div>
     {% elif notExist(consts.respHardshipDefenseResponse) %}
       <p class="text">{{ content.respProceed.sep5Yr.notDefendingFinancialHardship }}</p>
