@@ -31,6 +31,14 @@
     "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
     "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
     "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
-    "moneyAndPropertyLinky": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>"
+    "moneyAndPropertyLinky": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>",
+    "DownloadDocuments" : "Download your documents",
+    "DivorceApplication": "Divorce application",
+    "EntitlementToDecree": "Entitlement to a decree",
+    "files": {
+      "d8petition": "Original Petition",
+      "aosinvitation": "Respondent Response",
+      "co-respondentaosinvitation": "Co-Respondent Response"
+    }
   }
 }

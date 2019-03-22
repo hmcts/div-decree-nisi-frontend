@@ -4,6 +4,10 @@ const caseStateMap = [
     state: ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted']
   },
   {
+    template: './sections/accepted/PetitionProgressBar.accepted.template.html',
+    state: ['accepted']
+  },
+  {
     template: './sections/issued/PetitionProgressBar.issued.template.html',
     state: ['aosstarted', 'aosawaiting', 'issued']
   },

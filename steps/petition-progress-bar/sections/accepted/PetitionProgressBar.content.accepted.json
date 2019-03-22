@@ -1,5 +1,11 @@
 {
   "en" : {
-
+    "acceptedStatusMsg": "Your decree nisi application has been accepted",
+    "acceptedStatusDetails": "A district judge will formally announce the decree nisi at a court hearing. This is the first stage of the decree ending your marriage.",
+    "acceptedStatusPanelDetails": "You'll only be divorced when the second stage is complete and you have your decree absolute.",
+    "acceptedHearingTitle": "The hearing",
+    "acceptedHearingMsg1": "You can find more details about the date of the hearing and the orders that will be made (including costs orders) in your ",
+    "acceptedHearingInfo": "You don’t need to come to the hearing unless you want to object to any of the court orders being made.",
+    "acceptedHearingMsg2": "If you want to attend the hearing, you need to email the court before the hearing date. If you, or your husband, want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date."
   }
 }

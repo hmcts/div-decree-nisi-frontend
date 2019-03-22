@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const onePerPage = require('@hmcts/one-per-page');
 const lookAndFeel = require('@hmcts/look-and-feel');
+const { initDocumentHandler } = require('@hmcts/div-document-express-handler');
 const { accessLogger } = require('services/logger');
 const getSteps = require('steps');
 const setupHelmet = require('middleware/helmet');
@@ -15,6 +16,19 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const getFilters = require('views/filters');
 
 const app = express();
+
+const middleware = [ idam.protect() ];
+
+const args = {
+  // string to define path to attach document donwload handler, default: '/document-download/:documentId' *optional*
+  uri: '/documents/:documentId',
+  // string to specifiy auth token cookie, default: '__auth-token' *optional*
+  authorizationTokenCookieName: '__auth-token',
+  // string to specify the service to fetch the documents from *required*
+  documentServiceUrl: '/emclientapi/version/1/downloadFile?fileUrl=http://localhost:4006'
+};
+
+initDocumentHandler(app, middleware, args);
 
 setupHelmet(app);
 setupPrivacy(app);

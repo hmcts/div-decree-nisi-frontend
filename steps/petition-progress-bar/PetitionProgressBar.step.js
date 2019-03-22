@@ -4,6 +4,8 @@ const { parseBool } = require('@hmcts/one-per-page/util');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
+const { createUris } = require('@hmcts/div-document-express-handler');
+
 const {
   caseStateMap,
   permitDNReasonMap,
@@ -122,6 +124,29 @@ class PetitionProgressBar extends Interstitial {
       });
     }
     return template;
+  }
+
+  get downloadableFiles() {
+    const args = {
+      // string to define uri where document donwload handler is attached, default: '/document-download/:documentId' *optional*
+      uri: '/emclientapi/version/1/downloadFile?fileUrl=http://localhost:4006'
+    };
+    // The first argument is an array of files expected the following format:
+    // this.req.session.files = [
+    //   {
+    //     "id": "401ab79e-34cb-4570-9f2f-4cf9357dc1ec",
+    //     "value": {
+    //       "DocumentFileName" : "aosinvitation1552043698652633"
+    //     }
+    //   },
+    //   {
+    //     "id": "401ab79e-34cb-4570-9f2f-4cf9357dc1ec",
+    //     "value": {
+    //       "DocumentFileName" : "aosinvitation1552043698652633"
+    //     }
+    //   }
+    // ]
+    return createUris(this.req.session.files, args);
   }
 }
 
