@@ -10,6 +10,7 @@ const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNi
 const idam = require('services/idam');
 const { custom, middleware, interstitial, sinon, content,
   stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
+const checkCaseState = require('middleware/checkCaseState');
 const httpStatus = require('http-status-codes');
 const glob = require('glob');
 const { getExpectedCourtsList, testDivorceUnitDetailsRender,
@@ -92,7 +93,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(PetitionProgressBar, [idam.protect()]);
+    return middleware.hasMiddleware(PetitionProgressBar, [idam.protect()], checkCaseState);
   });
 
   describe('CCD state: Submitted', () => {
@@ -578,6 +579,7 @@ describe(modulePath, () => {
     it('rediects to ApplyForDecreeNisi when CCD has respWillDefendDivorce as null', () => {
       const session = {
         case: {
+          state: 'awaitingdecreenisi',
           data: {
             respWillDefendDivorce: null
           }
@@ -589,6 +591,7 @@ describe(modulePath, () => {
     it('redirects reviewAosResponse when CCD has respWillDefendDivorce as Yes', () => {
       const session = {
         case: {
+          state: 'awaitingdecreenisi',
           data: {
             respWillDefendDivorce: 'Yes'
           }
@@ -600,6 +603,7 @@ describe(modulePath, () => {
     it('to reviewAosResponse when reason is two years and respWillDefendDivorce is Yes', () => {
       const session = {
         case: {
+          state: 'awaitingdecreenisi',
           data: {
             reasonForDivorce: 'separation-2-years',
             respWillDefendDivorce: 'Yes'
@@ -612,6 +616,7 @@ describe(modulePath, () => {
     it('to reviewAosResponse when reason is two years and respWillDefendDivorce is No', () => {
       const session = {
         case: {
+          state: 'awaitingdecreenisi',
           data: {
             reasonForDivorce: 'separation-2-years',
             respWillDefendDivorce: 'No'

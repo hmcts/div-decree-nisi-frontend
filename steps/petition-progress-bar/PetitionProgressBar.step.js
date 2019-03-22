@@ -4,6 +4,8 @@ const { parseBool } = require('@hmcts/one-per-page/util');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
+const checkCaseState = require('middleware/checkCaseState');
+
 const {
   caseStateMap,
   permitDNReasonMap,
@@ -54,6 +56,7 @@ class PetitionProgressBar extends Interstitial {
     return [
       ...super.middleware,
       idam.protect(),
+      checkCaseState,
       getFeeFromFeesAndPayments(feeTypes.amendFee)
     ];
   }
