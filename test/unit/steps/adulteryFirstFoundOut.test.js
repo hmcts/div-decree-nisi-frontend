@@ -110,7 +110,7 @@ describe(modulePath, () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
       AdulteryFirstFoundOutContent.en.fields.adulteryFirstFoundDate.question,
-      '20 March 2017'
+      '20th March 2017'
     ];
 
     return question.answers(AdulteryFirstFoundOut, stepData, expectedContent, session); // eslint-disable-line

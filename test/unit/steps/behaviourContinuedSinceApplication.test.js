@@ -166,7 +166,7 @@ describe(modulePath, () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
       BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.no,
-      '18 March 2019'
+      '18th March 2019'
     ];
 
     const stepData = {

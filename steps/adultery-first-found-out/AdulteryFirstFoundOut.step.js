@@ -45,7 +45,7 @@ class AdulteryFirstFoundOut extends Question {
   answers() {
     return answer(this, {
       question: this.content.fields.adulteryFirstFoundDate.question,
-      answer: this.fields.adulteryFirstFoundDate.value.format('DD MMMM YYYY')
+      answer: this.fields.adulteryFirstFoundDate.value.format('Do MMMM YYYY')
     });
   }
 
