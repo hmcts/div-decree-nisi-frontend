@@ -21,7 +21,7 @@ health:
   deadline: 15000
 
 service:
-  name: 'divorce-decree-nisi-frontend'
+  name: 'div-dn-frontend'
 
 services:
   redis:
