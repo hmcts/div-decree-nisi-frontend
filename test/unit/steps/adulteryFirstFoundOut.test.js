@@ -90,4 +90,29 @@ describe(modulePath, () => {
     };
     return question.redirectWithField(AdulteryFirstFoundOut, fields, LivedApartSinceLastIncidentDate, session); // eslint-disable-line
   });
+
+  it('Returns correct answers', () => {
+    const stepData = {
+      adulteryFirstFoundDate: {
+        day: '20',
+        month: '03',
+        year: '2017'
+      }
+    };
+    const session = {
+      case: {
+        data: {
+          marriageDate: '2001-10-02T00:00:00.000Z',
+          createdDate: '2018-08-02T00:00:00.000Z'
+        }
+      }
+    };
+    const expectedContent = [
+      // eslint-disable-next-line max-len
+      AdulteryFirstFoundOutContent.en.fields.adulteryFirstFoundDate.question,
+      '20 March 2017'
+    ];
+
+    return question.answers(AdulteryFirstFoundOut, stepData, expectedContent, session); // eslint-disable-line
+  });
 });
