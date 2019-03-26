@@ -9,7 +9,8 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 
 const constants = {
   respAdmitOrConsentToFact: 'respAdmitOrConsentToFact',
-  no: 'No'
+  no: 'No',
+  AosCompleted: 'AosCompleted'
 };
 class ReviewAosResponseFromCoRespondent extends Question {
   static get path() {
@@ -48,7 +49,7 @@ class ReviewAosResponseFromCoRespondent extends Question {
 
   next() {
     const respNotAdmitAdultery = () => {
-      return this.case[constants.respAdmitOrConsentToFact] === constants.no;
+      return this.case[constants.respAdmitOrConsentToFact] === constants.no && this.req.session.case.state === constants.AosCompleted;
     };
 
     return branch(

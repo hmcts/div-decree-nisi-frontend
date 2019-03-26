@@ -25,7 +25,8 @@ const constants = {
   adultery: 'adultery',
   yes: 'Yes',
   no: 'No',
-  notAccept: 'NoNoAdmission'
+  notAccept: 'NoNoAdmission',
+  AosCompleted: 'AosCompleted'
 };
 
 class ReviewAosResponse extends Question {
@@ -94,7 +95,7 @@ class ReviewAosResponse extends Question {
 
   next() {
     const respNotAdmitAdultery = () => {
-      return this.adultery && this.notExist(this.consts.respAdmitOrConsentToFact);
+      return this.adultery && this.notExist(this.consts.respAdmitOrConsentToFact) && this.req.session.case.state === this.consts.AosCompleted;
     };
 
     const ammendAplication = () => {

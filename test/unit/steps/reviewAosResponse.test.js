@@ -113,9 +113,23 @@ describe(modulePath, () => {
       return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
     });
 
-    it('redirects to RespNotAdmitAdultery page - CoRespondent Answers not received', () => {
+    it('redirects to RespNotAdmitAdultery page - state: AosCompleted', () => {
       sandbox.replace(config.features, 'release520', true);
 
+      const fields = { reviewAosResponse: 'yes' };
+      const session = {
+        case: {
+          state: 'AosCompleted',
+          data: {
+            reasonForDivorce: 'adultery',
+            respAdmitOrConsentToFact: 'No'
+          }
+        }
+      };
+      return question.redirectWithField(ReviewAosResponse, fields, RespNotAdmitAdultery, session);
+    });
+
+    it('redirects to ApplyForDecreeNisi page - state is not matching with AOS completed', () => {
       const fields = { reviewAosResponse: 'yes' };
       const session = {
         case: {
@@ -125,7 +139,7 @@ describe(modulePath, () => {
           }
         }
       };
-      return question.redirectWithField(ReviewAosResponse, fields, RespNotAdmitAdultery, session);
+      return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
     });
   });
 
