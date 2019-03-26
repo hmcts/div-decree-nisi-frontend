@@ -214,7 +214,7 @@ describe('Respondent Admitted Adultery : no', () => {
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
-      .resolves(merge({}, mockCaseResponse, { data: sess }));
+      .resolves(merge({}, mockCaseResponse, { state: 'AosCompleted', data: sess }));
 
     caseOrchestrationServiceSubmitStub = postStub
       .withArgs(sinon.match({
@@ -313,7 +313,7 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
-      .resolves(merge({}, mockCaseResponse, { data: sess }));
+      .resolves(merge({}, mockCaseResponse, { state: 'AosCompleted', data: sess }));
     sinon.stub(feesAndPaymentsService, 'getFee')
       .resolves({
         feeCode: 'FEE0002',
