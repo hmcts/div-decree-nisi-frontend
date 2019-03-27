@@ -9,6 +9,12 @@
   {% include "includes/head.html" %}
 {% endblock %}
 
+{% block body_start %}
+  <noscript>
+    <img src="/noJS.png" width="1" height="1" " />
+  </noscript>
+{% endblock %}
+
 {% block proposition_header %}
   {% include "includes/proposition_header.html" %}
 {% endblock %}
