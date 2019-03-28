@@ -162,4 +162,16 @@ describe(modulePath, () => {
       expect(_values).to.have.property('livedApart.datesLivedTogether', detailsGiven);
     });
   });
+
+  describe('watches', () => {
+    it('removes datesLivedTogether if livedApartSinceAdultery changes to yes', () => {
+      const instance = new LivedApartSinceAdultery({ journey: {} });
+      const remove = sinon.stub();
+
+      const watch = instance.watches['LivedApartSinceAdultery.livedApart.livedApartSinceAdultery'];
+      watch('no', 'yes', remove);
+
+      expect(remove).calledWith('LivedApartSinceAdultery.livedApart.datesLivedTogether');
+    });
+  });
 });

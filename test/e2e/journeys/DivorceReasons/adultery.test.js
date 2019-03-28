@@ -214,7 +214,7 @@ describe('Respondent Admitted Adultery : no', () => {
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
-      .resolves(merge({}, mockCaseResponse, { data: sess }));
+      .resolves(merge({}, mockCaseResponse, { state: 'AosCompleted', data: sess }));
 
     caseOrchestrationServiceSubmitStub = postStub
       .withArgs(sinon.match({
@@ -245,8 +245,8 @@ describe('Respondent Admitted Adultery : no', () => {
       { step: Entry },
       { step: petitionProgressBar },
       { step: reviewAosResponse, body: { reviewAosResponse: 'yes' } },
-      { step: respNotAdmitAdultery, body: { amendPetition: 'no' } },
       { step: ReviewAosResponseFromCoRespondent, body: { reviewAosCRResponse: 'yes' } },
+      { step: respNotAdmitAdultery, body: { amendPetition: 'no' } },
       { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
       {
         step: MiniPetition,
@@ -313,7 +313,7 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
-      .resolves(merge({}, mockCaseResponse, { data: sess }));
+      .resolves(merge({}, mockCaseResponse, { state: 'AosCompleted', data: sess }));
     sinon.stub(feesAndPaymentsService, 'getFee')
       .resolves({
         feeCode: 'FEE0002',
@@ -336,8 +336,8 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
       { step: Entry },
       { step: petitionProgressBar },
       { step: reviewAosResponse, body: { reviewAosResponse: 'yes' } },
-      { step: respNotAdmitAdultery, body: { amendPetition: 'no' } },
       { step: ReviewAosResponseFromCoRespondent, body: { reviewAosCRResponse: 'yes' } },
+      { step: respNotAdmitAdultery, body: { amendPetition: 'no' } },
       { step: ApplyForDecreeNisi }
 
     ]);
