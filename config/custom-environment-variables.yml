@@ -48,10 +48,11 @@ services:
     trackingUrl: GOOGLE_ANALYTICS_TRACKING_URL
   applicationInsights:
     instrumentationKey: APPINSIGHTS_INSTRUMENTATIONKEY
-  evidenceManagmentClient:
+  evidenceManagementClient:
     health: EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL
     url: EVIDENCE_MANAGEMENT_CLIENT_API_URL
     uploadEndpoint: EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT
+    downloadFileUrl: EVIDENCE_MANAGEMENT_SERVICE_FILE_DOWNLOAD_URL
   rateLimiter:
     total: RATE_LIMITER_TOTAL
     expire: RATE_LIMITER_EXPIRE

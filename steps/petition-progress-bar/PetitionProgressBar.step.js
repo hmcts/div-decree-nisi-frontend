@@ -127,28 +127,33 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get downloadableFiles() {
-    const args = {
-      // string to define uri where document donwload handler is attached, default: '/document-download/:documentId' *optional*
-      uri: '/emclientapi/version/1/downloadFile?fileUrl=http://localhost:4006'
-    };
-    // The first argument is an array of files expected the following format:
-    // this.req.session.files = [
-    //   {
-    //     "id": "401ab79e-34cb-4570-9f2f-4cf9357dc1ec",
-    //     "value": {
-    //       "DocumentFileName" : "aosinvitation1552043698652633"
-    //     }
-    //   },
-    //   {
-    //     "id": "401ab79e-34cb-4570-9f2f-4cf9357dc1ec",
-    //     "value": {
-    //       "DocumentFileName" : "aosinvitation1552043698652633"
-    //     }
-    //   }
-    // ]
-    return createUris(this.req.session.files, args);
+    // return createUris(this.session.originalPetition.d8DocumentsGenerated);
+    this.req.session.files = [
+      {
+        id: '401ab79e-34cb-4570-9f2f-4cf9342421ec',
+        value: { DocumentFileName: 'dpetition15432423652633.pdf' }
+      },
+      {
+        id: '401ab79e-34cb-4570-9f2f-4cf9357d420c',
+        value: { DocumentFileName: 'entitlementToDecree15520452633.pdf' }
+      }
+    ];
+    return createUris(this.req.session.files);
+  }
+
+  get petitionLink() {
+    return this.downloadableFiles.find(file => {
+      // 'd8petition' OR 'dpetition'
+      return file.type === 'd8petition';
+    });
+  }
+
+  get entitlementToADecreeFileLink() {
+    return this.downloadableFiles.find(file => {
+      // substitute 'aosinvitation' to appropriate name
+      return file.type === 'entitlementToDecree';
+    });
   }
 }
-
 
 module.exports = PetitionProgressBar;

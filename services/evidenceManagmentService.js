@@ -6,7 +6,7 @@ const logger = require('services/logger').getLogger(__filename);
 const errors = require('resources/errors');
 const fileManagment = require('services/fileManagement');
 
-const evidenceManagmentClientUploadUrl = `${config.services.evidenceManagmentClient.url}${config.services.evidenceManagmentClient.uploadEndpoint}`;
+const evidenceManagementClientUploadUrl = `${config.services.evidenceManagementClient.url}${config.services.evidenceManagementClient.uploadEndpoint}`;
 const defaultEMCErrorMessage = 'Error uploading to evidence management client';
 
 const handleResponse = (req, body, resolve, reject) => {
@@ -49,7 +49,7 @@ const sendFile = req => {
     .then(file => {
       return new Promise((resolve, reject) => {
         superagent
-          .post(evidenceManagmentClientUploadUrl)
+          .post(evidenceManagementClientUploadUrl)
           .set({ Authorization: token })
           .set('enctype', 'multipart/form-data')
           .attach('file', file.path, file.name)

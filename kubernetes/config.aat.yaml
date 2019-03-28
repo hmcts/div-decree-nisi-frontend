@@ -33,6 +33,7 @@ data:
   EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL: "http://div-emca-aat.service.core-compute-aat.internal/health"
   EVIDENCE_MANAGEMENT_CLIENT_API_URL: "http://div-emca-aat.service.core-compute-aat.internal/"
   EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT: "/emclientapi/version/1/upload"
+  EVIDENCE_MANAGMENT_SERVICE_FILE_DOWNLOAD_URL: "http://div-emca-aat.service.core-compute-aat.internal/documents"
   CASE_MAINTENANCE_BASE_URL: "http://div-cms-aat.service.core-compute-aat.internal"
   CCD_DIGITAL_COURTS: '["serviceCentre", "eastMidlands", "westMidlands", "southWest", "northWest"]'
   IDAM_PROXY: "http://proxyout.reform.hmcts.net:8080"

@@ -21,11 +21,11 @@ const middleware = [ idam.protect() ];
 
 const args = {
   // string to define path to attach document donwload handler, default: '/document-download/:documentId' *optional*
-  uri: '/documents/:documentId',
+  // uri: '/documents/:documentId',
   // string to specifiy auth token cookie, default: '__auth-token' *optional*
-  authorizationTokenCookieName: '__auth-token',
-  // string to specify the service to fetch the documents from *required*
-  documentServiceUrl: '/emclientapi/version/1/downloadFile?fileUrl=http://localhost:4006'
+  // authorizationTokenCookieName: '__auth-token',
+  // documentServiceUrl: '/emclientapi/version/1/downloadFile?fileUrl=http://localhost:4006'
+  documentServiceUrl: config.services.evidenceManagementClient.downloadFileUrl
 };
 
 initDocumentHandler(app, middleware, args);

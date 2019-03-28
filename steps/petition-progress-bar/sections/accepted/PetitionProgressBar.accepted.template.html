@@ -28,14 +28,12 @@
 </div>
 
 <h2 class="heading-medium">{{ content.acceptedHearingTitle }}</h2>
-<p>{{ content.acceptedHearingMsg1 }} </p>
+<p>{{ content.acceptedHearingMsg1 | safe }} </p>
 <div class="notice">
     <i class="icon icon-important">
         <span class="visually-hidden">Warning</span>
     </i>
     <strong class="bold-small">{{ content.acceptedHearingInfo }}</strong>
 </div>
+</br>
 <p>{{ content.acceptedHearingMsg2 }}</p>
-
-<h3 class="heading-small" id="subsection-title">Download your documents</h3>
-{{ documentList(downloadableFiles, content.files) }}

@@ -1,7 +1,7 @@
 {
   "caseId": "1234567890124567",
   "courts": "serviceCentre",
-  "state": "AwaitingDecreeNisi",
+  "state": "accepted",
   "data": {
     "createdDate":"2018-08-02T00:00:00.000Z",
     "issueDate":"2018-10-02T00:00:00.000Z",
@@ -278,14 +278,14 @@
     "respPhoneNumber" : "12344555",
     "respStatementOfTruth" : "Yes",
     "respConsentToEmail" : "No",
-    "coRespondentAnswers": {  
-      "contactInfo":{  
+    "coRespondentAnswers": {
+      "contactInfo":{
          "emailAddress":"testadulterycr@mailinator.com",
          "consentToReceivingEmails":"Yes",
          "contactMethodIsDigital":"Yes",
          "phoneNumber":"+4433344443443"
       },
-      "aos":{  
+      "aos":{
          "received":"Yes",
          "letterHolderId":"809112",
          "dateReceived":"2019-03-06"
@@ -294,12 +294,26 @@
       "statementOfTruth":"Yes",
       "admitAdultery":"Yes",
       "defendsDivorce":"No",
-      "costs":{  
+      "costs":{
          "agreeToCosts":"Yes"
       }
     },
     "respConsiderFinancialSituation" : "Yes",
     "respHardshipDefenseResponse" : "No",
-    "respHardshipDescription" : "Some Hardship Description goes here"
+    "respHardshipDescription" : "Some Hardship Description goes here",
+    "files": [
+      {
+        "id": "401ab79e-34cb-4570-9f2f-4cf9357mast3r",
+        "value": {
+          "DocumentFileName" : "dpetition155204352622.pdf"
+        }
+      },
+      {
+        "id": "401ab79e-34cb-4570-9f2f-4cf9357teslt",
+        "value": {
+          "DocumentFileName" : "entitlementToDecree15520452633.pdf"
+        }
+      }
+    ]
   }
 }

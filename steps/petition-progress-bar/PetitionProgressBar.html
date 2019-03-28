@@ -1,3 +1,4 @@
+{% from "look-and-feel/components/document-list.njk" import documentList %}
 {% extends "page.njk" %}
 
 {% set titleSize = 'xlarge' %}
@@ -9,17 +10,18 @@
 {% block main_content %}
   <p class="font-xsmall">
     {% if isCaseIdToBeDisplayed %}
-      <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp; 
-      {{ caseId | hypenate | safe }} 
+      <strong class="bold-xsmall">{{ content.referenceNumber }}:</strong>&nbsp;&nbsp;&nbsp;
+      {{ caseId | hypenate | safe }}
     {% else %}
-      <strong class="bold-xsmall">{{ content.caseNumber }}:</strong>&nbsp;&nbsp;&nbsp; 
-      {{ case.caseReference | safe }} 
+      <strong class="bold-xsmall">{{ content.caseNumber }}:</strong>&nbsp;&nbsp;&nbsp;
+      {{ case.caseReference | safe }}
     {% endif %}
     <br>
     <strong class="bold-xsmall">{{ content.name }}:</strong> &nbsp;&nbsp;&nbsp; {{ case.petitionerFirstName }} {{ case.petitionerLastName }}
   </p>
-  
+
   {% include stateTemplate %}
+<!--look for this one and change if condition -->
 
 {% endblock %}
 
@@ -30,7 +32,14 @@
 
     {% include "includes/sideMenuCourtDetails.html" %}
 
-    <h3 class="heading-small" id="subsection-title">{{ content.guidence }}</h3>
+    {% if (downloadableFiles.length > 0) %}
+        <h3 class="heading-small" class="subsection-title">{{ content.downloadDocuments }}</h3>
+
+        {{ documentList(downloadableFiles, content.files) }}
+
+    {% endif %}
+
+    <h3 class="heading-small" class="subsection-title">{{ content.guidance }}</h3>
 
     <nav role="navigation" aria-labelledby="subsection-title">
       <ul class="font-xsmall">
