@@ -113,9 +113,23 @@ describe(modulePath, () => {
       return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
     });
 
-    it('redirects to RespNotAdmitAdultery page', () => {
+    it('redirects to RespNotAdmitAdultery page - state: AosCompleted', () => {
       sandbox.replace(config.features, 'release520', true);
 
+      const fields = { reviewAosResponse: 'yes' };
+      const session = {
+        case: {
+          state: 'AosCompleted',
+          data: {
+            reasonForDivorce: 'adultery',
+            respAdmitOrConsentToFact: 'No'
+          }
+        }
+      };
+      return question.redirectWithField(ReviewAosResponse, fields, RespNotAdmitAdultery, session);
+    });
+
+    it('redirects to ApplyForDecreeNisi page - state is not matching with AOS completed', () => {
       const fields = { reviewAosResponse: 'yes' };
       const session = {
         case: {
@@ -125,7 +139,7 @@ describe(modulePath, () => {
           }
         }
       };
-      return question.redirectWithField(ReviewAosResponse, fields, RespNotAdmitAdultery, session);
+      return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
     });
   });
 
@@ -502,7 +516,7 @@ describe(modulePath, () => {
         sandbox.restore();
       });
 
-      it('redirects to ReviewAosResponseFromCoRespondent page', () => {
+      it('redirects to CoRespondent response - respAdmitOrConsentToFact: Yes', () => {
         sandbox.replace(config.features, 'release520', true);
 
         const fields = { reviewAosResponse: 'yes' };
@@ -512,6 +526,28 @@ describe(modulePath, () => {
               reasonForDivorce: 'adultery',
               reasonForDivorceAdulteryWishToName: 'Yes',
               respAdmitOrConsentToFact: 'Yes',
+              coRespondentAnswers: {
+                aos: {
+                  received: 'Yes'
+                }
+              }
+            }
+          }
+        };
+        // eslint-disable-next-line max-len
+        return question.redirectWithField(ReviewAosResponse, fields, ReviewAosResponseFromCoRespondent, session);
+      });
+
+      it('redirects to CoRespondent response - respAdmitOrConsentToFact: No', () => {
+        sandbox.replace(config.features, 'release520', true);
+
+        const fields = { reviewAosResponse: 'yes' };
+        const session = {
+          case: {
+            data: {
+              reasonForDivorce: 'adultery',
+              reasonForDivorceAdulteryWishToName: 'Yes',
+              respAdmitOrConsentToFact: 'No',
               coRespondentAnswers: {
                 aos: {
                   received: 'Yes'

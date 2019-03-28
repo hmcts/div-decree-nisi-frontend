@@ -9,7 +9,6 @@ const LivedApartSinceLastIncidentDate = require('steps/lived-apart-since-last-in
 const idam = require('services/idam');
 const { middleware, question, sinon, content, expect } = require('@hmcts/one-per-page-test-suite');
 
-
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -166,12 +165,18 @@ describe(modulePath, () => {
   it('returns correct answers if answered no', () => {
     const expectedContent = [
       // eslint-disable-next-line max-len
-      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.no
+      BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.no,
+      '18th March 2019'
     ];
 
     const stepData = {
       changes: {
-        behaviourContinuedSinceApplication: 'no'
+        behaviourContinuedSinceApplication: 'no',
+        lastIncidentDate: {
+          day: '18',
+          month: '03',
+          year: '2019'
+        }
       }
     };
 

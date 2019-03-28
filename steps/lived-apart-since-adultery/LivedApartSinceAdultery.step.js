@@ -11,6 +11,16 @@ class LivedApartSinceAdultery extends Question {
     return config.paths.livedApartSinceAdultery;
   }
 
+  get watches() {
+    return {
+      'LivedApartSinceAdultery.livedApart.livedApartSinceAdultery': (previousValue, currentValue, remove) => {
+        if (currentValue === 'yes') {
+          remove('LivedApartSinceAdultery.livedApart.datesLivedTogether');
+        }
+      }
+    };
+  }
+
   get case() {
     return this.req.session.case.data;
   }

@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 locals {
-  aseName = "${data.terraform_remote_state.core_apps_compute.ase_name[0]}"
+  aseName = "core-compute-${var.env}"
   public_hostname = "${var.product}-${var.component}-${var.env}.service.${local.aseName}.internal"
   local_env = "${(var.env == "preview" || var.env == "spreview") ? (var.env == "preview" ) ? "aat" : "saat" : var.env}"
 
@@ -25,12 +25,18 @@ locals {
   appinsights_resource_group = "${var.env == "preview" ? "${var.product}-${var.reform_service_name}-${var.env}" : "${var.product}-${var.env}"}"
 }
 
+data "azurerm_subnet" "core_infra_redis_subnet" {
+  name                 = "core-infra-subnet-1-${var.env}"
+  virtual_network_name = "core-infra-vnet-${var.env}"
+  resource_group_name  = "core-infra-${var.env}"
+}
+
 module "redis-cache" {
   source   = "git@github.com:contino/moj-module-redis?ref=master"
   product  = "${var.env != "preview" ? "${var.product}-redis" : "${var.product}-${var.reform_service_name}-redis"}"
   location = "${var.location}"
   env      = "${var.env}"
-  subnetid = "${data.terraform_remote_state.core_apps_infrastructure.subnet_ids[1]}"
+  subnetid = "${data.azurerm_subnet.core_infra_redis_subnet.id}"
   common_tags = "${var.common_tags}"
 }
 
@@ -110,7 +116,7 @@ module "frontend" {
     FEES_AND_PAYMENTS_HEALTHCHECK_URL = "${local.fees_payment_service_api_url}${local.health_endpoint}"
 
     // Feature toggling through config
-    FEATURES_IDAM                           = "${var.feature_idam}"
+    FEATURE_IDAM                            = "${var.feature_idam}"
     FEATURE_RELEASE_520                     = "${var.feature_release_520}"
 
     // Encryption secrets
