@@ -9,13 +9,17 @@ nodejs:
         RATE_LIMITER_ENABLED: "false"
         RATE_LIMITER_TOTAL: "3600"
         RATE_LIMITER_EXPIRE: "3600000"
-        SESSION_SECRET: "${SESSION_SECRET}"
-        IDAM_SECRET: "${IDAM_SECRET}"
-        REDIS_ENCRYPTION_SECRET: "${REDIS_ENCRYPTION_SECRET}"
         EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT: "/emclientapi/version/1/upload"
         CCD_DIGITAL_COURTS: '["serviceCentre", "eastMidlands", "westMidlands", "southWest", "northWest"]'
         IDAM_PROXY: "http://proxyout.reform.hmcts.net:8080"
         FEATURE_RELEASE_520: "false"
+    keyVaults:
+        "div":
+            resourceGroup: div
+            secrets:
+                - session-secret
+                - redis-secret
+                - idam-secret
 
     # Don't modify below here
     image: ${IMAGE_NAME}
