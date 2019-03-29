@@ -1,13 +1,15 @@
 require('./services/app-insights')();
 const logger = require('services/logger').getLogger(__filename);
-const app = require('./app');
 const config = require('@hmcts/properties-volume').addTo(require('config'));
+const setupSecrets = require('./helpers//setupSecretsHelper');
+
+// Setup secrets before loading the app
+setupSecrets();
+
+const app = require('./app');
 const path = require('path');
 const https = require('https');
 const fs = require('fs');
-const setupSecrets = require('./helpers//setupSecretsHelper');
-
-setupSecrets();
 
 let http = {};
 
