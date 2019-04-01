@@ -15,18 +15,13 @@ const setupRateLimiter = require('services/rateLimiter');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const getFilters = require('views/filters');
 
+const emc = config.services.evidenceManagementClient;
+
 const app = express();
 
 const middleware = [ idam.protect() ];
 
-const args = {
-  // string to define path to attach document donwload handler, default: '/document-download/:documentId' *optional*
-  // uri: '/documents/:documentId',
-  // string to specifiy auth token cookie, default: '__auth-token' *optional*
-  // authorizationTokenCookieName: '__auth-token',
-  // documentServiceUrl: '/emclientapi/version/1/downloadFile?fileUrl=http://localhost:4006'
-  documentServiceUrl: config.services.evidenceManagementClient.downloadFileUrl
-};
+const args = { documentServiceUrl: emc.downloadFileUrl };
 
 setupHelmet(app);
 setupPrivacy(app);

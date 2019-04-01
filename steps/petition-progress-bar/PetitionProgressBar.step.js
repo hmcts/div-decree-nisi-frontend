@@ -130,16 +130,8 @@ class PetitionProgressBar extends Interstitial {
     return createUris(this.case.files);
   }
 
-  get petitionLink() {
-    return this.downloadableFiles.find(file => {
-      // 'd8petition' OR 'dpetition'
-      return file.type === 'd8petition';
-    });
-  }
-
   get entitlementToADecreeFileLink() {
     return this.downloadableFiles.find(file => {
-      // substitute 'aosinvitation' to appropriate name
       return file.type === 'entitlementToDecree';
     });
   }

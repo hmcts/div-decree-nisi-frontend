@@ -135,9 +135,7 @@ class ReviewAosResponse extends Question {
     ];
     return answer(this, {
       question: this.content.fields.reviewAosResponse.title,
-      answer: this.content.fields.reviewAosResponse[
-        respondentAnswer ? respondentAnswer.toLowerCase() : ''
-      ]
+      answer: respondentAnswer ? this.content.fields.reviewAosResponse[respondentAnswer.toLowerCase()] : ''
     });
   }
 
