@@ -127,18 +127,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get downloadableFiles() {
-    // return createUris(this.session.originalPetition.d8DocumentsGenerated);
-    this.req.session.files = [
-      {
-        id: '401ab79e-34cb-4570-9f2f-4cf9342421ec',
-        value: { DocumentFileName: 'dpetition15432423652633.pdf' }
-      },
-      {
-        id: '401ab79e-34cb-4570-9f2f-4cf9357d420c',
-        value: { DocumentFileName: 'entitlementToDecree15520452633.pdf' }
-      }
-    ];
-    return createUris(this.req.session.files);
+    return createUris(this.case.files);
   }
 
   get petitionLink() {

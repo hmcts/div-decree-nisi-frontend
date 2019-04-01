@@ -5,7 +5,7 @@ const caseStateMap = [
   },
   {
     template: './sections/accepted/PetitionProgressBar.accepted.template.html',
-    state: ['accepted']
+    state: ['awaitingpronouncement']
   },
   {
     template: './sections/issued/PetitionProgressBar.issued.template.html',
@@ -13,7 +13,7 @@ const caseStateMap = [
   },
   {
     template: './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
-    state: ['awaitinglegaladvisorreferral', 'awaitingconsideration', 'awaitingpronouncement', 'awaitingclarification']
+    state: ['awaitinglegaladvisorreferral', 'awaitingconsideration', 'awaitingclarification']
   },
   {
     template: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',

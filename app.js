@@ -28,8 +28,6 @@ const args = {
   documentServiceUrl: config.services.evidenceManagementClient.downloadFileUrl
 };
 
-initDocumentHandler(app, middleware, args);
-
 setupHelmet(app);
 setupPrivacy(app);
 setupHealthChecks(app);
@@ -106,5 +104,6 @@ onePerPage.journey(app, {
   i18n: { filters: getFilters() },
   useCsrfToken: true
 });
+initDocumentHandler(app, middleware, args);
 
 module.exports = app;

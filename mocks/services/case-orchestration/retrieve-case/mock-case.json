@@ -1,7 +1,7 @@
 {
   "caseId": "1234567890124567",
   "courts": "serviceCentre",
-  "state": "accepted",
+  "state": "awaitingpronouncement",
   "data": {
     "createdDate":"2018-08-02T00:00:00.000Z",
     "issueDate":"2018-10-02T00:00:00.000Z",
@@ -303,13 +303,13 @@
     "respHardshipDescription" : "Some Hardship Description goes here",
     "files": [
       {
-        "id": "401ab79e-34cb-4570-9f2f-4cf9357mast3r",
+        "id": "401ab79e-34cb-4570-9f2f-4cf9357m4st3r",
         "value": {
           "DocumentFileName" : "dpetition155204352622.pdf"
         }
       },
       {
-        "id": "401ab79e-34cb-4570-9f2f-4cf9357teslt",
+        "id": "401ab79e-34cb-4570-9f2f-4cf9357tes1t",
         "value": {
           "DocumentFileName" : "entitlementToDecree15520452633.pdf"
         }
