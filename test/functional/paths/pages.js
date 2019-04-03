@@ -57,6 +57,8 @@ Scenario('Pages', async I => {
 
   I.testContactDivorceTeam();
 
+  I.testContactDivorceTeamError();
+
   I.testCookiesPolicyPage();
 
   I.testPrivacyPolicyPage();
