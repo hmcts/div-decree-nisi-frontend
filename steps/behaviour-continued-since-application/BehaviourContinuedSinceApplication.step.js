@@ -98,7 +98,7 @@ class BehaviourContinuedSinceApplication extends Question {
       answers.push(answer(this, {
         // eslint-disable-next-line max-len
         question: this.content.fields.changes.lastIncidentDate.question,
-        answer: this.fields.changes.lastIncidentDate.value.format('DD/MM/YYYY')
+        answer: this.fields.changes.lastIncidentDate.value.format('Do MMMM YYYY')
       }));
     }
     return answers;

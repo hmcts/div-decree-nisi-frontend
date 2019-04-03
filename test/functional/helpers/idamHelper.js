@@ -3,6 +3,7 @@ const logger = require('services/logger').getLogger(__filename);
 const randomstring = require('randomstring');
 const idamExpressTestHarness = require('@hmcts/div-idam-test-harness');
 const idamConfigHelper = require('./idamConfigHelper');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const Helper = codecept_helper; // eslint-disable-line
 
@@ -18,17 +19,19 @@ const idamArgs = {
 
 class IdamHelper extends Helper {
   createAUser() {
-    if (config.features.idam) {
+    if (parseBool(config.features.idam)) {
       const randomString = randomstring.generate({
         length: 16,
         charset: 'numeric'
       });
-      const emailName = `hmcts.divorce.reform+dn-automatedtest-${randomString}`;
-      const testEmail = `${emailName}@gmail.com`;
-      const testPassword = randomstring.generate(9);
+      const emailName = `divorce+dn-test-${randomString}`;
+      const testEmail = `${emailName}@example.com`;
+      const testPassword = 'genericPassword123';
 
       idamArgs.testEmail = testEmail;
       idamArgs.testPassword = testPassword;
+      idamArgs.testGroupCode = 'citizens';
+      idamArgs.roles = [{ code: 'citizen' }];
 
       idamConfigHelper.setTestEmail(testEmail);
       idamConfigHelper.setTestPassword(testPassword);
@@ -72,7 +75,7 @@ class IdamHelper extends Helper {
   }
 
   _after() {
-    if (config.features.idam) {
+    if (parseBool(config.features.idam)) {
       idamExpressTestHarness.removeUser(idamArgs, config.tests.functional.proxy)
         .then(() => {
           logger.infoWithReq(
