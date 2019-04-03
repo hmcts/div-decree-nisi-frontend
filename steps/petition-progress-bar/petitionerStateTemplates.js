@@ -70,7 +70,13 @@ const permitDNReasonMap = new Map([
   ['4', './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html']
 ]);
 
+const awaitingPronouncementMap = new Map([
+  ['exists', './sections/accepted/PetitionProgressBar.accepted.template.html'],
+  ['notExists', './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html']
+]);
+
 module.exports = {
+  awaitingPronouncementMap,
   caseStateMap,
   permitDNReasonMap,
   caseIdDisplayStateMap,
