@@ -49,7 +49,7 @@
       <p class="text">{{ content.theCoRespondentAgreeToPayCostsYes }}</p>
     {% else %}
       <p class="text">{{ content.theCoRespondentAgreeToPayCostsNo }}</p>
-      <p class="text">{{ case.coRespondentAnswers.costs.reason | safe }}</p>
+      <p class="text">{{ case.coRespondentAnswers.costs.reason | nl2br | safe }}</p>
     {% endif %}
   {% endif %}
   <details>

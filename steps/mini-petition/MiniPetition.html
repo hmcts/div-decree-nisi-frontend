@@ -267,19 +267,19 @@
 
     {% if case.reasonForDivorceAdulteryKnowWhere == "Yes" %}
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhere }}</p>
-      <p class="text">"{{ case.reasonForDivorceAdulteryWhereDetails }}"</p>
+      <p class="text">"{{ case.reasonForDivorceAdulteryWhereDetails | nl2br | safe }}"</p>
     {% endif %}
 
     {% if case.reasonForDivorceAdulteryKnowWhen == "Yes" %}
       <p class="heading-small">{{ content.reasonForDivorceAdulteryWhen }}</p>
-      <p class="text">"{{ case.reasonForDivorceAdulteryWhenDetails }}"</p>
+      <p class="text">"{{ case.reasonForDivorceAdulteryWhenDetails | nl2br | safe }}"</p>
     {% endif %}
 
     <h3 class="heading-small">{{ content.reasonForDivorceAdulteryDescription }}</h3>
-    <p class="text">"{{ case.reasonForDivorceAdulteryDetails }}"</p>
+    <p class="text">"{{ case.reasonForDivorceAdulteryDetails | nl2br | safe }}"</p>
     {% if isAdulterySecondHandInfoProvided %}
       <p class="text">{{ content.statementOfSecondHandInformationAboutAdultery }}</p>
-      <p class="text">"{{ case.reasonForDivorceAdulterySecondHandInfoDetails }}"</p>
+      <p class="text">"{{ case.reasonForDivorceAdulterySecondHandInfoDetails | nl2br | safe }}"</p>
     {% endif %}
   {% endif %}
 
@@ -333,7 +333,7 @@
     {% endif %}
     <p class="text">{{ content.reasonForDivorceDesertionStatment }}</p>
     <h3 class="heading-small">{{ content.reasonForDivorceDesertionDescription }}</h3>
-    <p class="text">"{{ case.reasonForDivorceDesertionDetails }}"</p>
+    <p class="text">"{{ case.reasonForDivorceDesertionDetails | nl2br | safe }}"</p>
   {% endif %}
 
   <details>
