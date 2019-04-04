@@ -28,7 +28,7 @@ data:
   SESSION_SECRET: "${SESSION_SECRET}"
   IDAM_SECRET: "${IDAM_SECRET}"
   REDIS_ENCRYPTION_SECRET: "${REDIS_ENCRYPTION_SECRET}"
-  PETITIONER_FRONTEND_URL: "https://div-pfe-aat.service.core-compute-aat.internal"
+  PETITIONER_FRONTEND_URL: "https://div-pfe-pr-504.service.core-compute-preview.internal"
   RESPONDENT_FRONTEND_URL: "https://div-rfe-aat.service.core-compute-aat.internal"
   EVIDENCE_MANAGEMENT_CLIENT_API_HEALTHCHECK_URL: "http://div-emca-aat.service.core-compute-aat.internal/health"
   EVIDENCE_MANAGEMENT_CLIENT_API_URL: "http://div-emca-aat.service.core-compute-aat.internal/"
