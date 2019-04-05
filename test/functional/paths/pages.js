@@ -55,6 +55,8 @@ Scenario('Pages', async I => {
 
   await I.testExitIntolerable();
 
+  I.testSystemMessage();
+
   I.testContactDivorceTeam();
 
   I.testCookiesPolicyPage();

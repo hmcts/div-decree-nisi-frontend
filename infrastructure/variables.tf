@@ -197,6 +197,10 @@ variable "feature_release_520" {
   default = false
 }
 
+variable "feature_show_system_message" {
+  default = false
+}
+
 variable "ccd_digital_courts" {
   type = "string"
   default = "[\"serviceCentre\"]"

@@ -84,6 +84,7 @@ paths:
   entry: /entry
   exit: /exit
   exitIntolerable: /exit/intolerable
+  systemMessage: /system-message
   health: /health
   index: /
   intolerable: /intolerable
@@ -129,6 +130,7 @@ tests:
 features:
   idam: false
   release520: false
+  showSystemMessage: true
 
 journey:
   timeoutDelay: 300

@@ -17,3 +17,5 @@ rate_limiter_enabled = true
 
 petitioner_frontend_url = "https://www.apply-divorce.service.gov.uk"
 respondent_frontend_url = "https://www.respond-divorce.service.gov.uk"
+
+feature_show_system_message = "true"

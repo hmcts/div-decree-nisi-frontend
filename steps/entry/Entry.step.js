@@ -4,6 +4,7 @@ const idam = require('services/idam');
 const config = require('config');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const caseOrchestrationHelper = require('helpers/caseOrchestrationHelper');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 class Entry extends EntryPoint {
   static get path() {
@@ -11,8 +12,9 @@ class Entry extends EntryPoint {
   }
 
   next() {
+    const nextStep = parseBool(config.features.showSystemMessage) ? this.journey.steps.SystemMessage : this.journey.steps.PetitionProgressBar;
     return action(caseOrchestrationService.getApplication)
-      .then(redirectTo(this.journey.steps.PetitionProgressBar))
+      .then(redirectTo(nextStep))
       .onFailure(caseOrchestrationHelper.handleErrorCodes);
   }
 
