@@ -9,6 +9,8 @@ const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
+const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
+const Entry = require('steps/entry/Entry.step');
 const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
 );
@@ -16,22 +18,22 @@ const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
 const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
 const Done = require('steps/done/Done.step');
-const Entry = require('steps/entry/Entry.step');
+const SystemMessage = require('steps/system-message/SystemMessage.step');
 
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 const session = {
-  respWillDefendDivorce: null,
-  permittedDecreeNisiReason: '3'
+  reasonForDivorce: 'separation-2-years',
+  respWillDefendDivorce: 'no'
 };
 
 let caseOrchestrationServiceSubmitStub = {};
 
-describe('Case State : DNAwaiting, permittedDecreeNisiReason: 3', () => {
+describe('system message test', () => {
   const sandbox = sinon.createSandbox();
 
   before(() => {
-    sandbox.replace(config.features, 'showSystemMessage', false);
+    sandbox.replace(config.features, 'showSystemMessage', true);
 
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
@@ -40,7 +42,7 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 3', () => {
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
-      .resolves(merge({}, mockCaseResponse, { state: 'AwaitingDecreeNisi', data: session }));
+      .resolves(merge({}, mockCaseResponse, { data: session }));
 
     caseOrchestrationServiceSubmitStub = postStub
       .withArgs(sinon.match({
@@ -64,12 +66,13 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 3', () => {
     sandbox.restore();
   });
 
-
   journey.test([
     { step: Start },
     { step: IdamLogin, body: { success: 'yes' } },
     { step: Entry },
+    { step: SystemMessage },
     { step: petitionProgressBar },
+    { step: ReviewAosResponse, body: { reviewAosResponse: 'yes' } },
     { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
     {
       step: MiniPetition,

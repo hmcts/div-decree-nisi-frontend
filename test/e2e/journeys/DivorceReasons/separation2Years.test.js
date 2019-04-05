@@ -29,7 +29,11 @@ const session = {
 let caseOrchestrationServiceSubmitStub = {};
 
 describe('separation 2 years', () => {
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
+
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
 
@@ -58,6 +62,7 @@ describe('separation 2 years', () => {
     request.get.restore();
     request.post.restore();
     feesAndPaymentsService.getFee.restore();
+    sandbox.restore();
   });
 
   describe('livedApartSinceSeparation : yes', () => {

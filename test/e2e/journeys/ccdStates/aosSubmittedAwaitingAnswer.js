@@ -16,7 +16,11 @@ const session = {
 };
 
 describe('AosSubmittedAwaitingAnswer DN flow', () => {
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
+
     const getStub = sinon.stub(request, 'get');
     getStub
       .withArgs(sinon.match({
@@ -37,6 +41,7 @@ describe('AosSubmittedAwaitingAnswer DN flow', () => {
   after(() => {
     request.get.restore();
     feesAndPaymentsService.getFee.restore();
+    sandbox.restore();
   });
   journey.test([
     { step: Start },

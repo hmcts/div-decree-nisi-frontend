@@ -44,7 +44,11 @@ const matchParam = (paramName, expected) => actual => {
 
 
 describe('Adultery DN flow', () => {
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
+
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
 
@@ -73,6 +77,7 @@ describe('Adultery DN flow', () => {
     request.get.restore();
     request.post.restore();
     feesAndPaymentsService.getFee.restore();
+    sandbox.restore();
   });
 
   describe('Intolerable: yes, livedApartSinceAdultery: yes', () => {
@@ -205,6 +210,7 @@ describe('Respondent Admitted Adultery : no', () => {
   const sandbox = sinon.createSandbox();
 
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
     sandbox.replace(config.features, 'release520', true);
 
     const getStub = sinon.stub(request, 'get');
@@ -305,6 +311,7 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
   const sandbox = sinon.createSandbox();
 
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
     sandbox.replace(config.features, 'release520', true);
 
     const getStub = sinon.stub(request, 'get');
@@ -360,6 +367,7 @@ describe('Respondent Admitted Adultery : yes, AdulteryWishToName: Yes', () => {
   const sandbox = sinon.createSandbox();
 
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
     sandbox.replace(config.features, 'release520', true);
 
     const getStub = sinon.stub(request, 'get');

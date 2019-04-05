@@ -39,7 +39,10 @@ const matchParam = (paramName, expected) => actual => {
 let caseOrchestrationServiceSubmitStub = {};
 
 describe('Unreasonable behaviour', () => {
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
 
@@ -68,6 +71,7 @@ describe('Unreasonable behaviour', () => {
     request.get.restore();
     request.post.restore();
     feesAndPaymentsService.getFee.restore();
+    sandbox.restore();
   });
 
   describe('behaviourContinuedSinceApplication : yes', () => {

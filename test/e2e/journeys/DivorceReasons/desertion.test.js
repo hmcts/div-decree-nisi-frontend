@@ -30,7 +30,11 @@ const session = {
 let caseOrchestrationServiceSubmitStub = {};
 
 describe('Desertion DN flow', () => {
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
+
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
 
@@ -59,6 +63,7 @@ describe('Desertion DN flow', () => {
     request.get.restore();
     request.post.restore();
     feesAndPaymentsService.getFee.restore();
+    sandbox.restore();
   });
 
 

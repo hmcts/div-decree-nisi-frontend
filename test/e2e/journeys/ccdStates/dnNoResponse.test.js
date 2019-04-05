@@ -13,7 +13,11 @@ const Entry = require('steps/entry/Entry.step');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 describe('AOSOverdue DN flow', () => {
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
+
     const getStub = sinon.stub(request, 'get');
 
     getStub
@@ -34,6 +38,7 @@ describe('AOSOverdue DN flow', () => {
   after(() => {
     request.get.restore();
     feesAndPaymentsService.getFee.restore();
+    sandbox.restore();
   });
 
   journey.test([

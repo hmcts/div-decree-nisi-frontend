@@ -29,7 +29,11 @@ const session = {
 let caseOrchestrationServiceSubmitStub = {};
 
 describe('Case State : DNAwaiting, permittedDecreeNisiReason: 2', () => {
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
+
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
 
@@ -58,6 +62,7 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 2', () => {
     request.get.restore();
     request.post.restore();
     feesAndPaymentsService.getFee.restore();
+    sandbox.restore();
   });
 
 

@@ -19,6 +19,8 @@ describe('Case State :  AwaitingPronouncement', () => {
   const sandbox = sinon.createSandbox();
 
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
+
     const getStub = sinon.stub(request, 'get');
     getStub
       .withArgs(sinon.match({

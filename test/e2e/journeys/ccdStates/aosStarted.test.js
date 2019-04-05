@@ -16,7 +16,11 @@ const session = {
 };
 
 describe('Case State : AOSStarted, AOSAwaiting', () => {
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
+
     const getStub = sinon.stub(request, 'get');
 
     getStub
@@ -38,6 +42,7 @@ describe('Case State : AOSStarted, AOSAwaiting', () => {
   after(() => {
     request.get.restore();
     feesAndPaymentsService.getFee.restore();
+    sandbox.restore();
   });
 
   journey.test([

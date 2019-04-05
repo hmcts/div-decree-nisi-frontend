@@ -16,7 +16,11 @@ const session = {
 };
 
 describe('Case State : DefendedDivorce', () => {
+  const sandbox = sinon.createSandbox();
+
   before(() => {
+    sandbox.replace(config.features, 'showSystemMessage', false);
+
     const getStub = sinon.stub(request, 'get');
 
     getStub
@@ -37,6 +41,7 @@ describe('Case State : DefendedDivorce', () => {
   after(() => {
     request.get.restore();
     feesAndPaymentsService.getFee.restore();
+    sandbox.restore();
   });
 
 

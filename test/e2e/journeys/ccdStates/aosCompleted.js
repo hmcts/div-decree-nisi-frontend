@@ -31,6 +31,7 @@ describe('Case State : AosCompleted', () => {
 
   before(() => {
     sandbox.replace(config.features, 'release520', true);
+    sandbox.replace(config.features, 'showSystemMessage', false);
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
     sinon.stub(caseOrchestrationService, 'amendApplication');
     sinon.stub(redirectToFrontendHelper, 'redirectToFrontendAmend');
