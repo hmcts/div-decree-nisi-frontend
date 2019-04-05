@@ -1,7 +1,10 @@
 const IdamMockLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const content = require('mocks/steps/idamLogin/IdamLogin.content');
 const PetitionProgressBarPage = require('steps/petition-progress-bar/PetitionProgressBar.step');
+const SystemMessage = require('steps/system-message/SystemMessage.step');
 const idamConfigHelper = require('test/functional/helpers/idamConfigHelper.js');
+const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 async function testIdamPage(success = true) {
   const I = this;
@@ -28,7 +31,11 @@ async function testIdamPage(success = true) {
     }
   }
 
-  I.seeCurrentUrlEquals(PetitionProgressBarPage.path);
+  if (parseBool(config.features.showSystemMessage)) {
+    I.seeCurrentUrlEquals(PetitionProgressBarPage.path);
+  } else {
+    I.seeCurrentUrlEquals(SystemMessage.path);
+  }
 }
 
 module.exports = { testIdamPage };
