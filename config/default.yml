@@ -130,7 +130,7 @@ tests:
 features:
   idam: false
   release520: false
-  showSystemMessage: false
+  showSystemMessage: true
 
 journey:
   timeoutDelay: 300
