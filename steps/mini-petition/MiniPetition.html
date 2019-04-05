@@ -10,6 +10,9 @@
   <p class="text">{{ content.applicationStillTrue | safe }}</p>
 
   <h2 class="heading-medium">{{ content.applicationForDivorce }}</h2>
+  {% if case.previousCaseId %}
+    <h3 class="heading-small">{{ content.amendAppDetails }}</h3>
+  {% endif %}
 
   <p class="text">
     {% if case.claimsCosts == "Yes" and case.financialOrderFor == "Yes" %}
@@ -36,7 +39,11 @@
   </p>
 
   <h3 class="heading-small">{{ content.issued }}</h3>
-  <p class="text">{{ case.issueDate | date }}</p>
+  {% if case.previousCaseId %}
+    <p class="text">{{ case.previousIssueDate | date }}</p>
+  {% else %}
+    <p class="text">{{ case.issueDate | date }}</p>
+  {% endif %}
 
   <h3 class="heading-small">{{ content.caseNumber }}</h3>
   <p class="text">{{ case.caseReference | safe }} </p>
