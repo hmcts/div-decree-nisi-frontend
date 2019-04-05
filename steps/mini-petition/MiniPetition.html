@@ -132,7 +132,7 @@
       {% endif %}
     {% endif %}
 
-    {% if "C" in case.connections and case.connections.C != null and (not ("A" in case.connections)) %}
+    {% if "C" in case.connections and case.connections.C != null %}
       {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
         <li>
       {% endif %}
