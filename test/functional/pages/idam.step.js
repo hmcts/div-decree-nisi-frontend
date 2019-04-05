@@ -32,9 +32,9 @@ async function testIdamPage(success = true) {
   }
 
   if (parseBool(config.features.showSystemMessage)) {
-    I.seeCurrentUrlEquals(PetitionProgressBarPage.path);
-  } else {
     I.seeCurrentUrlEquals(SystemMessage.path);
+  } else {
+    I.seeCurrentUrlEquals(PetitionProgressBarPage.path);
   }
 }
 
