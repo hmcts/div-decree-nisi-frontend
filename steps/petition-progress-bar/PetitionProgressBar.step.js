@@ -104,6 +104,14 @@ class PetitionProgressBar extends Interstitial {
     return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
   }
 
+  get isCoRespNotResponded() {
+    return this.case.reasonForDivorce === constants.adultery && this.case.reasonForDivorceAdulteryWishToName && this.case.reasonForDivorceAdulteryWishToName.toLowerCase() === constants.yes && !this.receivedAosFromCoResp;
+  }
+
+  get receivedAosFromCoResp() {
+    return this.case.coRespondentAnswers && this.case.coRespondentAnswers.aos.received && this.case.coRespondentAnswers.aos.received.toLowerCase() === constants.yes;
+  }
+
   get stateTemplate() {
     let template = '';
     if (constants.DNAwaiting.includes(this.caseState)) {

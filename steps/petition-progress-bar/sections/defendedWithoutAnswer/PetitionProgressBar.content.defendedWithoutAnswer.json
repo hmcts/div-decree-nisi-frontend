@@ -2,6 +2,7 @@
   "en": {
     "dWAAppStatusMsg": "You can continue with your divorce",
     "dWAAppStatusMsgDetails1": "Your {{ case.divorceWho }} has missed the deadline to submit the form which would have made their case for defending (trying to prevent) the divorce.",
+    "dWAAppStatusMsgCoRespDetails": "The co-respondent has not yet responded to your divorce application. You can choose to wait until they have submitted their response before continuing",
     "dWAAppStatusMsgDetails2": "This means that you can now continue with your divorce as if they hadn't said that they intended to defend."
   }
 }

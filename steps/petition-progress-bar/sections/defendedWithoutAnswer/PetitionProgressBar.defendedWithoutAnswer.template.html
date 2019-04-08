@@ -22,6 +22,11 @@
 
 <h2 class="heading-medium">{{ content.dWAAppStatusMsg }}</h2>
 <p>{{ content.dWAAppStatusMsgDetails1 }}</p>
+
+{% if isCoRespNotResponded %}
+  <p>{{ content.dWAAppStatusMsgCoRespDetails }}</p>
+{% endif %}
+
 <p>{{ content.dWAAppStatusMsgDetails2 }}</p>
 
 <br>

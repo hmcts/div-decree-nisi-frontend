@@ -272,6 +272,60 @@ describe(modulePath, () => {
     });
   });
 
+  describe('CCD state: DNawaiting, CoResp Replied, DNReason : 3 ', () => {
+    const session = {
+      case: {
+        state: 'AwaitingDecreeNisi',
+        reasonForDivorce: 'adultery',
+        reasonForDivorceAdulteryWishToName: 'Yes',
+        coRespondentAnswers: {
+          aos: {
+            received: 'Yes'
+          }
+        },
+        data: {
+          permittedDecreeNisiReason: '3'
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContentToNotExist = ['dWAAppStatusMsgCoRespDetails'];
+
+      return content(PetitionProgressBar, session, { specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.defendedWithoutAnswer);
+    });
+  });
+
+  describe('CCD state: DNawaiting, CoResp Not Replied DNReason : 3 ', () => {
+    const session = {
+      case: {
+        state: 'AwaitingDecreeNisi',
+        reasonForDivorce: 'adultery',
+        reasonForDivorceAdulteryWishToName: 'Yes',
+        coRespondentAnswers: {
+        },
+        data: {
+          permittedDecreeNisiReason: '3'
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = ['dWAAppStatusMsgCoRespDetails'];
+
+      return content(PetitionProgressBar, session, { specificContent });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.defendedWithoutAnswer);
+    });
+  });
 
   describe('CCD state: DNawaiting, DNReason : 4 ', () => {
     const session = {
