@@ -108,7 +108,7 @@ class PetitionProgressBar extends Interstitial {
     return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
   }
 
-  get isHearingDateExists() {
+  get doesHearingDateExists() {
     return this.case.hearingDate.length ? 'exists' : 'notExists';
   }
 
@@ -117,7 +117,7 @@ class PetitionProgressBar extends Interstitial {
     if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
     } else if (constants.awaitingPronouncement.includes(this.caseState)) {
-      template = awaitingPronouncementMap.get(this.isHearingDateExists);
+      template = awaitingPronouncementMap.get(this.doesHearingDateExists);
     } else if (parseBool(config.features.release520)) {
       caseStateMap520.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
