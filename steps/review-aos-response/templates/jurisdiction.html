@@ -8,7 +8,7 @@
   
     <p class="text">{{ content.jurisdiction.detailsGiven }}</p> 
     <div class="panel panel-border-narrow">
-      <p class="text">"{{ case.respJurisdictionDisagreeReason | safe }}"</p>
+      <p class="text">"{{ case.respJurisdictionDisagreeReason | nl2br | safe }}"</p>
     </div>
 
     <p class="text">{{ content.jurisdiction.countryTheyResp }}</p> 
