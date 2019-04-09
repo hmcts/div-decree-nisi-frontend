@@ -302,7 +302,7 @@
     "respPhoneNumber" : "12344555",
     "respStatementOfTruth" : "Yes",
     "respConsentToEmail" : "No",
-    "coRespondentAnswers": {  
+    "coRespondentAnswers": {
       "contactInfo":{  
          "emailAddress":"testadulterycr@mailinator.com",
          "consentToReceivingEmails":"Yes",
@@ -324,6 +324,7 @@
     },
     "respConsiderFinancialSituation" : "Yes",
     "respHardshipDefenseResponse" : "No",
-    "respHardshipDescription" : "Some Hardship Description goes here"
+    "respHardshipDescription" : "Some Hardship Description goes here",
+    "previousCaseId": "12345"
   }
 }

@@ -47,6 +47,10 @@ class PetitionProgressBar extends Interstitial {
     return this.case.respAdmitOrConsentToFact && this.case.respAdmitOrConsentToFact.toLowerCase() === constants.yes;
   }
 
+  get isCaseAmended() {
+    return Boolean(this.case.previousCaseId);
+  }
+
   handler(req, res) {
     req.session.entryPoint = this.name;
     super.handler(req, res);
@@ -127,6 +131,5 @@ class PetitionProgressBar extends Interstitial {
     return template;
   }
 }
-
 
 module.exports = PetitionProgressBar;

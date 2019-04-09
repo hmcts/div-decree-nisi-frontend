@@ -21,7 +21,11 @@
 }}
 
 <h2 class="heading-medium">{{ content.dWSAppStatusMsg }}</h2>
-<p>{{ content.dWSAppStatusMsgDetails1 }}</p>
+{% if isCaseAmended %}
+  <p>{{ content.dWSAmendedAppStatusMsgDetails1 }}</p>
+{% else %}
+  <p>{{ content.dWSAppStatusMsgDetails1 }}</p>
+{% endif %}
 <p>{{ content.dWSAppStatusMsgDetails2 }}</p>
 
 <br>
