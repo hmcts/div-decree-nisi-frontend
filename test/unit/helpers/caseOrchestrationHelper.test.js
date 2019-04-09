@@ -169,7 +169,7 @@ describe(moduleName, () => {
       expect(redirectToFrontendHelper.redirectToFrontend.calledOnce).to.eql(true);
     });
 
-    it('redirect to contactDivorceTeam if error is MULTIPLE_CHOICES', () => {
+    it('redirect to contactDivorceTeamError if error is MULTIPLE_CHOICES', () => {
       const res = { redirect: sinon.stub() };
       error.statusCode = MULTIPLE_CHOICES;
       caseOrchestrationHelper.handleErrorCodes(error, {}, res);

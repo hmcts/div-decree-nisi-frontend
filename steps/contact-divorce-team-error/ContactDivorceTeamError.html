@@ -1,0 +1,18 @@
+{% extends "page.njk" %}
+
+{% set title %}
+  {{ content.title }}
+{% endset %}
+
+{% block main_content %}
+<p>{{ content.info }}</p>
+<h2 class="heading-medium">{{ content.contactTitle }}</h2>
+<p>
+  <strong>{{ content.email }}: </strong>
+  <a href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail | safe }}</a><br>
+</p>
+<p>
+  <strong>{{ content.phone }}: </strong>
+  {{ content.phoneNumber | safe }} {{ content.openTimes | safe}}<br>
+</p>
+{% endblock %}
