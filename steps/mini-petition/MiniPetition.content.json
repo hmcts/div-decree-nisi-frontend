@@ -2,7 +2,8 @@
   "en": {
     "title": "Review your application",
     "applicationStillTrue": "Check that your original application for divorce is still true to the best of your knowledge.",
-    "applicationForDivorce": "Application for divorce",
+    "applicationForDivorce": "Divorce application (petition)",
+    "amendAppDetails": "Amended and reissued {{ case.issueDate | date }}",
     "issued": "Issued",
     "caseNumber": "Case number",
     "applicant": "Applicant",

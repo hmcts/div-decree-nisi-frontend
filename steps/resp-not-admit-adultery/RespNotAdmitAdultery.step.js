@@ -17,14 +17,6 @@ class RespNotAdmitAdultery extends Question {
     return this.req.session.case.data;
   }
 
-  get adulteryWishToName() {
-    return this.case.reasonForDivorceAdulteryWishToName === 'Yes';
-  }
-
-  get recievedAosFromCoResp() {
-    return this.case.coRespondentAnswers && this.case.coRespondentAnswers.aos.received === 'Yes';
-  }
-
   get form() {
     const answers = ['yes', 'no'];
     const validAnswers = Joi.string()
@@ -50,15 +42,9 @@ class RespNotAdmitAdultery extends Question {
       return this.fields.amendPetition.value === 'yes';
     };
 
-    const reviewAosRespCoRespondent = () => {
-      return this.fields.amendPetition.value === 'no' && this.recievedAosFromCoResp && this.adulteryWishToName;
-    };
-
     return branch(
       redirectTo(this.journey.steps.AmendApplication)
         .if(parseBool(config.features.release520) && amendPetition),
-      redirectTo(this.journey.steps.ReviewAosResponseFromCoRespondent)
-        .if(parseBool(config.features.release520) && reviewAosRespCoRespondent),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
   }

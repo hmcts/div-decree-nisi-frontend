@@ -487,6 +487,7 @@ describe(modulePath, () => {
         }
       };
       const ignoreContent = [
+        'amendAppDetails',
         'coRespondentsCorrespondenceAddress',
         'coRespondent',
         'reasonForDivorceAdulteryCorrespondentNamed',
@@ -721,7 +722,7 @@ describe(modulePath, () => {
         const session = {
           case: {
             data: {
-              connections: { A: '' },
+              connections: { A: '', C: '' },
               reasonForDivorce: 'adultery'
             }
           }
@@ -729,7 +730,13 @@ describe(modulePath, () => {
         return content(
           MiniPetition,
           session,
-          { specificContent: ['jurisdictionConnectionBothResident'] });
+          {
+            specificContent:
+            [
+              'jurisdictionConnectionBothResident',
+              'jurisdictionConnectionRespondent'
+            ]
+          });
       });
       it('for one resides', () => {
         const session = {
@@ -845,6 +852,29 @@ describe(modulePath, () => {
           MiniPetition,
           session,
           { specificContent: ['onGoingCasesYes'] });
+      });
+    });
+
+    context('Amend case ', () => {
+      it('displays Amend case and issue, previous issue date', () => {
+        const session = {
+          case: {
+            data: {
+              issueDate: '2019-02-02T00:00:00.000+0000',
+              previousCaseId: '12345',
+              previousIssueDate: '2018-10-02T00:00:00.000Z',
+              connections: {}
+            }
+          }
+        };
+        return content(
+          MiniPetition,
+          session,
+          {
+            specificContent: ['amendAppDetails'],
+            specificValues: ['02 October 2018', '02 February 2019']
+          }
+        );
       });
     });
 
