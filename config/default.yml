@@ -29,7 +29,7 @@ services:
     useSSL: false
     encryptionAtRestKey: encryptionAtRestKey
   idam:
-    apiHealth: https://localhost:8001/health
+    apiHealth: https://localhost:8001/idam-api-health
     authenticationHealth: https://localhost:3000/health
     apiUrl: http://localhost:8001
     secret: '123456'
@@ -48,8 +48,8 @@ services:
   applicationInsights:
     instrumentationKey: 'dummy-key'
   evidenceManagementClient:
-    url: http://localhost:4009
-    health: http://localhost:4009/status/health
+    url: http://localhost:3001/
+    health: http://localhost:3001/evidence-management-health
     uploadEndpoint: /emclientapi/version/1/uploadFiles
     downloadFileUrl: http://localhost:3001/documents
   rateLimiter:
@@ -59,7 +59,7 @@ services:
   orchestrationService:
     getCaseUrl: http://localhost:3001/case-orchestration/retrieve-case
     submitCaseUrl: http://localhost:3001/case-orchestration/submit-dn
-    health: http://localhost:3001/case-orchestration/health
+    health: http://localhost:3001/case-orchestration-health
     draftEndpoint: http://localhost:3001/case-orchestration/draftsapi/version/1
     amendPetitionUrl: http://localhost:3001/case-orchestration/amend-petition
   petitionerFrontend:
@@ -72,7 +72,7 @@ services:
     baseUrl: http://localhost:3001/case-maintenance
   feesAndPayments:
     url: http://localhost:3001
-    health: http://localhost:3001/health
+    health: http://localhost:3001/fees-and-payments-health
 
 paths:
   adulteryFirstFoundOut: /first-find-out
