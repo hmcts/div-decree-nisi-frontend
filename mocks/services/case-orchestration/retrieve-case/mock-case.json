@@ -326,11 +326,11 @@
     "respHardshipDefenseResponse" : "No",
     "respHardshipDescription" : "Some Hardship Description goes here",
     "hearingDate": ["2019-04-05T00:00:00.000Z"],
-    "files": [
+    "d8DocumentsGenerated": [
       {
         "id": "401ab79e-34cb-4570-9f2f-4cf9357m4st3r",
         "value": {
-          "DocumentFileName" : "dpetition155204352622.pdf"
+          "DocumentFileName" : "d8petition155204352622.pdf"
         }
       },
       {

@@ -8,7 +8,7 @@ const bind = app => {
   const middleware = [ idam.protect() ];
   const args = {
     documentServiceUrl: `${config.services.evidenceManagementClient.url}${downloadDocumentEndpoint}`,
-    sessionFileCollectionsPaths: ['case.data.files']
+    sessionFileCollectionsPaths: ['case.data.d8DocumentsGenerated']
   };
   initDocumentHandler(app, middleware, args);
 };

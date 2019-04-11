@@ -135,7 +135,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get downloadableFiles() {
-    return createUris(this.case.files);
+    return createUris(this.case.d8DocumentsGenerated);
   }
 
   get entitlementToADecreeFileLink() {
