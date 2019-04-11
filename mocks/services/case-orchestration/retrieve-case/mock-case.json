@@ -303,7 +303,11 @@
     "respStatementOfTruth" : "Yes",
     "respConsentToEmail" : "No",
     "coRespondentAnswers": {
+<<<<<<< HEAD
       "contactInfo":{
+=======
+      "contactInfo":{
+>>>>>>> origin
          "emailAddress":"testadulterycr@mailinator.com",
          "consentToReceivingEmails":"Yes",
          "contactMethodIsDigital":"Yes",
@@ -325,7 +329,6 @@
     "respConsiderFinancialSituation" : "Yes",
     "respHardshipDefenseResponse" : "No",
     "respHardshipDescription" : "Some Hardship Description goes here",
-    "hearingDate": ["2019-04-05T00:00:00.000Z"],
     "d8DocumentsGenerated": [
       {
         "id": "401ab79e-34cb-4570-9f2f-4cf9357m4st3r",
@@ -339,6 +342,8 @@
           "DocumentFileName" : "entitlementToDecree15520452633.pdf"
         }
       }
-    ]
+    ],
+    "hearingDate": ["2019-04-05T00:00:00.000Z"],
+    "previousCaseId": "12345"
   }
 }

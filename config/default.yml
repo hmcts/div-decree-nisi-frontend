@@ -103,6 +103,7 @@ paths:
   cookiesPolicy: /cookie
   privacyPolicy: /privacy-policy
   contactDivorceTeam: /contact-your-divorce
+  contactDivorceTeamError: /contact-your-divorce-error
   amendApplication: /amend-application
   respNotAdmitAdultery: /resp-does-not-admit-adultery-options
   reviewAosResponseFromCoRespondent: /review-aos-response-from-co-respondent

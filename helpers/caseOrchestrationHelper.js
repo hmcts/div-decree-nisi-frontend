@@ -75,7 +75,7 @@ const handleErrorCodes = (error, req, res, next) => {
     redirectToFrontendHelper.redirectToFrontend(req, res);
     break;
   case MULTIPLE_CHOICES:
-    res.redirect(config.paths.contactDivorceTeam);
+    res.redirect(config.paths.contactDivorceTeamError);
     break;
   case REDIRECT_TO_RESPONDENT_FE:
     idamService.logout()(req, res, () => {

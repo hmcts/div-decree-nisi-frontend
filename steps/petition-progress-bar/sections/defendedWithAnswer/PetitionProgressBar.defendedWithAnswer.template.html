@@ -21,7 +21,11 @@
 }}
 
 <h2 class="heading-medium">{{ content.defendedServiceAppStatusMsg }}</h2>
-<p>{{ content.defendedServiceAppStatusMsgDetails1 }}</p>
+{% if isCaseAmended %}
+  <p>{{ content.defendedServiceAmendedAppStatusMsgDetails1 }}</p>
+{% else %}
+  <p>{{ content.defendedServiceAppStatusMsgDetails1 }}</p>
+{% endif %}
 <p>{{ content.defendedServiceAppStatusMsgDetails2 }}</p>
 
 <h2 class="heading-medium">{{ content.defendedServiceWhatHappensNext }}</h2>

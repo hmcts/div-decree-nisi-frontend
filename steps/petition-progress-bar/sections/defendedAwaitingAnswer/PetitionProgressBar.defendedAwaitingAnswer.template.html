@@ -20,7 +20,11 @@
 }}
 
 <h2 class="heading-medium">{{ content.dAATitle }}</h2>
-<p class="text">{{ content.dAAHasRespondend }}</p>
+{% if isCaseAmended %}
+  <p class="text">{{ content.dAAHasRespondendForAmendedCase }}</p>
+{% else %}
+  <p class="text">{{ content.dAAHasRespondend }}</p>
+{% endif %}
 
 <h2 class="heading-medium">{{ content.dAAWhatHappensNext }}</h2>
 <p class="text">{{ content.dAA28Days }}</p>

@@ -5,6 +5,7 @@ const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
+const checkCaseState = require('middleware/checkCaseState');
 
 const {
   awaitingPronouncementMap,
@@ -49,6 +50,10 @@ class PetitionProgressBar extends Interstitial {
     return this.case.respAdmitOrConsentToFact && this.case.respAdmitOrConsentToFact.toLowerCase() === constants.yes;
   }
 
+  get isCaseAmended() {
+    return Boolean(this.case.previousCaseId);
+  }
+
   handler(req, res) {
     req.session.entryPoint = this.name;
     super.handler(req, res);
@@ -58,6 +63,7 @@ class PetitionProgressBar extends Interstitial {
     return [
       ...super.middleware,
       idam.protect(),
+      checkCaseState,
       getFeeFromFeesAndPayments(feeTypes.amendFee)
     ];
   }
