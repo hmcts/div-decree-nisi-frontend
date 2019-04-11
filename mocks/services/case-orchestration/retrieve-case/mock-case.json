@@ -303,11 +303,7 @@
     "respStatementOfTruth" : "Yes",
     "respConsentToEmail" : "No",
     "coRespondentAnswers": {
-<<<<<<< HEAD
       "contactInfo":{
-=======
-      "contactInfo":{
->>>>>>> origin
          "emailAddress":"testadulterycr@mailinator.com",
          "consentToReceivingEmails":"Yes",
          "contactMethodIsDigital":"Yes",
