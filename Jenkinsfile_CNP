@@ -38,12 +38,6 @@ withPipeline("nodejs", product, component) {
         slackSend(channel: '#div-dev', color: 'warning', message: "Yarn Audit has detected vulnerabilities in ${env.JOB_NAME}. You can check if there are patches for them in the full report, build details here: <${env.RUN_DISPLAY_URL}|Build ${env.BUILD_DISPLAY_NAME}>.")
       }
     }
-    // required for running functional tests on CI
-    env.FEATURE_IDAM = 'true'
-    env.IDAM_API_URL = 'https://idam-api.aat.platform.hmcts.net'
-    env.CASE_MAINTENANCE_BASE_URL = 'http://div-cms-aat.service.core-compute-aat.internal'
-    env.PREVIEW_ENV = 'true'
-    sh 'printenv'
   }
 
   before('securitychecks') {
@@ -54,6 +48,16 @@ withPipeline("nodejs", product, component) {
     stage('Test E2E') {
       sh 'yarn test:e2e'
     }
+  }
+
+  before('functionalTest:aks') {
+    env.NODE_ENV= 'ci'
+    sh 'printenv'
+  }
+
+  before('functionalTest:preview') {
+    env.NODE_ENV= 'ci'
+    sh 'printenv'
   }
 
   after('functionalTest:preview') {
