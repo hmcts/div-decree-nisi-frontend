@@ -194,7 +194,7 @@ variable "feature_idam" {
 }
 
 variable "feature_release_520" {
-  default = false
+  default = true
 }
 
 variable "ccd_digital_courts" {
