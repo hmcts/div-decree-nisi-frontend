@@ -22,17 +22,17 @@
 
 <h2 class="heading-medium">{{ content.undefendedAppStatusMsg }}</h2>
 
-{% if respAdmitsToFact %}
-  {% if isCaseAmended %}
-    <p>{{ content.undefendedAmendedAppStatusMsgDetails1 }}</p>
-  {% else %}
-    <p>{{ content.undefendedAppStatusMsgDetails1 }}</p>
-  {% endif %}
-{% else %}
+{% if respNotAdmitsToFact %}
   {% if isCaseAmended %}
     <p>{{ content.undefendedAmendedCaseButNotAdmit }}</p>
   {% else %}
     <p>{{ content.undefendedButNotAdmit }}</p>
+  {% endif %}
+{% else %}
+  {% if isCaseAmended %}
+    <p>{{ content.undefendedAmendedAppStatusMsgDetails1 }}</p>
+  {% else %}
+    <p>{{ content.undefendedAppStatusMsgDetails1 }}</p>
   {% endif %}
 {% endif %}
 <p>{{ content.undefendedAppStatusMsgDetails2 }}</p>

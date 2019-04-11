@@ -233,7 +233,23 @@ describe(modulePath, () => {
       const specificContent = ['undefendedAmendedAppStatusMsgDetails1'];
       return content(PetitionProgressBar, yesAdmitSession, { specificContent });
     });
+
+
+    it('renders undefendedAppStatusMsgDetails1: behaviour case ', () => {
+      const behaviourSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            permittedDecreeNisiReason: '0'
+          }
+        }
+      };
+      const specificContent = ['undefendedAppStatusMsgDetails1'];
+
+      return content(PetitionProgressBar, behaviourSession, { specificContent });
+    });
   });
+
 
   describe('CCD state: DNawaiting, DNReason : 1 ', () => {
     const session = {
