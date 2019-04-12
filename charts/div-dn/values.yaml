@@ -1,0 +1,29 @@
+nodejs:
+    applicationPort: 3000
+    environment:
+        CCD_DIGITAL_COURTS: '["serviceCentre", "eastMidlands", "westMidlands", "southWest", "northWest"]'
+        GOOGLE_ANALYTICS_TRACKING_URL: "http://www.google-analytics.com/collect"
+        EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT: "/emclientapi/version/1/upload"
+        HPKP_MAX_AGE: "86400"
+        HPKP_SHAS: "Naw+prhcXSIkbtYJ0t7vAD+Fc92DWL9UZevVfWBvids=,klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=,grX4Ta9HpZx6tSHkmCrvpApTQGo67CYDnvprLg5yRME="
+        IDAM_PROXY: "http://proxyout.reform.hmcts.net:8080"
+        NODE_ENV: "production"
+        RATE_LIMITER_ENABLED: "false"
+        RATE_LIMITER_EXPIRE: "3600000"
+        RATE_LIMITER_TOTAL: "3600"
+    keyVaults:
+        "div":
+            resourceGroup: div
+            secrets:
+                - session-secret
+                - redis-secret
+                - idam-secret
+
+redis:
+    cluster:
+        enabled: false
+        slaveCount: 0
+    usePassword: false
+    master:
+        persistence:
+            enabled: false
