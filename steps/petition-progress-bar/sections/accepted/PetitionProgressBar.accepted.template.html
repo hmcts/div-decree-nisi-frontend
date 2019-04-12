@@ -28,12 +28,21 @@
 </div>
 
 <h2 class="heading-medium">{{ content.acceptedHearingTitle }}</h2>
-<p>{{ content.acceptedHearingMsg1 | safe }} </p>
-<div class="notice">
-    <i class="icon icon-important">
-        <span class="visually-hidden">Warning</span>
-    </i>
-    <strong class="bold-small">{{ content.acceptedHearingInfo }}</strong>
-</div>
-<br/>
-<p>{{ content.acceptedHearingMsg2 }}</p>
+
+{% if isHearingDateInPast %}
+
+    <p>{{ content.acceptedHearingMsgExtra }}</p>
+
+{% else %}
+
+    <p>{{ content.acceptedHearingMsg1 | safe }} </p>
+    <div class="notice">
+        <i class="icon icon-important">
+            <span class="visually-hidden">Warning</span>
+        </i>
+        <strong class="bold-small">{{ content.acceptedHearingInfo }}</strong>
+    </div>
+    <br/>
+    <p>{{ content.acceptedHearingMsg2 }}</p>
+
+{% endif %}

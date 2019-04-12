@@ -135,6 +135,9 @@ features:
 journey:
   timeoutDelay: 300
 
+filesWhiteList:
+  petitioner: ['d8petition', 'entitlementToDecree']
+
 ccd:
   d8States:
     - 'AwaitingPayment'

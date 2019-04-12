@@ -6,6 +6,7 @@ const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
+const moment = require('moment');
 
 const {
   awaitingPronouncementMap,
@@ -32,6 +33,10 @@ const constants = {
 class PetitionProgressBar extends Interstitial {
   static get path() {
     return config.paths.petitionProgressBar;
+  }
+
+  get isHearingDateInPast() {
+    return moment(this.case.hearingDate).isBefore(moment.now());
   }
 
   get case() {
@@ -141,7 +146,8 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get downloadableFiles() {
-    return createUris(this.case.d8DocumentsGenerated);
+    const documentWhiteList = config.filesWhiteList.petitioner;
+    return createUris(this.case.d8DocumentsGenerated, { documentWhiteList });
   }
 
   get entitlementToADecreeFileLink() {
