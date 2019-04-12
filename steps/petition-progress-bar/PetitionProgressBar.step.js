@@ -146,8 +146,12 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get downloadableFiles() {
-    const documentWhiteList = config.filesWhiteList.petitioner;
-    return createUris(this.case.d8DocumentsGenerated, { documentWhiteList });
+    const docConfig = {
+      documentNamePath: config.document.documentNamePath,
+      documentWhiteList: config.document.filesWhiteList
+    };
+
+    return createUris(this.case.d8, docConfig);
   }
 
   get entitlementToADecreeFileLink() {
