@@ -7,6 +7,7 @@ const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPayme
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
 const moment = require('moment');
+const { size } = require('lodash');
 
 const {
   awaitingPronouncementMap,
@@ -120,7 +121,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get doesHearingDateExists() {
-    return this.case.hearingDate.length ? 'exists' : 'notExists';
+    return size(this.case.hearingDate) > 0 ? 'exists' : 'notExists';
   }
 
   get stateTemplate() {
