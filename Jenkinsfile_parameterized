@@ -30,7 +30,7 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 withParameterizedPipeline(params.TYPE, params.PRODUCT, params.COMPONENT, params.ENVIRONMENT, params.SUBSCRIPTION) {
   loadVaultSecrets(secrets)
   setVaultName('div')
-  
+
   after('test') {
     sh 'yarn test:validation'
     sh 'yarn test:e2e'
@@ -38,7 +38,7 @@ withParameterizedPipeline(params.TYPE, params.PRODUCT, params.COMPONENT, params.
 
   before('functionalTest:saat') {
     // required for running functional tests on CI
-    env.CASE_MAINTENANCE_BASE_URL = 'http://div-cms-saat.service.core-compute-saat.internal'
+    env.NODE_ENV= 'ci'
     sh 'printenv'
   }
 

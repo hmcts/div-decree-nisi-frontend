@@ -32,13 +32,13 @@
     {% include "includes/sideMenuCourtDetails.html" %}
 
     {% if (downloadableFiles.length > 0) %}
-        <h3 class="heading-small" class="subsection-title">{{ content.downloadDocuments }}</h3>
+        <h3 class="heading-small">{{ content.downloadDocuments }}</h3>
 
         {{ documentList(downloadableFiles, content.files) }}
 
     {% endif %}
 
-    <h3 class="heading-small" class="subsection-title">{{ content.guidance }}</h3>
+    <h3 class="heading-small" id="subsection-title">{{ content.guidance }}</h3>
 
     <nav role="navigation" aria-labelledby="subsection-title">
       <ul class="font-xsmall">

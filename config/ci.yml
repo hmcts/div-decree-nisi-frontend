@@ -1,0 +1,9 @@
+
+services:
+  idam:
+    apiUrl: https://idam-api.aat.platform.hmcts.net
+  caseMaintenance:
+    baseUrl: http://div-cms-aat.service.core-compute-aat.internal
+
+features:
+  idam: true

@@ -32,6 +32,7 @@ const validCaseStates520 = [
   'aosawaiting',
   'issued',
   'awaitinglegaladvisorreferral',
+  'awaitingpronouncement',
   'defendeddivorce',
   'aossubmittedawaitinganswer',
   'aosoverdue',

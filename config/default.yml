@@ -130,13 +130,19 @@ tests:
 
 features:
   idam: false
-  release520: false
+  release520: true
 
 journey:
   timeoutDelay: 300
 
-filesWhiteList:
-  petitioner: ['d8petition', 'entitlementToDecree']
+
+document:
+  sessionPath: 'case.data.d8'
+  documentNamePath: 'fileName'
+  filesWhiteList:
+  - 'd8petition'
+  - 'entitlementToDecree'
+
 
 ccd:
   d8States:

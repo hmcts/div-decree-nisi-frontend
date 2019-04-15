@@ -7,6 +7,7 @@ const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPayme
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
 const moment = require('moment');
+const { size } = require('lodash');
 
 const {
   awaitingPronouncementMap,
@@ -120,7 +121,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get doesHearingDateExists() {
-    return this.case.hearingDate.length ? 'exists' : 'notExists';
+    return size(this.case.hearingDate) > 0 ? 'exists' : 'notExists';
   }
 
   get stateTemplate() {
@@ -146,8 +147,12 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get downloadableFiles() {
-    const documentWhiteList = config.filesWhiteList.petitioner;
-    return createUris(this.case.d8DocumentsGenerated, { documentWhiteList });
+    const docConfig = {
+      documentNamePath: config.document.documentNamePath,
+      documentWhiteList: config.document.filesWhiteList
+    };
+
+    return createUris(this.case.d8, docConfig);
   }
 
   get entitlementToADecreeFileLink() {
