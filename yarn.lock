@@ -160,6 +160,7 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+<<<<<<< HEAD
 "@hmcts/div-document-express-handler@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@hmcts/div-document-express-handler/-/div-document-express-handler-1.1.0.tgz#1fed050291e943402848b030597a9d31f487e0a5"
@@ -169,6 +170,9 @@
     request "^2.88.0"
 
 "@hmcts/div-idam-express-middleware@^6.0.1", "@hmcts/div-idam-express-middleware@^6.4.0":
+=======
+"@hmcts/div-idam-express-middleware@^6.0.1", "@hmcts/div-idam-express-middleware@^6.5.0":
+>>>>>>> origin
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@hmcts/div-idam-express-middleware/-/div-idam-express-middleware-6.5.0.tgz#357020b9d73d013268338ba9469540e2e839fee6"
   dependencies:
@@ -348,6 +352,7 @@
     traverse "^0.6.6"
     url-parse "^1.4.3"
 
+<<<<<<< HEAD
 "@hmcts/one-per-page@^5.2.1":
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/@hmcts/one-per-page/-/one-per-page-5.2.1.tgz#64b5fa96398eea9f29c554bf38979eb9eb5b4fd5"
@@ -382,6 +387,12 @@
 "@hmcts/properties-volume@^0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@hmcts/properties-volume/-/properties-volume-0.0.9.tgz#1c2b29a563fcad9041231442476a4a3b7a8abf7d"
+=======
+"@hmcts/properties-volume@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@hmcts/properties-volume/-/properties-volume-0.0.9.tgz#1c2b29a563fcad9041231442476a4a3b7a8abf7d"
+  integrity sha512-qW6XDDnJT8wPfSrrFNFkoQXbtWS/KE55ifeRzXeHAXB8CB9r8e8H33jCql/3WYz/LX6PGQRlrZrU27mtQaNQ4g==
+>>>>>>> origin
   dependencies:
     "@hmcts/nodejs-logging" "^3.0.0"
     lodash "^4.17.11"
@@ -8884,6 +8895,10 @@ path-type@^3.0.0:
 path@^0.12.7:
   version "0.12.7"
   resolved "https://registry.yarnpkg.com/path/-/path-0.12.7.tgz#d4dc2a506c4ce2197eb481ebfcd5b36c0140b10f"
+<<<<<<< HEAD
+=======
+  integrity sha1-1NwqUGxM4hl+tIHr/NWzbAFAsQ8=
+>>>>>>> origin
   dependencies:
     process "^0.11.1"
     util "^0.10.3"
@@ -11718,6 +11733,10 @@ util@0.10.3:
 util@^0.10.3:
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/util/-/util-0.10.4.tgz#3aa0125bfe668a4672de58857d3ace27ecb76901"
+<<<<<<< HEAD
+=======
+  integrity sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A==
+>>>>>>> origin
   dependencies:
     inherits "2.0.3"
 
