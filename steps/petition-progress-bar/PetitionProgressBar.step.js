@@ -38,15 +38,12 @@ class PetitionProgressBar extends Interstitial {
 
   get isHearingDateInPast() {
     let lastHearingDate = null;
-    if (this.case.hearingDate && this.case.hearingDate.length) {
-      if (this.case.hearingDate.length > 0) {
-        lastHearingDate = moment(
-          this.case.hearingDate[this.case.hearingDate.length - 1]
-        );
-      } else {
-        lastHearingDate = moment(this.case.hearingDate[0]);
-      }
+    if (size(this.case.hearingDate) > 0) {
+      lastHearingDate = moment(
+        this.case.hearingDate[this.case.hearingDate.length - 1]
+      );
     }
+
     return lastHearingDate && lastHearingDate.isBefore(moment.now());
   }
 
