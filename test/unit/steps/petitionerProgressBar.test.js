@@ -15,6 +15,7 @@ const httpStatus = require('http-status-codes');
 const glob = require('glob');
 const { getExpectedCourtsList, testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
+const moment = require('moment');
 
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
@@ -23,6 +24,7 @@ const templates = {
   issued: './sections/issued/PetitionProgressBar.issued.template.html',
   defended: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
   undefended: './sections/undefended/PetitionProgressBar.undefended.template.html',
+  accepted: './sections/accepted/PetitionProgressBar.accepted.template.html',
   deemedService: './sections/deemedService/PetitionProgressBar.deemedService.template.html',
   dispensedWithService:
     './sections/dispensedWithService/PetitionProgressBar.dispensedWithService.template.html',
@@ -591,27 +593,103 @@ describe(modulePath, () => {
     });
   });
 
+
+  // d8: [
+  //   {
+  //     id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+  //     createdBy: 0,
+  //     createdOn: null,
+  //     lastModifiedBy: 0,
+  //     modifiedOn: null,
+  //     fileName: 'd8petition1554740111371638.pdf',
+  //     fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
+  //     mimeType: null,
+  //     status: null
+  //   },
+  //   {
+  //     id: '401ab79e-34cb-4570-9f2f-4cf9357tes1t',
+  //     createdBy: 0,
+  //     createdOn: null,
+  //     lastModifiedBy: 0,
+  //     modifiedOn: null,
+  //     fileName: 'entitlementToDecree1554740113754321.pdf',
+  //     fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
+  //     mimeType: null,
+  //     status: null
+  //   }
+  // ],
+
   describe('CCD state: AwaitingPronouncement', () => {
+
     const session = {
       case: {
         state: 'AwaitingPronouncement',
-        data: {}
+        data: {
+          hearingDate: [moment().add(-7, 'days'), moment().add(7, 'days')]
+        }
       }
     };
+
+    const hearingDateList = session.case.data.hearingDate;
 
     beforeEach(() => {
       sandbox.replace(config.features, 'release520', false);
     });
 
     it('renders the correct content', () => {
-      const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
-      const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
-      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+      let specificContent = null;
+      if (!hearingDateList || hearingDateList.size === 0) {
+        specificContent = Object.keys(pageContent.awaitingSubmittedDN);
+      } else {
+        specificContent = Object.keys(pageContent.accepted);
+      }
+      return content(PetitionProgressBar, session, { specificContent });
     });
 
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
-      expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
+      if (!hearingDateList || hearingDateList.size === 0) {
+        expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
+      } else {
+        expect(instance.stateTemplate).to.eql(templates.accepted);
+      }
+    });
+
+    it('returns the correct files', () => {
+      session.case.d8 = [
+        {
+          id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+          createdBy: 0,
+          createdOn: null,
+          lastModifiedBy: 0,
+          modifiedOn: null,
+          fileName: 'd8petition1554740111371638.pdf',
+          fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
+          mimeType: null,
+          status: null
+        },
+        {
+          id: '401ab79e-34cb-4570-9f2f-4cf9357tes1t',
+          createdBy: 0,
+          createdOn: null,
+          lastModifiedBy: 0,
+          modifiedOn: null,
+          fileName: 'entitlementToDecree1554740113754321.pdf',
+          fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
+          mimeType: null,
+          status: null
+        }
+      ];
+      const instance = stepAsInstance(PetitionProgressBar, session);
+
+      const fileTypes = instance.downloadableFiles.map(file => {
+        return file.type;
+      });
+
+      expect(fileTypes).to.eql([
+        'd8petition',
+        'entitlementToDecree'
+      ]);
     });
   });
 
