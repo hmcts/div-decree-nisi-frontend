@@ -47,7 +47,7 @@ class PetitionProgressBar extends Interstitial {
         lastHearingDate = moment(this.case.hearingDate[0]);
       }
     }
-    return lastHearingDate.isBefore(moment.now());
+    return lastHearingDate && lastHearingDate.isBefore(moment.now());
   }
 
   get case() {
