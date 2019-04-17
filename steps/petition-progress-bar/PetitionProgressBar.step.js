@@ -43,8 +43,8 @@ class PetitionProgressBar extends Interstitial {
     return caseIdDisplayStateMap.includes(this.caseState);
   }
 
-  get respAdmitsToFact() {
-    return this.case.respAdmitOrConsentToFact && this.case.respAdmitOrConsentToFact.toLowerCase() === constants.yes;
+  get respNotAdmitsToFact() {
+    return this.case.respAdmitOrConsentToFact && this.case.respAdmitOrConsentToFact.toLowerCase() === constants.no;
   }
 
   get isCaseAmended() {

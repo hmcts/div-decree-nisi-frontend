@@ -20,14 +20,14 @@
   })
 }}
 
-{% if not respAdmitsToFact and reasonForDivorce == "adultery" %}
+{% if respNotAdmitsToFact and reasonForDivorce == "adultery" %}
       <h2 class="heading-medium">{{ content.respDoesNotAdmitAdulteryTitle }}</h2>
       <p class="text">{{ content.respDoesNotAdmitAdulteryPar1 }}</p>
       <p class="text">{{ content.respDoesNotAdmitAdulteryPar2 }}</p>
       <p class="text">{{ content.respDoesNotAdmitAdulteryPar3 }}</p>
 {% endif %}
 
-{% if not respAdmitsToFact and reasonForDivorce == "separation-2-years" %}
+{% if respNotAdmitsToFact and reasonForDivorce == "separation-2-years" %}
     <h2 class="heading-medium">{{ content.respDoesNotConsent2YearSepTitle }}</h2>
     <p class="text">{{ content.respDoesNotConsent2YearSepYouMustHave }}</p>
     <p class="text">{{ content.respDoesNotConsent2YearSepYouHaveToPay }}</p>
