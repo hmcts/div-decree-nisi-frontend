@@ -4,18 +4,14 @@ const RespNotAdmitAdultery = require(modulePath);
 const RespNotAdmitAdulteryContent = require(
   'steps/resp-not-admit-adultery/RespNotAdmitAdultery.content'
 );
-const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const AmendApplication = require('steps/amend-application/AmendApplication.step');
 const idam = require('services/idam');
 const { middleware, sinon, content, question } = require('@hmcts/one-per-page-test-suite');
-const config = require('config');
 
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 const { feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 
 describe(modulePath, () => {
-  const sandbox = sinon.createSandbox();
-
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
 
@@ -29,7 +25,6 @@ describe(modulePath, () => {
   });
 
   afterEach(() => {
-    sandbox.restore();
     idam.protect.restore();
     feesAndPaymentsService.getFee.restore();
   });
@@ -84,14 +79,7 @@ describe(modulePath, () => {
       return question.answers(RespNotAdmitAdultery, fields, expectedContent, session);
     });
 
-    it('redirects to ApplyForDecreeNisi page', () => {
-      sandbox.replace(config.features, 'release520', false);
-      const fields = { amendPetition: 'no' };
-      return question.redirectWithField(RespNotAdmitAdultery, fields, ApplyForDecreeNisi);
-    });
-
     it('redirects to AmendPetition page', () => {
-      sandbox.replace(config.features, 'release520', true);
       const fields = { amendPetition: 'yes' };
       return question.redirectWithField(RespNotAdmitAdultery, fields, AmendApplication);
     });

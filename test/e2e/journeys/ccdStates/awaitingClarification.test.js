@@ -16,8 +16,6 @@ const session = {
 };
 
 describe('Case State :  AwaitingClarification', () => {
-  const sandbox = sinon.createSandbox();
-
   before(() => {
     const getStub = sinon.stub(request, 'get');
     getStub
@@ -28,7 +26,6 @@ describe('Case State :  AwaitingClarification', () => {
         state: 'AwaitingClarification',
         data: session
       }));
-    sandbox.replace(config.features, 'release520', false);
 
     sinon.stub(feesAndPaymentsService, 'getFee')
       .resolves({
@@ -41,7 +38,6 @@ describe('Case State :  AwaitingClarification', () => {
 
   after(() => {
     request.get.restore();
-    sandbox.restore();
     feesAndPaymentsService.getFee.restore();
   });
 

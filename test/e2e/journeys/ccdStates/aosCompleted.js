@@ -27,10 +27,7 @@ const session = {
 
 
 describe('Case State : AosCompleted', () => {
-  const sandbox = sinon.createSandbox();
-
   before(() => {
-    sandbox.replace(config.features, 'release520', true);
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
     sinon.stub(caseOrchestrationService, 'amendApplication');
     sinon.stub(redirectToFrontendHelper, 'redirectToFrontendAmend');
@@ -58,7 +55,6 @@ describe('Case State : AosCompleted', () => {
     caseOrchestrationService.amendApplication.restore();
     redirectToFrontendHelper.redirectToFrontendAmend.restore();
     feesAndPaymentsService.getFee.restore();
-    sandbox.restore();
   });
 
   journey.test([

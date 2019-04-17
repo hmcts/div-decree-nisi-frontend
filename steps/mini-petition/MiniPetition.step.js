@@ -2,7 +2,6 @@ const { Question } = require('@hmcts/one-per-page/steps');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const { parseBool } = require('@hmcts/one-per-page/util');
 const idam = require('services/idam');
 const Joi = require('joi');
 
@@ -147,7 +146,7 @@ class MiniPetition extends Question {
   }
 
   get isAdulterySecondHandInfoProvided() {
-    return parseBool(config.features.release520) && this.case.reasonForDivorceAdulterySecondHandInfo === 'Yes';
+    return this.case.reasonForDivorceAdulterySecondHandInfo === 'Yes';
   }
 
   get middleware() {

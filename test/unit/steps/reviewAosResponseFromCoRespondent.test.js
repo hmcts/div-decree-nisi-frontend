@@ -11,7 +11,6 @@ const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNi
 const RespNotAdmitAdultery = require(
   'steps/resp-not-admit-adultery/RespNotAdmitAdultery.step'
 );
-const config = require('config');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -226,15 +225,7 @@ describe(modulePath, () => {
   });
 
   describe('Redirects', () => {
-    const sandbox = sinon.createSandbox();
-
-    after(() => {
-      sandbox.restore();
-    });
-
     it('To RespNotAdmitAdultery page - No CoRespondent Answers, state: AosCompleted', () => {
-      sandbox.replace(config.features, 'release520', true);
-
       const fields = { reviewAosCRResponse: 'yes' };
       const session = {
         case: {

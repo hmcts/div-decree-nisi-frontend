@@ -13,8 +13,6 @@ const idam = require('services/idam');
 const { middleware, sinon, content,
   stepAsInstance, question, expect } = require('@hmcts/one-per-page-test-suite');
 
-const config = require('config');
-
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -57,12 +55,6 @@ describe(modulePath, () => {
   });
 
   describe('CCD state: DNAwaiting', () => {
-    const sandbox = sinon.createSandbox();
-
-    after(() => {
-      sandbox.restore();
-    });
-
     it('renders the correct template', () => {
       const session = {
         case: {
@@ -114,8 +106,6 @@ describe(modulePath, () => {
     });
 
     it('redirects to RespNotAdmitAdultery page - state: AosCompleted', () => {
-      sandbox.replace(config.features, 'release520', true);
-
       const fields = { reviewAosResponse: 'yes' };
       const session = {
         case: {
@@ -510,15 +500,7 @@ describe(modulePath, () => {
       });
     });
     describe('Next step ', () => {
-      const sandbox = sinon.createSandbox();
-
-      afterEach(() => {
-        sandbox.restore();
-      });
-
       it('redirects to CoRespondent response - respAdmitOrConsentToFact: Yes', () => {
-        sandbox.replace(config.features, 'release520', true);
-
         const fields = { reviewAosResponse: 'yes' };
         const session = {
           case: {
@@ -539,8 +521,6 @@ describe(modulePath, () => {
       });
 
       it('redirects to CoRespondent response - respAdmitOrConsentToFact: No', () => {
-        sandbox.replace(config.features, 'release520', true);
-
         const fields = { reviewAosResponse: 'yes' };
         const session = {
           case: {
@@ -561,8 +541,6 @@ describe(modulePath, () => {
       });
 
       it('redirects to AmendApplication page', () => {
-        sandbox.replace(config.features, 'release520', true);
-
         const fields = { reviewAosResponse: 'yes' };
         const session = {
           case: {

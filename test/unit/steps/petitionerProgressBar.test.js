@@ -1,7 +1,6 @@
 /* eslint-disable max-lines */
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
-const config = require('config');
 const PetitionProgressBar = require(modulePath);
 const PetProgressBarContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
@@ -73,8 +72,6 @@ const contentToNotExist = withoutKeysFrom => {
 };
 
 describe(modulePath, () => {
-  const sandbox = sinon.createSandbox();
-
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
     sinon.stub(feesAndPaymentsService, 'getFee')
@@ -88,7 +85,6 @@ describe(modulePath, () => {
 
   afterEach(() => {
     idam.protect.restore();
-    sandbox.restore();
     feesAndPaymentsService.getFee.restore();
   });
 
@@ -378,29 +374,6 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, DNReason : 4 ', () => {
-    const session = {
-      case: {
-        state: 'AwaitingDecreeNisi',
-        data: {
-          permittedDecreeNisiReason: '4'
-        }
-      }
-    };
-
-    it('renders the correct content', () => {
-      const specificContent = Object.keys(pageContent.defendedWithoutAnswer);
-      const specificContentToNotExist = contentToNotExist('defendedWithoutAnswer');
-
-      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
-    });
-
-    it('renders the correct template', () => {
-      const instance = stepAsInstance(PetitionProgressBar, session);
-      expect(instance.stateTemplate).to.eql(templates.defendedWithoutAnswer);
-    });
-  });
-
   describe('CCD state: AosSubmittedAwaitingAnswer', () => {
     const session = {
       case: {
@@ -453,10 +426,6 @@ describe(modulePath, () => {
       }
     };
 
-    beforeEach(() => {
-      sandbox.replace(config.features, 'release520', true);
-    });
-
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.aosCompleted);
       const specificContentToNotExist = contentToNotExist('aosCompleted');
@@ -485,7 +454,6 @@ describe(modulePath, () => {
     };
 
     it('renders the correct content', () => {
-      sandbox.replace(config.features, 'release520', true);
       const specificContent = Object.keys(pageContent.aosCompleted);
       const specificContentToNotExist = contentToNotExist('aosCompleted');
 
@@ -495,7 +463,6 @@ describe(modulePath, () => {
     });
 
     it('renders the correct template', () => {
-      sandbox.replace(config.features, 'release520', true);
       const instance = stepAsInstance(PetitionProgressBar, session);
       return expect(instance.stateTemplate).to.eql(templates.aosCompleted);
     });
@@ -590,10 +557,6 @@ describe(modulePath, () => {
       }
     };
 
-    beforeEach(() => {
-      sandbox.replace(config.features, 'release520', false);
-    });
-
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
       const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
@@ -615,10 +578,6 @@ describe(modulePath, () => {
       }
     };
 
-    beforeEach(() => {
-      sandbox.replace(config.features, 'release520', false);
-    });
-
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
       const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
@@ -638,10 +597,6 @@ describe(modulePath, () => {
         data: {}
       }
     };
-
-    beforeEach(() => {
-      sandbox.replace(config.features, 'release520', false);
-    });
 
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);

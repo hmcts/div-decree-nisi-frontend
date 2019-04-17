@@ -193,10 +193,6 @@ variable "feature_idam" {
   default = true
 }
 
-variable "feature_release_520" {
-  default = true
-}
-
 variable "ccd_digital_courts" {
   type = "string"
   default = "[\"serviceCentre\"]"
