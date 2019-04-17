@@ -33,11 +33,9 @@
     "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
     "moneyAndPropertyLinky": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>",
     "DivorceApplication": "Divorce application",
-    "EntitlementToDecree": "Entitlement to a decree",
     "downloadDocuments" : "Download your documents",
     "files": {
-      "dpetition": "Divorce application",
-      "entitlementToDecree": "Entitlement to a decree"
+      "dpetition": "Divorce application"
     }
   }
 }

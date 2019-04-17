@@ -15,7 +15,6 @@ const httpStatus = require('http-status-codes');
 const glob = require('glob');
 const { getExpectedCourtsList, testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
-const moment = require('moment');
 
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
@@ -24,7 +23,6 @@ const templates = {
   issued: './sections/issued/PetitionProgressBar.issued.template.html',
   defended: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
   undefended: './sections/undefended/PetitionProgressBar.undefended.template.html',
-  accepted: './sections/accepted/PetitionProgressBar.accepted.template.html',
   deemedService: './sections/deemedService/PetitionProgressBar.deemedService.template.html',
   dispensedWithService:
     './sections/dispensedWithService/PetitionProgressBar.dispensedWithService.template.html',
@@ -591,43 +589,9 @@ describe(modulePath, () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
     });
-  });
-
-  describe('CCD state: AwaitingPronouncement', () => {
-    beforeEach(() => {
-      sandbox.replace(config.features, 'release520', false);
-    });
-
-    it('given no hearing date render correct progress bar', () => {
-      let specificContent = null;
-      const session = {
-        case: {
-          state: 'AwaitingPronouncement',
-          data: {
-          }
-        }
-      };
-
-      specificContent = Object.keys(pageContent.awaitingSubmittedDN);
-      return content(PetitionProgressBar, session, { specificContent });
-    });
-
-    it('given with  hearing date render correct progress bar', () => {
-      const session = {
-        case: {
-          state: 'AwaitingPronouncement',
-          data: {
-            hearingDate: [moment().add(-7, 'days'), moment().add(7, 'days')]
-          }
-        }
-      };
-      const instance = stepAsInstance(PetitionProgressBar, session);
-
-      expect(instance.stateTemplate).to.eql(templates.accepted);
-    });
 
     it('returns the correct files', () => {
-      const session = {
+      const sessionFiles = {
         case: {
           data: {
             d8: [
@@ -642,34 +606,43 @@ describe(modulePath, () => {
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
                 mimeType: null,
                 status: null
-              },
-              {
-                id: '401ab79e-34cb-4570-9f2f-4cf9357tes1t',
-                createdBy: 0,
-                createdOn: null,
-                lastModifiedBy: 0,
-                modifiedOn: null,
-                fileName: 'entitlementToDecree1554740113754321.pdf',
-                // eslint-disable-next-line max-len
-                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
-                mimeType: null,
-                status: null
               }
             ]
           }
         }
       };
 
-      const instance = stepAsInstance(PetitionProgressBar, session);
+      const instance = stepAsInstance(PetitionProgressBar, sessionFiles);
 
       const fileTypes = instance.downloadableFiles.map(file => {
         return file.type;
       });
 
-      expect(fileTypes).to.eql([
-        'dpetition',
-        'entitlementToDecree'
-      ]);
+      expect(fileTypes).to.eql(['dpetition']);
+    });
+  });
+
+  describe('CCD state: AwaitingPronouncement', () => {
+    const session = {
+      case: {
+        state: 'AwaitingPronouncement',
+        data: {}
+      }
+    };
+
+    beforeEach(() => {
+      sandbox.replace(config.features, 'release520', false);
+    });
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
+      const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
     });
   });
 

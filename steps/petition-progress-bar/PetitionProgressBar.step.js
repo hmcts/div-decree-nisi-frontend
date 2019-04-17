@@ -6,11 +6,8 @@ const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
-const moment = require('moment');
-const { size } = require('lodash');
 
 const {
-  awaitingPronouncementMap,
   caseStateMap,
   permitDNReasonMap,
   caseIdDisplayStateMap,
@@ -22,7 +19,6 @@ const constants = {
   sep2Yr: 'separation-2-years',
   AOSCompleted: 'aoscompleted',
   AOSOverdue: 'aosoverdue',
-  awaitingPronouncement: 'awaitingpronouncement',
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
   DNAwaiting: 'awaitingdecreenisi',
@@ -34,17 +30,6 @@ const constants = {
 class PetitionProgressBar extends Interstitial {
   static get path() {
     return config.paths.petitionProgressBar;
-  }
-
-  get isHearingDateInPast() {
-    let lastHearingDate = null;
-    if (size(this.case.hearingDate) > 0) {
-      lastHearingDate = moment(
-        this.case.hearingDate[this.case.hearingDate.length - 1]
-      );
-    }
-
-    return lastHearingDate && lastHearingDate.isBefore(moment.now(), 'day');
   }
 
   get case() {
@@ -127,16 +112,10 @@ class PetitionProgressBar extends Interstitial {
     return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
   }
 
-  get doesHearingDateExists() {
-    return size(this.case.hearingDate) > 0 ? 'exists' : 'notExists';
-  }
-
   get stateTemplate() {
     let template = '';
     if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
-    } else if (constants.awaitingPronouncement.includes(this.caseState)) {
-      template = awaitingPronouncementMap.get(this.doesHearingDateExists);
     } else if (parseBool(config.features.release520)) {
       caseStateMap520.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
@@ -160,12 +139,6 @@ class PetitionProgressBar extends Interstitial {
     };
 
     return createUris(this.case.d8, docConfig);
-  }
-
-  get entitlementToADecreeFileLink() {
-    return this.downloadableFiles.find(file => {
-      return file.type === 'entitlementToDecree';
-    });
   }
 }
 

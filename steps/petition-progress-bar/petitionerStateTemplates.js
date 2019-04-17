@@ -4,16 +4,12 @@ const caseStateMap = [
     state: ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted']
   },
   {
-    template: './sections/accepted/PetitionProgressBar.accepted.template.html',
-    state: ['awaitingpronouncement']
-  },
-  {
     template: './sections/issued/PetitionProgressBar.issued.template.html',
     state: ['aosstarted', 'aosawaiting', 'issued']
   },
   {
     template: './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
-    state: ['awaitinglegaladvisorreferral', 'awaitingconsideration', 'awaitingclarification']
+    state: ['awaitinglegaladvisorreferral', 'awaitingconsideration', 'awaitingpronouncement', 'awaitingclarification']
   },
   {
     template: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
@@ -70,13 +66,7 @@ const permitDNReasonMap = new Map([
   ['4', './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html']
 ]);
 
-const awaitingPronouncementMap = new Map([
-  ['exists', './sections/accepted/PetitionProgressBar.accepted.template.html'],
-  ['notExists', './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html']
-]);
-
 module.exports = {
-  awaitingPronouncementMap,
   caseStateMap,
   permitDNReasonMap,
   caseIdDisplayStateMap,
