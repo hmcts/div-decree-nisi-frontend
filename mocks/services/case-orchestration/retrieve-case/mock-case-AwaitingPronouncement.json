@@ -1,7 +1,7 @@
 {
   "caseId": "1234567890124567",
   "courts": "serviceCentre",
-  "state": "AwaitingDecreeNisi",
+  "state": "AwaitingPronouncement",
   "data": {
     "createdDate":"2018-08-02T00:00:00.000Z",
     "issueDate":"2019-02-02T00:00:00.000Z",

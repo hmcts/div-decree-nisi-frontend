@@ -29,7 +29,7 @@ services:
     useSSL: false
     encryptionAtRestKey: encryptionAtRestKey
   idam:
-    apiHealth: https://localhost:8001/idam-api-health
+    apiHealth: https://localhost:8001/health
     authenticationHealth: https://localhost:3000/health
     apiUrl: http://localhost:8001
     secret: '123456'
