@@ -38,6 +38,9 @@ const checks = () => {
     ),
     'fees-and-payments': healthcheck.web(config.services.feesAndPayments.health,
       healthOptions('Health check failed on fees-payments-service:')
+    ),
+    'evidence-management': healthcheck.web(config.services.evidenceManagementClient.health,
+      healthOptions('Health check failed on evidence-management')
     )
   };
 };

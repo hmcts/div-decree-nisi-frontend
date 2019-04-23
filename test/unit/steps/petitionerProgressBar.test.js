@@ -605,6 +605,37 @@ describe(modulePath, () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
     });
+
+    it('returns the correct files', () => {
+      const sessionFiles = {
+        case: {
+          data: {
+            d8: [
+              {
+                id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'd8petition1554740111371638.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
+                mimeType: null,
+                status: null
+              }
+            ]
+          }
+        }
+      };
+
+      const instance = stepAsInstance(PetitionProgressBar, sessionFiles);
+
+      const fileTypes = instance.downloadableFiles.map(file => {
+        return file.type;
+      });
+
+      expect(fileTypes).to.eql(['dpetition']);
+    });
   });
 
   describe('CCD state: AwaitingPronouncement', () => {

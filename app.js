@@ -5,6 +5,7 @@ const onePerPage = require('@hmcts/one-per-page');
 const lookAndFeel = require('@hmcts/look-and-feel');
 const { accessLogger } = require('services/logger');
 const getSteps = require('steps');
+const documentHandler = require('services/documentHandler');
 const setupHelmet = require('middleware/helmet');
 const setupPrivacy = require('middleware/privacy');
 const setupHealthChecks = require('middleware/healthcheck');
@@ -74,6 +75,7 @@ app.set('trust proxy', 1);
 onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
+  routes: [ documentHandler ],
   errorPages: { serverError: { template: 'errors/error' }, notFound: { template: 'errors/error' } },
   noSessionHandler: (req, res) => {
     return res.redirect(config.paths.entry);

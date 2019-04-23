@@ -4,6 +4,7 @@ const { parseBool } = require('@hmcts/one-per-page/util');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
+const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
 
 const {
@@ -129,6 +130,15 @@ class PetitionProgressBar extends Interstitial {
       });
     }
     return template;
+  }
+
+  get downloadableFiles() {
+    const docConfig = {
+      documentNamePath: config.document.documentNamePath,
+      documentWhiteList: config.document.filesWhiteList
+    };
+
+    return createUris(this.case.d8, docConfig);
   }
 }
 
