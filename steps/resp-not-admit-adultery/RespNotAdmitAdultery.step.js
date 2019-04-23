@@ -6,7 +6,6 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
-const { parseBool } = require('@hmcts/one-per-page/util');
 
 class RespNotAdmitAdultery extends Question {
   static get path() {
@@ -44,7 +43,7 @@ class RespNotAdmitAdultery extends Question {
 
     return branch(
       redirectTo(this.journey.steps.AmendApplication)
-        .if(parseBool(config.features.release520) && amendPetition),
+        .if(amendPetition),
       redirectTo(this.journey.steps.ApplyForDecreeNisi)
     );
   }

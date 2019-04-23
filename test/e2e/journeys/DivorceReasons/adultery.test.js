@@ -202,11 +202,7 @@ describe('Respondent Admitted Adultery : no', () => {
     reasonForDivorceAdulteryDetails: 'details'
   };
 
-  const sandbox = sinon.createSandbox();
-
   before(() => {
-    sandbox.replace(config.features, 'release520', true);
-
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
 
@@ -234,7 +230,6 @@ describe('Respondent Admitted Adultery : no', () => {
   after(() => {
     request.get.restore();
     request.post.restore();
-    sandbox.restore();
     feesAndPaymentsService.getFee.restore();
   });
 
@@ -302,11 +297,7 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
     }
   };
 
-  const sandbox = sinon.createSandbox();
-
   before(() => {
-    sandbox.replace(config.features, 'release520', true);
-
     const getStub = sinon.stub(request, 'get');
 
     getStub
@@ -325,7 +316,6 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
 
   after(() => {
     request.get.restore();
-    sandbox.restore();
     feesAndPaymentsService.getFee.restore();
   });
 
@@ -357,11 +347,7 @@ describe('Respondent Admitted Adultery : yes, AdulteryWishToName: Yes', () => {
     }
   };
 
-  const sandbox = sinon.createSandbox();
-
   before(() => {
-    sandbox.replace(config.features, 'release520', true);
-
     const getStub = sinon.stub(request, 'get');
 
     getStub
@@ -381,7 +367,6 @@ describe('Respondent Admitted Adultery : yes, AdulteryWishToName: Yes', () => {
 
   after(() => {
     request.get.restore();
-    sandbox.restore();
     feesAndPaymentsService.getFee.restore();
   });
 

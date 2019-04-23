@@ -19,7 +19,6 @@ const idam = require('services/idam');
 
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 const { feeTypes } = require('middleware/feesAndPaymentsMiddleware');
-const config = require('config');
 const { middleware, question, sinon,
   content, expect } = require('@hmcts/one-per-page-test-suite');
 
@@ -1316,16 +1315,6 @@ describe(modulePath, () => {
   });
 
   describe('answers', () => {
-    const sandbox = sinon.createSandbox();
-
-    before(() => {
-      sandbox.replace(config.features, 'release520', false);
-    });
-
-    after(() => {
-      sandbox.restore();
-    });
-
     it('shows correct answers if user changes details', () => {
       const expectedContent = [
         MiniPetitionContent.en.fields.changes.hasBeenChanges.title,
@@ -1372,16 +1361,6 @@ describe(modulePath, () => {
   });
 
   describe('Adultery - second hand info provided', () => {
-    const sandbox = sinon.createSandbox();
-
-    before(() => {
-      sandbox.replace(config.features, 'release520', true);
-    });
-
-    after(() => {
-      sandbox.restore();
-    });
-
     it('knows where & second hand info ', () => {
       const session = {
         case: {

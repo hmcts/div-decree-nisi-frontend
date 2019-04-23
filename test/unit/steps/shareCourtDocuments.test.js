@@ -5,7 +5,6 @@ const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step
 const Upload = require('steps/upload/Upload.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
-const config = require('config');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -21,12 +20,6 @@ describe(modulePath, () => {
   });
 
   describe('Renders content', () => {
-    const sandbox = sinon.createSandbox();
-
-    after(() => {
-      sandbox.restore();
-    });
-
     it('renders the common content', () => {
       const session = { case: { data: {} } };
       const ignoreContent = ['adultery', 'otherReasons'];
@@ -34,7 +27,6 @@ describe(modulePath, () => {
     });
 
     it('renders the adultery related content', () => {
-      sandbox.replace(config.features, 'release520', true);
       const session = {
         case: {
           data: {

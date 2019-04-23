@@ -1,5 +1,4 @@
 const logger = require('services/logger').getLogger(__filename);
-const { parseBool } = require('@hmcts/one-per-page/util');
 const config = require('config');
 
 const validCaseStates = [
@@ -18,31 +17,11 @@ const validCaseStates = [
   'awaitingclarification',
   'defendeddivorce',
   'aossubmittedawaitinganswer',
-  'aosoverdue'
-];
-
-const validCaseStates520 = [
-  'submitted',
-  'awaitinghwfdecision',
-  'awaitingdocuments',
-  'awaitingdecreenisi',
-  'pendingrejection',
-  'petitioncompleted',
-  'aosstarted',
-  'aosawaiting',
-  'issued',
-  'awaitinglegaladvisorreferral',
-  'defendeddivorce',
-  'aossubmittedawaitinganswer',
   'aosoverdue',
   'aoscompleted'
 ];
 
 const caseStateIsValid = currentState => {
-  if (parseBool(config.features.release520)) {
-    return validCaseStates520.includes(currentState);
-  }
-
   return validCaseStates.includes(currentState);
 };
 
