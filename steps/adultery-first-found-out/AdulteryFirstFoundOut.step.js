@@ -20,7 +20,7 @@ class AdulteryFirstFoundOut extends Question {
     const validateFirstFoundDate = firstFoundDate => {
       const marriageDate = moment(this.case.marriageDate).format('YYYY-MM-DD');
       const createdDate = moment(this.case.createdDate).format('YYYY-MM-DD');
-      const hasGivenDate = firstFoundDate.isValid() && firstFoundDate.isBetween(marriageDate, createdDate, null, []); // eslint-disable-line
+      const hasGivenDate = firstFoundDate.isBetween(marriageDate, createdDate, null, []); // eslint-disable-line
       return hasGivenDate;
     };
 
