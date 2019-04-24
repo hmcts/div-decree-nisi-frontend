@@ -1,7 +1,6 @@
 /* eslint-disable max-lines */
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
-const config = require('config');
 const PetitionProgressBar = require(modulePath);
 const PetProgressBarContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
@@ -75,8 +74,6 @@ const contentToNotExist = withoutKeysFrom => {
 };
 
 describe(modulePath, () => {
-  const sandbox = sinon.createSandbox();
-
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
     sinon.stub(feesAndPaymentsService, 'getFee')
@@ -90,7 +87,6 @@ describe(modulePath, () => {
 
   afterEach(() => {
     idam.protect.restore();
-    sandbox.restore();
     feesAndPaymentsService.getFee.restore();
   });
 
@@ -235,7 +231,23 @@ describe(modulePath, () => {
       const specificContent = ['undefendedAmendedAppStatusMsgDetails1'];
       return content(PetitionProgressBar, yesAdmitSession, { specificContent });
     });
+
+
+    it('renders undefendedAppStatusMsgDetails1: behaviour case ', () => {
+      const behaviourSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            permittedDecreeNisiReason: '0'
+          }
+        }
+      };
+      const specificContent = ['undefendedAppStatusMsgDetails1'];
+
+      return content(PetitionProgressBar, behaviourSession, { specificContent });
+    });
   });
+
 
   describe('CCD state: DNawaiting, DNReason : 1 ', () => {
     const session = {
@@ -364,29 +376,6 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, DNReason : 4 ', () => {
-    const session = {
-      case: {
-        state: 'AwaitingDecreeNisi',
-        data: {
-          permittedDecreeNisiReason: '4'
-        }
-      }
-    };
-
-    it('renders the correct content', () => {
-      const specificContent = Object.keys(pageContent.defendedWithoutAnswer);
-      const specificContentToNotExist = contentToNotExist('defendedWithoutAnswer');
-
-      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
-    });
-
-    it('renders the correct template', () => {
-      const instance = stepAsInstance(PetitionProgressBar, session);
-      expect(instance.stateTemplate).to.eql(templates.defendedWithoutAnswer);
-    });
-  });
-
   describe('CCD state: AosSubmittedAwaitingAnswer', () => {
     const session = {
       case: {
@@ -439,10 +428,6 @@ describe(modulePath, () => {
       }
     };
 
-    beforeEach(() => {
-      sandbox.replace(config.features, 'release520', true);
-    });
-
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.aosCompleted);
       const specificContentToNotExist = contentToNotExist('aosCompleted');
@@ -471,7 +456,6 @@ describe(modulePath, () => {
     };
 
     it('renders the correct content', () => {
-      sandbox.replace(config.features, 'release520', true);
       const specificContent = Object.keys(pageContent.aosCompleted);
       const specificContentToNotExist = contentToNotExist('aosCompleted');
 
@@ -481,7 +465,6 @@ describe(modulePath, () => {
     });
 
     it('renders the correct template', () => {
-      sandbox.replace(config.features, 'release520', true);
       const instance = stepAsInstance(PetitionProgressBar, session);
       return expect(instance.stateTemplate).to.eql(templates.aosCompleted);
     });
@@ -576,10 +559,6 @@ describe(modulePath, () => {
       }
     };
 
-    beforeEach(() => {
-      sandbox.replace(config.features, 'release520', false);
-    });
-
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
       const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
@@ -590,6 +569,37 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
+    });
+
+    it('returns the correct files', () => {
+      const sessionFiles = {
+        case: {
+          data: {
+            d8: [
+              {
+                id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'd8petition1554740111371638.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
+                mimeType: null,
+                status: null
+              }
+            ]
+          }
+        }
+      };
+
+      const instance = stepAsInstance(PetitionProgressBar, sessionFiles);
+
+      const fileTypes = instance.downloadableFiles.map(file => {
+        return file.type;
+      });
+
+      expect(fileTypes).to.eql(['dpetition']);
     });
   });
 
@@ -680,10 +690,6 @@ describe(modulePath, () => {
         data: {}
       }
     };
-
-    beforeEach(() => {
-      sandbox.replace(config.features, 'release520', false);
-    });
 
     it('renders the correct content', () => {
       const specificContent = Object.keys(pageContent.awaitingSubmittedDN);

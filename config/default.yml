@@ -130,7 +130,6 @@ tests:
 
 features:
   idam: false
-  release520: true
 
 journey:
   timeoutDelay: 300
@@ -142,7 +141,6 @@ document:
   filesWhiteList:
   - 'd8petition'
   - 'entitlementToDecree'
-
 
 ccd:
   d8States:
