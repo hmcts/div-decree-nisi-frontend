@@ -12,7 +12,7 @@ idam_api_url = "https://idam-api.demo.platform.hmcts.net"
 google_analytics_tracking_id = "TBD"
 rate_limiter_enabled = false
 
-petitioner_frontend_url = "https://div-pfe-aat.service.core-compute-aat.internal"
-respondent_frontend_url = "https://div-rfe-aat.service.core-compute-aat.internal"
+petitioner_frontend_url = "https://div-pfe-demo.service.core-compute-demo.internal"
+respondent_frontend_url = "https://div-rfe-demo.service.core-compute-demo.internal"
 
 ccd_digital_courts = "[\"serviceCentre\", \"eastMidlands\", \"westMidlands\", \"southWest\", \"northWest\"]"
