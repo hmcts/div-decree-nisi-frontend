@@ -604,10 +604,6 @@ describe(modulePath, () => {
   });
 
   describe('CCD state: AwaitingPronouncement', () => {
-    beforeEach(() => {
-      sandbox.replace(config.features, 'release520', false);
-    });
-
     it('given no hearing date render correct progress bar', () => {
       let specificContent = null;
       const session = {

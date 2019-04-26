@@ -19,23 +19,6 @@ const validCaseStates = [
   'aosoverdue'
 ];
 
-const validCaseStates520 = [
-  'submitted',
-  'awaitinghwfdecision',
-  'awaitingdocuments',
-  'awaitingdecreenisi',
-  'pendingrejection',
-  'petitioncompleted',
-  'aosstarted',
-  'aosawaiting',
-  'issued',
-  'awaitinglegaladvisorreferral',
-  'awaitingpronouncement',
-  'defendeddivorce',
-  'aosoverdue',
-  'aoscompleted'
-];
-
 const caseStateIsValid = currentState => {
   return validCaseStates.includes(currentState);
 };

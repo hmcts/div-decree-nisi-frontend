@@ -135,12 +135,6 @@ class PetitionProgressBar extends Interstitial {
       template = permitDNReasonMap.get(this.dnReason);
     } else if (constants.awaitingPronouncement.includes(this.caseState)) {
       template = awaitingPronouncementMap.get(this.doesHearingDateExists);
-    } else if (parseBool(config.features.release520)) {
-      caseStateMap520.forEach(dataMap => {
-        if (dataMap.state.includes(this.caseState)) {
-          template = dataMap.template;
-        }
-      });
     } else {
       caseStateMap.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
