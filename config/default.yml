@@ -141,6 +141,7 @@ document:
   documentNamePath: 'fileName'
   filesWhiteList:
   - 'd8petition'
+  - 'respondentAnswers'
 
 ccd:
   d8States:
