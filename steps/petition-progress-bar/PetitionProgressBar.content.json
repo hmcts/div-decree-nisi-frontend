@@ -36,6 +36,7 @@
     "downloadDocuments" : "Download your documents",
     "files": {
       "dpetition": "Divorce application"
-    }
+    },
+    "downloadAndSaveYourDocuments" : "Download and save all the documents for this application before you continue. If you do amend your application, you won’t be able to access any of these documents online anymore."
   }
 }
