@@ -13,9 +13,9 @@
         "monthLabel": "Month",
         "yearLabel": "Year",
         "allRequired": "Enter a date between the day you got married and the day you submitted your divorce application.",
-        "dayRequired": "Enter the day that you found out about the adultery",
-        "monthRequired": "Enter the month that you found out about the adultery",
-        "yearRequired": "Enter the year that you found out about the adultery"
+        "dayRequired": "Enter a valid day that you first found out about the adultery",
+        "monthRequired": "Enter a valid month that you first found out about the adultery",
+        "yearRequired": "Enter a valid year that you first found out about the adultery"
       }
     }
   }
