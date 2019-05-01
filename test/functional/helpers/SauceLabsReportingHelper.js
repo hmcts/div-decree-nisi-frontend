@@ -1,20 +1,21 @@
-/* eslint-disable no-process-env, func-names */
+/* eslint-disable no-process-env, no-console, prefer-template */
 
 const event = require('codeceptjs').event;
 const container = require('codeceptjs').container;
 const exec = require('child_process').exec;
 const config = require('config');
 
-const user = process.env.SAUCE_USERNAME || config.services.saucelabs.username;
-const key = process.env.SAUCE_ACCESS_KEY || config.services.saucelabs.key;
+const sauceUsername = process.env.SAUCE_USERNAME || config.saucelabs.username;
+const sauceKey = process.env.SAUCE_ACCESS_KEY || config.saucelabs.key;
 
 
 function updateSauceLabsResult(result, sessionId) {
-  const parameters = `-X PUT -s -d '{"passed": ${result}}' -u ${user}:${key}`;
-  const url = `https://saucelabs.com/rest/v1/${user}/jobs/${sessionId}`;
-  return `curl ${parameters} ${url}`;
+  console.log('SauceOnDemandSessionID=' + sessionId + ' job-name=div-decree-nisi-frontend');
+  // eslint-disable-next-line max-len
+  return 'curl -X PUT -s -d \'{"passed": ' + result + '}\' -u ' + sauceUsername + ':' + sauceKey + ' https://eu-central-1.saucelabs.com/rest/v1/' + sauceUsername + '/jobs/' + sessionId;
 }
 
+// eslint-disable-next-line
 module.exports = function() {
   // Setting test success on SauceLabs
   event.dispatcher.on(event.test.passed, () => {

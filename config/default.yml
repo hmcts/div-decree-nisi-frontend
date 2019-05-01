@@ -36,12 +36,7 @@ services:
     loginUrl: https://localhost:3000/idam-mock-login
     clientId: 'divorce'
     proxy:
-  saucelabs:
-    browser: 'chrome'
-    username: 'username'
-    key: 'privatekey'
-    tunnelId: ''
-    waitForTimeout: 30000
+
   googleAnalytics:
     id: TBD
     trackingUrl: https://localhost:3000/
@@ -119,6 +114,7 @@ tests:
     outputDir: ../../functional-output
     proxy: http://proxyout.reform.hmcts.net:8080
     proxyByPass: '*beta*LB.reform.hmcts.net'
+    verifyDonePageOnCrossbrowser: false
     idam:
       idamTestUsername:
       idamTestPassword:
@@ -147,3 +143,13 @@ ccd:
     - 'AmendPetition'
   courts:
     - 'serviceCentre'
+
+saucelabs:
+  browser: 'chrome'
+  username: 'username'
+  key: 'privatekey'
+  tunnelId: 'reformtunnel'
+  waitForTimeout: 60000
+  smartWait: 45000
+
+
