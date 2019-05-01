@@ -24,7 +24,7 @@
     "test:functional": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/functional/codecept.conf.js --steps --invert",
     "test:functional:remote": "NODE_PATH=. POINT_TO_REMOTE=true LOG_LEVEL=OFF codeceptjs run -c test/functional/codecept.conf.js --steps --invert",
     "test:crossbrowser": "./bin/run-crossbrowser-tests.sh",
-    "test-crossbrowser-e2e": "NODE_PATH=. POINT_TO_REMOTE=true LOG_LEVEL=ERROR node_modules/.bin/codeceptjs run-multiple  ${BROWSER_GROUP:-'--all'} -c test/functional/saucelabs.conf.js --steps --reporter mochawesome",
+    "test-crossbrowser-e2e": "NODE_PATH=. NODE_ENV=ci  LOG_LEVEL=ERROR node_modules/.bin/codeceptjs run-multiple  ${BROWSER_GROUP:-'--all'} -c test/functional/saucelabs.conf.js --steps --reporter mochawesome",
     "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --exit test/w3cjs",
     "lint": "eslint ."
   },
