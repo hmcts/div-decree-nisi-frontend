@@ -338,6 +338,17 @@
         "status": null
       },
       {
+        "id": "respondent-answers",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "respondentAnswers.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/respondent-answers",
+        "mimeType": null,
+        "status": null
+      },
+      {
         "id": "co-respondent-answers",
         "createdBy": 0,
         "createdOn": null,
