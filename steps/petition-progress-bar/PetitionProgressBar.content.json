@@ -35,7 +35,8 @@
     "DivorceApplication": "Divorce application",
     "downloadDocuments" : "Download your documents",
     "files": {
-      "dpetition": "Divorce application"
+      "dpetition": "Divorce application",
+      "coRespondentAnswers": "Co-Respondent's answers"
     }
   }
 }
