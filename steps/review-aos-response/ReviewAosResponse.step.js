@@ -97,8 +97,8 @@ class ReviewAosResponse extends Question {
       return this.adultery && this.notExist(this.consts.respAdmitOrConsentToFact) && this.req.session.case.state === this.consts.AosCompleted;
     };
 
-    const ammendAplication = () => {
-      return this.sep2yr && this.doesNotConsent;
+    const amendAplication = () => {
+      return this.sep2yr && this.doesNotConsent && this.req.session.case.state === constants.AosCompleted;
     };
 
     const reviewAosRespCoRespondent = () => {
@@ -107,7 +107,7 @@ class ReviewAosResponse extends Question {
 
     return branch(
       redirectTo(this.journey.steps.AmendApplication)
-        .if(ammendAplication),
+        .if(amendAplication),
       redirectTo(this.journey.steps.ReviewAosResponseFromCoRespondent)
         .if(reviewAosRespCoRespondent),
       redirectTo(this.journey.steps.RespNotAdmitAdultery)

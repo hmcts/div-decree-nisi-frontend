@@ -35,7 +35,8 @@ const permitDNReasonMap = new Map([
   ['0', './sections/undefended/PetitionProgressBar.undefended.template.html'],
   ['1', './sections/deemedService/PetitionProgressBar.deemedService.template.html'],
   ['2', './sections/dispensedWithService/PetitionProgressBar.dispensedWithService.template.html'],
-  ['3', './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html']
+  ['3', './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html'],
+  ['4', './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html']
 ]);
 
 module.exports = {
