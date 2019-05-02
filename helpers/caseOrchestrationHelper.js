@@ -35,11 +35,14 @@ const formatSessionForSubmit = req => {
       // retrieve the field we need
       const value = get(values, fieldPath);
 
+      // set a new key value pair based on mapping
+      const ccdKey = sessionToCosMapping[sessionFieldPath];
+
       // only map the value that has been answered
       if (value) {
-        // set a new key value pair based on mapping
-        const ccdKey = sessionToCosMapping[sessionFieldPath];
         requestBody[ccdKey] = value;
+      } else {
+        requestBody[ccdKey] = null;
       }
     }
 
