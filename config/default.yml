@@ -137,7 +137,7 @@ document:
   filesWhiteList:
   - 'd8petition'
   - 'respondentAnswers'
-  - 'coRespondentAnswers'
+  - 'co-respondent-answers'
 
 ccd:
   d8States:
