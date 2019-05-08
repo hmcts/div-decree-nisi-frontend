@@ -186,7 +186,7 @@ variable "evidence_management_client_api_upload_endpoint" {
 }
 
 variable "evidence_management_download_endpoint" {
-  default = "/documents"
+  default = "/emclientapi/version/1/download"
 }
 
 variable "case_orchestration_service_draft_endpoint" {
