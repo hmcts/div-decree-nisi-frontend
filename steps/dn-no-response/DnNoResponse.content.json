@@ -5,15 +5,15 @@
     "infoToContactRespondent": "If it's safe to do so, usually the simplest way to proceed is to contact your {{ case.divorceWho }} directly to find out why they haven't responded. They can still send in their response after the deadline has passed.",
     "provideNewAddrToCourt": "If you can't get in contact with your {{ case.divorceWho }}, you may want to consider asking their family, friends and workplace if they have a new address, and provide that to the court.",
     "noResponseOptions": "If there's still no response using the original address, you have the following options available to you, depending on your situation.",
-   
+
     "whichSituation": "Which situation applies to you?",
 
     "haveAnotherAddress": {
       "linkSummary": "I have another residential address or a solicitor's address for my {{ case.divorceWho }} (no fee)",
       "provideAddress": "Contact the Courts and Tribunals Service Centre to provide a different address for your {{ case.divorceWho }}. This can be a UK or international address.",
-      "noExtraPay": "You don't have to pay anything extra to have the application sent to a different address." 
+      "noExtraPay": "You don't have to pay anything extra to have the application sent to a different address."
     },
-  
+
     "sendToWorkAddress": {
       "linkSummary": "I need to send the application to a non-residential address, eg a work address (£{{ feeToResendApplication }})",
       "askToSendApp": "You can ask for the application to be sent to a non-residential address."
@@ -22,7 +22,7 @@
     "needToSearchRecords": {
       "linkSummary": "I need to search government records for my {{ case.divorceWho }}’s address (£{{ feeToResendApplication }})",
       "canApplyIfRespLivesInEngWales": "You can apply for a search of government databases (eg the electoral role) for your {{ case.divorceWho }}’s address. Your {{ case.divorceWho }} must live in England or Wales.",
-      "applyViaSearchRecords": "Contact the service centre and ask for the form to be sent to you."  
+      "applyViaSearchRecords": "Contact the service centre and ask for the form to be sent to you."
     },
 
     "sendEmailToResp": {
@@ -51,7 +51,7 @@
       "linkSummary": "I have evidence that my {{ case.divorceWho }} received the application, but can't or won't respond (£{{ feeToResendApplication }})",
       "canApplyForDeemedServ": "If you know your {{ case.divorceWho }} received the application, but can’t or won’t respond, you can apply to the court for a ‘deemed service’. This means that the court will decide that your {{ case.divorceWho }} has received the application, and that you can continue without their response.",
       "needToProve": "You need to be able to prove that your {{ case.divorceWho }} received the application (eg, you have a text message from {{ case.divorceWho }} saying they received it).",
-      "applyAndSendDocs": "Send the form and documents to the Courts and Tribunals Service Centre."  
+      "applyAndSendDocs": "Send the form and documents to the Courts and Tribunals Service Centre."
     },
 
     "doneWithAllWaysOfDelivering":{
@@ -82,7 +82,7 @@
     "email": "Email",
     "phone": "Phone",
     "phoneNumber" : "0300 303 0642",
-    "divorceEmail": "divorcecase@justice.gov.uk",
+    "divorceEmail": "contactdivorce@justice.gov.uk",
     "openTimes": "(Monday to Friday, 8.30am to 5pm)",
     "careOf":"c/o ",
     "guidence": "Guidance on GOV.UK",
