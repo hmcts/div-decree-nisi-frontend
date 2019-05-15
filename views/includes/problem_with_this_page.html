@@ -1,18 +1,10 @@
-<details>
-    <summary class="font-xsmall">
-        <span class="summary">{{ content.problemWithThisPage | safe }}</span>
+<details class="govuk-details">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text govuk-!-font-size-16">{{ content.problemWithThisPage | safe }}</span>
     </summary>
-    <div class="panel panel-border-narrow">
-        <p class="text">
-            {{ content.pleaseEmailOrCallDivorceCourt | safe }}
-        </p>
-
-        <p class="text">
-            {{ content.phoneToCallIfProblems | safe }}
-        </p>
-
-        <p class="text">
-            {{ content.emailIfProblems | safe }}
-        </p>
+    <div class="govuk-details__text">
+        <p class="govuk-body">{{ content.pleaseEmailOrCallDivorceCourt | safe }}</p>
+        <p class="govuk-body">{{ content.phoneToCallIfProblems | safe }}</p>
+        <p class="govuk-body">{{ content.emailIfProblems | safe }}</p>
     </div>
 </details>

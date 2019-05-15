@@ -21,29 +21,25 @@
 }}
 
 {% if respNotAdmitsToFact and reasonForDivorce == "adultery" %}
-      <h2 class="heading-medium">{{ content.respDoesNotAdmitAdulteryTitle }}</h2>
-      <p class="text">{{ content.respDoesNotAdmitAdulteryPar1 }}</p>
-      <p class="text">{{ content.respDoesNotAdmitAdulteryPar2 }}</p>
-      <p class="text">{{ content.respDoesNotAdmitAdulteryPar3 }}</p>
-    <div class="notice">
-        <em class="icon icon-important"></em>
-        <p class="bold-small">
-            {{ content.downloadAndSaveYourDocuments | safe}}
-        </p>
-    </div>
+    <h2 class="govuk-heading-m">{{ content.respDoesNotAdmitAdulteryTitle }}</h2>
+    <p class="govuk-body">{{ content.respDoesNotAdmitAdulteryPar1 }}</p>
+    <p class="govuk-body">{{ content.respDoesNotAdmitAdulteryPar2 }}</p>
+    <p class="govuk-body">{{ content.respDoesNotAdmitAdulteryPar3 }}</p>
+    {{ warningText({
+        text: content.downloadAndSaveYourDocuments,
+        iconFallbackText: content.warning
+    }) }}
 {% endif %}
 
 {% if respNotAdmitsToFact and reasonForDivorce == "separation-2-years" %}
-    <h2 class="heading-medium">{{ content.respDoesNotConsent2YearSepTitle }}</h2>
-    <p class="text">{{ content.respDoesNotConsent2YearSepYouMustHave }}</p>
-    <p class="text">{{ content.respDoesNotConsent2YearSepYouHaveToPay }}</p>
-    <p class="text">{{ content.respDoesNotConsent2YearSepReadResponse }}</p>
-    <div class="notice">
-        <em class="icon icon-important"></em>
-        <p class="bold-small">
-            {{ content.downloadAndSaveYourDocuments | safe}}
-        </p>
-    </div>
+    <h2 class="govuk-heading-m">{{ content.respDoesNotConsent2YearSepTitle }}</h2>
+    <p class="govuk-body">{{ content.respDoesNotConsent2YearSepYouMustHave }}</p>
+    <p class="govuk-body">{{ content.respDoesNotConsent2YearSepYouHaveToPay }}</p>
+    <p class="govuk-body">{{ content.respDoesNotConsent2YearSepReadResponse }}</p>
+    {{ warningText({
+        text: content.downloadAndSaveYourDocuments,
+        iconFallbackText: content.warning
+    }) }}
 {% endif %}
 
 <!--TODO
@@ -51,5 +47,5 @@
  -->
 
 <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-  <input class="button button-start" type="submit" value="{{ content.continue }}">
+  <input role="button" draggable="false" class="govuk-button govuk-button--start" type="submit" value="{{ content.continue }}">
 </form>

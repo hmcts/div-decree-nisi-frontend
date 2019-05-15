@@ -13,8 +13,8 @@
 } %}
 
 {% block statement_of_truth_content %}
-  {{ header(content.confirm, size='medium') }}
-  <p class="text">{{ content.imprisonedOrContempt }}</p>
+  {{ header(content.confirm, size='m') }}
+  <p class="govuk-body">{{ content.imprisonedOrContempt }}</p>
 {% endblock %}
 
 {% block statement_of_truth_fields %}
@@ -36,7 +36,7 @@
       }}
     {% endcall %}
 
-    <ul class="list-bullet">
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-5">
       {% if dnClaimCosts and dnClaimCosts != "endClaim" %}
         {% if case.claimsCostsFrom|length and "respondent" in case.claimsCostsFrom and "correspondent" in case.claimsCostsFrom  %}
           <li>{{ content.applyingForDecreeNisiClaimsCostsRespondentCoRespondent }}</li>
@@ -53,12 +53,12 @@
 
     <br>
 
-    <details>
-      <summary aria-controls="details-content-0" aria-expanded="false">
-        <span class="summary">{{ content.whatTheseStatments }}</span>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+        <span class="govuk-details__summary-text">{{ content.whatTheseStatments }}</span>
       </summary>
-      <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-        <p class="text">{{ content.firstStatment }}</p>
+      <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+        <p class="govuk-body">{{ content.firstStatment }}</p>
       </div>
     </details>
   </div>

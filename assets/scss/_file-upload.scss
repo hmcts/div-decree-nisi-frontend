@@ -19,7 +19,7 @@
   display: block;
 
   a {
-    @include media(desktop) {
+    @include govuk-media-query($from: desktop){
       padding-left: 60px;
     }
   }
@@ -29,10 +29,6 @@
   display: none;
 }
 
-.file-upload-button {
-  @include button ($grey-2);
-}
-
 // Fix unwanted button padding in Firefox
 .file-upload-button::-moz-focus-inner {
   border: 0;
@@ -40,7 +36,7 @@
 }
 
 .file-upload-button:focus {
-  outline: 3px solid $focus-colour;
+  outline: 3px solid $govuk-focus-colour;
 }
 
 .document-upload .fallback{
@@ -62,7 +58,7 @@
   border-color: #ffbf47;
 }
 
-.document-upload .dropzone-container .column-one-third{
+.document-upload .dropzone-container .govuk-grid-column-one-third{
   text-align: center;
 }
 
@@ -91,6 +87,7 @@
 .dropzone-container .dz-message .dz-message-copy {
   text-align: center;
   margin-bottom: 20px;
+  padding-top: 20px;
 }
 
 .dropzone-container .dz-message .dz-message-copy .faux-link {
@@ -109,12 +106,12 @@
   display: none;
 }
 
-.dz-error-message {
+.dz-govuk-error-message {
   margin-right: 15px;
 
   // Error messages should be red and bold
   span {
-    color: $error-colour;
+    color: $govuk-error-colour;
     font-weight: bold;
   }
 }
@@ -139,7 +136,7 @@
       }
     }
     &.error{
-      .error-message{
+      .govuk-error-message{
         word-break: normal;
       }
       .remove-file{
@@ -154,7 +151,7 @@
       display: none;
     }
 
-    .form-group-error{
+    .govuk-form-group--error{
       padding-left: 20px;
     }
 

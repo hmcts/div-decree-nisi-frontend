@@ -19,19 +19,16 @@
   })
 }}
 
-<h2 class="heading-medium">{{ content.rNRTitle }}</h2>
-<p class="text">{{ content.rNRSentApplication }}</p>
-<p class="text">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
-<p class="text">{{ content.rNRaskedToRespondBy }}</p>
-<p class="text">{{ content.rNRhearFromBothParties }}</p>
-<div class="panel panel-border-wide">
-  <p class="text">{{ content.rNRcanJustWait }}</p>
+<h2 class="govuk-heading-m">{{ content.rNRTitle }}</h2>
+<p class="govuk-body">{{ content.rNRSentApplication }}</p>
+<p class="govuk-body">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
+<p class="govuk-body">{{ content.rNRaskedToRespondBy }}</p>
+<p class="govuk-body">{{ content.rNRhearFromBothParties }}</p>
+<div class="govuk-inset-text">
+  <p class="govuk-body">{{ content.rNRcanJustWait }}</p>
 </div>
-<p class="text">{{ content.rNRvariousOptions }}</p>
-
-<br>
+<p class="govuk-body">{{ content.rNRvariousOptions }}</p>
 
 <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-
-<input class="button button-start" type="submit" value="{{ content.continue }}">
+  <input role="button" draggable="false" class="govuk-button govuk-button--start" type="submit" value="{{ content.continue }}">
 </form>

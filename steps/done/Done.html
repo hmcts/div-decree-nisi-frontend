@@ -1,23 +1,26 @@
 {% extends "page.njk" %}
+
 {% from "look-and-feel/components/progress-list.njk" import progressList %}
+
+{% from "panel/macro.njk" import govukPanel %}
 
 {% block back %}{% endblock %}
 {% block title %}{% endblock %}
 
 {% block main_content %}
-  <div class="govuk-box-highlight">
 
-    <h1 class="bold-large">{{ content.applicationComplete }}</h1>
-    <p class="bold-small">{{ content.appliedForDecreeNisi }}</p>
+  {% set html %}
+    <p class="govuk-!-font-size-19 govuk-!-font-weight-bold govuk-!-font-weight-bold">{{ content.appliedForDecreeNisi }}</p>
 
-    <p class="text-reference">
-      {{ content.referenceNumber }}<br>
-      <strong class="text-reference-number">{{ case.caseReference | safe }}</strong>
-    </p>
+    {{ content.referenceNumber }}<br><strong>{{ case.caseReference | safe }}</strong>
+  {% endset %}
 
-  </div>
+  {{ govukPanel({
+    titleText: content.applicationComplete,
+    html: html
+  }) }}
 
-  <p class="text">{{ content.emailConfirmation | safe }}</p>
+  <p class="govuk-body">{{ content.emailConfirmation | safe }}</p>
 
   {{
     progressList({
@@ -41,27 +44,10 @@
 
   <br>
 
-  <p>{{ content.courtWillCheck }}</p>
-  <p>{{ content.decreeNisiGranted }}</p>
+  <p class="govuk-body">{{ content.courtWillCheck }}</p>
+  <p class="govuk-body">{{ content.decreeNisiGranted }}</p>
 {% endblock %}
 
 {% block one_third %}
-  <aside class="govuk-related-items" role="complementary">
-
-    <h3 class="heading-small">{{ content.help }}</h3>
-
-    {% include "includes/sideMenuCourtDetails.html" %}
-
-    <h3 class="heading-small" id="subsection-title">{{ content.guidence }}</h3>
-
-    <nav role="navigation" aria-labelledby="subsection-title">
-      <ul class="font-xsmall">
-        <li>{{ content.howRespondsLink | safe }}</li>
-        <li>{{ content.decreeNisiLink | safe }}</li>
-        <li>{{ content.decreeAbsoluteLink | safe }}</li>
-        <li>{{ content.childrenAndDivorceLink | safe }}</li>
-        <li>{{ content.moneyAndPropertyLinky | safe }}</li>
-     </ul>
-    </nav>
-  </aside>
+  {% include "includes/sideMenu.html" %}
 {% endblock %}

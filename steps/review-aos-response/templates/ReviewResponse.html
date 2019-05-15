@@ -7,28 +7,28 @@
 {% endset %}
 
 {% block fields %}
-  <p class="text">{{ content.youNeedToRead | safe }}</p>
+  <p class="govuk-body">{{ content.youNeedToRead | safe }}</p>
 
-  <h2 class="heading-medium">{{ content.acknowledgementOfSrvice }}</h2>
+  <h2 class="govuk-heading-m">{{ content.acknowledgementOfSrvice }}</h2>
 
-  <h3 class="heading-small">{{ content.respondent }}</h3>
-  <p class="text">{{ case.respondentFirstName | safe }} {{ case.respondentLastName | safe }}</p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.respondent }}</h3>
+  <p class="govuk-body">{{ case.respondentFirstName | safe }} {{ case.respondentLastName | safe }}</p>
 
   {% if case.reasonForDivorceAdulteryWishToName == "Yes" %}
-    <h3 class="heading-small">{{ content.corespondent }}</h3>
-    <p class="text">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.corespondent }}</h3>
+    <p class="govuk-body">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
   {% endif %}
 
-  <h3 class="heading-small">{{ content.applicant }}</h3>
-  <p class="text">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.applicant }}</h3>
+  <p class="govuk-body">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
 
   {% include "./howRespondentProceed.html" %}
   {% include "./jurisdiction.html" %}
   {% include "./costOrder.html" %}
 
-  <h3 class="heading-small">{{ content.statementOfTruth.title }}</h3>
-  <p class="text">{{ content.statementOfTruth.details }}</p>
-  <p class="text"><em>{{ case.respondentFirstName }} {{ case.respondentLastName }}</em></p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.statementOfTruth.title }}</h3>
+  <p class="govuk-body">{{ content.statementOfTruth.details }}</p>
+  <p class="govuk-body"><em>{{ case.respondentFirstName }} {{ case.respondentLastName }}</em></p>
 
   {{ hiddenInput(fields.reviewAosResponse, value='yes') }}
 {% endblock %}

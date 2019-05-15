@@ -9,62 +9,62 @@
 
 {% block fields %}
   {% if case.coRespondentAnswers.admitAdultery %}
-    <p class="text">{{ content.youNeedToRead }}</p>
+    <p class="govuk-body">{{ content.youNeedToRead }}</p>
   {% else %}
-    <p class="text">{{ content.corespondentDidNotRespond }}</p>
+    <p class="govuk-body">{{ content.corespondentDidNotRespond }}</p>
   {% endif %}
 
-  <h2 class="heading-medium">{{ content.acknowledgementOfSrvice }}</h2>
+  <h2 class="govuk-heading-m">{{ content.acknowledgementOfSrvice }}</h2>
 
-  <h3 class="heading-small">{{ content.applicant }}</h3>
-  <p class="text">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.applicant }}</h3>
+  <p class="govuk-body">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
 
-  <h3 class="heading-small">{{ content.respondent }}</h3>
-  <p class="text">{{ case.respondentFirstName }} {{ case.respondentLastName }}</p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.respondent }}</h3>
+  <p class="govuk-body">{{ case.respondentFirstName }} {{ case.respondentLastName }}</p>
 
-  <h3 class="heading-small">{{ content.corespondent }}</h3>
-  <p class="text">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.corespondent }}</h3>
+  <p class="govuk-body">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
 
   {% if case.coRespondentAnswers.admitAdultery %}
-    <h3 class="heading-small">{{ content.theCoRespondentResponseToAdultery }}</h3>
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.theCoRespondentResponseToAdultery }}</h3>
     {% if case.coRespondentAnswers.admitAdultery == "Yes" %}
-      <p class="text">{{ content.theCoRespondentResponseToAdulteryYes }}</p>
+      <p class="govuk-body">{{ content.theCoRespondentResponseToAdulteryYes }}</p>
     {% else %}
-      <p class="text">{{ content.theCoRespondentResponseToAdulteryNo }}</p>
+      <p class="govuk-body">{{ content.theCoRespondentResponseToAdulteryNo }}</p>
     {% endif %}
   {% endif %}
 
   {% if case.coRespondentAnswers.defendsDivorce %}
-    <h3 class="heading-small">{{ content.theCoRespondentDefendsTheDivorce }}</h3>
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.theCoRespondentDefendsTheDivorce }}</h3>
     {% if case.coRespondentAnswers.defendsDivorce == "Yes" %}
-      <p class="text">{{ content.theCoRespondentDefendsTheDivorceYes }}</p>
+      <p class="govuk-body">{{ content.theCoRespondentDefendsTheDivorceYes }}</p>
     {% else %}
-      <p class="text">{{ content.theCoRespondentDefendsTheDivorceNo }}</p>
+      <p class="govuk-body">{{ content.theCoRespondentDefendsTheDivorceNo }}</p>
     {% endif %}
   {% endif %}
 
   {% if case.coRespondentAnswers.costs.agreeToCosts %}
-    <h3 class="heading-small">{{ content.theCoRespondentAgreeToPayCosts }}</h3>
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.theCoRespondentAgreeToPayCosts }}</h3>
     {% if case.coRespondentAnswers.costs.agreeToCosts == "Yes" %}
-      <p class="text">{{ content.theCoRespondentAgreeToPayCostsYes }}</p>
+      <p class="govuk-body">{{ content.theCoRespondentAgreeToPayCostsYes }}</p>
     {% else %}
-      <p class="text">{{ content.theCoRespondentAgreeToPayCostsNo }}</p>
-      <p class="text">{{ case.coRespondentAnswers.costs.reason | nl2br | safe }}</p>
+      <p class="govuk-body">{{ content.theCoRespondentAgreeToPayCostsNo }}</p>
+      <p class="govuk-body">{{ case.coRespondentAnswers.costs.reason | nl2br | safe }}</p>
     {% endif %}
   {% endif %}
-  <details>
-    <summary aria-controls="details-content-0" aria-expanded="false">
-      <span class="summary">{{ content.whatThisMeans }}</span>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+      <span class="govuk-details__summary-text">{{ content.whatThisMeans }}</span>
     </summary>
-    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-      <p class="text">{{ content.theCoRespondentWasAsked }}</p>
-      <p class="text">{{ content.theCoRespondentGivenOptions }}</p>
-      <ul class="bullet list-bullet">
+    <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+      <p class="govuk-body">{{ content.theCoRespondentWasAsked }}</p>
+      <p class="govuk-body">{{ content.theCoRespondentGivenOptions }}</p>
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.theCoRespondentAgreeToPaySome }}</li>
         <li>{{ content.theCoRespondentNotAgreePay }}</li>
       </ul>
       <br>
-      <p class="text">{{ content.theCoRespondentGivenChanceToChanges }}</p>
+      <p class="govuk-body">{{ content.theCoRespondentGivenChanceToChanges }}</p>
     </div>
   </details>
   <br>

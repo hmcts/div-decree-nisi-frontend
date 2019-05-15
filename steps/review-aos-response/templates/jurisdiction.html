@@ -1,40 +1,40 @@
 
-  <h3 class="heading-small">{{ content.jurisdiction.title }}</h3>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.jurisdiction.title }}</h3>
 
   {% if exist(consts.respJurisdictionAgree) %}
-    <p class="text">{{ content.jurisdiction.respondentAgrees }}</p>
+    <p class="govuk-body">{{ content.jurisdiction.respondentAgrees }}</p>
   {% elif notExist(consts.respJurisdictionAgree) %}
-    <p class="text">{{ content.jurisdiction.respDoesNotAgree }}</p> 
-  
-    <p class="text">{{ content.jurisdiction.detailsGiven }}</p> 
-    <div class="panel panel-border-narrow">
-      <p class="text">"{{ case.respJurisdictionDisagreeReason | nl2br | safe }}"</p>
+    <p class="govuk-body">{{ content.jurisdiction.respDoesNotAgree }}</p>
+
+    <p class="govuk-body">{{ content.jurisdiction.detailsGiven }}</p>
+    <div class="govuk-details__text govuk-!-margin-bottom-4">
+      <p class="govuk-body">"{{ case.respJurisdictionDisagreeReason | nl2br | safe }}"</p>
     </div>
 
-    <p class="text">{{ content.jurisdiction.countryTheyResp }}</p> 
-    <div class="panel panel-border-narrow">
-      <p class="text">"{{ case.respJurisdictionRespCountryOfResidence | nl2br | safe }}"</p>
+    <p class="govuk-body">{{ content.jurisdiction.countryTheyResp }}</p>
+    <div class="govuk-details__text govuk-!-margin-bottom-4">
+      <p class="govuk-body">"{{ case.respJurisdictionRespCountryOfResidence | nl2br | safe }}"</p>
     </div>
   {% endif %}
 
-  <h3 class="heading-small">{{ content.jurisdiction.otherCourtDetails }}</h3>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.jurisdiction.otherCourtDetails }}</h3>
 
   {% if exist(consts.respLegalProceedingsExist) %}
-    <p class="text">{{ content.jurisdiction.otherProceedings }}</p> 
-    <p class="text">{{ content.jurisdiction.detailsGiven }}</p>
-    <div class="panel panel-border-narrow">
-      <p class="text">"{{ case.respLegalProceedingsDescription | nl2br | safe }}"</p>
+    <p class="govuk-body">{{ content.jurisdiction.otherProceedings }}</p>
+    <p class="govuk-body">{{ content.jurisdiction.detailsGiven }}</p>
+    <div class="govuk-details__text govuk-!-margin-bottom-4">
+      <p class="govuk-body">"{{ case.respLegalProceedingsDescription | nl2br | safe }}"</p>
     </div>
   {% elif notExist(consts.respLegalProceedingsExist) %}
-    <p class="text">{{ content.jurisdiction.noOtherProceedings }}</p>
+    <p class="govuk-body">{{ content.jurisdiction.noOtherProceedings }}</p>
   {% endif %}
 
-  <details>
-    <summary aria-controls="details-content-1" aria-expanded="false">
-      <span class="summary">{{ content.whatThisMeans }}</span>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary" aria-controls="details-content-1" aria-expanded="false">
+      <span class="govuk-details__summary-text">{{ content.whatThisMeans }}</span>
     </summary>
-    <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
-      <p class="text">{{ content.jurisdiction.respondentWasAsked }}</p>
-      <p class="text">{{ content.jurisdiction.courtProceedings }}</p>
+    <div class="govuk-details__text" id="details-content-1" aria-hidden="true">
+      <p class="govuk-body">{{ content.jurisdiction.respondentWasAsked }}</p>
+      <p class="govuk-body">{{ content.jurisdiction.courtProceedings }}</p>
     </div>
   </details>
