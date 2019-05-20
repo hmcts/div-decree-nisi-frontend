@@ -106,13 +106,16 @@ describe('Adultery DN flow', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         hasBeenChanges: 'no',
+        changesDetails: null,
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        costsDifferentDetails: null,
         uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         intolerable: 'yes',
         adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
-        livedApartSinceAdultery: 'yes'
+        livedApartSinceAdultery: 'yes',
+        datesLivedTogether: null
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -156,8 +159,10 @@ describe('Adultery DN flow', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         hasBeenChanges: 'no',
+        changesDetails: null,
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        costsDifferentDetails: null,
         uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         intolerable: 'yes',
@@ -267,13 +272,16 @@ describe('Respondent Admitted Adultery : no', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         hasBeenChanges: 'no',
+        changesDetails: null,
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        costsDifferentDetails: null,
         uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         intolerable: 'yes',
         adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
-        livedApartSinceAdultery: 'yes'
+        livedApartSinceAdultery: 'yes',
+        datesLivedTogether: null
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -329,7 +337,6 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
       { step: ReviewAosResponseFromCoRespondent, body: { reviewAosCRResponse: 'yes' } },
       { step: respNotAdmitAdultery, body: { amendPetition: 'no' } },
       { step: ApplyForDecreeNisi }
-
     ]);
   });
 });

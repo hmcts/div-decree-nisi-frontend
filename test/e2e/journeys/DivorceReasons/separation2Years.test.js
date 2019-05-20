@@ -85,12 +85,15 @@ describe('separation 2 years', () => {
     it('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
-        claimCosts: 'originalAmount',
-        livedApartSinceSeparation: 'yes',
         hasBeenChanges: 'no',
-        statementOfTruth: 'yes',
+        changesDetails: null,
         statementOfTruthChanges: 'yes',
-        uploadAnyOtherDocuments: 'no'
+        claimCosts: 'originalAmount',
+        costsDifferentDetails: null,
+        uploadAnyOtherDocuments: 'no',
+        statementOfTruth: 'yes',
+        livedApartSinceSeparation: 'yes',
+        approximateDatesOfLivingTogetherField: null
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
@@ -125,13 +128,15 @@ describe('separation 2 years', () => {
     it('submits correct body to case orchestration service', () => {
       const body = {
         applyForDecreeNisi: 'yes',
-        approximateDatesOfLivingTogetherField: 'details...',
-        claimCosts: 'originalAmount',
-        livedApartSinceSeparation: 'no',
         hasBeenChanges: 'no',
-        statementOfTruth: 'yes',
+        changesDetails: null,
         statementOfTruthChanges: 'yes',
-        uploadAnyOtherDocuments: 'no'
+        claimCosts: 'originalAmount',
+        costsDifferentDetails: null,
+        uploadAnyOtherDocuments: 'no',
+        statementOfTruth: 'yes',
+        livedApartSinceSeparation: 'no',
+        approximateDatesOfLivingTogetherField: 'details...'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
