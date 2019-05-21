@@ -164,8 +164,21 @@
         });
         this.$fileList.on('click', '.hide-file', function(e) {
           e.preventDefault();
-          var $file = jQuery(this).parents('.file');
-          self.removeFileFromList($file);
+          var $file = $(this).parents('.file');
+          var fileUrl = $(this).data('fileurl');
+          $.ajax({
+            url: window.location + '?js=true&fileUrl=' + encodeURI(fileUrl) + '&_csrf=' + csrfToken,
+            type: 'DELETE',
+            success: function() {
+              self.removeFileFromList($file);
+              for(var i = 0; i < dropzone.files.length; i++){
+                if(dropzone.files[i].status === 'success'){
+                  dropzone.files.splice(i, 1);
+                  return;
+                }
+              }
+            }
+          });
         });
 
         jQuery(document).on('keydown', 'a.faux-link, .dz-clickable', function(e) {
