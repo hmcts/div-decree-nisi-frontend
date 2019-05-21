@@ -13,6 +13,10 @@ $ yarn install
 Then you can use the following commands in different terminal sessions:
 
 ```shell
+`docker-compose up`
+```
+
+```shell
 $ yarn mocks
 ```
 
@@ -22,7 +26,7 @@ $ yarn dev
 
 The application will now be running on ```https://localhost:3000```.
 
-Locally this will also create a new URL of ```"/session"``` where you can view and edit the current session
+Locally this will also create a new endpoint ```"/session"``` where you can view and edit the current session
 (Note: each time you login/logout of IDAM the session will be reset)
 
 #### Test application

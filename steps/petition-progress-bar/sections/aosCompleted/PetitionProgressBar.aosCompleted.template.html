@@ -25,6 +25,12 @@
       <p class="text">{{ content.respDoesNotAdmitAdulteryPar1 }}</p>
       <p class="text">{{ content.respDoesNotAdmitAdulteryPar2 }}</p>
       <p class="text">{{ content.respDoesNotAdmitAdulteryPar3 }}</p>
+    <div class="notice">
+        <em class="icon icon-important"></em>
+        <p class="bold-small">
+            {{ content.downloadAndSaveYourDocuments | safe}}
+        </p>
+    </div>
 {% endif %}
 
 {% if respNotAdmitsToFact and reasonForDivorce == "separation-2-years" %}
@@ -32,6 +38,12 @@
     <p class="text">{{ content.respDoesNotConsent2YearSepYouMustHave }}</p>
     <p class="text">{{ content.respDoesNotConsent2YearSepYouHaveToPay }}</p>
     <p class="text">{{ content.respDoesNotConsent2YearSepReadResponse }}</p>
+    <div class="notice">
+        <em class="icon icon-important"></em>
+        <p class="bold-small">
+            {{ content.downloadAndSaveYourDocuments | safe}}
+        </p>
+    </div>
 {% endif %}
 
 <!--TODO
