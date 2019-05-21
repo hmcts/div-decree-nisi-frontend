@@ -6,13 +6,9 @@ Feature('Integration Tests');
 
 Scenario('Happy Path', async I => {
   await I.createAUser();
-
   await I.createDnCaseForUser(basicDivorceSession);
-
   I.amOnLoadedPage('/');
-
   await I.testIdamPage();
-
   I.testProgressBar();
 
   I.testApplyForDecreeNisiPage();
@@ -27,6 +23,9 @@ Scenario('Happy Path', async I => {
 
   I.testCheckYourAnswersPage();
   I.navByClick(CheckYourAnswersContent.en.submit);
-
-  I.amOnLoadedPage(config.paths.done);
+  if (config.tests.functional.verifyDonePageOnCrossbrowser) {
+    I.waitForText('LV18D81234');
+  } else {
+    I.amOnLoadedPage(config.paths.done);
+  }
 }).retry(3);

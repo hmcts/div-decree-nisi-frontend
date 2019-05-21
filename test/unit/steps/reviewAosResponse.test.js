@@ -544,6 +544,7 @@ describe(modulePath, () => {
         const fields = { reviewAosResponse: 'yes' };
         const session = {
           case: {
+            state: 'AosCompleted',
             data: {
               reasonForDivorce: 'separation-2-years',
               respAdmitOrConsentToFact: 'No'
@@ -551,6 +552,20 @@ describe(modulePath, () => {
           }
         };
         return question.redirectWithField(ReviewAosResponse, fields, AmendApplication, session);
+      });
+
+      it('redirects to ApplyForDecreeNisi page - state is not matching with AOS completed', () => {
+        const fields = { reviewAosResponse: 'yes' };
+        const session = {
+          case: {
+            state: 'AwaitingDecreeNisi',
+            data: {
+              reasonForDivorce: 'separation-2-years',
+              respAdmitOrConsentToFact: 'No'
+            }
+          }
+        };
+        return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
       });
     });
   });

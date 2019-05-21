@@ -374,6 +374,29 @@ describe(modulePath, () => {
     });
   });
 
+  describe('CCD state: DNawaiting, DNReason : 4 ', () => {
+    const session = {
+      case: {
+        state: 'AwaitingDecreeNisi',
+        data: {
+          permittedDecreeNisiReason: '4'
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.defendedWithoutAnswer);
+      const specificContentToNotExist = contentToNotExist('defendedWithoutAnswer');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.defendedWithoutAnswer);
+    });
+  });
+
   describe('CCD state: AosSubmittedAwaitingAnswer', () => {
     const session = {
       case: {

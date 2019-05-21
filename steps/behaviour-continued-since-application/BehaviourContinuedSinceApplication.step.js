@@ -33,7 +33,7 @@ class BehaviourContinuedSinceApplication extends Question {
       const marriageDate = moment(this.case.marriageDate).format('YYYY-MM-DD');
 
       const hasGivenDate = this.fields.changes.lastIncidentDate.day.value && this.fields.changes.lastIncidentDate.month.value && this.fields.changes.lastIncidentDate.year.value
-       && lastIncidentDate.isValid() && lastIncidentDate.isBetween(marriageDate, moment.now(), null, []); // eslint-disable-line
+       && lastIncidentDate.isBetween(marriageDate, moment.now(), null, []); // eslint-disable-line
       return hasAnsweredYes || (hasAnsweredNo && hasGivenDate);
     };
 

@@ -8,9 +8,8 @@ class UrlHelper extends codecept_helper { // eslint-disable-line
     if (helperIsPuppeteer) {
       fullUrl = await helper.page.url();
     } else {
-      fullUrl = await helper.browser.page.url();
+      fullUrl = await helper.browser.getUrl();
     }
-
     return url.parse(fullUrl).pathname;
   }
 }

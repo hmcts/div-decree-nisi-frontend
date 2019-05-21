@@ -97,11 +97,14 @@ describe('Unreasonable behaviour', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         hasBeenChanges: 'no',
+        changesDetails: null,
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        costsDifferentDetails: null,
         uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
-        behaviourContinuedSinceApplication: 'yes'
+        behaviourContinuedSinceApplication: 'yes',
+        lastIncidentDate: null
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,
@@ -145,13 +148,16 @@ describe('Unreasonable behaviour', () => {
       const body = {
         applyForDecreeNisi: 'yes',
         hasBeenChanges: 'no',
+        changesDetails: null,
         statementOfTruthChanges: 'yes',
         claimCosts: 'originalAmount',
+        costsDifferentDetails: null,
         uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
         behaviourContinuedSinceApplication: 'no',
         lastIncidentDate: moment('2018-08-20T00:00:00.000'),
-        livedApartSinceLastIncidentDate: 'yes'
+        livedApartSinceLastIncidentDate: 'yes',
+        approximateDatesOfLivingTogetherField: null
       };
       sinon.assert.calledWith(
         caseOrchestrationServiceSubmitStub,

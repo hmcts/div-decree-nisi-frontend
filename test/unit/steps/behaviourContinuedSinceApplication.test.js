@@ -41,7 +41,7 @@ describe(modulePath, () => {
   it('shows error if answered no and no date entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
     const fields = { 'changes.behaviourContinuedSinceApplication': 'no',
-      'changes.lastIncidentDate-day': '' };
+      'changes.lastIncidentDate.day': '' };
     const session = {
       case: {
         data: {}
@@ -53,9 +53,9 @@ describe(modulePath, () => {
   it('shows error if answered no and a date before marriage date is entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
     const fields = { 'changes.behaviourContinuedSinceApplication': 'no',
-      'changes.lastIncidentDate-day': '20',
-      'changes.lastIncidentDate-month': '03',
-      'changes.lastIncidentDate-year': '2016' };
+      'changes.lastIncidentDate.day': '20',
+      'changes.lastIncidentDate.month': '03',
+      'changes.lastIncidentDate.year': '2016' };
     const session = {
       case: {
         data: {
@@ -69,9 +69,9 @@ describe(modulePath, () => {
   it('shows error if answered no and a date in future is entered', () => {
     const onlyErrors = ['requireLastIncidentDate'];
     const fields = { 'changes.behaviourContinuedSinceApplication': 'no',
-      'changes.lastIncidentDate-day': '20',
-      'changes.lastIncidentDate-month': '03',
-      'changes.lastIncidentDate-year': '2200' };
+      'changes.lastIncidentDate.day': '20',
+      'changes.lastIncidentDate.month': '03',
+      'changes.lastIncidentDate.year': '2200' };
     const session = {
       case: {
         data: { }

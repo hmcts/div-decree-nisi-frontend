@@ -336,6 +336,17 @@
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f",
         "mimeType": null,
         "status": null
+      },
+      {
+        "id": "respondent-answers",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "respondentAnswers.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/respondent-answers",
+        "mimeType": null,
+        "status": null
       }
     ],
     "hearingDate": [

@@ -34,9 +34,10 @@
     "moneyAndPropertyLinky": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>",
     "DivorceApplication": "Divorce application",
     "downloadDocuments" : "Download your documents",
+    "downloadAndSaveYourDocuments" : "Download and save all the documents for this application before you continue. If you do amend your application, you won’t be able to access any of these documents online anymore.",
     "files": {
-      "dpetition": "Divorce application"
-    },
-    "downloadAndSaveYourDocuments" : "Download and save all the documents for this application before you continue. If you do amend your application, you won’t be able to access any of these documents online anymore."
+      "dpetition": "Divorce application",
+      "respondentAnswers": "Respondent's answers"
+    }
   }
 }

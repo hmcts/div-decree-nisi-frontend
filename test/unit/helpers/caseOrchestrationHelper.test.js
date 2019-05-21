@@ -60,19 +60,21 @@ describe(moduleName, () => {
         'Step.date': 'date',
         'Step.text': 'text',
         'Step.unAnsweredField': 'unAnsweredField',
-        'OtherStep.shouldNotApear': 'shouldNotApear'
+        'OtherStep.unAnsweredStepField': 'unAnsweredStepField'
       };
       caseOrchestrationHelperRewired.__set__('sessionToCosMapping', map);
 
       body = caseOrchestrationHelperRewired.formatSessionForSubmit(req);
     });
 
-    it('should only include answered fields', () => {
-      expect(body).to.not.have.property('unAnsweredField');
+    it('unAnsweredFields should be set to null', () => {
+      expect(body).to.have.property('unAnsweredField');
+      expect(body.unAnsweredField).to.eql(null);
     });
 
-    it('should not include unanswered steps', () => {
-      expect(body).to.not.have.property('shouldNotApear');
+    it('unanswered steps fields should be set to null', () => {
+      expect(body).to.have.property('unAnsweredStepField');
+      expect(body.unAnsweredStepField).to.eql(null);
     });
 
     it('returns correct value for date', () => {
