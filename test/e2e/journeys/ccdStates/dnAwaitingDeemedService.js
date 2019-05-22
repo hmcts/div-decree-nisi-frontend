@@ -27,7 +27,7 @@ const session = {
 
 let caseOrchestrationServiceSubmitStub = {};
 
-describe('Case State : DNAwaiting, permittedDecreeNisiReason: 1', () => {
+describe('Case State : AwaitingDecreeNisi, permittedDecreeNisiReason: 1', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');

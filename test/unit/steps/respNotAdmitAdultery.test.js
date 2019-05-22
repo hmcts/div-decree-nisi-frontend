@@ -55,7 +55,7 @@ describe(modulePath, () => {
     it('renders the content', () => {
       const session = {
         case: {
-          state: 'DNAwaiting',
+          state: 'AwaitingDecreeNisi',
           data: {
             reasonForDivorce: 'adultery',
             respAdmitOrConsentToFact: 'Yes'

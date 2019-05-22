@@ -54,7 +54,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNAwaiting', () => {
+  describe('CCD state: AwaitingDecreeNisi', () => {
     it('renders the correct template', () => {
       const session = {
         case: {
