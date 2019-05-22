@@ -153,7 +153,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, DNReason : 0 ', () => {
+  describe('CCD state: AwaitingDecreeNisi, DNReason : 0 ', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -251,7 +251,7 @@ describe(modulePath, () => {
   });
 
 
-  describe('CCD state: DNawaiting, DNReason : 1 ', () => {
+  describe('CCD state: AwaitingDecreeNisi, DNReason : 1 ', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -303,7 +303,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, DNReason : 2 ', () => {
+  describe('CCD state: AwaitingDecreeNisi, DNReason : 2 ', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -355,7 +355,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, DNReason : 3 ', () => {
+  describe('CCD state: AwaitingDecreeNisi, DNReason : 3 ', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -378,7 +378,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, DNReason : 4 ', () => {
+  describe('CCD state: AwaitingDecreeNisi, DNReason : 4 ', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',

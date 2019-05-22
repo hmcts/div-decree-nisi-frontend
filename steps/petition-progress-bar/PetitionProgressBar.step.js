@@ -21,7 +21,7 @@ const constants = {
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
-  DNAwaiting: 'awaitingdecreenisi',
+  AwaitingDecreeNisi: 'awaitingdecreenisi',
   awaitingPronouncement: 'awaitingpronouncement',
   undefendedReason: '0',
   no: 'no',
@@ -129,7 +129,7 @@ class PetitionProgressBar extends Interstitial {
 
   get stateTemplate() {
     let template = '';
-    if (constants.DNAwaiting.includes(this.caseState)) {
+    if (constants.AwaitingDecreeNisi.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
     } else if (this.awaitingPronouncementWithHearingDate()) {
       template = awaitingPronouncementWithHearingDateTemplate;
