@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorClass, errorsFor %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButton, errorClass, errorsFor %}
 
 {% set title %}
   {{ content.title | safe }}
@@ -40,38 +40,59 @@
   </details>
 
   <br>
-
   {% call formSection() %}
-    {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
-      options = [
-        { label: content.fields.dnCosts.originalAmount, value: consts.originalAmount }
-      ]
-     ) }}
+  <fieldset>
+    <legend class="visuallyhidden">{{ content.title | safe}}</legend>
+
+    <div class="form-group {{ errorClass(fields.dnCosts.claimCosts) }}">
+      {{ errorsFor(fields.dnCosts.claimCosts) }}
+      {{
+        selectionButton(
+          field = fields.dnCosts.claimCosts,
+          option = { label: content.fields.dnCosts.originalAmount, value: consts.originalAmount },
+          type = 'radio'
+        )
+      }}
+    </div>
 
     {% if notExist(consts.respAgreeToCosts) %}
-      {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
-        options = [
-         { label: content.fields.dnCosts.differentAmount, value: consts.differentAmount, target: "specific-amount" }
-       ]
-      ) }}
-      <div id="specific-amount" class="js-hidden panel panel-border-narrow form-group {{ errorClass(fields.dnCosts.costsDifferentDetails) }}">
-        <label class="form-label-bold"
-              for="{{ fields.dnCosts.costsDifferentDetails.id }}">
-          {{ content.fields.dnCosts.costsDifferentDetails.title }}
-        </label>
-        {{ errorsFor(fields.dnCosts.costsDifferentDetails) }}
-        <textarea class="form-control"
-          id="{{ fields.dnCosts.costsDifferentDetails.id }}"
-          name="{{ fields.dnCosts.costsDifferentDetails.id }}"
-          rows="4">{% if fields.dnCosts.costsDifferentDetails.value %}{{ fields.dnCosts.costsDifferentDetails.value }}{% endif %}</textarea>
-      </div>
+    <div class="form-group {{ errorClass(fields.dnCosts.claimCosts) }}">
+      {{ errorsFor(fields.dnCosts.claimCosts) }}
+      {{
+        selectionButton(
+          field = fields.dnCosts.claimCosts,
+          option = {
+            label: content.fields.dnCosts.differentAmount,
+            value: consts.differentAmount, target: "specific-amount"
+          },
+          type = 'radio'
+        )
+      }}
+    </div>
+
+    <div id="specific-amount" class="js-hidden panel panel-border-narrow form-group {{ errorClass(fields.dnCosts.costsDifferentDetails) }}">
+      <label class="form-label-bold"
+            for="{{ fields.dnCosts.costsDifferentDetails.id }}">
+        {{ content.fields.dnCosts.costsDifferentDetails.title }}
+      </label>
+      {{ errorsFor(fields.dnCosts.costsDifferentDetails) }}
+      <textarea class="form-control"
+        id="{{ fields.dnCosts.costsDifferentDetails.id }}"
+        name="{{ fields.dnCosts.costsDifferentDetails.id }}"
+        rows="4">{% if fields.dnCosts.costsDifferentDetails.value %}{{ fields.dnCosts.costsDifferentDetails.value }}{% endif %}</textarea>
+    </div>
     {% endif %}
 
-      {{ selectionButtons(fields.dnCosts.claimCosts, content.fields.dnCosts.title,
-        options = [
-          { label: content.fields.dnCosts.endClaim, value: consts.endClaim }
-        ]
-      ) }}
-
+    <div class="form-group {{ errorClass(fields.dnCosts.claimCosts) }}">
+      {{ errorsFor(fields.dnCosts.claimCosts) }}
+      {{
+        selectionButton(
+          field = fields.dnCosts.claimCosts,
+          option ={ label: content.fields.dnCosts.endClaim, value: consts.endClaim },
+          type = 'radio'
+        )
+      }}
+    </div>
+  </fieldset>
   {% endcall %}
 {% endblock %}
