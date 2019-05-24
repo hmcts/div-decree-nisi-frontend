@@ -32,7 +32,7 @@
   "dependencies": {
     "@hmcts/div-document-express-handler": "^1.1.0",
     "@hmcts/div-idam-express-middleware": "^6.5.0",
-    "@hmcts/look-and-feel": "https://github.com/hmcts/look-and-feel.git#25e536405a0c6dd29c580f0dadb52d506c4e43a5",
+    "@hmcts/look-and-feel": "https://github.com/hmcts/look-and-feel.git#4de5f0b352967486522858ae7a237dbd1149a36f",
     "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/nodejs-healthcheck": "^1.5.1",
     "@hmcts/nodejs-logging": "^3.0.0",
@@ -68,7 +68,7 @@
     "@hmcts/div-idam-test-harness": "^1.5.0",
     "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#a459aaa16a92cb13e0dac35c32bf559ad79de6a6",
     "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
-    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#38b161c09083407a88c5ad646ab265d5033bde11",
+    "@hmcts/one-per-page-test-suite": "https://github.com/hmcts/one-per-page-test-suite.git#91442c7897ea80f3d512875cbe3773574b574775",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
