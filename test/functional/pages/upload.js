@@ -35,6 +35,17 @@ async function testUploadPage() {
   I.seeCurrentUrlEquals(CheckYourAnswers.path);
 }
 
+function uploadCorruptedFileAndRemovingSuccessfully(isDragAndDropSupported) {
+  const I = this;
+
+  I.seeCurrentUrlEquals('/petitioner-respondent/marriage-certificate-upload');
+  upload.call(I, '/assets/corruptedImage.bmp', isDragAndDropSupported);
+  I.waitForVisible('.file', 30);
+  I.waitForText('Hide', 30);
+  I.see('No files uploaded');
+  I.navByClick('Continue');
+}
+
 function uploadFile(isDragAndDropSupported) {
   const I = this;
 
@@ -55,4 +66,9 @@ function deleteAFile() {
   I.dontSee(UploadContent.en.remove);
 }
 
-module.exports = { testUploadPage, uploadFile, deleteAFile };
+module.exports = {
+  testUploadPage,
+  uploadFile,
+  deleteAFile,
+  uploadCorruptedFileAndRemovingSuccessfully
+};
