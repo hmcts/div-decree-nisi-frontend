@@ -12,7 +12,7 @@
 
     <p class="text-reference">
       {{ content.referenceNumber }}<br>
-      <strong class="text-reference-number">{{ case.caseReference | safe }}</strong>
+      <strong class="text-reference-number" aria-label="{{ case.caseReference | a11yCharSeparator | safe }}">{{ case.caseReference | safe }}</strong>
     </p>
 
   </div>
