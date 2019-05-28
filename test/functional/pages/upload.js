@@ -30,6 +30,9 @@ async function testUploadPage() {
 
   I.uploadFile(isDragAndDropSupported);
   I.deleteAFile();
+  I.uploadCorruptedFileAndRemovingSuccessfully(isDragAndDropSupported);
+
+
   I.navByClick(commonContent.en.continue);
 
   I.seeCurrentUrlEquals(CheckYourAnswers.path);
