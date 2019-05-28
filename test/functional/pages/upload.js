@@ -40,11 +40,11 @@ async function testUploadPage() {
 
 function uploadCorruptedFileAndRemovingSuccessfully(isDragAndDropSupported) {
   const I = this;
-
-  I.seeCurrentUrlEquals('/petitioner-respondent/marriage-certificate-upload');
+  I.say(`Drag and Drop supported: ${isDragAndDropSupported}`);
+  I.seeCurrentUrlEquals(Upload.path);
   upload.call(I, '/assets/corruptedImage.bmp', isDragAndDropSupported);
-  I.waitForVisible('.file', 30);
   I.waitForText('Hide', 30);
+  I.click('Hide');
   I.see('No files uploaded');
   I.navByClick('Continue');
 }
