@@ -45,7 +45,6 @@ function uploadCorruptedFileAndRemovingSuccessfully(isDragAndDropSupported) {
   upload.call(I, '/assets/corruptedImage.bmp', isDragAndDropSupported);
   I.waitForText('Hide', 30);
   I.click('Hide');
-  I.see('No files uploaded');
   I.navByClick('Continue');
 }
 
