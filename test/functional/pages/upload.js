@@ -45,7 +45,7 @@ function uploadCorruptedFileAndRemovingSuccessfully(isDragAndDropSupported) {
   upload.call(I, '/assets/corruptedImage.bmp', isDragAndDropSupported);
   I.waitForText('Hide', 30);
   I.click('Hide');
-  I.navByClick('Continue');
+  I.waitForVisible(`input[value="${commonContent.en.continue}"]:not([disabled])`);
 }
 
 function uploadFile(isDragAndDropSupported) {
