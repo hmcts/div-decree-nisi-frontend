@@ -1,6 +1,7 @@
 {
   "en": {
     "title": "Read your {{ case.divorceWho }}'s response",
+    "respSolicitorRepresented": "This response was submitted by the respondent's nominated solicitor.",
     "youNeedToRead": "You need to read your {{ case.divorceWho }}'s response before you continue. The response is legally known as the 'acknowledgement of service'",
    
     "acknowledgementOfSrvice": "Acknowledgement of service",

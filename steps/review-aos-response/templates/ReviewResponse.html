@@ -7,6 +7,9 @@
 {% endset %}
 
 {% block fields %}
+  {% if exist(consts.respSolicitorRepresented) %}
+    <h3 class="heading-small">{{ content.respSolicitorRepresented }}</h3>
+  {% endif %}
   <p class="text">{{ content.youNeedToRead | safe }}</p>
 
   <h2 class="heading-medium">{{ content.acknowledgementOfSrvice }}</h2>
