@@ -19,22 +19,22 @@
   })
 }}
 
-<h2 class="heading-medium">{{ content.dAATitle }}</h2>
+<h2 class="govuk-heading-m">{{ content.dAATitle }}</h2>
 {% if isCaseAmended %}
-  <p class="text">{{ content.dAAHasRespondendForAmendedCase }}</p>
+  <p class="govuk-body">{{ content.dAAHasRespondendForAmendedCase }}</p>
 {% else %}
-  <p class="text">{{ content.dAAHasRespondend }}</p>
+  <p class="govuk-body">{{ content.dAAHasRespondend }}</p>
 {% endif %}
 
-<h2 class="heading-medium">{{ content.dAAWhatHappensNext }}</h2>
-<p class="text">{{ content.dAA28Days }}</p>
-<p class="text">{{ content.dAAUsualyGoToCourt }}</p>
+<h2 class="govuk-heading-m">{{ content.dAAWhatHappensNext }}</h2>
+<p class="govuk-body">{{ content.dAA28Days }}</p>
+<p class="govuk-body">{{ content.dAAUsualyGoToCourt }}</p>
 
-<h2 class="heading-medium">{{ content.dAADoesntSubmitAnswer }}</h2>
-<p class="text">{{ content.dAADoesntReceiveAnswer }}</p>
-<p class="text">{{ content.dAASentandEmail }}</p>
-<p class="text">{{ content.dAAReadResp }}</p>
+<h2 class="govuk-heading-m">{{ content.dAADoesntSubmitAnswer }}</h2>
+<p class="govuk-body">{{ content.dAADoesntReceiveAnswer }}</p>
+<p class="govuk-body">{{ content.dAASentandEmail }}</p>
+<p class="govuk-body">{{ content.dAAReadResp }}</p>
 
  <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-   <input class="button button-start" type="submit" value="{{ content.continue }}">
+   <input role="button" draggable="false" class="govuk-button govuk-button--start" type="submit" value="{{ content.continue }}">
 </form>

@@ -1,20 +1,21 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorClass, errorsFor %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textarea, errorClass, errorsFor %}
+{% from "look-and-feel/components/warning-text.njk" import warningText %}
 
 {% set title %}
   {{ content.title | safe }}
 {% endset %}
 
 {% block fields %}
-  <p class="text">{{ content.applicationStillTrue | safe }}</p>
+  <p class="govuk-body">{{ content.applicationStillTrue | safe }}</p>
 
-  <h2 class="heading-medium">{{ content.applicationForDivorce }}</h2>
+  <h2 class="govuk-heading-m">{{ content.applicationForDivorce }}</h2>
   {% if case.previousCaseId %}
-    <h3 class="heading-small">{{ content.amendAppDetails }}</h3>
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.amendAppDetails }}</h3>
   {% endif %}
 
-  <p class="text">
+  <p class="govuk-body">
     {% if case.claimsCosts == "Yes" and case.financialOrderFor == "Yes" %}
       {% if case.claimsCostsFrom|length and "respondent" in case.claimsCostsFrom and "correspondent" in case.claimsCostsFrom  %}
         {{ content.costsPetitionerPayedByRespondentAndCorrispondent }}
@@ -38,37 +39,37 @@
     {% endif %}
   </p>
 
-  <h3 class="heading-small">{{ content.issued }}</h3>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.issued }}</h3>
   {% if case.previousCaseId %}
-    <p class="text">{{ case.previousIssueDate | date }}</p>
+    <p class="govuk-body">{{ case.previousIssueDate | date }}</p>
   {% else %}
-    <p class="text">{{ case.issueDate | date }}</p>
+    <p class="govuk-body">{{ case.issueDate | date }}</p>
   {% endif %}
 
-  <h3 class="heading-small">{{ content.caseNumber }}</h3>
-  <p class="text">{{ case.caseReference | safe }} </p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.caseNumber }}</h3>
+  <p class="govuk-body">{{ case.caseReference | safe }} </p>
 
-  <h3 class="heading-small">{{ content.applicant }}</h3>
-  <p class="text">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.applicant }}</h3>
+  <p class="govuk-body">{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</p>
 
-  <h3 class="heading-small">{{ content.respondent }}</h3>
-  <p class="text">{{ case.respondentFirstName }} {{ case.respondentLastName }}</p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.respondent }}</h3>
+  <p class="govuk-body">{{ case.respondentFirstName }} {{ case.respondentLastName }}</p>
 
   <!-- EOF Application for divorce -->
 
   <!-- CoRespondent -->
 
   {% if case.reasonForDivorce == "adultery" and case.reasonForDivorceAdulteryIsNamed == "Yes" %}
-    <h3 class="heading-small">{{ content.coRespondent }}</h3>
-    <p class="text">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.coRespondent }}</h3>
+    <p class="govuk-body">{{ case.reasonForDivorceAdultery3rdPartyFirstName }} {{ case.reasonForDivorceAdultery3rdPartyLastName }}</p>
   {% endif %}
 
-  <details>
-    <summary aria-controls="details-content-0" aria-expanded="false">
-      <span class="summary">{{ content.whatThisMeans }}</span>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+      <span class="govuk-details__summary-text">{{ content.whatThisMeans }}</span>
     </summary>
-    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-      <p class="text">{{ content.whatThisMeansApplicantRespondent }}</p>
+    <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+      <p class="govuk-body">{{ content.whatThisMeansApplicantRespondent }}</p>
     </div>
   </details>
 
@@ -77,23 +78,23 @@
 
   <!-- About the marriage  -->
 
-  <h2 class="heading-medium">{{ content.aboutTheMarriage }}</h2>
+  <h2 class="govuk-heading-m">{{ content.aboutTheMarriage }}</h2>
 
-  <h3 class="heading-small">{{ content.whoMarriageIsBetween }}</h3>
-  <p class="text">{{ content.marriageIsBetween }}</p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whoMarriageIsBetween }}</h3>
+  <p class="govuk-body">{{ content.marriageIsBetween }}</p>
 
-  <h3 class="heading-small">{{ content.whereMarriageTookPlace }}</h3>
-  <p class="text">{{ case.placeOfMarriage | safe }}</p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whereMarriageTookPlace }}</h3>
+  <p class="govuk-body">{{ case.placeOfMarriage | safe }}</p>
 
-  <h3 class="heading-small">{{ content.dateOfMarriage }}</h3>
-  <p class="text">{{ case.marriageDate | date }}</p>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.dateOfMarriage }}</h3>
+  <p class="govuk-body">{{ case.marriageDate | date }}</p>
 
-  <details>
-    <summary aria-controls="details-content-7" aria-expanded="false">
-      <span class="summary">{{ content.whatThisMeans }}</span>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary" aria-controls="details-content-7" aria-expanded="false">
+      <span class="govuk-details__summary-text">{{ content.whatThisMeans }}</span>
     </summary>
-    <div class="panel panel-border-narrow" id="details-content-7" aria-hidden="true">
-      <p class="text">{{ content.whatThisMeansDetailsCoppied }}</p>
+    <div class="govuk-details__text" id="details-content-7" aria-hidden="true">
+      <p class="govuk-body">{{ content.whatThisMeansDetailsCoppied }}</p>
     </div>
   </details>
 
@@ -102,10 +103,10 @@
 
   <!-- Jurisdiction -->
 
-  <h2 class="heading-medium">{{ content.jurisdiction }}</h2>
+  <h2 class="govuk-heading-m">{{ content.jurisdiction }}</h2>
 
   {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-    <ul class="list-bullet">
+    <ul class="govuk-list govuk-list--bullet">
   {% endif %}
 
     {% if "A" in case.connections and case.connections.A != null %}
@@ -198,55 +199,55 @@
 
   <br>
 
-  <h3 class="heading-small">{{ content.otherCourtCases }}</h3>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.otherCourtCases }}</h3>
 
   {% if case.legalProceedings == "No" %}
-    <p class="text">{{ content.onGoingCasesNo }}</p>
+    <p class="govuk-body">{{ content.onGoingCasesNo }}</p>
   {% else %}
-    <p class="text">{{ content.onGoingCasesYes }}</p>
-    <p class="text">"{{ case.legalProceedingsDetails | striptags(true) | escape | nl2br }}"</p>
+    <p class="govuk-body">{{ content.onGoingCasesYes }}</p>
+    <p class="govuk-body">"{{ case.legalProceedingsDetails | striptags(true) | escape | nl2br }}"</p>
   {% endif %}
 
-  <details>
-    <summary aria-controls="details-content-1" aria-expanded="false">
-      <span class="summary">{{ content.whatThisMeans }}</span>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary" aria-controls="details-content-1" aria-expanded="false">
+      <span class="govuk-details__summary-text">{{ content.whatThisMeans }}</span>
     </summary>
-    <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="true">
-      <p class="text">{{ content.whatThisMeansJurisdictionCourtsOfEnglandAndWales }}</p>
-      <p class="text">{{ content.whatThisMeansJurisdictionEachLegalStatment }}</p>
+    <div class="govuk-details__text" id="details-content-1" aria-hidden="true">
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionCourtsOfEnglandAndWales }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionEachLegalStatment }}</p>
 
-      <h3 class="heading-small">{{ content.whatThisMeansJurisdictionHabitualResidence }}</h3>
-      <p class="text">{{ content.whatThisMeansJurisdictionLivesAreMainlyBased }}</p>
-      <p class="text">{{ content.whatThisMeansJurisdictionIncludeWorking }}</p>
-      <p class="text">{{ content.whatThisMeansJurisdictionExamplesAbove }}</p>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansJurisdictionHabitualResidence }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionLivesAreMainlyBased }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionIncludeWorking }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionExamplesAbove }}</p>
 
-      <h3 class="heading-small">{{ content.whatThisMeansJurisdictionDomicile }}</h3>
-      <p class="text">{{ content.whatThisMeansJurisdictiondomicileIsUsually }}</p>
-      <p class="text">{{ content.whatThisMeansJurisdictionDomicileComplex }}</p>
-      <p class="text">{{ content.whatThisMeansJurisdictionWhenBorn | safe }}</p>
-      <ul class="bullet list-bullet">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansJurisdictionDomicile }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictiondomicileIsUsually }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionDomicileComplex }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionWhenBorn | safe }}</p>
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.whatThisMeansJurisdictionCountryYourFather }}</li>
         <li>{{ content.whatThisMeansJurisdictionCountryYourMother }}</li>
       </ul>
-      <p class="text">{{ content.whatThisMeansJurisdictionDomicileOfOrigin | safe }}</p>
-      <p class="text">{{ content.whatThisMeansJurisdictionNotSure }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionDomicileOfOrigin | safe }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionNotSure }}</p>
 
-      <h3 class="heading-small">{{ content.whatThisMeansJurisdictionResidualJurisdiction }}</h3>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansJurisdictionResidualJurisdiction }}</h3>
 
-      <p class="text">{{ content.whatThisMeansJurisdictionResidualJurisdiction1 }}</p>
-      <ul class="bullet list-bullet">
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionResidualJurisdiction1 }}</p>
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction2 }}</li>
         <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction3 }}</li>
       </ul>
-    <p class="text">{{ content.whatThisMeansJurisdictionResidualJurisdiction4 }}</p>
-      <ul class="bullet list-bullet">
+    <p class="govuk-body">{{ content.whatThisMeansJurisdictionResidualJurisdiction4 }}</p>
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction5 }}</li>
         <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction6 }}</li>
         <li>{{ content.whatThisMeansJurisdictionResidualJurisdiction7 }}</li>
       </ul>
 
-      <h3 class="heading-small">{{ content.whatThisMeansJurisdictionOtherCourtCases }}</h3>
-      <p class="text">{{ content.whatThisMeansJurisdictionCourtNeedsToKnow }}</p>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansJurisdictionOtherCourtCases }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansJurisdictionCourtNeedsToKnow }}</p>
     </div>
   </details>
 
@@ -257,12 +258,12 @@
 
   <!-- Reason for divorce -->
 
-  <h2 class="heading-medium">{{ content.reasonForDivorce }}</h2>
+  <h2 class="govuk-heading-m">{{ content.reasonForDivorce }}</h2>
 
   {% if case.reasonForDivorce == "adultery" %}
 
-    <p class="text">{{content.reasonForDivorceInfo}}</p>
-    <p class="text">
+    <p class="govuk-body">{{content.reasonForDivorceInfo}}</p>
+    <p class="govuk-body">
       {% if case.reasonForDivorceAdulteryIsNamed == "Yes" %}
         {{ content.reasonForDivorceAdulteryCorrespondentNamed }}
       {% else %}
@@ -270,33 +271,33 @@
       {% endif %}
     </p>
 
-    <p class="text">{{ content.reasonForDivorceStatement }}</p>
+    <p class="govuk-body">{{ content.reasonForDivorceStatement }}</p>
 
     {% if case.reasonForDivorceAdulteryKnowWhere == "Yes" %}
-      <p class="heading-small">{{ content.reasonForDivorceAdulteryWhere }}</p>
-      <p class="text">"{{ case.reasonForDivorceAdulteryWhereDetails | nl2br | safe }}"</p>
+      <p class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.reasonForDivorceAdulteryWhere }}</p>
+      <p class="govuk-body">"{{ case.reasonForDivorceAdulteryWhereDetails | nl2br | safe }}"</p>
     {% endif %}
 
     {% if case.reasonForDivorceAdulteryKnowWhen == "Yes" %}
-      <p class="heading-small">{{ content.reasonForDivorceAdulteryWhen }}</p>
-      <p class="text">"{{ case.reasonForDivorceAdulteryWhenDetails | nl2br | safe }}"</p>
+      <p class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.reasonForDivorceAdulteryWhen }}</p>
+      <p class="govuk-body">"{{ case.reasonForDivorceAdulteryWhenDetails | nl2br | safe }}"</p>
     {% endif %}
 
-    <h3 class="heading-small">{{ content.reasonForDivorceAdulteryDescription }}</h3>
-    <p class="text">"{{ case.reasonForDivorceAdulteryDetails | nl2br | safe }}"</p>
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.reasonForDivorceAdulteryDescription }}</h3>
+    <p class="govuk-body">"{{ case.reasonForDivorceAdulteryDetails | nl2br | safe }}"</p>
     {% if isAdulterySecondHandInfoProvided %}
-      <p class="text">{{ content.statementOfSecondHandInformationAboutAdultery }}</p>
-      <p class="text">"{{ case.reasonForDivorceAdulterySecondHandInfoDetails | nl2br | safe }}"</p>
+      <p class="govuk-body">{{ content.statementOfSecondHandInformationAboutAdultery }}</p>
+      <p class="govuk-body">"{{ case.reasonForDivorceAdulterySecondHandInfoDetails | nl2br | safe }}"</p>
     {% endif %}
   {% endif %}
 
 
   {% if case.reasonForDivorce == "unreasonable-behaviour" %}
-  <p class="text">{{ content.reasonForDivorceBehaviourBrokendDown }}</p>
-    <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
-    <p class="text">{{ content.reasonForDivorceUnreasonableBehaviourStatment }}</p>
-    <h3 class="heading-small">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
-    <p>"
+  <p class="govuk-body">{{ content.reasonForDivorceBehaviourBrokendDown }}</p>
+    <p class="govuk-body">{{ content.reasonForDivorceUnreasonableBehaviourBrokenDown }}</p>
+    <p class="govuk-body">{{ content.reasonForDivorceUnreasonableBehaviourStatment }}</p>
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.reasonForDivorceUnreasonableBehaviourDescription }}</h3>
+    <p class="govuk-body">"
       {% for behaviourDetail in case.reasonForDivorceBehaviourDetails %}
         {% if behaviourDetail | length > 0 and behaviourDetail !== '\r' %}
           {{ behaviourDetail | nl2br | safe }}
@@ -312,69 +313,69 @@
   {% endif %}
 
   {% if case.reasonForDivorce == "separation-2-years" %}
-    <p class="text">{{ content.reasonForDivorceSeperationTwoYearsBrokendDown }}
-    <p class="text">{{ content.reasonForDivorceSeperationTwoYears }}</p>
-    <ul class="list list-bullet">
+    <p class="govuk-body">{{ content.reasonForDivorceSeperationTwoYearsBrokendDown }}
+    <p class="govuk-body">{{ content.reasonForDivorceSeperationTwoYears }}</p>
+    <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.reasonForDivorceSeperationTwoYearsDecidedDate }}</li>
         <li>{{ content.reasonForDivorceSeperationTwoYearsLivingApartDate }}</li>
       </ul>
-    <p class="text">{{ content.mostRecentDateIsSeperation }}</p>
+    <p class="govuk-body">{{ content.mostRecentDateIsSeperation }}</p>
   {% endif %}
 
   {% if case.reasonForDivorce == "separation-5-years" %}
-    <p class="text">{{ content.reasonForDivorceSeperationFiveYearsBrokendDown }}
-    <p class="text">{{ content.reasonForDivorceSeperationFiveYearsInfo }}</p>
-      <ul class="list list-bullet">
+    <p class="govuk-body">{{ content.reasonForDivorceSeperationFiveYearsBrokendDown }}
+    <p class="govuk-body">{{ content.reasonForDivorceSeperationFiveYearsInfo }}</p>
+      <ul class="govuk-list govuk-list--bullet">
         <li>{{ content.reasonForDivorceSeperationFiveYears.decidedDate }}</li>
         <li>{{ content.reasonForDivorceSeperationFiveYears.livingApartDate }}</li>
       </ul>
-      <p class="text">{{ content.reasonForDivorceSeperationFiveYears.mostRecentDateConsidered }}</p>
+      <p class="govuk-body">{{ content.reasonForDivorceSeperationFiveYears.mostRecentDateConsidered }}</p>
   {% endif %}
 
   {% if case.reasonForDivorce == "desertion" %}
-    <p class="text">{{ content.reasonForDivorceDesertionBrokendDown }}</p>
-    <p class="text">{{ content.reasonForDivorceDesertionInfo }}</p>
-    <p class="text">{{ content.reasonForDivorceDesertion }}</p>
+    <p class="govuk-body">{{ content.reasonForDivorceDesertionBrokendDown }}</p>
+    <p class="govuk-body">{{ content.reasonForDivorceDesertionInfo }}</p>
+    <p class="govuk-body">{{ content.reasonForDivorceDesertion }}</p>
     {% if case.reasonForDivorceDesertionAgreed == "Yes" %}
-       <p class="text">{{ content.reasonForDivorceDesertionAgreed }}</p>
+       <p class="govuk-body">{{ content.reasonForDivorceDesertionAgreed }}</p>
     {% endif %}
-    <p class="text">{{ content.reasonForDivorceDesertionStatment }}</p>
-    <h3 class="heading-small">{{ content.reasonForDivorceDesertionDescription }}</h3>
-    <p class="text">"{{ case.reasonForDivorceDesertionDetails | nl2br | safe }}"</p>
+    <p class="govuk-body">{{ content.reasonForDivorceDesertionStatment }}</p>
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.reasonForDivorceDesertionDescription }}</h3>
+    <p class="govuk-body">"{{ case.reasonForDivorceDesertionDetails | nl2br | safe }}"</p>
   {% endif %}
 
-  <details>
-    <summary aria-controls="details-content-2" aria-expanded="false">
-      <span class="summary">{{ content.whatThisMeans }}</span>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary" aria-controls="details-content-2" aria-expanded="false">
+      <span class="govuk-details__summary-text">{{ content.whatThisMeans }}</span>
     </summary>
-    <div class="panel panel-border-narrow" id="details-content-2" aria-hidden="true">
-      <p class="text">{{ content.whatThisMeansReasonForDivorceLegalGround }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceChosenReason }}</p>
+    <div class="govuk-details__text" id="details-content-2" aria-hidden="true">
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceLegalGround }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceChosenReason }}</p>
 
-      <h3 class="heading-small">{{ content.whatThisMeansReasonForDivorceBehaviour }}</h3>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceBehaviourDescription1 }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceBehaviourDescription2 }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceBehaviourDescription3 }}</p>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceBehaviour }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceBehaviourDescription1 }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceBehaviourDescription2 }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceBehaviourDescription3 }}</p>
 
-      <h3 class="heading-small">{{ content.whatThisMeansReasonForDivorceAdultery }}</h3>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceAdulteryDescription1 }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceAdulteryDescription2 }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceAdulteryDescription3 }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceAdulteryDescription4 }}</p>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceAdultery }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceAdulteryDescription1 }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceAdulteryDescription2 }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceAdulteryDescription3 }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceAdulteryDescription4 }}</p>
 
-      <h3 class="heading-small">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYears }}</h3>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription1 }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription2 }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription3 }}</p>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYears }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription1 }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription2 }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceSeparatedTwoYearsDescription3 }}</p>
 
-      <h3 class="heading-small">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYears }}</h3>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYearsDescription1 }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYearsDescription2 }}</p>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYears }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYearsDescription1 }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceSeparatedFiveYearsDescription2 }}</p>
 
-      <h3 class="heading-small">{{ content.whatThisMeansReasonForDivorceDesertion }}</h3>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceDesertionDescription1 }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceDesertionDescription2 }}</p>
-      <p class="text">{{ content.whatThisMeansReasonForDivorceDesertionDescription3 }}</p>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansReasonForDivorceDesertion }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceDesertionDescription1 }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceDesertionDescription2 }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansReasonForDivorceDesertionDescription3 }}</p>
     </div>
   </details>
 
@@ -383,31 +384,31 @@
 
   <!-- Additional applications  -->
 
-  <h2 class="heading-medium">{{ content.additionalApplications }}</h2>
+  <h2 class="govuk-heading-m">{{ content.additionalApplications }}</h2>
 
   <!-- Cost Orders -->
 
-  <h3 class="heading-small">{{ content.costsOrders }}</h3>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.costsOrders }}</h3>
   {% if case.claimsCosts == "Yes" %}
     {% if case.claimsCostsFrom|length and "respondent" in case.claimsCostsFrom and "correspondent" in case.claimsCostsFrom %}
-      <p class="text">{{ content.claimingCostsFromRespondentCoRespondent }}</p>
+      <p class="govuk-body">{{ content.claimingCostsFromRespondentCoRespondent }}</p>
     {% elseif case.claimsCostsFrom|length and "correspondent" in case.claimsCostsFrom %}
-      <p class="text">{{ content.claimingCostsFromCoRespondent }}</p>
+      <p class="govuk-body">{{ content.claimingCostsFromCoRespondent }}</p>
     {% else %}
-      <p class="text">{{ content.claimingCostsFromRespondent }}</p>
+      <p class="govuk-body">{{ content.claimingCostsFromRespondent }}</p>
     {% endif %}
   {% else %}
-    <p class="text">{{ content.notClaimingForDivorce }}</p>
+    <p class="govuk-body">{{ content.notClaimingForDivorce }}</p>
   {% endif %}
 
-  <details>
-    <summary aria-controls="details-content-3" aria-expanded="false">
-      <span class="summary">{{ content.whatThisMeansCostOrdersHelpWithCostsOrders }}</span>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary" aria-controls="details-content-3" aria-expanded="false">
+      <span class="govuk-details__summary-text">{{ content.whatThisMeansCostOrdersHelpWithCostsOrders }}</span>
     </summary>
-    <div class="panel panel-border-narrow" id="details-content-3" aria-hidden="true">
-      <h3 class="heading-small">{{ content.whatThisMeansCostOrdersClaimingCosts }}</h3>
-      <p class="text">{{ content.whatThisMeansCostOrdersApplicantWasAsked }}</p>
-      <p class="text">{{ content.whatThisMeansCostOrdersFees }}</p>
+    <div class="govuk-details__text" id="details-content-3" aria-hidden="true">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansCostOrdersClaimingCosts }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansCostOrdersApplicantWasAsked }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansCostOrdersFees }}</p>
     </div>
   </details>
 
@@ -415,35 +416,35 @@
 
   <!-- Financial Orders -->
 
-  <h3 class="heading-small">{{ content.financialOrders }}</h3>
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.financialOrders }}</h3>
   {% if case.financialOrder == "Yes" %}
     {% if "petitioner" in case.financialOrderFor and "children" in case.financialOrderFor %}
-      <p class="text">{{ content.financialOrdersPropertyMoneyPensionsChildren }}</p>
+      <p class="govuk-body">{{ content.financialOrdersPropertyMoneyPensionsChildren }}</p>
     {% elseif "children" in case.financialOrderFor %}
-      <p class="text">{{ content.financialOrdersChildren }}</p>
+      <p class="govuk-body">{{ content.financialOrdersChildren }}</p>
     {% else %}
-      <p class="text">{{ content.financialOrdersPropertyMoneyPensions }}</p>
+      <p class="govuk-body">{{ content.financialOrdersPropertyMoneyPensions }}</p>
     {% endif %}
   {% else %}
-    <p class="text">{{ content.financialOrdersNone }}</p>
+    <p class="govuk-body">{{ content.financialOrdersNone }}</p>
   {% endif %}
 
-  <details>
-    <summary aria-controls="details-content-4" aria-expanded="false">
-      <span class="summary">{{ content.whatThisMeansFinantialOrders }}</span>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary" aria-controls="details-content-4" aria-expanded="false">
+      <span class="govuk-details__summary-text">{{ content.whatThisMeansFinantialOrders }}</span>
     </summary>
-    <div class="panel panel-border-narrow" id="details-content-4" aria-hidden="true">
-      <p class="text">{{ content.whatThisMeansFinantialOrdersPropertyMoneyPensions }}</p>
-      <p class="text">{{ content.whatThisMeansFinantialOrdersChildren }}</p>
-      <p class="text">{{ content.whatThisMeansFinantialOrdersLegalProceedings }}</p>
+    <div class="govuk-details__text" id="details-content-4" aria-hidden="true">
+      <p class="govuk-body">{{ content.whatThisMeansFinantialOrdersPropertyMoneyPensions }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansFinantialOrdersChildren }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansFinantialOrdersLegalProceedings }}</p>
 
-      <h3 class="heading-small">{{ content.whatThisMeansFinantialOrdersConsentOrders }}</h3>
-      <p class="text">{{ content.whatThisMeansFinantialOrdersSpltMoney }}</p>
-      <p class="text">{{ content.whatThisMeansFinantialOrdersConsentOrder }}</p>
-      <p class="text">{{ content.whatThisMeansFinantialOrdersLegalAdvice }}</p>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansFinantialOrdersConsentOrders }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansFinantialOrdersSpltMoney }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansFinantialOrdersConsentOrder }}</p>
+      <p class="govuk-body">{{ content.whatThisMeansFinantialOrdersLegalAdvice }}</p>
 
-      <h3 class="heading-small">{{ content.whatThisMeansFinantialOrdersChildMaintenance }}</h3>
-      <p class="text">{{ content.whatThisMeansFinantialOrdersCertainCircumstances }}</p>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.whatThisMeansFinantialOrdersChildMaintenance }}</h3>
+      <p class="govuk-body">{{ content.whatThisMeansFinantialOrdersCertainCircumstances }}</p>
     </div>
   </details>
 
@@ -455,14 +456,14 @@
   <!-- Petitioner Address -->
 
   {% if case.petitionerContactDetailsConfidential == "share" %}
-    <h2 class="heading-medium">{{ content.applicantsCorrespondenceAddress }}</h2>
+    <h2 class="govuk-heading-m">{{ content.applicantsCorrespondenceAddress }}</h2>
 
     {% if case.petitionersSolicitorName != "" and not(case.petitionerHomeAddress|length) %}
-      <p class="text">{{ case.petitionersSolicitorName }}</p>
-      <p class="text">{{ case.petitionersSolicitorFirm }}</p>
-      <p class="text">{{ case.petitionersSolicitorAddress }}</p>
+      <p class="govuk-body">{{ case.petitionersSolicitorName }}</p>
+      <p class="govuk-body">{{ case.petitionersSolicitorFirm }}</p>
+      <p class="govuk-body">{{ case.petitionersSolicitorAddress }}</p>
     {% else %}
-      <p class="text">{{ case.petitionerHomeAddress.address | address | safe }}</p>
+      <p class="govuk-body">{{ case.petitionerHomeAddress.address | address | safe }}</p>
     {% endif %}
   {% endif %}
 
@@ -470,13 +471,13 @@
 
   <!-- Respondent Address -->
 
-  <h2 class="heading-medium">{{ content.respondentsCorrespondenceAddress }}</h2>
+  <h2 class="govuk-heading-m">{{ content.respondentsCorrespondenceAddress }}</h2>
   {% if case.respondentSolicitorAddress|length %}
-    <p class="text">{{ case.respondentSolicitorName }}</p>
-    <p class="text">{{ case.respondentSolicitorCompany }}</p>
-    <p class="text">{{ case.respondentSolicitorAddress.address | address | safe }}</p>
+    <p class="govuk-body">{{ case.respondentSolicitorName }}</p>
+    <p class="govuk-body">{{ case.respondentSolicitorCompany }}</p>
+    <p class="govuk-body">{{ case.respondentSolicitorAddress.address | address | safe }}</p>
   {% else %}
-    <p class="text">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
+    <p class="govuk-body">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
   {% endif %}
 
   <!-- EOF Respondent Address -->
@@ -487,8 +488,8 @@
   <!-- CoRespondent Address -->
 
   {% if case.reasonForDivorceAdultery3rdAddress|length %}
-    <h2 class="heading-medium">{{ content.coRespondentsCorrespondenceAddress }}</h2>
-    <p class="text">{{ case.reasonForDivorceAdultery3rdAddress.address | address | safe }}</p>
+    <h2 class="govuk-heading-m">{{ content.coRespondentsCorrespondenceAddress }}</h2>
+    <p class="govuk-body">{{ case.reasonForDivorceAdultery3rdAddress.address | address | safe }}</p>
   {% endif %}
 
   <!-- EOF CoRespondent Address -->
@@ -496,9 +497,11 @@
 
 
 
-  <h2 class="heading-medium">{{ content.statementOfTruth }}</h2>
-  <p class="text">{{ content.statementOfTruthDescription }}</p>
-  <p class="text"><em>{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</em></p>
+  <h2 class="govuk-heading-m">{{ content.statementOfTruth }}</h2>
+  <p class="govuk-body">{{ content.statementOfTruthDescription }}</p>
+  <p class="govuk-body"><em>{{ case.petitionerFirstName }} {{ case.petitionerLastName }}</em></p>
+
+  <br>
 
   {% call formSection() %}
     {{ selectionButtons(fields.changes.hasBeenChanges, content.fields.changes.hasBeenChanges.title,
@@ -511,23 +514,15 @@
     ) }}
 
     <div class="js-hidden" id="yes-container">
-      <div class="notice">
-        <em class="icon icon-important">
-          <span class="visuallyhidden"></span>
-        </em>
-        <p class="bold-small">{{ content.changeOrAddWarning }}</p>
-      </div>
-      <div class="form-group {{ errorClass(fields.changes.changesDetails) }}">
-        <label class="form-label-bold"
-               for="{{ fields.changes.changesDetails.id }}">
-          {{ content.fields.changes.changesDetails.title }}
-        </label>
-        {{ errorsFor(fields.changes.changesDetails) }}
-        <textarea class="form-control"
-           id="{{ fields.changes.changesDetails.id }}"
-           name="{{ fields.changes.changesDetails.id }}"
-           rows="4">{% if fields.changes.changesDetails.value %}{{ fields.changes.changesDetails.value }}{% endif %}</textarea>
-      </div>
+      {{ warningText({
+          text: content.changeOrAddWarning,
+          iconFallbackText: content.warning
+      }) }}
+
+      {{ textarea(
+        fields.changes.changesDetails,
+        content.fields.changes.changesDetails.title
+      ) }}
 
       <div class="confirmation-container">
         {{

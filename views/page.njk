@@ -1,40 +1,56 @@
+{% set footerLinks = [
+    {
+        href: "/cookie",
+        text: "Cookies"
+    },
+    {
+        href: "/terms-and-conditions",
+        text: "Terms and conditions"
+    },
+    {
+        href: "/privacy-policy",
+        text: "Privacy Policy"
+    }
+] %}
+
+{% set serviceLinks = [
+    {
+      href: "/end",
+      text: content.signOut
+    }
+] %}
+
+{% set serviceName = content.serviceName %}
+
 {% extends "look-and-feel/layouts/two_thirds.html" %}
+
 {% from "look-and-feel/components/header.njk" import header %}
 {% from "look-and-feel/components/phase_banner.njk" import phaseBanner %}
 {% from "look-and-feel/components/i18n.njk" import languageSwitch %}
+{% from "back-link/macro.njk" import govukBackLink %}
 
-{% set titleSize = titleSize | default('large') %}
+{% set titleSize = titleSize | default('xl') %}
 
 {% block head %}
   {% include "includes/head.html" %}
 {% endblock %}
 
-{% block body_start %}
+{% block bodyStart %}
   <noscript>
     <img src="/noJS.png" alt="1px" width="1" height="1" style="display: none;" />
   </noscript>
 {% endblock %}
 
-{% block proposition_header %}
-  {% include "includes/proposition_header.html" %}
-{% endblock %}
-
-{% block header_class %}
-  with-proposition
-{% endblock %}
-
-{% block footer_support_links %}
-<ul>
-  <li><a href="/cookie">Cookies</a></li>
-  <li><a href="/terms-and-conditions">Terms and conditions</a></li>
-  <li><a href="/privacy-policy">Privacy Policy</a></li>
-</ul>
-{% endblock %}
-
 {% block breadcrumbs %}
   {{ phaseBanner(phase, feedbackLink) }}
   {% block back %}
-    <a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
+    {{ govukBackLink({
+      attributes: {
+        onclick: "history.go(-1);"
+      },
+      text: "Back",
+      href: "#"
+    }) }}
   {% endblock %}
   {{ languageSwitch(currentLang, availableLangs) }}
 {% endblock %}

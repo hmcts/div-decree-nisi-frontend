@@ -41,7 +41,7 @@
       "courtBailif": "Court bailiffs",
       "courtBailifDetails1": "The bailiff service can only be used at addresses in England and Wales where delivery by post has already failed. If you have a new address for your {{ case.divorceWho }}, you’ll have to get it delivered by post before you can apply for the bailiff service.",
       "courtBailifDetails2": "If the bailiff succeeds in delivering the application, you'll be given a letter as evidence that your {{ case.divorceWho }} has received the application. This is known as an ‘endorsement of service'. If your {{ case.divorceWho }} doesn’t respond within 14 days of getting the application, you can use this letter to continue your divorce without their response.",
-      "formD89": "<a href=\"https://www.gov.uk/government/publications/form-d89-request-for-personal-service-by-a-court-bailiff\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D89</a>. Send the form to the Courts and Tribunals Service Centre.",
+      "formD89": "<a class=\"govuk-link\" href=\"https://www.gov.uk/government/publications/form-d89-request-for-personal-service-by-a-court-bailiff\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D89</a>. Send the form to the Courts and Tribunals Service Centre.",
       "moreToSend": "You'll also need to send the following:",
       "respPhoto": "a photo of your {{ case.divorceWho }}",
       "divorceAppCopy": "a copy of your divorce application"
@@ -64,17 +64,17 @@
       "tradePlace": "trade union or professional organisation",
       "searchInGovtDB": "You'll also need to have tried to find their address by searching for it on government databases.",
       "and": " and ",
-      "applyD13bLink": "<a href=\"https://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=1112\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D13b</a>.",
+      "applyD13bLink": "<a class=\"govuk-link\" href=\"https://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=1112\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D13b</a>.",
       "applyD11AndD13bContent": "Send the forms to the Courts and Tribunals Service Centre."
     },
 
     "howToApply": "How to apply: ",
     "fill": "Download and complete ",
-    "applyD11": "<a href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=98\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D11</a>.",
+    "applyD11": "<a class=\"govuk-link\" href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=98\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">form D11</a>.",
     "howToPay": "How to pay: ",
     "howToPayContent": "Call the service centre to make the £{{ feeToResendApplication }} payment by card (between 8.30am and 5pm) or include a cheque with your form.",
     "howToPayBailiffContent": "Call the service centre to make the £{{ enforcemetFee }} payment by card (between 8.30am and 5pm) or include a cheque with your form.",
-    "getNewRefNumb": "If you're eligible for help with fees you'll need to apply again and <a href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get a new reference number</a>.",
+    "getNewRefNumb": "If you're eligible for help with fees you'll need to apply again and <a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">get a new reference number</a>.",
     "extraCosts": "If you asked the court to order your {{ case.divorceWho }} to pay your costs, then these extra costs will also be taken into account.",
     "printAndSend": "Send the form to the Courts and Tribunals Service Centre.",
     "yourCourt": "Your divorce centre",
@@ -85,12 +85,12 @@
     "divorceEmail": "contactdivorce@justice.gov.uk",
     "openTimes": "(Monday to Friday, 8.30am to 5pm)",
     "careOf":"c/o ",
-    "guidence": "Guidance on GOV.UK",
-    "howRespondsLink": "<a href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How your {{ case.divorceWho }} responds</a>",
-    "decreeNisiLink": "<a href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
-    "decreeAbsoluteLink": "<a href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
-    "childrenAndDivorceLink": "<a href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
-    "moneyAndPropertyLink": "<a href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>",
-    "solicitorLink": "<a href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>"
+    "guidance": "Guidance on GOV.UK",
+    "howRespondsLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">How your {{ case.divorceWho }} responds</a>",
+    "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree nisi</a>",
+    "decreeAbsoluteLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Decree absolute</a>",
+    "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Children and divorce</a>",
+    "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">Money and property</a>",
+    "solicitorLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>"
   }
 }

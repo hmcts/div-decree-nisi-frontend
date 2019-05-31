@@ -1,6 +1,6 @@
 {% extends "page.njk" %}
 
-{% set titleSize = 'large' %}
+{% set titleSize = 'l' %}
 
 
 {% set title %}
@@ -8,14 +8,14 @@
 {% endset %}
 
 {% block main_content %}
-<p class="text">{{ content.ifYouWantYour | safe }}</p>
-<p class="text">{{ content.amendmentFee | safe }}</p>
-<div class="panel panel-border-wide">
-  <p class="text">{{ content.notAbleToRead | safe }}</p>
+<p class="govuk-body">{{ content.ifYouWantYour | safe }}</p>
+<p class="govuk-body">{{ content.amendmentFee | safe }}</p>
+<div class="govuk-inset-text">
+  <p class="govuk-body">{{ content.notAbleToRead | safe }}</p>
 </div>
 <br>
 <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-  <input class="button button-start" type="submit" value="{{ content.start }}">
+  <input role="button" draggable="false" class="govuk-button govuk-button--start" type="submit" value="{{ content.start }}">
 </form>
 <br>
 {% endblock %}
