@@ -38,7 +38,8 @@
     "files": {
       "dpetition": "Divorce application",
       "respondentAnswers": "Respondent's answers",
-      "coRespondentAnswers": "Co-Respondent's answers"
+      "coRespondentAnswers": "Co-Respondent's answers",
+      "certificateOfEntitlement": "Certificate of Entitlement"
     }
   }
 }

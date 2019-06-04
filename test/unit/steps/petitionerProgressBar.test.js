@@ -608,6 +608,18 @@ describe(modulePath, () => {
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
                 mimeType: null,
                 status: null
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st3r',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'certificateOfEntitlement1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
+                mimeType: null,
+                status: null
               }
             ]
           }
@@ -620,7 +632,7 @@ describe(modulePath, () => {
         return file.type;
       });
 
-      expect(fileTypes).to.eql(['dpetition']);
+      expect(fileTypes).to.eql(['dpetition', 'certificateOfEntitlement']);
     });
   });
 
