@@ -1,4 +1,5 @@
 {% extends "page.njk" %}
+{% from "look-and-feel/components/warning-text.njk" import warningText %}
 
 {% set title %}
   {{ content.title | safe }}
@@ -6,12 +7,12 @@
 
 {% block main_content %}
   <p class="govuk-body">{{ content.courtHearsBothParties | safe }}</p>
-  <div class="notice">
-    <em class="icon icon-important">
-      <span class="visuallyhidden"></span>
-    </em>
-    <p class="govuk-!-font-size-19 govuk-!-font-weight-bold">{{ content.infoToContactRespondent }}</p>
-  </div>
+
+  {{ warningText({
+      text: content.infoToContactRespondent,
+      iconFallbackText: content.warning
+  }) }}
+
   <p class="govuk-body">{{ content.provideNewAddrToCourt | safe }}</p>
   <p class="govuk-body">{{ content.noResponseOptions | safe }}</p>
 

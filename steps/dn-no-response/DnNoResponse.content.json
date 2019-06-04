@@ -8,6 +8,8 @@
 
     "whichSituation": "Which situation applies to you?",
 
+    "warning": "Warning",
+
     "haveAnotherAddress": {
       "linkSummary": "I have another residential address or a solicitor's address for my {{ case.divorceWho }} (no fee)",
       "provideAddress": "Contact the Courts and Tribunals Service Centre to provide a different address for your {{ case.divorceWho }}. This can be a UK or international address.",
