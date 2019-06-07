@@ -12,6 +12,7 @@ idam_api_url = "https://idam-api.aat.platform.hmcts.net"
 google_analytics_tracking_id = "TBD"
 
 capacity = "2"
+instance_size = "I3"
 
 rate_limiter_enabled = false
 
