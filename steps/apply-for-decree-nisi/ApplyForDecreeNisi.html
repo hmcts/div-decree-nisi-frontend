@@ -40,8 +40,8 @@
   {% endcall %}
 
   <!-- Dropdown area if answered no -->
-  <div class="js-hidden panel panel-border-wide" id="no-container">
-    <p class="text">{{ content.signOutDetail | safe}}</p>
+  <div class="js-hidden govuk-details__text govuk-!-margin-bottom-3" id="no-container">
+    <p class="govuk-body">{{ content.signOutDetail | safe}}</p>
   </div>
 
 {% endblock %}
