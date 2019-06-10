@@ -7,7 +7,7 @@ import './showHideContent';
 
 window.jQuery = $;
 
-$(document).ready(function() {
+$(document).ready(() => {
   const showHideContent = new global.GOVUK.ShowHideContent();
   showHideContent.init();
 
