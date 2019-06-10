@@ -36,11 +36,11 @@ const checks = () => {
     'case-orchestration-service': healthcheck.web(config.services.orchestrationService.health,
       healthOptions('Health check failed on case-orchestration-service:')
     ),
-    'fees-and-payments': healthcheck.web(config.services.feesAndPayments.health,
-      healthOptions('Health check failed on fees-payments-service:')
+    'fees-and-payments-service': healthcheck.web(config.services.feesAndPayments.health,
+      healthOptions('Health check failed on fees-and-payments-service:')
     ),
-    'evidence-management': healthcheck.web(config.services.evidenceManagementClient.health,
-      healthOptions('Health check failed on evidence-management')
+    'evidence-management-client': healthcheck.web(config.services.evidenceManagementClient.health,
+      healthOptions('Health check failed on evidence-management-client:')
     )
   };
 };
