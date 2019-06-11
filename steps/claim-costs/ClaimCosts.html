@@ -60,7 +60,8 @@
       <div id="specific-amount" class="js-hidden govuk-radios__conditional govuk-!-margin-top-3">
         {{ textarea(
           fields.dnCosts.costsDifferentDetails,
-          content.fields.dnCosts.costsDifferentDetails.title
+          content.fields.dnCosts.costsDifferentDetails.title,
+          bold=true
         ) }}
       </div>
     {% endif %}
