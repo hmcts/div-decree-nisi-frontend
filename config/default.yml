@@ -138,6 +138,7 @@ document:
   - 'd8petition'
   - 'respondentAnswers'
   - 'coRespondentAnswers'
+  - 'certificateOfEntitlement'
 
 ccd:
   d8States:
