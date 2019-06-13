@@ -5,11 +5,13 @@ const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
+const { get } = require('lodash');
 
 const {
   caseStateMap,
   permitDNReasonMap,
-  caseIdDisplayStateMap
+  caseIdDisplayStateMap,
+  awaitingPronouncementWithHearingDate
 } = require('./petitionerStateTemplates');
 
 const constants = {
@@ -20,6 +22,7 @@ const constants = {
   validAnswer: ['yes', 'no', 'nonoadmission'],
   NotDefined: 'notdefined',
   DNAwaiting: 'awaitingdecreenisi',
+  awaitingPronouncement: 'awaitingpronouncement',
   undefendedReason: '0',
   no: 'no',
   yes: 'yes'
@@ -96,6 +99,20 @@ class PetitionProgressBar extends Interstitial {
     return respWillDefendDivorce || this.aosIsCompleted || isTwoYrSep;
   }
 
+  get awaitingPronouncementWithHearingDate() {
+    const isAwaitingPronouncement = this.caseState === constants
+      .awaitingPronouncement;
+    const hearingDates = get(this.case, 'hearingDate') || [];
+
+    return isAwaitingPronouncement && hearingDates.length;
+  }
+
+  get certificateOfEntitlementFile() {
+    return this.downloadableFiles.find(file => {
+      return file.type === 'certificateOfEntitlement';
+    });
+  }
+
   next() {
     return branch(
       redirectTo(this.journey.steps.DnNoResponse)
@@ -114,6 +131,8 @@ class PetitionProgressBar extends Interstitial {
     let template = '';
     if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
+    } else if (this.awaitingPronouncementWithHearingDate) {
+      template = awaitingPronouncementWithHearingDate;
     } else {
       caseStateMap.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
