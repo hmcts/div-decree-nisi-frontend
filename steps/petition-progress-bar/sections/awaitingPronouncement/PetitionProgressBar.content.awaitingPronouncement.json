@@ -1,5 +1,6 @@
 {
   "en" : {
+    "warning": "Warning",
     "acceptedStatusMsg": "Your decree nisi application has been accepted",
     "acceptedStatusDetails": "A district judge will formally announce the decree nisi at a court hearing. This is the first stage of the decree ending your marriage.",
     "acceptedStatusPanelDetails": "You'll only be divorced when the second stage is complete and you have your decree absolute.",
