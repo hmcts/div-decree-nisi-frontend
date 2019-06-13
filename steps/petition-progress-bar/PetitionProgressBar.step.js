@@ -11,7 +11,7 @@ const {
   caseStateMap,
   permitDNReasonMap,
   caseIdDisplayStateMap,
-  awaitingPronouncementWithHearingDate
+  awaitingPronouncementWithHearingDateTemplate
 } = require('./petitionerStateTemplates');
 
 const constants = {
@@ -99,7 +99,7 @@ class PetitionProgressBar extends Interstitial {
     return respWillDefendDivorce || this.aosIsCompleted || isTwoYrSep;
   }
 
-  get awaitingPronouncementWithHearingDate() {
+  awaitingPronouncementWithHearingDate() {
     const isAwaitingPronouncement = this.caseState === constants
       .awaitingPronouncement;
     const hearingDates = get(this.case, 'hearingDate') || [];
@@ -131,8 +131,8 @@ class PetitionProgressBar extends Interstitial {
     let template = '';
     if (constants.DNAwaiting.includes(this.caseState)) {
       template = permitDNReasonMap.get(this.dnReason);
-    } else if (this.awaitingPronouncementWithHearingDate) {
-      template = awaitingPronouncementWithHearingDate;
+    } else if (this.awaitingPronouncementWithHearingDate()) {
+      template = awaitingPronouncementWithHearingDateTemplate;
     } else {
       caseStateMap.forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
