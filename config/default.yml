@@ -139,6 +139,7 @@ document:
   - 'respondentAnswers'
   - 'coRespondentAnswers'
   - 'certificateOfEntitlement'
+  - 'costsOrder'
 
 ccd:
   d8States:
