@@ -26,7 +26,12 @@ const caseStateMap = [
   {
     template: './sections/aosCompleted/PetitionProgressBar.aosCompleted.template.html',
     state: ['aoscompleted']
+  },
+  {
+    template: './sections/decreeNisiGranted/PetitionProgressBar.decreeNisiGranted.template.html',
+    state: ['awaitingdecreeabsolute']
   }
+
 ];
 
 const caseIdDisplayStateMap = ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted'];

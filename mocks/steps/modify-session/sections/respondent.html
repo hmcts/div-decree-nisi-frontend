@@ -3,12 +3,24 @@
 {% call formSection() %}
   {{ selectionButtons(fields.respAgreeToCosts, "Will they pay the costs?",
     options = [
-      { label: "Yes", value: "Yes" },
+      { label: "Yes", value: "Yes", target: "costOrder-yes-container" },
       { label: "No", value: "No", target: "costOrder-no-container" }
     ],
     hideQuestion = false,
     inline = true
   ) }}
+
+  <div class="js-hidden" id="costOrder-yes-container">
+    {{ selectionButtons(fields.whoPaysCosts, "Who pays costs?",
+      options = [
+        { label: "Respondent", value: "respondent" },
+        { label: "Co-Respondent", value: "coRespondent" },
+        { label: "Respondent and Co-Respondent", value: "respondentAndCoRespondent" }
+      ],
+      hideQuestion = false,
+      inline = true
+    ) }}
+  </div>
 
   <div class="js-hidden" id="costOrder-no-container">
     <div class="form-group">

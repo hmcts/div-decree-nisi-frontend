@@ -132,6 +132,18 @@ class PetitionProgressBar extends Interstitial {
 
     return createUris(this.case.d8, docConfig);
   }
+
+  get costsOrderFile() {
+    return this.downloadableFiles.find(file => {
+      return file.type === 'costsOrder';
+    });
+  }
+
+  get decreeNisiFile() {
+    return this.downloadableFiles.find(file => {
+      return file.type === 'decreeNisi';
+    });
+  }
 }
 
 module.exports = PetitionProgressBar;

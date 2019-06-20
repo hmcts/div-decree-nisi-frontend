@@ -18,7 +18,8 @@ const validCaseStates = [
   'defendeddivorce',
   'aossubmittedawaitinganswer',
   'aosoverdue',
-  'aoscompleted'
+  'aoscompleted',
+  'awaitingdecreeabsolute'
 ];
 
 const caseStateIsValid = currentState => {

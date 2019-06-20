@@ -48,6 +48,7 @@ class ModifySession extends Question {
     const divorceWho = text;
 
     const respAgreeToCosts = text;
+    const whoPaysCosts = text;
     const respWillDefendDivorce = text;
     const respStatementOfTruth = text;
     const respAdmitOrConsentToFact = text;
@@ -72,6 +73,7 @@ class ModifySession extends Question {
       state,
       marriageIsSameSexCouple,
       respAgreeToCosts,
+      whoPaysCosts,
       respWillDefendDivorce,
       respStatementOfTruth,
       respAdmitOrConsentToFact,

@@ -139,6 +139,8 @@ document:
   - 'respondentAnswers'
   - 'coRespondentAnswers'
   - 'certificateOfEntitlement'
+  - 'costsOrder'
+  - 'decreeNisi'
 
 ccd:
   d8States:
