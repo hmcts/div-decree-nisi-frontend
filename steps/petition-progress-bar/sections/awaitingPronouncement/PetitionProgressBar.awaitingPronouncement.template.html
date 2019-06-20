@@ -1,0 +1,41 @@
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
+{% from "look-and-feel/components/document-list.njk" import documentList %}
+
+{{
+    progressList({
+        one: {
+            label: content.youApply,
+            complete: true
+        },
+        two: {
+            label: content.husbandWifeMustRespond,
+            complete: true
+        },
+        three: {
+            label: content.getDecreeNisi,
+            current: true
+        },
+        four: {
+            label: content.madeFinal
+        }
+    })
+}}
+
+<h2 class="heading-medium">{{ content.acceptedStatusMsg }}</h2>
+<p>{{ content.acceptedStatusDetails }}</p>
+
+<div class="panel panel-border-wide">
+    <p>{{ content.acceptedStatusPanelDetails }}</p>
+</div>
+
+<h2 class="heading-medium">{{ content.acceptedHearingTitle }}</h2>
+
+<p>{{ content.acceptedHearingMsg1 | safe }} </p>
+<div class="notice">
+    <em class="icon icon-important">
+        <span class="visually-hidden">{{ content.warning }}</span>
+    </em>
+    <strong class="bold-small">{{ content.acceptedHearingInfo }}</strong>
+</div>
+<br/>
+<p>{{ content.acceptedHearingMsg2 }}</p>

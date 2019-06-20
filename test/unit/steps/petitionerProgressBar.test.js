@@ -23,6 +23,8 @@ const templates = {
   defended: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
   undefended: './sections/undefended/PetitionProgressBar.undefended.template.html',
   deemedService: './sections/deemedService/PetitionProgressBar.deemedService.template.html',
+  awaitingPronouncement:
+    './sections/awaitingPronouncement/PetitionProgressBar.awaitingPronouncement.template.html',
   dispensedWithService:
     './sections/dispensedWithService/PetitionProgressBar.dispensedWithService.template.html',
   defendedWithoutAnswer:
@@ -636,7 +638,43 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: AwaitingPronouncement', () => {
+  describe('CCD state: AwaitingPronouncement with hearing date', () => {
+    const session = {
+      case: {
+        state: 'AwaitingPronouncement',
+        data: {
+          hearingDate: [ '2018-04-25T00:00:00.000Z' ]
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = [
+        'acceptedStatusMsg',
+        'acceptedStatusDetails',
+        'acceptedStatusPanelDetails',
+        'acceptedHearingTitle',
+        'acceptedHearingMsg1',
+        'acceptedHearingInfo',
+        'acceptedHearingMsg2'
+      ];
+
+      return content(PetitionProgressBar, session, { specificContent });
+    });
+
+    it('content shouldnt be shown', () => {
+      const specificContentToNotExist = contentToNotExist('awaitingPronouncement');
+
+      return content(PetitionProgressBar, session, { specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingPronouncement);
+    });
+  });
+
+  describe('CCD state: AwaitingPronouncement without hearing date', () => {
     const session = {
       case: {
         state: 'AwaitingPronouncement',
