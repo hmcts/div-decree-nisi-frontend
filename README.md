@@ -1,5 +1,7 @@
 # Divorce Decree Nisi [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+This is the frontend application for the Decree Nisi journey, Once the respondent has responded the petitioner can then apply for a Decree Nisi, and this repo builds the frontend for that journey.
+
 ## Setup
 
 **Install dependencies**
