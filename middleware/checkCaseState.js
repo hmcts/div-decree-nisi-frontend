@@ -8,7 +8,7 @@ const { get } = require('lodash');
  */
 const additionalStateChecks = {
   awaitingdecreeabsolute: session => {
-    return get(session, 'case.decreeNisiGrantedDate');
+    return get(session, 'case.data.decreeNisiGrantedDate');
   }
 };
 
