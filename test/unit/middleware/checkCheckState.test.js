@@ -18,7 +18,8 @@ const validCaseStates = [
   'defendeddivorce',
   'aossubmittedawaitinganswer',
   'aosoverdue',
-  'aoscompleted'
+  'aoscompleted',
+  'awaitingdecreeabsolute'
 ];
 
 const invalidCaseState = [
@@ -30,7 +31,10 @@ describe(modulePath, () => {
   describe('passes if each state is handled by DN petitioner progress page', () => {
     validCaseStates.forEach(validState => {
       it(`case state: ${validState}`, () => {
-        const req = { session: { case: { state: validState } } };
+        const req = { session: { case: {
+          state: validState,
+          decreeNisiGrantedDate: '2222-01-01T00:00:00.000+0000'
+        } } };
         const res = { redirect: sinon.stub() };
         const next = sinon.stub();
         checkCaseState(req, res, next);
@@ -51,6 +55,16 @@ describe(modulePath, () => {
         expect(res.redirect.calledOnce).to.eql(true);
         expect(res.redirect.calledWith(config.paths.contactDivorceTeam)).to.eql(true);
       });
+    });
+
+    it('state is awaitingdecreeabsolute and NO decreeNisiGrantedDate', () => {
+      const req = { session: { case: { state: 'awaitingdecreeabsolute' } } };
+      const res = { redirect: sinon.stub() };
+      const next = sinon.stub();
+      checkCaseState(req, res, next);
+      expect(next.calledOnce).to.eql(false);
+      expect(res.redirect.calledOnce).to.eql(true);
+      expect(res.redirect.calledWith(config.paths.contactDivorceTeam)).to.eql(true);
     });
   });
 });
