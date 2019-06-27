@@ -17,9 +17,9 @@ module.exports = {
   testCTSCDetailsRender(html) {
     expect(html).to.not.include('Your divorce centre');
     expect(html).to.include('Courts and Tribunals Service Centre')
-      .and.to.include('c/o East Midlands Regional Divorce Centre')
-      .and.to.include('PO Box 10447')
-      .and.to.include('Nottingham')
-      .and.to.include('NG2 9QN');
+      .to.include('HMCTS Digital Divorce')
+      .and.to.include('Harlow')
+      .and.to.include('PO Box 12706')
+      .and.to.include('CM20 9QT');
   }
 };

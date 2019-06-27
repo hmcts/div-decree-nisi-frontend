@@ -14,7 +14,7 @@
         {% else %}
             <strong class="bold-xsmall">{{ content.yourCourt }}</strong><br>
         {% endif %}
-        {{ content.careOf if case.court[case.courts].serviceCentreName }}{{ case.court[case.courts].divorceCentre | safe}} <br>
+        {{ case.court[case.courts].divorceCentre | safe}} <br>
         {% if case.court[case.courts].poBox %}
             {{ case.court[case.courts].poBox | safe }}<br>
         {% endif %}

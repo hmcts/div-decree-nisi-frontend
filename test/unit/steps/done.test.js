@@ -23,7 +23,7 @@ describe(modulePath, () => {
 
   it('renders the content', () => {
     const session = { case: { data: {} } };
-    return content(Done, session, { ignoreContent: ['continue', 'careOf'] });
+    return content(Done, session, { ignoreContent: ['continue'] });
   });
 
   describe('values', () => {
