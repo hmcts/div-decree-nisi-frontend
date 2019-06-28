@@ -1,0 +1,62 @@
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
+
+{{
+  progressList({
+    one: {
+      label: content.youApply,
+      complete: true
+    },
+    two: {
+      label: content.husbandWifeMustRespond,
+      complete: true
+    },
+    three: {
+      label: content.getDecreeNisi,
+      complete: true
+    },
+    four: {
+      label: content.madeFinal
+    }
+  })
+}}
+
+<h2 class="heading-medium">{{ content.decreeNisiGrantedTitle }}</h2>
+<p class="text">{{ content.decreeNisiGrantedDateGranted }}</p>
+<ul class="list-bullet">
+  <li>{{ content.decreeNisiGrantedDecreeNisi }}</li>
+  {% if (costsOrderFile) %}
+    <li>{{ content.decreeNisiGrantedCostsOrderCanClaim }}</li>
+  {% endif %}
+</ul>
+
+<br>
+
+<div class="notice">
+  <em class="icon icon-important">
+    <span class="visuallyhidden">{{ content.decreeNisiGrantedWarning }}</span>
+  </em>
+  <p class="bold-small">{{ content.decreeNisiGrantedNotDivorced }}</p>
+</div>
+
+<h2 class="heading-medium">{{ content.decreeNisiGrantedCompleteTheDivorce }}</h2>
+<p class="text">{{ content.decreeNisiGrantedSixWeeks }}</p>
+<p class="text">{{ content.decreeNisiGrantedCourtCanCancel }}</p>
+<p class="text">{{ content.decreeNisiGrantedDownloadDecreeNisi | safe }}</p>
+
+{% if (costsOrderFile) %}
+  <h2 class="heading-medium">{{ content.decreeNisiGrantedWhatToDoWithCostsOrder }}</h2>
+
+  {% if (case.whoPaysCosts === 'respondent') %}
+    <p class="text">{{ content.decreeNisiGrantedRespondentPays }}</p>
+  {% endif %}
+
+  {% if (case.whoPaysCosts === 'coRespondent') %}
+    <p class="text">{{ content.decreeNisiGrantedCoRespondentPays }}</p>
+  {% endif %}
+
+  {% if (case.whoPaysCosts === 'respondentAndCoRespondent') %}
+    <p class="text">{{ content.decreeNisiGrantedRespondentAndCoRespondentPays }}</p>
+  {% endif %}
+
+  <p class="text">{{ content.decreeNisiGrantedDownloadCostsOrder | safe }}</p>
+{% endif %}

@@ -39,7 +39,9 @@
       "dpetition": "Divorce application",
       "respondentAnswers": "Respondent's answers",
       "coRespondentAnswers": "Co-Respondent's answers",
-      "certificateOfEntitlement": "Certificate of Entitlement"
+      "certificateOfEntitlement": "Certificate of Entitlement",
+      "costsOrder": "Cost Order",
+      "decreeNisi": "Decree Nisi"
     }
   }
 }
