@@ -712,6 +712,19 @@ describe(modulePath, () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.awaitingPronouncement);
     });
+
+    it('should not show cost order content', () => {
+      const noCostsSession = {
+        case: {
+          state: 'AwaitingPronouncement',
+          data: {
+            hearingDate: [ '2018-04-25T00:00:00.000Z' ]
+          }
+        }
+      };
+      const specificContentToNotExist = ['acceptedHearingMsg2Costs'];
+      return content(PetitionProgressBar, noCostsSession, { specificContentToNotExist });
+    });
   });
 
   describe('CCD state: AwaitingPronouncement without hearing date', () => {
