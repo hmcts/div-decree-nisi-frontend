@@ -38,4 +38,14 @@
     <strong class="bold-small">{{ content.acceptedHearingInfo }}</strong>
 </div>
 <br/>
-<p>{{ content.acceptedHearingMsg2 }}</p>
+<div class="notice">
+    <em class="icon icon-important">
+        <span class="visually-hidden">{{ content.warning }}</span>
+    </em>
+    <strong class="bold-small">
+        {{ content.acceptedHearingMsg2 }}
+        {% if costsOrderFile %}
+            {{ content.acceptedHearingMsg2Costs }}
+        {% endif %}
+    </strong>
+</div>

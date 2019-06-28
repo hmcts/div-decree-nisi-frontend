@@ -674,7 +674,15 @@ describe(modulePath, () => {
       case: {
         state: 'AwaitingPronouncement',
         data: {
-          hearingDate: [ '2018-04-25T00:00:00.000Z' ]
+          hearingDate: [ '2018-04-25T00:00:00.000Z' ],
+          d8: [
+            {
+              id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+              fileName: 'costsOrder1554740111371638.pdf',
+              // eslint-disable-next-line max-len
+              fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+            }
+          ]
         }
       }
     };
@@ -687,7 +695,8 @@ describe(modulePath, () => {
         'acceptedHearingTitle',
         'acceptedHearingMsg1',
         'acceptedHearingInfo',
-        'acceptedHearingMsg2'
+        'acceptedHearingMsg2',
+        'acceptedHearingMsg2Costs'
       ];
 
       return content(PetitionProgressBar, session, { specificContent });
