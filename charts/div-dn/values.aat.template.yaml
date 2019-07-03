@@ -25,6 +25,7 @@ nodejs:
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
         REFORM_ENVIRONMENT: "aat"
         RESPONDENT_FRONTEND_URL: "https://div-rfe-aat.service.core-compute-aat.internal"
+        DECREE_ABSOLUTE_FRONTEND_URL: "https://div-da-aat.service.core-compute-aat.internal"
         # TODO - this should be changed once we deploy AAT to AKS
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         PUBLIC_HOSTNAME: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
