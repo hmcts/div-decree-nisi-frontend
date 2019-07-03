@@ -1,51 +1,49 @@
 {% from "look-and-feel/components/progress-list.njk" import progressList %}
 {% from "look-and-feel/components/document-list.njk" import documentList %}
+{% from "look-and-feel/components/warning-text.njk" import warningText %}
 
 {{
-    progressList({
-        one: {
-            label: content.youApply,
-            complete: true
-        },
-        two: {
-            label: content.husbandWifeMustRespond,
-            complete: true
-        },
-        three: {
-            label: content.getDecreeNisi,
-            current: true
-        },
-        four: {
-            label: content.madeFinal
-        }
-    })
+  progressList({
+    one: {
+      label: content.youApply,
+      complete: true
+    },
+    two: {
+      label: content.husbandWifeMustRespond,
+      complete: true
+    },
+    three: {
+      label: content.getDecreeNisi,
+      current: true
+    },
+    four: {
+      label: content.madeFinal
+    }
+  })
 }}
 
-<h2 class="heading-medium">{{ content.acceptedStatusMsg }}</h2>
-<p>{{ content.acceptedStatusDetails }}</p>
+<h2 class="govuk-heading-m">{{ content.acceptedStatusMsg }}</h2>
+<p class="govuk-body">{{ content.acceptedStatusDetails }}</p>
 
-<div class="panel panel-border-wide">
-    <p>{{ content.acceptedStatusPanelDetails }}</p>
+<div class="govuk-inset-text">
+  <p class="govuk-body">{{ content.acceptedStatusPanelDetails }}</p>
 </div>
 
-<h2 class="heading-medium">{{ content.acceptedHearingTitle }}</h2>
+<h2 class="govuk-heading-m">{{ content.acceptedHearingTitle }}</h2>
 
-<p>{{ content.acceptedHearingMsg1 | safe }} </p>
-<div class="notice">
-    <em class="icon icon-important">
-        <span class="visually-hidden">{{ content.warning }}</span>
-    </em>
-    <strong class="bold-small">{{ content.acceptedHearingInfo }}</strong>
-</div>
-<br/>
-<div class="notice">
-    <em class="icon icon-important">
-        <span class="visually-hidden">{{ content.warning }}</span>
-    </em>
-    <strong class="bold-small">
-        {{ content.acceptedHearingMsg2 }}
-        {% if costsOrderFile %}
-            {{ content.acceptedHearingMsg2Costs }}
-        {% endif %}
-    </strong>
-</div>
+<p class="govuk-body">{{ content.acceptedHearingMsg1 | safe }} </p>
+
+{{ warningText({
+  text: content.acceptedHearingInfo,
+  iconFallbackText: content.warning
+}) }}
+
+{% set hearingText = content.acceptedHearingMsg2 | string %}
+{% if costsOrderFile %}
+  {% set hearingText = content.acceptedHearingMsg2 | string + content.acceptedHearingMsg2Costs | string %}
+{% endif %}
+
+{{ warningText({
+  text: hearingText | string,
+  iconFallbackText: content.warning
+}) }}

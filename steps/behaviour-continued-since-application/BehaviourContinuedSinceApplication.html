@@ -8,7 +8,7 @@
 
 {% block fields %}
 
-  <p class="text">{{ content.stillBehaviourContinues }}</p>
+  <p class="govuk-body">{{ content.stillBehaviourContinues }}</p>
 
   <br>
 
@@ -23,13 +23,13 @@
       inline=true,
       type='radio'
     ) }}
-    
+
   {% endcall %}
 
 <!-- Dropdown area if answered no -->
   <div class="js-hidden" id="no-container">
-    <h3 class="heading-medium">{{ content.detailsAboutLastIncidentDate }}</h3>
-    <p class="text">{{ content.detailsAboutLastIncidentDateDetail | safe }}</p>
+    <h3 class="govuk-heading-m">{{ content.detailsAboutLastIncidentDate }}</h3>
+    <p class="govuk-body">{{ content.detailsAboutLastIncidentDateDetail | safe }}</p>
 
     {{ date(fields.changes.lastIncidentDate, content.fields.changes.lastIncidentDate.question,
       hideQuestion = true,

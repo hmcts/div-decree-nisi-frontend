@@ -1029,7 +1029,7 @@ describe(modulePath, () => {
         .get()
         .expect(httpStatus.OK)
         .html($ => {
-          const rightHandSideMenu = $('.column-one-third').html();
+          const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
           testDivorceUnitDetailsRender(rightHandSideMenu);
           expect(rightHandSideMenu).to.include(PetProgressBarContent.en.openTimes)
@@ -1054,7 +1054,7 @@ describe(modulePath, () => {
         .get()
         .expect(httpStatus.OK)
         .html($ => {
-          const rightHandSideMenu = $('.column-one-third').html();
+          const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
           testCTSCDetailsRender(rightHandSideMenu);
           expect(rightHandSideMenu).to.include(PetProgressBarContent.en.openTimes)

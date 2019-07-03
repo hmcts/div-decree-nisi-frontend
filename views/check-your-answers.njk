@@ -5,7 +5,7 @@
 {% from "look-and-feel/components/fields.njk" import hiddenInput %}
 {% from "look-and-feel/components/errors.njk" import errorSummary %}
 
-{% set titleSize = titleSize | default('large') %}
+{% set titleSize = titleSize | default('l') %}
 
 {% set title %}
   {{ content.title | safe }}
@@ -22,8 +22,10 @@
 
         {% if section.atLeast1Completed %}
           {% if section.title and _sections|length > 1 %}
-            {{ header(section.title, size='medium') }}
+            {{ header(section.title, size='m') }}
           {% endif %}
+
+          <dl class="govuk-summary-list">
 
             {% for part in section.completedAnswers %}
               {% if not part.hide %}
@@ -34,13 +36,15 @@
                 {% endif %}
               {% endif %}
             {% endfor %}
+
+          </dl>
         {% endif %}
       {% endfor %}
 
       {% if incomplete %}
         {% block continue_application %}
           <br>
-          <a href="{{ continueUrl }}" class="button">{{ pageContent.continue | default(defaultContent.continue) }}</a>
+          <a class="govuk-button" href="{{ continueUrl }}" class="govuk-button">{{ pageContent.continue | default(defaultContent.continue) }}</a>
           <br>
         {% endblock %}
       {% endif %}
@@ -54,7 +58,7 @@
           {%- endblock %}
 
           <input type="hidden" name="_csrf" value="{{ csurfCsrfToken }}">
-          <input class="button" type="submit" value="{{ pageContent.sendApplication | default(defaultContent.sendApplication) }}">
+          <input class="govuk-button" type="submit" value="{{ pageContent.sendApplication | default(defaultContent.sendApplication) }}">
         </form>
       {% endif %}
       <br>

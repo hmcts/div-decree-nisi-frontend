@@ -20,17 +20,14 @@
   })
 }}
 
-<h2 class="heading-medium">{{ content.dWSAppStatusMsg }}</h2>
+<h2 class="govuk-heading-m">{{ content.dWSAppStatusMsg }}</h2>
 {% if isCaseAmended %}
-  <p>{{ content.dWSAmendedAppStatusMsgDetails1 }}</p>
+  <p class="govuk-body">{{ content.dWSAmendedAppStatusMsgDetails1 }}</p>
 {% else %}
-  <p>{{ content.dWSAppStatusMsgDetails1 }}</p>
+  <p class="govuk-body">{{ content.dWSAppStatusMsgDetails1 }}</p>
 {% endif %}
-<p>{{ content.dWSAppStatusMsgDetails2 }}</p>
-
-<br>
+<p class="govuk-body">{{ content.dWSAppStatusMsgDetails2 }}</p>
 
 <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-
-<input class="button button-start" type="submit" value="{{ content.continue }}">
+<input role="button" draggable="false" class="govuk-button govuk-button--start" type="submit" value="{{ content.continue }}">
 </form>

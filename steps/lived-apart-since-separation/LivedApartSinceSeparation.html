@@ -1,6 +1,6 @@
 {% extends "question.njk" %}
 
-{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorClass, errorsFor %}
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, textarea %}
 
 {% set title %}
 {{ content.title | safe }}
@@ -8,7 +8,7 @@
 
 {% block fields %}
 
-<p class="text">{{ content.livingApart | safe }}</p>
+<p class="govuk-body">{{ content.livingApart | safe }}</p>
 
 <br>
 
@@ -28,20 +28,11 @@
 
 <!-- Dropdown area if answered no -->
 <div class="js-hidden" id="no-container">
-        <div class="panel panel-border-narrow" id="details-content-1" aria-hidden="false">
-            <div class="form-group {{ errorClass(fields.changes.approximateDatesOfLivingTogetherField) }}">
-                <label class="form-label-bold"
-                       for="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}">
-                    {{ content.fields.changes.approximateDatesOfLivingTogetherField.title }}
-                </label>
-                {{ errorsFor(fields.changes.approximateDatesOfLivingTogetherField) }}
-                <textarea class="form-control"
-                          id="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
-                          name="{{ fields.changes.approximateDatesOfLivingTogetherField.id }}"
-                          rows="4">{% if fields.changes.approximateDatesOfLivingTogetherField.value %}
-          {{ fields.changes.approximateDatesOfLivingTogetherField.value }}{% endif %}</textarea>
-            </div>
-        </div>
+  {{ textarea(
+    fields.changes.approximateDatesOfLivingTogetherField,
+    content.fields.changes.approximateDatesOfLivingTogetherField.title,
+    bold=true
+  ) }}
 </div>
 <!-- end of dropdown area -->
 
