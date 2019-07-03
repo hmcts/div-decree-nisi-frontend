@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const moduleName = 'helpers/caseOrchestrationHelper';
 
 const rewire = require('rewire');
@@ -138,6 +139,21 @@ describe(moduleName, () => {
       });
     });
 
+    context('rejects with redirectToDecreeAbsoluteError', () => {
+      beforeEach(() => {
+        response.state = 'AwaitingDecreeAbsolute';
+        response.data.courts = config.ccd.courts[0];
+      });
+
+      it('if case is in valid DA state', () => {
+        response.data.respEmailAddress = 'anotheremail@email.com';
+        req.idam.userDetails.email = 'email@email.com';
+
+        return expect(caseOrchestrationHelper.validateResponse(req, response))
+          .to.be.rejectedWith(caseOrchestrationHelper.redirectToDecreeAbsoluteError);
+      });
+    });
+
     it('resolves if state is good and user is petitioner', () => {
       response.state = 'aValidState';
       response.data.courts = config.ccd.courts[0];
@@ -153,11 +169,13 @@ describe(moduleName, () => {
     beforeEach(() => {
       sinon.stub(redirectToFrontendHelper, 'redirectToFrontend');
       sinon.stub(redirectToFrontendHelper, 'redirectToAos');
+      sinon.stub(redirectToFrontendHelper, 'redirectToDa');
     });
 
     afterEach(() => {
       redirectToFrontendHelper.redirectToFrontend.restore();
       redirectToFrontendHelper.redirectToAos.restore();
+      redirectToFrontendHelper.redirectToDa.restore();
     });
 
     it('redirect to petitioner frontend if error is NOT_FOUND', () => {
@@ -178,15 +196,19 @@ describe(moduleName, () => {
       expect(res.redirect.calledOnce).to.eql(true);
     });
 
-    it('redirect to respondent frontend & logouts out of idam if error is REDIRECT_TO_RESPONDENT_FE'
-      , () => {
-        const idamLogoutMiddleware = sinon.stub().callsArg(2);
-        sinon.stub(idam, 'logout').returns(idamLogoutMiddleware);
-        caseOrchestrationHelper.handleErrorCodes(caseOrchestrationHelper.redirectToRespondentError);
-        expect(redirectToFrontendHelper.redirectToAos.calledOnce).to.eql(true);
-        expect(idam.logout.calledOnce).to.eql(true);
-        idam.logout.restore();
-      });
+    it('redirect to respondent frontend & logouts out of idam if error is REDIRECT_TO_RESPONDENT_FE', () => {
+      const idamLogoutMiddleware = sinon.stub().callsArg(2);
+      sinon.stub(idam, 'logout').returns(idamLogoutMiddleware);
+      caseOrchestrationHelper.handleErrorCodes(caseOrchestrationHelper.redirectToRespondentError);
+      expect(redirectToFrontendHelper.redirectToAos.calledOnce).to.eql(true);
+      expect(idam.logout.calledOnce).to.eql(true);
+      idam.logout.restore();
+    });
+
+    it('redirect to decree absolute frontend if error is REDIRECT_TO_DECREE_ABSOLUTE_FE', () => {
+      caseOrchestrationHelper.handleErrorCodes(caseOrchestrationHelper.redirectToDecreeAbsoluteError);
+      expect(redirectToFrontendHelper.redirectToDa.calledOnce).to.eql(true);
+    });
 
     it('calls next with error if error not recognised', () => {
       const next = sinon.stub();
