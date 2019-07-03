@@ -2,26 +2,21 @@
 
 {% from "look-and-feel/components/progress-list.njk" import progressList %}
 
-{% from "panel/macro.njk" import govukPanel %}
-
 {% block back %}{% endblock %}
 {% block title %}{% endblock %}
 
 {% block main_content %}
-  {% set html %}
-    <p class="govuk-!-font-size-19 govuk-!-font-weight-bold">{{ content.appliedForDecreeNisi }}</p>
-
-    <span class="govuk-!-font-size-16">{{ content.referenceNumber }}</span>
-    <br>
-    <strong class="govuk-body-reference-number" aria-label="{{ case.caseReference | a11yCharSeparator | safe }}">
-      {{ case.caseReference | safe }}
-    </strong>
-  {% endset %}
-
-  {{ govukPanel({
-    titleText: content.applicationComplete,
-    html: html
-  }) }}
+  <div class="govuk-panel govuk-panel--confirmation">
+    <h1 class="govuk-panel__title govuk-!-margin-bottom-0">{{content.applicationComplete | safe}}</h1>
+    <p class="govuk-!-font-size-19 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-0">{{ content.appliedForDecreeNisi }}</p>
+    <p class="govuk-panel__body govuk-!-margin-0 govuk-!-margin-top-2">
+      <span class="govuk-!-font-size-16">{{ content.referenceNumber | safe }}</span>
+      <br>
+      <strong class="govuk-body-reference-number" aria-label="{{ session.caseId | a11yCharSeparator | safe }}">
+        {{ session.caseReference | safe }}EX6781293018
+      </strong>
+    </p>
+  </div>
 
   <p class="govuk-body">{{ content.emailConfirmation | safe }}</p>
 
