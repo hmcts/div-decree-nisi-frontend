@@ -68,6 +68,8 @@ services:
     url: PETITIONER_FRONTEND_URL
   aosFrontend:
     url: RESPONDENT_FRONTEND_URL
+  daFrontend:
+    url: DECREE_ABSOLUTE_FRONTEND_URL
   caseMaintenance:
     baseUrl: CASE_MAINTENANCE_BASE_URL
   feesAndPayments:
