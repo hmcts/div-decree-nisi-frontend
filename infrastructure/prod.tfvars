@@ -17,4 +17,4 @@ rate_limiter_enabled = true
 
 petitioner_frontend_url = "https://www.apply-divorce.service.gov.uk"
 respondent_frontend_url = "https://www.respond-divorce.service.gov.uk"
-decree_absolute_frontend_url = "https://div-da-aat.service.core-compute-aat.internal"
+decree_absolute_frontend_url = "https://decree-absolute.apply-divorce.service.gov.uk"

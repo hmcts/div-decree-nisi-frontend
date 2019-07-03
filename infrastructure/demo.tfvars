@@ -14,6 +14,6 @@ rate_limiter_enabled = false
 
 petitioner_frontend_url = "https://div-pfe-demo.service.core-compute-demo.internal"
 respondent_frontend_url = "https://div-rfe-demo.service.core-compute-demo.internal"
-decree_absolute_frontend_url = "https://div-da-aat.service.core-compute-aat.internal"
+decree_absolute_frontend_url = "https://div-da-demo.service.core-compute-demo.internal"
 
 ccd_digital_courts = "[\"serviceCentre\", \"eastMidlands\", \"westMidlands\", \"southWest\", \"northWest\"]"
