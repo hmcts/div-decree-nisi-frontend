@@ -20,43 +20,40 @@
   })
 }}
 
-<h2 class="heading-medium">{{ content.undefendedAppStatusMsg }}</h2>
+<h2 class="govuk-heading-m">{{ content.undefendedAppStatusMsg }}</h2>
 
 {% if respNotAdmitsToFact %}
   {% if isCaseAmended %}
-    <p>{{ content.undefendedAmendedCaseButNotAdmit }}</p>
+    <p class="govuk-body">{{ content.undefendedAmendedCaseButNotAdmit }}</p>
   {% else %}
-    <p>{{ content.undefendedButNotAdmit }}</p>
+    <p class="govuk-body">{{ content.undefendedButNotAdmit }}</p>
   {% endif %}
 {% else %}
   {% if isCaseAmended %}
-    <p>{{ content.undefendedAmendedAppStatusMsgDetails1 }}</p>
+    <p class="govuk-body">{{ content.undefendedAmendedAppStatusMsgDetails1 }}</p>
   {% else %}
-    <p>{{ content.undefendedAppStatusMsgDetails1 }}</p>
+    <p class="govuk-body">{{ content.undefendedAppStatusMsgDetails1 }}</p>
   {% endif %}
 {% endif %}
-<p>{{ content.undefendedAppStatusMsgDetails2 }}</p>
+<p class="govuk-body">{{ content.undefendedAppStatusMsgDetails2 }}</p>
 
-<details>
-<summary aria-controls="details-content-0" aria-expanded="false">
-  <span class="summary">{{ content.undefendedReadMore }}</span>
-</summary>
+<details class="govuk-details">
+  <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+    <span class="govuk-details__summary-text">{{ content.undefendedReadMore }}</span>
+  </summary>
 
-<div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-  <p>{{ content.undefendedOrderForDivorce }}</p>
+  <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+    <p class="govuk-body">{{ content.undefendedOrderForDivorce }}</p>
 
-  <ol class="list list-number">
-    <li>{{ content.undefendedCourtAgrees }}</li>
-    <li>{{ content.undefendedCannotBeMade6Weeks }}</li>
-  </ol>
+    <ol class="govuk-list govuk-list--number">
+      <li>{{ content.undefendedCourtAgrees }}</li>
+      <li>{{ content.undefendedCannotBeMade6Weeks }}</li>
+    </ol>
 
-  <p>{{ content.undefendedUntilTheDecreeAbsolute }}</p>
-</div>
+    <p class="govuk-body">{{ content.undefendedUntilTheDecreeAbsolute }}</p>
+  </div>
 </details>
 
-<br>
-
 <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
-
-<input class="button button-start" type="submit" value="{{ content.continue }}">
+  <input role="button" draggable="false" class="govuk-button govuk-button--start" type="submit" value="{{ content.continue }}">
 </form>

@@ -60,8 +60,8 @@
                 file.element.addClass('error');
                 file.element.find('span.form-hint').remove();
                 file.element.find('td:first')
-                  .addClass('form-group-error')
-                  .append('<span class="error-message">' + options.errors.errorUnknown + '</span>');
+                  .addClass('govuk-form-group--error')
+                  .append('<span class="govuk-error-message">' + options.errors.errorUnknown + '</span>');
               }
               if(!this.getQueuedFiles().length){
                 jQuery('input[type="submit"]').prop('disabled', false);
@@ -78,8 +78,8 @@
                 file.element.addClass('error');
                 file.element.find('span.form-hint').remove();
                 file.element.find('td:first')
-                  .addClass('form-group-error')
-                  .append('<span class="error-message">' + errorMessageText + '</span>');
+                  .addClass('govuk-form-group--error')
+                  .append('<span class="govuk-error-message">' + errorMessageText + '</span>');
               }
               if(!this.getQueuedFiles().length){
                 jQuery('input[type="submit"]').prop('disabled', false);
@@ -203,9 +203,10 @@
         var $element = jQuery('<tr/>')
         .addClass('file')
         .addClass('uploading')
+        .addClass('govuk-table__row')
         .html(
-          '<td>' + file.name + ' <span class="form-hint"> - ' + this.options.pendingUploadHint + '</span><span class="upload-progress"></span></td>' +
-          '<td><a class="link remove-file" href="#">' + this.options.removeFileLink + '</a><a class="link hide-file" href="#">' + this.options.hideErrorFileLink + '</a></td>'
+          '<td class="govuk-table__cell">' + file.name + ' <span class="form-hint"> - ' + this.options.pendingUploadHint + '</span><span class="upload-progress"></span></td>' +
+          '<td class="govuk-table__cell"><a class="link remove-file govuk-link" href="#">' + this.options.removeFileLink + '</a><a class="link hide-file govuk-link" href="#">' + this.options.hideErrorFileLink + '</a></td>'
         );
 
         self.$fileList.find('.no-files').hide();

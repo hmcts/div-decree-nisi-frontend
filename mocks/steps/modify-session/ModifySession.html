@@ -16,7 +16,7 @@
       margin:0;
       margin-bottom: 30px;
     }
-    .form-group .heading-medium{
+    .form-group .govuk-heading-m{
       margin-top: 0px;
       margin-bottom: 5px;
     }
@@ -32,7 +32,7 @@
 {% endset %}
 
 {% block full_width %}
-  {{ header(title, size='xlarge') }}
+  {{ header(title, size='xl') }}
 
   <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
@@ -41,7 +41,7 @@
     {% include "modify-session/sections/respondent.html" %}
 
     <input type="hidden" name="_csrf" value="{{ csurfCsrfToken }}">
-    <input class="button" type="submit" value="Set">
+    <input class="govuk-button" type="submit" value="Set">
 
   </form>
 

@@ -54,7 +54,7 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
     } else {
       await helper.amOnPage(newUrl);
       await helper.waitInUrl(newUrl);
-      await helper.waitForElement('#content', 15);
+      await helper.waitForElement('body', 15);
     }
   }
 
