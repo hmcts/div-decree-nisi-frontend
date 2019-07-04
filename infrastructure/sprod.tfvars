@@ -16,3 +16,4 @@ rate_limiter_enabled = true
 
 petitioner_frontend_url = "https://div-pfe-sprod.service.core-compute-sprod.internal"
 respondent_frontend_url = "https://div-rfe-sprod.service.core-compute-sprod.internal"
+decree_absolute_frontend_url = "https://div-da-sprod.service.core-compute-sprod.internal"

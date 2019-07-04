@@ -63,6 +63,9 @@ services:
   aosFrontend:
     url: https://localhost:2000
     landing: /authenticated
+  daFrontend:
+    url: https://localhost:3000
+    landing: /authenticated
   caseMaintenance:
     baseUrl: http://localhost:3001/case-maintenance
   feesAndPayments:
@@ -148,6 +151,9 @@ ccd:
     - 'AmendPetition'
   courts:
     - 'serviceCentre'
+  validDaStates:
+    - 'AwaitingDecreeAbsolute'
+    - 'DivorceGranted'
 
 saucelabs:
   browser: 'chrome'
