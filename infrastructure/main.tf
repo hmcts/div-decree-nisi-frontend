@@ -140,6 +140,9 @@ module "frontend" {
     // Respondent Front End
     RESPONDENT_FRONTEND_URL = "${var.respondent_frontend_url}"
 
+    // Decree Absolute Front End
+    DECREE_ABSOLUTE_FRONTEND_URL = "${var.decree_absolute_frontend_url}"
+
     // CCD Filters
     CCD_DIGITAL_COURTS = "${var.ccd_digital_courts}"
 
