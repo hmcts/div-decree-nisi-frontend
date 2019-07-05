@@ -195,7 +195,7 @@ describe(moduleName, () => {
       expect(res.redirect.calledOnce).to.eql(true);
     });
 
-    it('redirect to respondent frontend & logouts out of idam if error is REDIRECT_TO_RESPONDENT_FE', () => {
+    it('redirect to respondent frontend if error is REDIRECT_TO_RESPONDENT_FE', () => {
       caseOrchestrationHelper.handleErrorCodes(caseOrchestrationHelper.redirectToRespondentError);
       expect(redirectToFrontendHelper.redirectToAos.calledOnce).to.eql(true);
     });
