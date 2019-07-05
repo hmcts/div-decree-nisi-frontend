@@ -63,6 +63,9 @@ services:
   aosFrontend:
     url: https://localhost:2000
     landing: /authenticated
+  daFrontend:
+    url: https://localhost:3000
+    landing: /authenticated
   caseMaintenance:
     baseUrl: http://localhost:3001/case-maintenance
   feesAndPayments:
@@ -137,6 +140,10 @@ document:
   filesWhiteList:
   - 'd8petition'
   - 'respondentAnswers'
+  - 'coRespondentAnswers'
+  - 'certificateOfEntitlement'
+  - 'costsOrder'
+  - 'decreeNisi'
 
 ccd:
   d8States:
@@ -144,6 +151,10 @@ ccd:
     - 'AmendPetition'
   courts:
     - 'serviceCentre'
+  validDaStates:
+    - 'AwaitingDecreeAbsolute'
+    - 'DARequested'
+    - 'DivorceGranted'
 
 saucelabs:
   browser: 'chrome'

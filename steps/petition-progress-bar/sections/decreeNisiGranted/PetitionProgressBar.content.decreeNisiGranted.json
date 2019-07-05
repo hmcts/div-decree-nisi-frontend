@@ -1,0 +1,21 @@
+{
+  "en": {
+    "decreeNisiGrantedTitle": "You have been granted a decree nisi",
+    "decreeNisiGrantedDateGranted": "On {{ case.decreeNisiGrantedDate | date }} the court granted you a:",
+    "decreeNisiGrantedDecreeNisi": "decree nisi - the first stage of the decree ending your marriage",
+    "decreeNisiGrantedCostsOrderCanClaim": "costs order - giving you the right to claim your divorce costs",
+
+    "decreeNisiGrantedNotDivorced": "You are not divorced yet. You will only be divorced when the second stage is complete and you have your decree absolute.",
+
+    "decreeNisiGrantedCompleteTheDivorce": "When you can complete the divorce",
+    "decreeNisiGrantedSixWeeks": "You must wait 6 weeks after your decree nisi is granted before you can apply for your decree absolute. You'll be sent an email when you can apply.",
+    "decreeNisiGrantedCourtCanCancel": "The court can cancel (known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.",
+    "decreeNisiGrantedDownloadDecreeNisi": "<a class=\"govuk-link\" href=\"{{ decreeNisiFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Decree Nisi PDF.\">Download your decree nisi</a> ({{ decreeNisiFile.fileType | upper }}).",
+
+    "decreeNisiGrantedWhatToDoWithCostsOrder": "What to do with your costs order",
+    "decreeNisiGrantedRespondentPays": "The order will state what the court has decided your {{ case.divorceWho }} must pay you. They are required to pay you within 14 days of the order being made. If they don't pay you back within that time, you can use the order to make a money claim against them.",
+    "decreeNisiGrantedCoRespondentPays": "The order will state what the court has decided the co-respondent must pay you. They are required to pay you within 14 days of the order being made. If they don't pay you back within that time, you can use the order to make a money claim against them.",
+    "decreeNisiGrantedRespondentAndCoRespondentPays": "The order will state what the court has decided your {{ case.divorceWho }} and the co-respondent must pay you. They are required to pay you within 14 days of the order being made. If they don't pay you back within that time, you can use the order to make a money claim against them.",
+    "decreeNisiGrantedDownloadCostsOrder": "<a class=\"govuk-link\" href=\"{{ costsOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Costs Order PDF.\">Download your costs order</a> ({{ costsOrderFile.fileType | upper }})."
+  }
+}

@@ -5,6 +5,7 @@
   "data": {
     "createdDate": "2018-08-02T00:00:00.000Z",
     "issueDate": "2019-02-02T00:00:00.000Z",
+    "decreeNisiGrantedDate": "2019-06-10T00:00:00.000Z",
     "previousCaseId": "12345",
     "previousIssueDate": "2018-10-02T00:00:00.000Z",
     "screenHasMarriageBroken": "Yes",
@@ -347,10 +348,54 @@
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/respondent-answers",
         "mimeType": null,
         "status": null
+      },
+      {
+        "id": "co-respondent-answers",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "coRespondentAnswers.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/co-respondent-answers",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "23e0b759-77b5-4778-a604-580f9c485238",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "certificateOfEntitlement1559143445687032.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/23e0b759-77b5-4778-a604-580f9c485238",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "23e0b759-77b5-4778-a604-580f9c485238",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "decreeNisi1559143445687032.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/23e0b759-77b5-4778-a604-580f9c485238",
+        "mimeType": null,
+        "status": null
+      },
+      {
+        "id": "23e0b759-77b5-4778-a604-580f9c485238",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "costsOrder1559143445687032.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/23e0b759-77b5-4778-a604-580f9c485238",
+        "mimeType": null,
+        "status": null
       }
     ],
     "hearingDate": [
-      "2019-04-25T00:00:00.000Z"
+      "2022-04-25T00:00:00.000Z"
     ]
   }
 }

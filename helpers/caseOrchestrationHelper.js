@@ -13,6 +13,10 @@ const REDIRECT_TO_RESPONDENT_FE = Symbol('redirect_to_rfe');
 const redirectToRespondentError = new Error('User is a respondent');
 redirectToRespondentError.statusCode = REDIRECT_TO_RESPONDENT_FE;
 
+const REDIRECT_TO_DECREE_ABSOLUTE_FE = Symbol('redirect_to_da');
+const redirectToDecreeAbsoluteError = new Error('Case is in DA eligible state');
+redirectToDecreeAbsoluteError.statusCode = REDIRECT_TO_DECREE_ABSOLUTE_FE;
+
 const formatSessionForSubmit = req => {
   const { journey } = req;
   const sessionFieldPaths = Object.keys(sessionToCosMapping);
@@ -59,6 +63,8 @@ const validateResponse = (req, response) => {
   const noDigitalCourt = !config.ccd.courts.includes(response.data.courts);
 
   const userIsRespondent = idam.userDetails.email === response.data.respEmailAddress; // eslint-disable-line max-len
+  // eslint-disable-next-line max-len
+  const caseIsInDecreeAbsoluteState = config.ccd.validDaStates.includes(response.state);
 
   switch (true) {
   case notValidState:
@@ -66,6 +72,8 @@ const validateResponse = (req, response) => {
     return Promise.reject(redirectToPetitionerError);
   case userIsRespondent:
     return Promise.reject(redirectToRespondentError);
+  case caseIsInDecreeAbsoluteState:
+    return Promise.reject(redirectToDecreeAbsoluteError);
   default:
     return Promise.resolve(response);
   }
@@ -85,6 +93,9 @@ const handleErrorCodes = (error, req, res, next) => {
       redirectToFrontendHelper.redirectToAos(req, res);
     });
     break;
+  case REDIRECT_TO_DECREE_ABSOLUTE_FE:
+    redirectToFrontendHelper.redirectToDa(req, res);
+    break;
   default:
     next(error);
   }
@@ -95,5 +106,6 @@ module.exports = {
   validateResponse,
   handleErrorCodes,
   redirectToPetitionerError,
-  redirectToRespondentError
+  redirectToRespondentError,
+  redirectToDecreeAbsoluteError
 };

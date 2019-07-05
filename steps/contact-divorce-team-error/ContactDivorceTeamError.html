@@ -5,13 +5,13 @@
 {% endset %}
 
 {% block main_content %}
-<p>{{ content.info }}</p>
-<h2 class="heading-medium">{{ content.contactTitle }}</h2>
-<p>
+<p class="govuk-body">{{ content.info }}</p>
+<h2 class="govuk-heading-m">{{ content.contactTitle }}</h2>
+<p class="govuk-body">
   <strong>{{ content.email }}: </strong>
-  <a href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail | safe }}</a><br>
+  <a class="govuk-link" href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail | safe }}</a><br>
 </p>
-<p>
+<p class="govuk-body">
   <strong>{{ content.phone }}: </strong>
   {{ content.phoneNumber | safe }} {{ content.openTimes | safe}}<br>
 </p>

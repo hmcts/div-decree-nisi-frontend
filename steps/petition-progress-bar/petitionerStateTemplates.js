@@ -26,10 +26,17 @@ const caseStateMap = [
   {
     template: './sections/aosCompleted/PetitionProgressBar.aosCompleted.template.html',
     state: ['aoscompleted']
+  },
+  {
+    template: './sections/decreeNisiGranted/PetitionProgressBar.decreeNisiGranted.template.html',
+    state: ['awaitingdecreeabsolute', 'dnpronounced']
   }
+
 ];
 
 const caseIdDisplayStateMap = ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted'];
+
+const awaitingPronouncementWithHearingDateTemplate = './sections/awaitingPronouncement/PetitionProgressBar.awaitingPronouncement.template.html';
 
 const permitDNReasonMap = new Map([
   ['0', './sections/undefended/PetitionProgressBar.undefended.template.html'],
@@ -42,5 +49,6 @@ const permitDNReasonMap = new Map([
 module.exports = {
   caseStateMap,
   permitDNReasonMap,
-  caseIdDisplayStateMap
+  caseIdDisplayStateMap,
+  awaitingPronouncementWithHearingDateTemplate
 };

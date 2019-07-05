@@ -23,6 +23,8 @@ const templates = {
   defended: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
   undefended: './sections/undefended/PetitionProgressBar.undefended.template.html',
   deemedService: './sections/deemedService/PetitionProgressBar.deemedService.template.html',
+  awaitingPronouncement:
+    './sections/awaitingPronouncement/PetitionProgressBar.awaitingPronouncement.template.html',
   dispensedWithService:
     './sections/dispensedWithService/PetitionProgressBar.dispensedWithService.template.html',
   defendedWithoutAnswer:
@@ -36,7 +38,9 @@ const templates = {
   defendedAwaitingAnswer:
     './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html',
   aosCompleted:
-    './sections/aosCompleted/PetitionProgressBar.aosCompleted.template.html'
+    './sections/aosCompleted/PetitionProgressBar.aosCompleted.template.html',
+  decreeNisiGranted:
+    './sections/decreeNisiGranted/PetitionProgressBar.decreeNisiGranted.template.html'
 };
 
 // get all content for all pages
@@ -608,6 +612,42 @@ describe(modulePath, () => {
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
                 mimeType: null,
                 status: null
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st3r',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'certificateOfEntitlement1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
+                mimeType: null,
+                status: null
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st3r',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'costsOrder1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
+                mimeType: null,
+                status: null
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st3r',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'decreeNisi1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
+                mimeType: null,
+                status: null
               }
             ]
           }
@@ -620,11 +660,74 @@ describe(modulePath, () => {
         return file.type;
       });
 
-      expect(fileTypes).to.eql(['dpetition']);
+      expect(fileTypes).to.eql([
+        'dpetition',
+        'certificateOfEntitlement',
+        'costsOrder',
+        'decreeNisi'
+      ]);
     });
   });
 
-  describe('CCD state: AwaitingPronouncement', () => {
+  describe('CCD state: AwaitingPronouncement with hearing date', () => {
+    const session = {
+      case: {
+        state: 'AwaitingPronouncement',
+        data: {
+          hearingDate: [ '2018-04-25T00:00:00.000Z' ],
+          d8: [
+            {
+              id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+              fileName: 'costsOrder1554740111371638.pdf',
+              // eslint-disable-next-line max-len
+              fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+            }
+          ]
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = [
+        'acceptedStatusMsg',
+        'acceptedStatusDetails',
+        'acceptedStatusPanelDetails',
+        'acceptedHearingTitle',
+        'acceptedHearingMsg1',
+        'acceptedHearingInfo',
+        'acceptedHearingMsg2',
+        'acceptedHearingMsg2Costs'
+      ];
+
+      return content(PetitionProgressBar, session, { specificContent });
+    });
+
+    it('content shouldnt be shown', () => {
+      const specificContentToNotExist = contentToNotExist('awaitingPronouncement');
+
+      return content(PetitionProgressBar, session, { specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.awaitingPronouncement);
+    });
+
+    it('should not show cost order content', () => {
+      const noCostsSession = {
+        case: {
+          state: 'AwaitingPronouncement',
+          data: {
+            hearingDate: [ '2018-04-25T00:00:00.000Z' ]
+          }
+        }
+      };
+      const specificContentToNotExist = ['acceptedHearingMsg2Costs'];
+      return content(PetitionProgressBar, noCostsSession, { specificContentToNotExist });
+    });
+  });
+
+  describe('CCD state: AwaitingPronouncement without hearing date', () => {
     const session = {
       case: {
         state: 'AwaitingPronouncement',
@@ -664,6 +767,251 @@ describe(modulePath, () => {
     });
   });
 
+  describe('CCD state: AwaitingDecreeAbsolute', () => {
+    let session = {};
+
+    beforeEach(() => {
+      session = {
+        case: {
+          state: 'AwaitingDecreeAbsolute',
+          data: {
+            whoPaysCosts: 'respondent',
+            decreeNisiGrantedDate: '2019-06-10T00:00:00.000Z',
+            d8: [
+              {
+                id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+                fileName: 'costsOrder1554740111371638.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+              }
+            ]
+          }
+        }
+      };
+    });
+
+    describe('costs order: respondent', () => {
+      beforeEach(() => {
+        session.case.data.whoPaysCosts = 'respondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGrantedCoRespondentPays',
+        'decreeNisiGrantedRespondentAndCoRespondentPays'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.decreeNisiGranted).filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(PetitionProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(PetitionProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('costs order: co-respondent', () => {
+      beforeEach(() => {
+        session.case.data.whoPaysCosts = 'coRespondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGrantedRespondentPays',
+        'decreeNisiGrantedRespondentAndCoRespondentPays'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.decreeNisiGranted).filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(PetitionProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(PetitionProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('costs order: co-respondent and respondent', () => {
+      beforeEach(() => {
+        session.case.data.whoPaysCosts = 'respondentAndCoRespondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGrantedRespondentPays',
+        'decreeNisiGrantedCoRespondentPays'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.decreeNisiGranted).filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(PetitionProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(PetitionProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('no cost order', () => {
+      beforeEach(() => {
+        delete session.case.data.whoPaysCosts;
+        delete session.case.data.d8;
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGrantedCostsOrderCanClaim',
+        'decreeNisiGrantedWhatToDoWithCostsOrder',
+        'decreeNisiGrantedRespondentPays',
+        'decreeNisiGrantedCoRespondentPays',
+        'decreeNisiGrantedRespondentAndCoRespondentPays',
+        'decreeNisiGrantedDownloadCostsOrder'
+      ];
+
+      it('doesnt render cost order content', () => {
+        return content(PetitionProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    it('doesnt render other content', () => {
+      const specificContentToNotExist = contentToNotExist('decreeNisiGranted');
+      return content(PetitionProgressBar, session, { specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.decreeNisiGranted);
+    });
+  });
+
+  describe('CCD state: DNPronounced', () => {
+    let session = {};
+
+    beforeEach(() => {
+      session = {
+        case: {
+          state: 'DNPronounced',
+          data: {
+            whoPaysCosts: 'respondent',
+            d8: [
+              {
+                id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+                fileName: 'costsOrder1554740111371638.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+              }
+            ]
+          }
+        }
+      };
+    });
+
+    describe('costs order: respondent', () => {
+      beforeEach(() => {
+        session.case.data.whoPaysCosts = 'respondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGrantedCoRespondentPays',
+        'decreeNisiGrantedRespondentAndCoRespondentPays'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.decreeNisiGranted).filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(PetitionProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(PetitionProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('costs order: co-respondent', () => {
+      beforeEach(() => {
+        session.case.data.whoPaysCosts = 'coRespondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGrantedRespondentPays',
+        'decreeNisiGrantedRespondentAndCoRespondentPays'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.decreeNisiGranted).filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(PetitionProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(PetitionProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('costs order: co-respondent and respondent', () => {
+      beforeEach(() => {
+        session.case.data.whoPaysCosts = 'respondentAndCoRespondent';
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGrantedRespondentPays',
+        'decreeNisiGrantedCoRespondentPays'
+      ];
+
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.decreeNisiGranted).filter(key => {
+          return !specificContentToNotExist.includes(key);
+        });
+
+        return content(PetitionProgressBar, session, { specificContent });
+      });
+
+      it('doesnt render other content', () => {
+        return content(PetitionProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    describe('no cost order', () => {
+      beforeEach(() => {
+        delete session.case.data.whoPaysCosts;
+        delete session.case.data.d8;
+      });
+
+      const specificContentToNotExist = [
+        'decreeNisiGrantedCostsOrderCanClaim',
+        'decreeNisiGrantedWhatToDoWithCostsOrder',
+        'decreeNisiGrantedRespondentPays',
+        'decreeNisiGrantedCoRespondentPays',
+        'decreeNisiGrantedRespondentAndCoRespondentPays',
+        'decreeNisiGrantedDownloadCostsOrder'
+      ];
+
+      it('doesnt render cost order content', () => {
+        return content(PetitionProgressBar, session, { specificContentToNotExist });
+      });
+    });
+
+    it('doesnt render other content', () => {
+      const specificContentToNotExist = contentToNotExist('decreeNisiGranted');
+      return content(PetitionProgressBar, session, { specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.decreeNisiGranted);
+    });
+  });
+
   describe('court address details', () => {
     it('should display divorce center details when divorce unit handles case', () => {
       const session = {
@@ -681,7 +1029,7 @@ describe(modulePath, () => {
         .get()
         .expect(httpStatus.OK)
         .html($ => {
-          const rightHandSideMenu = $('.column-one-third').html();
+          const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
           testDivorceUnitDetailsRender(rightHandSideMenu);
           expect(rightHandSideMenu).to.include(PetProgressBarContent.en.openTimes)
@@ -706,7 +1054,7 @@ describe(modulePath, () => {
         .get()
         .expect(httpStatus.OK)
         .html($ => {
-          const rightHandSideMenu = $('.column-one-third').html();
+          const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
           testCTSCDetailsRender(rightHandSideMenu);
           expect(rightHandSideMenu).to.include(PetProgressBarContent.en.openTimes)

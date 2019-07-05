@@ -30,6 +30,7 @@ nodejs:
         EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT: "/emclientapi/version/1/upload"
         EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT: "/emclientapi/version/1/download"
         PETITIONER_FRONTEND_URL: "https://div-pfe-aat.service.core-compute-aat.internal"
+        DECREE_ABSOLUTE_FRONTEND_URL: "https://div-da-aat.service.core-compute-aat.internal"
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
         REFORM_ENVIRONMENT: "aat"
         RESPONDENT_FRONTEND_URL: "https://div-rfe-aat.service.core-compute-aat.internal"

@@ -29,4 +29,14 @@ const redirectToAos = (req, res) => {
   redirectToUrl(req, res, `${aosFrontend.url}${aosFrontend.landing}`);
 };
 
-module.exports = { redirectToFrontend, redirectToAos, redirectToFrontendAmend };
+const redirectToDa = (req, res) => {
+  logger.infoWithReq(req, 'redirecting_to_decree_absolute', 'Redirecting user to DA.');
+
+  const daFrontend = config.services.daFrontend;
+  redirectToUrl(req, res, `${daFrontend.url}${daFrontend.landing}`);
+};
+
+module.exports = {
+  redirectToFrontend, redirectToAos,
+  redirectToFrontendAmend, redirectToDa
+};

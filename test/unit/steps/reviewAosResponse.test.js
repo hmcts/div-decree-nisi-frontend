@@ -164,6 +164,33 @@ describe(modulePath, () => {
       return content(ReviewAosResponse, session, { specificContent, specificValues });
     });
 
+    describe('Respondent solicitor representation', () => {
+      it('renders sub-heading if respondentSolicitorRepresented is yes', () => {
+        const session = {
+          case: {
+            data: {
+              respWillDefendDivorce: 'Yes',
+              reasonForDivorce: 'desertion',
+              respondentSolicitorRepresented: 'Yes'
+            }
+          }
+        };
+        const specificContent = ['respSolicitorRepresented'];
+        return content(ReviewAosResponse, session, { specificContent });
+      });
+      it('Do not render sub-heading if respondentSolicitorRepresented is not available', () => {
+        const session = {
+          case: {
+            data: {
+              respWillDefendDivorce: 'Yes',
+              reasonForDivorce: 'desertion'
+            }
+          }
+        };
+        const specificContentToNotExist = ['respSolicitorRepresented'];
+        return content(ReviewAosResponse, session, { specificContentToNotExist });
+      });
+    });
 
     describe('How Respondnet wants to proceed section', () => {
       it('renders common conent in this section', () => {

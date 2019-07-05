@@ -119,6 +119,10 @@ variable "respondent_frontend_url" {
   type = "string"
 }
 
+variable "decree_absolute_frontend_url" {
+  default = ""
+}
+
 variable "idam_authentication_login_endpoint" {
   default = "/login"
 }

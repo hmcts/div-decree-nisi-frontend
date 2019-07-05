@@ -14,10 +14,10 @@
 
 
   {% if respNotAdmittedAdultery %}
-    <p class="text">{{ content.adultery.adulteryDoc | safe }}</p>
-    <p class="text">{{ content.adultery.extraDocs | safe }}</p>
+    <p class="govuk-body">{{ content.adultery.adulteryDoc | safe }}</p>
+    <p class="govuk-body">{{ content.adultery.extraDocs | safe }}</p>
   {% else %}
-     <p class="text">{{ content.otherReasons.extraDocuments | safe }}</p>
+     <p class="govuk-body">{{ content.otherReasons.extraDocuments | safe }}</p>
   {% endif %}
 
   {% call formSection() %}

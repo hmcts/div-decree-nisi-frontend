@@ -410,7 +410,7 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificValues: [session.case.legalProceedingsDetails] }
+        { specificValues: [session.case.data.legalProceedingsDetails] }
       );
     });
 

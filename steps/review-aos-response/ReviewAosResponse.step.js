@@ -17,6 +17,7 @@ const constants = {
   respJurisdictionAgree: 'respJurisdictionAgree',
   respLegalProceedingsExist: 'respLegalProceedingsExist',
   respAgreeToCosts: 'respAgreeToCosts',
+  respSolicitorRepresented: 'respondentSolicitorRepresented',
   sep5yr: 'separation-5-years',
   sep2yr: 'separation-2-years',
   desertion: 'desertion',

@@ -8,25 +8,23 @@
 
 {% block fields %}
 
-  <p class="text">{{ content.amendOrAdd | safe }}</p>
+  <p class="govuk-body">{{ content.amendOrAdd | safe }}</p>
 
-  <details>
-    <summary aria-controls="details-content-0" aria-expanded="false">
-      <span class="summary">{{ content.readMore }}</span>
+  <details class="govuk-details">
+    <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+      <span class="govuk-details__summary-text">{{ content.readMore }}</span>
     </summary>
-    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-      <p class="text">{{ content.orderForDivorce }}</p>
+    <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+      <p class="govuk-body">{{ content.orderForDivorce }}</p>
 
-      <ol class="bullet list-number">
+      <ol class="govuk-list govuk-list--number">
         <li>{{ content.decreeNisi }}</li>
         <li>{{ content.decreeAbsolute }}</li>
       </ol>
 
-      <p class="text">{{ content.courtCanCancel }}</p>
+      <p class="govuk-body">{{ content.courtCanCancel }}</p>
     </div>
   </details>
-
-  <br>
 
   {% call formSection() %}
     {{ selectionButtons(fields.applyForDecreeNisi, content.fields.applyForDecreeNisi.title,
@@ -42,8 +40,8 @@
   {% endcall %}
 
   <!-- Dropdown area if answered no -->
-  <div class="js-hidden panel panel-border-wide" id="no-container">
-    <p class="text">{{ content.signOutDetail | safe}}</p>
+  <div class="js-hidden govuk-details__text govuk-!-margin-bottom-3" id="no-container">
+    <p class="govuk-body">{{ content.signOutDetail | safe}}</p>
   </div>
 
 {% endblock %}
