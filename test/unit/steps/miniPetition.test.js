@@ -9,8 +9,8 @@ const Intolerable = require(
 const BehaviourContinueStep = require(
   'steps/behaviour-continued-since-application/BehaviourContinuedSinceApplication.step'
 );
-const LivedApartSinceDesertion = require(
-  'steps/lived-apart-since-desertion/LivedApartSinceDesertion.step'
+const DesertionAskedToResumeDN = require(
+  'steps/desertion-asked-to-resume-dn/DesertionAskedToResumeDN.step'
 );
 const LivedApartSinceSeparation = require(
   'steps/lived-apart-since-separation/LivedApartSinceSeparation.step'
@@ -179,7 +179,7 @@ describe(modulePath, () => {
         return question.redirectWithField(MiniPetition, fields, BehaviourContinueStep, session);
       });
 
-    it('redirects to LivedApartSinceDesertion with desertion and answer yes', () => {
+    it('redirects to DesertionAskedToResumeDN with desertion and answer yes', () => {
       const fields = {
         'changes.hasBeenChanges': 'yes',
         'changes.changesDetails': 'details...',
@@ -193,10 +193,10 @@ describe(modulePath, () => {
           }
         }
       };
-      return question.redirectWithField(MiniPetition, fields, LivedApartSinceDesertion, session);
+      return question.redirectWithField(MiniPetition, fields, DesertionAskedToResumeDN, session);
     });
 
-    it('redirects to LivedApartSinceDesertion with desertion and answer no', () => {
+    it('redirects to DesertionAskedToResumeDN with desertion and answer no', () => {
       const fields = {
         'changes.hasBeenChanges': 'no',
         'changes.statementOfTruthNoChanges': 'yes'
@@ -209,7 +209,7 @@ describe(modulePath, () => {
           }
         }
       };
-      return question.redirectWithField(MiniPetition, fields, LivedApartSinceDesertion, session);
+      return question.redirectWithField(MiniPetition, fields, DesertionAskedToResumeDN, session);
     });
 
     it('redirects to LivedApartSinceSeparation with separation-2-years and answer yes', () => {

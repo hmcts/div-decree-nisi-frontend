@@ -123,7 +123,7 @@ class MiniPetition extends Question {
         .if(reasonForDivorce === 'adultery'),
       redirectTo(this.journey.steps.BehaviourContinuedSinceApplication)
         .if(reasonForDivorce === 'unreasonable-behaviour'),
-      redirectTo(this.journey.steps.LivedApartSinceDesertion)
+      redirectTo(this.journey.steps.DesertionAskedToResumeDN)
         .if(reasonForDivorce === 'desertion'),
       redirectTo(this.journey.steps.LivedApartSinceSeparation)
     );

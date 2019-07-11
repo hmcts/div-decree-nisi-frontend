@@ -26,6 +26,10 @@
   "LivedApartSinceSeparation.changes.livedApartSinceSeparation": "livedApartSinceSeparation",
   "LivedApartSinceSeparation.changes.approximateDatesOfLivingTogetherField": "approximateDatesOfLivingTogetherField",
 
+  "DesertionAskedToResumeDN.changes.desertionAskedToResumeDN": "desertionAskedToResumeDN",
+  "DesertionAskedToResumeDN.changes.desertionAskedToResumeDNRefused": "desertionAskedToResumeDNRefused",
+  "DesertionAskedToResumeDN.changes.desertionAskedToResumeDNDetails": "desertionAskedToResumeDNDetails",
+
   "LivedApartSinceDesertion.changes.livedApartSinceDesertion": "livedApartSinceDesertion",
   "LivedApartSinceDesertion.changes.approximateDatesOfLivingTogetherField": "approximateDatesOfLivingTogetherField",
 

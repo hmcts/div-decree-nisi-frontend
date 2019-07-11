@@ -87,6 +87,7 @@ paths:
   index: /
   intolerable: /intolerable
   livedApartSinceAdultery: /lived-apart-since-adultery
+  desertionAskedToResumeDN: /desertion-asked-to-resume-dn
   livedApartSinceDesertion: /lived-apart-since-desertion
   livedApartSinceLastIncidentDate: /lived-apart-since-last-incident-date
   livedApartSinceSeparation: /lived-apart-since-separation
