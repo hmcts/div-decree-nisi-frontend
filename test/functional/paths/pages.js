@@ -47,6 +47,8 @@ Scenario('Pages', async I => {
 
   await I.testUploadPage();
 
+  I.testDesertionAskedToResumeDN();
+
   I.testCheckYourAnswersPage();
 
   I.testDonePage();
