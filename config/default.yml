@@ -144,6 +144,7 @@ document:
   - 'certificateOfEntitlement'
   - 'costsOrder'
   - 'decreeNisi'
+  - 'dnAnswers'
 
 ccd:
   d8States:
