@@ -9,6 +9,9 @@ const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
 const petitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
+const DesertionAskedToResumeDN = require(
+  'steps/desertion-asked-to-resume-dn/DesertionAskedToResumeDN.step'
+);
 const LivedApartSinceDesertion = require(
   'steps/lived-apart-since-desertion/LivedApartSinceDesertion.step'
 );
@@ -76,6 +79,7 @@ describe('Desertion DN flow', () => {
           'changes.statementOfTruthNoChanges': 'yes'
         }
       },
+      { step: DesertionAskedToResumeDN, body: { 'changes.desertionAskedToResumeDN': 'no' } },
       { step: LivedApartSinceDesertion, body: { 'changes.livedApartSinceDesertion': 'yes' } },
       { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
       { step: ShareCourtDocuments, body: { upload: 'no' } },
@@ -93,6 +97,9 @@ describe('Desertion DN flow', () => {
         costsDifferentDetails: null,
         uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
+        desertionAskedToResumeDN: 'no',
+        desertionAskedToResumeDNDetails: null,
+        desertionAskedToResumeDNRefused: null,
         livedApartSinceDesertion: 'yes',
         approximateDatesOfLivingTogetherField: null
       };
@@ -114,6 +121,10 @@ describe('Desertion DN flow', () => {
           'changes.statementOfTruthNoChanges': 'yes'
         }
       },
+      { step: DesertionAskedToResumeDN, body: {
+        'changes.desertionAskedToResumeDN': 'yes',
+        'changes.desertionAskedToResumeDNRefused': 'no'
+      } },
       { step: LivedApartSinceDesertion, body: {
         'changes.livedApartSinceDesertion': 'no',
         'changes.approximateDatesOfLivingTogetherField': 'details...'
@@ -134,6 +145,58 @@ describe('Desertion DN flow', () => {
         costsDifferentDetails: null,
         uploadAnyOtherDocuments: 'no',
         statementOfTruth: 'yes',
+        desertionAskedToResumeDN: 'yes',
+        desertionAskedToResumeDNDetails: null,
+        desertionAskedToResumeDNRefused: 'no',
+        livedApartSinceDesertion: 'no',
+        approximateDatesOfLivingTogetherField: 'details...'
+      };
+      sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
+    });
+  });
+
+  describe('livedApartSinceDesertion : no and desertionAskedToResumeDNRefused: yes', () => {
+    journey.test([
+      { step: Start },
+      { step: IdamLogin, body: { success: 'yes' } },
+      { step: Entry },
+      { step: petitionProgressBar },
+      { step: ApplyForDecreeNisi, body: { applyForDecreeNisi: 'yes' } },
+      {
+        step: MiniPetition,
+        body: {
+          'changes.hasBeenChanges': 'no',
+          'changes.statementOfTruthNoChanges': 'yes'
+        }
+      },
+      { step: DesertionAskedToResumeDN, body: {
+        'changes.desertionAskedToResumeDN': 'yes',
+        'changes.desertionAskedToResumeDNRefused': 'yes',
+        'changes.desertionAskedToResumeDNDetails': 'Refusal details'
+      } },
+      { step: LivedApartSinceDesertion, body: {
+        'changes.livedApartSinceDesertion': 'no',
+        'changes.approximateDatesOfLivingTogetherField': 'details...'
+      } },
+      { step: ClaimCosts, body: { 'dnCosts.claimCosts': 'originalAmount' } },
+      { step: ShareCourtDocuments, body: { upload: 'no' } },
+      { step: CheckYourAnswers, body: { statementOfTruth: 'yes' } },
+      { step: Done }
+    ]);
+
+    it('submits correct body to case orchestration service', () => {
+      const body = {
+        applyForDecreeNisi: 'yes',
+        hasBeenChanges: 'no',
+        changesDetails: null,
+        statementOfTruthChanges: 'yes',
+        claimCosts: 'originalAmount',
+        costsDifferentDetails: null,
+        uploadAnyOtherDocuments: 'no',
+        statementOfTruth: 'yes',
+        desertionAskedToResumeDN: 'yes',
+        desertionAskedToResumeDNRefused: 'yes',
+        desertionAskedToResumeDNDetails: 'Refusal details',
         livedApartSinceDesertion: 'no',
         approximateDatesOfLivingTogetherField: 'details...'
       };

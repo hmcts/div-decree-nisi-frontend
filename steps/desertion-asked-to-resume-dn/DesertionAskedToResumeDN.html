@@ -1,0 +1,50 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons, errorClass, errorsFor, textarea %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.changes.desertionAskedToResumeDN, content.fields.desertionAskedToResumeDN.title,
+      options = [
+        { label: content.fields.desertionAskedToResumeDN.yes, value: "yes", target: "resume-yes-container" },
+        { label: content.fields.desertionAskedToResumeDN.no, value: "no" }
+      ],
+      hint=false,
+      hideQuestion=true,
+      inline=true,
+      type='radio'
+    ) }}
+
+    <div class="js-hidden" id="resume-yes-container">
+      {{
+        selectionButtons(
+          fields.changes.desertionAskedToResumeDNRefused,
+          content.fields.desertionAskedToResumeDNRefused.title,
+          options = [
+            { label: content.fields.desertionAskedToResumeDNRefused.yes, value: "yes", target: "refuse-yes-container" },
+            { label: content.fields.desertionAskedToResumeDNRefused.no, value: "no" }
+          ],
+          hint=false,
+          inline=true,
+          type='radio',
+          hideQuestion=false
+        )
+      }}
+    </div>
+
+    <div class="js-hidden" id="refuse-yes-container">
+      {{ textarea(
+        fields.changes.desertionAskedToResumeDNDetails,
+        content.fields.desertionAskedToResumeDNDetails.title,
+        bold=true
+      ) }}
+    </div>
+
+  {% endcall %}
+
+{% endblock %}
