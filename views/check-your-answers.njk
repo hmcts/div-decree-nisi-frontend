@@ -20,7 +20,7 @@
 
       <table class="govuk-table">
         <caption class="govuk-table__caption">
-          <span class="visuallyhidden">This table has a list of your questions and answers. The first column is the question. The second column is your answer and the third column is a link to change your answer of that particular question.</span> 
+          <span class="visuallyhidden">{{ pageContent.summaryTableCaption }}</span> 
         </caption>
         <tbody class="govuk-table__body">
           
@@ -30,12 +30,12 @@
               {% if section.title and _sections|length > 1 %}
                 {{ header(section.title, size='m') }}
               {% endif %}
-                {% for part in section.completedAnswers %}
-                  {% if not part.hide %}
-                    {% if part.html %}
-                      {{ part.html | safe }}
+                {% for answerContent in section.completedAnswers %}
+                  {% if not answerContent.hide %}
+                    {% if answerContent.html %}
+                      {{ answerContent.html | safe }}
                     {% else %}
-                      {{ answer(part.question, part.answer, part.url, part.id) }}
+                      {{ answer(answerContent.question, answerContent.answer, answerContent.url, answerContent.id) }}
                     {% endif %}
                   {% endif %}
                 {% endfor %}
