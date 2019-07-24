@@ -162,6 +162,16 @@ describe(moduleName, () => {
       return expect(caseOrchestrationHelper.validateResponse(req, response))
         .to.eventually.equal(response);
     });
+
+    it('resolves if case is old paper based case', () => {
+      response.state = 'aValidState';
+      response.data.courts = config.ccd.courts[0];
+      response.data.decreeNisiGrantedDate = '2019-06-10T00:00:00.000Z';
+      response.data.petitionerEmail = 'email@email.com';
+      req.idam.userDetails.email = 'email@email.com';
+      return expect(caseOrchestrationHelper.validateResponse(req, response))
+        .to.eventually.equal(response);
+    });
   });
 
   describe('#handleErrorCodes', () => {
