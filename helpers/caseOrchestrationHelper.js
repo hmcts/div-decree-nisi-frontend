@@ -63,7 +63,7 @@ const validateResponse = (req, response) => {
   const noDigitalCourt = !config.ccd.courts.includes(response.data.courts);
 
   // temporary solution to prevent old paper based cases progressing via DA
-  const oldPaperBasedCase = (response.data.decreeNisiGrantedDate === null);
+  const oldPaperBasedCase = !response.data.decreeNisiGrantedDate;
 
   const userIsRespondent = idam.userDetails.email === response.data.respEmailAddress; // eslint-disable-line max-len
   // eslint-disable-next-line max-len

@@ -125,6 +125,7 @@ describe(moduleName, () => {
 
       it('if respondent email match with idam email', () => {
         response.data.respEmailAddress = 'anotheremail@email.com';
+        response.data.decreeNisiGrantedDate = '2019-06-10T00:00:00.000Z';
         req.idam.userDetails.email = 'anotheremail@email.com';
         return expect(caseOrchestrationHelper.validateResponse(req, response))
           .to.be.rejectedWith(caseOrchestrationHelper.redirectToRespondentError);
@@ -133,6 +134,7 @@ describe(moduleName, () => {
       it('if the state is in blacklist', () => {
         response.data.petitionerEmail = 'email@email.com';
         response.data.respEmailAddress = 'email@email.com';
+        response.data.decreeNisiGrantedDate = '2019-06-10T00:00:00.000Z';
         req.idam.userDetails.email = 'email@email.com';
         return expect(caseOrchestrationHelper.validateResponse(req, response))
           .to.be.rejectedWith(caseOrchestrationHelper.redirectToRespondentError);
@@ -147,6 +149,7 @@ describe(moduleName, () => {
 
       it('if case is in valid DA state', () => {
         response.data.respEmailAddress = 'anotheremail@email.com';
+        response.data.decreeNisiGrantedDate = '2019-06-10T00:00:00.000Z';
         req.idam.userDetails.email = 'email@email.com';
 
         return expect(caseOrchestrationHelper.validateResponse(req, response))
@@ -166,7 +169,6 @@ describe(moduleName, () => {
     it('resolves if case is old paper based case', () => {
       response.state = 'aValidState';
       response.data.courts = config.ccd.courts[0];
-      response.data.decreeNisiGrantedDate = '2019-06-10T00:00:00.000Z';
       response.data.petitionerEmail = 'email@email.com';
       req.idam.userDetails.email = 'email@email.com';
       return expect(caseOrchestrationHelper.validateResponse(req, response))
