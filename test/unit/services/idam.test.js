@@ -154,7 +154,7 @@ describe(modulePath, () => {
     let sandbox = {};
 
     before(() => {
-      sandbox = sinon.sandbox.create();
+      sandbox = sinon.createSandbox();
     });
 
     after(() => {

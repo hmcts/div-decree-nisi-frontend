@@ -35,6 +35,7 @@ describe(modulePath, () => {
       const error = new Error('An error has occoured on the Case Orchestartion Service');
       error.statusCode = INTERNAL_SERVER_ERROR;
       caseOrchestrationService.getApplication.rejects(error);
+      sinon.stub(console, 'error');
       return custom(Entry)
         .get()
         .expect(INTERNAL_SERVER_ERROR)
