@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+  "feeCode": "FEE0392",
+  "amount": 110,
+  "version": 1,
+  "description": "Request for service by a bailiff of document (see order for exceptions)"
+}
