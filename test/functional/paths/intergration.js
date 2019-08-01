@@ -15,7 +15,12 @@ Scenario('Happy Path', async I => {
 
   I.testMiniPetitionPage();
 
-  I.testBehaviourContinuedSinceApplicationPage();
+  const isMocked = await I.grabCookie('mockIdamUserDetails');
+  if (isMocked) {
+    I.testLivedApartSinceSeparationPage();
+  } else {
+    I.testBehaviourContinuedSinceApplicationPage();
+  }
 
   I.testClaimCostsPage();
 

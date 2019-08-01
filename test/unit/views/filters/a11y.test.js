@@ -1,4 +1,4 @@
-const modulePath = '../../../../views/filters/a11y';
+const modulePath = 'views/filters/a11y';
 
 const { expect } = require('@hmcts/one-per-page-test-suite');
 const filter = require(modulePath);
