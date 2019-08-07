@@ -18,28 +18,31 @@
 
       {{ header(title, size=titleSize) }}
 
-      {% for section in _sections %}
+      <table class="govuk-table">
+        <caption class="govuk-table__caption">
+          <span class="govuk-visually-hidden">{{ pageContent.summaryTableCaption }}</span> 
+        </caption>
+        <tbody class="govuk-table__body">
+          
+          {% for section in _sections %}
 
-        {% if section.atLeast1Completed %}
-          {% if section.title and _sections|length > 1 %}
-            {{ header(section.title, size='m') }}
-          {% endif %}
-
-          <dl class="govuk-summary-list">
-
-            {% for part in section.completedAnswers %}
-              {% if not part.hide %}
-                {% if part.html %}
-                  {{ part.html | safe }}
-                {% else %}
-                  {{ answer(part.question, part.answer, part.url, part.id) }}
-                {% endif %}
+            {% if section.atLeast1Completed %}
+              {% if section.title and _sections|length > 1 %}
+                {{ header(section.title, size='m') }}
               {% endif %}
-            {% endfor %}
-
-          </dl>
-        {% endif %}
-      {% endfor %}
+                {% for answerContent in section.completedAnswers %}
+                  {% if not answerContent.hide %}
+                    {% if answerContent.html %}
+                      {{ answerContent.html | safe }}
+                    {% else %}
+                      {{ answer(answerContent.question, answerContent.answer, answerContent.url, answerContent.id) }}
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
 
       {% if incomplete %}
         {% block continue_application %}
