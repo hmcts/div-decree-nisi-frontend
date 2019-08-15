@@ -11,9 +11,10 @@ function testBehaviourContinuedSinceApplicationPage() {
   const I = this;
 
   I.amOnLoadedPage(BehaviourContinuedSinceApplication.path);
-  I.checkOption(BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.yes); // eslint-disable-line
+  I.waitInUrl(BehaviourContinuedSinceApplication.path, 5);
+  I.retry(2).click(BehaviourContinuedSinceApplicationContent.en.fields.changes.behaviourContinuedSinceApplication.yes); // eslint-disable-line
   I.navByClick(commonContent.en.continue);
-
+  I.waitInUrl(ClaimCosts.path, 5);
   I.seeCurrentUrlEquals(ClaimCosts.path);
 }
 

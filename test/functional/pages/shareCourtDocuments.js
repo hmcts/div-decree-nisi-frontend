@@ -10,13 +10,13 @@ function testShareCourtDocumentsPage(option = 'yes') {
   const I = this;
 
   I.amOnLoadedPage(ShareCourtDocuments.path);
-  I.checkOption(ShareCourtDocumentsContent.en.fields.upload[option]);
-
+  I.click(ShareCourtDocumentsContent.en.fields.upload[option]);
   I.navByClick(commonContent.en.continue);
 
   if (option === 'yes') {
     I.seeCurrentUrlEquals(Upload.path);
   } else {
+    I.waitInUrl(CheckYourAnswers.path, 5);
     I.seeCurrentUrlEquals(CheckYourAnswers.path);
   }
 }

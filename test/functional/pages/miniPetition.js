@@ -7,8 +7,9 @@ function testMiniPetitionPage() {
   const I = this;
 
   I.amOnLoadedPage(MiniPetition.path);
-  I.checkOption(MiniPetitionContent.en.fields.changes.hasBeenChanges.no);
-  I.checkOption(MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.yes);
+  I.waitInUrl(MiniPetition.path, 5);
+  I.retry(2).click(MiniPetitionContent.en.fields.changes.hasBeenChanges.no);
+  I.retry(2).click(MiniPetitionContent.en.fields.changes.statementOfTruthNoChanges.yes);
   I.navByClick(commonContent.en.continue);
 }
 
