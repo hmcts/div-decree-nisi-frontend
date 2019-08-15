@@ -6,7 +6,6 @@ const BehaviourContinuedSinceApplicationContent = require(
 );
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 const commonContent = require('common/content');
-const config = require('config');
 
 function testBehaviourContinuedSinceApplicationPage() {
   const I = this;
