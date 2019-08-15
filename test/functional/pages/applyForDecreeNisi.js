@@ -7,9 +7,10 @@ function testApplyForDecreeNisiPage() {
   const I = this;
 
   I.amOnLoadedPage(ApplyForDecreeNisi.path);
-  I.checkOption(ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.yes);
+  I.waitInUrl(ApplyForDecreeNisi.path, 5);
+  I.retry(2).click(ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.yes);
   I.navByClick(commonContent.en.continue);
-
+  I.waitInUrl(MiniPetition.path, 5);
   I.seeCurrentUrlEquals(MiniPetition.path);
 }
 

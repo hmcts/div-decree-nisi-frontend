@@ -16,7 +16,7 @@ tests:
     url: TEST_URL
     proxy: FUNCTIONAL_IDAM_PROXY
     proxyByPass: FUNCTIONAL_IDAM_SERVER
-    verifyDonePageOnCrossbrowser: VERIFY_DONE_PAGE_CROSSBROWSER
+    verifyOnCrossbrowser: VERIFY_ON_CROSSBROWSER
     idam:
       idamTestUsername: FUNCTIONAL_IDAM_USERNAME
       idamTestPassword: FUNCTIONAL_IDAM_PASSWORD

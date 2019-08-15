@@ -11,9 +11,9 @@ function testClaimCostsPage() {
   const I = this;
 
   I.amOnLoadedPage(ClaimCosts.path);
-  I.checkOption(ClaimCostsContent.en.fields.dnCosts.originalAmount);
+  I.click(ClaimCostsContent.en.fields.dnCosts.originalAmount);
   I.navByClick(commonContent.en.continue);
-
+  I.waitInUrl(ShareCourtDocuments.path, 5);
   I.seeCurrentUrlEquals(ShareCourtDocuments.path);
 }
 

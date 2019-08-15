@@ -4,7 +4,7 @@ const ProgressBarStepContent = require('steps/petition-progress-bar/PetitionProg
 
 function testProgressBar() {
   const I = this;
-
+  I.waitInUrl(ProgressBarStep.path, 5);
   I.amOnLoadedPage(ProgressBarStep.path);
   I.see(ProgressBarStepContent.en.title);
 }

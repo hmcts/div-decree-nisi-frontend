@@ -118,7 +118,7 @@ tests:
     outputDir: ../../functional-output
     proxy: http://proxyout.reform.hmcts.net:8080
     proxyByPass: '*beta*LB.reform.hmcts.net'
-    verifyDonePageOnCrossbrowser: false
+    verifyOnCrossbrowser: false
     idam:
       idamTestUsername:
       idamTestPassword:
@@ -163,7 +163,7 @@ saucelabs:
   username: 'username'
   key: 'privatekey'
   tunnelId: 'reformtunnel'
-  waitForTimeout: 60000
-  smartWait: 45000
+  waitForTimeout: 5000
+  smartWait: 5000
 
 
