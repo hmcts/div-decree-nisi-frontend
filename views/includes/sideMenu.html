@@ -4,19 +4,19 @@
 
     <ul class="govuk-list govuk-body govuk-!-font-size-16 help">
         <li>
-            <strong class="govuk-!-font-size-16">{{ content.email }}</strong><br>
+            <h4 class="govuk-heading-xs govuk-!-margin-0">{{ content.email }}</h4>
             <a class="govuk-link" href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail | safe }}</a><br>
         </li>
         <li>
-            <strong>{{ content.phone }}</strong><br>
+            <h4 class="govuk-heading-xs govuk-!-margin-0">{{ content.phone }}</h4>
             {{ content.phoneNumber | safe }} <br>
             {{ content.openTimes | safe }} <br>
         </li>
         <li>
             {% if case.court[case.courts].serviceCentreName %}
-                <strong class="govuk-!-font-size-16">{{ case.court[case.courts].serviceCentreName }}</strong><br>
+                <h4 class="govuk-heading-xs govuk-!-margin-0">{{ case.court[case.courts].serviceCentreName }}</h4>
             {% else %}
-                <strong class="govuk-!-font-size-16">{{ content.yourCourt }}</strong><br>
+                <h4 class="govuk-heading-xs govuk-!-margin-0">{{ content.yourCourt }}</h4>
             {% endif %}
             {{ content.careOf if case.court[case.courts].serviceCentreName }}{{ case.court[case.courts].divorceCentre | safe}} <br>
             {% if case.court[case.courts].poBox %}
