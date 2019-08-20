@@ -210,3 +210,32 @@ variable "appinsights_instrumentation_key" {
   description = "Instrumentation key of the App Insights instance this webapp should use. Module will create own App Insights resource if this is not provided"
   default     = ""
 }
+
+variable "feature_webchat" {
+  default = false
+}
+
+variable "webchat_chat_id" {
+  type = "string"
+  default = "3077733355d19fd430f23c7.02555395"
+}
+
+variable "webchat_tenant" {
+  type = "string"
+  default = "c2FuZGJveGhtY3RzMDE"
+}
+
+variable "webchat_button_no_agents" {
+  type = "string"
+  default = "20599210435d19f59cdc3e95.94551214"
+}
+
+variable "webchat_button_agents_busy" {
+  type = "string"
+  default = "8752254635d19f5bb21ff07.71234899"
+}
+
+variable "webchat_button_service_closed" {
+  type = "string"
+  default = "4639879315d19f67c3c1055.15174024"
+}
