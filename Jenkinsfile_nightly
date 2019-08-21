@@ -12,10 +12,12 @@ properties([
 def product = "div"
 def component = "dn"
 
-List<LinkedHashMap<String, Object>> secrets = [
-  secret('session-secret', 'SESSION_SECRET'),
-  secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
-  secret('idam-secret', 'IDAM_SECRET')
+def secrets = [
+  'div-${env}': [
+    secret('session-secret', 'SESSION_SECRET'),
+    secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
+    secret('idam-secret', 'IDAM_SECRET')
+  ]
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
@@ -32,7 +34,6 @@ withNightlyPipeline("nodejs", product, component) {
     env.NODE_ENV= 'ci'
 
     loadVaultSecrets(secrets)
-    setVaultName('div')
 
     enableCrossBrowserTest()
     enableSecurityScan()
