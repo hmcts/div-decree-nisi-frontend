@@ -206,7 +206,7 @@
         .addClass('govuk-table__row')
         .html(
           '<td class="govuk-table__cell">' + file.name + ' <span class="form-hint"> - ' + this.options.pendingUploadHint + '</span><span class="upload-progress"></span></td>' +
-          '<td class="govuk-table__cell"><a class="link remove-file govuk-link" href="#">' + this.options.removeFileLink + '</a><a class="link hide-file govuk-link" href="#">' + this.options.hideErrorFileLink + '</a></td>'
+          '<td class="govuk-table__cell"><a class="link remove-file govuk-link" href="#" aria-label="Remove file link">' + this.options.removeFileLink + '</a><a class="link hide-file govuk-link" href="#" aria-label="Hide this file link">' + this.options.hideErrorFileLink + '</a></td>'
         );
 
         self.$fileList.find('.no-files').hide();

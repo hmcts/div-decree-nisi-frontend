@@ -9,7 +9,7 @@
   <h2 class="govuk-heading-m">{{ content.contactTitle }}</h2>
   <p class="govuk-body">
     <strong>{{ content.email }}: </strong>
-    <a class="govuk-link" href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail | safe }}</a><br>
+    <a class="govuk-link" href="mailto:{{ content.divorceEmail }}" aria-label="{{ content.email }}, this link opens a new email.">{{ content.divorceEmail | safe }}</a><br>
   </p>
   <p class="govuk-body">
     <strong>{{ content.phone }}: </strong>

@@ -80,7 +80,7 @@
         </div>
         <div class="column-two-thirds">
           <p class="dz-message-copy govuk-body">
-            <a class="govuk-link faux-link" href="#">{{ content.clickToChooseFile }}</a><br>
+            <a class="govuk-link faux-link" href="#" aria-label="Choose a file link">{{ content.clickToChooseFile }}</a><br>
             <strong>{{ content.or }}</strong><br>
            {{ content.dragAndDrop }}
           </p>
@@ -101,7 +101,7 @@
           {%- for file in filesWithoutErrors -%}
             <tr class="file govuk-table__row">
               <td class="govuk-table__cell">{{ file.fileName | safe }}</td>
-              <td class="govuk-table__cell"><a class="link remove-file govuk-link" data-fileUrl="{{ file.fileUrl | safe }}" href="?fileUrl={{ file.fileUrl | urlencode }}&noJsDelete=true">{{ content.remove }}</a></td>
+              <td class="govuk-table__cell"><a class="link remove-file govuk-link" data-fileUrl="{{ file.fileUrl | safe }}" href="?fileUrl={{ file.fileUrl | urlencode }}&noJsDelete=true" aria-label="Remove file link">{{ content.remove }}</a></td>
             </tr>
           {%- endfor -%}
         {%- else -%}
