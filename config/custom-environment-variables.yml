@@ -75,7 +75,7 @@ services:
   feesAndPayments:
     url: FEES_AND_PAYMENTS_URL
     health: FEES_AND_PAYMENTS_HEALTHCHECK_URL
-  webChat:
+  webchat:
     chatId: WEBCHAT_CHAT_ID
     tenant: WEBCHAT_TENANT
     buttonNoAgents: WEBCHAT_BUTTON_NO_AGENTS
