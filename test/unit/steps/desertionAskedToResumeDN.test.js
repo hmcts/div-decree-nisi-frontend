@@ -25,7 +25,18 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(DesertionAskedToResumeDN, session);
+    const ignoreContent = [
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours'
+    ];
+
+    return content(DesertionAskedToResumeDN, session, { ignoreContent });
   });
 
 

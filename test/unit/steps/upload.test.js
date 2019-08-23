@@ -31,7 +31,25 @@ describe(modulePath, () => {
 
   describe('content', () => {
     it('renders the content', () => {
-      const ignoreContent = [ 'noFiles' ];
+      const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
+        'noFiles',
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours'
+      ];
       const session = { case: { data: {} } };
       return content(Upload, session, { ignoreContent });
     });

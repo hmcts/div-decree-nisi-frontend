@@ -34,7 +34,21 @@ describe(modulePath, () => {
 
   describe('values', () => {
     it('displays divorce center details', () => {
-      const ignoreContent = ['continue', 'serviceName', 'signOut'];
+      const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
+        'continue',
+        'serviceName',
+        'signOut',
+        'email',
+        'phone'
+      ];
 
       return content(
         Exit,

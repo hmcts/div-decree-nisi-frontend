@@ -41,6 +41,14 @@ describe(modulePath, () => {
         }
       };
       const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
         'theCoRespondentResponseToAdulteryNo',
         'theCoRespondentDefendsTheDivorceNo',
         'theCoRespondentAgreeToPayCostsNo',
@@ -66,6 +74,14 @@ describe(modulePath, () => {
         }
       };
       const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
         'theCoRespondentResponseToAdulteryYes',
         'theCoRespondentDefendsTheDivorceYes',
         'theCoRespondentAgreeToPayCostsYes',
@@ -82,6 +98,14 @@ describe(modulePath, () => {
         }
       };
       const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
         'theCoRespondentResponseToAdulteryNo',
         'theCoRespondentResponseToAdulteryYes',
         'theCoRespondentDefendsTheDivorceNo',
@@ -146,6 +170,14 @@ describe(modulePath, () => {
         }
       };
       const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
         'theCoRespondentResponseToAdulteryYes',
         'theCoRespondentDefendsTheDivorceYes',
         'theCoRespondentAgreeToPayCostsNo',
