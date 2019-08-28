@@ -17,7 +17,7 @@
       {{ caseId | hypenate | safe }}
     {% else %}
       <strong class="govuk-!-font-size-16">{{ content.caseNumber }}:</strong>&nbsp;&nbsp;&nbsp;
-      {{ case.caseReference | safe }}
+      {{ caseReference | safe }}
     {% endif %}
     <br>
     <strong class="govuk-!-font-size-16">{{ content.name }}:</strong> &nbsp;&nbsp;&nbsp; {{ case.petitionerFirstName }} {{ case.petitionerLastName }}

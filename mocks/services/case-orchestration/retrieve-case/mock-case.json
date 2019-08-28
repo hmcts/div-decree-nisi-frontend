@@ -1,5 +1,6 @@
 {
   "caseId": "1234567890124567",
+  "caseReference": "LV17D80101",
   "courts": "serviceCentre",
   "state": "AwaitingDecreeNisi",
   "data": {
@@ -287,7 +288,6 @@
     },
     "courts": "serviceCentre",
     "placeOfMarriage": "At the Holy Trinity Church, in the Parish of Normanton by Derby, in the County of Derby",
-    "caseReference": "LV17D80101",
     "respConfirmReadPetition": "Yes",
     "respAdmitOrConsentToFact": "Yes",
     "respWillDefendDivorce": null,
