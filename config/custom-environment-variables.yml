@@ -81,6 +81,7 @@ journey:
 
 features:
   idam: FEATURE_IDAM
+  awaitingClarificationNew: FEATURE_AWAITING_CLARIFICATION
 
 ccd:
   courts: CCD_DIGITAL_COURTS

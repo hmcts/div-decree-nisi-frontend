@@ -113,6 +113,12 @@ class PetitionProgressBar extends Interstitial {
     });
   }
 
+  get refusalOrderFile() {
+    return this.downloadableFiles.find(file => {
+      return file.type === 'refusalOrder';
+    });
+  }
+
   next() {
     return branch(
       redirectTo(this.journey.steps.DnNoResponse)
@@ -134,7 +140,7 @@ class PetitionProgressBar extends Interstitial {
     } else if (this.awaitingPronouncementWithHearingDate()) {
       template = awaitingPronouncementWithHearingDateTemplate;
     } else {
-      caseStateMap.forEach(dataMap => {
+      caseStateMap().forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
           template = dataMap.template;
         }

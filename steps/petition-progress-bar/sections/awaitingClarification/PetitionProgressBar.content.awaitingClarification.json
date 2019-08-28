@@ -1,0 +1,7 @@
+{
+  "en" : {
+    "awaitingClarificationTitle": "You need to provide more information",
+    "awaitingClarificationNotSatisfied": "The court has reviewed your case and is not yet satisfied that you're entitled to a decree of divorce, You can read the court's reasons for this in the <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Refusal order PDF.\">Refusal order</a> ({{ refusalOrderFile.fileType | upper }}).",
+    "awaitingClarificationProvideMoreInfo": "You need to provide more information or evidence before your application can proceed."
+  }
+}
