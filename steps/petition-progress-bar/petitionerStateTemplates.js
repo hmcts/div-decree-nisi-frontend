@@ -41,7 +41,11 @@ const caseStateMap = () => {
   ];
 
   if (!config.features.awaitingClarification) {
-    map[2].state.push('awaitingclarification');
+    // ensure user sees awaitingSubmittedDN template
+    const awaitingSubmittedDNTemplate = map[2];
+    awaitingSubmittedDNTemplate.state.push('awaitingclarification');
+
+    // remove new awiating for clarification template
     map.pop();
   }
 
