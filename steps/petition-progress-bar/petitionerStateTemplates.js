@@ -12,7 +12,7 @@ const caseStateMap = () => {
     },
     {
       template: './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
-      state: ['awaitinglegaladvisorreferral', 'awaitingconsideration', 'awaitingpronouncement']
+      state: ['awaitinglegaladvisorreferral', 'awaitingconsideration', 'awaitingpronouncement', 'awaitingclarification']
     },
     {
       template: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
@@ -33,20 +33,23 @@ const caseStateMap = () => {
     {
       template: './sections/decreeNisiGranted/PetitionProgressBar.decreeNisiGranted.template.html',
       state: ['awaitingdecreeabsolute', 'dnpronounced']
-    },
-    {
-      template: './sections/awaitingClarification/PetitionProgressBar.awaitingClarification.template.html',
-      state: ['awaitingclarification']
     }
   ];
 
-  if (!config.features.awaitingClarification) {
-    // ensure user sees awaitingSubmittedDN template
+  if (config.features.awaitingClarification) {
+    // remove awaitingclarification state from awaitingSubmittedDN template
     const awaitingSubmittedDNTemplate = map[2];
-    awaitingSubmittedDNTemplate.state.push('awaitingclarification');
+    awaitingSubmittedDNTemplate.state = awaitingSubmittedDNTemplate.state
+      .filter(state => {
+        return state !== 'awaitingclarification';
+      });
 
-    // remove new awiating for clarification template
-    map.pop();
+    // add new template for awaitingclarification state
+    const newAwaitingClarificationTemplate = {
+      template: './sections/awaitingClarification/PetitionProgressBar.awaitingClarification.template.html',
+      state: ['awaitingclarification']
+    };
+    map.push(newAwaitingClarificationTemplate);
   }
 
   return map;
