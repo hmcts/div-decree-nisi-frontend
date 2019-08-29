@@ -136,7 +136,7 @@ tests:
 
 features:
   idam: false
-  webchat: false
+  webchat: true
 
 journey:
   timeoutDelay: 300
