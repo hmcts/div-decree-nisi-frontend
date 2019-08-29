@@ -418,6 +418,15 @@
     ],
     "hearingDate": [
       "2022-04-25T00:00:00.000Z"
-    ]
+    ],
+    "RefusalClarificationReason": [
+      "jurisdictionDetails",
+      "marriageCertTranslation",
+      "marriageCertificate",
+      "previousProceedingDetails",
+      "caseDetailsStatement",
+      "other"
+    ],
+    "RefusalClarificationAdditionalInfo": "Extra details provided by the court"
   }
 }

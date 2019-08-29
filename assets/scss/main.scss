@@ -56,3 +56,8 @@ textarea.form-control {
   padding-left: 0;
   margin: 0;
 }
+
+.court-feedback{
+  border-color: $govuk-error-colour;
+  border-width: 7px;
+}

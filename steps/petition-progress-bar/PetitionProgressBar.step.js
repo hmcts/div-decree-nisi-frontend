@@ -23,6 +23,7 @@ const constants = {
   NotDefined: 'notdefined',
   DNAwaiting: 'awaitingdecreenisi',
   awaitingPronouncement: 'awaitingpronouncement',
+  awaitingClarification: 'awaitingclarification',
   undefendedReason: '0',
   no: 'no',
   yes: 'yes'
@@ -79,6 +80,10 @@ class PetitionProgressBar extends Interstitial {
     return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
   }
 
+  get showCourtFeedback() {
+    return this.caseState === constants.awaitingClarification && config.features.awaitingClarification;
+  }
+
   get showDnNoResponse() {
     return this.caseState === constants.AOSOverdue;
   }
@@ -121,6 +126,8 @@ class PetitionProgressBar extends Interstitial {
 
   next() {
     return branch(
+      redirectTo(this.journey.steps.CourtFeedback)
+        .if(this.showCourtFeedback),
       redirectTo(this.journey.steps.DnNoResponse)
         .if(this.showDnNoResponse),
       redirectTo(this.journey.steps.ReviewAosResponse)

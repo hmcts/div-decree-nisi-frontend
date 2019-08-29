@@ -49,6 +49,8 @@ Scenario('Pages', async I => {
 
   I.testDesertionAskedToResumeDN();
 
+  I.testCourtFeedback();
+
   I.testCheckYourAnswersPage();
 
   I.testDonePage();

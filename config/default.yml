@@ -106,6 +106,7 @@ paths:
   amendApplication: /amend-application
   respNotAdmitAdultery: /resp-does-not-admit-adultery-options
   reviewAosResponseFromCoRespondent: /review-aos-response-from-co-respondent
+  courtFeedback: /court-feedback
   mock:
     idamLogin: /idam-mock-login
     modifySession: /session
@@ -130,7 +131,7 @@ tests:
 
 features:
   idam: false
-  awaitingClarification: false
+  awaitingClarification: true
 
 journey:
   timeoutDelay: 300

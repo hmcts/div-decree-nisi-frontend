@@ -1,0 +1,42 @@
+{
+  "en": {
+    "title": "Respond to the court's feedback?",
+    "needToRespond": "You need to respond to the court's feedback before your application can proceed.",
+    "needToProvide" : "What you need to provide",
+    "feedback" : {
+      "jurisdictionDetails": {
+        "title": "Jurisdiction details",
+        "description": "The court has judged that your application does not fall within the jurisdiction of the courts of England and Wales. You must provide more connections to England or Wales."
+      },
+      "marriageCertTranslation": {
+        "title": "Marriage Certificate Translation",
+        "description": "The marriage certificate must be translated and certified by one of the following methods:",
+        "method1": "Statement of truth<br>The translator of the marriage certificate provides a statment of truth certifying the translation. There are translation services online which inlcude certification as part of their service.",
+        "method2": "Notary public<br>The marriage certificate is translated and then certified by a notary public. You can find a notary public through either the Notaries Society of the Society of Scrivener Notaries."
+      },
+      "marriageCertificate": {
+        "title": "Marriage Certificate",
+        "description": "TBC"
+      },
+      "previousProceedingDetails": {
+        "title": "Previous Proceeding Details",
+        "description": "TBC"
+      },
+      "caseDetailsStatement": {
+        "title": "Case Details Statement",
+        "description": "TBC"
+      },
+      "other": {
+        "title": "Further feedback provided by the court"
+      }
+    },
+    "errors": {
+      "required": "Enter your response"
+    },
+    "fields": {
+      "response": {
+        "title": "Your response"
+      }
+    }
+  }
+}
