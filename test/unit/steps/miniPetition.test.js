@@ -481,7 +481,8 @@ describe(modulePath, () => {
       const session = {
         case: {
           data: {
-            connections: {}
+            connections: {},
+            respondentContactDetailsConfidential: 'share'
           }
         }
       };
@@ -1225,7 +1226,8 @@ describe(modulePath, () => {
             connections: {},
             respondentSolicitorName,
             respondentSolicitorCompany,
-            respondentSolicitorAddress
+            respondentSolicitorAddress,
+            respondentContactDetailsConfidential: 'share'
           }
         }
       };
@@ -1249,7 +1251,8 @@ describe(modulePath, () => {
         case: {
           data: {
             connections: {},
-            respondentCorrespondenceAddress
+            respondentCorrespondenceAddress,
+            respondentContactDetailsConfidential: 'share'
           }
         }
       };
@@ -1258,8 +1261,24 @@ describe(modulePath, () => {
         session,
         { specificValues: [respondentCorrespondenceAddress.address] });
     });
-  });
 
+    it('does not show respondent address when it is confidential', () => {
+      const petitionersSolicitorName = 'name';
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            petitionersSolicitorName,
+            respondentContactDetailsConfidential: 'keep'
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        { specificValues: [petitionersSolicitorName] });
+    });
+  });
 
   describe('Returns correct values()', () => {
     it('hasBeenChanges : yes ', () => {
