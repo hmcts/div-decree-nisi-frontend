@@ -1302,12 +1302,10 @@ describe(modulePath, () => {
       return content(
         MiniPetition,
         session,
-        { specificContentToNotExist: [respondentCorrespondenceAddress.address] }
-      ) && content(
-        MiniPetition,
-        session,
-        { specificValues: [petitionersSolicitorName] }
-      );
+        {
+          specificContentToNotExist: [respondentCorrespondenceAddress.address],
+          specificValues: [petitionersSolicitorName]
+        });
     });
   });
 
