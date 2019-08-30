@@ -1264,19 +1264,29 @@ describe(modulePath, () => {
 
     it('does not show respondent address when it is confidential', () => {
       const petitionersSolicitorName = 'name';
+      const respondentCorrespondenceAddress = {
+        address: 'Respondents Address'
+      };
       const session = {
         case: {
           data: {
             connections: {},
             petitionersSolicitorName,
+            respondentCorrespondenceAddress,
             respondentContactDetailsConfidential: 'keep'
           }
         }
       };
+
       return content(
         MiniPetition,
         session,
-        { specificValues: [petitionersSolicitorName] });
+        { specificContentToNotExist: [respondentCorrespondenceAddress.address] }
+      ) && content(
+        MiniPetition,
+        session,
+        { specificValues: [petitionersSolicitorName] }
+      );
     });
   });
 
