@@ -482,7 +482,7 @@
   <!-- EOF Respondent Address -->
 
   <!-- CoRespondent Address -->
-  {% if case.reasonForDivorceAdultery3rdAddress|length %}
+  {% if case.coRespondentContactDetailsConfidential == "NO" and case.reasonForDivorceAdultery3rdAddress|length %}
     <h2 class="govuk-heading-m">{{ content.coRespondentsCorrespondenceAddress }}</h2>
     <p class="govuk-body">{{ case.reasonForDivorceAdultery3rdAddress.address | address | safe }}</p>
   {% endif %}

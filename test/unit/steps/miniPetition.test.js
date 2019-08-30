@@ -1167,24 +1167,45 @@ describe(modulePath, () => {
         { specificContent: ['applicantsCorrespondenceAddress'] });
     });
 
+    context('CoRespondent Address', () => {
+      let session = null;
 
-    it('CoRespondent Address', () => {
-      const session = {
-        case: {
-          data: {
-            connections: {},
-            reasonForDivorceAdultery3rdAddress: {
-              address: 'line2, line2, line3'
+      beforeEach(() => {
+        session = {
+          case: {
+            data: {
+              connections: {},
+              reasonForDivorceAdultery3rdAddress: {
+                address: 'line2, line2, line3'
+              },
+              coRespondentContactDetailsConfidential: 'NO'
             }
           }
-        }
-      };
-      return content(
-        MiniPetition,
-        session,
-        {
-          specificValues: [session.case.data.reasonForDivorceAdultery3rdAddress.address]
-        });
+        };
+      });
+
+      it('will be displayed when coRespondentContactDetailsConfidential="NO"', () => {
+        return content(
+          MiniPetition,
+          session,
+          {
+            specificValues: [session.case.data.reasonForDivorceAdultery3rdAddress.address]
+          });
+      });
+
+      it('will NOT be displayed when it is confidential', () => {
+        session.case.data.petitionerContactDetailsConfidential = 'share';
+        session.case.data.petitionersSolicitorName = 'Name';
+        session.case.data.coRespondentContactDetailsConfidential = 'YES';
+
+        return content(
+          MiniPetition,
+          session,
+          {
+            specificValues: [session.case.data.petitionersSolicitorName],
+            specificValuesToNotExist: [session.case.data.reasonForDivorceAdultery3rdAddress.address]
+          });
+      });
     });
 
     it('shows petitioners solicitors address if allowed and available', () => {
