@@ -466,36 +466,27 @@
       <p class="govuk-body">{{ case.petitionerHomeAddress.address | address | safe }}</p>
     {% endif %}
   {% endif %}
-
   <!-- EOF Petitioner Address -->
 
   <!-- Respondent Address -->
-
-  <h2 class="govuk-heading-m">{{ content.respondentsCorrespondenceAddress }}</h2>
-  {% if case.respondentSolicitorAddress|length %}
-    <p class="govuk-body">{{ case.respondentSolicitorName }}</p>
-    <p class="govuk-body">{{ case.respondentSolicitorCompany }}</p>
-    <p class="govuk-body">{{ case.respondentSolicitorAddress.address | address | safe }}</p>
-  {% else %}
-    <p class="govuk-body">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
+  {% if case.respondentContactDetailsConfidential == "share" %}
+    <h2 class="govuk-heading-m">{{ content.respondentsCorrespondenceAddress }}</h2>
+    {% if case.respondentSolicitorAddress|length %}
+      <p class="govuk-body">{{ case.respondentSolicitorName }}</p>
+      <p class="govuk-body">{{ case.respondentSolicitorCompany }}</p>
+      <p class="govuk-body">{{ case.respondentSolicitorAddress.address | address | safe }}</p>
+    {% else %}
+      <p class="govuk-body">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
+    {% endif %}
   {% endif %}
-
   <!-- EOF Respondent Address -->
 
-
-
-
   <!-- CoRespondent Address -->
-
-  {% if case.reasonForDivorceAdultery3rdAddress|length %}
+  {% if case.coRespondentContactDetailsConfidential == "NO" and case.reasonForDivorceAdultery3rdAddress|length %}
     <h2 class="govuk-heading-m">{{ content.coRespondentsCorrespondenceAddress }}</h2>
     <p class="govuk-body">{{ case.reasonForDivorceAdultery3rdAddress.address | address | safe }}</p>
   {% endif %}
-
   <!-- EOF CoRespondent Address -->
-
-
-
 
   <h2 class="govuk-heading-m">{{ content.statementOfTruth }}</h2>
   <p class="govuk-body">{{ content.statementOfTruthDescription }}</p>
