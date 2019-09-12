@@ -23,7 +23,17 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(ApplyForDecreeNisi, session);
+    const ignoreContent = [
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours'
+    ];
+    return content(ApplyForDecreeNisi, session, { ignoreContent });
   });
 
   it('shows error if does not answer question', () => {

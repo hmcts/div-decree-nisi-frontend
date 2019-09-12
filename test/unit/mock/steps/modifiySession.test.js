@@ -8,7 +8,18 @@ const ignoreContent = [
   'pleaseEmailOrCallDivorceCourt',
   'phoneToCallIfProblems',
   'emailIfProblems',
-  'continue'
+  'continue',
+  'webChatTitle',
+  'chatDown',
+  'chatWithAnAgent',
+  'noAgentsAvailable',
+  'allAgentsBusy',
+  'chatClosed',
+  'chatAlreadyOpen',
+  'chatOpeningHours',
+  'phoneTitle',
+  'emailTitle',
+  'responseTime'
 ];
 
 describe(modulePath, () => {

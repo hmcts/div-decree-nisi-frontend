@@ -26,7 +26,18 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    return content(Intolerable, session);
+    const ignoreContent = [
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours'
+    ];
+
+    return content(Intolerable, session, { ignoreContent });
   });
 
 

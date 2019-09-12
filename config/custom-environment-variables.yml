@@ -75,12 +75,19 @@ services:
   feesAndPayments:
     url: FEES_AND_PAYMENTS_URL
     health: FEES_AND_PAYMENTS_HEALTHCHECK_URL
+  webchat:
+    chatId: WEBCHAT_CHAT_ID
+    tenant: WEBCHAT_TENANT
+    buttonNoAgents: WEBCHAT_BUTTON_NO_AGENTS
+    buttonAgentsBusy: WEBCHAT_BUTTON_AGENTS_BUSY
+    buttonServiceClosed: WEBCHAT_BUTTON_SERVICE_CLOSED
 
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY
 
 features:
   idam: FEATURE_IDAM
+  webchat: FEATURE_WEBCHAT
 
 ccd:
   courts: CCD_DIGITAL_COURTS

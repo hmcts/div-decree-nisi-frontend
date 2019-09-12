@@ -25,13 +25,33 @@ describe(modulePath, () => {
   describe('renders content', () => {
     it('renders the content when respondent agrees to pay', () => {
       const sess = { case: { data: { respAgreeToCosts: 'Yes' } } };
-      const ignoreContent = ['respNotPay'];
+      const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
+        'respNotPay'
+      ];
       return content(ClaimCosts, sess, { ignoreContent });
     });
 
     it('renders the content when respondent does not agree to pay', () => {
       const sess = { case: { data: { respAgreeToCosts: 'No', respCostsReason: 'Test Reason' } } };
-      const ignoreContent = ['respPay'];
+      const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
+        'respPay'
+      ];
       return content(ClaimCosts, sess, { ignoreContent });
     });
 
