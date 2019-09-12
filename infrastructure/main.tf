@@ -32,7 +32,7 @@ data "azurerm_subnet" "core_infra_redis_subnet" {
 }
 
 module "redis-cache" {
-  source   = "git@github.com:contino/cnp-module-redis?ref=master"
+  source   = "git@github.com:hmcts/cnp-module-redis?ref=master"
   product  = "${var.env != "preview" ? "${var.product}-redis" : "${var.product}-${var.reform_service_name}-redis"}"
   location = "${var.location}"
   env      = "${var.env}"
