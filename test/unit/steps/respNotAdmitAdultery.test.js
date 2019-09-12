@@ -53,17 +53,6 @@ describe(modulePath, () => {
 
   describe('Respondent not admitted to Adultery', () => {
     it('renders the content', () => {
-      const ignoreContent = [
-        'webChatTitle',
-        'chatDown',
-        'chatWithAnAgent',
-        'noAgentsAvailable',
-        'allAgentsBusy',
-        'chatClosed',
-        'chatAlreadyOpen',
-        'chatOpeningHours'
-      ];
-
       const session = {
         case: {
           state: 'DNAwaiting',
@@ -73,7 +62,7 @@ describe(modulePath, () => {
           }
         }
       };
-      return content(RespNotAdmitAdultery, session, { ignoreContent });
+      return content(RespNotAdmitAdultery, session);
     });
 
     it('returns correct answers', () => {

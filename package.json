@@ -34,7 +34,6 @@
   },
   "pre-commit": "lint",
   "dependencies": {
-    "@hmcts/ctsc-web-chat": "^0.3.9",
     "@hmcts/div-document-express-handler": "^1.1.0",
     "@hmcts/div-idam-express-middleware": "^6.5.0",
     "@hmcts/look-and-feel": "^4.0.3",

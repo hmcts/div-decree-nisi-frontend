@@ -10,18 +10,7 @@ describe(modulePath, () => {
 
   describe('values', () => {
     it('displays correct details', () => {
-      const ignoreContent = [
-        'webChatTitle',
-        'chatDown',
-        'chatWithAnAgent',
-        'noAgentsAvailable',
-        'allAgentsBusy',
-        'chatClosed',
-        'chatAlreadyOpen',
-        'chatOpeningHours',
-        'continue',
-        'yourName'
-      ];
+      const ignoreContent = ['continue', 'yourName'];
 
       return content(PrivacyPolicy, {}, { ignoreContent });
     });

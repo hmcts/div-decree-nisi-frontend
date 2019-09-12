@@ -26,18 +26,7 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
-    return content(LivedApartSinceAdultery, session, { ignoreContent });
+    return content(LivedApartSinceAdultery, session);
   });
 
   describe('errors', () => {

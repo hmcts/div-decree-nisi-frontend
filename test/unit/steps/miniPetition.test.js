@@ -487,14 +487,6 @@ describe(modulePath, () => {
         }
       };
       const ignoreContent = [
-        'webChatTitle',
-        'chatDown',
-        'chatWithAnAgent',
-        'noAgentsAvailable',
-        'allAgentsBusy',
-        'chatClosed',
-        'chatAlreadyOpen',
-        'chatOpeningHours',
         'amendAppDetails',
         'coRespondentsCorrespondenceAddress',
         'coRespondent',

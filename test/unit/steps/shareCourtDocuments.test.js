@@ -22,26 +22,7 @@ describe(modulePath, () => {
   describe('Renders content', () => {
     it('renders the common content', () => {
       const session = { case: { data: {} } };
-      const ignoreContent = [
-        'webChatTitle',
-        'chatDown',
-        'chatWithAnAgent',
-        'noAgentsAvailable',
-        'allAgentsBusy',
-        'chatClosed',
-        'chatAlreadyOpen',
-        'chatOpeningHours',
-        'adultery',
-        'otherReasons',
-        'webChatTitle',
-        'chatDown',
-        'chatWithAnAgent',
-        'noAgentsAvailable',
-        'allAgentsBusy',
-        'chatClosed',
-        'chatAlreadyOpen',
-        'chatOpeningHours'
-      ];
+      const ignoreContent = ['adultery', 'otherReasons'];
       return content(ShareCourtDocuments, session, { ignoreContent });
     });
 

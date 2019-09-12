@@ -21,17 +21,7 @@ describe(modulePath, () => {
 
   it('renders the content', () => {
     const session = { case: { data: {} } };
-    const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-    return content(AdulteryFirstFoundOut, session, { ignoreContent });
+    return content(AdulteryFirstFoundOut, session);
   });
 
   it('shows error if no date entered', () => {

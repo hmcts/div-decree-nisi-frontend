@@ -24,18 +24,7 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
-    return content(LivedApartSinceLastIncidentDate, session, { ignoreContent });
+    return content(LivedApartSinceLastIncidentDate, session);
   });
 
 

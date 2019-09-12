@@ -31,25 +31,7 @@ describe(modulePath, () => {
 
   describe('content', () => {
     it('renders the content', () => {
-      const ignoreContent = [
-        'webChatTitle',
-        'chatDown',
-        'chatWithAnAgent',
-        'noAgentsAvailable',
-        'allAgentsBusy',
-        'chatClosed',
-        'chatAlreadyOpen',
-        'chatOpeningHours',
-        'noFiles',
-        'webChatTitle',
-        'chatDown',
-        'chatWithAnAgent',
-        'noAgentsAvailable',
-        'allAgentsBusy',
-        'chatClosed',
-        'chatAlreadyOpen',
-        'chatOpeningHours'
-      ];
+      const ignoreContent = [ 'noFiles' ];
       const session = { case: { data: {} } };
       return content(Upload, session, { ignoreContent });
     });

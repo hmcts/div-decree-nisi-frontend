@@ -25,15 +25,7 @@ describe(modulePath, () => {
       'applyingForDecreeNisiClaimsCostsRespondent',
       'applyingForDecreeNisiClaimsCostsCoRespondent',
       'applyingForDecreeNisiClaimsCostsRespondentCoRespondent',
-      'continue',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
+      'continue'
     ];
     const session = { case: { data: {} } };
     return content(CheckYourAnswers, session, { ignoreContent });

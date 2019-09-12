@@ -55,14 +55,10 @@ lookAndFeel.configure(app, {
     globals: {
       phase: 'BETA',
       feedbackLink: 'http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/email',
-      googleAnalyticsId: config.services.googleAnalytics.id,
-      webchat: config.services.webchat,
-      features: config.features
+      googleAnalyticsId: config.services.googleAnalytics.id
     }
   }
 });
-
-app.use('/webchat', express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`));
 
 // Get user details from idam, sets req.idam.userDetails
 app.use(idam.userDetails());

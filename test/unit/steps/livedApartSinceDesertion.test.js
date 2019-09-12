@@ -24,18 +24,7 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-
-    return content(LivedApartSinceDesertion, session, { ignoreContent });
+    return content(LivedApartSinceDesertion, session);
   });
 
   it('shows error if does not answer question', () => {
