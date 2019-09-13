@@ -14,6 +14,7 @@ const cookieParser = require('cookie-parser');
 const setupRateLimiter = require('services/rateLimiter');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const getFilters = require('views/filters');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const app = express();
 
@@ -57,7 +58,7 @@ lookAndFeel.configure(app, {
       feedbackLink: 'http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/email',
       googleAnalyticsId: config.services.googleAnalytics.id,
       webchat: config.services.webchat,
-      features: config.features
+      features: { webchat: parseBool(config.features.webchat) }
     }
   }
 });
