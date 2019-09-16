@@ -60,6 +60,7 @@ module "frontend" {
   app_settings = {
 
     // Node specific vars
+    WEBSITE_NODE_DEFAULT_VERSION = "10.15.2"
     NODE_ENV = "${var.node_env}"
     NODE_PATH = "${var.node_path}"
 
