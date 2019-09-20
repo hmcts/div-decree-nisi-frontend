@@ -5,6 +5,17 @@ const { content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   it('renders the content', () => {
-    return content(PrivacyPolicy);
+    const ignoreContent = [
+      'continue',
+      'webChatTitle',
+      'chatDown',
+      'chatWithAnAgent',
+      'noAgentsAvailable',
+      'allAgentsBusy',
+      'chatClosed',
+      'chatAlreadyOpen',
+      'chatOpeningHours'
+    ];
+    return content(PrivacyPolicy, {}, { ignoreContent });
   });
 });
