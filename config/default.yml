@@ -112,6 +112,7 @@ paths:
   amendApplication: /amend-application
   respNotAdmitAdultery: /resp-does-not-admit-adultery-options
   reviewAosResponseFromCoRespondent: /review-aos-response-from-co-respondent
+  accessibilityStatement: /accessibility-statement
   mock:
     idamLogin: /idam-mock-login
     modifySession: /session

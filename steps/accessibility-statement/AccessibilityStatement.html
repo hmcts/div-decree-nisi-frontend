@@ -1,0 +1,83 @@
+{% extends "page.njk" %}
+
+{% block back %}{% endblock %}
+
+{% set title %}
+  {{ content.title }}
+{% endset %}
+
+{% block main_content %}
+<h2 class="govuk-heading-m">{{ content.statment }}</h2>
+<p class="govuk-body">{{ content.websiteRanBy }}</p>
+<p class="govuk-body">{{ content.asManyAsPossible }}</p>
+<ul>
+  <li>{{ content.asManyAsPossibleColours }}</li>
+  <li>{{ content.asManyAsPossibleZoom }}</li>
+  <li>{{ content.asManyAsPossibleKeyboard }}</li>
+  <li>{{ content.asManyAsPossibleSpeech }}</li>
+  <li>{{ content.asManyAsPossibleListen }}</li>
+</ul>
+<p class="govuk-body">{{ content.abilityNet }}</p>
+
+<h3 class="govuk-heading-s">{{ content.howAccessbile }}</h3>
+<p class="govuk-body">{{ content.somePartsNot }}</p>
+<ul>
+  <li>{{ content.somePartsNotPDF }}</li>
+  <li>{{ content.somePartsNotColour }}</li>
+  <li>{{ content.somePartsNotTextToSpeech }}</li>
+  <li>{{ content.somePartsNotEveryLink }}</li>
+  <li>{{ content.somePartsNotTextForHyperlinks }}</li>
+</ul>
+
+<h3 class="govuk-heading-s">{{ content.whatToDoIfYouCanAccessParts }}</h3>
+<p class="govuk-body">{{ content.needMoreInformation }}</p>
+<ul>
+  <li>{{ content.phone }}</li>
+  <li>{{ content.email }}</li>
+</ul>
+<p class="govuk-body">{{ content.considerYourRequest }}</p>
+
+<h3 class="govuk-heading-s">{{ content.reportingAccessibility }}</h3>
+<p class="govuk-body">{{ content.improveAccessibility }}</p>
+<p class="govuk-body">{{ content.byPost }}</p>
+<p class="govuk-body">{{ content.address1 }}<br>{{ content.address2 }}<br>{{ content.address3 }}<br>{{ content.address4 }}<br>{{ content.address5 }}</p>
+
+<h3 class="govuk-heading-s">{{ content.enforcementProcedure }}</h3>
+<p class="govuk-body">{{ content.humanRightsCommission }}</p>
+<p class="govuk-body">{{ content.notHappy }}</p>
+
+<h2 class="govuk-heading-m">{{ content.technicalInfo }}</h2>
+<p class="govuk-body">{{ content.hmctsIsCommitted }}</p>
+<p class="govuk-body">{{ content.websiteIsPartiallyCompliant }}</p>
+
+<h2 class="govuk-heading-m">{{ content.nonAccessibleContent }}</h2>
+<p class="govuk-body">{{ content.contentListedBelow }}</p>
+
+<h3 class="govuk-heading-s">{{ content.accessibilityRegulations }}</h3>
+
+<h3 class="govuk-heading-s">{{ content.issuesWithLinks }}</h3>
+<p class="govuk-body">{{ content.issuesWithLinksDescription }}</p>
+
+<h3 class="govuk-heading-s">{{ content.issuesWithHeadings }}</h3>
+<p class="govuk-body">{{ content.issuesWithHeadingsDescription }}</p>
+
+<p class="govuk-body">{{ content.issuesWithPDF }}</p>
+<h3 class="govuk-heading-s">{{ content.issuesWithPDFDescription }}</h3>
+
+<h3 class="govuk-heading-s">{{ content.issuesWithColour }}</h3>
+<p class="govuk-body">{{ content.issuesWithColourDescription }}</p>
+
+<h3 class="govuk-heading-s">{{ content.issuesWithLanguage }}</h3>
+<p class="govuk-body">{{ content.issuesWithLanguageDescription }}</p>
+
+<h3 class="govuk-heading-s">{{ content.issuesWithOther }}</h3>
+<p class="govuk-body">{{ content.issuesWithOtherDescription1 }}</p>
+<p class="govuk-body">{{ content.issuesWithOtherDescription2 }}</p>
+<p class="govuk-body">{{ content.issuesWithOtherDescription3 }}</p>
+<p class="govuk-body">{{ content.issuesWithOtherDescription4 }}</p>
+
+<h2 class="govuk-heading-m">{{ content.improvingAccessibility }}</h2>
+<p class="govuk-body">{{ content.planning }}</p>
+
+<p class="govuk-body">{{ content.statmentPrepared }}</p>
+{% endblock %}
