@@ -67,5 +67,7 @@ Scenario('Pages', async I => {
 
   I.testTermsAndConditionsPage();
 
+  I.testAccessibilityStatementPage();
+
   I.checkUrlsNotTested();
 }).retry(3);
