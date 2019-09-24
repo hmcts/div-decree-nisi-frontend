@@ -403,10 +403,30 @@
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/23e0b759-77b5-4778-a604-580f9c485238",
         "mimeType": null,
         "status": null
+      },
+      {
+        "id": "23e0b759-77b5-4778-a604-1234",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "refusalOrder1559143445687032.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/23e0b759-77b5-4778-a604-1234",
+        "mimeType": null,
+        "status": null
       }
     ],
     "hearingDate": [
       "2022-04-25T00:00:00.000Z"
-    ]
+    ],
+    "RefusalClarificationReason": [
+      "jurisdictionDetails",
+      "marriageCertTranslation",
+      "marriageCertificate",
+      "previousProceedingDetails",
+      "caseDetailsStatement",
+      "other"
+    ],
+    "RefusalClarificationAdditionalInfo": "Extra details provided by the court"
   }
 }
