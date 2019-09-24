@@ -1,14 +1,19 @@
 {% extends "page.njk" %}
 
 {% from "look-and-feel/components/progress-list.njk" import progressList %}
+{% from "look-and-feel/components/document-list.njk" import documentList %}
 
 {% block back %}{% endblock %}
 {% block title %}{% endblock %}
 
 {% block main_content %}
   <div class="govuk-panel govuk-panel--confirmation">
-    <h1 class="govuk-panel__title govuk-!-margin-bottom-0">{{content.applicationComplete | safe}}</h1>
-    <p class="govuk-!-font-size-19 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-0">{{ content.appliedForDecreeNisi }}</p>
+    {% if isAwaitingClarification %}
+      <h1 class="govuk-panel__title govuk-!-margin-bottom-0">{{content.clarificationResponseSubmitted | safe}}</h1>
+    {% else %}
+      <h1 class="govuk-panel__title govuk-!-margin-bottom-0">{{content.applicationComplete | safe}}</h1>
+      <p class="govuk-!-font-size-19 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-0">{{ content.appliedForDecreeNisi }}</p>
+    {% endif %}
     <p class="govuk-panel__body govuk-!-margin-0 govuk-!-margin-top-2">
       <span class="govuk-!-font-size-19">{{ content.referenceNumber | safe }}</span>
       <br>
@@ -42,8 +47,16 @@
 
   <br>
 
-  <p class="govuk-body">{{ content.courtWillCheck }}</p>
-  <p class="govuk-body">{{ content.decreeNisiGranted }}</p>
+  {% if isAwaitingClarification %}
+    <h2 class="govuk-heading-m">{{ content.clarificationNext }}</h2>
+    <p class="govuk-body">{{ content.clarificationYourResponse }}</p>
+    <p class="govuk-body">{{ content.clarificationContactUs }}Y</p>
+  {% else %}
+    <p class="govuk-body">{{ content.courtWillCheck }}</p>
+    <p class="govuk-body">{{ content.decreeNisiGranted }}</p>
+  {% endif %}
+
+
 {% endblock %}
 
 {% block one_third %}

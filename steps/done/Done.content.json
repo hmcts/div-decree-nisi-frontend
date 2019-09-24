@@ -24,6 +24,24 @@
     "madeFinal": "Divorce is complete",
 
     "courtWillCheck": "The court will check your application and pass it to the judge. If the judge agrees there is no reason why you should not get a divorce, you'll be sent the time, date and court in which your decree nisi will be pronounced.",
-    "decreeNisiGranted": "After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute."
+    "decreeNisiGranted": "After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute.",
+
+
+    "clarificationResponseSubmitted": "Response submitted",
+    "clarificationNext": "What happens next",
+    "clarificationYourResponse": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
+    "clarificationContactUs": "You can contact us if you don’t hear anything back after 4 weeks.",
+
+    "downloadDocuments" : "Download your documents",
+    "files": {
+      "dpetition": "Divorce application",
+      "respondentAnswers": "Respondent's answers",
+      "coRespondentAnswers": "Co-Respondent's answers",
+      "certificateOfEntitlement": "Certificate of Entitlement",
+      "costsOrder": "Cost Order",
+      "decreeNisi": "Decree Nisi",
+      "dnAnswers": "Decree Nisi answers",
+      "refusalOrder": "Refusal Order"
+    }
   }
 }
