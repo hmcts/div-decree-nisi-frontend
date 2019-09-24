@@ -6,15 +6,26 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const constants = {
   adultery: 'adultery',
-  no: 'No'
+  no: 'No',
+  NotDefined: 'notdefined',
+  awaitingClarification: 'awaitingclarification'
 };
 
 class ShareCourtDocuments extends Question {
   static get path() {
     return config.paths.shareCoreDocuments;
+  }
+
+  get caseState() {
+    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
+  }
+
+  get isAwaitingClarification() {
+    return this.caseState === constants.awaitingClarification && parseBool(config.features.awaitingClarification);
   }
 
   get case() {
