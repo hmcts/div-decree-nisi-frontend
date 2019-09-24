@@ -6,10 +6,24 @@ const config = require('config');
 const idam = require('services/idam');
 const evidenceManagmentMiddleware = require('middleware/evidenceManagmentMiddleware');
 const errors = require('resources/errors');
+const { parseBool } = require('@hmcts/one-per-page/util');
+
+const constants = {
+  NotDefined: 'notdefined',
+  awaitingClarification: 'awaitingclarification'
+};
 
 class Upload extends Question {
   static get path() {
     return config.paths.upload;
+  }
+
+  get caseState() {
+    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
+  }
+
+  get isAwaitingClarification() {
+    return this.caseState === constants.awaitingClarification && parseBool(config.features.awaitingClarification);
   }
 
   get form() {
@@ -76,6 +90,11 @@ class Upload extends Question {
       answers.push(answer(this, {
         question: this.content.fields.files.title,
         answer: files
+      }));
+    } else {
+      answers.push(answer(this, {
+        question: this.content.fields.files.title,
+        answer: 'None'
       }));
     }
 
