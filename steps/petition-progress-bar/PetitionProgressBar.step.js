@@ -6,6 +6,7 @@ const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPayme
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
 const { get } = require('lodash');
+const { parseBool } = require('@hmcts/one-per-page/util');
 
 const {
   caseStateMap,
@@ -23,6 +24,7 @@ const constants = {
   NotDefined: 'notdefined',
   DNAwaiting: 'awaitingdecreenisi',
   awaitingPronouncement: 'awaitingpronouncement',
+  awaitingClarification: 'awaitingclarification',
   undefendedReason: '0',
   no: 'no',
   yes: 'yes'
@@ -79,6 +81,10 @@ class PetitionProgressBar extends Interstitial {
     return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
   }
 
+  get showCourtFeedback() {
+    return this.caseState === constants.awaitingClarification && parseBool(config.features.awaitingClarification);
+  }
+
   get showDnNoResponse() {
     return this.caseState === constants.AOSOverdue;
   }
@@ -113,8 +119,16 @@ class PetitionProgressBar extends Interstitial {
     });
   }
 
+  get refusalOrderFile() {
+    return this.downloadableFiles.find(file => {
+      return file.type === 'refusalOrder';
+    });
+  }
+
   next() {
     return branch(
+      redirectTo(this.journey.steps.CourtFeedback)
+        .if(this.showCourtFeedback),
       redirectTo(this.journey.steps.DnNoResponse)
         .if(this.showDnNoResponse),
       redirectTo(this.journey.steps.ReviewAosResponse)
@@ -134,7 +148,7 @@ class PetitionProgressBar extends Interstitial {
     } else if (this.awaitingPronouncementWithHearingDate()) {
       template = awaitingPronouncementWithHearingDateTemplate;
     } else {
-      caseStateMap.forEach(dataMap => {
+      caseStateMap().forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
           template = dataMap.template;
         }

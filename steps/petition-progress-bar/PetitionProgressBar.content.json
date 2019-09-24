@@ -43,7 +43,8 @@
       "certificateOfEntitlement": "Certificate of Entitlement",
       "costsOrder": "Cost Order",
       "decreeNisi": "Decree Nisi",
-      "dnAnswers": "Decree Nisi answers"
+      "dnAnswers": "Decree Nisi answers",
+      "refusalOrder": "Refusal Order"
     }
   }
 }
