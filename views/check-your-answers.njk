@@ -18,6 +18,8 @@
 
       {{ header(title, size=titleSize) }}
 
+      {% block preResults %}{% endblock %}
+
       <table class="govuk-table">
         <caption class="govuk-table__caption">
           <span class="govuk-visually-hidden">{{ pageContent.summaryTableCaption }}</span>
