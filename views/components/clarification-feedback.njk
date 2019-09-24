@@ -1,0 +1,31 @@
+{#
+  calfication feedback
+    case                - (required) An object containing the case json
+    content             - (required) An object of content for each feedback type
+    displayAsError      - (optional) Boolean to display as error or not, defualt: false
+
+  renders a list of downloadable documents
+#}
+
+{% macro clarificationFeedback(case, content, displayAsError=false) %}
+  {{ '<div class="govuk-inset-text court-feedback">' | safe if displayAsError}}
+    {% for feedback in case.RefusalClarificationReason %}
+        <h3 class="govuk-heading-s">{{ content[feedback].title }}</h3>
+        {% if feedback != "other" %}
+          <p class="govuk-body">{{ content[feedback].description }}</p>
+        {% endif %}
+
+        {% if feedback == "marriageCertTranslation" %}
+          <ul class="govuk-list govuk-list--number">
+            <li>{{ content[feedback].method1 | safe }}</li>
+            <li>{{ content[feedback].method2 | safe }}</li>
+          </ul>
+        {% endif %}
+
+        {% if feedback == "other" %}
+          <p class="govuk-body">"{{ case.RefusalClarificationAdditionalInfo }}"</p>
+        {% endif %}
+
+    {% endfor %}
+  {{ '</div>' | safe if displayAsError }}
+{% endmacro %}
