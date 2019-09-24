@@ -7,6 +7,7 @@ const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
 const { get } = require('lodash');
 const { parseBool } = require('@hmcts/one-per-page/util');
+const { notDefined, awaitingClarification } = require('common/constants');
 
 const {
   caseStateMap,
@@ -21,10 +22,10 @@ const constants = {
   AOSCompleted: 'aoscompleted',
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no', 'nonoadmission'],
-  NotDefined: 'notdefined',
+  notDefined,
   DNAwaiting: 'awaitingdecreenisi',
   awaitingPronouncement: 'awaitingpronouncement',
-  awaitingClarification: 'awaitingclarification',
+  awaitingClarification,
   undefendedReason: '0',
   no: 'no',
   yes: 'yes'

@@ -7,12 +7,13 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { parseBool } = require('@hmcts/one-per-page/util');
+const { notDefined, awaitingClarification } = require('common/constants');
 
 const constants = {
   adultery: 'adultery',
   no: 'No',
-  NotDefined: 'notdefined',
-  awaitingClarification: 'awaitingclarification'
+  notDefined,
+  awaitingClarification
 };
 
 class ShareCourtDocuments extends Question {

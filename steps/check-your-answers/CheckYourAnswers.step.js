@@ -6,11 +6,7 @@ const caseOrchestrationService = require('services/caseOrchestrationService');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const { parseBool } = require('@hmcts/one-per-page/util');
-
-const constants = {
-  NotDefined: 'notdefined',
-  awaitingClarification: 'awaitingclarification'
-};
+const { notDefined, awaitingClarification } = require('common/constants');
 
 class CheckYourAnswers extends CYA {
   static get path() {
@@ -22,11 +18,11 @@ class CheckYourAnswers extends CYA {
   }
 
   get caseState() {
-    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
+    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : notDefined;
   }
 
   get isAwaitingClarification() {
-    return this.caseState === constants.awaitingClarification && parseBool(config.features.awaitingClarification);
+    return this.caseState === awaitingClarification && parseBool(config.features.awaitingClarification);
   }
 
   get dnClaimCosts() {

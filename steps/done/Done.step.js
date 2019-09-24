@@ -3,11 +3,7 @@ const config = require('config');
 const idam = require('services/idam');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { parseBool } = require('@hmcts/one-per-page/util');
-
-const constants = {
-  NotDefined: 'notdefined',
-  awaitingClarification: 'awaitingclarification'
-};
+const { notDefined, awaitingClarification } = require('common/constants');
 
 class Done extends ExitPoint {
   static get path() {
@@ -15,11 +11,11 @@ class Done extends ExitPoint {
   }
 
   get caseState() {
-    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
+    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : notDefined;
   }
 
   get isAwaitingClarification() {
-    return this.caseState === constants.awaitingClarification && parseBool(config.features.awaitingClarification);
+    return this.caseState === awaitingClarification && parseBool(config.features.awaitingClarification);
   }
 
   get case() {
