@@ -17,7 +17,17 @@ describe(modulePath, () => {
   describe('content', () => {
     it('renders the base content', () => {
       const session = { case: { data: {} } };
-      const ignoreContent = [ 'clarificationCourtFeedback' ];
+      const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
+        'clarificationCourtFeedback'
+      ];
       return content(CourtFeedback, session, { ignoreContent });
     });
 
