@@ -97,6 +97,7 @@ describe('Case State: AwaitingClarification - feature AwaitingClarification is o
 
   after(() => {
     request.get.restore();
+    request.post.restore();
     feesAndPaymentsService.getFee.restore();
     sandbox.restore();
   });
