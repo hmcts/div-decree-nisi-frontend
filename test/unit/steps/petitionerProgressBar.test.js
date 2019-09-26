@@ -1,6 +1,7 @@
 /* eslint-disable max-lines */
 const modulePath = 'steps/petition-progress-bar/PetitionProgressBar.step';
 
+const config = require('config');
 const PetitionProgressBar = require(modulePath);
 const PetProgressBarContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
@@ -40,7 +41,9 @@ const templates = {
   aosCompleted:
     './sections/aosCompleted/PetitionProgressBar.aosCompleted.template.html',
   decreeNisiGranted:
-    './sections/decreeNisiGranted/PetitionProgressBar.decreeNisiGranted.template.html'
+    './sections/decreeNisiGranted/PetitionProgressBar.decreeNisiGranted.template.html',
+  awaitingClarification:
+    './sections/awaitingClarification/PetitionProgressBar.awaitingClarification.template.html'
 };
 
 // get all content for all pages
@@ -660,6 +663,18 @@ describe(modulePath, () => {
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f',
                 mimeType: null,
                 status: null
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st362',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'refusalOrder1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560463',
+                mimeType: null,
+                status: null
               }
             ]
           }
@@ -677,7 +692,8 @@ describe(modulePath, () => {
         'certificateOfEntitlement',
         'costsOrder',
         'decreeNisi',
-        'dnAnswers'
+        'dnAnswers',
+        'refusalOrder'
       ]);
     });
   });
@@ -761,22 +777,130 @@ describe(modulePath, () => {
   });
 
   describe('CCD state: AwaitingClarification', () => {
-    const session = {
-      case: {
-        state: 'AwaitingClarification',
-        data: {}
-      }
-    };
+    let sandbox = {};
 
-    it('renders the correct content', () => {
-      const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
-      const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
-      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    before(() => {
+      sandbox = sinon.createSandbox();
     });
 
-    it('renders the correct template', () => {
-      const instance = stepAsInstance(PetitionProgressBar, session);
-      expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
+    after(() => {
+      sandbox.restore();
+    });
+
+    let session = {};
+
+    beforeEach(() => {
+      session = {
+        case: {
+          state: 'AwaitingClarification',
+          data: {}
+        }
+      };
+    });
+
+    describe('feature: AwaitingClarification is true', () => {
+      before(() => {
+        sandbox.stub(config, 'features').value({
+          awaitingClarification: true
+        });
+      });
+
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.awaitingClarification);
+        const specificContentToNotExist = contentToNotExist('awaitingClarification');
+        return content(
+          PetitionProgressBar,
+          session,
+          { specificContent, specificContentToNotExist }
+        );
+      });
+
+      it('renders the correct template', () => {
+        const instance = stepAsInstance(PetitionProgressBar, session);
+        expect(instance.stateTemplate).to.eql(templates.awaitingClarification);
+      });
+
+      describe('show refusal reasons content', () => {
+        it('feedback for jurisdictionDetails', () => {
+          session.case.data = { RefusalClarificationReason: ['jurisdictionDetails'] };
+          const specificContent = [
+            'clarificationCourtFeedback.jurisdictionDetails.title',
+            'clarificationCourtFeedback.jurisdictionDetails.description'
+          ];
+          return content(PetitionProgressBar, session, { specificContent });
+        });
+
+        it('feedback for marriageCertTranslation', () => {
+          session.case.data = { RefusalClarificationReason: ['marriageCertTranslation'] };
+          const specificContent = [
+            'clarificationCourtFeedback.marriageCertTranslation.title',
+            'clarificationCourtFeedback.marriageCertTranslation.description',
+            'clarificationCourtFeedback.marriageCertTranslation.method1',
+            'clarificationCourtFeedback.marriageCertTranslation.method2'
+          ];
+          return content(PetitionProgressBar, session, { specificContent });
+        });
+
+        it('feedback for marriageCertificate', () => {
+          session.case.data = { RefusalClarificationReason: ['marriageCertificate'] };
+          const specificContent = [
+            'clarificationCourtFeedback.marriageCertificate.title',
+            'clarificationCourtFeedback.marriageCertificate.description'
+          ];
+          return content(PetitionProgressBar, session, { specificContent });
+        });
+
+        it('feedback for previousProceedingDetails', () => {
+          session.case.data = { RefusalClarificationReason: ['previousProceedingDetails'] };
+          const specificContent = [
+            'clarificationCourtFeedback.previousProceedingDetails.title',
+            'clarificationCourtFeedback.previousProceedingDetails.description'
+          ];
+          return content(PetitionProgressBar, session, { specificContent });
+        });
+
+        it('feedback for caseDetailsStatement', () => {
+          session.case.data = { RefusalClarificationReason: ['caseDetailsStatement'] };
+          const specificContent = [
+            'clarificationCourtFeedback.caseDetailsStatement.title',
+            'clarificationCourtFeedback.caseDetailsStatement.description'
+          ];
+          return content(PetitionProgressBar, session, { specificContent });
+        });
+
+        it('feedback for other', () => {
+          session.case.data = {
+            RefusalClarificationReason: ['other'],
+            RefusalClarificationAdditionalInfo: 'some extra info'
+          };
+          const specificContent = [ 'clarificationCourtFeedback.other.title' ];
+          const specificValues = [ 'some extra info' ];
+          return content(PetitionProgressBar, session, { specificContent, specificValues });
+        });
+      });
+    });
+
+    describe('feature: AwaitingClarification is false', () => {
+      before(() => {
+        sandbox.stub(config, 'features').value({
+          awaitingClarification: false
+        });
+      });
+
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
+        const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
+        return content(
+          PetitionProgressBar,
+          session,
+          { specificContent, specificContentToNotExist }
+        );
+      });
+
+      it('renders the correct template', () => {
+        const instance = stepAsInstance(PetitionProgressBar, session);
+        expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
+      });
     });
   });
 

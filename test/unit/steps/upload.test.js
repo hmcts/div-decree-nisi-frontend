@@ -6,6 +6,7 @@ const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const evidenceManagmentMiddleware = require('middleware/evidenceManagmentMiddleware');
+const config = require('config');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -48,7 +49,9 @@ describe(modulePath, () => {
         'allAgentsBusy',
         'chatClosed',
         'chatAlreadyOpen',
-        'chatOpeningHours'
+        'chatOpeningHours',
+        'clarificationCourtFeedback',
+        'clarificationDigitalCopies'
       ];
       const session = { case: { data: {} } };
       return content(Upload, session, { ignoreContent });
@@ -56,6 +59,7 @@ describe(modulePath, () => {
 
     it('only renders files without errors to page', () => {
       const session = {
+        case: { data: {} },
         Upload: {
           files: [
             {
@@ -79,11 +83,70 @@ describe(modulePath, () => {
         specificValues
       });
     });
+
+    describe(
+      'clarification content feature:awaitingClarificiation is enabled, state is awaitingClarificiation', // eslint-disable-line
+      () => {
+        let sandbox = {};
+
+        before(() => {
+          sandbox = sinon.createSandbox();
+          sandbox.stub(config, 'features').value({
+            awaitingClarification: true
+          });
+        });
+
+        after(() => {
+          sandbox.restore();
+        });
+
+        let session = {};
+        beforeEach(() => {
+          session = {
+            case: {
+              state: 'AwaitingClarification',
+              data: {}
+            }
+          };
+        });
+
+        it('should show correct content', () => {
+          const specificContent = [ 'clarificationDigitalCopies' ];
+
+          return content(Upload, session, { specificContent });
+        });
+      }
+    );
+
+    describe(
+      'does not show content for Awaiting Clarification if awaitingClarification is disabled',
+      () => {
+        let sandbox = {};
+
+        before(() => {
+          sandbox = sinon.createSandbox();
+          sandbox.stub(config, 'features').value({
+            awaitingClarification: false
+          });
+        });
+
+        after(() => {
+          sandbox.restore();
+        });
+
+        it('does not display and clarification content', () => {
+          const specificContentToNotExist = [ 'clarificationDigitalCopies' ];
+          const session = { case: { state: 'AwaitingClarification', data: {} } };
+          return content(Upload, session, { specificContentToNotExist });
+        });
+      }
+    );
   });
 
   describe('errors', () => {
     it('shows unkown error if unkown error thrown', () => {
       const session = {
+        case: { data: {} },
         Upload: {
           files: [{ error: 'errorUnknown' }]
         }
@@ -94,6 +157,7 @@ describe(modulePath, () => {
 
     it('shows file size error if file size error thrown', () => {
       const session = {
+        case: { data: {} },
         Upload: {
           files: [{ error: 'errorFileSizeTooLarge' }]
         }
@@ -104,6 +168,7 @@ describe(modulePath, () => {
 
     it('shows file type error if file type error thrown', () => {
       const session = {
+        case: { data: {} },
         Upload: {
           files: [{ error: 'errorFileTypeInvalid' }]
         }
@@ -114,6 +179,7 @@ describe(modulePath, () => {
 
     it('shows max files error if max files error thrown', () => {
       const session = {
+        case: { data: {} },
         Upload: {
           files: [{ error: 'errorMaximumFilesExceeded' }]
         }
@@ -124,6 +190,7 @@ describe(modulePath, () => {
 
     it('shows virus error if virus error thrown', () => {
       const session = {
+        case: { data: {} },
         Upload: {
           files: [{ error: 'errorVirusFoundInFile' }]
         }
@@ -136,6 +203,7 @@ describe(modulePath, () => {
   describe('values', () => {
     it('displays if uploaded files', () => {
       const session = {
+        case: { data: {} },
         Upload: {
           files: [
             {
@@ -157,6 +225,7 @@ describe(modulePath, () => {
 
   describe('answers', () => {
     it('shows uploaded files', () => {
+      const session = { case: { data: {} } };
       const stepData = {
         files: [
           {
@@ -169,7 +238,7 @@ describe(modulePath, () => {
         UploadContent.en.fields.files.title,
         stepData.files[0].fileName
       ];
-      return question.answers(Upload, stepData, expectedContent);
+      return question.answers(Upload, stepData, expectedContent, session);
     });
   });
 });

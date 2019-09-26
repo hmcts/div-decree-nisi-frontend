@@ -14,9 +14,9 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'clarificationCourtFeedback'
     ];
-
     return content(IdamLogin, {}, { ignoreContent });
   });
 

@@ -32,7 +32,8 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'clarificationCourtFeedback'
     ];
 
     return content(LivedApartSinceLastIncidentDate, session, { ignoreContent });
