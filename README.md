@@ -10,6 +10,7 @@ This is the frontend application for the Decree Nisi journey, Once the responden
 $ yarn install
 ```
 
+
 **Start application**
 
 Then you can use the following commands in different terminal sessions:
@@ -54,7 +55,7 @@ yarn test:functional
 
 **Run Functional tests locally against AAT**
 
-1. Create remote-config.json file 
+1. Create remote-config.json file
 2. Copy SCM config
 3. Add "TEST_URL" with AAT url
 4. Run `yarn test:functional:remote`
