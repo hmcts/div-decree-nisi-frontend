@@ -50,11 +50,17 @@ class ShareCourtDocuments extends Question {
   }
 
   answers() {
+    let title = this.content.fields.upload.title;
+    if (this.isAwaitingClarification) {
+      title = this.content.clarification.title;
+    }
+
     const answers = [];
     answers.push(answer(this, {
-      question: this.content.fields.upload.title,
+      question: title,
       answer: this.content.fields.upload[this.fields.upload.value]
     }));
+
     return answers;
   }
 

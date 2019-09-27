@@ -1,6 +1,6 @@
 {
   "en" : {
-    "awaitingClarificationTitle": "You need to provide more information",
+    "awaitingClarificationTitle": "You need to provide more information or documents",
     "awaitingClarificationReviewOfCase": "Following a review of your case, the court is not yet satisfied that you are entitled to a decree of divorce.",
     "awaitingClarificationCourtsFeedback": "The court’s feedback",
     "awaitingClarificationNotSatisfied": "You can download and keep the court’s full <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Refusal order PDF.\">Refusal Order ({{ refusalOrderFile.fileType | upper }})</a>.",
