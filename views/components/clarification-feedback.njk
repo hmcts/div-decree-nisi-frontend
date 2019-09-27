@@ -9,7 +9,7 @@
 
 {% macro clarificationFeedback(case, content, displayAsError=false) %}
   {{ '<div class="govuk-inset-text court-feedback">' | safe if displayAsError}}
-    {% for feedback in case.RefusalClarificationReason %}
+    {% for feedback in case.refusalClarificationReason %}
         <h3 class="govuk-heading-s">{{ content[feedback].title }}</h3>
         {% if feedback != "other" %}
           <p class="govuk-body">{{ content[feedback].description }}</p>
@@ -23,7 +23,7 @@
         {% endif %}
 
         {% if feedback == "other" %}
-          <p class="govuk-body">"{{ case.RefusalClarificationAdditionalInfo }}"</p>
+          <p class="govuk-body">"{{ case.refusalClarificationAdditionalInfo }}"</p>
         {% endif %}
 
     {% endfor %}

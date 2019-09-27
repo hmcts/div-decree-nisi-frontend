@@ -822,7 +822,7 @@ describe(modulePath, () => {
 
       describe('show refusal reasons content', () => {
         it('feedback for jurisdictionDetails', () => {
-          session.case.data = { RefusalClarificationReason: ['jurisdictionDetails'] };
+          session.case.data = { refusalClarificationReason: ['jurisdictionDetails'] };
           const specificContent = [
             'clarificationCourtFeedback.jurisdictionDetails.title',
             'clarificationCourtFeedback.jurisdictionDetails.description'
@@ -831,7 +831,7 @@ describe(modulePath, () => {
         });
 
         it('feedback for marriageCertTranslation', () => {
-          session.case.data = { RefusalClarificationReason: ['marriageCertTranslation'] };
+          session.case.data = { refusalClarificationReason: ['marriageCertTranslation'] };
           const specificContent = [
             'clarificationCourtFeedback.marriageCertTranslation.title',
             'clarificationCourtFeedback.marriageCertTranslation.description',
@@ -842,7 +842,7 @@ describe(modulePath, () => {
         });
 
         it('feedback for marriageCertificate', () => {
-          session.case.data = { RefusalClarificationReason: ['marriageCertificate'] };
+          session.case.data = { refusalClarificationReason: ['marriageCertificate'] };
           const specificContent = [
             'clarificationCourtFeedback.marriageCertificate.title',
             'clarificationCourtFeedback.marriageCertificate.description'
@@ -851,7 +851,7 @@ describe(modulePath, () => {
         });
 
         it('feedback for previousProceedingDetails', () => {
-          session.case.data = { RefusalClarificationReason: ['previousProceedingDetails'] };
+          session.case.data = { refusalClarificationReason: ['previousProceedingDetails'] };
           const specificContent = [
             'clarificationCourtFeedback.previousProceedingDetails.title',
             'clarificationCourtFeedback.previousProceedingDetails.description'
@@ -860,7 +860,7 @@ describe(modulePath, () => {
         });
 
         it('feedback for caseDetailsStatement', () => {
-          session.case.data = { RefusalClarificationReason: ['caseDetailsStatement'] };
+          session.case.data = { refusalClarificationReason: ['caseDetailsStatement'] };
           const specificContent = [
             'clarificationCourtFeedback.caseDetailsStatement.title',
             'clarificationCourtFeedback.caseDetailsStatement.description'
@@ -870,8 +870,8 @@ describe(modulePath, () => {
 
         it('feedback for other', () => {
           session.case.data = {
-            RefusalClarificationReason: ['other'],
-            RefusalClarificationAdditionalInfo: 'some extra info'
+            refusalClarificationReason: ['other'],
+            refusalClarificationAdditionalInfo: 'some extra info'
           };
           const specificContent = [ 'clarificationCourtFeedback.other.title' ];
           const specificValues = [ 'some extra info' ];
