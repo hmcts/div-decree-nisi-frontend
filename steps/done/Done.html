@@ -23,8 +23,6 @@
     </p>
   </div>
 
-  <p class="govuk-body">{{ content.emailConfirmation | safe }}</p>
-
   {{
     progressList({
       one: {
@@ -46,6 +44,8 @@
   }}
 
   <br>
+
+  <p class="govuk-body">{{ content.emailConfirmation | safe }}</p>
 
   {% if isAwaitingClarification %}
     <h2 class="govuk-heading-m">{{ content.clarificationNext }}</h2>
