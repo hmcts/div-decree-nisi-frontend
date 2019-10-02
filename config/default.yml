@@ -156,7 +156,7 @@ document:
   - 'costsOrder'
   - 'decreeNisi'
   - 'dnAnswers'
-  - 'refusalOrder'
+  - 'decreeNisiRefusalOrder'
 
 ccd:
   d8States:

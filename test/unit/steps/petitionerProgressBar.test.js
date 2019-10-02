@@ -670,7 +670,7 @@ describe(modulePath, () => {
                 createdOn: null,
                 lastModifiedBy: 0,
                 modifiedOn: null,
-                fileName: 'refusalOrder1559143445687032.pdf',
+                fileName: 'decreeNisiRefusalOrder1559143445687032.pdf',
                 // eslint-disable-next-line max-len
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560463',
                 mimeType: null,
@@ -693,7 +693,7 @@ describe(modulePath, () => {
         'costsOrder',
         'decreeNisi',
         'dnAnswers',
-        'refusalOrder'
+        'decreeNisiRefusalOrder'
       ]);
     });
   });
