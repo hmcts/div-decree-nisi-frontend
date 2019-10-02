@@ -12,21 +12,23 @@
 {% macro clarificationFeedback(case, content, displayAsError=false) %}
   {{ '<div class="govuk-inset-text court-feedback">' | safe if displayAsError}}
     {% for key in order %}
-      {% if key in case.refusalClarificationReason %}
-        <h3 class="govuk-heading-s">{{ content[key].title }}</h3>
-        {% if key != "other" %}
-          <p class="govuk-body">{{ content[key].description }}</p>
-        {% endif %}
+      {% if case.refusalClarificationReason|length %}
+        {% if key in case.refusalClarificationReason %}
+          <h3 class="govuk-heading-s">{{ content[key].title }}</h3>
+          {% if key != "other" %}
+            <p class="govuk-body">{{ content[key].description }}</p>
+          {% endif %}
 
-        {% if key == "marriageCertTranslation" %}
-          <ul class="govuk-list govuk-list--number">
-            <li>{{ content[key].method1 | safe }}</li>
-            <li>{{ content[key].method2 | safe }}</li>
-          </ul>
-        {% endif %}
+          {% if key == "marriageCertTranslation" %}
+            <ul class="govuk-list govuk-list--number">
+              <li>{{ content[key].method1 | safe }}</li>
+              <li>{{ content[key].method2 | safe }}</li>
+            </ul>
+          {% endif %}
 
-        {% if key == "other" %}
-          <p class="govuk-body">"{{ case.refusalClarificationAdditionalInfo }}"</p>
+          {% if key == "other" %}
+            <p class="govuk-body">"{{ case.refusalClarificationAdditionalInfo }}"</p>
+          {% endif %}
         {% endif %}
       {% endif %}
     {% endfor %}
