@@ -7,25 +7,28 @@
   renders a list of downloadable documents
 #}
 
+{% set order = ["jurisdictionDetails", "marriageCertTranslation", "marriageCertificate", "previousProceedingDetails", "caseDetailsStatement", "other"] %}
+
 {% macro clarificationFeedback(case, content, displayAsError=false) %}
   {{ '<div class="govuk-inset-text court-feedback">' | safe if displayAsError}}
-    {% for feedback in case.refusalClarificationReason %}
-        <h3 class="govuk-heading-s">{{ content[feedback].title }}</h3>
-        {% if feedback != "other" %}
-          <p class="govuk-body">{{ content[feedback].description }}</p>
+    {% for key in order %}
+      {% if key in case.refusalClarificationReason %}
+        <h3 class="govuk-heading-s">{{ content[key].title }}</h3>
+        {% if key != "other" %}
+          <p class="govuk-body">{{ content[key].description }}</p>
         {% endif %}
 
-        {% if feedback == "marriageCertTranslation" %}
+        {% if key == "marriageCertTranslation" %}
           <ul class="govuk-list govuk-list--number">
-            <li>{{ content[feedback].method1 | safe }}</li>
-            <li>{{ content[feedback].method2 | safe }}</li>
+            <li>{{ content[key].method1 | safe }}</li>
+            <li>{{ content[key].method2 | safe }}</li>
           </ul>
         {% endif %}
 
-        {% if feedback == "other" %}
+        {% if key == "other" %}
           <p class="govuk-body">"{{ case.refusalClarificationAdditionalInfo }}"</p>
         {% endif %}
-
+      {% endif %}
     {% endfor %}
   {{ '</div>' | safe if displayAsError }}
 {% endmacro %}
