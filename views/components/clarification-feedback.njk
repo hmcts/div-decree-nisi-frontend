@@ -16,7 +16,19 @@
         {% if key in case.refusalClarificationReason %}
           <h3 class="govuk-heading-s">{{ content[key].title }}</h3>
           {% if key != "other" %}
-            <p class="govuk-body">{{ content[key].description }}</p>
+            <p class="govuk-body">{{ content[key].description | safe }}</p>
+          {% endif %}
+
+          {% if key == "jurisdictionDetails" %}
+            <ul class="govuk-list govuk-list--bullet">
+              <li>{{ content[key].reason0 | safe }}</li>
+              <li>{{ content[key].reason1 | safe }}</li>
+              <li>{{ content[key].reason2 | safe }}</li>
+              <li>{{ content[key].reason3 | safe }}</li>
+              <li>{{ content[key].reason4 | safe }}</li>
+              <li>{{ content[key].reason5 | safe }}</li>
+              <li>{{ content[key].reason6 | safe }}</li>
+            </ul>
           {% endif %}
 
           {% if key == "marriageCertTranslation" %}
