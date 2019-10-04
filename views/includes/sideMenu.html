@@ -5,7 +5,7 @@
     <ul class="govuk-list govuk-body govuk-!-font-size-16 help">
         <li>
             <h4 class="govuk-heading-xs govuk-!-margin-0">{{ content.email }}</h4>
-            <a class="govuk-link" href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail | safe }}</a><br>
+            <a class="govuk-link" href="mailto:{{ content.divorceEmail }}" aria-label="{{ content.email }} link">{{ content.divorceEmail | safe }}</a><br>
         </li>
         <li>
             <h4 class="govuk-heading-xs govuk-!-margin-0">{{ content.phone }}</h4>
