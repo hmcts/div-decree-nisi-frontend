@@ -26,11 +26,8 @@ describe(modulePath, () => {
   describe('content for decree nisi application', () => {
     it('correct content', () => {
       const ignoreContent = [
+        'clarification',
         'clarificationCourtFeedback',
-        'clarificationResponseSubmitted',
-        'clarificationNext',
-        'clarificationYourResponse',
-        'clarificationContactUs',
         'downloadDocuments',
         'downloadAndSaveYourDocuments',
         'files',
@@ -51,11 +48,7 @@ describe(modulePath, () => {
 
     it('does not display and clarification content', () => {
       const specificContentToNotExist = [
-        'clarificationCourtFeedback',
-        'clarificationResponseSubmitted',
-        'clarificationNext',
-        'clarificationYourResponse',
-        'clarificationContactUs',
+        'clarification',
         'downloadDocuments',
         'downloadAndSaveYourDocuments',
         'files'
@@ -140,12 +133,47 @@ describe(modulePath, () => {
       };
     });
 
-    it('should show correct content', () => {
+    it('should show correct content when files uploaded', () => {
+      const specificContentToNotExist = [
+        'clarification.submitDocuments',
+        'clarification.submitDocumentsInfo',
+        'clarification.sendDocByPost',
+        'clarification.sendDocByPostInfo',
+        'clarification.sendDocByPostRef',
+        'clarification.sendDocByPostTo',
+        'clarification.sendDocByPostReturns',
+        'clarification.sendDocByEmail',
+        'clarification.sendDocByEmailInfo1',
+        'clarification.sendDocByEmailInfo2',
+        'clarification.sendDocByEmailInfo3'
+      ];
+      session.Upload = {
+        files: [{ id: 'some-id' }]
+      };
+      return content(Done, session, { specificContentToNotExist });
+    });
+
+    it('should show correct content when no files uploaded', () => {
       const specificContent = [
-        'clarificationResponseSubmitted',
-        'clarificationNext',
-        'clarificationYourResponse',
-        'clarificationContactUs',
+        'clarification.responseSubmitted',
+        'clarification.next',
+        'clarification.yourResponse',
+        'clarification.submitDocuments',
+        'clarification.submitDocumentsInfo',
+        'clarification.sendDocByPost',
+        'clarification.sendDocByPostInfo',
+        'clarification.sendDocByPostRef',
+        'clarification.sendDocByPostTo',
+        'clarification.sendDocByPostReturns',
+        'clarification.sendDocByEmail',
+        'clarification.sendDocByEmailInfo1',
+        'clarification.sendDocByEmailInfo2',
+        'clarification.sendDocByEmailInfo3',
+        'clarification.contactUs',
+        'clarification.helpImprove',
+        'clarification.helpImproveDeveloped',
+        'clarification.youNeedHelp',
+        'clarification.contactDivorceCentre',
         'downloadDocuments',
         'files.dpetition',
         'files.respondentAnswers',
@@ -179,11 +207,7 @@ describe(modulePath, () => {
 
       it('does not display and clarification content', () => {
         const specificContentToNotExist = [
-          'clarificationCourtFeedback',
-          'clarificationResponseSubmitted',
-          'clarificationNext',
-          'clarificationYourResponse',
-          'clarificationContactUs',
+          'clarification',
           'downloadDocuments',
           'downloadAndSaveYourDocuments',
           'files'

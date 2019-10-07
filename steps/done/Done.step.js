@@ -31,6 +31,14 @@ class Done extends ExitPoint {
     return createUris(this.case.d8, docConfig);
   }
 
+  get hasUploadedDocuments() {
+    if (this.req.session.Upload) {
+      const hasSubmittedFiles = this.req.session.Upload.files && this.req.session.Upload.files.length;
+      return hasSubmittedFiles;
+    }
+    return false;
+  }
+
   get middleware() {
     return [
       idam.protect(),
