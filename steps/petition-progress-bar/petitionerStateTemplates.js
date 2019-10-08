@@ -1,7 +1,7 @@
 const config = require('config');
 const { parseBool } = require('@hmcts/one-per-page/util');
 
-const caseStateMap = () => {
+const caseStateMap = caseData => {
   const map = [
     {
       template: './sections/submitted/PetitionProgressBar.submitted.template.html',
@@ -37,7 +37,12 @@ const caseStateMap = () => {
     }
   ];
 
-  if (parseBool(config.features.awaitingClarification)) {
+  const isDnOutcomeCase = parseBool(caseData.dnOutcomeCase);
+  const awaitingClarificationEnabled = parseBool(
+    config.features.awaitingClarification
+  );
+
+  if (isDnOutcomeCase && awaitingClarificationEnabled) {
     // remove awaitingclarification state from awaitingSubmittedDN template
     const awaitingSubmittedDNTemplate = map[2];
     awaitingSubmittedDNTemplate.state = awaitingSubmittedDNTemplate.state

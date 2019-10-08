@@ -22,7 +22,11 @@ class CheckYourAnswers extends CYA {
   }
 
   get isAwaitingClarification() {
-    return this.caseState === awaitingClarification && parseBool(config.features.awaitingClarification);
+    const isDnOutcomeCase = parseBool(this.case.dnOutcomeCase);
+    const featureIsEnabled = parseBool(config.features.awaitingClarification);
+    const isCorrectState = this.caseState === awaitingClarification;
+
+    return isDnOutcomeCase && featureIsEnabled && isCorrectState;
   }
 
   get dnClaimCosts() {

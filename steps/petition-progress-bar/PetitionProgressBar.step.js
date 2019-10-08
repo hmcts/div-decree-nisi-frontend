@@ -83,7 +83,11 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get showCourtFeedback() {
-    return this.caseState === constants.awaitingClarification && parseBool(config.features.awaitingClarification);
+    const isDnOutcomeCase = parseBool(this.case.dnOutcomeCase);
+    const featureIsEnabled = parseBool(config.features.awaitingClarification);
+    const isCorrectState = this.caseState === constants.awaitingClarification;
+
+    return isDnOutcomeCase && featureIsEnabled && isCorrectState;
   }
 
   get showDnNoResponse() {
@@ -153,7 +157,7 @@ class PetitionProgressBar extends Interstitial {
     } else if (this.awaitingPronouncementWithHearingDate()) {
       template = awaitingPronouncementWithHearingDateTemplate;
     } else {
-      caseStateMap().forEach(dataMap => {
+      caseStateMap(this.case).forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
           template = dataMap.template;
         }
