@@ -101,7 +101,7 @@ describe(modulePath, () => {
           session = {
             case: {
               state: 'AwaitingClarification',
-              data: {}
+              data: { dnOutcomeCase: true }
             }
           };
         });
@@ -117,7 +117,10 @@ describe(modulePath, () => {
 
         describe('show refusal reasons content', () => {
           it('feedback for jurisdictionDetails', () => {
-            session.case.data = { refusalClarificationReason: ['jurisdictionDetails'] };
+            session.case.data = {
+              refusalClarificationReason: ['jurisdictionDetails'],
+              dnOutcomeCase: true
+            };
             const specificContent = [
               'clarificationCourtFeedback.jurisdictionDetails.title',
               'clarificationCourtFeedback.jurisdictionDetails.description'
@@ -126,7 +129,10 @@ describe(modulePath, () => {
           });
 
           it('feedback for marriageCertTranslation', () => {
-            session.case.data = { refusalClarificationReason: ['marriageCertTranslation'] };
+            session.case.data = {
+              refusalClarificationReason: ['marriageCertTranslation'],
+              dnOutcomeCase: true
+            };
             const specificContent = [
               'clarificationCourtFeedback.marriageCertTranslation.title',
               'clarificationCourtFeedback.marriageCertTranslation.description',
@@ -137,7 +143,10 @@ describe(modulePath, () => {
           });
 
           it('feedback for marriageCertificate', () => {
-            session.case.data = { refusalClarificationReason: ['marriageCertificate'] };
+            session.case.data = {
+              refusalClarificationReason: ['marriageCertificate'],
+              dnOutcomeCase: true
+            };
             const specificContent = [
               'clarificationCourtFeedback.marriageCertificate.title',
               'clarificationCourtFeedback.marriageCertificate.description'
@@ -146,7 +155,10 @@ describe(modulePath, () => {
           });
 
           it('feedback for previousProceedingDetails', () => {
-            session.case.data = { refusalClarificationReason: ['previousProceedingDetails'] };
+            session.case.data = {
+              refusalClarificationReason: ['previousProceedingDetails'],
+              dnOutcomeCase: true
+            };
             const specificContent = [
               'clarificationCourtFeedback.previousProceedingDetails.title',
               'clarificationCourtFeedback.previousProceedingDetails.description'
@@ -155,7 +167,10 @@ describe(modulePath, () => {
           });
 
           it('feedback for caseDetailsStatement', () => {
-            session.case.data = { refusalClarificationReason: ['caseDetailsStatement'] };
+            session.case.data = {
+              refusalClarificationReason: ['caseDetailsStatement'],
+              dnOutcomeCase: true
+            };
             const specificContent = [
               'clarificationCourtFeedback.caseDetailsStatement.title',
               'clarificationCourtFeedback.caseDetailsStatement.description'
@@ -165,6 +180,7 @@ describe(modulePath, () => {
 
           it('feedback for other', () => {
             session.case.data = {
+              dnOutcomeCase: true,
               refusalClarificationReason: ['other'],
               refusalClarificationAdditionalInfo: 'some extra info'
             };
@@ -199,7 +215,10 @@ describe(modulePath, () => {
             'clarification.extraDocs',
             'clarification.needToProvide'
           ];
-          const session = { case: { state: 'AwaitingClarification', data: {} } };
+          const session = { case: {
+            state: 'AwaitingClarification',
+            data: { dnOutcomeCase: true }
+          } };
           return content(ShareCourtDocuments, session, { specificContentToNotExist });
         });
       }

@@ -105,7 +105,7 @@ describe(modulePath, () => {
           session = {
             case: {
               state: 'AwaitingClarification',
-              data: {}
+              data: { dnOutcomeCase: true }
             }
           };
         });
@@ -136,7 +136,10 @@ describe(modulePath, () => {
 
         it('does not display and clarification content', () => {
           const specificContentToNotExist = [ 'clarificationDigitalCopies' ];
-          const session = { case: { state: 'AwaitingClarification', data: {} } };
+          const session = { case: {
+            state: 'AwaitingClarification',
+            data: { dnOutcomeCase: true }
+          } };
           return content(Upload, session, { specificContentToNotExist });
         });
       }

@@ -14,6 +14,10 @@ class Upload extends Question {
     return config.paths.upload;
   }
 
+  get case() {
+    return this.req.session.case.data;
+  }
+
   get caseState() {
     return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : notDefined;
   }

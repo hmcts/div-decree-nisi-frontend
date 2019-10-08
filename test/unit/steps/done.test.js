@@ -78,6 +78,7 @@ describe(modulePath, () => {
         case: {
           state: 'AwaitingClarification',
           data: {
+            dnOutcomeCase: true,
             d8: [
               {
                 id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
@@ -219,7 +220,7 @@ describe(modulePath, () => {
           'downloadAndSaveYourDocuments',
           'files'
         ];
-        const session = { case: { state: 'AwaitingClarification', data: {} } };
+        const session = { case: { state: 'AwaitingClarification', data: { dnOutcomeCase: true } } };
         return content(Done, session, { specificContentToNotExist });
       });
     }
