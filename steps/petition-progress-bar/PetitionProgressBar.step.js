@@ -122,7 +122,11 @@ class PetitionProgressBar extends Interstitial {
 
   get refusalOrderFile() {
     return this.downloadableFiles.find(file => {
-      return file.type === 'decreeNisiRefusalOrder';
+      const isRefusalOrder = [
+        'decreeNisiRefusalOrderClarification',
+        'decreeNisiRefusalOrderRejection'
+      ].includes(file.type);
+      return isRefusalOrder;
     });
   }
 
