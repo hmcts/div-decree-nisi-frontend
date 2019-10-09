@@ -82,6 +82,10 @@ services:
     buttonAgentsBusy: WEBCHAT_BUTTON_AGENTS_BUSY
     buttonServiceClosed: WEBCHAT_BUTTON_SERVICE_CLOSED
 
+commonProps:
+  smartSurveyFeedbackUrl: SMARTSURVEY_FEEDBACK_URL
+  smartSurveyFeedbackDonePageUrl: SMARTSURVEY_FEEDBACK_DONE_URL
+
 journey:
   timeoutDelay: JOURNEY_TIMEOUT_DELAY
 

@@ -101,7 +101,7 @@ module "frontend" {
     EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT = "${var.evidence_management_client_api_upload_endpoint}"
     EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT = "${var.evidence_management_download_endpoint}"
 
-    // CCase Orchestration API
+    // Case Orchestration API
     ORCHESTRATION_SERVICE_URL              = "${local.case_orchestration_service_api_url}"
     ORCHESTRATION_SERVICE_GET_PETITION_URL = "${local.case_orchestration_service_api_url}/retrieve-case"
     ORCHESTRATION_SERVICE_POST_PETITION_URL= "${local.case_orchestration_service_api_url}/submit-dn"
@@ -121,6 +121,9 @@ module "frontend" {
     WEBCHAT_BUTTON_NO_AGENTS = "${var.webchat_button_no_agents}"
     WEBCHAT_BUTTON_AGENTS_BUSY = "${var.webchat_button_agents_busy}"
     WEBCHAT_BUTTON_SERVICE_CLOSED = "${var.webchat_button_service_closed}"
+
+    SMARTSURVEY_FEEDBACK_URL      = "${var.survey_feedback_url}"
+    SMARTSURVEY_FEEDBACK_DONE_URL = "${var.survey_feedback_done_url}"
 
     // Feature toggling through config
     FEATURE_IDAM                            = "${var.feature_idam}"

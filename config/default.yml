@@ -78,6 +78,10 @@ services:
     buttonAgentsBusy: 2042157415cc19c95669039.65793052
     buttonServiceClosed: 20199488815cc1a89e0861d5.73103009
 
+commonProps:
+  smartSurveyFeedbackUrl: 'http://www.example.com/'
+  smartSurveyFeedbackDonePageUrl: 'http://www.example.com/'
+
 paths:
   adulteryFirstFoundOut: /first-find-out
   applyForDecreeNisi: /continue-with-divorce
