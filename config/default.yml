@@ -79,8 +79,8 @@ services:
     buttonServiceClosed: 20199488815cc1a89e0861d5.73103009
 
 commonProps:
-  smartSurveyFeedbackUrl: 'https://www.smartsurvey.co.uk/s/Divorce_Feedback'
-  smartSurveyFeedbackDonePageUrl: 'https://www.smartsurvey.co.uk/s/Divorce_Feedback_reeeee'
+  smartSurveyFeedbackUrl: 'http://www.example.com/'
+  smartSurveyFeedbackDonePageUrl: 'http://www.example.com/'
 
 paths:
   adulteryFirstFoundOut: /first-find-out
