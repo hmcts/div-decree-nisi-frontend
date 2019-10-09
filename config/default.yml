@@ -139,7 +139,7 @@ tests:
 
 features:
   idam: false
-  webchat: false
+  webchat: true
   awaitingClarification: false
 
 journey:
