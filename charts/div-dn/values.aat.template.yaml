@@ -11,6 +11,7 @@ nodejs:
         IDAM_LOGIN_URL: "https://idam-web-public.aat.platform.hmcts.net/login"
         GOOGLE_ANALYTICS_ID: "TBD"
         ORCHESTRATION_SERVICE_AMEND_PETITION_URL: "http://div-cos-aat.service.core-compute-aat.internal/amend-petition"
+        ORCHESTRATION_SERVICE_AMEND_DN_REJECTION_URL: "http://div-cos-aat.service.core-compute-aat.internal/amend-petition-dn-rejection"
         ORCHESTRATION_SERVICE_DRAFT_ENDPOINT: "http://div-cos-aat.service.core-compute-aat.internal/draftsapi/version/1"
         ORCHESTRATION_SERVICE_GET_PETITION_URL: "http://div-cos-aat.service.core-compute-aat.internal/retrieve-case"
         ORCHESTRATION_SERVICE_HEALTH_URL: "http://div-cos-aat.service.core-compute-aat.internal/health"

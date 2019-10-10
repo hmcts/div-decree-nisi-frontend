@@ -13,7 +13,7 @@ const caseStateMap = caseData => {
     },
     {
       template: './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
-      state: ['awaitinglegaladvisorreferral', 'awaitingconsideration', 'awaitingpronouncement', 'awaitingclarification']
+      state: ['awaitinglegaladvisorreferral', 'awaitingconsideration', 'awaitingpronouncement', 'awaitingclarification', 'dnisrefused']
     },
     {
       template: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
@@ -41,6 +41,7 @@ const caseStateMap = caseData => {
   const awaitingClarificationEnabled = parseBool(
     config.features.awaitingClarification
   );
+  const dnIsRefusedEnabled = parseBool(config.features.dnIsRefused);
 
   if (isDnOutcomeCase && awaitingClarificationEnabled) {
     // remove awaitingclarification state from awaitingSubmittedDN template
@@ -56,6 +57,14 @@ const caseStateMap = caseData => {
       state: ['awaitingclarification']
     };
     map.push(newAwaitingClarificationTemplate);
+  }
+
+  if (isDnOutcomeCase && dnIsRefusedEnabled) {
+    const newDnIsRefusedTemplate = {
+      template: './sections/dnIsRefused/PetitionProgressBar.dnIsRefused.template.html',
+      state: ['dnisrefused']
+    };
+    map.push(newDnIsRefusedTemplate);
   }
 
   return map;

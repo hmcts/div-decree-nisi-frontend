@@ -57,6 +57,7 @@ services:
     health: http://localhost:3001/case-orchestration/health
     draftEndpoint: http://localhost:3001/case-orchestration/draftsapi/version/1
     amendPetitionUrl: http://localhost:3001/case-orchestration/amend-petition
+    amendDNRejectionUrl: http://localhost:3001/case-orchestration/amend-petition-dn-rejection
   petitionerFrontend:
     url: https://localhost:8080
     landing: /authenticated
@@ -140,6 +141,7 @@ features:
   idam: false
   webchat: false
   awaitingClarification: false
+  dnIsRefused: false
 
 journey:
   timeoutDelay: 300

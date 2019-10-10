@@ -158,4 +158,39 @@ describe(moduleName, () => {
         .to.be.rejectedWith('Error');
     });
   });
+
+  describe('Amend Application after rejection', () => {
+    let req = {};
+    let uri = '';
+    let headers = {};
+
+    beforeEach(() => {
+      req = { cookies: { '__auth-token': 'token' }, session: { case: { caseId: '1234' } } };
+      const { caseId } = req.session.case;
+      uri = `${config.services.orchestrationService.amendDNRejectionUrl}/${caseId}`;
+      headers = { Authorization: 'Bearer token' };
+    });
+
+
+    it('sends the amend instruction to endpoint', done => {
+      request.put.resolves();
+
+      caseOrchestrationService.amendRejectedApplication(req)
+        .then(() => {
+          sinon.assert.calledWith(request.put, {
+            uri,
+            headers,
+            json: true
+          });
+        })
+        .then(done, done);
+    });
+
+    it('throws error if bad response from amend application endpoint', () => {
+      request.put.rejects();
+
+      return expect(caseOrchestrationService.amendRejectedApplication(req))
+        .to.be.rejectedWith('Error');
+    });
+  });
 });

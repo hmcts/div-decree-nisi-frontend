@@ -15,6 +15,8 @@ const httpStatus = require('http-status-codes');
 const glob = require('glob');
 const { getExpectedCourtsList, testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
+const caseOrchestrationService = require('services/caseOrchestrationService');
+const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
@@ -43,7 +45,9 @@ const templates = {
   decreeNisiGranted:
     './sections/decreeNisiGranted/PetitionProgressBar.decreeNisiGranted.template.html',
   awaitingClarification:
-    './sections/awaitingClarification/PetitionProgressBar.awaitingClarification.template.html'
+    './sections/awaitingClarification/PetitionProgressBar.awaitingClarification.template.html',
+  dnIsRefused:
+    './sections/dnIsRefused/PetitionProgressBar.dnIsRefused.template.html'
 };
 
 // get all content for all pages
@@ -57,6 +61,18 @@ glob.sync('steps/petition-progress-bar/**/*.json').forEach(file => {
   }
 });
 
+const deepValues = obj => {
+  return Object.keys(obj).reduce((values, key) => {
+    const value = obj[key];
+
+    if (typeof value === 'object') {
+      return [...values, ...deepValues(value)];
+    }
+
+    return [...values, value];
+  }, []);
+};
+
 // function to return all content that should not be rendered.
 // some pages have the same content/sub content so this will also remove content keys
 // that have the same content as that we are testing
@@ -67,7 +83,7 @@ const contentToNotExist = withoutKeysFrom => {
     }
     const contentToIgnore = Object.keys(pageContent[contentKey]).filter(key => {
       let ignoreContent = true;
-      Object.values(pageContent[withoutKeysFrom]).forEach(value => {
+      deepValues(pageContent[withoutKeysFrom]).forEach(value => {
         if (value.includes(pageContent[contentKey][key])) {
           ignoreContent = false;
         }
@@ -933,6 +949,124 @@ describe(modulePath, () => {
     });
   });
 
+  describe('CCD state: DNisRefused', () => {
+    let sandbox = {};
+
+    before(() => {
+      sandbox = sinon.createSandbox();
+    });
+
+    after(() => {
+      sandbox.restore();
+    });
+
+    let session = {};
+
+    beforeEach(() => {
+      session = {
+        case: {
+          state: 'DNisRefused',
+          data: { dnOutcomeCase: true }
+        }
+      };
+    });
+
+    describe('feature: dnIsRefused is true', () => {
+      before(() => {
+        sandbox.stub(config, 'features').value({
+          dnIsRefused: true
+        });
+      });
+
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.dnIsRefused);
+        const specificContentToNotExist = contentToNotExist('dnIsRefused');
+        return content(
+          PetitionProgressBar,
+          session,
+          { specificContent, specificContentToNotExist }
+        );
+      });
+
+      it('renders the correct template', () => {
+        const instance = stepAsInstance(PetitionProgressBar, session);
+        expect(instance.stateTemplate).to.eql(templates.dnIsRefused);
+      });
+
+      describe('show refusal reasons content', () => {
+        it('feedback for noJurisdiction', () => {
+          session.case.data = {
+            refusalRejectionReason: ['noJurisdiction'],
+            dnOutcomeCase: true
+          };
+          const specificContent = [
+            'dnIsRefusedRefusalCourtFeedback.noJurisdiction.title',
+            'dnIsRefusedRefusalCourtFeedback.noJurisdiction.description'
+          ];
+          return content(PetitionProgressBar, session, { specificContent });
+        });
+
+        it('feedback for noCriteria', () => {
+          session.case.data = {
+            refusalRejectionReason: ['noCriteria'],
+            dnOutcomeCase: true
+          };
+          const specificContent = [
+            'dnIsRefusedRefusalCourtFeedback.noCriteria.title',
+            'dnIsRefusedRefusalCourtFeedback.noCriteria.description'
+          ];
+          return content(PetitionProgressBar, session, { specificContent });
+        });
+
+        it('feedback for insufficentDetails', () => {
+          session.case.data = {
+            refusalRejectionReason: ['insufficentDetails'],
+            dnOutcomeCase: true
+          };
+          const specificContent = [
+            'dnIsRefusedRefusalCourtFeedback.insufficentDetails.title',
+            'dnIsRefusedRefusalCourtFeedback.insufficentDetails.description'
+          ];
+          return content(PetitionProgressBar, session, { specificContent });
+        });
+
+        it('feedback for other', () => {
+          session.case.data = {
+            refusalRejectionReason: ['other'],
+            refusalRejectionAdditionalInfo: 'some extra info',
+            dnOutcomeCase: true
+          };
+          const specificContent = [ 'dnIsRefusedRefusalCourtFeedback.other.title' ];
+          const specificValues = [ 'some extra info' ];
+          return content(PetitionProgressBar, session, { specificContent, specificValues });
+        });
+      });
+    });
+
+    describe('feature: dnIsRefused is false', () => {
+      before(() => {
+        sandbox.stub(config, 'features').value({
+          dnIsRefused: false
+        });
+      });
+
+      it('renders the correct content', () => {
+        const specificContent = Object.keys(pageContent.awaitingSubmittedDN);
+        const specificContentToNotExist = contentToNotExist('awaitingSubmittedDN');
+        return content(
+          PetitionProgressBar,
+          session,
+          { specificContent, specificContentToNotExist }
+        );
+      });
+
+      it('renders the correct template', () => {
+        const instance = stepAsInstance(PetitionProgressBar, session);
+        expect(instance.stateTemplate).to.eql(templates.awaitingSubmittedDN);
+      });
+    });
+  });
+
   describe('CCD state: AwaitingDecreeAbsolute', () => {
     let session = {};
 
@@ -1289,6 +1423,68 @@ describe(modulePath, () => {
         }
       };
       return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    describe('feature: dnIsRefused is true', () => {
+      let sandbox = {};
+      const session = {
+        case: {
+          state: 'DNisRefused',
+          data: { dnOutcomeCase: true }
+        }
+      };
+
+      before(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(config, 'features').value({
+          dnIsRefused: true
+        });
+        sinon.stub(caseOrchestrationService, 'amendRejectedApplication')
+          .resolves();
+        sinon.stub(redirectToFrontendHelper, 'redirectToFrontendAmend');
+      });
+
+      after(() => {
+        caseOrchestrationService.amendRejectedApplication.restore();
+        redirectToFrontendHelper.redirectToFrontendAmend.restore();
+        sandbox.restore();
+      });
+
+      it('redirects user to amend petition on PFE', done => {
+        const step = stepAsInstance(PetitionProgressBar, session);
+        step.next().redirect().then(() => {
+          expect(caseOrchestrationService.amendRejectedApplication.calledOnce).to.eql(true);
+          expect(redirectToFrontendHelper.redirectToFrontendAmend.calledOnce).to.eql(true);
+          done();
+        }).catch(error => {
+          done(error);
+        });
+      });
+    });
+
+    describe('feature: dnIsRefused is true', () => {
+      let sandbox = {};
+      const session = {
+        case: {
+          state: 'DNisRefused',
+          data: { dnOutcomeCase: true }
+        }
+      };
+
+      before(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(config, 'features').value({
+          dnIsRefused: false
+        });
+      });
+
+      after(() => {
+        sandbox.restore();
+      });
+
+      it('redirects user to amend petition on PFE', () => {
+        return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
+      });
     });
   });
 });

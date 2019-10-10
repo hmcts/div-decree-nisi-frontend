@@ -201,7 +201,11 @@ variable "feature_idam" {
   default = true
 }
 
-variable "awaiting_clarification" {
+variable "feature_awaiting_clarification" {
+  default = false
+}
+
+variable "feature_dn_is_refused" {
   default = false
 }
 
