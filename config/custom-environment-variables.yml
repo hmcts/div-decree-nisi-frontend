@@ -88,6 +88,7 @@ journey:
 features:
   idam: FEATURE_IDAM
   webchat: FEATURE_WEBCHAT
+  awaitingClarification: FEATURE_AWAITING_CLARIFICATION
 
 ccd:
   courts: CCD_DIGITAL_COURTS

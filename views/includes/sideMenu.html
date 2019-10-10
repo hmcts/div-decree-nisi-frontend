@@ -1,6 +1,6 @@
 <aside class="govuk-related-items" role="complementary">
 
-    <h3 class="govuk-heading-s">{{ content.help }}</h3>
+    <h3 class="govuk-heading-m">{{ content.help }}</h3>
 
     <ul class="govuk-list govuk-body govuk-!-font-size-16 help">
         <li>
@@ -28,12 +28,12 @@
     </ul>
 
     {% if (downloadableFiles.length > 0) %}
-        <h3 class="govuk-heading-s">{{ content.downloadDocuments }}</h3>
+        <h3 class="govuk-heading-m">{{ content.downloadDocuments }}</h3>
 
         {{ documentList(downloadableFiles, content.files) }}
     {% endif %}
 
-    <h3 class="govuk-heading-s" id="subsection-title">{{ content.guidance }}</h3>
+    <h3 class="govuk-heading-m" id="subsection-title">{{ content.guidance }}</h3>
 
     <nav role="navigation" aria-labelledby="subsection-title">
       <ul class="govuk-list govuk-body govuk-!-font-size-16">

@@ -1,6 +1,6 @@
 const { Question } = require('@hmcts/one-per-page');
 const config = require('config');
-const { form, text } = require('@hmcts/one-per-page/forms');
+const { form, text, list } = require('@hmcts/one-per-page/forms');
 const path = require('path');
 const express = require('express');
 
@@ -67,6 +67,9 @@ class ModifySession extends Question {
     const respCostsReason = text;
     const reasonForDivorceAdulteryDetails = text;
 
+    const refusalClarificationReason = list(text);
+    const refusalClarificationAdditionalInfo = text;
+
     return form({
       divorceWho,
       reasonForDivorce,
@@ -90,7 +93,9 @@ class ModifySession extends Question {
       respJurisdictionRespCountryOfResidence,
       respLegalProceedingsDescription,
       respCostsReason,
-      reasonForDivorceAdulteryDetails
+      reasonForDivorceAdulteryDetails,
+      refusalClarificationReason,
+      refusalClarificationAdditionalInfo
     });
   }
 

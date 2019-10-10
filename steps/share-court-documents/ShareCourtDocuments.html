@@ -1,9 +1,12 @@
 {% extends "question.njk" %}
 
 {% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+{% from "components/clarification-feedback.njk" import clarificationFeedback %}
 
 {% set title %}
-  {% if respNotAdmittedAdultery %}
+  {% if isAwaitingClarification %}
+    {{ content.clarification.title | safe }}
+  {% elseif respNotAdmittedAdultery %}
     {{ content.adultery.title | safe }}
   {% else %}
     {{ content.otherReasons.title | safe }}
@@ -12,8 +15,18 @@
 
 {% block fields %}
 
+  {% if isAwaitingClarification %}
+    <details class="govuk-details">
+      <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+        <span class="govuk-details__summary-text">{{ content.clarification.needToProvide }}</span>
+      </summary>
+      <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+        {{ clarificationFeedback(case, content.clarificationCourtFeedback) }}
+      </div>
+    </details>
 
-  {% if respNotAdmittedAdultery %}
+    <p class="govuk-body">{{ content.clarification.extraDocs | safe }}</p>
+  {% elseif respNotAdmittedAdultery %}
     <p class="govuk-body">{{ content.adultery.adulteryDoc | safe }}</p>
     <p class="govuk-body">{{ content.adultery.extraDocs | safe }}</p>
   {% else %}

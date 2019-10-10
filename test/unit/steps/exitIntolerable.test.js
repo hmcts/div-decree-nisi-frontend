@@ -14,8 +14,10 @@ describe(modulePath, () => {
       'chatClosed',
       'chatAlreadyOpen',
       'chatOpeningHours',
-      'continue'
+      'continue',
+      'clarificationCourtFeedback'
     ];
+
     const session = { case: { data: {} } };
     return content(ExitIntolerable, session, { ignoreContent });
   });

@@ -16,6 +16,40 @@
     "allAgentsBusy": "All our web chat agents are busy helping other people. Please try again later or contact us using one of the ways above.",
     "chatClosed": "Web chat is now closed.\\nOpening hours are Monday to Friday, 9:30am to 5pm.",
     "chatAlreadyOpen": "A web chat window is already open.",
-    "chatOpeningHours": "Monday to Friday, 9:30am to 5pm."
+    "chatOpeningHours": "Monday to Friday, 9:30am to 5pm.",
+    "clarificationCourtFeedback" : {
+      "jurisdictionDetails": {
+        "title": "Jurisdiction details",
+        "description": "The court has judged that your application does not fall within the jurisdiction of the courts of England and Wales.<br><br>You must have at least one of the following legal connections for your divorce to fall within the jurisdiction of a court in England and Wales:",
+        "reason0": "My {{ case.divorceWho }} and I are both habitually resident in England or Wales",
+        "reason1": "My {{ case.divorceWho }} and I were last habitually resident in England or Wales and I still live there",
+        "reason2": "My {{ case.divorceWho }} is habitually resident in England or Wales",
+        "reason3": "I'm habitually resident in England or Wales and have lived here for at least a year",
+        "reason4": "I'm domiciled and habitually resident in England or Wales and have lived here for at least six months",
+        "reason5": "My {{ case.divorceWho }} and I are both domiciled in England or Wales",
+        "reason6": "I believe the courts of England and Wales have jurisdiction on a residual basis"
+      },
+      "marriageCertTranslation": {
+        "title": "Marriage Certificate Translation",
+        "description": "The marriage certificate must be translated and certified by one of the following methods:",
+        "method1": "Statement of truth<br>The translator of the marriage certificate provides a statment of truth certifying the translation. There are translation services online which inlcude certification as part of their service.",
+        "method2": "Notary public<br>The marriage certificate is translated and then certified by a notary public. You can find a notary public through either the Notaries Society of the Society of Scrivener Notaries."
+      },
+      "marriageCertificate": {
+        "title": "Your original marriage certificate",
+        "description": "The image of the marriage certificate you shared does not appear to be a scanned copy of the full original. Please provide a digital photo or scan of the original, or the paper document in the post.<br><br>The image must be of the whole document and include the serial / system number and must be readable by court staff."
+      },
+      "previousProceedingDetails": {
+        "title": "Previous Proceeding Details",
+        "description": "Clarify whether there are, or have ever been, any other legal proceedings related to the marriage, property or children."
+      },
+      "caseDetailsStatement": {
+        "title": "Case Details Statement",
+        "description": "Clarify your evidence for the chosen reason (legally known as the 'facts') for your divorce."
+      },
+      "other": {
+        "title": "Additional comments"
+      }
+    }
   }
 }

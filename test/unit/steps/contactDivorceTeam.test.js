@@ -14,9 +14,9 @@ describe(modulePath, () => {
       'chatClosed',
       'chatAlreadyOpen',
       'chatOpeningHours',
-      'continue'
+      'continue',
+      'clarificationCourtFeedback'
     ];
-
     return content(ContactDivorceTeam, {}, { ignoreContent });
   });
 });

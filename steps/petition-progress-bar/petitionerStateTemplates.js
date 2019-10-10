@@ -1,38 +1,65 @@
-const caseStateMap = [
-  {
-    template: './sections/submitted/PetitionProgressBar.submitted.template.html',
-    state: ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted']
-  },
-  {
-    template: './sections/issued/PetitionProgressBar.issued.template.html',
-    state: ['aosstarted', 'aosawaiting', 'issued']
-  },
-  {
-    template: './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
-    state: ['awaitinglegaladvisorreferral', 'awaitingconsideration', 'awaitingpronouncement', 'awaitingclarification']
-  },
-  {
-    template: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
-    state: ['defendeddivorce']
-  },
-  {
-    template: './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html',
-    state: ['aossubmittedawaitinganswer']
-  },
-  {
-    template: './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
-    state: ['aosoverdue']
-  },
-  {
-    template: './sections/aosCompleted/PetitionProgressBar.aosCompleted.template.html',
-    state: ['aoscompleted']
-  },
-  {
-    template: './sections/decreeNisiGranted/PetitionProgressBar.decreeNisiGranted.template.html',
-    state: ['awaitingdecreeabsolute', 'dnpronounced']
+const config = require('config');
+const { parseBool } = require('@hmcts/one-per-page/util');
+
+const caseStateMap = caseData => {
+  const map = [
+    {
+      template: './sections/submitted/PetitionProgressBar.submitted.template.html',
+      state: ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted']
+    },
+    {
+      template: './sections/issued/PetitionProgressBar.issued.template.html',
+      state: ['aosstarted', 'aosawaiting', 'issued']
+    },
+    {
+      template: './sections/awaitingSubmittedDN/PetitionProgressBar.awaitingSubmittedDN.template.html',
+      state: ['awaitinglegaladvisorreferral', 'awaitingconsideration', 'awaitingpronouncement', 'awaitingclarification']
+    },
+    {
+      template: './sections/defendedWithAnswer/PetitionProgressBar.defendedWithAnswer.template.html',
+      state: ['defendeddivorce']
+    },
+    {
+      template: './sections/defendedAwaitingAnswer/PetitionProgressBar.defendedAwaitingAnswer.template.html',
+      state: ['aossubmittedawaitinganswer']
+    },
+    {
+      template: './sections/respondentNotReplied/PetitionProgressBar.respondentNotReplied.template.html',
+      state: ['aosoverdue']
+    },
+    {
+      template: './sections/aosCompleted/PetitionProgressBar.aosCompleted.template.html',
+      state: ['aoscompleted']
+    },
+    {
+      template: './sections/decreeNisiGranted/PetitionProgressBar.decreeNisiGranted.template.html',
+      state: ['awaitingdecreeabsolute', 'dnpronounced']
+    }
+  ];
+
+  const isDnOutcomeCase = parseBool(caseData.dnOutcomeCase);
+  const awaitingClarificationEnabled = parseBool(
+    config.features.awaitingClarification
+  );
+
+  if (isDnOutcomeCase && awaitingClarificationEnabled) {
+    // remove awaitingclarification state from awaitingSubmittedDN template
+    const awaitingSubmittedDNTemplate = map[2];
+    awaitingSubmittedDNTemplate.state = awaitingSubmittedDNTemplate.state
+      .filter(state => {
+        return state !== 'awaitingclarification';
+      });
+
+    // add new template for awaitingclarification state
+    const newAwaitingClarificationTemplate = {
+      template: './sections/awaitingClarification/PetitionProgressBar.awaitingClarification.template.html',
+      state: ['awaitingclarification']
+    };
+    map.push(newAwaitingClarificationTemplate);
   }
 
-];
+  return map;
+};
 
 const caseIdDisplayStateMap = ['submitted', 'awaitinghwfdecision', 'awaitingdocuments', 'pendingrejection', 'petitioncompleted'];
 

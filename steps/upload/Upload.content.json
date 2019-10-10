@@ -1,13 +1,16 @@
 {
   "en": {
-    "title": "Upload documents",
+    "title": "Submit additional documents",
+    "imageIsNotEntireDocument": "If the image is not of the entire document and readable by court staff you may be asked to resubmit.",
+    "warning": "Warning",
+    "usePhone": "You can use your phone to do this now if it has a camera.",
     "uploadDigitalCopies": "You can upload digital copies here, or take a picture with your phone if it has a camera.",
+    "clarificationDigitalCopies": "Upload documents that you need to send to the court to respond to the refusal order.",
     "howToTake": "How to take the picture",
     "howToTakeInfo1": "Place your certificate on a flat service in a well lit room. Use a flash if you need to.",
     "howToTakeInfo2": "Take a good quality picture of the entire certificate. You should be able to see its edges.",
     "howToTakeInfo3": "Check that the image is in focus. You must be able to read all the writing on the certificate, including the handwriting. Zoom in if you need to check this.",
     "howToTakeInfo4": "Send the picture to this device (e.g. by email) and save it.",
-    "entireDocument": "The image must be of the entire document and has to be readable by court staff. You can upload most types of image.",
     "cantUpload": "I can't upload my documents",
     "sendByPost": "How to send in your documents by post",
     "continueWithApplication": "Continue with this application. When you're finished you'll be given a reference number and the address of the Courts and Tribunals Service Centre.",
@@ -37,7 +40,7 @@
     },
     "fields": {
       "files": {
-        "title": "Your uploaded documents"
+        "title": "Your submitted documents"
       }
     }
   }

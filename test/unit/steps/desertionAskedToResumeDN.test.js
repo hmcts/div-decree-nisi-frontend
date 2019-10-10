@@ -33,9 +33,9 @@ describe(modulePath, () => {
       'allAgentsBusy',
       'chatClosed',
       'chatAlreadyOpen',
-      'chatOpeningHours'
+      'chatOpeningHours',
+      'clarificationCourtFeedback'
     ];
-
     return content(DesertionAskedToResumeDN, session, { ignoreContent });
   });
 

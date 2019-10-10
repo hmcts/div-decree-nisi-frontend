@@ -61,7 +61,8 @@ describe(modulePath, () => {
         'allAgentsBusy',
         'chatClosed',
         'chatAlreadyOpen',
-        'chatOpeningHours'
+        'chatOpeningHours',
+        'clarificationCourtFeedback'
       ];
 
       const session = {
@@ -73,6 +74,7 @@ describe(modulePath, () => {
           }
         }
       };
+
       return content(RespNotAdmitAdultery, session, { ignoreContent });
     });
 

@@ -8,6 +8,7 @@
     "applyingForDecreeNisiClaimsCostsRespondent": "I’m asking the court to grant a decree dissolving my marriage and to order my {{ case.divorceWho }} to pay some or all of the divorce costs.",
     "applyingForDecreeNisiClaimsCostsCoRespondent": "I’m asking the court to grant a decree dissolving my marriage and to order the co-respondent to pay some or all of the divorce costs.",
     "applyingForDecreeNisiClaimsCostsRespondentCoRespondent": "I’m asking the court to grant a decree dissolving my marriage and to order my {{ case.divorceWho }} and co-respondent to pay some or all of the divorce costs.",
+    "needToProvide": "See the court’s feedback",
 
     "facts": "I believe that the facts stated in this application are true.",
     "whatTheseStatments": "What these statements are",
@@ -22,7 +23,8 @@
 
     "fields": {
       "statementOfTruth": {
-        "yes": "I confirm that:"
+        "yes": "I confirm that:",
+        "clarificationYes": "I can confirm that I believe that the facts stated in this application are true."
       }
     },
 
