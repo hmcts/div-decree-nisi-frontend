@@ -35,4 +35,6 @@
 <h2 class="govuk-heading-m">{{ content.needHelp }}</h2>
 <p class="govuk-body">{{ content.needHelpDetails | safe }} {{ content.solicitorLink | safe }}</p>
  <h2 class="govuk-heading-m">{{ content.imporveService }}</h2>
-<p class="govuk-body">{{ content.imporveServiceDetails | safe }} {{ content.feedbackLink | safe }}</p>
+<p class="govuk-body">{{ content.imporveServiceDetails | safe }}
+    <a class="govuk-link" href="{{ feedbackDoneLink }}" target="_blank" aria-label="This link will open in a new tab.">leaving your feedback</a>
+</p>
