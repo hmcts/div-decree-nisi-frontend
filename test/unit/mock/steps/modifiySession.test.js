@@ -19,7 +19,8 @@ const ignoreContent = [
   'chatOpeningHours',
   'phoneTitle',
   'emailTitle',
-  'responseTime'
+  'responseTime',
+  'clarificationCourtFeedback'
 ];
 
 describe(modulePath, () => {

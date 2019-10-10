@@ -1,0 +1,48 @@
+{#
+  clarification feedback
+    case                - (required) An object containing the case json
+    content             - (required) An object of content for each feedback type
+    displayAsError      - (optional) Boolean to display as error or not, defualt: false
+
+  renders a list of downloadable documents
+#}
+
+{% set order = ["jurisdictionDetails", "marriageCertTranslation", "marriageCertificate", "previousProceedingDetails", "caseDetailsStatement", "other"] %}
+
+{% macro clarificationFeedback(case, content, displayAsError=false) %}
+  {{ '<div class="govuk-inset-text court-feedback">' | safe if displayAsError}}
+    {% for key in order %}
+      {% if case.refusalClarificationReason|length %}
+        {% if key in case.refusalClarificationReason %}
+          <h3 class="govuk-heading-s">{{ content[key].title }}</h3>
+          {% if key != "other" %}
+            <p class="govuk-body">{{ content[key].description | safe }}</p>
+          {% endif %}
+
+          {% if key == "jurisdictionDetails" %}
+            <ul class="govuk-list govuk-list--bullet">
+              <li>{{ content[key].reason0 | safe }}</li>
+              <li>{{ content[key].reason1 | safe }}</li>
+              <li>{{ content[key].reason2 | safe }}</li>
+              <li>{{ content[key].reason3 | safe }}</li>
+              <li>{{ content[key].reason4 | safe }}</li>
+              <li>{{ content[key].reason5 | safe }}</li>
+              <li>{{ content[key].reason6 | safe }}</li>
+            </ul>
+          {% endif %}
+
+          {% if key == "marriageCertTranslation" %}
+            <ul class="govuk-list govuk-list--number">
+              <li>{{ content[key].method1 | safe }}</li>
+              <li>{{ content[key].method2 | safe }}</li>
+            </ul>
+          {% endif %}
+
+          {% if key == "other" %}
+            <p class="govuk-body">"{{ case.refusalClarificationAdditionalInfo }}"</p>
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {{ '</div>' | safe if displayAsError }}
+{% endmacro %}

@@ -1,14 +1,19 @@
 {% extends "page.njk" %}
 
 {% from "look-and-feel/components/progress-list.njk" import progressList %}
+{% from "look-and-feel/components/document-list.njk" import documentList %}
 
 {% block back %}{% endblock %}
 {% block title %}{% endblock %}
 
 {% block main_content %}
   <div class="govuk-panel govuk-panel--confirmation">
-    <h1 class="govuk-panel__title govuk-!-margin-bottom-0">{{content.applicationComplete | safe}}</h1>
-    <p class="govuk-!-font-size-19 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-0">{{ content.appliedForDecreeNisi }}</p>
+    {% if isAwaitingClarification %}
+      <h1 class="govuk-panel__title govuk-!-margin-bottom-0">{{content.clarification.responseSubmitted | safe}}</h1>
+    {% else %}
+      <h1 class="govuk-panel__title govuk-!-margin-bottom-0">{{content.applicationComplete | safe}}</h1>
+      <p class="govuk-!-font-size-19 govuk-!-font-weight-bold govuk-!-margin-top-2 govuk-!-margin-bottom-0">{{ content.appliedForDecreeNisi }}</p>
+    {% endif %}
     <p class="govuk-panel__body govuk-!-margin-0 govuk-!-margin-top-2">
       <span class="govuk-!-font-size-19">{{ content.referenceNumber | safe }}</span>
       <br>
@@ -17,8 +22,6 @@
       </strong>
     </p>
   </div>
-
-  <p class="govuk-body">{{ content.emailConfirmation | safe }}</p>
 
   {{
     progressList({
@@ -42,8 +45,67 @@
 
   <br>
 
-  <p class="govuk-body">{{ content.courtWillCheck }}</p>
-  <p class="govuk-body">{{ content.decreeNisiGranted }}</p>
+  <p class="govuk-body">{{ content.emailConfirmation | safe }}</p>
+
+  {% if isAwaitingClarification %}
+    <h2 class="govuk-heading-m">{{ content.clarification.next }}</h2>
+    <p class="govuk-body">{{ content.clarification.yourResponse }}</p>
+
+    {% if hasUploadedDocuments %}
+
+      <p class="govuk-body">{{ content.clarification.contactUs }}</p>
+
+    {% else %}
+
+      <h2 class="govuk-heading-m">{{ content.clarification.submitDocuments }}</h2>
+      <p class="govuk-body">{{ content.clarification.submitDocumentsInfo }}</p>
+
+      <h2 class="govuk-heading-m">{{ content.clarification.sendDocByPost }}</h2>
+      <p class="govuk-body">{{ content.clarification.sendDocByPostInfo }}</p>
+      <ul class="govuk-list govuk-list--number">
+        <li>{{ content.clarification.sendDocByPostRef }}</li>
+        <li>
+          <p class="govuk-body">{{ content.clarification.sendDocByPostTo }}</p>
+          <div class="govuk-inset-text">
+            {% if case.court[case.courts].serviceCentreName %}
+              {{ case.court[case.courts].serviceCentreName }}<br>
+            {% else %}
+              {{ content.yourCourt }}<br>
+            {% endif %}
+            {{ content.careOf if case.court[case.courts].serviceCentreName }}{{ case.court[case.courts].divorceCentre | safe}} <br>
+            {% if case.court[case.courts].poBox %}
+                {{ case.court[case.courts].poBox | safe }}<br>
+            {% endif %}
+            {{ case.court[case.courts].courtCity | safe }}<br>
+            {{ case.court[case.courts].postCode | safe }}<br>
+          </div>
+          <p class="govuk-body">{{ content.clarification.sendDocByPostReturns }}</p>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">{{ content.clarification.sendDocByEmail }}</h2>
+      <p class="govuk-body">{{ content.clarification.sendDocByEmailInfo1 | safe }}</p>
+      <p class="govuk-body">{{ content.clarification.sendDocByEmailInfo2 }}</p>
+      <p class="govuk-body">{{ content.clarification.sendDocByEmailInfo3 }}</p>
+
+      <p class="govuk-body">{{ content.clarification.contactUs }}</p>
+
+    {% endif %}
+
+    <h2 class="govuk-heading-m">{{ content.clarification.helpImprove }}</h2>
+    <p class="govuk-body">{{ content.clarification.helpImproveDeveloped }}</p>
+
+    <h2 class="govuk-heading-m">{{ content.clarification.youNeedHelp }}</h2>
+    <p class="govuk-body">{{ content.clarification.contactDivorceCentre }}</p>
+    <p class="govuk-body"><a class="govuk-link" href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail }}</a></p>
+    <p class="govuk-body">{{ content.phoneNumber }}</p>
+    <p class="govuk-body">{{ content.openTimes }}</p>
+  {% else %}
+    <p class="govuk-body">{{ content.courtWillCheck }}</p>
+    <p class="govuk-body">{{ content.decreeNisiGranted }}</p>
+  {% endif %}
+
+
 {% endblock %}
 
 {% block one_third %}

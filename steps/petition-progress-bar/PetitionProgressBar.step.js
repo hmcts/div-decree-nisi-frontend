@@ -6,6 +6,8 @@ const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPayme
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
 const { get } = require('lodash');
+const { parseBool } = require('@hmcts/one-per-page/util');
+const { notDefined, awaitingClarification } = require('common/constants');
 
 const {
   caseStateMap,
@@ -20,9 +22,10 @@ const constants = {
   AOSCompleted: 'aoscompleted',
   AOSOverdue: 'aosoverdue',
   validAnswer: ['yes', 'no', 'nonoadmission'],
-  NotDefined: 'notdefined',
+  notDefined,
   DNAwaiting: 'awaitingdecreenisi',
   awaitingPronouncement: 'awaitingpronouncement',
+  awaitingClarification,
   undefendedReason: '0',
   no: 'no',
   yes: 'yes'
@@ -79,6 +82,14 @@ class PetitionProgressBar extends Interstitial {
     return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
   }
 
+  get showCourtFeedback() {
+    const isDnOutcomeCase = parseBool(this.case.dnOutcomeCase);
+    const featureIsEnabled = parseBool(config.features.awaitingClarification);
+    const isCorrectState = this.caseState === constants.awaitingClarification;
+
+    return isDnOutcomeCase && featureIsEnabled && isCorrectState;
+  }
+
   get showDnNoResponse() {
     return this.caseState === constants.AOSOverdue;
   }
@@ -113,8 +124,20 @@ class PetitionProgressBar extends Interstitial {
     });
   }
 
+  get refusalOrderFile() {
+    return this.downloadableFiles.find(file => {
+      const isRefusalOrder = [
+        'decreeNisiRefusalOrderClarification',
+        'decreeNisiRefusalOrderRejection'
+      ].includes(file.type);
+      return isRefusalOrder;
+    });
+  }
+
   next() {
     return branch(
+      redirectTo(this.journey.steps.CourtFeedback)
+        .if(this.showCourtFeedback),
       redirectTo(this.journey.steps.DnNoResponse)
         .if(this.showDnNoResponse),
       redirectTo(this.journey.steps.ReviewAosResponse)
@@ -134,7 +157,7 @@ class PetitionProgressBar extends Interstitial {
     } else if (this.awaitingPronouncementWithHearingDate()) {
       template = awaitingPronouncementWithHearingDateTemplate;
     } else {
-      caseStateMap.forEach(dataMap => {
+      caseStateMap(this.case).forEach(dataMap => {
         if (dataMap.state.includes(this.caseState)) {
           template = dataMap.template;
         }

@@ -2,7 +2,12 @@
   "en": {
     "otherReasons" : {
       "title": "Do you need to upload any other documents?",
-      "extraDocuments": "You should only do this if you have acquired new documents since you first applied which are relevant to your application."  
+      "extraDocuments": "You should only do this if you have acquired new documents since you first applied which are relevant to your application."
+    },
+    "clarification": {
+      "title": "Do you want to submit additional documents?",
+      "extraDocs": "You must submit the documents requested by the court. You can also submit additional documents to support your response.",
+      "needToProvide": "See the court’s feedback"
     },
     "adultery": {
       "title": "Do you need to upload evidence of the adultery?",

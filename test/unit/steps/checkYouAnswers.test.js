@@ -5,6 +5,7 @@ const Done = require('steps/done/Done.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const caseOrchestrationService = require('services/caseOrchestrationService');
+const config = require('config');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -19,25 +20,179 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(CheckYourAnswers, [ idam.protect() ]);
   });
 
-  it('renders the content', () => {
-    const ignoreContent = [
-      'applyingForDecreeNisi',
-      'applyingForDecreeNisiClaimsCostsRespondent',
-      'applyingForDecreeNisiClaimsCostsCoRespondent',
-      'applyingForDecreeNisiClaimsCostsRespondentCoRespondent',
-      'continue',
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours'
-    ];
-    const session = { case: { data: {} } };
-    return content(CheckYourAnswers, session, { ignoreContent });
+  describe('content for decree nisi application', () => {
+    it('correct content', () => {
+      const ignoreContent = [
+        'applyingForDecreeNisi',
+        'applyingForDecreeNisiClaimsCostsRespondent',
+        'applyingForDecreeNisiClaimsCostsCoRespondent',
+        'applyingForDecreeNisiClaimsCostsRespondentCoRespondent',
+        'continue',
+        'clarificationCourtFeedback',
+        'needToProvide',
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours'
+      ];
+      const session = { case: { data: {} } };
+      return content(CheckYourAnswers, session, { ignoreContent });
+    });
+
+    it('does not display and clarification content', () => {
+      const specificContentToNotExist = [
+        'clarificationCourtFeedback',
+        'needToProvide',
+        'fields.statementOfTruth.clarification'
+      ];
+      const session = { case: { data: {} } };
+      return content(CheckYourAnswers, session, { specificContentToNotExist });
+    });
   });
+
+  describe(
+    'clarification content feature:awaitingClarificiation is enabled, state is awaitingClarificiation', // eslint-disable-line
+    () => {
+      let sandbox = {};
+
+      before(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(config, 'features').value({
+          awaitingClarification: true
+        });
+      });
+
+      after(() => {
+        sandbox.restore();
+      });
+
+      let session = {};
+      beforeEach(() => {
+        session = {
+          case: {
+            state: 'AwaitingClarification',
+            data: { dnOutcomeCase: true }
+          }
+        };
+      });
+
+      it('should show correct content', () => {
+        const specificContent = [
+          'needToProvide',
+          'fields.statementOfTruth.clarificationYes'
+        ];
+
+        return content(CheckYourAnswers, session, { specificContent });
+      });
+
+      describe('show refusal reasons content', () => {
+        it('feedback for jurisdictionDetails', () => {
+          session.case.data = {
+            refusalClarificationReason: ['jurisdictionDetails'],
+            dnOutcomeCase: true
+          };
+          const specificContent = [
+            'clarificationCourtFeedback.jurisdictionDetails.title',
+            'clarificationCourtFeedback.jurisdictionDetails.description'
+          ];
+          return content(CheckYourAnswers, session, { specificContent });
+        });
+
+        it('feedback for marriageCertTranslation', () => {
+          session.case.data = {
+            refusalClarificationReason: ['marriageCertTranslation'],
+            dnOutcomeCase: true
+          };
+          const specificContent = [
+            'clarificationCourtFeedback.marriageCertTranslation.title',
+            'clarificationCourtFeedback.marriageCertTranslation.description',
+            'clarificationCourtFeedback.marriageCertTranslation.method1',
+            'clarificationCourtFeedback.marriageCertTranslation.method2'
+          ];
+          return content(CheckYourAnswers, session, { specificContent });
+        });
+
+        it('feedback for marriageCertificate', () => {
+          session.case.data = {
+            refusalClarificationReason: ['marriageCertificate'],
+            dnOutcomeCase: true
+          };
+          const specificContent = [
+            'clarificationCourtFeedback.marriageCertificate.title',
+            'clarificationCourtFeedback.marriageCertificate.description'
+          ];
+          return content(CheckYourAnswers, session, { specificContent });
+        });
+
+        it('feedback for previousProceedingDetails', () => {
+          session.case.data = {
+            refusalClarificationReason: ['previousProceedingDetails'],
+            dnOutcomeCase: true
+          };
+          const specificContent = [
+            'clarificationCourtFeedback.previousProceedingDetails.title',
+            'clarificationCourtFeedback.previousProceedingDetails.description'
+          ];
+          return content(CheckYourAnswers, session, { specificContent });
+        });
+
+        it('feedback for caseDetailsStatement', () => {
+          session.case.data = {
+            refusalClarificationReason: ['caseDetailsStatement'],
+            dnOutcomeCase: true
+          };
+          const specificContent = [
+            'clarificationCourtFeedback.caseDetailsStatement.title',
+            'clarificationCourtFeedback.caseDetailsStatement.description'
+          ];
+          return content(CheckYourAnswers, session, { specificContent });
+        });
+
+        it('feedback for other', () => {
+          session.case.data = {
+            refusalClarificationReason: ['other'],
+            refusalClarificationAdditionalInfo: 'some extra info',
+            dnOutcomeCase: true
+          };
+          const specificContent = [ 'clarificationCourtFeedback.other.title' ];
+          const specificValues = [ 'some extra info' ];
+          return content(CheckYourAnswers, session, { specificContent, specificValues });
+        });
+      });
+    }
+  );
+
+  describe(
+    'does not show content for Awaiting Clarification if awaitingClarification is disabled',
+    () => {
+      let sandbox = {};
+
+      before(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(config, 'features').value({
+          awaitingClarification: false
+        });
+      });
+
+      after(() => {
+        sandbox.restore();
+      });
+
+      it('does not display and clarification content', () => {
+        const specificContentToNotExist = [
+          'clarificationCourtFeedback',
+          'needToProvide',
+          'fields.statementOfTruth.clarification'
+        ];
+        const session = { case: { state: 'AwaitingClarification', data: { dnOutcomeCase: true } } };
+        return content(CheckYourAnswers, session, { specificContentToNotExist });
+      });
+    }
+  );
 
   describe('errors', () => {
     beforeEach(() => {

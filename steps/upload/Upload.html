@@ -1,6 +1,7 @@
 {% extends "question.njk" %}
 
 {% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+{% from "look-and-feel/components/warning-text.njk" import warningText %}
 
 {% set title %}
   {{ content.title | safe }}
@@ -42,7 +43,21 @@
 
   {{ header(title, size='l') }}
 
-  <p class="govuk-body">{{ content.uploadDigitalCopies }}</p>
+  {% if isAwaitingClarification %}
+    <p class="govuk-body">{{ content.clarificationDigitalCopies }}</p>
+  {% else %}
+    <p class="govuk-body">{{ content.uploadDigitalCopies }}</p>
+  {% endif %}
+
+
+  {{ warningText({
+      text: content.imageIsNotEntireDocument,
+      iconFallbackText: content.warning
+  }) }}
+
+  <div class="govuk-inset-text">
+    <p class="govuk-body">{{ content.usePhone }}</p>
+  </div>
 
   <details class="govuk-details">
     <summary class="govuk-details__summary" aria-controls="details-content-1" aria-expanded="false">
@@ -57,8 +72,6 @@
       </ul>
     </div>
   </details>
-
-  <p class="govuk-body">{{ content.entireDocument }}</p>
 
   <div class="document-upload">
     <div class="fallback">

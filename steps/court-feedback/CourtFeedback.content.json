@@ -1,0 +1,14 @@
+{
+  "en": {
+    "title": "Respond to the court's feedback?",
+    "needToProvide" : "See the court’s feedback",
+    "errors": {
+      "required": "You need to enter a response before continuing"
+    },
+    "fields": {
+      "response": {
+        "title": "Your response"
+      }
+    }
+  }
+}

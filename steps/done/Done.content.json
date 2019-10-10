@@ -24,6 +24,41 @@
     "madeFinal": "Divorce is complete",
 
     "courtWillCheck": "The court will check your application and pass it to the judge. If the judge agrees there is no reason why you should not get a divorce, you'll be sent the time, date and court in which your decree nisi will be pronounced.",
-    "decreeNisiGranted": "After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute."
+    "decreeNisiGranted": "After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute.",
+
+    "clarification": {
+        "responseSubmitted": "Response submitted",
+        "next": "What happens next",
+        "yourResponse": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
+        "submitDocuments": "What to do if you've been asked to submit documents",
+        "submitDocumentsInfo": "If you’ve been asked to provide documents to support your application but you can send them by post or by email.",
+        "sendDocByPost": "Sending documents by post",
+        "sendDocByPostInfo": "To send documents by post, you must:",
+        "sendDocByPostRef": "Write your reference number on each document you send",
+        "sendDocByPostTo": "Post all your documents to:",
+        "sendDocByPostReturns": "Your certificate will be kept by the court and won't be returned to you.",
+        "sendDocByEmail": "Send your documents by email",
+        "sendDocByEmailInfo1": "You can also email your documents to the court. Include your reference number in the subject line of the email. Email your documents to: <a class=\"govuk-link\" href=\"mailto:divorcecase@justice.gov.uk\">divorcecase@justice.gov.uk</a>",
+        "sendDocByEmailInfo2": "Your application will be checked. If its correct, you'll be sent a notice telling you that your application has been issued (sent out). You'll also get a case number and a copy of the application stamped by the divorce centre.",
+        "sendDocByEmailInfo3": "Your wife will also receive a copy of the application and a form to return. If you have used adultery as your reason for divorce, and named the person that your wife committed adultery with, they will also get a copy and a form to return.",
+        "contactUs": "Contact the divorce centre if you don't hear anything back after 3 weeks.",
+        "helpImprove": "Help us improve this service",
+        "helpImproveDeveloped": "This is a new service which is still being developed. If you haven't already, please provide feedback on what you think of it and how it can be improved.",
+        "youNeedHelp": "If you need help",
+        "contactDivorceCentre": "You can contact the divorce centre if you need help with your application. Court staff can't give you legal advice however, and you should speak to a solicitor or legal adviser if you need help with that."
+    },
+
+    "downloadDocuments" : "Download your documents",
+    "files": {
+      "dpetition": "Divorce application",
+      "respondentAnswers": "Respondent's answers",
+      "coRespondentAnswers": "Co-Respondent's answers",
+      "certificateOfEntitlement": "Certificate of Entitlement",
+      "costsOrder": "Cost Order",
+      "decreeNisi": "Decree Nisi",
+      "dnAnswers": "Decree Nisi answers",
+      "decreeNisiRefusalOrderClarification": "Refusal Order",
+      "decreeNisiRefusalOrderRejection": "Refusal Order"
+    }
   }
 }

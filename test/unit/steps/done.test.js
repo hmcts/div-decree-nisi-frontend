@@ -7,6 +7,7 @@ const { custom, expect, middleware, sinon, content } = require('@hmcts/one-per-p
 const httpStatus = require('http-status-codes');
 const { getExpectedCourtsList, testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
+const config = require('config');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -21,22 +22,209 @@ describe(modulePath, () => {
     return middleware.hasMiddleware(Done, [idam.protect(), idam.logout()]);
   });
 
-  it('renders the content', () => {
-    const session = { case: { data: {} } };
-    const ignoreContent = [
-      'webChatTitle',
-      'chatDown',
-      'chatWithAnAgent',
-      'noAgentsAvailable',
-      'allAgentsBusy',
-      'chatClosed',
-      'chatAlreadyOpen',
-      'chatOpeningHours',
-      'continue',
-      'careOf'
-    ];
-    return content(Done, session, { ignoreContent });
+
+  describe('content for decree nisi application', () => {
+    it('correct content', () => {
+      const ignoreContent = [
+        'clarification',
+        'clarificationCourtFeedback',
+        'downloadDocuments',
+        'downloadAndSaveYourDocuments',
+        'files',
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
+        'continue',
+        'careOf'
+      ];
+      const session = { case: { data: {} } };
+      return content(Done, session, { ignoreContent });
+    });
+
+    it('does not display and clarification content', () => {
+      const specificContentToNotExist = [
+        'clarification',
+        'downloadDocuments',
+        'downloadAndSaveYourDocuments',
+        'files'
+      ];
+      const session = { case: { data: {} } };
+      return content(Done, session, { specificContentToNotExist });
+    });
   });
+
+  describe('content for clarification when awaitingClarification is enabled', () => {
+    let sandbox = {};
+
+    before(() => {
+      sandbox = sinon.createSandbox();
+      sandbox.stub(config, 'features').value({
+        awaitingClarification: true
+      });
+    });
+
+    after(() => {
+      sandbox.restore();
+    });
+
+    let session = {};
+    beforeEach(() => {
+      session = {
+        case: {
+          state: 'AwaitingClarification',
+          data: {
+            dnOutcomeCase: true,
+            d8: [
+              {
+                id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
+                fileName: 'd8petition1554740111371638.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st3r',
+                fileName: 'certificateOfEntitlement1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st3r',
+                fileName: 'costsOrder1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st3r',
+                fileName: 'decreeNisi1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st3r',
+                fileName: 'dnAnswers1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560113f'
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st362',
+                fileName: 'decreeNisiRefusalOrderRejection1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560463'
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st362',
+                fileName: 'decreeNisiRefusalOrderClarification1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560463'
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st362',
+                fileName: 'coRespondentAnswers1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560333'
+              },
+              {
+                id: '401ab79e-34cb-4570-9124-4cf9357m4st362',
+                fileName: 'respondentAnswers1559143445687032.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560222'
+              }
+            ]
+          }
+        }
+      };
+    });
+
+    it('should show correct content when files uploaded', () => {
+      const specificContentToNotExist = [
+        'clarification.submitDocuments',
+        'clarification.submitDocumentsInfo',
+        'clarification.sendDocByPost',
+        'clarification.sendDocByPostInfo',
+        'clarification.sendDocByPostRef',
+        'clarification.sendDocByPostTo',
+        'clarification.sendDocByPostReturns',
+        'clarification.sendDocByEmail',
+        'clarification.sendDocByEmailInfo1',
+        'clarification.sendDocByEmailInfo2',
+        'clarification.sendDocByEmailInfo3'
+      ];
+      session.Upload = {
+        files: [{ id: 'some-id' }]
+      };
+      return content(Done, session, { specificContentToNotExist });
+    });
+
+    it('should show correct content when no files uploaded', () => {
+      const specificContent = [
+        'clarification.responseSubmitted',
+        'clarification.next',
+        'clarification.yourResponse',
+        'clarification.submitDocuments',
+        'clarification.submitDocumentsInfo',
+        'clarification.sendDocByPost',
+        'clarification.sendDocByPostInfo',
+        'clarification.sendDocByPostRef',
+        'clarification.sendDocByPostTo',
+        'clarification.sendDocByPostReturns',
+        'clarification.sendDocByEmail',
+        'clarification.sendDocByEmailInfo1',
+        'clarification.sendDocByEmailInfo2',
+        'clarification.sendDocByEmailInfo3',
+        'clarification.contactUs',
+        'clarification.helpImprove',
+        'clarification.helpImproveDeveloped',
+        'clarification.youNeedHelp',
+        'clarification.contactDivorceCentre',
+        'downloadDocuments',
+        'files.dpetition',
+        'files.respondentAnswers',
+        'files.coRespondentAnswers',
+        'files.certificateOfEntitlement',
+        'files.costsOrder',
+        'files.decreeNisi',
+        'files.dnAnswers',
+        'files.decreeNisiRefusalOrderClarification',
+        'files.decreeNisiRefusalOrderRejection'
+      ];
+
+      return content(Done, session, { specificContent });
+    });
+  });
+
+  describe(
+    'does not show content for Awaiting Clarification if awaitingClarification is disabled',
+    () => {
+      let sandbox = {};
+
+      before(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(config, 'features').value({
+          awaitingClarification: false
+        });
+      });
+
+      after(() => {
+        sandbox.restore();
+      });
+
+      it('does not display and clarification content', () => {
+        const specificContentToNotExist = [
+          'clarification',
+          'downloadDocuments',
+          'downloadAndSaveYourDocuments',
+          'files'
+        ];
+        const session = { case: { state: 'AwaitingClarification', data: { dnOutcomeCase: true } } };
+        return content(Done, session, { specificContentToNotExist });
+      });
+    }
+  );
 
   describe('values', () => {
     it('displays reference number', () => {

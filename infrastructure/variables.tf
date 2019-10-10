@@ -201,6 +201,10 @@ variable "feature_idam" {
   default = true
 }
 
+variable "awaiting_clarification" {
+  default = false
+}
+
 variable "ccd_digital_courts" {
   type = "string"
   default = "[\"serviceCentre\"]"
