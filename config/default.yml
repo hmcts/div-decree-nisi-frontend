@@ -117,6 +117,7 @@ paths:
   respNotAdmitAdultery: /resp-does-not-admit-adultery-options
   reviewAosResponseFromCoRespondent: /review-aos-response-from-co-respondent
   accessibilityStatement: /accessibility-statement
+  courtFeedback: /court-feedback
   mock:
     idamLogin: /idam-mock-login
     modifySession: /session
@@ -142,6 +143,7 @@ tests:
 features:
   idam: false
   webchat: false
+  awaitingClarification: false
 
 journey:
   timeoutDelay: 300
@@ -158,6 +160,8 @@ document:
   - 'costsOrder'
   - 'decreeNisi'
   - 'dnAnswers'
+  - 'decreeNisiRefusalOrderClarification'
+  - 'decreeNisiRefusalOrderRejection'
 
 ccd:
   d8States:

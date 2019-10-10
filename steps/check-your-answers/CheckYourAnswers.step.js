@@ -5,6 +5,8 @@ const idam = require('services/idam');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
+const { parseBool } = require('@hmcts/one-per-page/util');
+const { notDefined, awaitingClarification } = require('common/constants');
 
 class CheckYourAnswers extends CYA {
   static get path() {
@@ -13,6 +15,18 @@ class CheckYourAnswers extends CYA {
 
   get case() {
     return this.req.session.case.data;
+  }
+
+  get caseState() {
+    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : notDefined;
+  }
+
+  get isAwaitingClarification() {
+    const isDnOutcomeCase = parseBool(this.case.dnOutcomeCase);
+    const featureIsEnabled = parseBool(config.features.awaitingClarification);
+    const isCorrectState = this.caseState === awaitingClarification;
+
+    return isDnOutcomeCase && featureIsEnabled && isCorrectState;
   }
 
   get dnClaimCosts() {

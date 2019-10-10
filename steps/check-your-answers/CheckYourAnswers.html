@@ -1,6 +1,7 @@
 {% extends "check-your-answers.njk" %}
 
 {% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+{% from "components/clarification-feedback.njk" import clarificationFeedback %}
 
 {% set title %}
   {{ content.title }}
@@ -13,56 +14,94 @@
   summaryTableCaption: content.summaryTableCaption
 } %}
 
+{% block preResults %}
+  {% if isAwaitingClarification %}
+    <details class="govuk-details">
+      <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+        <span class="govuk-details__summary-text">{{ content.needToProvide }}</span>
+      </summary>
+      <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+        {{ clarificationFeedback(case, content.clarificationCourtFeedback) }}
+      </div>
+    </details>
+  {% endif %}
+{% endblock %}
+
+
+
 {% block statement_of_truth_content %}
   <h2 class="govuk-heading-m">{{ content.confirm | safe }}</h2>
   <p class="govuk-body">{{ content.imprisonedOrContempt }}</p>
 {% endblock %}
 
 {% block statement_of_truth_fields %}
+  {% if isAwaitingClarification %}
 
-  <div class="confirmation-container govuk-!-padding-bottom-1">
-    {% call formSection() %}
-      {{
-        selectionButtons(
-          fields.statementOfTruth,
-          content.fields.statementOfTruth.yes,
-          options = [
-            { label: content.fields.statementOfTruth.yes, value: "yes" }
-          ],
-          hint=false,
-          hideQuestion=true,
-          inline=false,
-          type='checkbox'
-        )
-      }}
-    {% endcall %}
-
-    <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-5">
-      {% if dnClaimCosts and dnClaimCosts != "endClaim" %}
-        {% if case.claimsCostsFrom|length and "respondent" in case.claimsCostsFrom and "correspondent" in case.claimsCostsFrom  %}
-          <li>{{ content.applyingForDecreeNisiClaimsCostsRespondentCoRespondent }}</li>
-        {% elseif case.claimsCostsFrom|length and "correspondent" in case.claimsCostsFrom  %}
-          <li>{{ content.applyingForDecreeNisiClaimsCostsCoRespondent }}</li>
-        {% else %}
-          <li>{{ content.applyingForDecreeNisiClaimsCostsRespondent }}</li>
-        {% endif %}
-      {% else %}
-        <li>{{ content.applyingForDecreeNisi }}</li>
-      {% endif %}
-      <li>{{ content.facts }}</li>
-    </uL>
-
-    <br>
-
-    <details class="govuk-details">
-      <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
-        <span class="govuk-details__summary-text">{{ content.whatTheseStatments }}</span>
-      </summary>
-      <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
-        <p class="govuk-body">{{ content.firstStatment }}</p>
+    <div class="confirmation-container govuk-!-padding-bottom-1">
+        {% call formSection() %}
+          {{
+            selectionButtons(
+              fields.statementOfTruth,
+              content.fields.statementOfTruth.yes,
+              options = [
+                { label: content.fields.statementOfTruth.clarificationYes, value: "yes" }
+              ],
+              hint=false,
+              hideQuestion=true,
+              inline=false,
+              type='checkbox'
+            )
+          }}
+        {% endcall %}
       </div>
-    </details>
-  </div>
+
+  {% else %}
+
+    <div class="confirmation-container govuk-!-padding-bottom-1">
+      {% call formSection() %}
+        {{
+          selectionButtons(
+            fields.statementOfTruth,
+            content.fields.statementOfTruth.yes,
+            options = [
+              { label: content.fields.statementOfTruth.yes, value: "yes" }
+            ],
+            hint=false,
+            hideQuestion=true,
+            inline=false,
+            type='checkbox'
+          )
+        }}
+      {% endcall %}
+
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-5">
+        {% if dnClaimCosts and dnClaimCosts != "endClaim" %}
+          {% if case.claimsCostsFrom|length and "respondent" in case.claimsCostsFrom and "correspondent" in case.claimsCostsFrom  %}
+            <li>{{ content.applyingForDecreeNisiClaimsCostsRespondentCoRespondent }}</li>
+          {% elseif case.claimsCostsFrom|length and "correspondent" in case.claimsCostsFrom  %}
+            <li>{{ content.applyingForDecreeNisiClaimsCostsCoRespondent }}</li>
+          {% else %}
+            <li>{{ content.applyingForDecreeNisiClaimsCostsRespondent }}</li>
+          {% endif %}
+        {% else %}
+          <li>{{ content.applyingForDecreeNisi }}</li>
+        {% endif %}
+        <li>{{ content.facts }}</li>
+      </uL>
+
+      <br>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+          <span class="govuk-details__summary-text">{{ content.whatTheseStatments }}</span>
+        </summary>
+        <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+          <p class="govuk-body">{{ content.firstStatment }}</p>
+        </div>
+      </details>
+    </div>
+
+  {% endif %}
 
   <br>
 {%- endblock %}

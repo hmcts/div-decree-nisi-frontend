@@ -12,7 +12,7 @@
       { label: "AosSubmittedAwaitingAnswer", value: "AosSubmittedAwaitingAnswer" },
       { label: "AwaitingConsideration", value: "AwaitingConsideration" },
       { label: "AwaitingPronouncement", value: "AwaitingPronouncement" },
-      { label: "AwaitingClarification", value: "AwaitingClarification" },
+      { label: "AwaitingClarification", value: "AwaitingClarification", target: "awaiting-clarification-options" },
       { label: "AwaitingDecreeAbsolute", value: "AwaitingDecreeAbsolute" },
       { label: "DNPronounced", value: "DNPronounced" }
     ],
@@ -32,5 +32,32 @@
   hideQuestion = false,
   inline = true
 ) }}
+</div>
+
+<div class="js-hidden" id="awaiting-clarification-options">
+  {{ selectionButtons(fields.refusalClarificationReason, "Reason for clarification?",
+  options = [
+      { label: "Jurisdiction Details", value: "jurisdictionDetails" },
+      { label: "Marriage Certificatie Translation", value: "marriageCertTranslation" },
+      { label: "Marriage Certificate", value: "marriageCertificate" },
+      { label: "Previous Proceeding Details", value: "previousProceedingDetails" },
+      { label: "Case Details Statement", value: "caseDetailsStatement" },
+      { label: "Other ( enter reason )", value: "other", target: "awaiting-clarification-options-other" }
+  ],
+  hideQuestion = false,
+  inline = true,
+  type = 'checkbox'
+) }}
+</div>
+
+<div class="js-hidden" id="awaiting-clarification-options-other">
+  <div class="form-group">
+    More details regarding clarification
+    <textarea class="form-control"
+              id="refusalClarificationAdditionalInfo"
+              name="refusalClarificationAdditionalInfo"
+              rows="4">{% if fields.refusalClarificationAdditionalInfo.value %}
+      {{ fields.refusalClarificationAdditionalInfo.value }}{% endif %}</textarea>
+  </div>
 </div>
 {% endcall %}

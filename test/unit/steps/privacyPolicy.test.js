@@ -20,7 +20,8 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'continue',
-        'yourName'
+        'yourName',
+        'clarificationCourtFeedback'
       ];
 
       return content(PrivacyPolicy, {}, { ignoreContent });

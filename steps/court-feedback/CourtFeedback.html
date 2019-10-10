@@ -1,0 +1,26 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import textarea %}
+{% from "components/clarification-feedback.njk" import clarificationFeedback %}
+
+{% set title %}
+  {{ content.title | safe }}
+{% endset %}
+
+{% block fields %}
+  <details class="govuk-details">
+    <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
+      <span class="govuk-details__summary-text">{{ content.needToProvide }}</span>
+    </summary>
+    <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+      {{ clarificationFeedback(case, content.clarificationCourtFeedback) }}
+    </div>
+  </details>
+
+  {{ textarea(
+    fields.response,
+    content.fields.response.title,
+    bold=true
+  ) }}
+
+{% endblock %}

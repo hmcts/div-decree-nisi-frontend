@@ -47,7 +47,8 @@ describe(modulePath, () => {
         'serviceName',
         'signOut',
         'email',
-        'phone'
+        'phone',
+        'clarificationCourtFeedback'
       ];
 
       return content(

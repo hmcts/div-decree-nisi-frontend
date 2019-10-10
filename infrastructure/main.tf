@@ -128,6 +128,7 @@ module "frontend" {
     // Feature toggling through config
     FEATURE_IDAM                            = "${var.feature_idam}"
     FEATURE_WEBCHAT                         = "${var.feature_webchat}"
+    FEATURE_AWAITING_CLARIFICATION          = "${var.awaiting_clarification}"
 
     // Encryption secrets
     SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"

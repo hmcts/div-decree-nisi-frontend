@@ -53,7 +53,6 @@ describe(modulePath, () => {
   });
 
   it('renders the content', () => {
-    const ignoreContent = ['continue'];
     const session = { case: { data: {} } };
     const specificContent = [
       'start',
@@ -61,7 +60,7 @@ describe(modulePath, () => {
       'ifYouWantYour',
       'notAbleToRead'
     ];
-    return content(AmendApplication, session, { specificContent, ignoreContent });
+    return content(AmendApplication, session, { specificContent });
   });
 
   it('Sends request to amend endpoint and redirects to PFE', done => {
