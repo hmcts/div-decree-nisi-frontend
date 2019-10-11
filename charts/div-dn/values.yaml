@@ -59,3 +59,7 @@ redis:
     master:
         persistence:
             enabled: false
+
+tags:
+  idam-pr: false
+  pr: false
