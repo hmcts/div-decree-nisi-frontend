@@ -30,16 +30,16 @@ const checks = () => {
           return false;
         });
     }),
-    'idam-api': healthcheck.web(config.services.idam.apiHealth,
+    'idam-api': healthcheck.web(`${config.services.idam.apiUrl}/health`,
       healthOptions('Health check failed on idam-api:')
     ),
-    'case-orchestration-service': healthcheck.web(config.services.orchestrationService.health,
+    'case-orchestration-service': healthcheck.web(`${config.services.orchestrationService.baseUrl}/health`,
       healthOptions('Health check failed on case-orchestration-service:')
     ),
-    'fees-and-payments-service': healthcheck.web(config.services.feesAndPayments.health,
+    'fees-and-payments-service': healthcheck.web(`${config.services.feesAndPayments.url}/health`,
       healthOptions('Health check failed on fees-and-payments-service:')
     ),
-    'evidence-management-client': healthcheck.web(config.services.evidenceManagementClient.health,
+    'evidence-management-client': healthcheck.web(`${config.services.evidenceManagementClient.url}/health`,
       healthOptions('Health check failed on evidence-management-client:')
     )
   };
