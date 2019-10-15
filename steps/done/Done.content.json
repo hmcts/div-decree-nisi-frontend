@@ -29,23 +29,27 @@
     "clarification": {
         "responseSubmitted": "Response submitted",
         "next": "What happens next",
-        "yourResponse": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
-        "submitDocuments": "What to do if you've been asked to submit documents",
-        "submitDocumentsInfo": "If you’ve been asked to provide documents to support your application but you can send them by post or by email.",
-        "sendDocByPost": "Sending documents by post",
-        "sendDocByPostInfo": "To send documents by post, you must:",
-        "sendDocByPostRef": "Write your reference number on each document you send",
-        "sendDocByPostTo": "Post all your documents to:",
-        "sendDocByPostReturns": "Your certificate will be kept by the court and won't be returned to you.",
-        "sendDocByEmail": "Send your documents by email",
-        "sendDocByEmailInfo1": "You can also email your documents to the court. Include your reference number in the subject line of the email. Email your documents to: <a class=\"govuk-link\" href=\"mailto:divorcecase@justice.gov.uk\">divorcecase@justice.gov.uk</a>",
-        "sendDocByEmailInfo2": "Your application will be checked. If its correct, you'll be sent a notice telling you that your application has been issued (sent out). You'll also get a case number and a copy of the application stamped by the divorce centre.",
-        "sendDocByEmailInfo3": "Your wife will also receive a copy of the application and a form to return. If you have used adultery as your reason for divorce, and named the person that your wife committed adultery with, they will also get a copy and a form to return.",
-        "contactUs": "Contact the divorce centre if you don't hear anything back after 3 weeks.",
+
+        "postDocuments": {
+            "postDocuments": "Post documents to court",
+            "youWantToSubmitDocs": "Your response said you want to submit additional documents.",
+            "originalDocuments": "Post all your original documents to:",
+            "warning": "Warning",
+            "referenceNumber": "You must write your reference number on each document.",
+            "courtCheckResponse": "The court will check your response",
+            "responseCheckedByCourt": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
+            "contactUs": "You can contact us if you don’t hear anything back after 4 weeks."
+        },
+
+        "noPostDocuments": {
+            "responseCheckedByCourt": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
+            "contactUs": "You can contact us if you don’t hear anything back after 4 weeks."
+        },
+
+        "needHelp": "If you need help",
+        "contactDivorceCentre": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\">Solicitor or legal adviser link, This link will open in a new tab.\">solicitor or legal adviser</a>.",
         "helpImprove": "Help us improve this service",
-        "helpImproveDeveloped": "This is a new service which is still being developed. If you haven't already, please provide feedback on what you think of it and how it can be improved.",
-        "youNeedHelp": "If you need help",
-        "contactDivorceCentre": "You can contact the divorce centre if you need help with your application. Court staff can't give you legal advice however, and you should speak to a solicitor or legal adviser if you need help with that."
+        "helpImproveLink": "Please help us improve this service by <a class=\"govuk-link\" href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\" target=\"_blank\" aria-label=\"Feedback link, This link will open in a new tab.\">leaving your feedback</a>."
     },
 
     "downloadDocuments" : "Download your documents",
