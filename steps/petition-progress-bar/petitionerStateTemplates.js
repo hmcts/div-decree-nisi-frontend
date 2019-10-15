@@ -33,7 +33,7 @@ const caseStateMap = caseData => {
     },
     {
       template: './sections/decreeNisiGranted/PetitionProgressBar.decreeNisiGranted.template.html',
-      state: ['awaitingdecreeabsolute', 'dnpronounced']
+      state: ['dnpronounced']
     }
   ];
 

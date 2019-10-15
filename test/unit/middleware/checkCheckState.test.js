@@ -19,7 +19,6 @@ const validCaseStates = [
   'aossubmittedawaitinganswer',
   'aosoverdue',
   'aoscompleted',
-  'awaitingdecreeabsolute',
   'dnpronounced'
 ];
 
@@ -56,16 +55,6 @@ describe(modulePath, () => {
         expect(res.redirect.calledOnce).to.eql(true);
         expect(res.redirect.calledWith(config.paths.contactDivorceTeam)).to.eql(true);
       });
-    });
-
-    it('state is awaitingdecreeabsolute and NO decreeNisiGrantedDate', () => {
-      const req = { session: { case: { state: 'awaitingdecreeabsolute' } } };
-      const res = { redirect: sinon.stub() };
-      const next = sinon.stub();
-      checkCaseState(req, res, next);
-      expect(next.calledOnce).to.eql(false);
-      expect(res.redirect.calledOnce).to.eql(true);
-      expect(res.redirect.calledWith(config.paths.contactDivorceTeam)).to.eql(true);
     });
   });
 });
