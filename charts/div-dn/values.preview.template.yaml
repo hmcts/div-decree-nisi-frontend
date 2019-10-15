@@ -9,7 +9,6 @@ nodejs:
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         PUBLIC_HOSTNAME: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
-        FEATURE_WEBCHAT: "true"
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}

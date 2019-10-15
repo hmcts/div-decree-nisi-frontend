@@ -212,7 +212,7 @@ variable "appinsights_instrumentation_key" {
 }
 
 variable "feature_webchat" {
-  default = false
+  default = true
 }
 
 variable "webchat_chat_id" {
