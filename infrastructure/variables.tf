@@ -4,10 +4,6 @@ variable "reform_team" {
   default = "div"
 }
 
-variable "reform_service_name" {
-  default = "dn"
-}
-
 variable "product" {}
 
 variable "raw_product" {
@@ -220,7 +216,7 @@ variable "appinsights_instrumentation_key" {
 }
 
 variable "feature_webchat" {
-  default = false
+  default = true
 }
 
 variable "webchat_chat_id" {

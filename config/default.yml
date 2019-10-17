@@ -52,6 +52,7 @@ services:
     expire: 3600000
     enabled: false
   orchestrationService:
+    baseUrl: http://localhost:3001/case-orchestration
     getCaseUrl: http://localhost:3001/case-orchestration/retrieve-case
     submitCaseUrl: http://localhost:3001/case-orchestration/submit-dn
     health: http://localhost:3001/case-orchestration/health
@@ -139,7 +140,7 @@ tests:
 
 features:
   idam: false
-  webchat: false
+  webchat: true
   awaitingClarification: false
   dnIsRefused: false
 
