@@ -13,8 +13,7 @@ steps:
       --cache-from {{.Run.Registry}}/div/decree-nisi-frontend/runtime:latest
       --target runtime
       .
-    when:
-      - base
+    when: ["-"]
     keep: true
   # Push to registry
   - id: push-images
