@@ -3,14 +3,14 @@ steps:
   # Pull previous build images
   # This is used to leverage on layers re-use for the next steps
   - id: pull-base
-    cmd: docker pull {{.Run.Registry}}/div/decree-nisi-frontend/runtime:latest || true
+    cmd: docker pull {{.Run.Registry}}/div/decree-nisi-frontend:latest || true
     when: ["-"]
     keep: true
   # Create runtime image
   - id: runtime
     build: >
       -t {{.Run.Registry}}/{{CI_IMAGE_TAG}}
-      --cache-from {{.Run.Registry}}/div/decree-nisi-frontend/runtime:latest
+      --cache-from {{.Run.Registry}}/div/decree-nisi-frontend:latest
       --target runtime
       .
     when: ["-"]
@@ -18,7 +18,6 @@ steps:
   # Push to registry
   - id: push-images
     push:
-      - "{{.Run.Registry}}/div/decree-nisi-frontend/runtime:latest"
       - "{{.Run.Registry}}/{{CI_IMAGE_TAG}}"
     when:
       - runtime
