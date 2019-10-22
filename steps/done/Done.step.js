@@ -4,6 +4,7 @@ const idam = require('services/idam');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
+const { get } = require('lodash');
 
 class Done extends ExitPoint {
   static get path() {
@@ -35,12 +36,14 @@ class Done extends ExitPoint {
     return createUris(this.case.d8, docConfig);
   }
 
-  get hasUploadedDocuments() {
-    if (this.req.session.Upload) {
-      const hasSubmittedFiles = this.req.session.Upload.files && this.req.session.Upload.files.length;
-      return hasSubmittedFiles;
-    }
-    return false;
+  get shareDocumentsAndNoUploads() {
+    const shareCourtDocumentsAnswer = get(this.req.session, 'ShareCourtDocuments.upload');
+    const uploadedDocumentsAnswer = get(this.req.session, 'Upload.files') || [];
+
+    const doesWantToShareDocuments = parseBool(shareCourtDocumentsAnswer);
+    const hasNoUploadedDocuments = uploadedDocumentsAnswer.length === 0;
+
+    return doesWantToShareDocuments && hasNoUploadedDocuments;
   }
 
   get middleware() {

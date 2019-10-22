@@ -2,6 +2,7 @@
 
 {% from "look-and-feel/components/progress-list.njk" import progressList %}
 {% from "look-and-feel/components/document-list.njk" import documentList %}
+{% from "look-and-feel/components/warning-text.njk" import warningText %}
 
 {% block back %}{% endblock %}
 {% block title %}{% endblock %}
@@ -49,57 +50,55 @@
 
   {% if isAwaitingClarification %}
     <h2 class="govuk-heading-m">{{ content.clarification.next }}</h2>
-    <p class="govuk-body">{{ content.clarification.yourResponse }}</p>
 
-    {% if hasUploadedDocuments %}
+    {% if shareDocumentsAndNoUploads %}
 
-      <p class="govuk-body">{{ content.clarification.contactUs }}</p>
-
-    {% else %}
-
-      <h2 class="govuk-heading-m">{{ content.clarification.submitDocuments }}</h2>
-      <p class="govuk-body">{{ content.clarification.submitDocumentsInfo }}</p>
-
-      <h2 class="govuk-heading-m">{{ content.clarification.sendDocByPost }}</h2>
-      <p class="govuk-body">{{ content.clarification.sendDocByPostInfo }}</p>
       <ul class="govuk-list govuk-list--number">
-        <li>{{ content.clarification.sendDocByPostRef }}</li>
         <li>
-          <p class="govuk-body">{{ content.clarification.sendDocByPostTo }}</p>
-          <div class="govuk-inset-text">
-            {% if case.court[case.courts].serviceCentreName %}
-              {{ case.court[case.courts].serviceCentreName }}<br>
-            {% else %}
-              {{ content.yourCourt }}<br>
-            {% endif %}
+          <p class="govuk-body govuk-!-font-weight-bold">{{ content.clarification.postDocuments.postDocuments }}</p>
+          <p class="govuk-body">{{ content.clarification.postDocuments.youWantToSubmitDocs }}</p>
+          <p class="govuk-body">{{ content.clarification.postDocuments.originalDocuments }}</p>
+
+          <p class="govuk-body">
+            <strong>
+              {% if case.court[case.courts].serviceCentreName %}
+                {{ case.court[case.courts].serviceCentreName }}<br>
+              {% else %}
+                {{ content.yourCourt }}<br>
+              {% endif %}
+            </strong>
             {{ content.careOf if case.court[case.courts].serviceCentreName }}{{ case.court[case.courts].divorceCentre | safe}} <br>
             {% if case.court[case.courts].poBox %}
                 {{ case.court[case.courts].poBox | safe }}<br>
             {% endif %}
             {{ case.court[case.courts].courtCity | safe }}<br>
-            {{ case.court[case.courts].postCode | safe }}<br>
-          </div>
-          <p class="govuk-body">{{ content.clarification.sendDocByPostReturns }}</p>
+            {{ case.court[case.courts].postCode | safe }}
+          </p>
+
+          {{ warningText({
+            text: content.clarification.postDocuments.referenceNumber,
+            iconFallbackText: content.clarification.postDocuments.warning
+          }) }}
+        </li>
+        <li>
+          <p class="govuk-body govuk-!-font-weight-bold">{{ content.clarification.postDocuments.courtCheckResponse }}</p>
+          <p class="govuk-body">{{ content.clarification.postDocuments.responseCheckedByCourt }}</p>
+          <p class="govuk-body">{{ content.clarification.postDocuments.contactUs }}</p>
         </li>
       </ul>
 
-      <h2 class="govuk-heading-m">{{ content.clarification.sendDocByEmail }}</h2>
-      <p class="govuk-body">{{ content.clarification.sendDocByEmailInfo1 | safe }}</p>
-      <p class="govuk-body">{{ content.clarification.sendDocByEmailInfo2 }}</p>
-      <p class="govuk-body">{{ content.clarification.sendDocByEmailInfo3 }}</p>
+    {% else %}
 
-      <p class="govuk-body">{{ content.clarification.contactUs }}</p>
+      <p class="govuk-body">{{ content.clarification.noPostDocuments.responseCheckedByCourt }}</p>
+      <p class="govuk-body">{{ content.clarification.noPostDocuments.contactUs }}</p>
 
     {% endif %}
 
-    <h2 class="govuk-heading-m">{{ content.clarification.helpImprove }}</h2>
-    <p class="govuk-body">{{ content.clarification.helpImproveDeveloped }}</p>
+    <h2 class="govuk-heading-m">{{ content.clarification.needHelp }}</h2>
+    <p class="govuk-body">{{ content.clarification.contactDivorceCentre | safe }}</p>
 
-    <h2 class="govuk-heading-m">{{ content.clarification.youNeedHelp }}</h2>
-    <p class="govuk-body">{{ content.clarification.contactDivorceCentre }}</p>
-    <p class="govuk-body"><a class="govuk-link" href="mailto:{{ content.divorceEmail }}">{{ content.divorceEmail }}</a></p>
-    <p class="govuk-body">{{ content.phoneNumber }}</p>
-    <p class="govuk-body">{{ content.openTimes }}</p>
+    <h2 class="govuk-heading-m">{{ content.clarification.helpImprove }}</h2>
+    <p class="govuk-body">{{ content.clarification.helpImproveLink | safe  }}</p>
   {% else %}
     <p class="govuk-body">{{ content.courtWillCheck }}</p>
     <p class="govuk-body">{{ content.decreeNisiGranted }}</p>

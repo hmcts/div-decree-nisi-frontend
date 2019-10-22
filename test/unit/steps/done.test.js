@@ -140,60 +140,95 @@ describe(modulePath, () => {
       };
     });
 
-    it('should show correct content when files uploaded', () => {
-      const specificContentToNotExist = [
-        'clarification.submitDocuments',
-        'clarification.submitDocumentsInfo',
-        'clarification.sendDocByPost',
-        'clarification.sendDocByPostInfo',
-        'clarification.sendDocByPostRef',
-        'clarification.sendDocByPostTo',
-        'clarification.sendDocByPostReturns',
-        'clarification.sendDocByEmail',
-        'clarification.sendDocByEmailInfo1',
-        'clarification.sendDocByEmailInfo2',
-        'clarification.sendDocByEmailInfo3'
-      ];
-      session.Upload = {
-        files: [{ id: 'some-id' }]
-      };
-      return content(Done, session, { specificContentToNotExist });
+    describe('Share documents is true and has uploaded documents', () => {
+      beforeEach(() => {
+        session.ShareCourtDocuments = {
+          upload: 'yes'
+        };
+        session.Upload = {
+          files: [{ id: 'some-id' }]
+        };
+      });
+
+      it('should show correct content', () => {
+        const specificContent = [
+          'clarification.responseSubmitted',
+          'clarification.next',
+          'clarification.noPostDocuments.responseCheckedByCourt',
+          'clarification.noPostDocuments.contactUs',
+          'clarification.needHelp',
+          'clarification.contactDivorceCentre',
+          'clarification.helpImprove',
+          'clarification.helpImproveLink'
+        ];
+        return content(Done, session, { specificContent });
+      });
+
+      it('should not show content relating to posting documents', () => {
+        const specificContentToNotExist = [
+          'clarification.postDocuments.postDocuments',
+          'clarification.postDocuments.youWantToSubmitDocs',
+          'clarification.postDocuments.originalDocuments',
+          'clarification.postDocuments.warning',
+          'clarification.postDocuments.referenceNumber',
+          'clarification.postDocuments.courtCheckResponse'
+        ];
+        return content(Done, session, { specificContentToNotExist });
+      });
     });
 
-    it('should show correct content when no files uploaded', () => {
-      const specificContent = [
-        'clarification.responseSubmitted',
-        'clarification.next',
-        'clarification.yourResponse',
-        'clarification.submitDocuments',
-        'clarification.submitDocumentsInfo',
-        'clarification.sendDocByPost',
-        'clarification.sendDocByPostInfo',
-        'clarification.sendDocByPostRef',
-        'clarification.sendDocByPostTo',
-        'clarification.sendDocByPostReturns',
-        'clarification.sendDocByEmail',
-        'clarification.sendDocByEmailInfo1',
-        'clarification.sendDocByEmailInfo2',
-        'clarification.sendDocByEmailInfo3',
-        'clarification.contactUs',
-        'clarification.helpImprove',
-        'clarification.helpImproveDeveloped',
-        'clarification.youNeedHelp',
-        'clarification.contactDivorceCentre',
-        'downloadDocuments',
-        'files.dpetition',
-        'files.respondentAnswers',
-        'files.coRespondentAnswers',
-        'files.certificateOfEntitlement',
-        'files.costsOrder',
-        'files.decreeNisi',
-        'files.dnAnswers',
-        'files.decreeNisiRefusalOrderClarification',
-        'files.decreeNisiRefusalOrderRejection'
-      ];
+    describe('Share documents is true and has NOT uploaded documents', () => {
+      beforeEach(() => {
+        session.ShareCourtDocuments = {
+          upload: 'yes'
+        };
+      });
 
-      return content(Done, session, { specificContent });
+      it('show content regarding posting documents', () => {
+        const specificContent = [
+          'clarification.responseSubmitted',
+          'clarification.next',
+          'clarification.postDocuments.postDocuments',
+          'clarification.postDocuments.youWantToSubmitDocs',
+          'clarification.postDocuments.originalDocuments',
+          'clarification.postDocuments.warning',
+          'clarification.postDocuments.referenceNumber',
+          'clarification.postDocuments.courtCheckResponse',
+          'clarification.needHelp',
+          'clarification.contactDivorceCentre',
+          'clarification.helpImprove',
+          'clarification.helpImproveLink'
+        ];
+        return content(Done, session, { specificContent });
+      });
+    });
+
+    describe('Share documents is false', () => {
+      it('should show correct content', () => {
+        const specificContent = [
+          'clarification.responseSubmitted',
+          'clarification.next',
+          'clarification.noPostDocuments.responseCheckedByCourt',
+          'clarification.noPostDocuments.contactUs',
+          'clarification.needHelp',
+          'clarification.contactDivorceCentre',
+          'clarification.helpImprove',
+          'clarification.helpImproveLink'
+        ];
+        return content(Done, session, { specificContent });
+      });
+
+      it('should not show content relating to posting documents', () => {
+        const specificContentToNotExist = [
+          'clarification.postDocuments.postDocuments',
+          'clarification.postDocuments.youWantToSubmitDocs',
+          'clarification.postDocuments.originalDocuments',
+          'clarification.postDocuments.warning',
+          'clarification.postDocuments.referenceNumber',
+          'clarification.postDocuments.courtCheckResponse'
+        ];
+        return content(Done, session, { specificContentToNotExist });
+      });
     });
   });
 
