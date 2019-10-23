@@ -1,5 +1,5 @@
 /* eslint-disable no-process-env */
-const processEnvironmentSetup = require('@hmcts/node-js-environment-variable-setter');
+const processEnvironmentSetup = require('@hmcts/environment-variable-setter');
 
 if (process.env.POINT_TO_REMOTE) {
   const configurationFile = './remote-config.json';

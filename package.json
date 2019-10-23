@@ -2,6 +2,7 @@
   "name": "divorce-decree-nisi",
   "description": "Divorce Decree Nisi",
   "version": "0.0.2",
+  "license": "MIT",
   "engines": {
     "node": ">=10.15.2"
   },
@@ -38,7 +39,6 @@
     "@hmcts/div-document-express-handler": "^1.1.0",
     "@hmcts/div-idam-express-middleware": "^6.5.0",
     "@hmcts/look-and-feel": "^4.0.4",
-    "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/nodejs-healthcheck": "^1.5.1",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/one-per-page": "^5.3.0",
@@ -73,8 +73,8 @@
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.5.0",
-    "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#a459aaa16a92cb13e0dac35c32bf559ad79de6a6",
-    "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
+    "@hmcts/div-test-harness": "^1.0.4",
+    "@hmcts/environment-variable-setter": "^1.0.0",
     "@hmcts/one-per-page-test-suite": "^4.0.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
