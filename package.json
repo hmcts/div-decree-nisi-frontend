@@ -2,6 +2,7 @@
   "name": "divorce-decree-nisi",
   "description": "Divorce Decree Nisi",
   "version": "0.0.2",
+  "license": "MIT",
   "engines": {
     "node": ">=10.15.2"
   },
@@ -23,7 +24,6 @@
     "test:e2e": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --exit 'test/e2e/**/*.js' --timeout 5000",
     "test:coverage": "nyc check-coverage",
     "test:a11y": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=OFF mocha --exit test/a11y --timeout 15000",
-    "test:nsp": "nsp check",
     "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner",
     "test:functional": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/functional/codecept.conf.js --steps --invert",
     "test:functional:remote": "NODE_PATH=. POINT_TO_REMOTE=true LOG_LEVEL=OFF codeceptjs run -c test/functional/codecept.conf.js --steps --invert",
@@ -38,7 +38,6 @@
     "@hmcts/div-document-express-handler": "^1.1.0",
     "@hmcts/div-idam-express-middleware": "^6.5.0",
     "@hmcts/look-and-feel": "^4.0.4",
-    "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
     "@hmcts/nodejs-healthcheck": "^1.5.1",
     "@hmcts/nodejs-logging": "^3.0.0",
     "@hmcts/one-per-page": "^5.3.0",
@@ -54,7 +53,7 @@
     "formidable": "^1.2.1",
     "glob": "^7.1.2",
     "govuk-frontend": "^2.11.0",
-    "helmet": "^3.12.0",
+    "helmet": "^3.21.2",
     "hpkp": "^2.0.0",
     "http-status-codes": "^1.3.0",
     "i18next": "^11.3.1",
@@ -73,8 +72,8 @@
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.5.0",
-    "@hmcts/div-test-harness": "https://github.com/hmcts/div-test-harness#a459aaa16a92cb13e0dac35c32bf559ad79de6a6",
-    "@hmcts/node-js-environment-variable-setter": "https://github.com/hmcts/node-js-environment-variable-setter#0.2",
+    "@hmcts/div-test-harness": "^1.0.4",
+    "@hmcts/environment-variable-setter": "^1.0.0",
     "@hmcts/one-per-page-test-suite": "^4.0.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
@@ -93,12 +92,11 @@
     "mochawesome": "^3.0.2",
     "mockserver": "^2.1.1",
     "node-dev": "^3.1.3",
-    "nsp": "3.2.1",
     "nyc": "12.0.1",
     "pa11y": "^4.0.1",
     "pre-commit": "^1.2.2",
     "proxyquire": "^2.0.1",
-    "puppeteer": "^1.4.0",
+    "puppeteer": "^1.20.0",
     "randomstring": "^1.1.5",
     "require-directory": "^2.1.1",
     "rewire": "^4.0.1",
@@ -116,7 +114,8 @@
     "assign-deep": ">=1.0.1",
     "marked": ">=0.7.0",
     "handlebars": ">=4.3.0",
-    "helmet-csp": ">=2.9.1"
+    "helmet-csp": ">=2.9.1",
+    "https-proxy-agent": ">=2.2.3"
   },
   "nyc": {
     "report-dir": "coverage",
