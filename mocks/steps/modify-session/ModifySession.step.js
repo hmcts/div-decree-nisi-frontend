@@ -70,6 +70,9 @@ class ModifySession extends Question {
     const refusalClarificationReason = list(text);
     const refusalClarificationAdditionalInfo = text;
 
+    const refusalRejectionReason = list(text);
+    const refusalRejectionAdditionalInfo = text;
+
     return form({
       divorceWho,
       reasonForDivorce,
@@ -95,7 +98,9 @@ class ModifySession extends Question {
       respCostsReason,
       reasonForDivorceAdulteryDetails,
       refusalClarificationReason,
-      refusalClarificationAdditionalInfo
+      refusalClarificationAdditionalInfo,
+      refusalRejectionReason,
+      refusalRejectionAdditionalInfo
     });
   }
 

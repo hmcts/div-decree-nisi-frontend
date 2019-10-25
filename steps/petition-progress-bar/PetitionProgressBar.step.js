@@ -1,13 +1,15 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
-const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
+const { branch, redirectTo, action } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
 const { get } = require('lodash');
 const { parseBool } = require('@hmcts/one-per-page/util');
-const { notDefined, awaitingClarification } = require('common/constants');
+const { notDefined, awaitingClarification, dnIsRefused } = require('common/constants');
+const caseOrchestrationService = require('services/caseOrchestrationService');
+const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 
 const {
   caseStateMap,
@@ -26,6 +28,7 @@ const constants = {
   DNAwaiting: 'awaitingdecreenisi',
   awaitingPronouncement: 'awaitingpronouncement',
   awaitingClarification,
+  dnIsRefused,
   undefendedReason: '0',
   no: 'no',
   yes: 'yes'
@@ -102,6 +105,14 @@ class PetitionProgressBar extends Interstitial {
     return this.caseState === constants.AOSCompleted;
   }
 
+  get dnIsRefused() {
+    const isDnOutcomeCase = parseBool(this.case.dnOutcomeCase);
+    const featureIsEnabled = parseBool(config.features.dnIsRefused);
+    const isCorrectState = this.caseState === constants.dnIsRefused;
+
+    return isDnOutcomeCase && featureIsEnabled && isCorrectState;
+  }
+
   get showReviewAosResponse() {
     const respWillDefendDivorce = this.respWillDefendDivorce && constants.validAnswer
       .includes(this.respWillDefendDivorce.toLowerCase());
@@ -135,6 +146,11 @@ class PetitionProgressBar extends Interstitial {
   }
 
   next() {
+    if (this.dnIsRefused) {
+      return action(caseOrchestrationService.amendRejectedApplication)
+        .then(redirectToFrontendHelper.redirectToFrontendAmend);
+    }
+
     return branch(
       redirectTo(this.journey.steps.CourtFeedback)
         .if(this.showCourtFeedback),

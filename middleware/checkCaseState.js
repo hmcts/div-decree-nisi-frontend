@@ -40,7 +40,8 @@ const validCaseStates = [
   'aosoverdue',
   'aoscompleted',
   'awaitingdecreeabsolute',
-  'dnpronounced'
+  'dnpronounced',
+  'dnisrefused'
 ];
 
 const caseStateIsValid = currentState => {

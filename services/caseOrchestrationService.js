@@ -71,6 +71,21 @@ const methods = {
         );
         throw error;
       });
+  },
+
+  //  Triggers the amend application process for DN rejected
+  amendRejectedApplication: req => {
+    const { caseId } = req.session.case;
+    const uri = `${config.services.orchestrationService.amendDNRejectionUrl}/${caseId}`;
+    const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
+    return request.put({ uri, headers, json: true })
+      .catch(error => {
+        logger.errorWithReq(req, 'error_amending_dn_rejection_application',
+          'Error sending request to case orchestration service to amend a DN rejected application endpoint',
+          error.message
+        );
+        throw error;
+      });
   }
 };
 

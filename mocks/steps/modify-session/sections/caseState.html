@@ -13,6 +13,7 @@
       { label: "AwaitingConsideration", value: "AwaitingConsideration" },
       { label: "AwaitingPronouncement", value: "AwaitingPronouncement" },
       { label: "AwaitingClarification", value: "AwaitingClarification", target: "awaiting-clarification-options" },
+      { label: "DNisRefused", value: "DNisRefused", target: "refused-dn-options" },
       { label: "AwaitingDecreeAbsolute", value: "AwaitingDecreeAbsolute" },
       { label: "DNPronounced", value: "DNPronounced" }
     ],
@@ -58,6 +59,31 @@
               name="refusalClarificationAdditionalInfo"
               rows="4">{% if fields.refusalClarificationAdditionalInfo.value %}
       {{ fields.refusalClarificationAdditionalInfo.value }}{% endif %}</textarea>
+  </div>
+</div>
+
+<div class="js-hidden" id="refused-dn-options">
+  {{ selectionButtons(fields.refusalRejectionReason, "Reason for refusal?",
+  options = [
+      { label: "No Jurisdiction", value: "noJurisdiction" },
+      { label: "No Criteria", value: "noCriteria" },
+      { label: "Insufficent Details", value: "insufficentDetails" },
+      { label: "Other ( enter reason )", value: "other", target: "refused-dn-options-other" }
+  ],
+  hideQuestion = false,
+  inline = true,
+  type = 'checkbox'
+) }}
+</div>
+
+<div class="js-hidden" id="refused-dn-options-other">
+  <div class="form-group">
+    More details regarding refusal
+    <textarea class="form-control"
+              id="refusalRejectionAdditionalInfo"
+              name="refusalRejectionAdditionalInfo"
+              rows="4">{% if fields.refusalRejectionAdditionalInfo.value %}
+      {{ fields.refusalRejectionAdditionalInfo.value }}{% endif %}</textarea>
   </div>
 </div>
 {% endcall %}

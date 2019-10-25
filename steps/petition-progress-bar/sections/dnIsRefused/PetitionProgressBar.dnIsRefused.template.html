@@ -1,0 +1,56 @@
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
+
+{{
+  progressList({
+    one: {
+      label: content.youApply,
+      complete: true
+    },
+    two: {
+      label: content.husbandWifeMustRespond,
+      complete: true
+    },
+    three: {
+      label: content.getDecreeNisi,
+      current: true
+    },
+    four: {
+      label: content.madeFinal
+    }
+  })
+}}
+
+
+<h2 class="govuk-heading-m">{{ content.dnIsRefusedTitle }}</h2>
+<p class="govuk-body">{{ content.dnIsRefusedReviewOfCase }}</p>
+<p class="govuk-body">{{ content.dnIsRefusedContinueWithApplication | safe  }}</p>
+
+<h2 class="govuk-heading-m">{{ content.dnIsRefusedCourtFeedback }}</h2>
+<div class="govuk-inset-text court-feedback">
+  {% set order = ["noJurisdiction", "noCriteria", "insufficentDetails", "other"] %}
+
+  {% for key in order %}
+    {% if case.refusalRejectionReason|length %}
+      {% if key in case.refusalRejectionReason %}
+        <h3 class="govuk-heading-s">{{ content.dnIsRefusedRefusalCourtFeedback[key].title }}</h3>
+        {% if key != "other" %}
+          <p class="govuk-body">{{ content.dnIsRefusedRefusalCourtFeedback[key].description | safe }}</p>
+        {% endif %}
+
+        {% if key == "other" %}
+          <p class="govuk-body">"{{ case.refusalRejectionAdditionalInfo }}"</p>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+<p class="govuk-body">{{ content.dnIsRefusedDownloadAndKeep | safe }}</p>
+
+<h2 class="govuk-heading-m">{{ content.dnIsRefusedDoNext }}</h2>
+<p class="govuk-body">{{ content.dnIsRefusedDivorceToContinue | safe  }}</p>
+<p class="govuk-body">{{ content.dnIsRefusedSentToDivorceWho }}</p>
+
+<form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+  <input role="button" draggable="false" class="govuk-button govuk-button--start" type="submit" value="{{ content.continue }}">
+</form>

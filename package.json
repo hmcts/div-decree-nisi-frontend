@@ -114,6 +114,7 @@
     "assign-deep": ">=1.0.1",
     "marked": ">=0.7.0",
     "handlebars": ">=4.3.0",
+    "helmet-csp": ">=2.9.1",
     "https-proxy-agent": ">=2.2.3"
   },
   "nyc": {

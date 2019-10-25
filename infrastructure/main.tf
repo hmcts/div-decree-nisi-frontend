@@ -108,6 +108,7 @@ module "frontend" {
     ORCHESTRATION_SERVICE_HEALTH_URL       = "${local.case_orchestration_service_api_url}${local.health_endpoint}"
     ORCHESTRATION_SERVICE_DRAFT_ENDPOINT   = "${var.case_orchestration_service_draft_endpoint}"
     ORCHESTRATION_SERVICE_AMEND_PETITION_URL   = "${local.case_orchestration_service_api_url}/amend-petition"
+    ORCHESTRATION_SERVICE_AMEND_DN_REJECTION_URL   = "${local.case_orchestration_service_api_url}/amend-petition-dn-rejection"
 
     //Case Maintenance
     CASE_MAINTENANCE_BASE_URL              = "${local.case_maintence_service_api_url}"
@@ -125,7 +126,8 @@ module "frontend" {
     // Feature toggling through config
     FEATURE_IDAM                            = "${var.feature_idam}"
     FEATURE_WEBCHAT                         = "${var.feature_webchat}"
-    FEATURE_AWAITING_CLARIFICATION          = "${var.awaiting_clarification}"
+    FEATURE_AWAITING_CLARIFICATION          = "${var.feature_awaiting_clarification}"
+    FEATURE_DN_IS_REFUSED                   = "${var.feature_dn_is_refused}"
 
     // Encryption secrets
     SESSION_SECRET = "${data.azurerm_key_vault_secret.session_secret.value}"
