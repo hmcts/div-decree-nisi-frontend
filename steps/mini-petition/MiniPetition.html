@@ -458,7 +458,7 @@
   {% if case.petitionerContactDetailsConfidential == "share" %}
     <h2 class="govuk-heading-m">{{ content.applicantsCorrespondenceAddress }}</h2>
 
-    {% if case.petitionersSolicitorName != "" and not(case.petitionerHomeAddress|length) %}
+    {% if case.petitionersSolicitorName != "" and not(case.petitionerHomeAddress | length) %}
       <p class="govuk-body">{{ case.petitionersSolicitorName }}</p>
       <p class="govuk-body">{{ case.petitionersSolicitorFirm }}</p>
       <p class="govuk-body">{{ case.petitionersSolicitorAddress }}</p>
@@ -471,9 +471,13 @@
   <!-- Respondent Address -->
   {% if case.respondentContactDetailsConfidential == "share" %}
     <h2 class="govuk-heading-m">{{ content.respondentsCorrespondenceAddress }}</h2>
-    {% if case.respondentSolicitorAddress|length %}
-      <p class="govuk-body">{{ case.respondentSolicitorName }}</p>
-      <p class="govuk-body">{{ case.respondentSolicitorCompany }}</p>
+    {% if case.respondentSolicitorAddress | defined %}
+      {% if case.respondentSolicitorName != "" %}
+        <p class="govuk-body">{{ case.respondentSolicitorName }}</p>
+      {% endif %}
+      {% if case.respondentSolicitorCompany != "" %}
+        <p class="govuk-body">{{ case.respondentSolicitorCompany }}</p>
+      {% endif %}
       <p class="govuk-body">{{ case.respondentSolicitorAddress.address | address | safe }}</p>
     {% else %}
       <p class="govuk-body">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
