@@ -1,0 +1,20 @@
+{
+  "en": {
+    "title": "How do you want to submit your documents?",
+    "detail": "You can submit additional documents to support your response, or if requested by the court.",
+    "upload": "Upload documents",
+    "uploadDetail": "Upload photo or scan of documents online",
+    "post": "Send documents by post",
+    "postDetail": "Post the original paper documents to the court",
+    "errors": {
+      "required": "Select how you want to submit your documents"
+    },
+    "fields": {
+      "clarificationDigital": {
+        "title": "How do you want to submit your documents?",
+        "no": "Send documents by post",
+        "yes": "Upload documents"
+      }
+    }
+  }
+}

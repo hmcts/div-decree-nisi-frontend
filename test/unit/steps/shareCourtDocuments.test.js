@@ -3,6 +3,9 @@ const modulePath = 'steps/share-court-documents/ShareCourtDocuments.step';
 const ShareCourtDocuments = require(modulePath);
 const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
 const Upload = require('steps/upload/Upload.step');
+const ShareCourtDocumentsHow = require(
+  'steps/share-court-documents-how/ShareCourtDocumentsHow.step'
+);
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const config = require('config');
@@ -34,14 +37,6 @@ describe(modulePath, () => {
         'chatOpeningHours',
         'adultery',
         'otherReasons',
-        'webChatTitle',
-        'chatDown',
-        'chatWithAnAgent',
-        'noAgentsAvailable',
-        'allAgentsBusy',
-        'chatClosed',
-        'chatAlreadyOpen',
-        'chatOpeningHours',
         'clarificationCourtFeedback',
         'clarification'
       ];
@@ -230,15 +225,71 @@ describe(modulePath, () => {
     return question.testErrors(ShareCourtDocuments, session);
   });
 
-  it('redirects to CheckYourAnswers if answer is no', () => {
-    const fields = { upload: 'no' };
-    return question.redirectWithField(ShareCourtDocuments, fields, CheckYourAnswers);
-  });
+  describe(
+    'correct redirection when awaitingClarification is disabled',
+    () => {
+      const session = { case: { data: {} } };
+      let sandbox = {};
 
-  it('redirects to Upload if answer is yes', () => {
-    const fields = { upload: 'yes' };
-    return question.redirectWithField(ShareCourtDocuments, fields, Upload);
-  });
+      before(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(config, 'features').value({
+          awaitingClarification: false
+        });
+      });
+
+      after(() => {
+        sandbox.restore();
+      });
+
+      it('redirects to CheckYourAnswers if answer is no', () => {
+        const fields = { upload: 'no' };
+        return question.redirectWithField(ShareCourtDocuments, fields, CheckYourAnswers, session);
+      });
+
+      it('redirects to Upload if answer is yes', () => {
+        const fields = { upload: 'yes' };
+        return question.redirectWithField(ShareCourtDocuments, fields, Upload, session);
+      });
+    }
+  );
+
+  describe(
+    'correct redirection when awaitingClarification is enabled',
+    () => {
+      const session = { case: {
+        state: 'AwaitingClarification',
+        data: {
+          refusalClarificationReason: ['caseDetailsStatement'],
+          dnOutcomeCase: true
+        }
+      } };
+      let sandbox = {};
+
+      before(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(config, 'features').value({
+          awaitingClarification: true
+        });
+      });
+
+      after(() => {
+        sandbox.restore();
+      });
+
+      it('redirects to CheckYourAnswers if answer is no', () => {
+        const fields = { upload: 'no' };
+        return question.redirectWithField(ShareCourtDocuments, fields, CheckYourAnswers, session);
+      });
+
+      it('redirects to ShareCourtDocumentsHow if answer is yes', () => {
+        const fields = { upload: 'yes' };
+        return question.redirectWithField(
+          ShareCourtDocuments, fields, ShareCourtDocumentsHow, session
+        );
+      });
+    }
+  );
 
   it('loads fields from the session', () => {
     const session = { case: { data: {} } };

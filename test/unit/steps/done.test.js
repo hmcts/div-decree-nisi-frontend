@@ -177,10 +177,13 @@ describe(modulePath, () => {
       });
     });
 
-    describe('Share documents is true and has NOT uploaded documents', () => {
+    describe('Share documents is true and is posting documents', () => {
       beforeEach(() => {
         session.ShareCourtDocuments = {
           upload: 'yes'
+        };
+        session.ShareCourtDocumentsHow = {
+          clarificationDigital: 'no'
         };
       });
 

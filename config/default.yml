@@ -103,6 +103,7 @@ paths:
   reviewAosResponse: /review-aos-response
   dnNoResponse: /dn-no-response
   shareCoreDocuments: /share-court-documents
+  shareCoreDocumentsHow: /share-court-documents-how
   petitionProgressBar: /progress-bar/petitioner
   upload: /upload-docs
   exitNoCase: /exit-no-case

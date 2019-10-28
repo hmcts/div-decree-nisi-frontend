@@ -1,0 +1,26 @@
+{% extends "question.njk" %}
+
+{% from "look-and-feel/components/fields.njk" import formSection, selectionButtons %}
+{% from "components/clarification-feedback.njk" import clarificationFeedback %}
+
+{% set title %}
+  {{ content.title }}
+{% endset %}
+
+{% block fields %}
+
+  <p class="govuk-body">{{ content.detail | safe }}</p>
+
+  {% call formSection() %}
+    {{ selectionButtons(fields.clarificationDigital, content.fields.clarificationDigital.title,
+      options = [
+        { label: content.fields.clarificationDigital.yes, value: "yes", hint: content.uploadDetail },
+        { label: content.fields.clarificationDigital.no, value: "no", hint: content.postDetail }
+      ],
+      hideQuestion=true,
+      inline=false,
+      type='radio'
+    ) }}
+  {% endcall %}
+
+{% endblock %}

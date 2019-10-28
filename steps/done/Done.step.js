@@ -36,14 +36,10 @@ class Done extends ExitPoint {
     return createUris(this.case.d8, docConfig);
   }
 
-  get shareDocumentsAndNoUploads() {
-    const shareCourtDocumentsAnswer = get(this.req.session, 'ShareCourtDocuments.upload');
-    const uploadedDocumentsAnswer = get(this.req.session, 'Upload.files') || [];
+  get shareDocumentsByPost() {
+    const uploadCourtDocuments = get(this.req.session, 'ShareCourtDocumentsHow.clarificationDigital');
 
-    const doesWantToShareDocuments = parseBool(shareCourtDocumentsAnswer);
-    const hasNoUploadedDocuments = uploadedDocumentsAnswer.length === 0;
-
-    return doesWantToShareDocuments && hasNoUploadedDocuments;
+    return uploadCourtDocuments === 'no';
   }
 
   get middleware() {
