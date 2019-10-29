@@ -112,13 +112,13 @@ describe(modulePath, () => {
               },
               {
                 id: '401ab79e-34cb-4570-9124-4cf9357m4st362',
-                fileName: 'decreeNisiRefusalOrderRejection1559143445687032.pdf',
+                fileName: 'rejectionDnRefusalOrder1559143445687032.pdf',
                 // eslint-disable-next-line max-len
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560463'
               },
               {
                 id: '401ab79e-34cb-4570-9124-4cf9357m4st362',
-                fileName: 'decreeNisiRefusalOrderClarification1559143445687032.pdf',
+                fileName: 'clarificationDnRefusalOrder1559143445687032.pdf',
                 // eslint-disable-next-line max-len
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560463'
               },

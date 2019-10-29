@@ -44,8 +44,8 @@
       "costsOrder": "Cost Order",
       "decreeNisi": "Decree Nisi",
       "dnAnswers": "Decree Nisi answers",
-      "decreeNisiRefusalOrderClarification": "Refusal Order",
-      "decreeNisiRefusalOrderRejection": "Refusal Order"
+      "clarificationDnRefusalOrder": "Refusal Order",
+      "rejectionDnRefusalOrder": "Refusal Order"
     }
   }
 }

@@ -159,8 +159,8 @@ document:
   - 'costsOrder'
   - 'decreeNisi'
   - 'dnAnswers'
-  - 'decreeNisiRefusalOrderClarification'
-  - 'decreeNisiRefusalOrderRejection'
+  - 'clarificationDnRefusalOrder'
+  - 'rejectionDnRefusalOrder'
 
 ccd:
   d8States:
