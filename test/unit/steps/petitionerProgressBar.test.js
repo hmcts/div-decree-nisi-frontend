@@ -686,7 +686,7 @@ describe(modulePath, () => {
                 createdOn: null,
                 lastModifiedBy: 0,
                 modifiedOn: null,
-                fileName: 'decreeNisiRefusalOrderClarification1559143445687032.pdf',
+                fileName: 'clarificationDnRefusalOrder1559143445687032.pdf',
                 // eslint-disable-next-line max-len
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560463',
                 mimeType: null,
@@ -698,7 +698,7 @@ describe(modulePath, () => {
                 createdOn: null,
                 lastModifiedBy: 0,
                 modifiedOn: null,
-                fileName: 'decreeNisiRefusalOrderRejection1559143445687032.pdf',
+                fileName: 'rejectionDnRefusalOrder1559143445687032.pdf',
                 // eslint-disable-next-line max-len
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560463',
                 mimeType: null,
@@ -721,8 +721,8 @@ describe(modulePath, () => {
         'costsOrder',
         'decreeNisi',
         'dnAnswers',
-        'decreeNisiRefusalOrderClarification',
-        'decreeNisiRefusalOrderRejection'
+        'clarificationDnRefusalOrder',
+        'rejectionDnRefusalOrder'
       ]);
     });
   });
