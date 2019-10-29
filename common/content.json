@@ -37,11 +37,11 @@
       },
       "marriageCertificate": {
         "title": "Your original marriage certificate",
-        "description": "The image of the marriage certificate you shared does not appear to be a scanned copy of the full original. Please provide a digital photo or scan of the original, or the paper document in the post.<br><br>The image must be of the whole document and include the serial / system number and must be readable by court staff."
+        "description": "The image of the marriage certificate you shared does not appear to be a scanned copy of the full original.<br><br>Please provide a digital photo or scan of the original, or the paper document in the post.<br><br>The image must be of the whole document and include the serial / system number and must be readable by court staff."
       },
       "previousProceedingDetails": {
         "title": "Previous Proceeding Details",
-        "description": "Clarify whether there are, or have ever been, any other legal proceedings related to the marriage, property or children."
+        "description": "Clarify whether there are, or have ever been, any other legal proceedings related to the marriage. Provide evidence that any previous proceeding has either been dismissed or withdrawn."
       },
       "caseDetailsStatement": {
         "title": "Case Details Statement",
