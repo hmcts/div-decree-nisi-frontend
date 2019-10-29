@@ -29,8 +29,7 @@ $ yarn dev
 
 The application will now be running on ```https://localhost:3000```.
 
-Locally this will also create a new endpoint ```"/session"``` where you can view and edit the current session
-(Note: each time you login/logout of IDAM the session will be reset)
+When the application is up and running, a new endpoint will be exposed called ```"/session"``` where you can view and edit the current session. This is useful for debugging and testing. (Note: each time you login/logout of IDAM the session will be reset). This endpoint will only be available locally and on AAT environment.
 
 ## Testing
 
