@@ -49,7 +49,7 @@
         "needHelp": "If you need help",
         "contactDivorceCentre": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\">Solicitor or legal adviser link, This link will open in a new tab.\">solicitor or legal adviser</a>.",
         "helpImprove": "Help us improve this service",
-        "helpImproveLink": "Please help us improve this service by <a class=\"govuk-link\" href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done\" target=\"_blank\" aria-label=\"Feedback link, This link will open in a new tab.\">leaving your feedback</a>."
+        "helpImproveLink": "Please help us improve this service by <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Applicant?pageurl=/done\" target=\"_blank\" aria-label=\"Feedback link, This link will open in a new tab.\">leaving your feedback</a>."
     },
 
     "downloadDocuments" : "Download your documents",

@@ -102,6 +102,12 @@
   {% else %}
     <p class="govuk-body">{{ content.courtWillCheck }}</p>
     <p class="govuk-body">{{ content.decreeNisiGranted }}</p>
+
+    <h2 class="govuk-heading-m">{{ content.clarification.needHelp }}</h2>
+    <p class="govuk-body">{{ content.clarification.contactDivorceCentre | safe }}</p>
+
+    <h2 class="govuk-heading-m">{{ content.clarification.helpImprove }}</h2>
+    <p class="govuk-body">{{ content.clarification.helpImproveLink | safe  }}</p>
   {% endif %}
 
 
