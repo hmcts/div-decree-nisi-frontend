@@ -74,7 +74,7 @@
     "@hmcts/div-idam-test-harness": "^1.5.0",
     "@hmcts/div-test-harness": "^1.0.4",
     "@hmcts/environment-variable-setter": "^1.0.0",
-    "@hmcts/one-per-page-test-suite": "^4.0.0",
+    "@hmcts/one-per-page-test-suite": "^5.0.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",

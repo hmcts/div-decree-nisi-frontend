@@ -30,10 +30,7 @@ describe(modulePath, () => {
       'chatClosed',
       'chatAlreadyOpen',
       'chatOpeningHours',
-      'adultery',
-      'otherReasons',
-      'clarificationCourtFeedback',
-      'clarification'
+      'clarificationCourtFeedback'
     ];
     return content(ShareCourtDocumentsHow, session, { ignoreContent });
   });
