@@ -190,11 +190,11 @@ variable "feature_idam" {
 }
 
 variable "feature_awaiting_clarification" {
-  default = false
+  default = true
 }
 
 variable "feature_dn_is_refused" {
-  default = false
+  default = true
 }
 
 variable "ccd_digital_courts" {
