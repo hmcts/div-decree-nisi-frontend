@@ -45,6 +45,8 @@ Scenario('Pages', async I => {
 
   I.testShareCourtDocumentsPage();
 
+  I.testShareCourtDocumentsHowPage();
+
   await I.testUploadPage();
 
   I.testDesertionAskedToResumeDN();
