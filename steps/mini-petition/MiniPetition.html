@@ -472,10 +472,10 @@
   {% if case.respondentContactDetailsConfidential == "share" %}
     <h2 class="govuk-heading-m">{{ content.respondentsCorrespondenceAddress }}</h2>
     {% if case.respondentSolicitorAddress | defined %}
-      {% if case.respondentSolicitorName != "" %}
+      {% if case.respondentSolicitorName %}
         <p class="govuk-body">{{ case.respondentSolicitorName }}</p>
       {% endif %}
-      {% if case.respondentSolicitorCompany != "" %}
+      {% if case.respondentSolicitorCompany %}
         <p class="govuk-body">{{ case.respondentSolicitorCompany }}</p>
       {% endif %}
       <p class="govuk-body">{{ case.respondentSolicitorAddress.address | address | safe }}</p>
