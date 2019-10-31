@@ -17,7 +17,7 @@
 
     "imporveService": "Help us improve this service",
     "imporveServiceDetails": "Please help us improve this service by ",
-    "feedbackLink": "<a class=\"govuk-link\" href=\"http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/email\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">leaving your feedback</a>",
+    "feedbackLink": "<a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback/?pageurl=/PetitionProgressBar\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">leaving your feedback</a>",
 
     "yourCourt": "Your divorce centre",
     "help": "Getting help",
@@ -44,8 +44,8 @@
       "costsOrder": "Cost Order",
       "decreeNisi": "Decree Nisi",
       "dnAnswers": "Decree Nisi answers",
-      "decreeNisiRefusalOrderClarification": "Refusal Order",
-      "decreeNisiRefusalOrderRejection": "Refusal Order"
+      "clarificationDnRefusalOrder": "Refusal Order",
+      "rejectionDnRefusalOrder": "Refusal Order"
     }
   }
 }

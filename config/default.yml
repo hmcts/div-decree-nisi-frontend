@@ -142,8 +142,8 @@ tests:
 features:
   idam: false
   webchat: true
-  awaitingClarification: false
-  dnIsRefused: false
+  awaitingClarification: true
+  dnIsRefused: true
 
 journey:
   timeoutDelay: 300
@@ -160,8 +160,8 @@ document:
   - 'costsOrder'
   - 'decreeNisi'
   - 'dnAnswers'
-  - 'decreeNisiRefusalOrderClarification'
-  - 'decreeNisiRefusalOrderRejection'
+  - 'clarificationDnRefusalOrder'
+  - 'rejectionDnRefusalOrder'
 
 ccd:
   d8States:
