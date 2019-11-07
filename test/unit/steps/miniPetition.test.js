@@ -1273,6 +1273,56 @@ describe(modulePath, () => {
         });
     });
 
+    it('shows respondent solicitors address if available with no solicitor name and firm', () => {
+      const respondentSolicitorAddress = {
+        address: 'Res Solicitors Address'
+      };
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            respondentSolicitorAddress,
+            respondentContactDetailsConfidential: 'share'
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        {
+          specificValues: [ respondentSolicitorAddress.address ]
+        });
+    });
+
+    it('does not show respondent solicitor details if empty address', () => {
+      const respondentSolicitorName = 'Res Solicitor';
+      const respondentSolicitorCompany = 'Res Solicitors Firm';
+      const respondentSolicitorAddress = {
+        address: undefined
+      };
+      const session = {
+        case: {
+          data: {
+            connections: {},
+            respondentSolicitorName,
+            respondentSolicitorCompany,
+            respondentSolicitorAddress,
+            respondentContactDetailsConfidential: 'share'
+          }
+        }
+      };
+      return content(
+        MiniPetition,
+        session,
+        {
+          specificContentToNotExist: [
+            respondentSolicitorName,
+            respondentSolicitorCompany,
+            respondentSolicitorAddress.address
+          ]
+        });
+    });
+
     it('shows respondent address if available', () => {
       const respondentCorrespondenceAddress = {
         address: 'Respondents Address'
