@@ -3,7 +3,7 @@ const { get } = require('lodash');
 
 const buildUserInfo = req => {
   const idamId = get(req, 'idam.userDetails.id', 'unknown');
-  const caseId = get(req, 'session.referenceNumber', 'unknown');
+  const caseId = get(req, 'session.case.caseId', 'unknown');
 
   return `IDAM ID: ${idamId}, CASE ID: ${caseId}`;
 };

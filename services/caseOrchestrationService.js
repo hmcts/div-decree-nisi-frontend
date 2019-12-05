@@ -5,6 +5,22 @@ const caseOrchestrationHelper = require('helpers/caseOrchestrationHelper');
 
 const authTokenString = '__auth-token';
 
+const getCase = (req, uri, headers) => {
+  return request.get({ uri, headers, json: true })
+    .then(response => {
+      logger.infoWithReq(req, 'case_retrieved',
+        'Successfully retrieved case'
+      );
+      return caseOrchestrationHelper.validateResponse(req, response);
+    })
+    .then(response => {
+      logger.infoWithReq(req, 'case_validated',
+        'Successfully validated case'
+      );
+      return Object.assign(req.session, { case: response });
+    });
+};
+
 const methods = {
   getApplication: req => {
     // no need to fetch case if we already have it
@@ -13,27 +29,17 @@ const methods = {
     }
 
     const uri = `${config.services.orchestrationService.getCaseUrl}`;
+    const aosUri = `${config.services.orchestrationService.baseUrl}/retrieve-aos-case`;
     const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
 
-    return request.get({ uri, headers, json: true })
-      .then(response => {
-        logger.infoWithReq(req, 'case_retrieved',
-          'Successfully retrieved case'
-        );
-        return caseOrchestrationHelper.validateResponse(req, response);
-      })
-      .then(response => {
-        logger.infoWithReq(req, 'case_validated',
-          'Successfully validated case'
-        );
-        return Object.assign(req.session, { case: response });
-      })
-      .catch(error => {
-        logger.errorWithReq(req, 'error_retrieving_application',
-          'Error retrieving case from case orchestration service',
-          error.message
-        );
-        throw error;
+    return getCase(req, uri, headers)
+      .catch(() => {
+        logger.infoWithReq(req, 'no petitioner case found, trying to get respondent case');
+        return getCase(req, aosUri, headers)
+          .catch(error => {
+            logger.errorWithReq(req, 'error_get_application', 'user has no case');
+            throw error;
+          });
       });
   },
   submitApplication: req => {

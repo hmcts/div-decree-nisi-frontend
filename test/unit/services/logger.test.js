@@ -10,7 +10,7 @@ const req = {
   httpVersionMajor: '1',
   httpVersionMinor: '1',
   idam: { userDetails: { id: 'idam-id' } },
-  session: { referenceNumber: 'case-id' }
+  session: { case: { caseId: 'case-id' } }
 };
 
 describe(modulePath, () => {
@@ -50,7 +50,7 @@ describe(modulePath, () => {
 
       sinon.assert.calledWith(
         nodeJsLogger.info,
-        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.referenceNumber}`,
+        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.case.caseId}`,
         tag,
         message,
         someArg
@@ -64,7 +64,7 @@ describe(modulePath, () => {
 
       sinon.assert.calledWith(
         nodeJsLogger.warn,
-        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.referenceNumber}`,
+        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.case.caseId}`,
         tag,
         message,
         someArg
@@ -78,7 +78,7 @@ describe(modulePath, () => {
 
       sinon.assert.calledWith(
         nodeJsLogger.error,
-        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.referenceNumber}`,
+        `IDAM ID: ${req.idam.userDetails.id}, CASE ID: ${req.session.case.caseId}`,
         tag,
         message,
         someArg
