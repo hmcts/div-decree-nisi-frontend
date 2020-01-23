@@ -14,5 +14,21 @@
         }
       }
     }
+  },
+  "cy": {
+    "title": "[CY] Do you find it intolerable to live with your {{ case.divorceWho }}?",
+    "mustBeIntolerable": "[CY] You must find it intolerable to live with your {{ case.divorceWho }} to use adultery as your reason for divorce. This applies whether you're still living together or not.",
+    "errors": {
+      "required": "[CY] Select yes if you find it intolerable to live with your {{ case.divorceWho }}"
+    },
+    "fields": {
+      "changes": {
+        "intolerable": {
+          "title": "[CY] Do you find it intolerable?",
+          "yes": "[CY] Yes",
+          "no": "[CY] No"
+        }
+      }
+    }
   }
 }

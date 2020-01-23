@@ -7,5 +7,14 @@
     "awaitingClarificationDoNext": "What you need to do next",
     "awaitingClarificationProvideResponse": "You need to provide a response to the court’s feedback before your application can proceed.",
     "awaitingClarificationSubmitDocuments": "You will be able to submit additional documents online or by sending the original paper copies by post."
+  },
+  "cy" : {
+    "awaitingClarificationTitle": "[CY] You need to provide more information or documents",
+    "awaitingClarificationReviewOfCase": "[CY] Following a review of your case, the court is not yet satisfied that you are entitled to a decree of divorce.",
+    "awaitingClarificationCourtsFeedback": "[CY] The court’s feedback",
+    "awaitingClarificationNotSatisfied": "[CY] You can download and keep the court’s full <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Refusal order PDF.\">Refusal Order ({{ refusalOrderFile.fileType | upper }})</a>.",
+    "awaitingClarificationDoNext": "[CY] What you need to do next",
+    "awaitingClarificationProvideResponse": "[CY] You need to provide a response to the court’s feedback before your application can proceed.",
+    "awaitingClarificationSubmitDocuments": "[CY] You will be able to submit additional documents online or by sending the original paper copies by post."
   }
 }

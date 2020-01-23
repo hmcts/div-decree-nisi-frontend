@@ -7,19 +7,42 @@
       "requiredDesertionAskedToResumeDNDetails": "Please give reasons why you have refused to resume living together?"
     },
     "fields": {
-        "desertionAskedToResumeDN": {
-          "title": "Has your {{ case.divorceWho }} offered to resume living with you?",
-          "yes": "Yes",
-          "no": "No"
-        },
-        "desertionAskedToResumeDNRefused": {
-          "title": "Did you refuse to resume living together?",
-          "yes": "Yes",
-          "no": "No"
-        },
-        "desertionAskedToResumeDNDetails": {
-          "title": "Please give reasons why you refused?"
-        }
+      "desertionAskedToResumeDN": {
+        "title": "Has your {{ case.divorceWho }} offered to resume living with you?",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "desertionAskedToResumeDNRefused": {
+        "title": "Did you refuse to resume living together?",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "desertionAskedToResumeDNDetails": {
+        "title": "Please give reasons why you refused?"
+      }
+    }
+  },
+  "cy": {
+    "title": "[CY] Has your {{ case.divorceWho }} offered to resume living with you?",
+    "errors": {
+      "required": "[CY] Select yes if your {{ case.divorceWho }} has offered to resume living with you?",
+      "requiredRefusalDetails": "[CY] Select yes if you have refused to resume living together?",
+      "requiredDesertionAskedToResumeDNDetails": "[CY] Please give reasons why you have refused to resume living together?"
+    },
+    "fields": {
+      "desertionAskedToResumeDN": {
+        "title": "[CY] Has your {{ case.divorceWho }} offered to resume living with you?",
+        "yes": "[CY] Yes",
+        "no": "[CY] No"
+      },
+      "desertionAskedToResumeDNRefused": {
+        "title": "[CY] Did you refuse to resume living together?",
+        "yes": "[CY] Yes",
+        "no": "[CY] No"
+      },
+      "desertionAskedToResumeDNDetails": {
+        "title": "[CY] Please give reasons why you refused?"
+      }
     }
   }
 }

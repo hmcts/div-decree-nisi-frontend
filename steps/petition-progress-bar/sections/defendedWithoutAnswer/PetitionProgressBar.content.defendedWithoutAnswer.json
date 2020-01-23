@@ -3,5 +3,10 @@
     "dWAAppStatusMsg": "You can continue with your divorce",
     "dWAAppStatusMsgDetails1": "Your {{ case.divorceWho }} has missed the deadline to submit the form which would have made their case for defending (trying to prevent) the divorce.",
     "dWAAppStatusMsgDetails2": "This means that you can now continue with your divorce as if they hadn't said that they intended to defend."
+  },
+  "cy": {
+    "dWAAppStatusMsg": "[CY] You can continue with your divorce",
+    "dWAAppStatusMsgDetails1": "[CY] Your {{ case.divorceWho }} has missed the deadline to submit the form which would have made their case for defending (trying to prevent) the divorce.",
+    "dWAAppStatusMsgDetails2": "[CY] This means that you can now continue with your divorce as if they hadn't said that they intended to defend."
   }
 }

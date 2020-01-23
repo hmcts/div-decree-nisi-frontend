@@ -3,5 +3,10 @@
     "awaitingSubmittedDNAppStatusMsg": "What happens next",
     "awaitingSubmittedDNCourtWillCheck": "The court will check your application and pass it to the judge. If the judge agrees there's no reason why you shouldn't get your divorce, you'll be sent the time, date and court in which you decree nisi will be announced, You'll then be sent your decree nisi.",
     "awaitingSubmittedDNDecreeNisiGranted": "After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute."
+  },
+  "cy": {
+    "awaitingSubmittedDNAppStatusMsg": "[CY] What happens next",
+    "awaitingSubmittedDNCourtWillCheck": "[CY] The court will check your application and pass it to the judge. If the judge agrees there's no reason why you shouldn't get your divorce, you'll be sent the time, date and court in which you decree nisi will be announced, You'll then be sent your decree nisi.",
+    "awaitingSubmittedDNDecreeNisiGranted": "[CY] After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute."
   }
 }

@@ -3,7 +3,7 @@
     "title": "Read your {{ case.divorceWho }}'s response",
     "respSolicitorRepresented": "This response was submitted by the respondent's nominated solicitor.",
     "youNeedToRead": "You need to read your {{ case.divorceWho }}'s response before you continue. The response is legally known as the 'acknowledgement of service'",
-   
+
     "acknowledgementOfSrvice": "Acknowledgement of service",
     "respondent": "Respondent",
     "corespondent": "Co-respondent",
@@ -60,7 +60,7 @@
       "notPayCosts": "to not agree to paying any of the costs",
       "chanceToChangeAmount": "You'll be given a chance to accept their suggestion or change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ case.divorceWho }} make."
     },
-    
+
     "statementOfTruth": {
       "title": "Statement of Truth",
       "details":"\"I believe that the facts stated in this application are true.\""
@@ -72,6 +72,82 @@
         "no": "The respondent will let the divorce proceed (doesn't intend to 'defend' it).",
         "nonoadmission": "The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't accept the allegations made in the application.",
         "yes": "The respondent will try to prevent the divorce based on this application (they intend to 'defend' it)."
+      }
+    }
+  },
+  "cy": {
+    "title": "[CY] Read your {{ case.divorceWho }}'s response",
+    "respSolicitorRepresented": "[CY] This response was submitted by the respondent's nominated solicitor.",
+    "youNeedToRead": "[CY] You need to read your {{ case.divorceWho }}'s response before you continue. The response is legally known as the 'acknowledgement of service'",
+
+    "acknowledgementOfSrvice": "[CY] Acknowledgement of service",
+    "respondent": "[CY] Respondent",
+    "corespondent": "[CY] Co-respondent",
+    "applicant": "[CY] Applicant",
+    "whatThisMeans": "[CY] What this means",
+
+    "respProceed": {
+      "title": "[CY] How the respondent wants to proceed",
+      "willDefendDivorce": "[CY] The respondent will try to prevent the divorce based on this application (they intend to 'defend' it).",
+      "willLetDivorceProceed": "[CY] The respondent will let the divorce proceed (doesn't intend to 'defend' it).",
+      "letDivorceProceedButNotAdmit": "[CY] The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't accept the allegations made in the application.",
+      "adultery": {
+        "admitsAdultery": "[CY] The respondent admits to committing the adultery.",
+        "doesNotAdmitAdultery": "[CY] The respondent does not admit to committing the adultery."
+      },
+      "sep": {
+        "intendingToDelayDivorce":"[CY] The respondent is intending to ask the court to delay the divorce until it’s satisfied with their financial situation.",
+        "notIntendingToDelayDivorce":"[CY] The respondent is not intending to ask the court to delay the divorce until it’s satisfied with their financial situation."
+      },
+      "sep2Yr": {
+        "respConsent": "[CY] The respondent consents to a divorce.",
+        "respDoesNotContent": "[CY] The respondent does not consent to a divorce."
+      },
+      "sep5Yr": {
+        "defendingFinancialHardship": "[CY] The respondent is defending on the basis that it will cause them severe hardship and provided the following explanation:",
+        "notDefendingFinancialHardship":"[CY] The respondent is not defending on the basis that it will cause them severe hardship."
+      },
+      "givenOptions": "[CY] The respondent was given the following options for their response.",
+      "proceedWithDivorce": "[CY] to proceed with the divorce",
+      "proceedNotAccept": "[CY] to proceed, but not accept the allegations",
+      "disagree": "[CY] to disagree with the application - if they want to try to prevent the divorce or want to make their own application for divorce (they intend to 'defend' it)"
+    },
+
+    "jurisdiction": {
+      "title": "[CY] Jurisdiction of the court",
+      "otherCourtDetails":"[CY] Other court cases that could affect jurisdiction",
+      "respondentAgrees": "[CY] The respondent agrees that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
+      "respDoesNotAgree": "[CY] The respondent does not agree that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
+      "detailsGiven": "[CY] They gave the following statement to support this:",
+      "countryTheyResp": "[CY] They were asked in which country their life is mainly based. They responded:",
+      "otherProceedings": "[CY] They said there are other proceedings outside of England and Wales which are related to the marriage or which may affect its validity (how legally binding the marriage is).",
+      "noOtherProceedings": "[CY] They said there are no other proceedings outside of England and Wales which are related to the marriage or which may affect its validity (how legally binding the marriage is).",
+      "respondentWasAsked": "[CY] The respondent was asked if they agree with the jurisdiction connections which you give in your divorce application.",
+      "courtProceedings": "[CY] They were also asked if there were any other court proceedings which may affect the marriage."
+    },
+
+    "costsOrder": {
+      "title": "[CY] Costs order",
+      "agreedToPayCosts": "[CY] Your {{ case.divorceWho }} has agreed to pay some or all of the costs of the divorce.",
+      "notAgreedToPayCosts": "[CY] Your {{ case.divorceWho }} has said they should not pay costs and given the following explanation about why they should not pay:",
+      "respondentWasAskedPayCosts": "[CY] The respondent was asked if they agreed to pay the costs that you claimed.",
+      "followingOptions": "[CY] They were given the following options:",
+      "payCosts": "[CY] to agree to pay some or all of the costs of the divorce",
+      "notPayCosts": "[CY] to not agree to paying any of the costs",
+      "chanceToChangeAmount": "[CY] You'll be given a chance to accept their suggestion or change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ case.divorceWho }} make."
+    },
+
+    "statementOfTruth": {
+      "title": "[CY] Statement of Truth",
+      "details":"[CY] \"I believe that the facts stated in this application are true.\""
+    },
+
+    "fields": {
+      "reviewAosResponse": {
+        "title": "[CY] Your {{ case.divorceWho }}'s response",
+        "no": "[CY] The respondent will let the divorce proceed (doesn't intend to 'defend' it).",
+        "nonoadmission": "[CY] The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't accept the allegations made in the application.",
+        "yes": "[CY] The respondent will try to prevent the divorce based on this application (they intend to 'defend' it)."
       }
     }
   }

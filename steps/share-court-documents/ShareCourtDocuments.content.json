@@ -24,5 +24,31 @@
         "no": "No"
       }
     }
+  },
+  "cy": {
+    "otherReasons" : {
+      "title": "[CY] Do you need to upload any other documents?",
+      "extraDocuments": "[CY] You should only do this if you have acquired new documents since you first applied which are relevant to your application."
+    },
+    "clarification": {
+      "title": "[CY] Do you want to submit additional documents?",
+      "extraDocs": "[CY] You must submit the documents requested by the court. You can also submit additional documents to support your response.",
+      "needToProvide": "[CY] See the court’s feedback"
+    },
+    "adultery": {
+      "title": "[CY] Do you need to upload evidence of the adultery?",
+      "adulteryDoc": "[CY] You should only do this if your {{ case.divorceWho }} hasn't admitted to committing adultery.",
+      "extraDocs": "[CY] You can also upload any new documents you've acquired since you first applied which are relevant to your application."
+    },
+    "errors": {
+      "required": "[CY] Select Yes if you want to share any other documents with the court"
+    },
+    "fields": {
+      "upload": {
+        "title": "[CY] Do you need to upload any other documents?",
+        "yes": "[CY] Yes",
+        "no": "[CY] No"
+      }
+    }
   }
 }

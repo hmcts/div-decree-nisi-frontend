@@ -25,5 +25,32 @@
         }
       }
     }
+  },
+  "cy": {
+    "title": "[CY] Have you lived apart since finding out about the adultery?",
+    "livedApartSince": "[CY] You said you found out about the adultery on {{ case.adulteryFirstFoundDate | date }}.",
+    "livingApart": "[CY] You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
+
+    "detailsHowLongLivedTogether": "[CY] Provide details of how long you've lived together since you found out about the adultery",
+    "actOfAdultery": "[CY] You can’t base your divorce on an act of adultery if you lived together as a couple for more than 6 months after you found out about it.",
+    "togetherAndOff": "[CY] This could have been in one go, or if you lived together on and off for several periods of time adding up to more than 6 months.",
+    "notSure": "[CY] You can contact the court if you’re not sure.",
+
+    "errors": {
+      "required": "[CY] Select yes if you've lived apart since you found out about the adultery",
+      "requireDatesLivedTogether": "[CY] Give the approximate dates or the number of months you lived together"
+    },
+    "fields": {
+      "livedApart": {
+        "livedApartSinceAdultery": {
+          "title": "[CY] Have you lived apart since finding out about the adultery?",
+          "yes": "[CY] Yes",
+          "no": "[CY] No"
+        },
+        "datesLivedTogether": {
+          "title": "[CY] Give the approximate dates or the number of months you lived together"
+        }
+      }
+    }
   }
 }

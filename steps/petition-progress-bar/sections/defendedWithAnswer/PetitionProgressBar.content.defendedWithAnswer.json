@@ -7,5 +7,14 @@
     "defendedServiceWhatHappensNext": "What happens now",
     "defendedServiceWhatHappensNextDetails1": "A judge will now decide whether you and your {{ case.divorceWho }} will need to attend a hearing. You may be contacted for more information to help them make that decision.",
     "defendedServiceWhatHappensNextDetails2": "You’ll receive a letter in the post telling you if you need to attend a hearing, and when and where that hearing is."
+  },
+  "cy": {
+    "defendedServiceAppStatusMsg": "[CY] Your {{ case.divorceWho }} has submitted their answer",
+    "defendedServiceAppStatusMsgDetails1": "[CY] Your {{ case.divorceWho }} said that they intended to defend the divorce (try to prevent it) in their response to your divorce application.",
+    "defendedServiceAmendedAppStatusMsgDetails1": "[CY] Your {{ case.divorceWho }} said that they intended to defend the divorce (try to prevent it) in their response to your amended divorce application.",
+    "defendedServiceAppStatusMsgDetails2": "[CY] They have now submitted their 'answer', the form which makes their case for defending the divorce.",
+    "defendedServiceWhatHappensNext": "[CY] What happens now",
+    "defendedServiceWhatHappensNextDetails1": "[CY] A judge will now decide whether you and your {{ case.divorceWho }} will need to attend a hearing. You may be contacted for more information to help them make that decision.",
+    "defendedServiceWhatHappensNextDetails2": "[CY] You’ll receive a letter in the post telling you if you need to attend a hearing, and when and where that hearing is."
   }
 }

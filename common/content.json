@@ -51,5 +51,58 @@
         "title": "Additional comments"
       }
     }
+  },
+  "cy": {
+    "continue": "[CY] Continue",
+    "serviceName": "[CY] Apply for a divorce",
+    "signOut": "[CY] Sign out",
+    "problemWithThisPage": "[CY] Contact us for help",
+    "phoneTitle": "[CY] Telephone",
+    "phoneToCallIfProblems": "[CY] 0300 303 0642<br>Monday to Friday, 8.30am to 5pm",
+    "responseTime": "[CY] We aim to get back to you within 5 days",
+    "emailTitle": "[CY] Send us a message",
+    "emailIfProblems": "[CY] <a class=\"govuk-link\" href=\"mailto:divorcecase@justice.gov.uk\" aria-label=\"Send us a message at at divorcecase@justice.gov.uk, this link opens a new email.\">Send us a message</a>",
+    "webChatTitle": "[CY] Web chat",
+    "chatDown": "[CY] The web chat service is temporarily unavailable, please try again later.",
+    "chatWithAnAgent": "[CY] Chat online with an agent",
+    "noAgentsAvailable": "[CY] No agents are available, please try again later.",
+    "allAgentsBusy": "[CY] All our web chat agents are busy helping other people. Please try again later or contact us using one of the ways above.",
+    "chatClosed": "[CY] Web chat is now closed.\\nOpening hours are Monday to Friday, 8:30am to 5pm.",
+    "chatAlreadyOpen": "[CY] A web chat window is already open.",
+    "chatOpeningHours": "[CY] Monday to Friday, 8:30am to 5pm.",
+    "clarificationCourtFeedback" : {
+      "jurisdictionDetails": {
+        "title": "[CY] Jurisdiction details",
+        "description": "[CY] The court has judged that your application does not fall within the jurisdiction of the courts of England and Wales.<br><br>You must have at least one of the following legal connections for your divorce to fall within the jurisdiction of a court in England and Wales:",
+        "reason0": "[CY] My {{ case.divorceWho }} and I are both habitually resident in England or Wales",
+        "reason1": "[CY] My {{ case.divorceWho }} and I were last habitually resident in England or Wales and I still live there",
+        "reason2": "[CY] My {{ case.divorceWho }} is habitually resident in England or Wales",
+        "reason3": "[CY] I'm habitually resident in England or Wales and have lived here for at least a year",
+        "reason4": "[CY] I'm domiciled and habitually resident in England or Wales and have lived here for at least six months",
+        "reason5": "[CY] My {{ case.divorceWho }} and I are both domiciled in England or Wales",
+        "reason6": "[CY] I believe the courts of England and Wales have jurisdiction on a residual basis"
+      },
+      "marriageCertTranslation": {
+        "title": "[CY] Marriage Certificate Translation",
+        "description": "[CY] The marriage certificate must be translated and certified by one of the following methods:",
+        "method1": "[CY] Statement of truth<br>The translator of the marriage certificate provides a statment of truth certifying the translation. There are translation services online which inlcude certification as part of their service.",
+        "method2": "[CY] Notary public<br>The marriage certificate is translated and then certified by a notary public. You can find a notary public through either the Notaries Society of the Society of Scrivener Notaries."
+      },
+      "marriageCertificate": {
+        "title": "[CY] Your original marriage certificate",
+        "description": "[CY] The image of the marriage certificate you shared does not appear to be a scanned copy of the full original.<br><br>Please provide a digital photo or scan of the original, or the paper document in the post.<br><br>The image must be of the whole document and include the serial / system number and must be readable by court staff."
+      },
+      "previousProceedingDetails": {
+        "title": "[CY] Previous Proceeding Details",
+        "description": "[CY] Clarify whether there are, or have ever been, any other legal proceedings related to the marriage. Provide evidence that any previous proceeding has either been dismissed or withdrawn."
+      },
+      "caseDetailsStatement": {
+        "title": "[CY] Case Details Statement",
+        "description": "[CY] Clarify your evidence for the chosen reason (legally known as the 'facts') for your divorce."
+      },
+      "other": {
+        "title": "[CY] Additional comments"
+      }
+    }
   }
 }

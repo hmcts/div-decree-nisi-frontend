@@ -27,5 +27,34 @@
         }
       }
     }
+  },
+  "cy": {
+    "title": "[CY] Is your {{ case.divorceWho }}'s behaviour still continuing?",
+    "stillBehaviourContinues": "[CY] Select Yes if your {{ case.divorceWho }}'s behaviour has continued since you submitted your application for divorce.",
+    "detailsAboutLastIncidentDate" : "[CY] When did the most recent example take place?",
+    "detailsAboutLastIncidentDateDetail" : "[CY] If you're not sure of the exact date, use the closest date you remember.",
+    "errors": {
+      "required": "[CY] Select yes if your {{ case.divorceWho }}'s behaviour still continuing?",
+      "requireLastIncidentDate": "[CY] Enter a date between the date of your marriage and today’s date."
+    },
+    "fields": {
+      "changes": {
+        "behaviourContinuedSinceApplication": {
+          "title": "[CY] Is your {{ case.divorceWho }}'s behaviour still continuing?",
+          "yes": "[CY] Yes",
+          "no": "[CY] No"
+        },
+        "lastIncidentDate": {
+          "question" : "[CY] When did the most recent example take place?",
+          "hint": "[CY] For example, 31 3 2002",
+          "dayLabel": "[CY] Day",
+          "monthLabel": "[CY] Month",
+          "yearLabel": "[CY] Year",
+          "dayRequired": "[CY] Enter the day the last incident happened",
+          "monthRequired": "[CY] Enter the month the last incident happened",
+          "yearRequired": "[CY] Enter the year the last incident happened"
+        }
+      }
+    }
   }
 }

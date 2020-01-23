@@ -30,5 +30,37 @@
         "yes": "The co-respondent disputes the allegations made in the application (they intend to defend)."
       }
     }
+  },
+  "cy": {
+    "title": "[CY] Read the co-respondent's response",
+    "youNeedToRead": "[CY] You need to read the co-respondent's response before you continue. The response is legally known as the 'acknowledgement of service'",
+    "corespondentDidNotRespond": "[CY] The co-respondent has not responded yet. You can choose to continue and apply for a decree nisi, or wait for their response.",
+    "acknowledgementOfSrvice": "[CY] Acknowledgement of service",
+    "applicant": "[CY] Applicant",
+    "respondent": "[CY] Respondent",
+    "corespondent": "[CY] Co-respondent",
+    "theCoRespondentResponseToAdultery": "[CY] The co-respondent's response to the adultery allegations",
+    "theCoRespondentResponseToAdulteryYes": "[CY] The co-respondent admits to committing the adultery.",
+    "theCoRespondentResponseToAdulteryNo": "[CY] The co-respondent does not admit to committing the adultery.",
+    "theCoRespondentDefendsTheDivorce": "[CY] How the co-respondent wants to proceed",
+    "theCoRespondentDefendsTheDivorceYes": "[CY] The co-respondent will try to prevent the divorce based on this application (they intend to 'defend' it).",
+    "theCoRespondentDefendsTheDivorceNo": "[CY] The co-respondent will let the divorce proceed (doesn't intend to 'defend' it).",
+    "theCoRespondentAgreeToPayCosts": "[CY] Who pays for the divorce",
+    "theCoRespondentAgreeToPayCostsYes": "[CY] The co-respondent has agreed to pay some or all of the costs of the divorce.",
+    "theCoRespondentAgreeToPayCostsNo": "[CY] The co-respondent has said they should not pay costs and given the following explanation about why they should not pay:",
+    "whatThisMeans": "[CY] What this means",
+    "theCoRespondentWasAsked": "[CY] The co-respondent was asked if they agreed to pay the costs that you claimed.",
+    "theCoRespondentGivenOptions": "[CY] They were given the following options:",
+    "theCoRespondentAgreeToPaySome": "[CY] to agree to pay some or all of the costs of the divorce",
+    "theCoRespondentNotAgreePay": "[CY] to not agree to paying any of the costs",
+    "theCoRespondentGivenChanceToChanges": "[CY] You'll be given a chance to change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split.",
+
+    "fields": {
+      "reviewAosCRResponse": {
+        "title": "[CY] The co-respondent's response",
+        "no": "[CY] The co-respondent does not dispute the allegations made in the application (they do not intend to defend).",
+        "yes": "[CY] The co-respondent disputes the allegations made in the application (they intend to defend)."
+      }
+    }
   }
 }

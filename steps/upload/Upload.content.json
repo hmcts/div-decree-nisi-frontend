@@ -43,5 +43,50 @@
         "title": "Your submitted documents"
       }
     }
+  },
+  "cy": {
+    "title": "[CY] Submit additional documents",
+    "imageIsNotEntireDocument": "[CY] If the image is not of the entire document and readable by court staff you may be asked to resubmit.",
+    "warning": "[CY] Warning",
+    "usePhone": "[CY] You can use your phone to do this now if it has a camera.",
+    "uploadDigitalCopies": "[CY] You can upload digital copies here, or take a picture with your phone if it has a camera.",
+    "clarificationDigitalCopies": "[CY] Upload documents that you need to send to the court to respond to the refusal order.",
+    "howToTake": "[CY] How to take the picture",
+    "howToTakeInfo1": "[CY] Place your certificate on a flat service in a well lit room. Use a flash if you need to.",
+    "howToTakeInfo2": "[CY] Take a good quality picture of the entire certificate. You should be able to see its edges.",
+    "howToTakeInfo3": "[CY] Check that the image is in focus. You must be able to read all the writing on the certificate, including the handwriting. Zoom in if you need to check this.",
+    "howToTakeInfo4": "[CY] Send the picture to this device (e.g. by email) and save it.",
+    "cantUpload": "[CY] I can't upload my documents",
+    "sendByPost": "[CY] How to send in your documents by post",
+    "continueWithApplication": "[CY] Continue with this application. When you're finished you'll be given a reference number and the address of the Courts and Tribunals Service Centre.",
+    "writeTheReference": "[CY] Write the reference number on the back of each document.",
+    "postToCourt": "[CY] Post all your documents to the service centre.",
+
+    "uploadedFiles": "[CY] Uploaded files",
+    "noFiles": "[CY] No files uploaded",
+    "remove": "[CY] Remove",
+    "clickToChooseFile": "[CY] Choose a file or take a photo",
+    "or": "[CY] or",
+    "dragAndDrop": "[CY] Drag and drop files here",
+    "selectFiles": "[CY] Select files to upload",
+    "upload": "[CY] Upload",
+    "fileToBig": "[CY] This file is too large and exceeds the 10mb limit. Please reduce the size of the file and try again.",
+    "dictMaxFilesExceeded": "[CY] You can upload a maximum of 10 files.",
+    "uploading": "[CY] Uploading",
+    "pendingUpload": "[CY] Pending Upload",
+    "hide": "[CY] Hide",
+
+    "errors": {
+      "errorUnknown" : "[CY] Sorry, there has been a problem uploading this file. Please try again later.",
+      "errorFileSizeTooLarge" : "[CY] This file is too large and exceeds the 10mb limit. Please reduce the size of the file and try again.",
+      "errorFileTypeInvalid" : "[CY] The file must be in jpg, bmp, tiff, png or PDF format.",
+      "errorMaximumFilesExceeded" : "[CY] You can upload a maximum of 10 files.",
+      "errorVirusFoundInFile": "[CY] This file has failed a virus check. Please try again with a different file."
+    },
+    "fields": {
+      "files": {
+        "title": "[CY] Your submitted documents"
+      }
+    }
   }
 }

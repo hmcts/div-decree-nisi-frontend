@@ -14,5 +14,21 @@
         "no": "Keep using adultery and let the court make a judgement"
       }
     }
+  },
+  "cy": {
+    "title": "[CY] How do you want to proceed?",
+    "options": "[CY] As your {{ case.divorceWho }} hasn't admitted the adultery, you need to choose whether to continue using this reason for divorce.",
+    "onlyDoThis": "[CY] The court will make a judgement on the information and evidence available. If you have further any evidence you'll be able to upload it later in this application.",
+    "evidence": "[CY] Evidence can include messages (eg letters, text messages, emails), photos, or an admission of the adultery from the person your {{ case.divorceWho }} committed adultery with.",
+    "errors": {
+      "required": "[CY] Select an option, how do you want to proceed?"
+    },
+    "fields": {
+      "amendPetition": {
+        "title": "[CY] Select an option, how do you want to proceed?",
+        "yes": "[CY] Change my reason for divorce (and pay a fee of £{{ amendFee }})",
+        "no": "[CY] Keep using adultery and let the court make a judgement"
+      }
+    }
   }
 }

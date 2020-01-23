@@ -6,5 +6,13 @@
     "ifYouNeedHelp": "If you need help with this service you can call or email us.",
     "email": "Email: ",
     "phone": "Phone: "
+  },
+  "cy": {
+    "title": "[CY] You've been signed out",
+    "notSaved": "[CY] Your progress has not been saved.",
+    "signInToReturn": "[CY] <a class=\"govuk-link\" href=\"/\">Sign in</a> to return to the application.",
+    "ifYouNeedHelp": "[CY] If you need help with this service you can call or email us.",
+    "email": "[CY] Email: ",
+    "phone": "[CY] Phone: "
   }
 }

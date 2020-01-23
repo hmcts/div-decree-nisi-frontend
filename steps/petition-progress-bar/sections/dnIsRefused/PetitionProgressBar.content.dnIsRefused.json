@@ -26,5 +26,33 @@
         "title": "The court has provided the following comments"
       }
     }
+  },
+  "cy" : {
+    "dnIsRefusedTitle": "[CY] Your application has been rejected",
+    "dnIsRefusedReviewOfCase": "[CY] Following a review of your case, the court is not yet satisfied that you are entitled to a decree of divorce.",
+    "dnIsRefusedContinueWithApplication": "[CY] To continue with your application, the court has requested that you submit further information. You will also need to pay £{{ amendFee }} amendment fee.",
+    "dnIsRefusedCourtFeedback": "[CY] The court’s feedback",
+    "dnIsRefusedDownloadAndKeep": "[CY] You can download and keep the court’s full <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Refusal order PDF.\">Refusal Order ({{ refusalOrderFile.fileType | upper }})</a>.",
+    "dnIsRefusedDoNext": "[CY] What you need to do next",
+    "dnIsRefusedDivorceToContinue": "[CY] If you want your divorce to continue, you’ll need to amend and resubmit it. You’ll also need to pay a £{{ amendFee }} amendment fee.",
+    "dnIsRefusedSentToDivorceWho": "[CY] The application will then be sent to your {{ case.divorceWho }}  again so that they can respond.",
+
+    "dnIsRefusedRefusalCourtFeedback" : {
+      "noJurisdiction": {
+        "title": "[CY] Jurisdiction details",
+        "description": "[CY] Your application does not fall within the jurisdiction of the courts of England and Wales."
+      },
+      "noCriteria": {
+        "title": "[CY] Application does not meet criteria",
+        "description": "[CY] Your application does not meet the criteria for the grounds of divorce that you selected."
+      },
+      "insufficentDetails": {
+        "title": "[CY] Insufficient details in application",
+        "description": "[CY] The court has judged that your application does not demonstrate that the marriage has broken down irretrievably. To grant a divorce the court must be satisfied that the marriage has broken down irretrievably, based on the information set out in the application."
+      },
+      "other": {
+        "title": "[CY] The court has provided the following comments"
+      }
+    }
   }
 }

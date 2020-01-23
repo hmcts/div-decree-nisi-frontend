@@ -54,5 +54,61 @@
         }
       }
     }
+  },
+  "cy": {
+    "title": "[CY] Modify the session",
+    "fields": {
+      "petitioner": {
+        "divorceWho": {
+          "title" : "[CY] Who are you divorcing?",
+          "husband": "[CY] Your husband",
+          "wife": "[CY] Your wife"
+        },
+        "marriageIsSameSexCouple": {
+          "title" : "[CY] We were a same-sex couple when we got married?",
+          "yes": "[CY] Yes",
+          "no": "[CY] No"
+        },
+        "reasonForDivorce": {
+          "title" : "[CY] Select reason for divorce?",
+          "behaviour": "[CY] Unreasonable Behaviour",
+          "adultery": "[CY] Adultery",
+          "sepTwoYrs": "[CY] Separation 2 Years",
+          "sepFiveYrs": "[CY] Separation 5 Years",
+          "desertion": "[CY] Desertion"
+        },
+        "claimCosts": {
+          "title" : "[CY] Do you want to claim costs?",
+          "yes": "[CY] Yes",
+          "no": "[CY] No"
+        },
+        "reasonForDivorceBehaviourDetails": {
+          "title": "[CY] Specify the unreasonable behaviour details"
+        },
+        "reasonForDivorceDesertionDetails": {
+          "title": "[CY] Specify the reason for desertion details"
+        },
+        "reasonForDivorceAdulteryDetails": {
+          "title": "[CY] Adultery Divorce Details"
+        }
+      },
+      "respondent": {
+        "respHardshipDescription": {
+          "title": "[CY] How will the divorce cause you severe hardship?"
+        },
+        "respJurisdictionDisagreeReason": {
+          "title": "[CY] Why don't you agree that the court has jurisdiction?"
+        },
+        "respJurisdictionRespCountryOfResidence": {
+          "title": "[CY] In which country is your life mainly based?"
+        },
+        "respLegalProceedingsDescription": {
+          "title": "[CY] Details of the court cases?"
+        },
+        "respCostsReason": {
+          "title": "[CY] Provide a brief explanation of why you should not pay?"
+        }
+      }
+    }
   }
 }

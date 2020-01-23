@@ -17,5 +17,24 @@
     "decreeNisiGrantedCoRespondentPays": "The order will state what the court has decided the co-respondent must pay you. They are required to pay you within 14 days of the order being made. If they don't pay you back within that time, you can use the order to make a money claim against them.",
     "decreeNisiGrantedRespondentAndCoRespondentPays": "The order will state what the court has decided your {{ case.divorceWho }} and the co-respondent must pay you. They are required to pay you within 14 days of the order being made. If they don't pay you back within that time, you can use the order to make a money claim against them.",
     "decreeNisiGrantedDownloadCostsOrder": "<a class=\"govuk-link\" href=\"{{ costsOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Costs Order PDF.\">Download your costs order</a> ({{ costsOrderFile.fileType | upper }})."
+  },
+  "cy": {
+    "decreeNisiGrantedTitle": "[CY] You have been granted a decree nisi",
+    "decreeNisiGrantedDateGranted": "[CY] On {{ case.decreeNisiGrantedDate | date }} the court granted you a:",
+    "decreeNisiGrantedDecreeNisi": "[CY] decree nisi - the first stage of the decree ending your marriage",
+    "decreeNisiGrantedCostsOrderCanClaim": "[CY] costs order - giving you the right to claim your divorce costs",
+
+    "decreeNisiGrantedNotDivorced": "[CY] You are not divorced yet. You will only be divorced when the second stage is complete and you have your decree absolute.",
+
+    "decreeNisiGrantedCompleteTheDivorce": "[CY] When you can complete the divorce",
+    "decreeNisiGrantedSixWeeks": "[CY] You must wait 6 weeks after your decree nisi is granted before you can apply for your decree absolute. You'll be sent an email when you can apply.",
+    "decreeNisiGrantedCourtCanCancel": "[CY] The court can cancel (known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.",
+    "decreeNisiGrantedDownloadDecreeNisi": "[CY] <a class=\"govuk-link\" href=\"{{ decreeNisiFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Decree Nisi PDF.\">Download your decree nisi</a> ({{ decreeNisiFile.fileType | upper }}).",
+
+    "decreeNisiGrantedWhatToDoWithCostsOrder": "[CY] What to do with your costs order",
+    "decreeNisiGrantedRespondentPays": "[CY] The order will state what the court has decided your {{ case.divorceWho }} must pay you. They are required to pay you within 14 days of the order being made. If they don't pay you back within that time, you can use the order to make a money claim against them.",
+    "decreeNisiGrantedCoRespondentPays": "[CY] The order will state what the court has decided the co-respondent must pay you. They are required to pay you within 14 days of the order being made. If they don't pay you back within that time, you can use the order to make a money claim against them.",
+    "decreeNisiGrantedRespondentAndCoRespondentPays": "[CY] The order will state what the court has decided your {{ case.divorceWho }} and the co-respondent must pay you. They are required to pay you within 14 days of the order being made. If they don't pay you back within that time, you can use the order to make a money claim against them.",
+    "decreeNisiGrantedDownloadCostsOrder": "[CY] <a class=\"govuk-link\" href=\"{{ costsOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Costs Order PDF.\">Download your costs order</a> ({{ costsOrderFile.fileType | upper }})."
   }
 }

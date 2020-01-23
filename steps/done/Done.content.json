@@ -27,29 +27,29 @@
     "decreeNisiGranted": "After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute.",
 
     "clarification": {
-        "responseSubmitted": "Response submitted",
-        "next": "What happens next",
+      "responseSubmitted": "Response submitted",
+      "next": "What happens next",
 
-        "postDocuments": {
-            "postDocuments": "Post documents to court",
-            "youWantToSubmitDocs": "Your response said you want to submit additional documents.",
-            "originalDocuments": "Post all your original documents to:",
-            "warning": "Warning",
-            "referenceNumber": "You must write your reference number on each document.",
-            "courtCheckResponse": "The court will check your response",
-            "responseCheckedByCourt": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
-            "contactUs": "You can contact us if you don’t hear anything back after 4 weeks."
-        },
+      "postDocuments": {
+        "postDocuments": "Post documents to court",
+        "youWantToSubmitDocs": "Your response said you want to submit additional documents.",
+        "originalDocuments": "Post all your original documents to:",
+        "warning": "Warning",
+        "referenceNumber": "You must write your reference number on each document.",
+        "courtCheckResponse": "The court will check your response",
+        "responseCheckedByCourt": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
+        "contactUs": "You can contact us if you don’t hear anything back after 4 weeks."
+      },
 
-        "noPostDocuments": {
-            "responseCheckedByCourt": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
-            "contactUs": "You can contact us if you don’t hear anything back after 4 weeks."
-        },
+      "noPostDocuments": {
+        "responseCheckedByCourt": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
+        "contactUs": "You can contact us if you don’t hear anything back after 4 weeks."
+      },
 
-        "needHelp": "If you need help",
-        "contactDivorceCentre": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\">Solicitor or legal adviser link, This link will open in a new tab.\">solicitor or legal adviser</a>.",
-        "helpImprove": "Help us improve this service",
-        "helpImproveLink": "Please help us improve this service by <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Applicant?pageurl=/done\" target=\"_blank\" aria-label=\"Feedback link, This link will open in a new tab.\">leaving your feedback</a>."
+      "needHelp": "If you need help",
+      "contactDivorceCentre": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\">Solicitor or legal adviser link, This link will open in a new tab.\">solicitor or legal adviser</a>.",
+      "helpImprove": "Help us improve this service",
+      "helpImproveLink": "Please help us improve this service by <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Applicant?pageurl=/done\" target=\"_blank\" aria-label=\"Feedback link, This link will open in a new tab.\">leaving your feedback</a>."
     },
 
     "downloadDocuments" : "Download your documents",
@@ -63,6 +63,72 @@
       "dnAnswers": "Decree Nisi answers",
       "clarificationDnRefusalOrder": "Refusal Order",
       "rejectionDnRefusalOrder": "Refusal Order"
+    }
+  },
+  "cy": {
+    "applicationComplete": "[CY] Application complete",
+    "appliedForDecreeNisi": "[CY] You've applied for a decree nisi",
+    "referenceNumber": "[CY] Your reference number is",
+    "emailConfirmation": "[CY] Email confirmation has been sent to <strong class=\"govuk-!-font-size-19 govuk-!-font-weight-bold\">{{ case.petitionerEmail }}</strong>.",
+    "yourCourt": "[CY] Your divorce centre",
+    "help": "[CY] Getting help",
+    "email": "[CY] Email",
+    "phone": "[CY] Phone",
+    "phoneNumber" : "[CY] 0300 303 0642",
+    "divorceEmail": "[CY] divorcecase@justice.gov.uk",
+    "openTimes": "[CY] (Monday to Friday, 8.30am to 5pm)",
+    "careOf": "[CY] c/o ",
+    "guidance": "[CY] Guidance on GOV.UK",
+    "howRespondsLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"Respond to a divorce application link, This link will open in a new tab.\">How your {{ case.divorceWho }} responds</a>",
+    "decreeNisiLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
+    "decreeAbsoluteLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"Decree absolute link, This link will open in a new tab.\">Decree absolute</a>",
+    "childrenAndDivorceLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
+    "moneyAndPropertyLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>",
+    "youApplied": "[CY] You apply",
+    "husbandWifeResponded": "[CY] Your {{ case.divorceWho }} responds",
+    "getDecreeNisi": "[CY] Get a decree nisi",
+    "madeFinal": "[CY] Divorce is complete",
+
+    "courtWillCheck": "[CY] The court will check your application and pass it to the judge. If the judge agrees there is no reason why you should not get a divorce, you'll be sent the time, date and court in which your decree nisi will be pronounced.",
+    "decreeNisiGranted": "[CY] After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute.",
+
+    "clarification": {
+      "responseSubmitted": "[CY] Response submitted",
+      "next": "[CY] What happens next",
+
+      "postDocuments": {
+        "postDocuments": "[CY] Post documents to court",
+        "youWantToSubmitDocs": "[CY] Your response said you want to submit additional documents.",
+        "originalDocuments": "[CY] Post all your original documents to:",
+        "warning": "[CY] Warning",
+        "referenceNumber": "[CY] You must write your reference number on each document.",
+        "courtCheckResponse": "[CY] The court will check your response",
+        "responseCheckedByCourt": "[CY] Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
+        "contactUs": "[CY] You can contact us if you don’t hear anything back after 4 weeks."
+      },
+
+      "noPostDocuments": {
+        "responseCheckedByCourt": "[CY] Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
+        "contactUs": "[CY] You can contact us if you don’t hear anything back after 4 weeks."
+      },
+
+      "needHelp": "[CY] If you need help",
+      "contactDivorceCentre": "[CY] You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\">Solicitor or legal adviser link, This link will open in a new tab.\">solicitor or legal adviser</a>.",
+      "helpImprove": "[CY] Help us improve this service",
+      "helpImproveLink": "[CY] Please help us improve this service by <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Applicant?pageurl=/done\" target=\"_blank\" aria-label=\"Feedback link, This link will open in a new tab.\">leaving your feedback</a>."
+    },
+
+    "downloadDocuments" : "[CY] Download your documents",
+    "files": {
+      "dpetition": "[CY] Divorce application",
+      "respondentAnswers": "[CY] Respondent's answers",
+      "coRespondentAnswers": "[CY] Co-Respondent's answers",
+      "certificateOfEntitlement": "[CY] Certificate of Entitlement",
+      "costsOrder": "[CY] Cost Order",
+      "decreeNisi": "[CY] Decree Nisi",
+      "dnAnswers": "[CY] Decree Nisi answers",
+      "clarificationDnRefusalOrder": "[CY] Refusal Order",
+      "rejectionDnRefusalOrder": "[CY] Refusal Order"
     }
   }
 }

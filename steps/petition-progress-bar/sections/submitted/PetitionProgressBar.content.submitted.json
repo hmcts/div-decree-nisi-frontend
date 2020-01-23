@@ -7,5 +7,14 @@
     "submittedWhatHappensNextDetails1": "If your application is accepted you'll be sent a copy by email along with your case number.",
     "submittedWhatHappensNextDetails2": "Your {{ case.divorceWho }} will also receive a copy of the application by post and a form to return. If you have used adultery as your reason for divorce, and named the person that your {{ case.divorceWho }} committed adultery with, they will also get a copy and a form to return.",
     "submittedWhatHappensNextDetails3": "Contact the service centre if you don't hear anything back after 4 weeks."
+  },
+  "cy": {
+    "submittedAppStatusMsg": "[CY] Your application was submitted on {{ case.createdDate | date }}",
+    "submittedAppStatusMsgDetails1": "[CY] Your temporary reference number is ",
+    "submittedAppStatusMsgDetails2": "[CY] You’ll be given a full case number when your application has been accepted and issued (sent by post to your {{ case.divorceWho }}).",
+    "submittedWhatHappensNext": "[CY] What happens next",
+    "submittedWhatHappensNextDetails1": "[CY] If your application is accepted you'll be sent a copy by email along with your case number.",
+    "submittedWhatHappensNextDetails2": "[CY] Your {{ case.divorceWho }} will also receive a copy of the application by post and a form to return. If you have used adultery as your reason for divorce, and named the person that your {{ case.divorceWho }} committed adultery with, they will also get a copy and a form to return.",
+    "submittedWhatHappensNextDetails3": "[CY] Contact the service centre if you don't hear anything back after 4 weeks."
   }
 }

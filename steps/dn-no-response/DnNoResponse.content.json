@@ -94,5 +94,101 @@
     "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
     "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>",
     "solicitorLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>"
+  },
+  "cy": {
+    "title": "[CY] How you can proceed with your divorce",
+    "courtHearsBothParties": "[CY] The court usually needs to hear from both parties in a marriage before it can grant a divorce.",
+    "infoToContactRespondent": "[CY] If it's safe to do so, usually the simplest way to proceed is to contact your {{ case.divorceWho }} directly to find out why they haven't responded. They can still send in their response after the deadline has passed.",
+    "provideNewAddrToCourt": "[CY] If you can't get in contact with your {{ case.divorceWho }}, you may want to consider asking their family, friends and workplace if they have a new address, and provide that to the court.",
+    "noResponseOptions": "[CY] If there's still no response using the original address, you have the following options available to you, depending on your situation.",
+
+    "whichSituation": "[CY] Which situation applies to you?",
+
+    "warning": "[CY] Warning",
+
+    "haveAnotherAddress": {
+      "linkSummary": "[CY] I have another residential address or a solicitor's address for my {{ case.divorceWho }} (no fee)",
+      "provideAddress": "[CY] Contact the Courts and Tribunals Service Centre to provide a different address for your {{ case.divorceWho }}. This can be a UK or international address.",
+      "noExtraPay": "[CY] You don't have to pay anything extra to have the application sent to a different address."
+    },
+
+    "sendToWorkAddress": {
+      "linkSummary": "[CY] I need to send the application to a non-residential address, eg a work address (£{{ feeToResendApplication }})",
+      "askToSendApp": "[CY] You can ask for the application to be sent to a non-residential address."
+    },
+
+    "needToSearchRecords": {
+      "linkSummary": "[CY] I need to search government records for my {{ case.divorceWho }}’s address (£{{ feeToResendApplication }})",
+      "canApplyIfRespLivesInEngWales": "[CY] You can apply for a search of government databases (eg the electoral role) for your {{ case.divorceWho }}’s address. Your {{ case.divorceWho }} must live in England or Wales.",
+      "applyViaSearchRecords": "[CY] Contact the service centre and ask for the form to be sent to you."
+    },
+
+    "sendEmailToResp": {
+      "linkSummary": "[CY] I need to send the application to my {{ case.divorceWho }}'s email address (£{{ feeToResendApplication }})",
+      "appToEmail": "[CY] You can ask for the application to be delivered by email."
+    },
+
+    "believeRespChoseNotToRespond": {
+      "linkSummary": "[CY] I believe my {{ case.divorceWho }} lives at that address, but chose not to respond (£{{ enforcemetFee }})",
+      "deliverPapersDirectlyToResp": "[CY] If you think that your {{ case.divorceWho }} is deliberately not responding you can pay a professional to deliver (serve) the divorce papers directly to them.",
+      "optionsToDeliver": "[CY] You can do this by using either a:",
+      "privateHireToDeliver": "[CY] Process server (a privately hired professional)",
+      "courtEmpToDeliver": "[CY] Court bailiff (an employee of the courts)",
+      "processServers": "[CY] Process servers",
+      "processServerDetails": "[CY] Contact a local solicitor who should be able to give you the contact details for a local company.",
+      "courtBailif": "[CY] Court bailiffs",
+      "courtBailifDetails1": "[CY] The bailiff service can only be used at addresses in England and Wales where delivery by post has already failed. If you have a new address for your {{ case.divorceWho }}, you’ll have to get it delivered by post before you can apply for the bailiff service.",
+      "courtBailifDetails2": "[CY] If the bailiff succeeds in delivering the application, you'll be given a letter as evidence that your {{ case.divorceWho }} has received the application. This is known as an ‘endorsement of service'. If your {{ case.divorceWho }} doesn’t respond within 14 days of getting the application, you can use this letter to continue your divorce without their response.",
+      "formD89": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/government/publications/form-d89-request-for-personal-service-by-a-court-bailiff\" target=\"_blank\" aria-label=\"Form D89 link, This link will open in a new tab.\">form D89</a>. Send the form to the Courts and Tribunals Service Centre.",
+      "moreToSend": "[CY] You'll also need to send the following:",
+      "respPhoto": "[CY] a photo of your {{ case.divorceWho }}",
+      "divorceAppCopy": "[CY] a copy of your divorce application"
+    },
+
+    "evidenceRespWontRespond": {
+      "linkSummary": "[CY] I have evidence that my {{ case.divorceWho }} received the application, but can't or won't respond (£{{ feeToResendApplication }})",
+      "canApplyForDeemedServ": "[CY] If you know your {{ case.divorceWho }} received the application, but can’t or won’t respond, you can apply to the court for a ‘deemed service’. This means that the court will decide that your {{ case.divorceWho }} has received the application, and that you can continue without their response.",
+      "needToProve": "[CY] You need to be able to prove that your {{ case.divorceWho }} received the application (eg, you have a text message from {{ case.divorceWho }} saying they received it).",
+      "applyAndSendDocs": "[CY] Send the form and documents to the Courts and Tribunals Service Centre."
+    },
+
+    "doneWithAllWaysOfDelivering":{
+      "linkSummary": "[CY] I’ve tried every possible way of delivering the application (£{{feeToResendApplication }})",
+      "askForDispenseWithService":"[CY] Under exceptional circumstances, you can ask the court to ‘dispense with service’ (decide your {{ case.divorceWho }} doesn’t have to be served the divorce application).",
+      "allInCourtHands":"[CY] It’s up to the court to decide whether to grant this. Before it can be considered, you’ll need to show that you’ve done everything you can to find them by contacting their:",
+      "relatives":"[CY] relatives (including children)",
+      "friends": "[CY] friends",
+      "lastEmployer": "[CY] last known employer",
+      "tradePlace": "[CY] trade union or professional organisation",
+      "searchInGovtDB": "[CY] You'll also need to have tried to find their address by searching for it on government databases.",
+      "and": "[CY]  and ",
+      "applyD13bLink": "[CY] <a class=\"govuk-link\" href=\"https://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=1112\" target=\"_blank\" aria-label=\"Form D13b link, This link will open in a new tab.\">form D13b</a>.",
+      "applyD11AndD13bContent": "[CY] Send the forms to the Courts and Tribunals Service Centre."
+    },
+
+    "howToApply": "[CY] How to apply: ",
+    "fill": "[CY] Download and complete ",
+    "applyD11": "[CY] <a class=\"govuk-link\" href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=98\" target=\"_blank\" aria-label=\"Form D11 link, This link will open in a new tab.\">form D11</a>.",
+    "howToPay": "[CY] How to pay: ",
+    "howToPayContent": "[CY] Call the service centre to make the £{{ feeToResendApplication }} payment by card (between 8.30am and 5pm) or include a cheque with your form.",
+    "howToPayBailiffContent": "[CY] Call the service centre to make the £{{ enforcemetFee }} payment by card (between 8.30am and 5pm) or include a cheque with your form.",
+    "getNewRefNumb": "[CY] If you're eligible for help with fees you'll need to apply again and <a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"Get a new reference number link, This link will open in a new tab.\">get a new reference number</a>.",
+    "extraCosts": "[CY] If you asked the court to order your {{ case.divorceWho }} to pay your costs, then these extra costs will also be taken into account.",
+    "printAndSend": "[CY] Send the form to the Courts and Tribunals Service Centre.",
+    "yourCourt": "[CY] Your divorce centre",
+    "help": "[CY] Getting help",
+    "email": "[CY] Email",
+    "phone": "[CY] Phone",
+    "phoneNumber" : "[CY] 0300 303 0642",
+    "divorceEmail": "[CY] divorcecase@justice.gov.uk",
+    "openTimes": "[CY] (Monday to Friday, 8.30am to 5pm)",
+    "careOf":"[CY] c/o ",
+    "guidance": "[CY] Guidance on GOV.UK",
+    "howRespondsLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"Respond to a divorce application link, This link will open in a new tab.\">How your {{ case.divorceWho }} responds</a>",
+    "decreeNisiLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
+    "decreeAbsoluteLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"Decree absolute link, This link will open in a new tab.\">Decree absolute</a>",
+    "childrenAndDivorceLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
+    "moneyAndPropertyLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>",
+    "solicitorLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>"
   }
 }
