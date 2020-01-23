@@ -8,7 +8,7 @@
     "help": "Getting help",
     "email": "Email",
     "phone": "Phone",
-    "phoneNumber" : "0300 303 0642",
+    "phoneNumber": "0300 303 0642",
     "divorceEmail": "divorcecase@justice.gov.uk",
     "openTimes": "(Monday to Friday, 8.30am to 5pm)",
     "careOf": "c/o ",
@@ -52,7 +52,7 @@
       "helpImproveLink": "Please help us improve this service by <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Applicant?pageurl=/done\" target=\"_blank\" aria-label=\"Feedback link, This link will open in a new tab.\">leaving your feedback</a>."
     },
 
-    "downloadDocuments" : "Download your documents",
+    "downloadDocuments": "Download your documents",
     "files": {
       "dpetition": "Divorce application",
       "respondentAnswers": "Respondent's answers",
@@ -74,7 +74,7 @@
     "help": "[CY] Getting help",
     "email": "[CY] Email",
     "phone": "[CY] Phone",
-    "phoneNumber" : "[CY] 0300 303 0642",
+    "phoneNumber": "[CY] 0300 303 0642",
     "divorceEmail": "[CY] divorcecase@justice.gov.uk",
     "openTimes": "[CY] (Monday to Friday, 8.30am to 5pm)",
     "careOf": "[CY] c/o ",
@@ -118,7 +118,7 @@
       "helpImproveLink": "[CY] Please help us improve this service by <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Applicant?pageurl=/done\" target=\"_blank\" aria-label=\"Feedback link, This link will open in a new tab.\">leaving your feedback</a>."
     },
 
-    "downloadDocuments" : "[CY] Download your documents",
+    "downloadDocuments": "[CY] Download your documents",
     "files": {
       "dpetition": "[CY] Divorce application",
       "respondentAnswers": "[CY] Respondent's answers",

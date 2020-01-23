@@ -44,10 +44,10 @@
     "mostRecentDateIsSeperation": "The most recent date is considered legally to be the date of separation.",
     "reasonForDivorceSeperationFiveYearsInfo": "The applicant and respondent have lived apart for a continuous period of at least five years immediately preceding the presentation of this application.",
     "reasonForDivorceSeperationFiveYears": {
-      "oldSepDate" : "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
+      "oldSepDate": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
       "petitionerStates": "{{ case.petitionerFirstName }} {{ case.petitionerLastName }} stated that:",
-      "decidedDate" : "The applicant decided that the marriage was over on {{ case.reasonForDivorceDecisionDate | date }}.",
-      "livingApartDate" : "The applicant and respondent started living apart on {{ case.reasonForDivorceLivingApartDate | date }}.",
+      "decidedDate": "The applicant decided that the marriage was over on {{ case.reasonForDivorceDecisionDate | date }}.",
+      "livingApartDate": "The applicant and respondent started living apart on {{ case.reasonForDivorceLivingApartDate | date }}.",
       "mostRecentDateConsidered": "The most recent date is considered legally to be the date of separation"
     },
     "reasonForDivorceSeperationFiveYearsBrokendDown": "The marriage has broken down irretrievably. The applicant is relying on the following fact to support their application.",
@@ -237,10 +237,10 @@
     "mostRecentDateIsSeperation": "[CY] The most recent date is considered legally to be the date of separation.",
     "reasonForDivorceSeperationFiveYearsInfo": "[CY] The applicant and respondent have lived apart for a continuous period of at least five years immediately preceding the presentation of this application.",
     "reasonForDivorceSeperationFiveYears": {
-      "oldSepDate" : "[CY] {{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
+      "oldSepDate": "[CY] {{ case.petitionerFirstName }} {{ case.petitionerLastName }} has given the separation date as {{ case.reasonForDivorceSeperationDate | date }}.",
       "petitionerStates": "[CY] {{ case.petitionerFirstName }} {{ case.petitionerLastName }} stated that:",
-      "decidedDate" : "[CY] The applicant decided that the marriage was over on {{ case.reasonForDivorceDecisionDate | date }}.",
-      "livingApartDate" : "[CY] The applicant and respondent started living apart on {{ case.reasonForDivorceLivingApartDate | date }}.",
+      "decidedDate": "[CY] The applicant decided that the marriage was over on {{ case.reasonForDivorceDecisionDate | date }}.",
+      "livingApartDate": "[CY] The applicant and respondent started living apart on {{ case.reasonForDivorceLivingApartDate | date }}.",
       "mostRecentDateConsidered": "[CY] The most recent date is considered legally to be the date of separation"
     },
     "reasonForDivorceSeperationFiveYearsBrokendDown": "[CY] The marriage has broken down irretrievably. The applicant is relying on the following fact to support their application.",

@@ -7,7 +7,7 @@
     },
     "fields": {
       "adulteryFirstFoundDate": {
-        "question" : "Enter the date that you first found out about the adultery",
+        "question": "Enter the date that you first found out about the adultery",
         "hint": "For example, 31 3 2002",
         "dayLabel": "Day",
         "monthLabel": "Month",
@@ -27,7 +27,7 @@
     },
     "fields": {
       "adulteryFirstFoundDate": {
-        "question" : "[CY] Enter the date that you first found out about the adultery",
+        "question": "[CY] Enter the date that you first found out about the adultery",
         "hint": "[CY] For example, 31 3 2002",
         "dayLabel": "[CY] Day",
         "monthLabel": "[CY] Month",

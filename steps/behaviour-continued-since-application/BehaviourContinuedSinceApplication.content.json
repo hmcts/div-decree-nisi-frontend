@@ -2,8 +2,8 @@
   "en": {
     "title": "Is your {{ case.divorceWho }}'s behaviour still continuing?",
     "stillBehaviourContinues": "Select Yes if your {{ case.divorceWho }}'s behaviour has continued since you submitted your application for divorce.",
-    "detailsAboutLastIncidentDate" : "When did the most recent example take place?",
-    "detailsAboutLastIncidentDateDetail" : "If you're not sure of the exact date, use the closest date you remember.",
+    "detailsAboutLastIncidentDate": "When did the most recent example take place?",
+    "detailsAboutLastIncidentDateDetail": "If you're not sure of the exact date, use the closest date you remember.",
     "errors": {
       "required": "Select yes if your {{ case.divorceWho }}'s behaviour still continuing?",
       "requireLastIncidentDate": "Enter a date between the date of your marriage and today’s date."
@@ -16,7 +16,7 @@
           "no": "No"
         },
         "lastIncidentDate": {
-          "question" : "When did the most recent example take place?",
+          "question": "When did the most recent example take place?",
           "hint": "For example, 31 3 2002",
           "dayLabel": "Day",
           "monthLabel": "Month",
@@ -31,8 +31,8 @@
   "cy": {
     "title": "[CY] Is your {{ case.divorceWho }}'s behaviour still continuing?",
     "stillBehaviourContinues": "[CY] Select Yes if your {{ case.divorceWho }}'s behaviour has continued since you submitted your application for divorce.",
-    "detailsAboutLastIncidentDate" : "[CY] When did the most recent example take place?",
-    "detailsAboutLastIncidentDateDetail" : "[CY] If you're not sure of the exact date, use the closest date you remember.",
+    "detailsAboutLastIncidentDate": "[CY] When did the most recent example take place?",
+    "detailsAboutLastIncidentDateDetail": "[CY] If you're not sure of the exact date, use the closest date you remember.",
     "errors": {
       "required": "[CY] Select yes if your {{ case.divorceWho }}'s behaviour still continuing?",
       "requireLastIncidentDate": "[CY] Enter a date between the date of your marriage and today’s date."
@@ -45,7 +45,7 @@
           "no": "[CY] No"
         },
         "lastIncidentDate": {
-          "question" : "[CY] When did the most recent example take place?",
+          "question": "[CY] When did the most recent example take place?",
           "hint": "[CY] For example, 31 3 2002",
           "dayLabel": "[CY] Day",
           "monthLabel": "[CY] Month",

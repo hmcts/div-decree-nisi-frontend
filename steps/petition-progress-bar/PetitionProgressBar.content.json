@@ -11,7 +11,7 @@
     "getDecreeNisi": "Get a decree nisi",
     "madeFinal": "Divorce is complete",
 
-    "needHelp" : "If you need help",
+    "needHelp": "If you need help",
     "needHelpDetails": "You can contact the Courts and Tribunals Service Centre if you need help with your application. Court staff can’t give you legal advice however, and you should speak to a ",
     "solicitorLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>",
 
@@ -26,7 +26,7 @@
     "careOf": "c/o ",
     "divorceEmail": "divorcecase@justice.gov.uk",
     "openTimes": "(Monday to Friday, 8.30am to 5pm)",
-    "phoneNumber" : "0300 303 0642",
+    "phoneNumber": "0300 303 0642",
     "guidance": "Guidance on GOV.UK",
     "howRespondsLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"Respond to a divorce application link, This link will open in a new tab.\">How your {{ case.divorceWho }} responds</a>",
     "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
@@ -34,8 +34,8 @@
     "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
     "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>",
     "DivorceApplication": "Divorce application",
-    "downloadDocuments" : "Download your documents",
-    "downloadAndSaveYourDocuments" : "Download and save all the documents for this application before you continue. If you do amend your application, you won’t be able to access any of these documents online anymore.",
+    "downloadDocuments": "Download your documents",
+    "downloadAndSaveYourDocuments": "Download and save all the documents for this application before you continue. If you do amend your application, you won’t be able to access any of these documents online anymore.",
     "files": {
       "dpetition": "Divorce application",
       "respondentAnswers": "Respondent's answers",
@@ -60,7 +60,7 @@
     "getDecreeNisi": "[CY] Get a decree nisi",
     "madeFinal": "[CY] Divorce is complete",
 
-    "needHelp" : "[CY] If you need help",
+    "needHelp": "[CY] If you need help",
     "needHelpDetails": "[CY] You can contact the Courts and Tribunals Service Centre if you need help with your application. Court staff can’t give you legal advice however, and you should speak to a ",
     "solicitorLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>",
 
@@ -75,7 +75,7 @@
     "careOf": "[CY] c/o ",
     "divorceEmail": "[CY] divorcecase@justice.gov.uk",
     "openTimes": "[CY] (Monday to Friday, 8.30am to 5pm)",
-    "phoneNumber" : "[CY] 0300 303 0642",
+    "phoneNumber": "[CY] 0300 303 0642",
     "guidance": "[CY] Guidance on GOV.UK",
     "howRespondsLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/respond-divorce-application\" target=\"_blank\" aria-label=\"Respond to a divorce application link, This link will open in a new tab.\">How your {{ case.divorceWho }} responds</a>",
     "decreeNisiLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
@@ -83,8 +83,8 @@
     "childrenAndDivorceLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
     "moneyAndPropertyLink": "[CY] <a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>",
     "DivorceApplication": "[CY] Divorce application",
-    "downloadDocuments" : "[CY] Download your documents",
-    "downloadAndSaveYourDocuments" : "[CY] Download and save all the documents for this application before you continue. If you do amend your application, you won’t be able to access any of these documents online anymore.",
+    "downloadDocuments": "[CY] Download your documents",
+    "downloadAndSaveYourDocuments": "[CY] Download and save all the documents for this application before you continue. If you do amend your application, you won’t be able to access any of these documents online anymore.",
     "files": {
       "dpetition": "[CY] Divorce application",
       "respondentAnswers": "[CY] Respondent's answers",

@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "Respond to the court's feedback?",
-    "needToProvide" : "See the court’s feedback",
+    "needToProvide": "See the court’s feedback",
     "errors": {
       "required": "You need to enter a response before continuing"
     },
@@ -13,7 +13,7 @@
   },
   "cy": {
     "title": "[CY] Respond to the court's feedback?",
-    "needToProvide" : "[CY] See the court’s feedback",
+    "needToProvide": "[CY] See the court’s feedback",
     "errors": {
       "required": "[CY] You need to enter a response before continuing"
     },

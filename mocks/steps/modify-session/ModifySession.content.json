@@ -4,17 +4,17 @@
     "fields": {
       "petitioner": {
         "divorceWho": {
-          "title" : "Who are you divorcing?",
+          "title": "Who are you divorcing?",
           "husband": "Your husband",
           "wife": "Your wife"
         },
         "marriageIsSameSexCouple": {
-          "title" : "We were a same-sex couple when we got married?",
+          "title": "We were a same-sex couple when we got married?",
           "yes": "Yes",
           "no": "No"
         },
         "reasonForDivorce": {
-          "title" : "Select reason for divorce?",
+          "title": "Select reason for divorce?",
           "behaviour": "Unreasonable Behaviour",
           "adultery": "Adultery",
           "sepTwoYrs": "Separation 2 Years",
@@ -22,7 +22,7 @@
           "desertion": "Desertion"
         },
         "claimCosts": {
-          "title" : "Do you want to claim costs?",
+          "title": "Do you want to claim costs?",
           "yes": "Yes",
           "no": "No"
         },
@@ -60,17 +60,17 @@
     "fields": {
       "petitioner": {
         "divorceWho": {
-          "title" : "[CY] Who are you divorcing?",
+          "title": "[CY] Who are you divorcing?",
           "husband": "[CY] Your husband",
           "wife": "[CY] Your wife"
         },
         "marriageIsSameSexCouple": {
-          "title" : "[CY] We were a same-sex couple when we got married?",
+          "title": "[CY] We were a same-sex couple when we got married?",
           "yes": "[CY] Yes",
           "no": "[CY] No"
         },
         "reasonForDivorce": {
-          "title" : "[CY] Select reason for divorce?",
+          "title": "[CY] Select reason for divorce?",
           "behaviour": "[CY] Unreasonable Behaviour",
           "adultery": "[CY] Adultery",
           "sepTwoYrs": "[CY] Separation 2 Years",
@@ -78,7 +78,7 @@
           "desertion": "[CY] Desertion"
         },
         "claimCosts": {
-          "title" : "[CY] Do you want to claim costs?",
+          "title": "[CY] Do you want to claim costs?",
           "yes": "[CY] Yes",
           "no": "[CY] No"
         },

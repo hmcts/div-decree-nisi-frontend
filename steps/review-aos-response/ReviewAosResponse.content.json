@@ -20,8 +20,8 @@
         "doesNotAdmitAdultery": "The respondent does not admit to committing the adultery."
       },
       "sep": {
-        "intendingToDelayDivorce":"The respondent is intending to ask the court to delay the divorce until it’s satisfied with their financial situation.",
-        "notIntendingToDelayDivorce":"The respondent is not intending to ask the court to delay the divorce until it’s satisfied with their financial situation."
+        "intendingToDelayDivorce": "The respondent is intending to ask the court to delay the divorce until it’s satisfied with their financial situation.",
+        "notIntendingToDelayDivorce": "The respondent is not intending to ask the court to delay the divorce until it’s satisfied with their financial situation."
       },
       "sep2Yr": {
         "respConsent": "The respondent consents to a divorce.",
@@ -29,7 +29,7 @@
       },
       "sep5Yr": {
         "defendingFinancialHardship": "The respondent is defending on the basis that it will cause them severe hardship and provided the following explanation:",
-        "notDefendingFinancialHardship":"The respondent is not defending on the basis that it will cause them severe hardship."
+        "notDefendingFinancialHardship": "The respondent is not defending on the basis that it will cause them severe hardship."
       },
       "givenOptions": "The respondent was given the following options for their response.",
       "proceedWithDivorce": "to proceed with the divorce",
@@ -39,7 +39,7 @@
 
     "jurisdiction": {
       "title": "Jurisdiction of the court",
-      "otherCourtDetails":"Other court cases that could affect jurisdiction",
+      "otherCourtDetails": "Other court cases that could affect jurisdiction",
       "respondentAgrees": "The respondent agrees that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
       "respDoesNotAgree": "The respondent does not agree that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
       "detailsGiven": "They gave the following statement to support this:",
@@ -63,7 +63,7 @@
 
     "statementOfTruth": {
       "title": "Statement of Truth",
-      "details":"\"I believe that the facts stated in this application are true.\""
+      "details": "\"I believe that the facts stated in this application are true.\""
     },
 
     "fields": {
@@ -96,8 +96,8 @@
         "doesNotAdmitAdultery": "[CY] The respondent does not admit to committing the adultery."
       },
       "sep": {
-        "intendingToDelayDivorce":"[CY] The respondent is intending to ask the court to delay the divorce until it’s satisfied with their financial situation.",
-        "notIntendingToDelayDivorce":"[CY] The respondent is not intending to ask the court to delay the divorce until it’s satisfied with their financial situation."
+        "intendingToDelayDivorce": "[CY] The respondent is intending to ask the court to delay the divorce until it’s satisfied with their financial situation.",
+        "notIntendingToDelayDivorce": "[CY] The respondent is not intending to ask the court to delay the divorce until it’s satisfied with their financial situation."
       },
       "sep2Yr": {
         "respConsent": "[CY] The respondent consents to a divorce.",
@@ -105,7 +105,7 @@
       },
       "sep5Yr": {
         "defendingFinancialHardship": "[CY] The respondent is defending on the basis that it will cause them severe hardship and provided the following explanation:",
-        "notDefendingFinancialHardship":"[CY] The respondent is not defending on the basis that it will cause them severe hardship."
+        "notDefendingFinancialHardship": "[CY] The respondent is not defending on the basis that it will cause them severe hardship."
       },
       "givenOptions": "[CY] The respondent was given the following options for their response.",
       "proceedWithDivorce": "[CY] to proceed with the divorce",
@@ -115,7 +115,7 @@
 
     "jurisdiction": {
       "title": "[CY] Jurisdiction of the court",
-      "otherCourtDetails":"[CY] Other court cases that could affect jurisdiction",
+      "otherCourtDetails": "[CY] Other court cases that could affect jurisdiction",
       "respondentAgrees": "[CY] The respondent agrees that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
       "respDoesNotAgree": "[CY] The respondent does not agree that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
       "detailsGiven": "[CY] They gave the following statement to support this:",
@@ -139,7 +139,7 @@
 
     "statementOfTruth": {
       "title": "[CY] Statement of Truth",
-      "details":"[CY] \"I believe that the facts stated in this application are true.\""
+      "details": "[CY] \"I believe that the facts stated in this application are true.\""
     },
 
     "fields": {

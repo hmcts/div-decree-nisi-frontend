@@ -7,7 +7,7 @@
     "phone": "Phone",
     "divorceEmail": "divorcecase@justice.gov.uk",
     "openTimes": "(Monday to Friday, 8.30am to 5pm)",
-    "phoneNumber" : "0300 303 0642"
+    "phoneNumber": "0300 303 0642"
   },
   "cy": {
     "title": "[CY] There is a problem with your application",
@@ -17,6 +17,6 @@
     "phone": "[CY] Phone",
     "divorceEmail": "[CY] divorcecase@justice.gov.uk",
     "openTimes": "[CY] (Monday to Friday, 8.30am to 5pm)",
-    "phoneNumber" : "[CY] 0300 303 0642"
+    "phoneNumber": "[CY] 0300 303 0642"
   }
 }
