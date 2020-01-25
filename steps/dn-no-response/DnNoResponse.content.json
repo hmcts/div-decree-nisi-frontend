@@ -85,7 +85,7 @@
     "phone": "Phone",
     "phoneNumber" : "0300 303 0642",
     "divorceEmail": "divorcecase@justice.gov.uk",
-    "openTimes": "(Monday to Friday, 8.30am to 5pm)",
+    "openTimes": "(Monday to Friday, 8am to 8pm, Saturday 8am to 2pm)",
     "careOf":"c/o ",
     "guidance": "Guidance on GOV.UK",
     "howRespondsLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"Respond to a divorce application link, This link will open in a new tab.\">How your {{ case.divorceWho }} responds</a>",
