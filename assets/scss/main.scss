@@ -8,7 +8,8 @@
 @import 'look-and-feel/related-items';
 @import 'look-and-feel/gov-uk-frontend-toolkit-backward-compatible';
 @import 'look-and-feel/confirmation-statement';
-@import './file-upload';
+@import 'file-upload';
+@import 'phase_banner';
 
 .govuk-check-your-answers {
   .cya-question {

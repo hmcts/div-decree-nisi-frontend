@@ -2,7 +2,7 @@
   "en": {
     "continue": "Continue",
     "serviceName": "Apply for a divorce",
-    "signOut": "Sign out",
+    "backLink": "Back",
     "problemWithThisPage": "Contact us for help",
     "phoneTitle": "Telephone",
     "phoneToCallIfProblems": "0300 303 0642<br>Monday to Friday, 8.30am to 5pm",
@@ -17,6 +17,14 @@
     "chatClosed": "Web chat is now closed.\\nOpening hours are Monday to Friday, 8:30am to 5pm.",
     "chatAlreadyOpen": "A web chat window is already open.",
     "chatOpeningHours": "Monday to Friday, 8:30am to 5pm.",
+    "feedback": "This is a new service – your <a aria-label=\"Feedback: This link will open in a new tab. You&rsquo;ll need to return to this tab to continue with your application.\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">feedback</a> will help us to improve it.",
+    "languageToggle": "<a href=\"?lng=cy\" class=\"govuk-link language\">Cymraeg</a>",
+    "accessibility": "Accessibility statement",
+    "cookies": "Cookies",
+    "privacyPolicy": "Privacy policy",
+    "termsAndConditions": "Terms and conditions",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
     "clarificationCourtFeedback" : {
       "jurisdictionDetails": {
         "title": "Jurisdiction details",
@@ -55,7 +63,7 @@
   "cy": {
     "continue": "[CY] Continue",
     "serviceName": "[CY] Apply for a divorce",
-    "signOut": "[CY] Sign out",
+    "backLink": "[CY] Back",
     "problemWithThisPage": "[CY] Contact us for help",
     "phoneTitle": "[CY] Telephone",
     "phoneToCallIfProblems": "[CY] 0300 303 0642<br>Monday to Friday, 8.30am to 5pm",
@@ -70,6 +78,14 @@
     "chatClosed": "[CY] Web chat is now closed.\\nOpening hours are Monday to Friday, 8:30am to 5pm.",
     "chatAlreadyOpen": "[CY] A web chat window is already open.",
     "chatOpeningHours": "[CY] Monday to Friday, 8:30am to 5pm.",
+    "feedback": "Mae hwn yn wasanaeth newydd - bydd eich <a aria-label=\"Adborth: Bydd y ddolen hon yn agor mewn ffenestr newydd. Bydd angen ichi ddychwelyd i&rsquo;r ffenestr hon i barhau gyda&rsquo;ch cais.\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">adborth</a> yn ein helpu ni i&rsquo;w wella.",
+    "languageToggle": "<a href=\"?lng=en\" class=\"govuk-link language\">English</a>",
+    "accessibility": "Datganiad Hygyrchedd",
+    "cookies": "Cwcis",
+    "privacyPolicy": "Polisi Preifatrwydd",
+    "termsAndConditions": "Telerau ac Amodau",
+    "signIn": "Mewngofnodi",
+    "signOut": "Allgofnodi",
     "clarificationCourtFeedback" : {
       "jurisdictionDetails": {
         "title": "[CY] Jurisdiction details",
