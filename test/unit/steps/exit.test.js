@@ -9,7 +9,7 @@ const session = {
     data: {
       court: {
         northWest: {
-          openingHours: 'Telephone Enquiries from: 8.30am to 5pm',
+          openingHours: 'Telephone Enquiries from: Monday to Friday, 8am to 8pm, Saturday 8am to 2pm',
           phoneNumber: '0300 303 0642',
           email: 'family@liverpool.countycourt.gsi.gov.uk'
         }
