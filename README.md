@@ -1,6 +1,6 @@
 # Divorce Decree Nisi [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is the frontend application for the Decree Nisi journey, Once the respondent has responded the petitioner can then apply for a Decree Nisi, and this repo builds the frontend for that journey.
+This repo is for the Decree Nisi Frontend and forms part of the online Divorce Application.
 
 ## Setup
 
@@ -10,13 +10,12 @@ This is the frontend application for the Decree Nisi journey, Once the responden
 $ yarn install
 ```
 
-
 **Start application**
 
 Then you can use the following commands in different terminal sessions:
 
 ```shell
-`docker-compose up`
+`docker-compose redis`
 ```
 
 ```shell
@@ -29,7 +28,9 @@ $ yarn dev
 
 The application will now be running on ```https://localhost:3000```.
 
-When the application is up and running, a new endpoint will be exposed called ```"/session"``` where you can view and edit the current session. This is useful for debugging and testing. (Note: each time you login/logout of IDAM the session will be reset). This endpoint will only be available locally and on AAT environment.
+When the application is up and running, a new endpoint will be exposed called ```"/session"``` where you can view and edit the current session.
+This is only be available locally and on AAT environment and is useful for debugging and testing.
+
 
 ## Testing
 
