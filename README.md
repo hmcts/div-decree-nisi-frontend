@@ -15,7 +15,7 @@ $ yarn install
 Then you can use the following commands in different terminal sessions:
 
 ```shell
-`docker-compose redis`
+`docker-compose up redis`
 ```
 
 ```shell
