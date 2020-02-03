@@ -105,7 +105,7 @@
     "sonar-scanner": "^3.1.0",
     "supertest": "^3.0.0",
     "w3cjs": "^0.4.0",
-    "webdriverio": "^5.18.6",
+    "webdriverio": "^4.13.1",
     "zepto-node": "^1.0.0"
   },
   "resolutions": {
