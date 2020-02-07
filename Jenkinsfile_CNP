@@ -1,6 +1,6 @@
 #!groovy
 
-@Library("Infrastructure")
+@Library("Infrastructure@warn-about-aadidentity-hack")
 
 String product = "div"
 String component = "dn"
