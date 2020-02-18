@@ -66,7 +66,7 @@ const methods = {
     return request.put({ uri, headers, json: true })
       .catch(error => {
         logger.errorWithReq(req, 'error_amending_application',
-          'Error sending request to case orchestration service amend application endpoint',
+          'Error sending requests to case orchestration service amend application endpoint',
           error.message
         );
         throw error;
