@@ -81,7 +81,7 @@ const methods = {
     return request.put({ uri, headers, json: true })
       .catch(error => {
         logger.errorWithReq(req, 'error_amending_dn_rejection_application',
-          'Error sending request to case orchestration service to amend a DN rejected application endpoint',
+          'Error sending requests to case orchestration service to amend a DN rejected application endpoint',
           error.message
         );
         throw error;
