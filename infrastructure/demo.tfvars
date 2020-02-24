@@ -17,5 +17,3 @@ respondent_frontend_url = "https://div-rfe-demo.service.core-compute-demo.intern
 decree_absolute_frontend_url = "https://div-da-demo.service.core-compute-demo.internal"
 
 ccd_digital_courts = "[\"serviceCentre\", \"eastMidlands\", \"westMidlands\", \"southWest\", \"northWest\"]"
-
-enable_ase = true
