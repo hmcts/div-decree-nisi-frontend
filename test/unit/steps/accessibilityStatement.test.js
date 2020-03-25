@@ -15,7 +15,9 @@ describe(modulePath, () => {
       'chatClosed',
       'chatAlreadyOpen',
       'chatOpeningHours',
-      'clarificationCourtFeedback'
+      'clarificationCourtFeedback',
+      'backLink',
+      'signIn'
     ];
     return content(PrivacyPolicy, {}, { ignoreContent });
   });

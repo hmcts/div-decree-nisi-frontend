@@ -37,7 +37,8 @@ describe(modulePath, () => {
         'allAgentsBusy',
         'chatClosed',
         'chatAlreadyOpen',
-        'chatOpeningHours'
+        'chatOpeningHours',
+        'signIn'
       ];
       const session = { case: { data: {} } };
       return content(CheckYourAnswers, session, { ignoreContent });

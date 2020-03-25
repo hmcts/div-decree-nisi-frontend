@@ -26,7 +26,8 @@ describe(modulePath, () => {
         'chatClosed',
         'chatAlreadyOpen',
         'chatOpeningHours',
-        'clarificationCourtFeedback'
+        'clarificationCourtFeedback',
+        'signIn'
       ];
       return content(CourtFeedback, session, { ignoreContent });
     });

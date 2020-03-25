@@ -53,7 +53,8 @@ describe(modulePath, () => {
         'theCoRespondentDefendsTheDivorceNo',
         'theCoRespondentAgreeToPayCostsNo',
         'corespondentDidNotRespond',
-        'clarificationCourtFeedback'
+        'clarificationCourtFeedback',
+        'signIn'
       ];
 
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
@@ -87,7 +88,8 @@ describe(modulePath, () => {
         'theCoRespondentDefendsTheDivorceYes',
         'theCoRespondentAgreeToPayCostsYes',
         'corespondentDidNotRespond',
-        'clarificationCourtFeedback'
+        'clarificationCourtFeedback',
+        'signIn'
       ];
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
     });
@@ -119,7 +121,8 @@ describe(modulePath, () => {
         'theCoRespondentDefendsTheDivorce',
         'theCoRespondentAgreeToPayCosts',
         'youNeedToRead',
-        'clarificationCourtFeedback'
+        'clarificationCourtFeedback',
+        'signIn'
       ];
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
     });
@@ -185,7 +188,8 @@ describe(modulePath, () => {
         'theCoRespondentDefendsTheDivorceYes',
         'theCoRespondentAgreeToPayCostsNo',
         'corespondentDidNotRespond',
-        'clarificationCourtFeedback'
+        'clarificationCourtFeedback',
+        'signIn'
       ];
       const specificValuesToNotExist = ['It is the right thing to do...'];
       return content(ReviewAosResponseFromCoRespondent, session, {

@@ -21,7 +21,9 @@ describe(modulePath, () => {
         'chatOpeningHours',
         'continue',
         'yourName',
-        'clarificationCourtFeedback'
+        'clarificationCourtFeedback',
+        'backLink',
+        'signIn'
       ];
 
       return content(PrivacyPolicy, {}, { ignoreContent });
