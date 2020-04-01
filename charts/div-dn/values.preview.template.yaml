@@ -4,7 +4,6 @@ idam-pr:
       - https://${SERVICE_FQDN}/authenticated
 
 nodejs:
-    aadIdentityName:
     environment:
         REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
