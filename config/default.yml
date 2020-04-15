@@ -109,8 +109,8 @@ paths:
   termsAndConditions: /terms-and-conditions
   cookiesPolicy: /cookie
   privacyPolicy: /privacy-policy
-  contactDivorceTeam: /contact-your-divorce
-  contactDivorceTeamError: /contact-your-divorce-error
+  contactDivorceTeam: /contact-divorce-team
+  contactDivorceTeamError: /contact-divorce-team-error
   amendApplication: /amend-application
   respNotAdmitAdultery: /resp-does-not-admit-adultery-options
   reviewAosResponseFromCoRespondent: /review-aos-response-from-co-respondent
