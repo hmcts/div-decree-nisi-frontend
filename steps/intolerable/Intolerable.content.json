@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "Do you find it intolerable to live with your {{ case.divorceWho }}?",
-    "mustBeIntolerable": "You must find it intolerable to live with your {{ case.divorceWho }} to use adultery as your reason for divorce. This applies whether you're still living together or not.",
+    "mustBeIntolerable": "You must find it intolerable to live with your {{ case.divorceWho }} to use adultery as your reason for divorce. This applies whether you’re still living together or not.",
     "errors": {
       "required": "Select yes if you find it intolerable to live with your {{ case.divorceWho }}"
     },

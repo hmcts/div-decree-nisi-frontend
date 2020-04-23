@@ -7,18 +7,18 @@
     "issuedWhatHappensNextDetail1": "The service centre sent the application to your {{ case.divorceWho }} by post on {{ case.issueDate | date }}. They were also sent an ‘acknowledgement of service’. This is a form which asks if they:",
     "issuedWhatHappensNextDetails2list1": "agree with what you’ve said in the application",
     "issuedWhatHappensNextDetails2list2": "intend to try to stop the divorce (defend it)",
-    "issuedWhatHappensNextDetails2list3": "object to paying the costs (if you've claimed them)",
+    "issuedWhatHappensNextDetails2list3": "object to paying the costs (if you’ve claimed them)",
     "issuedWhatHappensNextDetails3": "They have been asked to respond within 7 days. If they don’t respond within 30 days you’ll be sent an email from the court telling you what to do next."
   },
   "cy": {
-    "issuedAppStatusMsg": "[CY] Your application is in progress",
-    "issuedCaseNumberInfo": "[CY] Your case number is:",
-    "issuedAppStatusMsgDetails": "[CY] Your application has passed checks by court staff and the next stage of your divorce has begun. You have been sent a copy of the application by email.",
-    "issuedWhatHappensNext": "[CY] What happens next",
-    "issuedWhatHappensNextDetail1": "[CY] The service centre sent the application to your {{ case.divorceWho }} by post on {{ case.issueDate | date }}. They were also sent an ‘acknowledgement of service’. This is a form which asks if they:",
-    "issuedWhatHappensNextDetails2list1": "[CY] agree with what you’ve said in the application",
-    "issuedWhatHappensNextDetails2list2": "[CY] intend to try to stop the divorce (defend it)",
-    "issuedWhatHappensNextDetails2list3": "[CY] object to paying the costs (if you've claimed them)",
-    "issuedWhatHappensNextDetails3": "[CY] They have been asked to respond within 7 days. If they don’t respond within 30 days you’ll be sent an email from the court telling you what to do next."
+    "issuedAppStatusMsg": "Mae eich cais ar y gweill",
+    "issuedCaseNumberInfo": "Eich rhif achos yw:",
+    "issuedAppStatusMsgDetails": "Mae eich cais wedi pasio gwiriadau staff y llys ac mae cam nesaf eich ysgariad wedi dechrau. Mae copi o'ch cais wedi’i anfon atoch ar e-bost.",
+    "issuedWhatHappensNext": "Beth fydd yn digwydd nesaf",
+    "issuedWhatHappensNextDetail1": "Mi wnaeth y Gwasanaeth Llysoedd a Thribiwnlysoedd anfon y cais at eich {{ case.divorceWho }} drwy’r post ar {{ case.issueDate | date }}. Anfonwyd ‘cydnabyddiad cyflwyno’ atynt hefyd.  Ffurflen yw hon sy’n gofyn os ydynt yn:",
+    "issuedWhatHappensNextDetails2list1": "cytuno gyda beth rydych wedi'i ddweud yn y cais",
+    "issuedWhatHappensNextDetails2list2": "bwriadu ceisio stopio'r ysgariad (ei amddiffyn)",
+    "issuedWhatHappensNextDetails2list3": "gwrthwynebu talu'r costau (os ydych wedi’u hawlio)",
+    "issuedWhatHappensNextDetails3": "Gofynnwyd iddynt ymateb ymhen 7 diwrnod.  Os nad ydyn nhw'n ymateb o fewn 30 diwrnod, byddwch yn cael neges e-bost gan y llys yn dweud wrthych beth i'w wneud nesaf."
   }
 }

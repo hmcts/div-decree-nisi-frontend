@@ -1,12 +1,12 @@
 {
   "en": {
     "awaitingSubmittedDNAppStatusMsg": "What happens next",
-    "awaitingSubmittedDNCourtWillCheck": "The court will check your application and pass it to the judge. If the judge agrees there's no reason why you shouldn't get your divorce, you'll be sent the time, date and court in which you decree nisi will be announced, You'll then be sent your decree nisi.",
-    "awaitingSubmittedDNDecreeNisiGranted": "After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute."
+    "awaitingSubmittedDNCourtWillCheck": "The court will check your application and pass it to the judge. If the judge agrees there’s no reason why you shouldn’t get your divorce, you’ll be sent the time, date and court in which you decree nisi will be announced, You’ll then be sent your decree nisi.",
+    "awaitingSubmittedDNDecreeNisiGranted": "After the decree nisi has been granted, you’ll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute."
   },
   "cy": {
-    "awaitingSubmittedDNAppStatusMsg": "[CY] What happens next",
-    "awaitingSubmittedDNCourtWillCheck": "[CY] The court will check your application and pass it to the judge. If the judge agrees there's no reason why you shouldn't get your divorce, you'll be sent the time, date and court in which you decree nisi will be announced, You'll then be sent your decree nisi.",
-    "awaitingSubmittedDNDecreeNisiGranted": "[CY] After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute."
+    "awaitingSubmittedDNAppStatusMsg": "Beth fydd yn digwydd nesaf",
+    "awaitingSubmittedDNCourtWillCheck": "Bydd y llys yn gwirio’ch cais ac yn ei basio i'r Barnwr. Os yw'r Barnwr yn cytuno nad oes unrhyw reswm pam na ddylech gael ysgariad, byddwch yn cael gwybod am yr amser, y dyddiad a'r llys lle bydd eich Dyfarniad Nisi yn cael ei gyhoeddi. Byddwch wedyn yn cael eich Dyfarniad Nisi.",
+    "awaitingSubmittedDNDecreeNisiGranted": "Ar ôl i'r Dyfarniad Nisi gael ei ganiatáu, bydd rhaid ichi aros 6 wythnos cyn y gallwch wneud cais am Ddyfarniad Absoliwt i gadarnhau eich ysgariad. "
   }
 }

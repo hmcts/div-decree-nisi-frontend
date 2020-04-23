@@ -1,7 +1,7 @@
 {
   "en": {
     "title": "When did you first find out about the adultery?",
-    "whenAdulteryFound": "If you're not sure, use the closest date you remember.",
+    "whenAdulteryFound": "If you’re not sure, use the closest date you remember.",
     "errors": {
       "requireFirstFoundDate": "Enter a date between the day you got married and the day you submitted your divorce application."
     },
@@ -21,9 +21,9 @@
   },
   "cy": {
     "title": "Pa bryd y daethoch i wybod am yr odineb (cael perthynas â rhywun arall) am y tro cyntaf?",
-    "whenAdulteryFound": "Os nad ydych yn siwr, defnyddiwch y dyddiad agosaf rydych yn ei gofio. ",
+    "whenAdulteryFound": "Os nad ydych yn siwr, defnyddiwch y dyddiad agosaf rydych yn ei gofio.",
     "errors": {
-      "requireFirstFoundDate": " Rhowch ddyddiad sydd rhwng dyddiad y briodas a'r dyddiad y bu ichi gyflwyno eich cais am ysgariad."
+      "requireFirstFoundDate": " Rhowch ddyddiad sydd rhwng dyddiad y briodas a’r dyddiad y bu ichi gyflwyno eich cais am ysgariad."
     },
     "fields": {
       "adulteryFirstFoundDate": {
@@ -32,7 +32,7 @@
         "dayLabel": "Diwrnod",
         "monthLabel": "Mis",
         "yearLabel": "Blwyddyn",
-        "allRequired": "Rhowch ddyddiad sydd rhwng dyddiad y briodas a'r dyddiad y bu ichi gyflwyno eich cais am ysgariad.",
+        "allRequired": "Rhowch ddyddiad sydd rhwng dyddiad y briodas a’r dyddiad y bu ichi gyflwyno eich cais am ysgariad.",
         "dayRequired": "Rhowch ddiwrnod dilys ar gyfer pryd y daethoch i wybod am yr odineb am y tro cyntaf",
         "monthRequired": "Rhowch fis dilys ar gyfer pryd y daethoch i wybod am yr odineb am y tro cyntaf",
         "yearRequired": "Rhowch flwyddyn ddilys ar gyfer pryd y daethoch i wybod am yr odineb am y tro cyntaf"

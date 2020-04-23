@@ -32,8 +32,8 @@
         "reason0": "My {{ case.divorceWho }} and I are both habitually resident in England or Wales",
         "reason1": "My {{ case.divorceWho }} and I were last habitually resident in England or Wales and I still live there",
         "reason2": "My {{ case.divorceWho }} is habitually resident in England or Wales",
-        "reason3": "I'm habitually resident in England or Wales and have lived here for at least a year",
-        "reason4": "I'm domiciled and habitually resident in England or Wales and have lived here for at least six months",
+        "reason3": "I’m habitually resident in England or Wales and have lived here for at least a year",
+        "reason4": "I’m domiciled and habitually resident in England or Wales and have lived here for at least six months",
         "reason5": "My {{ case.divorceWho }} and I are both domiciled in England or Wales",
         "reason6": "I believe the courts of England and Wales have jurisdiction on a residual basis"
       },
@@ -74,31 +74,31 @@
     "chatDown": "Nid yw’r gwasanaeth sgwrsio dros y we ar gael ar hyn o bryd; rhowch gynnig arall arni hwyrach ymlaen.",
     "chatWithAnAgent": "Sgwrsio dros y we gydag asiant",
     "noAgentsAvailable": "Nid oes asiant ar gael ar hyn o bryd; rhowch gynnig arall arni hwyrach ymlaen.",
-    "allAgentsBusy": "Mae ein asiantau sgwrsio dros y we i gyd yn brysur ar hyn o bryd yn helpu eraill. Rhowch gynnig arall arni hwyrach ymlaen neu cysylltwch â ni gan ddefnyddio un o'r dulliau uchod.",
+    "allAgentsBusy": "Mae ein asiantau sgwrsio dros y we i gyd yn brysur ar hyn o bryd yn helpu eraill. Rhowch gynnig arall arni hwyrach ymlaen neu cysylltwch â ni gan ddefnyddio un o’r dulliau uchod.",
     "chatClosed": "Mae’r gwasanaeth sgwrsio dros y we nawr ar gau.\\nYr oriau agor yw dydd Llun i ddydd Gwener, 8:30am - 5pm.",
     "chatAlreadyOpen": "Mae ffenestr sgwrsio dros y we ar agor yn barod.",
     "chatOpeningHours": "Dydd Llun i ddydd Gwener, 8.30am - 5pm.",
     "clarificationCourtFeedback" : {
       "jurisdictionDetails": {
-        "title": "Pwerau Cyfreithiol ",
-        "description": "Mae’r llys wedi penderfynu nad yw eich cais yn dod o dan gwmpas pwerau cyfreithiol llysoedd Cymru a Lloegr.<br><br>Mae’n rhaid ichi fod ag o leiaf un o'r cysylltiadau cyfreithiol canlynol i’ch ysgariad ddod o dan gwmpas pwerau llys yng Nghymru a Lloegr: ",
+        "title": "Pwerau Cyfreithiol",
+        "description": "Mae’r llys wedi penderfynu nad yw eich cais yn dod o dan gwmpas pwerau cyfreithiol llysoedd Cymru a Lloegr.<br><br>Mae’n rhaid ichi fod ag o leiaf un o’r cysylltiadau cyfreithiol canlynol i’ch ysgariad ddod o dan gwmpas pwerau llys yng Nghymru a Lloegr:",
         "reason0": "Rydw i a fy {{ case.divorceWho }} yn preswylio’n arferol yng Nghymru a Lloegr",
         "reason1": "Roeddwn i a fy {{ case.divorceWho }} yn preswylio’n arferol ddiwethaf yng Nghymru a Lloegr ac rwy’n dal i fyw yno",
-        "reason2": "Mae fy {{ case.divorceWho }} yn preswylio’n arferol yng Nghymru a Lloegr ",
+        "reason2": "Mae fy {{ case.divorceWho }} yn preswylio’n arferol yng Nghymru a Lloegr",
         "reason3": "Rydw i’n preswylio’n arferol yng Nghymru a Lloegr ac wedi byw yma am o leiaf blwyddyn",
-        "reason4": "Mae fy nomisil yng Nghymru a Lloegr, rwy’n preswylio’n arferol yma ac rwyf wedi byw yma am o leiaf chwe mis ",
+        "reason4": "Mae fy nomisil yng Nghymru a Lloegr, rwy’n preswylio’n arferol yma ac rwyf wedi byw yma am o leiaf chwe mis",
         "reason5": "Mae fy nomisil i a fy {{ case.divorceWho }} yng Nghymru a Lloegr",
         "reason6": "Rwy’n credu bod gan lysoedd Cymru a Lloegr bwerau cyfreithiol ar sail weddillol "
       },
       "marriageCertTranslation": {
-        "title": "Cyfieithiad o’r dystysgrif priodas ",
-        "description": "Rhaid i'r dystysgrif priodas gael ei chyfieithu a’i hardystio drwy ddilyn un o'r dulliau canlynol: ",
-        "method1": "Datganiad gwirionedd<br>Mae cyfieithydd y dystysgrif priodas yn darparu datganiad gwirionedd yn ardystio'r cyfieithiad.  Mae yna wasanaethau cyfieithu ar-lein sy’n cynnwys gwasanaeth ardystio.  ",
+        "title": "Cyfieithiad o’r dystysgrif priodas",
+        "description": "Rhaid i’r dystysgrif priodas gael ei chyfieithu a’i hardystio drwy ddilyn un o’r dulliau canlynol:",
+        "method1": "Datganiad gwirionedd<br>Mae cyfieithydd y dystysgrif priodas yn darparu datganiad gwirionedd yn ardystio’r cyfieithiad.  Mae yna wasanaethau cyfieithu ar-lein sy’n cynnwys gwasanaeth ardystio.",
         "method2": "Notari cyhoeddus<br>Mae’r dystysgrif priodas yn cael ei chyfieithu ac yna ei hardystio gan notari cyhoeddus.  Gallwch ddod o hyd i notari cyhoeddus drwy gysylltu â naill ai Cymdeithas y Notarïaid neu Gymdeithas Ysgrifenyddion Notarïaid.  "
       },
       "marriageCertificate": {
         "title": "Eich tystysgrif priodas wreiddiol",
-        "description": "Nid yw’n ymddangos bod y llun o'r dystysgrif priodas rydych wedi ei rhannu yn gopi wedi ei sganio o'r dystysgrif wreiddiol gyflawn.<br><br>Darparwch lun digidol neu gopi wedi ei sganio o'r dystysgrif wreiddiol, neu anfonwch y ddogfen bapur yn y post.<br><br>Rhaid i'r llun fod o'r ddogfen gyfan a rhaid i staff y llys allu darllen y rhif cyfresol."
+        "description": "Nid yw’n ymddangos bod y llun o’r dystysgrif priodas rydych wedi ei rhannu yn gopi wedi ei sganio o’r dystysgrif wreiddiol gyflawn.<br><br>Darparwch lun digidol neu gopi wedi ei sganio o’r dystysgrif wreiddiol, neu anfonwch y ddogfen bapur yn y post.<br><br>Rhaid i’r llun fod o’r ddogfen gyfan a rhaid i staff y llys allu darllen y rhif cyfresol."
       },
       "previousProceedingDetails": {
         "title": "Manylion Achosion Blaenorol",
@@ -106,7 +106,7 @@
       },
       "caseDetailsStatement": {
         "title": "Datganiad Manylion yr Achos",
-        "description": "Esboniwch eich tystiolaeth am y rheswm rydych wedi'i ddewis (sy’n cael ei alw’n gyfreithiol yn ‘ffeithiau’) dros eich ysgariad.    "
+        "description": "Esboniwch eich tystiolaeth am y rheswm rydych wedi’i ddewis (sy’n cael ei alw’n gyfreithiol yn ‘ffeithiau’) dros eich ysgariad.    "
       },
       "other": {
         "title": " Sylwadau ychwanegol"

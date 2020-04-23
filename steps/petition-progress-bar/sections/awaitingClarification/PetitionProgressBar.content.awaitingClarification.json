@@ -9,12 +9,12 @@
     "awaitingClarificationSubmitDocuments": "You will be able to submit additional documents online or by sending the original paper copies by post."
   },
   "cy" : {
-    "awaitingClarificationTitle": "[CY] You need to provide more information or documents",
-    "awaitingClarificationReviewOfCase": "[CY] Following a review of your case, the court is not yet satisfied that you are entitled to a decree of divorce.",
-    "awaitingClarificationCourtsFeedback": "[CY] The court’s feedback",
-    "awaitingClarificationNotSatisfied": "[CY] You can download and keep the court’s full <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Refusal order PDF.\">Refusal Order ({{ refusalOrderFile.fileType | upper }})</a>.",
-    "awaitingClarificationDoNext": "[CY] What you need to do next",
-    "awaitingClarificationProvideResponse": "[CY] You need to provide a response to the court’s feedback before your application can proceed.",
-    "awaitingClarificationSubmitDocuments": "[CY] You will be able to submit additional documents online or by sending the original paper copies by post."
+    "awaitingClarificationTitle": "Mae angen ichi ddarparu rhagor o wybodaeth neu ddogfennau",
+    "awaitingClarificationReviewOfCase": "Ar ôl adolygu eich cais, nid yw’r llys yn fodlon eto eich bod chi’n gymwys i gael dyfarniad ysgaru.",
+    "awaitingClarificationCourtsFeedback": "Adborth y llys",
+    "awaitingClarificationNotSatisfied": "Gallwch lawrlwytho a chadw'r <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"Bydd y ddolen hon yn lawrlwytho’r Gorchymyn Gwrthod ar ffurf PDF.\">Gorchymyn Gwrthod ({{ refusalOrderFile.fileType | upper }})</a>.",
+    "awaitingClarificationDoNext": "Beth sydd angen i chi wneud nesaf",
+    "awaitingClarificationProvideResponse": "Mae angen ichi ddarparu ymateb i adborth y llys cyn y gallwch barhau â’ch cais.",
+    "awaitingClarificationSubmitDocuments": "Byddwch yn gallu cyflwyno dogfennau ychwanegol ar-lein neu drwy anfon y copïau papur gwreiddiol drwy’r post. "
   }
 }

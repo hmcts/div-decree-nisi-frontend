@@ -1,6 +1,6 @@
 {
   "en": {
-    "title": "You've been signed out",
+    "title": "You’ve been signed out",
     "notSaved": "Your progress has not been saved.",
     "signInToReturn": "<a class=\"govuk-link\" href=\"/\">Sign in</a> to return to the application.",
     "ifYouNeedHelp": "If you need help with this service you can call or email us.",
@@ -9,8 +9,8 @@
   },
   "cy": {
     "title": "Rydych wedi cael eich allgofnodi",
-    "notSaved": "Nid yw'r hyn rydych wedi’i wneud wedi cael ei arbed. ",
-    "signInToReturn": "<a class=\"govuk-link\" href=\"/\" >Mewngofnodwch</a> i ddychwelyd i'r cais.",
+    "notSaved": "Nid yw’r hyn rydych wedi’i wneud wedi cael ei arbed.",
+    "signInToReturn": "<a class=\"govuk-link\" href=\"/\" >Mewngofnodwch</a> i ddychwelyd i’r cais.",
     "ifYouNeedHelp": "Os ydych angen help gyda’r gwasanaeth hwn, gallwch ein ffonio neu gysylltu â ni drwy e-bost.",
     "email": "E-bost: ",
     "phone": "Rhif ffôn: "

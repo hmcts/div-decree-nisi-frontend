@@ -11,8 +11,8 @@
     },
     "adultery": {
       "title": "Do you need to upload evidence of the adultery?",
-      "adulteryDoc": "You should only do this if your {{ case.divorceWho }} hasn't admitted to committing adultery.",
-      "extraDocs": "You can also upload any new documents you've acquired since you first applied which are relevant to your application."
+      "adulteryDoc": "You should only do this if your {{ case.divorceWho }} hasn’t admitted to committing adultery.",
+      "extraDocs": "You can also upload any new documents you’ve acquired since you first applied which are relevant to your application."
     },
     "errors": {
       "required": "Select Yes if you want to share any other documents with the court"
@@ -27,18 +27,18 @@
   },
   "cy": {
     "otherReasons" : {
-      "title": "Ydych chi angen uwchlwytho unrhyw ddogfennau eraill? ",
-      "extraDocuments": "Dylech ond wneud hyn os ydych wedi cael dogfennau eraill sy’n berthnasol i'ch cais ers ichi gyflwyno'ch cais i ddechrau. "
+      "title": "Ydych chi angen uwchlwytho unrhyw ddogfennau eraill?",
+      "extraDocuments": "Dylech ond wneud hyn os ydych wedi cael dogfennau eraill sy’n berthnasol i’ch cais ers ichi gyflwyno’ch cais i ddechrau. "
     },
     "clarification": {
       "title": "Ydych chi eisiau cyflwyno dogfennau ychwanegol?",
-      "extraDocs": "Mae rhaid ichi gyflwyno'r dogfennau y gofynnwyd amdanynt gan y llys.  Gallwch hefyd gyflwyno dogfennau ychwanegol i gefnogi eich ymateb. ",
+      "extraDocs": "Mae rhaid ichi gyflwyno’r dogfennau y gofynnwyd amdanynt gan y llys.  Gallwch hefyd gyflwyno dogfennau ychwanegol i gefnogi eich ymateb.",
       "needToProvide": "Gweld adborth y llys"
     },
     "adultery": {
       "title": "Ydych chi angen uwchlwytho tystiolaeth am yr odineb?",
-      "adulteryDoc": "Dylech ond wneud hyn os nad yw eich {{ case.divorceWho }} wedi cyfaddef eu bod wedi cyflawni godineb. ",
-      "extraDocs": "Gallwch hefyd uwchlwytho unrhyw ddogfennau eraill rydych wedi'u cael sy’n berthnasol i'ch cais ers ichi gyflwyno'ch cais i ddechrau. "
+      "adulteryDoc": "Dylech ond wneud hyn os nad yw eich {{ case.divorceWho }} wedi cyfaddef eu bod wedi cyflawni godineb.",
+      "extraDocs": "Gallwch hefyd uwchlwytho unrhyw ddogfennau eraill rydych wedi’u cael sy’n berthnasol i’ch cais ers ichi gyflwyno’ch cais i ddechrau. "
     },
     "errors": {
       "required": "Dewiswch ‘Ydw’ os ydych eisiau rhannu unrhyw ddogfennau eraill gyda’r llys"
