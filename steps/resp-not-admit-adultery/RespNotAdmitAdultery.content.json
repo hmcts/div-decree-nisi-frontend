@@ -26,7 +26,7 @@
     "fields": {
       "amendPetition": {
         "title": "Dewiswch opsiwn ar gyfer sut ydych chi eisiau parhau",
-        "yes": "Newid fy rheswm dros ysgaru (a thalu ffi o £{{ amendFee }})",
+        "yes": "Newid fy rheswm dros ysgaru (a thalu ffi o Â£{{ amendFee }})",
         "no": "Parhau i ddefnyddio godineb fel rheswm a gadael i’r llys benderfynu"
       }
     }

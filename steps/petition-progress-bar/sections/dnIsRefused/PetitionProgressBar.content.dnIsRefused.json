@@ -29,11 +29,11 @@
   "cy" : {
     "dnIsRefusedTitle": "Mae eich cais wedi cael ei wrthod",
     "dnIsRefusedReviewOfCase": "Ar ôl adolygu eich cais, nid yw’r llys yn fodlon eto eich bod chi’n gymwys i gael dyfarniad ysgaru.",
-    "dnIsRefusedContinueWithApplication": "I barhau â’ch cais, mae’r llys wedi gofyn ichi gyflwyno rhagor o wybodaeth.  Bydd rhaid i chi hefyd dalu ffi o £{{ amendFee }} i newid eich cais.",
+    "dnIsRefusedContinueWithApplication": "I barhau â’ch cais, mae’r llys wedi gofyn ichi gyflwyno rhagor o wybodaeth.  Bydd rhaid i chi hefyd dalu ffi o Â£{{ amendFee }} i newid eich cais.",
     "dnIsRefusedCourtFeedback": "Adborth y llys",
     "dnIsRefusedDownloadAndKeep": "Gallwch lawrlwytho a chadw'r <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"Bydd y ddolen hon yn lawrlwytho’r Gorchymyn Gwrthod ar ffurf PDF.\">Gorchymyn Gwrthod ({{ refusalOrderFile.fileType | upper }})</a>.",
     "dnIsRefusedDoNext": "Beth sydd angen i chi ei wneud nesaf",
-    "dnIsRefusedDivorceToContinue": "Os ydych eisiau i'ch ysgariad barhau, bydd angen ichi wneud newidiadau i’ch cais a’i ailgyflwyno. Bydd rhaid ichi hefyd dalu ffi o £{{ amendFee }} i newid eich cais.",
+    "dnIsRefusedDivorceToContinue": "Os ydych eisiau i'ch ysgariad barhau, bydd angen ichi wneud newidiadau i’ch cais a’i ailgyflwyno. Bydd rhaid ichi hefyd dalu ffi o Â£{{ amendFee }} i newid eich cais.",
     "dnIsRefusedSentToDivorceWho": "Yna bydd y cais yn cael ei anfon i’ch {{ case.divorceWho }} eto fel y gallant ymateb.",
     "dnIsRefusedRefusalCourtFeedback" : {
       "noJurisdiction": {

@@ -16,7 +16,7 @@
     "respDoesNotAdmitAdulteryPar3": "Fe ofynnir ichi ddewis un o'r opsiynau hyn ar ôl ichi ddarllen ymateb eich {{ case.divorceWho }}.",
     "respDoesNotConsent2YearSepTitle": "Nid yw eich {{ case.divorceWho }} wedi cydsynio i gael ysgariad",
     "respDoesNotConsent2YearSepYouMustHave": "Mae’n rhaid ichi gael cydsyniad eich {{ case.divorceWho }} i ddefnyddio'r rheswm 'wedi gwahanu ers 2 flynedd gyda chydsyniad’ i gael ysgariad.",
-    "respDoesNotConsent2YearSepYouHaveToPay": "Os ydych eisiau parhau, bydd angen ichi newid eich rheswm dros fod eisiau cael ysgariad.  Bydd rhaid ichi dalu ffi o £{{ amendFee }}. Bydd angen ichi anfon eich cais at eich {{ case.divorceWho }} eto.",
+    "respDoesNotConsent2YearSepYouHaveToPay": "Os ydych eisiau parhau, bydd angen ichi newid eich rheswm dros fod eisiau cael ysgariad. Bydd rhaid ichi dalu ffi o Â£{{ amendFee }}. Bydd angen ichi anfon eich cais at eich {{ case.divorceWho }} eto.",
     "respDoesNotConsent2YearSepReadResponse": "Darllenwch ymateb eich {{ case.divorceWho }} ar y dudalen nesaf."
   }
 }
