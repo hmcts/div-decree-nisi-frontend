@@ -61,63 +61,55 @@
     }
   },
   "cy": {
-    "continue": "[CY] Continue",
-    "serviceName": "[CY] Apply for a divorce",
-    "backLink": "[CY] Back",
-    "problemWithThisPage": "[CY] Contact us for help",
-    "phoneTitle": "[CY] Telephone",
-    "phoneToCallIfProblems": "[CY] 0300 303 0642<br>Monday to Friday, 8.30am to 5pm",
-    "responseTime": "[CY] We aim to get back to you within 5 days",
-    "emailTitle": "[CY] Send us a message",
-    "emailIfProblems": "[CY] <a class=\"govuk-link\" href=\"mailto:divorcecase@justice.gov.uk\" aria-label=\"Send us a message at at divorcecase@justice.gov.uk, this link opens a new email.\">Send us a message</a>",
-    "webChatTitle": "[CY] Web chat",
-    "chatDown": "[CY] The web chat service is temporarily unavailable, please try again later.",
-    "chatWithAnAgent": "[CY] Chat online with an agent",
-    "noAgentsAvailable": "[CY] No agents are available, please try again later.",
-    "allAgentsBusy": "[CY] All our web chat agents are busy helping other people. Please try again later or contact us using one of the ways above.",
-    "chatClosed": "[CY] Web chat is now closed.\\nOpening hours are Monday to Friday, 8:30am to 5pm.",
-    "chatAlreadyOpen": "[CY] A web chat window is already open.",
-    "chatOpeningHours": "[CY] Monday to Friday, 8am to 8pm, Saturday 8am to 2pm",
-    "feedback": "Mae hwn yn wasanaeth newydd - bydd eich <a aria-label=\"Adborth: Bydd y ddolen hon yn agor mewn ffenestr newydd. Bydd angen ichi ddychwelyd i&rsquo;r ffenestr hon i barhau gyda&rsquo;ch cais.\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">adborth</a> yn ein helpu ni i&rsquo;w wella.",
-    "languageToggle": "<a href=\"?lng=en\" class=\"govuk-link language\">English</a>",
-    "accessibility": "Datganiad Hygyrchedd",
-    "cookies": "Cwcis",
-    "privacyPolicy": "Polisi Preifatrwydd",
-    "termsAndConditions": "Telerau ac Amodau",
-    "signIn": "Mewngofnodi",
+    "continue": "Parhau",
+    "serviceName": "Gwneud cais am ysgariad",
     "signOut": "Allgofnodi",
+    "problemWithThisPage": "Cysylltwch â ni i gael cymorth",
+    "phoneTitle": "Rhif ffôn",
+    "phoneToCallIfProblems": "0300 303 5171<br>Dydd Llun i ddydd Gwener, 8.30am - 5pm",
+    "responseTime": "Byddwn yn anelu at ymateb o fewn 5 diwrnod gwaith",
+    "emailTitle": "Anfonwch neges atom",
+    "emailIfProblems": "<a class=\"govuk-link\" href=\"mailto:divorcecase@justice.gov.uk\" aria-label=\"Anfonwch neges atom i ymholiadaucymraeg@justice.gov.uk, mae’r ddolen hon yn agor neges e-bost newydd.\" >Anfonwch neges atom</a>",
+    "webChatTitle": "Sgwrsio dros y we",
+    "chatDown": "Nid yw’r gwasanaeth sgwrsio dros y we ar gael ar hyn o bryd; rhowch gynnig arall arni hwyrach ymlaen.",
+    "chatWithAnAgent": "Sgwrsio dros y we gydag asiant",
+    "noAgentsAvailable": "Nid oes asiant ar gael ar hyn o bryd; rhowch gynnig arall arni hwyrach ymlaen.",
+    "allAgentsBusy": "Mae ein asiantau sgwrsio dros y we i gyd yn brysur ar hyn o bryd yn helpu eraill. Rhowch gynnig arall arni hwyrach ymlaen neu cysylltwch â ni gan ddefnyddio un o'r dulliau uchod.",
+    "chatClosed": "Mae’r gwasanaeth sgwrsio dros y we nawr ar gau.\\nYr oriau agor yw dydd Llun i ddydd Gwener, 8:30am - 5pm.",
+    "chatAlreadyOpen": "Mae ffenestr sgwrsio dros y we ar agor yn barod.",
+    "chatOpeningHours": "Dydd Llun i ddydd Gwener, 8.30am - 5pm.",
     "clarificationCourtFeedback" : {
       "jurisdictionDetails": {
-        "title": "[CY] Jurisdiction details",
-        "description": "[CY] The court has judged that your application does not fall within the jurisdiction of the courts of England and Wales.<br><br>You must have at least one of the following legal connections for your divorce to fall within the jurisdiction of a court in England and Wales:",
-        "reason0": "[CY] My {{ case.divorceWho }} and I are both habitually resident in England or Wales",
-        "reason1": "[CY] My {{ case.divorceWho }} and I were last habitually resident in England or Wales and I still live there",
-        "reason2": "[CY] My {{ case.divorceWho }} is habitually resident in England or Wales",
-        "reason3": "[CY] I'm habitually resident in England or Wales and have lived here for at least a year",
-        "reason4": "[CY] I'm domiciled and habitually resident in England or Wales and have lived here for at least six months",
-        "reason5": "[CY] My {{ case.divorceWho }} and I are both domiciled in England or Wales",
-        "reason6": "[CY] I believe the courts of England and Wales have jurisdiction on a residual basis"
+        "title": "Pwerau Cyfreithiol ",
+        "description": "Mae’r llys wedi penderfynu nad yw eich cais yn dod o dan gwmpas pwerau cyfreithiol llysoedd Cymru a Lloegr.<br><br>Mae’n rhaid ichi fod ag o leiaf un o'r cysylltiadau cyfreithiol canlynol i’ch ysgariad ddod o dan gwmpas pwerau llys yng Nghymru a Lloegr: ",
+        "reason0": "Rydw i a fy {{ case.divorceWho }} yn preswylio’n arferol yng Nghymru a Lloegr",
+        "reason1": "Roeddwn i a fy {{ case.divorceWho }} yn preswylio’n arferol ddiwethaf yng Nghymru a Lloegr ac rwy’n dal i fyw yno",
+        "reason2": "Mae fy {{ case.divorceWho }} yn preswylio’n arferol yng Nghymru a Lloegr ",
+        "reason3": "Rydw i’n preswylio’n arferol yng Nghymru a Lloegr ac wedi byw yma am o leiaf blwyddyn",
+        "reason4": "Mae fy nomisil yng Nghymru a Lloegr, rwy’n preswylio’n arferol yma ac rwyf wedi byw yma am o leiaf chwe mis ",
+        "reason5": "Mae fy nomisil i a fy {{ case.divorceWho }} yng Nghymru a Lloegr",
+        "reason6": "Rwy’n credu bod gan lysoedd Cymru a Lloegr bwerau cyfreithiol ar sail weddillol "
       },
       "marriageCertTranslation": {
-        "title": "[CY] Marriage Certificate Translation",
-        "description": "[CY] The marriage certificate must be translated and certified by one of the following methods:",
-        "method1": "[CY] Statement of truth<br>The translator of the marriage certificate provides a statment of truth certifying the translation. There are translation services online which inlcude certification as part of their service.",
-        "method2": "[CY] Notary public<br>The marriage certificate is translated and then certified by a notary public. You can find a notary public through either the Notaries Society of the Society of Scrivener Notaries."
+        "title": "Cyfieithiad o’r dystysgrif priodas ",
+        "description": "Rhaid i'r dystysgrif priodas gael ei chyfieithu a’i hardystio drwy ddilyn un o'r dulliau canlynol: ",
+        "method1": "Datganiad gwirionedd<br>Mae cyfieithydd y dystysgrif priodas yn darparu datganiad gwirionedd yn ardystio'r cyfieithiad.  Mae yna wasanaethau cyfieithu ar-lein sy’n cynnwys gwasanaeth ardystio.  ",
+        "method2": "Notari cyhoeddus<br>Mae’r dystysgrif priodas yn cael ei chyfieithu ac yna ei hardystio gan notari cyhoeddus.  Gallwch ddod o hyd i notari cyhoeddus drwy gysylltu â naill ai Cymdeithas y Notarïaid neu Gymdeithas Ysgrifenyddion Notarïaid.  "
       },
       "marriageCertificate": {
-        "title": "[CY] Your original marriage certificate",
-        "description": "[CY] The image of the marriage certificate you shared does not appear to be a scanned copy of the full original.<br><br>Please provide a digital photo or scan of the original, or the paper document in the post.<br><br>The image must be of the whole document and include the serial / system number and must be readable by court staff."
+        "title": "Eich tystysgrif priodas wreiddiol",
+        "description": "Nid yw’n ymddangos bod y llun o'r dystysgrif priodas rydych wedi ei rhannu yn gopi wedi ei sganio o'r dystysgrif wreiddiol gyflawn.<br><br>Darparwch lun digidol neu gopi wedi ei sganio o'r dystysgrif wreiddiol, neu anfonwch y ddogfen bapur yn y post.<br><br>Rhaid i'r llun fod o'r ddogfen gyfan a rhaid i staff y llys allu darllen y rhif cyfresol."
       },
       "previousProceedingDetails": {
-        "title": "[CY] Previous Proceeding Details",
-        "description": "[CY] Clarify whether there are, or have ever been, any other legal proceedings related to the marriage. Provide evidence that any previous proceeding has either been dismissed or withdrawn."
+        "title": "Manylion Achosion Blaenorol",
+        "description": "Cadarnhewch p’un a oes, neu a oes wedi bod erioed, unrhyw achosion llys eraill sy’n ymwneud â’r briodas.  Darparwch dystiolaeth bod unrhyw achos blaenorol wedi’i wrthod neu ei dynnu’n ôl. "
       },
       "caseDetailsStatement": {
-        "title": "[CY] Case Details Statement",
-        "description": "[CY] Clarify your evidence for the chosen reason (legally known as the 'facts') for your divorce."
+        "title": "Datganiad Manylion yr Achos",
+        "description": "Esboniwch eich tystiolaeth am y rheswm rydych wedi'i ddewis (sy’n cael ei alw’n gyfreithiol yn ‘ffeithiau’) dros eich ysgariad.    "
       },
       "other": {
-        "title": "[CY] Additional comments"
+        "title": " Sylwadau ychwanegol"
       }
     }
   }

@@ -7,10 +7,10 @@
     "notAbleToRead": "You won’t be able to read your {{ case.divorceWho }}’s response after you started amending your application. Go back a screen if you want to read it again."
   },
   "cy": {
-    "title": "[CY] Amend your application",
-    "start": "[CY] Start",
-    "ifYouWantYour": "[CY] If you want your divorce to continue, you need to resubmit the application using a different reason (fact) for divorce.",
-    "amendmentFee": "[CY] You’ll also have to pay an amendment fee of £{{ amendFee }}.",
-    "notAbleToRead": "[CY] You won’t be able to read your {{ case.divorceWho }}’s response after you started amending your application. Go back a screen if you want to read it again."
+    "title": "Gwneud newidiadau i’ch cais",
+    "start": "Dechrau",
+    "ifYouWantYour": "Os ydych eisiau i’ch ysgariad barhau, mae angen ichi ailgyflwyno'r cais a defnyddio rheswm gwahanol (ffaith) dros yr ysgariad. ",
+    "amendmentFee": "Bydd rhaid ichi hefyd dalu ffi o Â£{{ amendFee }} i newid eich cais. ",
+    "notAbleToRead": "Ni fyddwch yn gallu darllen ymateb eich {{ case.divorceWho }} ar ôl ichi ddechrau gwneud newidiadau i'ch cais. Ewch un sgrin yn ôl os ydych eisiau ei ddarllen eto.  "
   }
 }

@@ -28,29 +28,29 @@
     }
   },
   "cy": {
-    "title": "[CY] Your claim for the divorce costs",
-    "applicationYouAsked": "[CY] In your application you asked the court that your {{ case.divorceWho }} pay some or all of the costs of the divorce.",
-    "yourSpouseHas": "[CY] Your {{ case.divorceWho }} has",
-    "respPay": "[CY] agreed to pay some or all of the costs of the divorce.",
-    "respNotPay": "[CY] said they should not pay the costs and has given the following explanation:",
-    "courtWillDecide": "[CY] It is up to the court to decide how the costs will be split, but it will take into account any requests you and your husband make.",
-    "readMore": "[CY] Read more about the costs order",
-    "shouldPayCosts": "[CY] The court will make its decision on whether you should pay any costs when you submit your application for decree nisi.",
-    "divorceWillBeGranted": "[CY] You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made.",
-    "rulesInFavour": "[CY] If the court rules in your favour, your husband will be ordered to pay you back your costs within 14 days of the order being made.",
-    "disputeTheCosts": "[CY] Your husband can dispute the costs order. They'll need to tell the court why they don't think they should pay at least 14 days before the hearing.",
+    "title": "Eich hawliad am gostau'r ysgariad",
+    "applicationYouAsked": "Yn eich cais, mi ofynnoch i’r llys orchymyn bod eich {{ case.divorceWho }} yn talu rhywfaint neu holl gostau'r ysgariad.   ",
+    "yourSpouseHas": "Mae eich {{ case.divorceWho }} wedi ",
+    "respPay": "cytuno i dalu rhywfaint neu holl gostau'r ysgariad.",
+    "respNotPay": "dweud na ddylent dalu'r costau ac wedi rhoi'r eglurhad canlynol:",
+    "courtWillDecide": "Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn cymryd i ystyriaeth unrhyw geisiadau yr ydych chi a'ch priod wedi’u gwneud.   ",
+    "readMore": "Darllen mwy am y gorchymyn costau",
+    "shouldPayCosts": "Bydd y llys yn gwneud ei benderfyniad ynghylch p’un a ddylech dalu unrhyw gostau pan fyddwch yn cyflwyno eich cais am Ddyfarniad Nisi. ",
+    "divorceWillBeGranted": "Fe gewch benderfyniad y llys yr un pryd ag y byddwch yn darganfod p’un a fydd yr ysgariad yn cael ei chaniatáu, a dyddiad y gwrandawiad pan fydd y datganiad nisi yn cael ei gyhoeddi.",
+    "rulesInFavour": "Os bydd y llys yn dyfarnu o’ch plaid, bydd eich priod yn cael gorchymyn i dalu eich costau yn ôl ichi o fewn 14 diwrnod i ddyddiad y gorchymyn.",
+    "disputeTheCosts": "Gall eich priod wrthwynebu'r gorchymyn costau.  Bydd angen iddynt ddweud wrth y llys pam eu bod yn credu na ddylent dalu o leiaf 14 diwrnod cyn y gwrandawiad. ",
     "errors": {
-      "required": "[CY] Select what you want to claim?",
-      "requiredCostsDifferentDetails": "[CY] State what you want to claim and why"
+      "required": "Dewiswch beth ydych eisiau hawlio",
+      "requiredCostsDifferentDetails": "Dywedwch beth ydych eisiau hawlio a pham"
     },
     "fields": {
       "dnCosts": {
-        "title": "[CY] Your claim for the divorce costs",
-        "originalAmount": "[CY] I still want to claim my costs and will let the court decide how much.",
-        "differentAmount": "[CY] I want to claim a specific amount",
-        "endClaim": "[CY] I don't want to claim my costs anymore",
+        "title": "Eich hawliad am gostau'r ysgariad",
+        "originalAmount": "Rwyf dal eisiau hawlio fy nghostau a byddaf yn gadael i'r llys benderfynu faint. ",
+        "differentAmount": "Rwyf eisiau hawlio swm penodol",
+        "endClaim": "Nid wyf eisiau hawlio fy nghostau mwyach",
         "costsDifferentDetails": {
-          "title": "[CY] State what you want to claim and why"
+          "title": " Dywedwch beth ydych eisiau hawlio a pham"
         }
       }
     }

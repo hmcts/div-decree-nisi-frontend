@@ -31,34 +31,30 @@
     "summaryTableCaption": "This table has a list of your questions and answers. The first column is the question. The second column is your answer and the third column is a link to change your answer of that particular question."
   },
   "cy": {
-    "title": "[CY] Check your answers",
-    "confirm": "[CY] Confirm the following",
-    "imprisonedOrContempt": "[CY] You could be fined or imprisoned for contempt of court if you deliberately submit false information.",
-    "confirmThat": "[CY] I confirm that:",
-    "applyingForDecreeNisi": "[CY] I’m asking the court to grant a decree dissolving my marriage.",
-    "applyingForDecreeNisiClaimsCostsRespondent": "[CY] I’m asking the court to grant a decree dissolving my marriage and to order my {{ case.divorceWho }} to pay some or all of the divorce costs.",
-    "applyingForDecreeNisiClaimsCostsCoRespondent": "[CY] I’m asking the court to grant a decree dissolving my marriage and to order the co-respondent to pay some or all of the divorce costs.",
-    "applyingForDecreeNisiClaimsCostsRespondentCoRespondent": "[CY] I’m asking the court to grant a decree dissolving my marriage and to order my {{ case.divorceWho }} and co-respondent to pay some or all of the divorce costs.",
-    "needToProvide": "[CY] See the court’s feedback",
-
-    "facts": "[CY] I believe that the facts stated in this application are true.",
-    "whatTheseStatments": "[CY] What these statements are",
-    "firstStatment": "[CY] The first statement is your formal application to the court. The second is your statement of truth.",
-    "submit": "[CY] Submit",
-    "continue": "[CY] Continue application",
-
+    "title": "Gwiriwch eich atebion",
+    "confirm": "Cadarnhewch y canlynol",
+    "imprisonedOrContempt": "Gallech gael dirwy neu eich carcharu am ddirmyg llys os ydych yn cyflwyno gwybodaeth y gwyddoch ei bod yn anwir.  ",
+    "confirmThat": "Rwy’n cadarnhau: ",
+    "applyingForDecreeNisi": "Fy mod yn gofyn i’r llys roi dyfarniad i ddiddymu fy mhriodas. ",
+    "applyingForDecreeNisiClaimsCostsRespondent": "Fy mod yn gofyn i'r llys roi dyfarniad i ddiddymu fy mhriodas ac i orchymyn bod fy {{ case.divorceWho }} yn talu rhywfaint neu holl gostau’r ysgariad. ",
+    "applyingForDecreeNisiClaimsCostsCoRespondent": "Fy mod yn gofyn i'r llys roi dyfarniad i ddiddymu fy mhriodas ac i orchymyn bod y Cyd-atebydd yn talu rhywfaint neu holl gostau’r ysgariad. ",
+    "applyingForDecreeNisiClaimsCostsRespondentCoRespondent": "Fy mod yn gofyn i'r llys roi dyfarniad i ddiddymu fy mhriodas ac i orchymyn bod fy {{ case.divorceWho }} a’r Cyd-atebydd yn talu rhywfaint neu holl gostau'r ysgariad. ",
+    "needToProvide": "Gweler adborth y llys",
+    "facts": "Credaf fod y ffeithiau a nodir yn y cais hwn yn wir.",
+    "whatTheseStatments": "Beth yw’r datganiadau hyn",
+    "firstStatment": "Y datganiad cyntaf yw eich cais ffurfiol i'r llys.  Yr ail yw eich datganiad gwirionedd.",
+    "submit": "Cyflwyno",
+    "continue": "Parhau â’r cais",
     "errors": {
-      "required": "[CY] Confirm that you agree to the statement of truth",
-      "submitError": "[CY] Sorry, we’re having technical problems. Please try again in a few minutes. If the problem continues you can contact the Courts and Tribunals Service Centre."
+      "required": "Cadarnhewch eich bod yn cytuno â’r datganiad gwirionedd",
+      "submitError": "Yn anffodus, rydym yn cael problemau technegol.  Rhowch gynnig arall arni ymhen ychydig o funudau.  Os bydd y broblem yn parhau, gallwch gysylltu â’r Gwasanaeth Llysoedd a Thribiwnlysoedd. "
     },
-
     "fields": {
       "statementOfTruth": {
-        "yes": "[CY] I confirm that:",
-        "clarificationYes": "[CY] I can confirm that I believe that the facts stated in this application are true."
+        "yes": "Rwy’n cadarnhau:",
+        "clarificationYes": "Gallaf gadarnhau fy mod yn credu bod y ffeithiau a nodir yn y cais hwn yn wir."
       }
     },
-
-    "summaryTableCaption": "[CY] This table has a list of your questions and answers. The first column is the question. The second column is your answer and the third column is a link to change your answer of that particular question."
+    "summaryTableCaption": " Mae’r tabl hwn yn cynnwys rhestr o'r cwestiynau a’ch atebion.  Mae'r cwestiwn yn y golofn gyntaf.  Mae’ch ateb yn yr ail golofn ac mae’r drydedd golofn yn cynnwys dolen ichi newid eich ateb ar gyfer y cwestiwn hwnnw."
   }
 }

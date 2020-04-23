@@ -20,22 +20,22 @@
     }
   },
   "cy": {
-    "title": "[CY] When did you first find out about the adultery?",
-    "whenAdulteryFound": "[CY] If you're not sure, use the closest date you remember.",
+    "title": "Pa bryd y daethoch i wybod am yr odineb (cael perthynas â rhywun arall) am y tro cyntaf?",
+    "whenAdulteryFound": "Os nad ydych yn siwr, defnyddiwch y dyddiad agosaf rydych yn ei gofio. ",
     "errors": {
-      "requireFirstFoundDate": "[CY] Enter a date between the day you got married and the day you submitted your divorce application."
+      "requireFirstFoundDate": " Rhowch ddyddiad sydd rhwng dyddiad y briodas a'r dyddiad y bu ichi gyflwyno eich cais am ysgariad."
     },
     "fields": {
       "adulteryFirstFoundDate": {
-        "question": "[CY] Enter the date that you first found out about the adultery",
-        "hint": "[CY] For example, 31 3 2002",
-        "dayLabel": "[CY] Day",
-        "monthLabel": "[CY] Month",
-        "yearLabel": "[CY] Year",
-        "allRequired": "[CY] Enter a date between the day you got married and the day you submitted your divorce application.",
-        "dayRequired": "[CY] Enter a valid day that you first found out about the adultery",
-        "monthRequired": "[CY] Enter a valid month that you first found out about the adultery",
-        "yearRequired": "[CY] Enter a valid year that you first found out about the adultery"
+        "question" : "Rhowch y dyddiad y daethoch i wybod am yr odineb am y tro cyntaf",
+        "hint": "Er enghraifft, 31 3 2002",
+        "dayLabel": "Diwrnod",
+        "monthLabel": "Mis",
+        "yearLabel": "Blwyddyn",
+        "allRequired": "Rhowch ddyddiad sydd rhwng dyddiad y briodas a'r dyddiad y bu ichi gyflwyno eich cais am ysgariad.",
+        "dayRequired": "Rhowch ddiwrnod dilys ar gyfer pryd y daethoch i wybod am yr odineb am y tro cyntaf",
+        "monthRequired": "Rhowch fis dilys ar gyfer pryd y daethoch i wybod am yr odineb am y tro cyntaf",
+        "yearRequired": "Rhowch flwyddyn ddilys ar gyfer pryd y daethoch i wybod am yr odineb am y tro cyntaf"
       }
     }
   }

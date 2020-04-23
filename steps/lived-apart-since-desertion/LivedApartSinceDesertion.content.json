@@ -20,21 +20,21 @@
     }
   },
   "cy": {
-    "title": "[CY] Have you lived apart since you applied for a divorce?",
-    "mustHaveLivedApart": "[CY] You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
+    "title": "Ydych chi wedi byw ar wahân ers ichi wneud cais am ysgariad?",
+    "mustHaveLivedApart": "Mae’n bosib i’r llys ystyried eich bod yn byw ar wahân er eich bod yn byw yn yr un cyfeiriad, cyn belled eich bod chi'n byw’n annibynnol. Er enghraifft, nid ydych yn byw, yn cysgu neu’n cymdeithasu gyda’ch gilydd.",
     "errors": {
-      "required": "[CY] Select yes if you've lived apart since you applied for a divorce?",
-      "requireDatesOfLivingTogether": "[CY] Enter details of how long you've lived together and the circumstances."
+      "required": "Dewiswch ‘Do’ os ydych chi wedi byw ar wahân ers ichi wneud cais am ysgariad.",
+      "requireDatesOfLivingTogether": "Nodwch ers faint rydych wedi bod yn byw gyda’ch gilydd a’r amgylchiadau. "
     },
     "fields": {
       "changes": {
         "livedApartSinceDesertion": {
-          "title": "[CY] Have you lived apart since you applied for a divorce?",
-          "yes": "[CY] Yes",
-          "no": "[CY] No"
+          "title": "Ydych chi wedi byw ar wahân ers ichi wneud cais am ysgariad?",
+          "yes": "Do",
+          "no": "Naddo"
         },
         "approximateDatesOfLivingTogetherField": {
-          "title": "[CY] Provide details of how long you've lived together and the circumstances"
+          "title": "Nodwch ers faint rydych wedi bod yn byw gyda’ch gilydd a’r amgylchiadau"
         }
       }
     }

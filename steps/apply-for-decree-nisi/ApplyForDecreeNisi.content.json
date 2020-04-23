@@ -20,22 +20,22 @@
     }
   },
   "cy": {
-    "title": "[CY] Do you want to continue with your divorce and apply for a decree nisi?",
-    "amendOrAdd": "[CY] You'll still be able to amend or add to your application and change your request for a costs order if you want to.",
-    "readMore": "[CY] Read more about the decree nisi",
-    "orderForDivorce": "[CY] The court order for divorce (known as a decree) is made in 2 stages. You’re only divorced once both stages are complete.",
-    "decreeNisi": "[CY] The 'decree nisi', which shows that the court agrees that you’re entitled to a divorce.",
-    "decreeAbsolute": "[CY] The ‘decree absolute’, which legally ends the marriage. It cannot be made until at least 6 weeks after the decree nisi.",
-    "courtCanCancel": "[CY] The court can cancel (legally known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.",
-    "signOutDetail": "[CY] Press Continue to sign out. If you want to withdraw your divorce application, contact the Courts and Tribunals Service Centre.",
+    "title": "Ydych chi eisiau parhau gyda’ch ysgariad a gwneud cais am Ddyfarniad Nisi?",
+    "amendOrAdd": "Byddwch dal yn gallu newid neu ychwanegu at eich cais am ysgariad a newid eich cais am orchymyn costau os ydych eisiau. ",
+    "readMore": "Darllen mwy am y Dyfarniad Nisi",
+    "orderForDivorce": "Mae 2 gam i'r gorchymyn llys am ysgariad (a elwir yn ‘dyfarniad’). Dim ond pan fydd y ddau gam wedi’i gwblhau y byddwch wedi ysgaru.",
+    "decreeNisi": "Y ‘Dyfarniad Nisi’ yw’r ddogfen a gewch gan y llys pan fydd yn cytuno bod gennych hawl i gael ysgariad. ",
+    "decreeAbsolute": "Y ‘Dyfarniad Absoliwt’, sy’n dod â’r briodas i ben yn gyfreithiol.  Ni ellir ei roi tan o leiaf 6 wythnos ar ôl y Dyfarniad Nisi.",
+    "courtCanCancel": "Gall y llys ganslo (a elwir yn gyfreithiol yn ‘dadwneud’) y Datganiad Nisi unrhyw bryd hyd at adeg cyflwyno’r Dyfarniad Absoliwt, os bydd yn cael tystiolaeth newydd yn dangos pam na ddylech gael ysgariad. ",
+    "signOutDetail": "Cliciwch ar Parhau i allgofnodi.  Os ydych eisiau tynnu eich cais am ysgariad yn ôl, cysylltwch â’r Gwasanaeth Llysoedd a Thribiwnlysoedd. ",
     "errors": {
-      "required": "[CY] Choose whether you want to continue with your divorce"
+      "required": " Dewiswch p’un a ydych eisiau parhau gyda’ch ysgariad"
     },
     "fields": {
       "applyForDecreeNisi": {
-        "title": "[CY] Do you want to continue with your divorce and apply for a 'decree nisi'?",
-        "yes": "[CY] Yes",
-        "no": "[CY] No"
+        "title": "Ydych chi eisiau parhau gyda’ch ysgariad a gwneud cais am ‘Ddyfarniad Nisi’?",
+        "yes": "Ydw",
+        "no": "Nac ydw"
       }
     }
   }

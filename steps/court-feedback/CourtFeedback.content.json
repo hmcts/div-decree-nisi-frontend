@@ -12,14 +12,14 @@
     }
   },
   "cy": {
-    "title": "[CY] Respond to the court's feedback?",
-    "needToProvide": "[CY] See the court’s feedback",
+    "title": "Ymateb i adborth y llys",
+    "needToProvide" : "Gweld adborth y llys",
     "errors": {
-      "required": "[CY] You need to enter a response before continuing"
+      "required": " Mae angen ichi ymateb cyn y gallwch barhau"
     },
     "fields": {
       "response": {
-        "title": "[CY] Your response"
+        "title": " Eich ymateb"
       }
     }
   }
