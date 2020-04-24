@@ -16,7 +16,6 @@
     "continueWithApplication": "Continue with this application. When you’re finished you’ll be given a reference number and the address of the Courts and Tribunals Service Centre.",
     "writeTheReference": "Write the reference number on the back of each document.",
     "postToCourt": "Post all your documents to the service centre.",
-
     "uploadedFiles": "Uploaded files",
     "noFiles": "No files uploaded",
     "remove": "Remove",
@@ -30,7 +29,6 @@
     "uploading": "Uploading",
     "pendingUpload": "Pending Upload",
     "hide": "Hide",
-
     "errors": {
       "errorUnknown": "Sorry, there has been a problem uploading this file. Please try again later.",
       "errorFileSizeTooLarge": "This file is too large and exceeds the 10mb limit. Please reduce the size of the file and try again.",

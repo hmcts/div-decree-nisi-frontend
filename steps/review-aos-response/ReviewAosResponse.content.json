@@ -3,13 +3,11 @@
     "title": "Read your {{ case.divorceWho }}’s response",
     "respSolicitorRepresented": "This response was submitted by the respondent’s nominated solicitor.",
     "youNeedToRead": "You need to read your {{ case.divorceWho }}’s response before you continue. The response is legally known as the 'acknowledgement of service'",
-
     "acknowledgementOfSrvice": "Acknowledgement of service",
     "respondent": "Respondent",
     "corespondent": "Co-respondent",
     "applicant": "Applicant",
     "whatThisMeans": "What this means",
-
     "respProceed": {
       "title": "How the respondent wants to proceed",
       "willDefendDivorce": "The respondent will try to prevent the divorce based on this application (they intend to 'defend' it).",
@@ -36,7 +34,6 @@
       "proceedNotAccept": "to proceed, but not accept the allegations",
       "disagree": "to disagree with the application - if they want to try to prevent the divorce or want to make their own application for divorce (they intend to 'defend' it)"
     },
-
     "jurisdiction": {
       "title": "Jurisdiction of the court",
       "otherCourtDetails": "Other court cases that could affect jurisdiction",
@@ -49,7 +46,6 @@
       "respondentWasAsked": "The respondent was asked if they agree with the jurisdiction connections which you give in your divorce application.",
       "courtProceedings": "They were also asked if there were any other court proceedings which may affect the marriage."
     },
-
     "costsOrder": {
       "title": "Costs order",
       "agreedToPayCosts": "Your {{ case.divorceWho }} has agreed to pay some or all of the costs of the divorce.",
@@ -60,12 +56,10 @@
       "notPayCosts": "to not agree to paying any of the costs",
       "chanceToChangeAmount": "You’ll be given a chance to accept their suggestion or change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ case.divorceWho }} make."
     },
-
     "statementOfTruth": {
       "title": "Statement of Truth",
       "details": "\"I believe that the facts stated in this application are true.\""
     },
-
     "fields": {
       "reviewAosResponse": {
         "title": "Your {{ case.divorceWho }}’s response",
@@ -79,7 +73,6 @@
     "title": "Darllenwch ymateb eich {{ case.divorceWho }}",
     "respSolicitorRepresented": "Cyflwynwyd yr ymateb hwn gan gyfreithiwr yr Atebydd.",
     "youNeedToRead": "Mae angen ichi ddarllen ymateb eich {{ case.divorceWho }} cyn ichi barhau.  Yn gyfreithiol, gelwir yr ymateb yn ‘Cydnabyddiad Cyflwyno’",
-
     "acknowledgementOfSrvice": "Cydnabyddiad Cyflwyno",
     "respondent": "Atebydd",
     "corespondent": "Cyd-atebydd",
@@ -133,7 +126,6 @@
       "notPayCosts": "ddim yn cytuno i dalu unrhyw gostau",
       "chanceToChangeAmount": "Fe gewch gyfle i dderbyn eu hawgrym neu i newid eich meddwl ynghylch hawlio costau hwyrach ymlaen yn y cais.  Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn cymryd i ystyriaeth unrhyw geisiadau yr ydych chi a’ch {{ case.divorceWho }} yn eu gwneud."
     },
-
     "statementOfTruth": {
       "title": " Datganiad Gwirionedd",
       "details": "\"I believe that the facts stated in this application are true.\""
