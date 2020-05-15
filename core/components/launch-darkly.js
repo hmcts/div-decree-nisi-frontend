@@ -50,7 +50,7 @@ class Singleton {
   close() {
     if (this.instance) {
       this.instance.close();
-      this.instance = null;
+      delete this.instance;
     }
   }
 }
