@@ -17,7 +17,8 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'clarificationCourtFeedback',
       'backLink',
-      'signIn'
+      'signIn',
+      'languageToggle'
     ];
     return content(PrivacyPolicy, {}, { ignoreContent });
   });

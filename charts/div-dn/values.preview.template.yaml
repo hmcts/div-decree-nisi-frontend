@@ -18,6 +18,7 @@ nodejs:
               - session-secret
               - redis-secret
               - idam-secret
+              - launchdarkly-key
 
 tags:
   idam-pr: true

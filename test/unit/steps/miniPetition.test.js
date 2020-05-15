@@ -547,7 +547,8 @@ describe(modulePath, () => {
         'jurisdictionConnectionOther',
         'onGoingCasesNo',
         'clarificationCourtFeedback',
-        'signIn'
+        'signIn',
+        'languageToggle'
       ];
       return content(MiniPetition, session, { ignoreContent });
     });

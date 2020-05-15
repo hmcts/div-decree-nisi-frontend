@@ -36,7 +36,8 @@ describe(modulePath, () => {
         'chatOpeningHours',
         'respNotPay',
         'clarificationCourtFeedback',
-        'signIn'
+        'signIn',
+        'languageToggle'
       ];
       return content(ClaimCosts, sess, { ignoreContent });
     });
@@ -54,7 +55,8 @@ describe(modulePath, () => {
         'chatOpeningHours',
         'respPay',
         'clarificationCourtFeedback',
-        'signIn'
+        'signIn',
+        'languageToggle'
       ];
       return content(ClaimCosts, sess, { ignoreContent });
     });

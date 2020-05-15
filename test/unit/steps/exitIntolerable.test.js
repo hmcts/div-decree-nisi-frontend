@@ -16,7 +16,8 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'continue',
       'clarificationCourtFeedback',
-      'signIn'
+      'signIn',
+      'languageToggle'
     ];
 
     const session = { case: { data: {} } };

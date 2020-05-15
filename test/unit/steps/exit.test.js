@@ -49,7 +49,8 @@ describe(modulePath, () => {
         'email',
         'phone',
         'clarificationCourtFeedback',
-        'backLink'
+        'backLink',
+        'languageToggle'
       ];
 
       return content(

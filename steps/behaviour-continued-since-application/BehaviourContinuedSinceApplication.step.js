@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const moment = require('moment');
 const { form, text, object, date, convert, errorFor } = require('@hmcts/one-per-page/forms');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class BehaviourContinuedSinceApplication extends Question {
   static get path() {
@@ -105,7 +106,11 @@ class BehaviourContinuedSinceApplication extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 }
 

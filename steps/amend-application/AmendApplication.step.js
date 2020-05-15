@@ -5,6 +5,7 @@ const idam = require('services/idam');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class AmendApplication extends Interstitial {
   static get path() {
@@ -19,7 +20,8 @@ class AmendApplication extends Interstitial {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments(feeTypes.amendFee)
+      getFeeFromFeesAndPayments(feeTypes.amendFee),
+      checkWelshToggle
     ];
   }
 

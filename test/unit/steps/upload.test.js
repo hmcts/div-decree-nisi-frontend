@@ -52,7 +52,8 @@ describe(modulePath, () => {
         'chatOpeningHours',
         'clarificationCourtFeedback',
         'clarificationDigitalCopies',
-        'signIn'
+        'signIn',
+        'languageToggle'
       ];
       const session = { case: { data: {} } };
       return content(Upload, session, { ignoreContent });

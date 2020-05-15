@@ -8,6 +8,7 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const constants = {
   adultery: 'adultery',
@@ -82,7 +83,8 @@ class ShareCourtDocuments extends Question {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect()
+      idam.protect(),
+      checkWelshToggle
     ];
   }
 }

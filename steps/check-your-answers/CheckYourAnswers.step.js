@@ -7,6 +7,7 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class CheckYourAnswers extends SetLanguageQuestion {
   static get path() {
@@ -57,7 +58,11 @@ class CheckYourAnswers extends SetLanguageQuestion {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 
   get form() {

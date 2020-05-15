@@ -10,6 +10,7 @@ const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification, dnIsRefused } = require('common/constants');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const {
   caseStateMap,
@@ -69,7 +70,8 @@ class PetitionProgressBar extends Interstitial {
       ...super.middleware,
       idam.protect(),
       checkCaseState,
-      getFeeFromFeesAndPayments(feeTypes.amendFee)
+      getFeeFromFeesAndPayments(feeTypes.amendFee),
+      checkWelshToggle
     ];
   }
 

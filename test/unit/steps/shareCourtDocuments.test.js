@@ -44,7 +44,8 @@ describe(modulePath, () => {
         'chatOpeningHours',
         'clarificationCourtFeedback',
         'clarification',
-        'signIn'
+        'signIn',
+        'languageToggle'
       ];
       return content(ShareCourtDocuments, session, { ignoreContent });
     });

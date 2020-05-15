@@ -1,7 +1,7 @@
 const { Page } = require('@hmcts/one-per-page');
 const config = require('config');
 const { stopHere } = require('@hmcts/one-per-page/flow');
-
+const checkWelshToggle = require('middleware/checkWelshToggle');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 
 class DnNoResponse extends Page {
@@ -29,7 +29,8 @@ class DnNoResponse extends Page {
     return [
       ...super.middleware,
       getFeeFromFeesAndPayments(feeTypes.appWithoutNoticeFee),
-      getFeeFromFeesAndPayments(feeTypes.enforcementFee)
+      getFeeFromFeesAndPayments(feeTypes.enforcementFee),
+      checkWelshToggle
     ];
   }
 }

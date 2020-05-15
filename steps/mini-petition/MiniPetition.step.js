@@ -4,7 +4,7 @@ const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
-
+const checkWelshToggle = require('middleware/checkWelshToggle');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 
@@ -156,7 +156,8 @@ class MiniPetition extends Question {
       getFeeFromFeesAndPayments(feeTypes.issueFee),
       getFeeFromFeesAndPayments(feeTypes.amendFee),
       getFeeFromFeesAndPayments(feeTypes.appFinancialOrderFee),
-      getFeeFromFeesAndPayments(feeTypes.appWithoutNoticeFee)
+      getFeeFromFeesAndPayments(feeTypes.appWithoutNoticeFee),
+      checkWelshToggle
     ];
   }
 }

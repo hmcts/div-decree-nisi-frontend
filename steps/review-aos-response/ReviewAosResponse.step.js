@@ -5,6 +5,7 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const constants = {
   viewOnlyState: 'AosSubmittedAwaitingAnswer',
@@ -140,7 +141,11 @@ class ReviewAosResponse extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 }
 

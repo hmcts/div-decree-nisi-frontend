@@ -34,7 +34,8 @@ describe(modulePath, () => {
       'chatAlreadyOpen',
       'chatOpeningHours',
       'clarificationCourtFeedback',
-      'signIn'
+      'signIn',
+      'languageToggle'
     ];
 
     return content(LivedApartSinceDesertion, session, { ignoreContent });

@@ -29,3 +29,4 @@ package-lock.json
 dist
 remote-config.json
 acb.yaml
+/config/dev.yaml

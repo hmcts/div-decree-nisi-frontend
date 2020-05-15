@@ -27,7 +27,8 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'clarificationCourtFeedback',
-        'signIn'
+        'signIn',
+        'languageToggle'
       ];
       return content(CourtFeedback, session, { ignoreContent });
     });
