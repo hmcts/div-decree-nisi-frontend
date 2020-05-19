@@ -88,7 +88,7 @@
     "istanbul": "^0.4.5",
     "istanbul-api": "1.2.2",
     "istanbul-reports": "1.1.4",
-    "jest": "^25.1.0",
+    "jest": "^26.0.1",
     "mocha": "^5.2.0",
     "mochawesome": "^3.0.2",
     "mockserver": "^2.1.1",
@@ -116,6 +116,7 @@
     "helmet-csp": ">=2.9.1",
     "https-proxy-agent": ">=2.2.3",
     "lodash": "^4.17.11",
+    "minimist": "^1.2.5",
     "serialize-javascript ": ">=2.1.1"
   },
   "nyc": {
