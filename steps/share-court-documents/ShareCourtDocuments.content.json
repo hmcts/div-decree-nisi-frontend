@@ -11,7 +11,7 @@
     },
     "adultery": {
       "title": "Do you need to upload evidence of the adultery?",
-      "adulteryDoc": "You should only do this if your {{ case.divorceWho }} hasn’t admitted to committing adultery.",
+      "adulteryDoc": "You should only do this if your {{ divorceWho }} hasn’t admitted to committing adultery.",
       "extraDocs": "You can also upload any new documents you’ve acquired since you first applied which are relevant to your application."
     },
     "errors": {
@@ -37,7 +37,7 @@
     },
     "adultery": {
       "title": "Ydych chi angen uwchlwytho tystiolaeth am yr odineb?",
-      "adulteryDoc": "Dylech ond wneud hyn os nad yw eich {{ case.divorceWho }} wedi cyfaddef eu bod wedi cyflawni godineb.",
+      "adulteryDoc": "Dylech ond wneud hyn os nad yw eich {{ divorceWho }} wedi cyfaddef eu bod wedi cyflawni godineb.",
       "extraDocs": "Gallwch hefyd uwchlwytho unrhyw ddogfennau eraill rydych wedi’u cael sy’n berthnasol i’ch cais ers ichi gyflwyno’ch cais i ddechrau. "
     },
     "errors": {

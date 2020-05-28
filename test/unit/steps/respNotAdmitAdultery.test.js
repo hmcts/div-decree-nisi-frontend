@@ -66,7 +66,9 @@ describe(modulePath, () => {
         'signIn',
         'languageToggle',
         'thereWasAProblem',
-        'change'
+        'change',
+        'husband',
+        'wife'
       ];
 
       const session = {

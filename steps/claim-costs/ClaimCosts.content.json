@@ -1,8 +1,8 @@
 {
   "en": {
     "title": "Your claim for the divorce costs",
-    "applicationYouAsked": "In your application you asked the court that your {{ case.divorceWho }} pay some or all of the costs of the divorce.",
-    "yourSpouseHas": "Your {{ case.divorceWho }} has",
+    "applicationYouAsked": "In your application you asked the court that your {{ divorceWho }} pay some or all of the costs of the divorce.",
+    "yourSpouseHas": "Your {{ divorceWho }} has",
     "respPay": "agreed to pay some or all of the costs of the divorce.",
     "respNotPay": "said they should not pay the costs and has given the following explanation:",
     "courtWillDecide": "It is up to the court to decide how the costs will be split, but it will take into account any requests you and your husband make.",
@@ -29,8 +29,8 @@
   },
   "cy": {
     "title": "Eich hawliad am gostau’r ysgariad",
-    "applicationYouAsked": "Yn eich cais, mi ofynnoch i’r llys orchymyn bod eich {{ case.divorceWho }} yn talu rhywfaint neu holl gostau’r ysgariad.",
-    "yourSpouseHas": "Mae eich {{ case.divorceWho }} wedi",
+    "applicationYouAsked": "Yn eich cais, mi ofynnoch i’r llys orchymyn bod eich {{ divorceWho }} yn talu rhywfaint neu holl gostau’r ysgariad.",
+    "yourSpouseHas": "Mae eich {{ divorceWho }} wedi",
     "respPay": "cytuno i dalu rhywfaint neu holl gostau’r ysgariad.",
     "respNotPay": "dweud na ddylent dalu’r costau ac wedi rhoi’r eglurhad canlynol:",
     "courtWillDecide": "Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn cymryd i ystyriaeth unrhyw geisiadau yr ydych chi a’ch priod wedi’u gwneud.",

@@ -7,7 +7,7 @@
     "dnIsRefusedDownloadAndKeep": "You can download and keep the court’s full <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Refusal order PDF.\">Refusal Order ({{ refusalOrderFile.fileType | upper }})</a>.",
     "dnIsRefusedDoNext": "What you need to do next",
     "dnIsRefusedDivorceToContinue": "If you want your divorce to continue, you’ll need to amend and resubmit it. You’ll also need to pay a £{{ amendFee }} amendment fee.",
-    "dnIsRefusedSentToDivorceWho": "The application will then be sent to your {{ case.divorceWho }}  again so that they can respond.",
+    "dnIsRefusedSentToDivorceWho": "The application will then be sent to your {{ divorceWho }}  again so that they can respond.",
     "dnIsRefusedRefusalCourtFeedback" : {
       "noJurisdiction": {
         "title": "Jurisdiction details",
@@ -34,7 +34,7 @@
     "dnIsRefusedDownloadAndKeep": "Gallwch lawrlwytho a chadw'r <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"Bydd y ddolen hon yn lawrlwytho’r Gorchymyn Gwrthod ar ffurf PDF.\">Gorchymyn Gwrthod ({{ refusalOrderFile.fileType | upper }})</a>.",
     "dnIsRefusedDoNext": "Beth sydd angen i chi ei wneud nesaf",
     "dnIsRefusedDivorceToContinue": "Os ydych eisiau i'ch ysgariad barhau, bydd angen ichi wneud newidiadau i’ch cais a’i ailgyflwyno. Bydd rhaid ichi hefyd dalu ffi o Â£{{ amendFee }} i newid eich cais.",
-    "dnIsRefusedSentToDivorceWho": "Yna bydd y cais yn cael ei anfon i’ch {{ case.divorceWho }} eto fel y gallant ymateb.",
+    "dnIsRefusedSentToDivorceWho": "Yna bydd y cais yn cael ei anfon i’ch {{ divorceWho }} eto fel y gallant ymateb.",
     "dnIsRefusedRefusalCourtFeedback" : {
       "noJurisdiction": {
         "title": "Pwerau Cyfreithiol Llysoedd Cymru a Lloegr",

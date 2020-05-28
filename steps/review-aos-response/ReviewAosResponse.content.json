@@ -1,8 +1,8 @@
 {
   "en": {
-    "title": "Read your {{ case.divorceWho }}’s response",
+    "title": "Read your {{ divorceWho }}’s response",
     "respSolicitorRepresented": "This response was submitted by the respondent’s nominated solicitor.",
-    "youNeedToRead": "You need to read your {{ case.divorceWho }}’s response before you continue. The response is legally known as the 'acknowledgement of service'",
+    "youNeedToRead": "You need to read your {{ divorceWho }}’s response before you continue. The response is legally known as the 'acknowledgement of service'",
     "acknowledgementOfSrvice": "Acknowledgement of service",
     "respondent": "Respondent",
     "corespondent": "Co-respondent",
@@ -48,13 +48,13 @@
     },
     "costsOrder": {
       "title": "Costs order",
-      "agreedToPayCosts": "Your {{ case.divorceWho }} has agreed to pay some or all of the costs of the divorce.",
-      "notAgreedToPayCosts": "Your {{ case.divorceWho }} has said they should not pay costs and given the following explanation about why they should not pay:",
+      "agreedToPayCosts": "Your {{ divorceWho }} has agreed to pay some or all of the costs of the divorce.",
+      "notAgreedToPayCosts": "Your {{ divorceWho }} has said they should not pay costs and given the following explanation about why they should not pay:",
       "respondentWasAskedPayCosts": "The respondent was asked if they agreed to pay the costs that you claimed.",
       "followingOptions": "They were given the following options:",
       "payCosts": "to agree to pay some or all of the costs of the divorce",
       "notPayCosts": "to not agree to paying any of the costs",
-      "chanceToChangeAmount": "You’ll be given a chance to accept their suggestion or change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ case.divorceWho }} make."
+      "chanceToChangeAmount": "You’ll be given a chance to accept their suggestion or change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ divorceWho }} make."
     },
     "statementOfTruth": {
       "title": "Statement of Truth",
@@ -62,7 +62,7 @@
     },
     "fields": {
       "reviewAosResponse": {
-        "title": "Your {{ case.divorceWho }}’s response",
+        "title": "Your {{ divorceWho }}’s response",
         "no": "The respondent will let the divorce proceed (doesn’t intend to 'defend' it).",
         "nonoadmission": "The respondent will let the divorce proceed (doesn’t intend to 'defend' it), but doesn’t accept the allegations made in the application.",
         "yes": "The respondent will try to prevent the divorce based on this application (they intend to 'defend' it)."
@@ -70,9 +70,9 @@
     }
   },
   "cy": {
-    "title": "Darllenwch ymateb eich {{ case.divorceWho }}",
+    "title": "Darllenwch ymateb eich {{ divorceWho }}",
     "respSolicitorRepresented": "Cyflwynwyd yr ymateb hwn gan gyfreithiwr yr Atebydd.",
-    "youNeedToRead": "Mae angen ichi ddarllen ymateb eich {{ case.divorceWho }} cyn ichi barhau.  Yn gyfreithiol, gelwir yr ymateb yn ‘Cydnabyddiad Cyflwyno’",
+    "youNeedToRead": "Mae angen ichi ddarllen ymateb eich {{ divorceWho }} cyn ichi barhau.  Yn gyfreithiol, gelwir yr ymateb yn ‘Cydnabyddiad Cyflwyno’",
     "acknowledgementOfSrvice": "Cydnabyddiad Cyflwyno",
     "respondent": "Atebydd",
     "corespondent": "Cyd-atebydd",
@@ -118,13 +118,13 @@
     },
     "costsOrder": {
       "title": "Gorchymyn Costau",
-      "agreedToPayCosts": "Mae eich {{ case.divorceWho }} wedi cytuno i dalu rhywfaint neu holl gostau’r ysgariad.",
-      "notAgreedToPayCosts": "Mae eich {{ case.divorceWho }} wedi dweud na ddylent dalu’r costau a rhoesant yr eglurhad canlynol ynghylch pam na ddylent dalu:",
+      "agreedToPayCosts": "Mae eich {{ divorceWho }} wedi cytuno i dalu rhywfaint neu holl gostau’r ysgariad.",
+      "notAgreedToPayCosts": "Mae eich {{ divorceWho }} wedi dweud na ddylent dalu’r costau a rhoesant yr eglurhad canlynol ynghylch pam na ddylent dalu:",
       "respondentWasAskedPayCosts": "Gofynnwyd i’r Atebydd os oeddynt yn cytuno i dalu’r costau yr ydych wedi’u hawlio.",
       "followingOptions": "Rhoddwyd yr opsiynau canlynol iddynt:",
       "payCosts": "cytuno i dalu rhywfaint neu holl gostau’r ysgariad",
       "notPayCosts": "ddim yn cytuno i dalu unrhyw gostau",
-      "chanceToChangeAmount": "Fe gewch gyfle i dderbyn eu hawgrym neu i newid eich meddwl ynghylch hawlio costau hwyrach ymlaen yn y cais.  Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn cymryd i ystyriaeth unrhyw geisiadau yr ydych chi a’ch {{ case.divorceWho }} yn eu gwneud."
+      "chanceToChangeAmount": "Fe gewch gyfle i dderbyn eu hawgrym neu i newid eich meddwl ynghylch hawlio costau hwyrach ymlaen yn y cais.  Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn cymryd i ystyriaeth unrhyw geisiadau yr ydych chi a’ch {{ divorceWho }} yn eu gwneud."
     },
     "statementOfTruth": {
       "title": " Datganiad Gwirionedd",
@@ -132,7 +132,7 @@
     },
     "fields": {
       "reviewAosResponse": {
-        "title": " Ymateb eich {{ case.divorceWho }}",
+        "title": " Ymateb eich {{ divorceWho }}",
         "no": "Bydd yr Atebydd yn gadael i’r ysgariad barhau (nid ydynt yn bwriadu ei ‘amddiffyn’).",
         "nonoadmission": "Bydd yr Atebydd yn gadael i’r ysgariad barhau (nid ydynt yn bwriadu ei 'amddiffyn'), ond nid ydynt yn derbyn yr honiadau a wnaed yn y cais.",
         "yes": "Bydd yr Atebydd yn ceisio atal yr ysgariad ar sail y cais hwn (maent yn bwriadu ei ‘amddiffyn’)."

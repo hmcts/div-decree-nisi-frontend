@@ -9,6 +9,8 @@ const Joi = require('joi');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 const constants = {
   adultery: 'adultery',
@@ -36,6 +38,11 @@ class ShareCourtDocuments extends Question {
 
   get case() {
     return this.req.session.case.data;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
   }
 
   get form() {

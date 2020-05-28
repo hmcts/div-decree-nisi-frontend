@@ -1,14 +1,14 @@
 {
   "en": {
-    "title": "Has your {{ case.divorceWho }} offered to resume living with you?",
+    "title": "Has your {{ divorceWho }} offered to resume living with you?",
     "errors": {
-      "required": "Select yes if your {{ case.divorceWho }} has offered to resume living with you?",
+      "required": "Select yes if your {{ divorceWho }} has offered to resume living with you?",
       "requiredRefusalDetails": "Select yes if you have refused to resume living together?",
       "requiredDesertionAskedToResumeDNDetails": "Please give reasons why you have refused to resume living together?"
     },
     "fields": {
       "desertionAskedToResumeDN": {
-        "title": "Has your {{ case.divorceWho }} offered to resume living with you?",
+        "title": "Has your {{ divorceWho }} offered to resume living with you?",
         "yes": "Yes",
         "no": "No"
       },
@@ -23,15 +23,15 @@
     }
   },
   "cy": {
-    "title": " Ydy’ch {{ case.divorceWho }} wedi cynnig ailddechrau byw gyda chi?",
+    "title": " Ydy’ch {{ divorceWho }} wedi cynnig ailddechrau byw gyda chi?",
     "errors": {
-      "required": "Dewiswch ‘Do’ os ydy’ch {{ case.divorceWho }} wedi cynnig ailddechrau byw gyda chi",
+      "required": "Dewiswch ‘Do’ os ydy’ch {{ divorceWho }} wedi cynnig ailddechrau byw gyda chi",
       "requiredRefusalDetails": "Dewiswch ‘Do’ os ydych wedi gwrthod ailddechrau cyd-fyw",
       "requiredDesertionAskedToResumeDNDetails": "Rhowch resymau pam eich bod wedi gwrthod ailddechrau cyd-fyw"
     },
     "fields": {
       "desertionAskedToResumeDN": {
-        "title": "Ydy’ch {{ case.divorceWho }} wedi cynnig ailddechrau byw gyda chi?",
+        "title": "Ydy’ch {{ divorceWho }} wedi cynnig ailddechrau byw gyda chi?",
         "yes": "Do",
         "no": "Naddo"
       },

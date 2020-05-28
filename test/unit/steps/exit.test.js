@@ -52,7 +52,9 @@ describe(modulePath, () => {
         'backLink',
         'languageToggle',
         'thereWasAProblem',
-        'change'
+        'change',
+        'husband',
+        'wife'
       ];
 
       return content(

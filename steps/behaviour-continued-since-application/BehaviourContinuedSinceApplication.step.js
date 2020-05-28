@@ -8,6 +8,8 @@ const Joi = require('joi');
 const moment = require('moment');
 const { form, text, object, date, convert, errorFor } = require('@hmcts/one-per-page/forms');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 class BehaviourContinuedSinceApplication extends Question {
   static get path() {
@@ -16,6 +18,11 @@ class BehaviourContinuedSinceApplication extends Question {
 
   get case() {
     return this.req.session.case.data;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
   }
 
   get form() {

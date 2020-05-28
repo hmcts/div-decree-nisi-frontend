@@ -1,14 +1,14 @@
 {
   "en": {
     "deemedServiceAppStatusMsg": "You can continue with your divorce",
-    "deemedServiceAppStatusMsgDetails1": "The court has accepted your application for 'deemed service'. This means it accepts that your {{ case.divorceWho }} received the application, and you don’t need their response to proceed.",
-    "deemedServiceAmendedAppStatusMsgDetails1": "The court has accepted your application for 'deemed service'. This means it accepts that your {{ case.divorceWho }} received the amended application, and you don’t need their response to proceed.",
+    "deemedServiceAppStatusMsgDetails1": "The court has accepted your application for 'deemed service'. This means it accepts that your {{ divorceWho }} received the application, and you don’t need their response to proceed.",
+    "deemedServiceAmendedAppStatusMsgDetails1": "The court has accepted your application for 'deemed service'. This means it accepts that your {{ divorceWho }} received the amended application, and you don’t need their response to proceed.",
     "deemedServiceAppStatusMsgDetails2": "This means that you can now continue with your divorce as if they had responded."
   },
   "cy": {
     "deemedServiceAppStatusMsg": "Gallwch nawr barhau â’ch ysgariad",
-    "deemedServiceAppStatusMsgDetails1": "Mae’r llys wedi derbyn eich cais ‘Cyflwyno Tybiedig’. Golyga hyn fod y llys yn derbyn bod eich {{ case.divorceWho }} wedi cael y cais, ac nid ydych angen eu hymateb i barhau.",
-    "deemedServiceAmendedAppStatusMsgDetails1": "Mae’r llys wedi derbyn eich cais ‘Cyflwyno Tybiedig’. Golyga hyn fod y llys yn derbyn bod eich {{ case.divorceWho }} wedi cael y cais diwygiedig, ac nid ydych angen eu hymateb i barhau.",
+    "deemedServiceAppStatusMsgDetails1": "Mae’r llys wedi derbyn eich cais ‘Cyflwyno Tybiedig’. Golyga hyn fod y llys yn derbyn bod eich {{ divorceWho }} wedi cael y cais, ac nid ydych angen eu hymateb i barhau.",
+    "deemedServiceAmendedAppStatusMsgDetails1": "Mae’r llys wedi derbyn eich cais ‘Cyflwyno Tybiedig’. Golyga hyn fod y llys yn derbyn bod eich {{ divorceWho }} wedi cael y cais diwygiedig, ac nid ydych angen eu hymateb i barhau.",
     "deemedServiceAppStatusMsgDetails2": "Golyga hyn y gallwch nawr barhau â’ch ysgariad fel petaent wedi ymateb. "
   }
 }

@@ -39,7 +39,9 @@ describe(modulePath, () => {
         'signIn',
         'languageToggle',
         'thereWasAProblem',
-        'change'
+        'change',
+        'husband',
+        'wife'
       ];
       return content(ClaimCosts, sess, { ignoreContent });
     });
@@ -60,7 +62,9 @@ describe(modulePath, () => {
         'signIn',
         'languageToggle',
         'thereWasAProblem',
-        'change'
+        'change',
+        'husband',
+        'wife'
       ];
       return content(ClaimCosts, sess, { ignoreContent });
     });

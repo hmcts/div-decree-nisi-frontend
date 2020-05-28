@@ -45,7 +45,9 @@ describe(modulePath, () => {
         'signIn',
         'languageToggle',
         'thereWasAProblem',
-        'change'
+        'change',
+        'husband',
+        'wife'
       ];
       const session = { case: { data: {} } };
       return content(Done, session, { ignoreContent });

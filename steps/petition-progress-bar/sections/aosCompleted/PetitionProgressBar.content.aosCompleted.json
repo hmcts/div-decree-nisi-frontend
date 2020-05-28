@@ -1,22 +1,22 @@
 {
   "en": {
-    "respDoesNotAdmitAdulteryTitle": "Your {{ case.divorceWho }} has not admitted to committing adultery",
-    "respDoesNotAdmitAdulteryPar1": "As your {{ case.divorceWho }} has not admitted to adultery, the court will make a judgement based on the information available. This will include the response of the co-respondent if you have named one and any further evidence you provide.",
+    "respDoesNotAdmitAdulteryTitle": "Your {{ divorceWho }} has not admitted to committing adultery",
+    "respDoesNotAdmitAdulteryPar1": "As your {{ divorceWho }} has not admitted to adultery, the court will make a judgement based on the information available. This will include the response of the co-respondent if you have named one and any further evidence you provide.",
     "respDoesNotAdmitAdulteryPar2": "Alternatively, you can change your reason for divorce by amending your application.",
-    "respDoesNotAdmitAdulteryPar3": "You’ll be asked to choose one of these options after you’ve read your {{ case.divorceWho }}’s response.",
-    "respDoesNotConsent2YearSepTitle": "Your {{ case.divorceWho }} has not given their consent to a divorce",
-    "respDoesNotConsent2YearSepYouMustHave": "You must have your {{ case.divorceWho }}’s consent to use the '2 years separation with consent' reason for divorce.",
-    "respDoesNotConsent2YearSepYouHaveToPay": "If you want to continue you need to change your reason for divorce. You’ll have to pay a fee of £{{ amendFee }}. Your application will need to be sent to your {{ case.divorceWho }} again.",
-    "respDoesNotConsent2YearSepReadResponse": "Read your {{ case.divorceWho }}’s response on the next page."
+    "respDoesNotAdmitAdulteryPar3": "You’ll be asked to choose one of these options after you’ve read your {{ divorceWho }}’s response.",
+    "respDoesNotConsent2YearSepTitle": "Your {{ divorceWho }} has not given their consent to a divorce",
+    "respDoesNotConsent2YearSepYouMustHave": "You must have your {{ divorceWho }}’s consent to use the '2 years separation with consent' reason for divorce.",
+    "respDoesNotConsent2YearSepYouHaveToPay": "If you want to continue you need to change your reason for divorce. You’ll have to pay a fee of £{{ amendFee }}. Your application will need to be sent to your {{ divorceWho }} again.",
+    "respDoesNotConsent2YearSepReadResponse": "Read your {{ divorceWho }}’s response on the next page."
   },
   "cy": {
-    "respDoesNotAdmitAdulteryTitle": "Nid yw eich {{ case.divorceWho }} wedi cyfaddef cyflawni godineb",
-    "respDoesNotAdmitAdulteryPar1": "Gan nad yw eich {{ case.divorceWho }} wedi cyfaddef cyflawni godineb, bydd y llys yn gwneud penderfyniad ar sail yr wybodaeth sydd ar gael.  Bydd hyn yn cynnwys ymateb y Cyd-atebydd os ydych wedi enwi rhywun ac unrhyw dystiolaeth arall rydych wedi’i darparu.",
+    "respDoesNotAdmitAdulteryTitle": "Nid yw eich {{ divorceWho }} wedi cyfaddef cyflawni godineb",
+    "respDoesNotAdmitAdulteryPar1": "Gan nad yw eich {{ divorceWho }} wedi cyfaddef cyflawni godineb, bydd y llys yn gwneud penderfyniad ar sail yr wybodaeth sydd ar gael.  Bydd hyn yn cynnwys ymateb y Cyd-atebydd os ydych wedi enwi rhywun ac unrhyw dystiolaeth arall rydych wedi’i darparu.",
     "respDoesNotAdmitAdulteryPar2": "Fel arall, gallwch newid eich rheswm dros yr ysgariad drwy newid eich cais.",
-    "respDoesNotAdmitAdulteryPar3": "Fe ofynnir ichi ddewis un o'r opsiynau hyn ar ôl ichi ddarllen ymateb eich {{ case.divorceWho }}.",
-    "respDoesNotConsent2YearSepTitle": "Nid yw eich {{ case.divorceWho }} wedi cydsynio i gael ysgariad",
-    "respDoesNotConsent2YearSepYouMustHave": "Mae’n rhaid ichi gael cydsyniad eich {{ case.divorceWho }} i ddefnyddio'r rheswm 'wedi gwahanu ers 2 flynedd gyda chydsyniad’ i gael ysgariad.",
-    "respDoesNotConsent2YearSepYouHaveToPay": "Os ydych eisiau parhau, bydd angen ichi newid eich rheswm dros fod eisiau cael ysgariad. Bydd rhaid ichi dalu ffi o Â£{{ amendFee }}. Bydd angen ichi anfon eich cais at eich {{ case.divorceWho }} eto.",
-    "respDoesNotConsent2YearSepReadResponse": "Darllenwch ymateb eich {{ case.divorceWho }} ar y dudalen nesaf."
+    "respDoesNotAdmitAdulteryPar3": "Fe ofynnir ichi ddewis un o'r opsiynau hyn ar ôl ichi ddarllen ymateb eich {{ divorceWho }}.",
+    "respDoesNotConsent2YearSepTitle": "Nid yw eich {{ divorceWho }} wedi cydsynio i gael ysgariad",
+    "respDoesNotConsent2YearSepYouMustHave": "Mae’n rhaid ichi gael cydsyniad eich {{ divorceWho }} i ddefnyddio'r rheswm 'wedi gwahanu ers 2 flynedd gyda chydsyniad’ i gael ysgariad.",
+    "respDoesNotConsent2YearSepYouHaveToPay": "Os ydych eisiau parhau, bydd angen ichi newid eich rheswm dros fod eisiau cael ysgariad. Bydd rhaid ichi dalu ffi o Â£{{ amendFee }}. Bydd angen ichi anfon eich cais at eich {{ divorceWho }} eto.",
+    "respDoesNotConsent2YearSepReadResponse": "Darllenwch ymateb eich {{ divorceWho }} ar y dudalen nesaf."
   }
 }

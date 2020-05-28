@@ -27,6 +27,8 @@
     "signOut": "Sign out",
     "thereWasAProblem": "There was a problem",
     "change": "Change",
+    "husband": "husband",
+    "wife": "wife",
     "clarificationCourtFeedback" : {
       "jurisdictionDetails": {
         "title": "Jurisdiction details",
@@ -90,6 +92,8 @@
     "signOut": "Allgofnodi",
     "thereWasAProblem": "Roedd yna broblem",
     "change": "Newid",
+    "husband": "gŵr",
+    "wife": "gwraig",
     "clarificationCourtFeedback" : {
       "jurisdictionDetails": {
         "title": "Pwerau Cyfreithiol",

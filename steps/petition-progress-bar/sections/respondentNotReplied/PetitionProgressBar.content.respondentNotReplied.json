@@ -1,18 +1,18 @@
 {
   "en": {
-    "rNRTitle": "Your {{ case.divorceWho }} hasn’t responded",
+    "rNRTitle": "Your {{ divorceWho }} hasn’t responded",
     "rNRSentApplication": "The court sent your application to:",
-    "rNRaskedToRespondBy": "Your {{ case.divorceWho }} was asked to respond within 7 days.",
+    "rNRaskedToRespondBy": "Your {{ divorceWho }} was asked to respond within 7 days.",
     "rNRhearFromBothParties": "The court usually needs to hear from both parties in a marriage before it can grant a divorce.",
     "rNRcanJustWait": "You can just wait for them to respond if you know they can’t at present, for example they’re away from home. They can still send in their response after the deadline has passed.",
-    "rNRvariousOptions": "You have various options to choose from if your {{ case.divorceWho }} isn’t responding and you want to proceed."
+    "rNRvariousOptions": "You have various options to choose from if your {{ divorceWho }} isn’t responding and you want to proceed."
   },
   "cy": {
-    "rNRTitle": "Nid yw eich {{ case.divorceWho }} wedi ymateb",
+    "rNRTitle": "Nid yw eich {{ divorceWho }} wedi ymateb",
     "rNRSentApplication": "Mae'r llys wedi anfon eich cais i:",
-    "rNRaskedToRespondBy": "Gofynnwyd i’ch {{ case.divorceWho }} ymateb ymhen 7 diwrnod.",
+    "rNRaskedToRespondBy": "Gofynnwyd i’ch {{ divorceWho }} ymateb ymhen 7 diwrnod.",
     "rNRhearFromBothParties": "Gan amlaf, bydd y llys angen clywed gan y ddau barti yn y briodas cyn y gall ganiatáu ysgariad.",
     "rNRcanJustWait": "Gallwch aros iddynt ymateb os ydych yn gwybod na allant wneud hynny ar hyn o bryd, er enghraifft maent i ffwrdd o adref. Gallant dal anfon eu hymateb ar ôl i'r terfyn amser basio.",
-    "rNRvariousOptions": "Mae gennych sawl opsiwn posib os nad yw eich {{ case.divorceWho }} yn ymateb ac rydych eisiau parhau gyda’ch cais."
+    "rNRvariousOptions": "Mae gennych sawl opsiwn posib os nad yw eich {{ divorceWho }} yn ymateb ac rydych eisiau parhau gyda’ch cais."
   }
 }

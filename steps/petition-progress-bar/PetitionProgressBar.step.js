@@ -11,6 +11,8 @@ const { notDefined, awaitingClarification, dnIsRefused } = require('common/const
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 const {
   caseStateMap,
@@ -42,6 +44,11 @@ class PetitionProgressBar extends Interstitial {
 
   get case() {
     return this.req.session.case.data;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
   }
 
   get caseId() {

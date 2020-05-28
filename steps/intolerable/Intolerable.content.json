@@ -1,9 +1,9 @@
 {
   "en": {
-    "title": "Do you find it intolerable to live with your {{ case.divorceWho }}?",
-    "mustBeIntolerable": "You must find it intolerable to live with your {{ case.divorceWho }} to use adultery as your reason for divorce. This applies whether you’re still living together or not.",
+    "title": "Do you find it intolerable to live with your {{ divorceWho }}?",
+    "mustBeIntolerable": "You must find it intolerable to live with your {{ divorceWho }} to use adultery as your reason for divorce. This applies whether you’re still living together or not.",
     "errors": {
-      "required": "Select yes if you find it intolerable to live with your {{ case.divorceWho }}"
+      "required": "Select yes if you find it intolerable to live with your {{ divorceWho }}"
     },
     "fields": {
       "changes": {
@@ -16,10 +16,10 @@
     }
   },
   "cy": {
-    "title": "Ydych chi’n ei chael hi’n annioddefol byw gyda’ch {{ case.divorceWho }}?",
-    "mustBeIntolerable": "Mae’n rhaid ichi ei chael hi’n annioddefol byw gyda’ch {{ case.divorceWho }} i ddefnyddio godineb fel eich rheswm dros gael ysgariad. Mae hyn yn wir os ydych dal i fyw gyda’ch gilydd neu beidio.",
+    "title": "Ydych chi’n ei chael hi’n annioddefol byw gyda’ch {{ divorceWho }}?",
+    "mustBeIntolerable": "Mae’n rhaid ichi ei chael hi’n annioddefol byw gyda’ch {{ divorceWho }} i ddefnyddio godineb fel eich rheswm dros gael ysgariad. Mae hyn yn wir os ydych dal i fyw gyda’ch gilydd neu beidio.",
     "errors": {
-      "required": "Dewiswch ‘Ydw’ os ydych chi’n ei chael hi’n annioddefol byw gyda’ch {{ case.divorceWho }}"
+      "required": "Dewiswch ‘Ydw’ os ydych chi’n ei chael hi’n annioddefol byw gyda’ch {{ divorceWho }}"
     },
     "fields": {
       "changes": {

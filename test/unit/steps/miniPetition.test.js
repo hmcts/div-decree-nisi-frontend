@@ -550,7 +550,9 @@ describe(modulePath, () => {
         'signIn',
         'languageToggle',
         'thereWasAProblem',
-        'change'
+        'change',
+        'husband',
+        'wife'
       ];
       return content(MiniPetition, session, { ignoreContent });
     });
