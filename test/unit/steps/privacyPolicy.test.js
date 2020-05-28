@@ -24,7 +24,9 @@ describe(modulePath, () => {
         'clarificationCourtFeedback',
         'backLink',
         'signIn',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem',
+        'change'
       ];
 
       return content(PrivacyPolicy, {}, { ignoreContent });

@@ -50,7 +50,9 @@ describe(modulePath, () => {
         'phone',
         'clarificationCourtFeedback',
         'backLink',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem',
+        'change'
       ];
 
       return content(

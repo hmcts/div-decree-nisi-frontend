@@ -43,7 +43,9 @@ describe(modulePath, () => {
         'careOf',
         'backLink',
         'signIn',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem',
+        'change'
       ];
       const session = { case: { data: {} } };
       return content(Done, session, { ignoreContent });

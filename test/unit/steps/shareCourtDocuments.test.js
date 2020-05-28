@@ -45,7 +45,9 @@ describe(modulePath, () => {
         'clarificationCourtFeedback',
         'clarification',
         'signIn',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem',
+        'change'
       ];
       return content(ShareCourtDocuments, session, { ignoreContent });
     });

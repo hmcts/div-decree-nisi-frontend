@@ -24,6 +24,8 @@ const ignoreContent = [
   'backLink',
   'feedback',
   'languageToggle',
+  'thereWasAProblem',
+  'change',
   'signIn'
 ];
 

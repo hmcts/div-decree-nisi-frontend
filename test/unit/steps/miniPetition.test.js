@@ -548,7 +548,9 @@ describe(modulePath, () => {
         'onGoingCasesNo',
         'clarificationCourtFeedback',
         'signIn',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem',
+        'change'
       ];
       return content(MiniPetition, session, { ignoreContent });
     });

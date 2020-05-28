@@ -39,7 +39,9 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'signIn',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem',
+        'change'
       ];
       const session = { case: { data: {} } };
       return content(CheckYourAnswers, session, { ignoreContent });
