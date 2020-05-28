@@ -37,7 +37,7 @@
                     {% if answerContent.html %}
                       {{ answerContent.html | safe }}
                     {% else %}
-                      {{ answer(answerContent.question, answerContent.answer, answerContent.url, answerContent.id) }}
+                      {{ answer(answerContent.question, answerContent.answer, answerContent.url, answerContent.id, content) }}
                     {% endif %}
                   {% endif %}
                 {% endfor %}
