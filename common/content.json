@@ -25,6 +25,8 @@
     "termsAndConditions": "Terms and conditions",
     "signIn": "Sign in",
     "signOut": "Sign out",
+    "thereWasAProblem": "There was a problem",
+    "change": "Change",
     "clarificationCourtFeedback" : {
       "jurisdictionDetails": {
         "title": "Jurisdiction details",
@@ -63,7 +65,7 @@
   "cy": {
     "continue": "Parhau",
     "serviceName": "Gwneud cais am ysgariad",
-    "signOut": "Allgofnodi",
+    "backLink": "Yn ôl",
     "problemWithThisPage": "Cysylltwch â ni i gael cymorth",
     "phoneTitle": "Rhif ffôn",
     "phoneToCallIfProblems": "0300 303 5171<br>Dydd Llun i ddydd Gwener, 8.30am - 5pm",
@@ -78,6 +80,16 @@
     "chatClosed": "Mae’r gwasanaeth sgwrsio dros y we nawr ar gau.\\nYr oriau agor yw dydd Llun i ddydd Gwener, 8:30am - 5pm.",
     "chatAlreadyOpen": "Mae ffenestr sgwrsio dros y we ar agor yn barod.",
     "chatOpeningHours": "Dydd Llun i ddydd Gwener, 8.30am - 5pm.",
+    "feedback": "Mae hwn yn wasanaeth newydd - bydd eich <a aria-label=\"Adborth: Bydd y ddolen hon yn agor mewn ffenestr newydd. Bydd angen ichi ddychwelyd i&rsquo;r ffenestr hon i barhau gyda&rsquo;ch cais.\" href=\"https://www.smartsurvey.co.uk/s/Divorce_Feedback\" class=\"govuk-link\" target=\"_blank\" rel=\"external noopener noreferrer\">adborth</a> yn ein helpu ni i&rsquo;w wella.",
+    "languageToggle": "<a href=\"?lng=en\" class=\"govuk-link language\">English</a>",
+    "accessibility": "Datganiad Hygyrchedd",
+    "cookies": "Cwcis",
+    "privacyPolicy": "Polisi Preifatrwydd",
+    "termsAndConditions": "Telerau ac Amodau",
+    "signIn": "Mewngofnodi",
+    "signOut": "Allgofnodi",
+    "thereWasAProblem": "Roedd yna broblem",
+    "change": "Newid",
     "clarificationCourtFeedback" : {
       "jurisdictionDetails": {
         "title": "Pwerau Cyfreithiol",

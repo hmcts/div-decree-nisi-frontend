@@ -419,10 +419,10 @@
   resolved "https://registry.yarnpkg.com/@hmcts/eslint-config/-/eslint-config-1.4.0.tgz#e713457cee3758a43394c2974913885aaae8a41b"
   integrity sha1-5xNFfO43WKQzlMKXSROIWqropBs=
 
-"@hmcts/look-and-feel@^4.0.5":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-4.0.5.tgz#2065d248c1cdea098d63a51424347a6dcca154a2"
-  integrity sha512-gRui8wNvMa9F4qA4OAqszrCkCp3NuIk15U7l0HgfyzTa3wpdG86A2XFsgGDvSrXUEYEos/uxKDL/DdUi9XmfuA==
+"@hmcts/look-and-feel@4.0.8":
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-4.0.8.tgz#a5aaf69c320fab6aab07227e71600ddc16e4dca2"
+  integrity sha512-g38TGXeUW2YP+0Gptx0DmepGSazBvlOQ7ed/QI9O68oSsEjX1AgD6IiTLxFfWiFcLfoRVAM9+HHoMd6cPG6kNA==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
@@ -451,10 +451,10 @@
     webpack "^3.4.1"
     webpack-dev-middleware "^2.0.4"
 
-"@hmcts/look-and-feel@^4.0.7":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-4.0.7.tgz#477dca4baf766555d7ba862c827a9c378cd394a9"
-  integrity sha512-vOAhH8c/KyB7UvHzVJsxabwLwmEIb84AK9eX70X1PP3QEgEyK4HXg0Z6WJm/XgBayWjO0UdDvT3pYDoZo4gJ+A==
+"@hmcts/look-and-feel@^4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@hmcts/look-and-feel/-/look-and-feel-4.0.5.tgz#2065d248c1cdea098d63a51424347a6dcca154a2"
+  integrity sha512-gRui8wNvMa9F4qA4OAqszrCkCp3NuIk15U7l0HgfyzTa3wpdG86A2XFsgGDvSrXUEYEos/uxKDL/DdUi9XmfuA==
   dependencies:
     babel-core "^6.26.0"
     babel-loader "^7.1.2"
