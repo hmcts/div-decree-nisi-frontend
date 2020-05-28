@@ -37,7 +37,9 @@ describe(modulePath, () => {
         'respNotPay',
         'clarificationCourtFeedback',
         'signIn',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem',
+        'change'
       ];
       return content(ClaimCosts, sess, { ignoreContent });
     });
@@ -56,7 +58,9 @@ describe(modulePath, () => {
         'respPay',
         'clarificationCourtFeedback',
         'signIn',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem',
+        'change'
       ];
       return content(ClaimCosts, sess, { ignoreContent });
     });

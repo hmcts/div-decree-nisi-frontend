@@ -53,7 +53,9 @@ describe(modulePath, () => {
         'clarificationCourtFeedback',
         'clarificationDigitalCopies',
         'signIn',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem',
+        'change'
       ];
       const session = { case: { data: {} } };
       return content(Upload, session, { ignoreContent });

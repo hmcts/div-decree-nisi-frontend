@@ -64,7 +64,9 @@ describe(modulePath, () => {
         'chatOpeningHours',
         'clarificationCourtFeedback',
         'signIn',
-        'languageToggle'
+        'languageToggle',
+        'thereWasAProblem',
+        'change'
       ];
 
       const session = {

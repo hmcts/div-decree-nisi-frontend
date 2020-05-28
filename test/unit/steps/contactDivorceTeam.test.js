@@ -17,7 +17,9 @@ describe(modulePath, () => {
       'continue',
       'clarificationCourtFeedback',
       'signIn',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem',
+      'change'
     ];
     return content(ContactDivorceTeam, {}, { ignoreContent });
   });

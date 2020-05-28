@@ -35,7 +35,9 @@ describe(modulePath, () => {
       'chatOpeningHours',
       'clarificationCourtFeedback',
       'signIn',
-      'languageToggle'
+      'languageToggle',
+      'thereWasAProblem',
+      'change'
     ];
     return content(BehaviourContinuedSinceApplication, session, { ignoreContent });
   });
