@@ -9,6 +9,9 @@
     <p class="govuk-body">{{ content.jurisdiction.detailsGiven }}</p>
     <div class="govuk-details__text govuk-!-margin-bottom-4">
       <p class="govuk-body">"{{ case.respJurisdictionDisagreeReason | nl2br | safe }}"</p>
+      {% if case.respJurisdictionDisagreeReasonTrans %}
+        <p class="govuk-body">"{{ case.respJurisdictionDisagreeReasonTrans | nl2br | safe }}"</p>
+      {% endif %}
     </div>
 
     <p class="govuk-body">{{ content.jurisdiction.countryTheyResp }}</p>
@@ -24,6 +27,9 @@
     <p class="govuk-body">{{ content.jurisdiction.detailsGiven }}</p>
     <div class="govuk-details__text govuk-!-margin-bottom-4">
       <p class="govuk-body">"{{ case.respLegalProceedingsDescription | nl2br | safe }}"</p>
+      {% if case.respLegalProceedingsDescriptionTrans %}
+        <p class="govuk-body">"{{ case.respLegalProceedingsDescriptionTrans | nl2br | safe }}"</p>
+      {% endif %}
     </div>
   {% elif notExist(consts.respLegalProceedingsExist) %}
     <p class="govuk-body">{{ content.jurisdiction.noOtherProceedings }}</p>
