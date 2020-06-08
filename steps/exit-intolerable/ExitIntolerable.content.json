@@ -8,7 +8,7 @@
   "cy": {
     "title": "Mae’n rhaid ichi ei chael hi’n annioddefol byw gyda’ch {{ divorceWho }}",
     "mustBeIntolerable": "Mae’n rhaid ichi ei chael hi’n annioddefol byw gyda’ch {{ divorceWho }} os ydych eisiau defnyddio godineb fel eich rheswm dros gael ysgariad.  Mae hyn yn wir os ydych dal i fyw gyda’ch gilydd neu beidio.",
-    "notIntolerable": "Os nad ydych yn ei chael hi’n annioddefol cyd-fyw, bydd angen ichi dalu ffi o Â£95 i newid eich cais a defnyddio rheswm arall dros fod eisiau cael ysgariad.  Bydd angen ichi anfon eich cais at eich {{ divorceWho }} eto.",
+    "notIntolerable": "Os nad ydych yn ei chael hi’n annioddefol cyd-fyw, bydd angen ichi dalu ffi o £95 i newid eich cais a defnyddio rheswm arall dros fod eisiau cael ysgariad.  Bydd angen ichi anfon eich cais at eich {{ divorceWho }} eto.",
     "contact": "Cysylltwch â’r Gwasanaeth Llysoedd a Thribiwnlysoedd i newid eich cais, neu ewch yn ôl i newid eich ateb. "
   }
 }

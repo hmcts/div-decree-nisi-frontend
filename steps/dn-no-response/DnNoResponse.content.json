@@ -100,20 +100,20 @@
       "noExtraPay": "Nid oes rhaid ichi dalu mwy i anfon y cais i gyfeiriad gwahanol."
     },
     "sendToWorkAddress": {
-      "linkSummary": "Rwyf angen anfon y cais i gyfeiriad dibreswyl, e.e. cyfeiriad gwaith (Â£{{ feeToResendApplication }})",
+      "linkSummary": "Rwyf angen anfon y cais i gyfeiriad dibreswyl, e.e. cyfeiriad gwaith (£{{ feeToResendApplication }})",
       "askToSendApp": "Gallwch ofyn i’r cais gael ei anfon i gyfeiriad dibreswyl."
     },
     "needToSearchRecords": {
-      "linkSummary": "Rwyf angen chwilio cofnodion y llywodraeth i ddod o hyd i gyfeiriad fy {{ divorceWho }} (Â£{{ feeToResendApplication }})",
+      "linkSummary": "Rwyf angen chwilio cofnodion y llywodraeth i ddod o hyd i gyfeiriad fy {{ divorceWho }} (£{{ feeToResendApplication }})",
       "canApplyIfRespLivesInEngWales": "Gallwch wneud cais i chwilio cronfeydd data’r llywodraeth (e.e. y gofrestr etholwyr) i ddod o hyd i gyfeiriad eich {{ divorceWho }}. Mae’n rhaid bod eich {{ divorceWho }} yn byw yng Nghymru a Lloegr.",
       "applyViaSearchRecords": "Cysylltwch â’r Gwasanaeth Llysoedd a Thribiwnlysoedd i ofyn iddynt anfon y ffurflen atoch. "
     },
     "sendEmailToResp": {
-      "linkSummary": "Rwyf angen anfon y cais i gyfeiriad e-bost fy {{ divorceWho }} (Â£{{ feeToResendApplication }})",
+      "linkSummary": "Rwyf angen anfon y cais i gyfeiriad e-bost fy {{ divorceWho }} (£{{ feeToResendApplication }})",
       "appToEmail": "Gallwch ofyn i’r cais gael ei anfon drwy e-bost. "
     },
     "believeRespChoseNotToRespond": {
-      "linkSummary": "Credaf bod fy {{ divorceWho }} yn byw yn y cyfeiriad hwnnw, ond wedi penderfynu peidio ag ymateb (Â£{{ enforcemetFee }})",
+      "linkSummary": "Credaf bod fy {{ divorceWho }} yn byw yn y cyfeiriad hwnnw, ond wedi penderfynu peidio ag ymateb (£{{ enforcemetFee }})",
       "deliverPapersDirectlyToResp": "Os ydych yn credu bod eich {{ divorceWho }} yn peidio ag ymateb yn fwriadol, gallwch dalu i unigolyn proffesiynol ddanfon (cyflwyno) y papurau ysgariad yn uniongyrchol iddynt.",
       "optionsToDeliver": "Gallwch wneud hyn drwy naill ai ddefnyddio:",
       "privateHireToDeliver": "Cyflwynydd proses (unigolyn proffesiynol sydd wedi’i gyflogi’n breifat)",
@@ -130,13 +130,13 @@
       "divorceAppCopy": "copi o’ch cais am ysgariad"
     },
     "evidenceRespWontRespond": {
-      "linkSummary": "Mae gen i dystiolaeth bod fy {{ divorceWho }} wedi cael y cais, ond ni all neu nid yw am ymateb (Â£{{ feeToResendApplication }})",
+      "linkSummary": "Mae gen i dystiolaeth bod fy {{ divorceWho }} wedi cael y cais, ond ni all neu nid yw am ymateb (£{{ feeToResendApplication }})",
       "canApplyForDeemedServ": "Os ydych yn gwybod bod eich {{ divorceWho }} wedi cael y cais, ond ni all neu nid yw am ymateb, gallwch wneud cais i’r llys am orchymyn 'cyflwyno tybiedig'. Golyga hyn y bydd y llys yn penderfynu bod eich {{ divorceWho }} wedi cael y cais, ac y gallwch barhau heb eu hymateb.",
       "needToProve": "Bydd angen ichi allu profi bod eich {{ divorceWho }} wedi cael y cais (e.e. mae gennych neges testun gan {{ divorceWho }} yn dweud eu bod wedi’i gael).",
       "applyAndSendDocs": "Anfonwch y ffurflen a’r dogfennau i’r Gwasanaeth Llysoedd a Thribiwnlysoedd."
     },
     "doneWithAllWaysOfDelivering":{
-      "linkSummary": "Rwyf wedi rhoi cynnig ar bob ffordd bosibl o ddanfon y cais (Â£{{feeToResendApplication }})",
+      "linkSummary": "Rwyf wedi rhoi cynnig ar bob ffordd bosibl o ddanfon y cais (£{{feeToResendApplication }})",
       "askForDispenseWithService": "O dan amgylchiadau arbennig, gallwch ofyn i’r llys 'hepgor cyflwyno' (penderfynu nad oes rhaid cyflwyno’r cais am ysgariad) i {{ divorceWho }}.",
       "allInCourtHands": "Y llys fydd yn penderfynu a ddylid caniatáu hyn ai peidio.  Cyn gall y llys ystyried hyn, bydd angen ichi ddangos eich bod wedi gwneud popeth y gallwch i ddod o hyd iddynt drwy gysylltu â’u:",
       "relatives": "perthnasau (gan gynnwys plant)",
@@ -152,8 +152,8 @@
     "fill": "Dylech lawrlwytho a llenwi",
     "applyD11": "<a class=\"govuk-link\" href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=98\" target=\"_blank\" aria-label=\"Dolen i Ffurflen D11, Bydd y ddolen hon yn agor mewn tab newydd.\">ffurflen D11</a>.",
     "howToPay": "Sut i dalu:",
-    "howToPayContent": "Ffoniwch y Gwasanaeth Llysoedd a Thribiwnlysoedd i dalu’r ffi o Â£{{ feeToResendApplication }} gyda cherdyn (rhwng 8.30am - 5pm) neu fel arall anfonwch siec gyda’ch ffurflen.",
-    "howToPayBailiffContent": "Ffoniwch y Gwasanaeth Llysoedd a Thribiwnlysoedd i dalu’r ffi o Â£{{ enforcemetFee }} gyda cherdyn (rhwng 8.30am - 5pm) neu fel arall anfonwch siec gyda’ch ffurflen.",
+    "howToPayContent": "Ffoniwch y Gwasanaeth Llysoedd a Thribiwnlysoedd i dalu’r ffi o £{{ feeToResendApplication }} gyda cherdyn (rhwng 8.30am - 5pm) neu fel arall anfonwch siec gyda’ch ffurflen.",
+    "howToPayBailiffContent": "Ffoniwch y Gwasanaeth Llysoedd a Thribiwnlysoedd i dalu’r ffi o £{{ enforcemetFee }} gyda cherdyn (rhwng 8.30am - 5pm) neu fel arall anfonwch siec gyda’ch ffurflen.",
     "getNewRefNumb": "Os ydych chi’n gymwys i gael help i dalu ffioedd llysoedd a thribiwnlysoedd, bydd angen ichi wneud cais arall a <a class=\"govuk-link\" href=\"https://www.gov.uk/help-i-dalu-ffioedd-llysoedd-a-thribiwnlysoedd\" target=\"_blank\" aria-label=\"Dolen i gael cyfeirnod newydd. Bydd y ddolen hon yn agor mewn tab newydd.\">chael cyfeirnod newydd</a>.",
     "extraCosts": " Os gofynnoch i’r llys orchymyn bod eich {{ divorceWho }} yn talu’ch costau, yna bydd y costau ychwanegol hyn hefyd yn cael eu hystyried.",
     "printAndSend": "Anfonwch y ffurflen i’r Gwasanaeth Llysoedd a Thribiwnlysoedd.",
