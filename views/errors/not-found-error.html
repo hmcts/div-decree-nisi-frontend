@@ -1,0 +1,53 @@
+{% extends "look-and-feel/layouts/error.html" %}
+{% from "back-link/macro.njk" import govukBackLink %}
+{% from "includes/phase_banner.html" import divPhaseBanner %}
+{% from "footer/macro.njk" import govukFooter %}
+
+{% block breadcrumbs %}
+  {{ divPhaseBanner(phase, message.feedback, message.languageToggle, session) }}
+
+  {{ govukBackLink({
+    attributes: {
+      onclick: "history.go(-1);"
+    },
+    text: message.backLink,
+    href: "#"
+  }) }}
+{% endblock %}
+
+{% block two_thirds -%}
+  {{ header(title, size="l") }}
+  <p class="govuk-body">{{ message.errorMessage }}</p>
+  <p class="govuk-body">{{ message.isThereAProblem }}</p>
+  <p class="govuk-body">
+    {{ message.phoneDetails }}<br>
+    {{ message.emailDetails }}
+  </p>
+
+  {% include "errors/content.html" %}
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "/cookie",
+          text: message.cookies
+        },
+        {
+          href: "/privacy-policy",
+          text: message.privacyPolicy
+        },
+        {
+          href: "/accessibility-statement",
+          text: message.accessibility
+        },
+        {
+          href: "/terms-and-conditions",
+          text: message.termsAndConditions
+        }
+      ]
+    }
+  }) }}
+{% endblock %}

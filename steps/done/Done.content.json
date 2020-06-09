@@ -1,68 +1,122 @@
 {
   "en": {
     "applicationComplete": "Application complete",
-    "appliedForDecreeNisi": "You've applied for a decree nisi",
+    "appliedForDecreeNisi": "You’ve applied for a decree nisi",
     "referenceNumber": "Your reference number is",
     "emailConfirmation": "Email confirmation has been sent to <strong class=\"govuk-!-font-size-19 govuk-!-font-weight-bold\">{{ case.petitionerEmail }}</strong>.",
     "yourCourt": "Your divorce centre",
     "help": "Getting help",
     "email": "Email",
     "phone": "Phone",
-    "phoneNumber" : "0300 303 0642",
+    "phoneNumber": "0300 303 0642",
     "divorceEmail": "divorcecase@justice.gov.uk",
     "openTimes": "(Monday to Friday, 8am to 8pm, Saturday 8am to 2pm)",
     "careOf": "c/o ",
     "guidance": "Guidance on GOV.UK",
-    "howRespondsLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"Respond to a divorce application link, This link will open in a new tab.\">How your {{ case.divorceWho }} responds</a>",
+    "howRespondsLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"Respond to a divorce application link, This link will open in a new tab.\">How your {{ divorceWho }} responds</a>",
     "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
     "decreeAbsoluteLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"Decree absolute link, This link will open in a new tab.\">Decree absolute</a>",
     "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
     "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>",
     "youApplied": "You apply",
-    "husbandWifeResponded": "Your {{ case.divorceWho }} responds",
+    "husbandWifeResponded": "Your {{ divorceWho }} responds",
     "getDecreeNisi": "Get a decree nisi",
     "madeFinal": "Divorce is complete",
-
-    "courtWillCheck": "The court will check your application and pass it to the judge. If the judge agrees there is no reason why you should not get a divorce, you'll be sent the time, date and court in which your decree nisi will be pronounced.",
-    "decreeNisiGranted": "After the decree nisi has been granted, you'll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute.",
-
+    "courtWillCheck": "The court will check your application and pass it to the judge. If the judge agrees there is no reason why you should not get a divorce, you’ll be sent the time, date and court in which your decree nisi will be pronounced.",
+    "decreeNisiGranted": "After the decree nisi has been granted, you’ll have to wait 6 weeks before you can finalise your divorce by getting a decree absolute.",
     "clarification": {
-        "responseSubmitted": "Response submitted",
-        "next": "What happens next",
-
-        "postDocuments": {
-            "postDocuments": "Post documents to court",
-            "youWantToSubmitDocs": "Your response said you want to submit additional documents.",
-            "originalDocuments": "Post all your original documents to:",
-            "warning": "Warning",
-            "referenceNumber": "You must write your reference number on each document.",
-            "courtCheckResponse": "The court will check your response",
-            "responseCheckedByCourt": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
-            "contactUs": "You can contact us if you don’t hear anything back after 4 weeks."
-        },
-
-        "noPostDocuments": {
-            "responseCheckedByCourt": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
-            "contactUs": "You can contact us if you don’t hear anything back after 4 weeks."
-        },
-
-        "needHelp": "If you need help",
-        "contactDivorceCentre": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\">Solicitor or legal adviser link, This link will open in a new tab.\">solicitor or legal adviser</a>.",
-        "helpImprove": "Help us improve this service",
-        "helpImproveLink": "Please help us improve this service by <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Applicant?pageurl=/done\" target=\"_blank\" aria-label=\"Feedback link, This link will open in a new tab.\">leaving your feedback</a>."
+      "responseSubmitted": "Response submitted",
+      "next": "What happens next",
+      "postDocuments": {
+        "postDocuments": "Post documents to court",
+        "youWantToSubmitDocs": "Your response said you want to submit additional documents.",
+        "originalDocuments": "Post all your original documents to:",
+        "warning": "Warning",
+        "referenceNumber": "You must write your reference number on each document.",
+        "courtCheckResponse": "The court will check your response",
+        "responseCheckedByCourt": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
+        "contactUs": "You can contact us if you don’t hear anything back after 4 weeks."
+      },
+      "noPostDocuments": {
+        "responseCheckedByCourt": "Your response will be checked by the court. You may be contacted again if the court needs further information. If your application passes these checks, your divorce will move on to the next stage.",
+        "contactUs": "You can contact us if you don’t hear anything back after 4 weeks."
+      },
+      "needHelp": "If you need help",
+      "contactDivorceCentre": "You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\">Solicitor or legal adviser link, This link will open in a new tab.\">solicitor or legal adviser</a>.",
+      "helpImprove": "Help us improve this service",
+      "helpImproveLink": "Please help us improve this service by <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Applicant?pageurl=/done\" target=\"_blank\" aria-label=\"Feedback link, This link will open in a new tab.\">leaving your feedback</a>."
     },
-
-    "downloadDocuments" : "Download your documents",
+    "downloadDocuments": "Download your documents",
     "files": {
       "dpetition": "Divorce application",
-      "respondentAnswers": "Respondent's answers",
-      "coRespondentAnswers": "Co-Respondent's answers",
+      "respondentAnswers": "Respondent’s answers",
+      "coRespondentAnswers": "Co-Respondent’s answers",
       "certificateOfEntitlement": "Certificate of Entitlement",
       "costsOrder": "Cost Order",
       "decreeNisi": "Decree Nisi",
       "dnAnswers": "Decree Nisi answers",
       "clarificationDnRefusalOrder": "Refusal Order",
       "rejectionDnRefusalOrder": "Refusal Order"
+    }
+  },
+  "cy": {
+    "applicationComplete": "Cais wedi’i gwblhau",
+    "appliedForDecreeNisi": "Rydych wedi gwneud cais am Ddyfarniad Nisi",
+    "referenceNumber": "Eich cyfeirnod yw",
+    "emailConfirmation": "Mae neges e-bost yn cadarnhau ein bod wedi cael eich cais wedi’i anfon i <strong class=\"govuk-!-font-size-19 govuk-!-font-weight-bold\" >{{ case.petitionerEmail }}</strong>.",
+    "yourCourt": "Eich canolfan ysgaru",
+    "help": "Cael cymorth",
+    "email": "E-bost",
+    "phone": "Ffôn",
+    "phoneNumber" : "0300 303 5171",
+    "divorceEmail": "ymholiadaucymraeg@justice.gov.uk",
+    "openTimes": "(Dydd Llun i ddydd Gwener, 8.30am – 5pm)",
+    "careOf": "dan ofal ",
+    "guidance": "Canllawiau ar GOV.UK",
+    "howRespondsLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"Dolen i Ymateb i gais am ysgariad. Bydd y ddolen hon yn agor mewn tab newydd.\">Sut mae eich {{ divorceWho }} yn ymateb</a>",
+    "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Dolen i wneud cais am Ddyfarniad Nisi. Bydd y ddolen hon yn agor mewn tab newydd.\">Dyfarniad Nisi</a>",
+    "decreeAbsoluteLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"Dolen i wneud cais am Ddyfarniad Absoliwt. Bydd y ddolen hon yn agor mewn tab newydd.\">Dyfarniad Absoliwt</a>",
+    "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Dolen i Plant ac ysgariad. Bydd y ddolen hon yn agor mewn tab newydd.\">Plant ac ysgariad</a>",
+    "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Dolen i Arian ac eiddo. Bydd y ddolen hon yn agor mewn tab newydd.\">Arian ac eiddo</a>",
+    "youApplied": "Chi sy’n gwneud y cais",
+    "husbandWifeResponded": "Bydd eich {{ divorceWho }} yn ymateb",
+    "getDecreeNisi": "Gwneud cais am Ddyfarniad Nisi",
+    "madeFinal": "Mae eich cais am ysgariad wedi’i gwblhau",
+    "courtWillCheck": "Bydd y llys yn gwirio’ch cais ac yn ei basio i’r Barnwr. Os yw’r Barnwr yn cytuno nad oes unrhyw reswm pam na ddylech gael ysgariad, byddwch yn cael gwybod am yr amser, y dyddiad a’r llys lle bydd eich Dyfarniad Nisi yn cael ei gyhoeddi.",
+    "decreeNisiGranted": "Ar ôl i’r Dyfarniad Nisi gael ei ganiatáu, bydd rhaid ichi aros 6 wythnos cyn y gallwch wneud cais am Ddyfarniad Absoliwt i gadarnhau eich ysgariad.",
+    "clarification": {
+      "responseSubmitted": "Ymateb wedi’i gyflwyno",
+      "next": "Beth fydd yn digwydd nesaf",
+      "postDocuments": {
+        "postDocuments": "Anfonwch y dogfennau i’r llys",
+        "youWantToSubmitDocs": "Yn eich ymateb, mi ddywedoch eich bod eisiau cyflwyno dogfennau ychwanegol.",
+        "originalDocuments": "Postiwch eich holl ddogfennau gwreiddiol i:",
+        "warning": "Rhybudd",
+        "referenceNumber": "Mae’n rhaid ichi ysgrifennu eich cyfeirnod ar bob dogfen.",
+        "courtCheckResponse": "Bydd y llys yn gwirio eich ymateb",
+        "responseCheckedByCourt": "Bydd eich ymateb yn cael ei wirio gan y llys. Efallai y bydd y llys yn cysylltu â chi eto os bydd angen rhagor o wybodaeth.  Os bydd eich cais yn pasio’r gwiriadau hyn, bydd eich cais am ysgariad yn symud i’r cam nesaf.",
+        "contactUs": "Gallwch gysylltu â ni os na fyddwch wedi clywed gennym ar ôl 4 wythnos."
+      },
+      "noPostDocuments": {
+        "responseCheckedByCourt": "Bydd eich ymateb yn cael ei wirio gan y llys. Efallai y bydd y llys yn cysylltu â chi eto os bydd angen rhagor o wybodaeth. Os bydd eich cais yn pasio’r gwiriadau hyn, bydd eich cais am ysgariad yn symud i’r cam nesaf.",
+        "contactUs": "Gallwch gysylltu â ni os na fyddwch wedi clywed gennym ar ôl 4 wythnos."
+      },
+      "needHelp": " Os ydych angen cymorth",
+      "contactDivorceCentre": "Os ydych angen cymorth, gallwch gysylltu â’r ganolfan ysgaru. Fodd bynnag, ni all staff y llys roi cyngor cyfreithiol ichi, a dylech siarad â <a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\">dolen i gyfreithiwr neu gynghorydd cyfreithiol. Bydd y ddolen hon yn agor mewn tab newydd.\">chyfreithiwr neu gynghorydd cyfreithiol</a>.",
+      "helpImprove": " Helpwch ni i wella’r gwasanaeth hwn",
+      "helpImproveLink": "Helpwch ni i wella’r gwasanaeth hwn drwy <a class=\"govuk-link\" href=\"https://www.smartsurvey.co.uk/s/Divorce_ExitSurvey_Applicant?pageurl=/done\" target=\"_blank\" aria-label=\"Dolen i roi adborth. Bydd y ddolen hon yn agor mewn tab newydd.\">roi adborth</a>."
+    },
+    "downloadDocuments" : " Lawrlwytho eich dogfennau",
+    "files": {
+      "dpetition": "Cais am ysgariad",
+      "respondentAnswers": "Atebion yr Atebydd",
+      "coRespondentAnswers": "Atebion y Cyd-atebydd",
+      "certificateOfEntitlement": "Tystysgrif Hawl",
+      "costsOrder": "Gorchymyn Costau",
+      "decreeNisi": "Dyfarniad Nisi",
+      "dnAnswers": "Atebion y Dyfarniad Nisi",
+      "clarificationDnRefusalOrder": "Gorchymyn Gwrthod",
+      "rejectionDnRefusalOrder": "Gorchymyn Gwrthod"
     }
   }
 }

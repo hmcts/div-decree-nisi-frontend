@@ -48,7 +48,13 @@ describe(modulePath, () => {
         'signOut',
         'email',
         'phone',
-        'clarificationCourtFeedback'
+        'clarificationCourtFeedback',
+        'backLink',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
       ];
 
       return content(

@@ -546,7 +546,13 @@ describe(modulePath, () => {
         'jurisdictionConnectionPetitionerSixMonths',
         'jurisdictionConnectionOther',
         'onGoingCasesNo',
-        'clarificationCourtFeedback'
+        'clarificationCourtFeedback',
+        'signIn',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
       ];
       return content(MiniPetition, session, { ignoreContent });
     });

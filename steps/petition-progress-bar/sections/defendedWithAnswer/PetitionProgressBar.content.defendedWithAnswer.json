@@ -1,11 +1,20 @@
 {
   "en": {
-    "defendedServiceAppStatusMsg": "Your {{ case.divorceWho }} has submitted their answer",
-    "defendedServiceAppStatusMsgDetails1": "Your {{ case.divorceWho }} said that they intended to defend the divorce (try to prevent it) in their response to your divorce application.",
-    "defendedServiceAmendedAppStatusMsgDetails1": "Your {{ case.divorceWho }} said that they intended to defend the divorce (try to prevent it) in their response to your amended divorce application.",
+    "defendedServiceAppStatusMsg": "Your {{ divorceWho }} has submitted their answer",
+    "defendedServiceAppStatusMsgDetails1": "Your {{ divorceWho }} said that they intended to defend the divorce (try to prevent it) in their response to your divorce application.",
+    "defendedServiceAmendedAppStatusMsgDetails1": "Your {{ divorceWho }} said that they intended to defend the divorce (try to prevent it) in their response to your amended divorce application.",
     "defendedServiceAppStatusMsgDetails2": "They have now submitted their 'answer', the form which makes their case for defending the divorce.",
     "defendedServiceWhatHappensNext": "What happens now",
-    "defendedServiceWhatHappensNextDetails1": "A judge will now decide whether you and your {{ case.divorceWho }} will need to attend a hearing. You may be contacted for more information to help them make that decision.",
+    "defendedServiceWhatHappensNextDetails1": "A judge will now decide whether you and your {{ divorceWho }} will need to attend a hearing. You may be contacted for more information to help them make that decision.",
     "defendedServiceWhatHappensNextDetails2": "You’ll receive a letter in the post telling you if you need to attend a hearing, and when and where that hearing is."
+  },
+  "cy": {
+    "defendedServiceAppStatusMsg": "Mae eich {{ divorceWho }} wedi cyflwyno eu hateb",
+    "defendedServiceAppStatusMsgDetails1": "Yn eu hateb i'ch cais am ysgariad, mi ddywedodd eich {{ divorceWho }} eu bod yn bwriadu amddiffyn yr ysgariad (ceisio ei atal).",
+    "defendedServiceAmendedAppStatusMsgDetails1": "Yn eu hateb i'ch cais diwygiedig am ysgariad, mi ddywedodd eich {{ divorceWho }} eu bod yn bwriadu amddiffyn yr ysgariad (ceisio ei atal).",
+    "defendedServiceAppStatusMsgDetails2": "Maent nawr wedi cyflwyno eu 'hateb', y ffurflen sy’n cyflwyno eu hachos dros amddiffyn yr ysgariad.",
+    "defendedServiceWhatHappensNext": "Beth sy’n digwydd nawr",
+    "defendedServiceWhatHappensNextDetails1": "Bydd Barnwr yn penderfynu p’un a fydd angen i chi a’ch {{ divorceWho }} fynychu gwrandawiad.  Efallai y cewch gais am fwy o wybodaeth i'w helpu i wneud y penderfyniad hwnnw.",
+    "defendedServiceWhatHappensNextDetails2": "Fe gewch lythyr drwy'r post yn dweud wrthych os fydd angen ichi fynychu gwrandawiad, a phryd a lle fydd y gwrandawiad hwnnw. "
   }
 }

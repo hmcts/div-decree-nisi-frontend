@@ -2,15 +2,13 @@
   "en": {
     "title": "Have you lived apart since finding out about the adultery?",
     "livedApartSince": "You said you found out about the adultery on {{ case.adulteryFirstFoundDate | date }}.",
-    "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
-
-    "detailsHowLongLivedTogether": "Provide details of how long you've lived together since you found out about the adultery",
+    "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you’re living separate lives. For example, you don’t eat, sleep, or socialise together.",
+    "detailsHowLongLivedTogether": "Provide details of how long you’ve lived together since you found out about the adultery",
     "actOfAdultery": "You can’t base your divorce on an act of adultery if you lived together as a couple for more than 6 months after you found out about it.",
     "togetherAndOff": "This could have been in one go, or if you lived together on and off for several periods of time adding up to more than 6 months.",
     "notSure": "You can contact the court if you’re not sure.",
-
     "errors": {
-      "required": "Select yes if you've lived apart since you found out about the adultery",
+      "required": "Select yes if you’ve lived apart since you found out about the adultery",
       "requireDatesLivedTogether": "Give the approximate dates or the number of months you lived together"
     },
     "fields": {
@@ -22,6 +20,31 @@
         },
         "datesLivedTogether": {
           "title": "Give the approximate dates or the number of months you lived together"
+        }
+      }
+    }
+  },
+  "cy": {
+    "title": "Ydych chi wedi byw ar wahân ers ichi ddod i wybod am yr odineb?",
+    "livedApartSince": "Mi ddywedoch eich bod wedi dod i wybod am yr odineb ar {{ case.adulteryFirstFoundDate | date }}.",
+    "livingApart": "Mae’n bosib i’r llys ystyried eich bod yn byw ar wahân er eich bod yn byw yn yr un cyfeiriad, cyn belled eich bod chi’n byw’n annibynnol. Er enghraifft, nid ydych yn byw, yn cysgu neu’n cymdeithasu gyda’ch gilydd.",
+    "detailsHowLongLivedTogether": "Nodwch ers faint rydych wedi bod yn byw gyda’ch gilydd ers ichi ddod i wybod am yr odineb",
+    "actOfAdultery": "Ni allwch ddefnyddio godineb fel y rheswm dros gael ysgariad os bu ichi gyd-fyw fel cwpl am fwy na 6 mis ar ôl ichi ddod i wybod amdano.",
+    "togetherAndOff": "Fe allai hyn fod am un cyfnod, neu am gyfnodau byrrach dros gyfnod o amser sydd, gyda’i gilydd, yn hirach na 6 mis.",
+    "notSure": "Gallwch gysylltu â’r llys os nad ydych chi’n siwr.",
+    "errors": {
+      "required": "Dewiswch ‘Do’ os ydych chi wedi byw ar wahân ers ichi ddod i wybod am yr odineb",
+      "requireDatesLivedTogether": "Rhowch y dyddiadau yn fras neu’r nifer o fisoedd y bu ichi fyw gyda’ch gilydd "
+    },
+    "fields": {
+      "livedApart": {
+        "livedApartSinceAdultery": {
+          "title": "Ydych chi wedi byw ar wahân ers ichi ddod i wybod am yr odineb?",
+          "yes": "Do",
+          "no": "Naddo "
+        },
+        "datesLivedTogether": {
+          "title": "Rhowch y dyddiadau yn fras neu’r nifer o fisoedd y bu ichi fyw gyda’ch gilydd"
         }
       }
     }
