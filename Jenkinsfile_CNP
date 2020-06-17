@@ -12,7 +12,6 @@ def secrets = [
     secret('session-secret', 'SESSION_SECRET'),
     secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
     secret('idam-secret', 'IDAM_SECRET'),
-    secret('launchdarkly-key', 'LAUNCHDARKLY_KEY')
   ]
 ]
 

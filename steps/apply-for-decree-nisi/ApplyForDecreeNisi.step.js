@@ -5,7 +5,6 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class ApplyForDecreeNisi extends Question {
   static get path() {
@@ -51,8 +50,7 @@ class ApplyForDecreeNisi extends Question {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
+      idam.protect()
     ];
   }
 }

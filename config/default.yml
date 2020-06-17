@@ -180,12 +180,3 @@ saucelabs:
   tunnelId: 'reformtunnel'
   waitForTimeout: 5000
   smartWait: 5000
-
-featureToggles:
-  enabled: true
-  launchDarklyKey: 'SDK_KEY'
-  launchDarklyUser:
-    firstName: 'Divorce'
-    lastName: 'Frontend'
-    key: 'a69bdaed-b2dd-4c54-acfa-bf3df80dbe17'
-  ft_welsh: 'divorce-welsh'
