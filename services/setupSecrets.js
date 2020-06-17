@@ -14,7 +14,7 @@ const setupSecrets = () => {
     setSecret('secrets.div.redis-secret', 'services.redis.encryptionAtRestKey');
     setSecret('secrets.div.idam-secret', 'services.idam.secret');
     setSecret('secrets.div.dn-redis-connection-string', 'services.redis.url');
-    setSecret('secrets.div.AppInsightsInstrumentationKey', 'applicationInsights.instrumentationKey');
+    setSecret('secrets.div.AppInsightsInstrumentationKey', 'services.applicationInsights.instrumentationKey');
   }
 };
 
