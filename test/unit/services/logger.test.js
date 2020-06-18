@@ -2,6 +2,7 @@ const modulePath = 'services/logger';
 
 const { sinon } = require('@hmcts/one-per-page-test-suite');
 const nodeJsLogger = require('@hmcts/nodejs-logging').Logger.getLogger('name');
+const nodeJsLog = require('@hmcts/nodejs-logging').Express;
 const logger = require(modulePath);
 
 const req = {
@@ -82,6 +83,48 @@ describe(modulePath, () => {
         tag,
         message,
         someArg
+      );
+    });
+  });
+
+  describe('#accessLogger', () => {
+    beforeEach(() => {
+      sinon.stub(nodeJsLog, 'accessLogger');
+    });
+
+    afterEach(() => {
+      nodeJsLog.accessLogger.restore();
+    });
+
+    it('returns access logger middleware that is executable', () => {
+      const middleware = logger.accessLogger();
+      const res = {
+        statusCode: 200,
+        end: sinon.stub()
+      };
+      middleware(req, res, sinon.stub());
+      res.end();
+    });
+
+    it('removes idam authentication token @testone', () => {
+      // const getLogger = logger.getLogger('name');
+      // const middleware = logger.accessLogger();
+      const actualUrl = '/authenticated?__auth-token=thEt0keN';
+      const expectedUrl = '/authenticated?';
+      const reqNew = req;
+      reqNew.originalUrl = actualUrl;
+      const res = {
+        statusCode: 200,
+        end: sinon.stub()
+      };
+      // middleware(req, res, sinon.stub());
+      // res.end();
+      // getLogger.errorWithReq(reqNew, tag, message, someArg);
+
+      sinon.assert.calledWith(
+        nodeJsLog.accessLogger,
+        `IDAM ID: idam.userDetails.id, CASE ID: unknown -
+        "${reqNew.method} ${expectedUrl} HTTP/${reqNew.httpVersionMajor}.${reqNew.httpVersionMinor}" ${res.statusCode}`
       );
     });
   });

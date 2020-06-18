@@ -8,7 +8,6 @@ const buildUserInfo = req => {
   return `IDAM ID: ${idamId}, CASE ID: ${caseId}`;
 };
 
-
 const getLogger = name => {
   const loggerInstance = nodeJsLogging.Logger.getLogger(name);
 
@@ -29,7 +28,8 @@ const accessLogger = () => {
   return nodeJsLogging.Express.accessLogger({
     formatter: (req, res) => {
       const url = req.originalUrl || req.url;
-      return `${buildUserInfo(req)} - "${req.method} ${url} HTTP/${req.httpVersionMajor}.${req.httpVersionMinor}" ${res.statusCode}`;
+      const urlWithoutToken = url.replace(/(.+)(__auth-token=.+)/mg, '\\$1');
+      return `${buildUserInfo(req)} - "${req.method} ${urlWithoutToken} HTTP/${req.httpVersionMajor}.${req.httpVersionMinor}" ${res.statusCode}`;
     }
   });
 };
