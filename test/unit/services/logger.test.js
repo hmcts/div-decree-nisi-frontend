@@ -2,8 +2,8 @@ const modulePath = 'services/logger';
 
 const { sinon } = require('@hmcts/one-per-page-test-suite');
 const nodeJsLogger = require('@hmcts/nodejs-logging').Logger.getLogger('name');
-const nodeJsLog = require('@hmcts/nodejs-logging').Express;
 const logger = require(modulePath);
+const urlSanitiser = require('helpers/sanitiseUrlHelper');
 
 const req = {
   originalUrl: 'url',
@@ -16,14 +16,6 @@ const req = {
 
 describe(modulePath, () => {
   describe('#accessLogger', () => {
-    beforeEach(() => {
-      sinon.stub(nodeJsLog, 'accessLogger');
-    });
-
-    afterEach(() => {
-      nodeJsLog.accessLogger.restore();
-    });
-
     it('returns access logger middleware that is executable', () => {
       const middleware = logger.accessLogger();
       const res = {
@@ -34,34 +26,23 @@ describe(modulePath, () => {
       res.end();
     });
 
-    // it('sanitises log message @testone', () => {
-    //   const actualMessage = 'message=IDAM ID: 783b9283-9999-1726-8372-0e9as2wsa1ba, '
-    //     + 'CASE ID: 1234123412341234 - "GET /authenticated?__auth-token=thEt0keN';
-    //   const expectedMessage = 'message=IDAM ID: 783b9283-9999-1726-8372-0e9as2wsa1ba, '
-    //     + 'CASE ID: 1234123412341234 - "GET /authenticated?';
-    // });
-
-    it('removes idam authentication token long', () => {
-      // const getLogger = logger.getLogger('name');
-      // const middleware = logger.accessLogger();
+    it('sanitises an url', () => {
       const actualUrl = '/authenticated?__auth-token=thEt0keN';
       const expectedUrl = '/authenticated?';
-      const reqNew = req;
-      reqNew.originalUrl = actualUrl;
-      const res = {
-        statusCode: 200,
-        end: sinon.stub()
-      };
-      // middleware(req, res, sinon.stub());
-      // res.end();
-      // getLogger.errorWithReq(reqNew, tag, message, someArg);
-
-      nodeJsLog.accessLogger(reqNew, res);
-
+      const sanitisedUrl = urlSanitiser(actualUrl);
       sinon.assert.match(
-        logger.accessLogger(),
-        `IDAM ID: idam.userDetails.id, CASE ID: unknown -
-        "${reqNew.method} ${expectedUrl} HTTP/${reqNew.httpVersionMajor}.${reqNew.httpVersionMinor}" ${res.statusCode}`
+        sanitisedUrl,
+        expectedUrl
+      );
+    });
+
+    it('sanitises an empty url', () => {
+      const actualUrl = '';
+      const expectedUrl = '';
+      const sanitisedUrl = urlSanitiser(actualUrl);
+      sinon.assert.match(
+        sanitisedUrl,
+        expectedUrl
       );
     });
   });
