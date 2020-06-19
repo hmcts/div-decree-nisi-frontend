@@ -53,13 +53,7 @@ describe(modulePath, () => {
         'theCoRespondentDefendsTheDivorceNo',
         'theCoRespondentAgreeToPayCostsNo',
         'corespondentDidNotRespond',
-        'clarificationCourtFeedback',
-        'signIn',
-        'languageToggle',
-        'thereWasAProblem',
-        'change',
-        'husband',
-        'wife'
+        'clarificationCourtFeedback'
       ];
 
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
@@ -93,13 +87,7 @@ describe(modulePath, () => {
         'theCoRespondentDefendsTheDivorceYes',
         'theCoRespondentAgreeToPayCostsYes',
         'corespondentDidNotRespond',
-        'clarificationCourtFeedback',
-        'signIn',
-        'languageToggle',
-        'thereWasAProblem',
-        'change',
-        'husband',
-        'wife'
+        'clarificationCourtFeedback'
       ];
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
     });
@@ -131,13 +119,7 @@ describe(modulePath, () => {
         'theCoRespondentDefendsTheDivorce',
         'theCoRespondentAgreeToPayCosts',
         'youNeedToRead',
-        'clarificationCourtFeedback',
-        'signIn',
-        'languageToggle',
-        'thereWasAProblem',
-        'change',
-        'husband',
-        'wife'
+        'clarificationCourtFeedback'
       ];
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
     });
@@ -203,13 +185,7 @@ describe(modulePath, () => {
         'theCoRespondentDefendsTheDivorceYes',
         'theCoRespondentAgreeToPayCostsNo',
         'corespondentDidNotRespond',
-        'clarificationCourtFeedback',
-        'signIn',
-        'languageToggle',
-        'thereWasAProblem',
-        'change',
-        'husband',
-        'wife'
+        'clarificationCourtFeedback'
       ];
       const specificValuesToNotExist = ['It is the right thing to do...'];
       return content(ReviewAosResponseFromCoRespondent, session, {

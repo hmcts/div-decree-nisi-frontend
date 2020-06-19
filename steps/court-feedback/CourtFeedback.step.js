@@ -5,7 +5,6 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const { form, text } = require('@hmcts/one-per-page/forms');
 
@@ -32,11 +31,7 @@ class CourtFeedback extends Question {
   }
 
   get middleware() {
-    return [
-      ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
-    ];
+    return [...super.middleware, idam.protect()];
   }
 
   answers() {

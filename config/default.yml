@@ -109,8 +109,8 @@ paths:
   termsAndConditions: /terms-and-conditions
   cookiesPolicy: /cookie
   privacyPolicy: /privacy-policy
-  contactDivorceTeam: /contact-divorce-team
-  contactDivorceTeamError: /contact-divorce-team-error
+  contactDivorceTeam: /contact-your-divorce
+  contactDivorceTeamError: /contact-your-divorce-error
   amendApplication: /amend-application
   respNotAdmitAdultery: /resp-does-not-admit-adultery-options
   reviewAosResponseFromCoRespondent: /review-aos-response-from-co-respondent
@@ -181,11 +181,4 @@ saucelabs:
   waitForTimeout: 5000
   smartWait: 5000
 
-featureToggles:
-  enabled: true
-  launchDarklyKey: 'SDK_KEY'
-  launchDarklyUser:
-    firstName: 'Divorce'
-    lastName: 'Frontend'
-    key: 'a69bdaed-b2dd-4c54-acfa-bf3df80dbe17'
-  ft_welsh: 'divorce-welsh'
+

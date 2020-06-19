@@ -15,8 +15,7 @@ properties([
 List<LinkedHashMap<String, Object>> secrets = [
   secret('session-secret', 'SESSION_SECRET'),
   secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
-  secret('idam-secret', 'IDAM_SECRET'),
-  secret('launchdarkly-key', 'LAUNCHDARKLY_KEY')
+  secret('idam-secret', 'IDAM_SECRET')
 ]
 
 static LinkedHashMap<String, Object> secret(String secretName, String envVar) {

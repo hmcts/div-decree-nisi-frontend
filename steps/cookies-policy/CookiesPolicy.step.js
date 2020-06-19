@@ -1,6 +1,5 @@
 const { Page } = require('@hmcts/one-per-page');
 const config = require('config');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class CookiesPolicy extends Page {
   static get ignorePa11yWarnings() {
@@ -10,10 +9,7 @@ class CookiesPolicy extends Page {
     return config.paths.cookiesPolicy;
   }
   get middleware() {
-    return [
-      ...super.middleware,
-      checkWelshToggle
-    ];
+    return [...super.middleware];
   }
 }
 

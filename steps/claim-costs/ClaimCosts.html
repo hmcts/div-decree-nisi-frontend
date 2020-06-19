@@ -22,13 +22,8 @@
       <p class="govuk-body">"
         {{ case.respCostsReason | nl2br | safe }}
       "</p>
-      {% if case.respCostsReasonTrans %}
-        <p class="govuk-body">"
-          {{ case.respCostsReasonTrans | nl2br | safe }}
-        "</p>
-      {% endif %}
     </div>
-    <br>
+    <br />
   {% endif %}
   <p class="govuk-body">{{ content.courtWillDecide | safe }}</p>
 

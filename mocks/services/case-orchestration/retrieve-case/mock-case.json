@@ -86,8 +86,8 @@
       "addressType": "postcode",
       "postcodeError": "false"
     },
-    "respondentSolicitorName": "solicitor’s name",
-    "respondentSolicitorCompany": "solicitor’s Company/Organisat",
+    "respondentSolicitorName": "solicitor's name",
+    "respondentSolicitorCompany": "solicitor's Company/Organisat",
     "respondentCorrespondenceSendToSolicitor": "Yes",
     "respondentSolicitorAddress": {
       "address": [

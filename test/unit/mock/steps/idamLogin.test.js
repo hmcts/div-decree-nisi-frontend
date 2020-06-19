@@ -15,13 +15,7 @@ describe(modulePath, () => {
       'chatClosed',
       'chatAlreadyOpen',
       'chatOpeningHours',
-      'clarificationCourtFeedback',
-      'signIn',
-      'languageToggle',
-      'thereWasAProblem',
-      'change',
-      'husband',
-      'wife'
+      'clarificationCourtFeedback'
     ];
     return content(IdamLogin, {}, { ignoreContent });
   });

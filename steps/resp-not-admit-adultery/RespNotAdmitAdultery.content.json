@@ -1,9 +1,9 @@
 {
   "en": {
     "title": "How do you want to proceed?",
-    "options": "As your {{ divorceWho }} hasn’t admitted the adultery, you need to choose whether to continue using this reason for divorce.",
-    "onlyDoThis": "The court will make a judgement on the information and evidence available. If you have further any evidence you’ll be able to upload it later in this application.",
-    "evidence": "Evidence can include messages (eg letters, text messages, emails), photos, or an admission of the adultery from the person your {{ divorceWho }} committed adultery with.",
+    "options": "As your {{ case.divorceWho }} hasn't admitted the adultery, you need to choose whether to continue using this reason for divorce.",
+    "onlyDoThis": "The court will make a judgement on the information and evidence available. If you have further any evidence you'll be able to upload it later in this application.",
+    "evidence": "Evidence can include messages (eg letters, text messages, emails), photos, or an admission of the adultery from the person your {{ case.divorceWho }} committed adultery with.",
     "errors": {
       "required": "Select an option, how do you want to proceed?"
     },
@@ -12,22 +12,6 @@
         "title": "Select an option, how do you want to proceed?",
         "yes": "Change my reason for divorce (and pay a fee of £{{ amendFee }})",
         "no": "Keep using adultery and let the court make a judgement"
-      }
-    }
-  },
-  "cy": {
-    "title": "Sut ydych chi eisiau parhau?",
-    "options": "Gan nad yw eich {{ divorceWho }} wedi cyfaddef cyflawni’r godineb, mae angen ichi benderfynu p’un a ydych eisiau parhau i ddefnyddio’r rheswm hwn dros ysgaru.",
-    "onlyDoThis": "Bydd y llys yn gwneud penderfyniad yn seiliedig ar y wybodaeth a’r dystiolaeth sydd ar gael.  Os oes gennych unrhyw dystiolaeth bellach, cewch gyfle i’w huwchlwytho hwyrach ymlaen yn y cais hwn.",
-    "evidence": "Gall tystiolaeth gynnwys negeseuon (e.e. llythyrau, negeseuon testun, negeseuon e-bost), lluniau neu gyfaddefiad o’r godineb gan y person y bu i’ch {{ divorceWho }} gyflawni godineb ag o/â hi.",
-    "errors": {
-      "required": " Dewiswch opsiwn ar gyfer sut ydych chi eisiau parhau"
-    },
-    "fields": {
-      "amendPetition": {
-        "title": "Dewiswch opsiwn ar gyfer sut ydych chi eisiau parhau",
-        "yes": "Newid fy rheswm dros ysgaru (a thalu ffi o £{{ amendFee }})",
-        "no": "Parhau i ddefnyddio godineb fel rheswm a gadael i’r llys benderfynu"
       }
     }
   }

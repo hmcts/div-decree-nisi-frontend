@@ -1,22 +1,22 @@
 {
   "en": {
-    "title": "Is your {{ divorceWho }}’s behaviour still continuing?",
-    "stillBehaviourContinues": "Select Yes if your {{ divorceWho }}’s behaviour has continued since you submitted your application for divorce.",
-    "detailsAboutLastIncidentDate": "When did the most recent example take place?",
-    "detailsAboutLastIncidentDateDetail": "If you’re not sure of the exact date, use the closest date you remember.",
+    "title": "Is your {{ case.divorceWho }}'s behaviour still continuing?",
+    "stillBehaviourContinues": "Select Yes if your {{ case.divorceWho }}'s behaviour has continued since you submitted your application for divorce.",
+    "detailsAboutLastIncidentDate" : "When did the most recent example take place?",
+    "detailsAboutLastIncidentDateDetail" : "If you're not sure of the exact date, use the closest date you remember.",
     "errors": {
-      "required": "Select yes if your {{ divorceWho }}’s behaviour still continuing?",
+      "required": "Select yes if your {{ case.divorceWho }}'s behaviour still continuing?",
       "requireLastIncidentDate": "Enter a date between the date of your marriage and today’s date."
     },
     "fields": {
       "changes": {
         "behaviourContinuedSinceApplication": {
-          "title": "Is your {{ divorceWho }}’s behaviour still continuing?",
+          "title": "Is your {{ case.divorceWho }}'s behaviour still continuing?",
           "yes": "Yes",
           "no": "No"
         },
         "lastIncidentDate": {
-          "question": "When did the most recent example take place?",
+          "question" : "When did the most recent example take place?",
           "hint": "For example, 31 3 2002",
           "dayLabel": "Day",
           "monthLabel": "Month",
@@ -24,35 +24,6 @@
           "dayRequired": "Enter the day the last incident happened",
           "monthRequired": "Enter the month the last incident happened",
           "yearRequired": "Enter the year the last incident happened"
-        }
-      }
-    }
-  },
-  "cy": {
-    "title": "A yw ymddygiad eich {{ divorceWho }} dal i barhau?",
-    "stillBehaviourContinues": "Dewiswch ‘Ydi’ os yw ymddygiad eich {{ divorceWho }} wedi parhau ers ichi gyflwyno eich cais am ysgariad.",
-    "detailsAboutLastIncidentDate" : "Pa bryd ddigwyddodd yr esiampl ddiweddaraf o’r ymddygiad hwn?",
-    "detailsAboutLastIncidentDateDetail" : "Os nad ydych yn siwr o’r union ddyddiad, defnyddiwch y dyddiad agosaf rydych yn ei gofio.",
-    "errors": {
-      "required": "Dewiswch ‘Ydi’ os yw ymddygiad eich {{ divorceWho }} dal i barhau",
-      "requireLastIncidentDate": "Rhowch ddyddiad sydd rhwng dyddiad eich priodas a dyddiad heddiw. "
-    },
-    "fields": {
-      "changes": {
-        "behaviourContinuedSinceApplication": {
-          "title": "A yw ymddygiad eich {{ divorceWho }} dal i barhau?",
-          "yes": "Ydi",
-          "no": "Nac ydi"
-        },
-        "lastIncidentDate": {
-          "question" : "Pa bryd ddigwyddodd yr esiampl ddiweddaraf o’r ymddygiad hwn?",
-          "hint": "Er enghraifft, 31 3 2002",
-          "dayLabel": "Diwrnod",
-          "monthLabel": "Mis",
-          "yearLabel": "Blwyddyn",
-          "dayRequired": "Rhowch y diwrnod ddigwyddodd y digwyddiad diwethaf",
-          "monthRequired": "Rhowch y mis ddigwyddodd y digwyddiad diwethaf",
-          "yearRequired": "Rhowch y flwyddyn ddigwyddodd y digwyddiad diwethaf"
         }
       }
     }

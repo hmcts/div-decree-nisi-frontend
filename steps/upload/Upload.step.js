@@ -8,7 +8,6 @@ const evidenceManagmentMiddleware = require('middleware/evidenceManagmentMiddlew
 const errors = require('resources/errors');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class Upload extends Question {
   static get path() {
@@ -114,8 +113,7 @@ class Upload extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      evidenceManagmentMiddleware.createHandler(this.name),
-      checkWelshToggle
+      evidenceManagmentMiddleware.createHandler(this.name)
     ];
   }
 

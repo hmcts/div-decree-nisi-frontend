@@ -302,9 +302,9 @@
         {% if behaviourDetail | length > 0 and behaviourDetail !== '\r' %}
           {{ behaviourDetail | nl2br | safe }}
           {% if not loop.last %}
-            <br>
+            <br/>
             {% if behaviourDetail.slice(-1)  !== '\r' %}
-              <br>
+              <br />
             {% endif %}
           {% endif %}
         {% endif %}

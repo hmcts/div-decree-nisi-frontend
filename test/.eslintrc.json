@@ -13,14 +13,13 @@
     "object-curly-newline": ["error", {
       "consistent": true
     }],
-    "no-invalid-this": "off",
+    "no-invalid-this":"off",
     "new-cap": "off",
     "max-len": ["error", {
-        "code": 150
+        "code": 100
       }
     ],
-    "id-blacklist": ["error", "err", "e", "cb", "callback"],
-    "line-comment-position": "off"
+    "id-blacklist": ["error", "err", "e", "cb", "callback"]
   },
   "globals": {
     "After": true,

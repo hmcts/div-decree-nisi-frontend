@@ -1,12 +1,7 @@
 {
   "en": {
     "dWAAppStatusMsg": "You can continue with your divorce",
-    "dWAAppStatusMsgDetails1": "Your {{ divorceWho }} has missed the deadline to submit the form which would have made their case for defending (trying to prevent) the divorce.",
-    "dWAAppStatusMsgDetails2": "This means that you can now continue with your divorce as if they hadn’t said that they intended to defend."
-  },
-  "cy": {
-    "dWAAppStatusMsg": "Gallwch nawr barhau â’ch ysgariad",
-    "dWAAppStatusMsgDetails1": "Mae eich {{ divorceWho }} wedi methu'r terfyn amser ar gyfer cyflwyno eu hachos dros amddiffyn (ceisio atal) yr ysgariad.",
-    "dWAAppStatusMsgDetails2": "Golyga hyn y gallwch nawr barhau â’ch ysgariad fel petaent heb ddweud eu bod yn bwriadu ei amddiffyn."
+    "dWAAppStatusMsgDetails1": "Your {{ case.divorceWho }} has missed the deadline to submit the form which would have made their case for defending (trying to prevent) the divorce.",
+    "dWAAppStatusMsgDetails2": "This means that you can now continue with your divorce as if they hadn't said that they intended to defend."
   }
 }

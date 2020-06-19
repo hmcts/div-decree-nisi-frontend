@@ -1,4 +1,4 @@
-const SetLanguageQuestion = require('core/SetLanguageQuestion');
+const { CheckYourAnswers: CYA } = require('@hmcts/one-per-page/checkYourAnswers');
 const { goTo, action, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
@@ -7,22 +7,14 @@ const { form, text } = require('@hmcts/one-per-page/forms');
 const Joi = require('joi');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
-const checkWelshToggle = require('middleware/checkWelshToggle');
-const i18next = require('i18next');
-const commonContent = require('common/content');
 
-class CheckYourAnswers extends SetLanguageQuestion {
+class CheckYourAnswers extends CYA {
   static get path() {
     return config.paths.checkYourAnswers;
   }
 
   get case() {
     return this.req.session.case.data;
-  }
-
-  get divorceWho() {
-    const sessionLanguage = i18next.language;
-    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
   }
 
   get caseState() {
@@ -65,11 +57,7 @@ class CheckYourAnswers extends SetLanguageQuestion {
   }
 
   get middleware() {
-    return [
-      ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
-    ];
+    return [...super.middleware, idam.protect()];
   }
 
   get form() {

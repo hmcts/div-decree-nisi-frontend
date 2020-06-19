@@ -5,9 +5,6 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const checkWelshToggle = require('middleware/checkWelshToggle');
-const i18next = require('i18next');
-const commonContent = require('common/content');
 
 const constants = {
   viewOnlyState: 'AosSubmittedAwaitingAnswer',
@@ -39,11 +36,6 @@ class ReviewAosResponse extends Question {
 
   get case() {
     return this.req.session.case.data;
-  }
-
-  get divorceWho() {
-    const sessionLanguage = i18next.language;
-    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
   }
 
   get consts() {
@@ -148,11 +140,7 @@ class ReviewAosResponse extends Question {
   }
 
   get middleware() {
-    return [
-      ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
-    ];
+    return [...super.middleware, idam.protect()];
   }
 }
 

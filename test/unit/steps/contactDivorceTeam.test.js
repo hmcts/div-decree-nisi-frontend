@@ -15,13 +15,7 @@ describe(modulePath, () => {
       'chatAlreadyOpen',
       'chatOpeningHours',
       'continue',
-      'clarificationCourtFeedback',
-      'signIn',
-      'languageToggle',
-      'thereWasAProblem',
-      'change',
-      'husband',
-      'wife'
+      'clarificationCourtFeedback'
     ];
     return content(ContactDivorceTeam, {}, { ignoreContent });
   });

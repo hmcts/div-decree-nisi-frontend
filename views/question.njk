@@ -1,19 +1,19 @@
 {% set footerLinks = [
     {
         href: "/cookie",
-        text: content.cookies
-    },
-    {
-        href: "/privacy-policy",
-        text: content.privacyPolicy
-    },
-    {
-        href: "/accessibility-statement",
-        text: content.accessibility
+        text: "Cookies"
     },
     {
         href: "/terms-and-conditions",
-        text: content.termsAndConditions
+        text: "Terms and conditions"
+    },
+    {
+        href: "/privacy-policy",
+        text: "Privacy Policy"
+    },
+    {
+        href: "/accessibility-statement",
+        text: "Accessibility Statement"
     }
 ] %}
 
@@ -27,23 +27,6 @@
 {% set serviceName = content.serviceName %}
 
 {% extends "look-and-feel/layouts/question.html" %}
-
-{% from "includes/phase_banner.html" import divPhaseBanner %}
-{% from "back-link/macro.njk" import govukBackLink %}
-
-{% block breadcrumbs %}
-  {{ divPhaseBanner(phase, content.feedback, content.languageToggle, session) }}
-
-  {% block back %}
-    {{ govukBackLink({
-      attributes: {
-        onclick: "history.go(-1);"
-      },
-      text: content.backLink,
-      href: "#"
-    }) }}
-  {% endblock %}
-{% endblock %}
 
 {% block head %}
   {% include "includes/head.html" %}
@@ -59,5 +42,3 @@
   <br>
   {% include "includes/problem_with_this_page.html" %}
 {%- endblock %}
-
-{% set continueText = content.continue | safe %}

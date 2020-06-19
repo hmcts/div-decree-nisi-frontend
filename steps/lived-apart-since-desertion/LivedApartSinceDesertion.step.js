@@ -5,7 +5,7 @@ const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
-const checkWelshToggle = require('middleware/checkWelshToggle');
+
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 
 class LivedApartSinceDesertion extends Question {
@@ -92,11 +92,7 @@ class LivedApartSinceDesertion extends Question {
   }
 
   get middleware() {
-    return [
-      ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
-    ];
+    return [...super.middleware, idam.protect()];
   }
 }
 

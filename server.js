@@ -1,6 +1,6 @@
 const logger = require('services/logger').getLogger(__filename);
 const config = require('@hmcts/properties-volume').addTo(require('config'));
-const setupSecrets = require('services/setupSecrets');
+const setupSecrets = require('./helpers/setupSecretsHelper');
 
 // Setup secrets before loading the app
 setupSecrets();

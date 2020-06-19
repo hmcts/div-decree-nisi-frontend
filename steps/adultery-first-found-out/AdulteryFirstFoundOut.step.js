@@ -6,7 +6,6 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const moment = require('moment');
 const { form, date, convert } = require('@hmcts/one-per-page/forms');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class AdulteryFirstFoundOut extends Question {
   static get path() {
@@ -51,11 +50,7 @@ class AdulteryFirstFoundOut extends Question {
   }
 
   get middleware() {
-    return [
-      ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
-    ];
+    return [...super.middleware, idam.protect()];
   }
 }
 
