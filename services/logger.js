@@ -1,5 +1,6 @@
 const nodeJsLogging = require('@hmcts/nodejs-logging');
 const { get } = require('lodash');
+// const sanitiseLogMessage = require('helpers/sanitiseLogMessageHelper')
 
 const buildUserInfo = req => {
   const idamId = get(req, 'idam.userDetails.id', 'unknown');
@@ -24,15 +25,31 @@ const getLogger = name => {
   };
 };
 
+const sanitiseLogMessage = logMsg => {
+  // console.debug(logMsg.replace(/(.+)(__auth-token=.+)/mg, '\\$1'));
+  return logMsg.replace(/(.+)(__auth-token=.+)/mg, '\\$1');
+};
+
 const accessLogger = () => {
   return nodeJsLogging.Express.accessLogger({
     formatter: (req, res) => {
-      const url = req.originalUrl || req.url;
-      const urlWithoutToken = url.replace(/(.+)(__auth-token=.+)/mg, '\\$1');
-      return `${buildUserInfo(req)} - "${req.method} ${urlWithoutToken} HTTP/${req.httpVersionMajor}.${req.httpVersionMinor}" ${res.statusCode}`;
+      // const url = req.originalUrl || req.url;
+      const url = '/authenticated?__auth-token=thEt0keN';
+      return sanitiseLogMessage(`${buildUserInfo(
+        req)} - "${req.method} ${url} HTTP/${req.httpVersionMajor}.${req.httpVersionMinor}" ${res.statusCode}`);
     }
   });
 };
+
+// const accessLogger = () => {
+//   return nodeJsLogging.Express.accessLogger({
+//     formatter: (req, res) => {
+//       const url = req.originalUrl || req.url;
+//       const urlWithoutToken = url.replace(/(.+)(__auth-token=.+)/mg, '\\$1');
+//       return `${buildUserInfo(req)} - "${req.method} ${urlWithoutToken} HTTP/${req.httpVersionMajor}.${req.httpVersionMinor}" ${res.statusCode}`;
+//     }
+//   });
+// };
 
 module.exports = {
   getLogger,

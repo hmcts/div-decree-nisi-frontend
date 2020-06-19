@@ -34,7 +34,14 @@ describe(modulePath, () => {
       res.end();
     });
 
-    it('removes idam authentication token @testone', () => {
+    // it('sanitises log message @testone', () => {
+    //   const actualMessage = 'message=IDAM ID: 783b9283-9999-1726-8372-0e9as2wsa1ba, '
+    //     + 'CASE ID: 1234123412341234 - "GET /authenticated?__auth-token=thEt0keN';
+    //   const expectedMessage = 'message=IDAM ID: 783b9283-9999-1726-8372-0e9as2wsa1ba, '
+    //     + 'CASE ID: 1234123412341234 - "GET /authenticated?';
+    // });
+
+    it('removes idam authentication token long', () => {
       // const getLogger = logger.getLogger('name');
       // const middleware = logger.accessLogger();
       const actualUrl = '/authenticated?__auth-token=thEt0keN';
@@ -49,8 +56,10 @@ describe(modulePath, () => {
       // res.end();
       // getLogger.errorWithReq(reqNew, tag, message, someArg);
 
-      sinon.assert.calledWith(
-        nodeJsLog.accessLogger,
+      nodeJsLog.accessLogger(reqNew, res);
+
+      sinon.assert.match(
+        logger.accessLogger(),
         `IDAM ID: idam.userDetails.id, CASE ID: unknown -
         "${reqNew.method} ${expectedUrl} HTTP/${reqNew.httpVersionMajor}.${reqNew.httpVersionMinor}" ${res.statusCode}`
       );
