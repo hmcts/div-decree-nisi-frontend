@@ -15,14 +15,7 @@ describe(modulePath, () => {
       'chatClosed',
       'chatAlreadyOpen',
       'chatOpeningHours',
-      'clarificationCourtFeedback',
-      'backLink',
-      'signIn',
-      'languageToggle',
-      'thereWasAProblem',
-      'change',
-      'husband',
-      'wife'
+      'clarificationCourtFeedback'
     ];
     return content(PrivacyPolicy, {}, { ignoreContent });
   });

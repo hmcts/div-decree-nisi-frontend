@@ -1,9 +1,9 @@
 {
   "en": {
     "title": "Have you lived apart since {{ case.lastIncidentDate | date }}?",
-    "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you’re living separate lives. For example, you don’t eat, sleep, or socialise together.",
-    "detailsHowLongLivedTogetherSinceLastIncidentDate": "Provide details of how long you’ve lived together since {{ case.lastIncidentDate | date }}",
-    "detailsHowLongLivedTogetherSinceLastIncidentDateDetail": "You may not be granted a divorce if you live together as a couple for more than 6 months after the behaviour occurs. This could be over a single 6 month period, or if you live together on and off for several periods adding up to more than 6 months",
+    "livingApart": "You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.",
+    "detailsHowLongLivedTogetherSinceLastIncidentDate" : "Provide details of how long you've lived together since {{ case.lastIncidentDate | date }}",
+    "detailsHowLongLivedTogetherSinceLastIncidentDateDetail" : "You may not be granted a divorce if you live together as a couple for more than 6 months after the behaviour occurs. This could be over a single 6 month period, or if you live together on and off for several periods adding up to more than 6 months",
     "errors": {
       "required": "Select yes if you lived apart since {{ case.lastIncidentDate | date}}",
       "requireDatesOfLivingTogether": "Enter the periods in which you lived together."
@@ -17,28 +17,6 @@
         },
         "approximateDatesOfLivingTogetherField": {
           "title": "Provide the approximate dates or the number of months you lived together"
-        }
-      }
-    }
-  },
-  "cy": {
-    "title": "Ydych chi wedi byw ar wahân ers {{ case.lastIncidentDate | date }}?",
-    "livingApart": "Mae’n bosib i’r llys ystyried eich bod yn byw ar wahân er eich bod yn byw yn yr un cyfeiriad, cyn belled eich bod chi’n byw’n annibynnol. Er enghraifft, nid ydych yn byw, yn cysgu neu’n cymdeithasu gyda’ch gilydd.",
-    "detailsHowLongLivedTogetherSinceLastIncidentDate" : "Nodwch ers faint rydych wedi bod yn byw gyda’ch gilydd ers {{ case.lastIncidentDate | date }}",
-    "detailsHowLongLivedTogetherSinceLastIncidentDateDetail" : "Efallai na chewch ysgariad os ydych chi’n byw gyda’ch gilydd fel cwpl am fwy na 6 mis ar ôl i’r ymddygiad ddigwydd.    Fe allai hyn fod am un cyfnod o 6 mis, neu am gyfnodau byrrach dros gyfnod o amser sydd, gyda’i gilydd, yn hirach na 6 mis",
-    "errors": {
-      "required": "Dewiswch ‘Do’ os ydych chi wedi byw ar wahân ers {{ case.lastIncidentDate | date}}",
-      "requireDatesOfLivingTogether": "Rhowch fanylion y cyfnodau y bu ichi fyw gyda’ch gilydd. "
-    },
-    "fields": {
-      "changes": {
-        "livedApartSinceLastIncidentDate": {
-          "title": "Ydych chi wedi byw ar wahân ers {{ case.lastIncidentDate | date}}?",
-          "yes": "Do",
-          "no": "Naddo"
-        },
-        "approximateDatesOfLivingTogetherField": {
-          "title": "Rhowch y dyddiadau yn fras neu’r nifer o fisoedd y bu ichi fyw gyda’ch gilydd"
         }
       }
     }

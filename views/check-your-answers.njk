@@ -5,7 +5,7 @@
 {% from "look-and-feel/components/fields.njk" import hiddenInput %}
 {% from "look-and-feel/components/errors.njk" import errorSummary %}
 
-{% set titleSize = titleSize | default("l") %}
+{% set titleSize = titleSize | default('l') %}
 
 {% set title %}
   {{ content.title | safe }}
@@ -30,14 +30,14 @@
 
             {% if section.atLeast1Completed %}
               {% if section.title and _sections|length > 1 %}
-                {{ header(section.title, size="m") }}
+                {{ header(section.title, size='m') }}
               {% endif %}
                 {% for answerContent in section.completedAnswers %}
                   {% if not answerContent.hide %}
                     {% if answerContent.html %}
                       {{ answerContent.html | safe }}
                     {% else %}
-                      {{ answer(answerContent.question, answerContent.answer, answerContent.url, answerContent.id, content) }}
+                      {{ answer(answerContent.question, answerContent.answer, answerContent.url, answerContent.id) }}
                     {% endif %}
                   {% endif %}
                 {% endfor %}
@@ -59,7 +59,7 @@
         <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
 
           {% block statement_of_truth_fields %}
-            {{ hiddenInput(fields.statementOfTruth, value="yes") }}
+            {{ hiddenInput(fields.statementOfTruth, value='yes') }}
           {%- endblock %}
 
           <input type="hidden" name="_csrf" value="{{ csurfCsrfToken }}">

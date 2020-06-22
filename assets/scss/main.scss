@@ -1,14 +1,14 @@
 @import '~govuk-frontend/all.scss';
 @import 'look-and-feel/check-your-answers';
 @import 'look-and-feel/add-another';
+@import 'look-and-feel/language-switch';
 @import 'look-and-feel/text-reference';
 @import 'look-and-feel/progress-list';
 @import 'look-and-feel/document-list';
 @import 'look-and-feel/related-items';
 @import 'look-and-feel/gov-uk-frontend-toolkit-backward-compatible';
 @import 'look-and-feel/confirmation-statement';
-@import 'file-upload';
-@import 'phase_banner';
+@import './file-upload';
 
 .govuk-check-your-answers {
   .cya-question {

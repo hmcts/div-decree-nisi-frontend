@@ -1,14 +1,8 @@
 {
   "en": {
-    "title": "You must find it intolerable to live with your {{ divorceWho }}",
-    "mustBeIntolerable": "You must find it intolerable to live with your {{ divorceWho }} if you want to use adultery as your reason for divorce. This applies whether you’re still living together or not.",
-    "notIntolerable": "If you don’t find it intolerable, you’ll need to pay a £95 fee to change your application and use another reason for divorce. Your application will also need to be sent to your {{ divorceWho }} again.",
+    "title": "You must find it intolerable to live with your {{ case.divorceWho }}",
+    "mustBeIntolerable": "You must find it intolerable to live with your {{ case.divorceWho }} if you want to use adultery as your reason for divorce. This applies whether you're still living together or not.",
+    "notIntolerable": "If you don't find it intolerable, you'll need to pay a £95 fee to change your application and use another reason for divorce. Your application will also need to be sent to your {{ case.divorceWho }} again.",
     "contact": "Contact the Courts and Tribunals Service Centre to change your application, or go back to change your answer."
-  },
-  "cy": {
-    "title": "Mae’n rhaid ichi ei chael hi’n annioddefol byw gyda’ch {{ divorceWho }}",
-    "mustBeIntolerable": "Mae’n rhaid ichi ei chael hi’n annioddefol byw gyda’ch {{ divorceWho }} os ydych eisiau defnyddio godineb fel eich rheswm dros gael ysgariad.  Mae hyn yn wir os ydych dal i fyw gyda’ch gilydd neu beidio.",
-    "notIntolerable": "Os nad ydych yn ei chael hi’n annioddefol cyd-fyw, bydd angen ichi dalu ffi o £95 i newid eich cais a defnyddio rheswm arall dros fod eisiau cael ysgariad.  Bydd angen ichi anfon eich cais at eich {{ divorceWho }} eto.",
-    "contact": "Cysylltwch â’r Gwasanaeth Llysoedd a Thribiwnlysoedd i newid eich cais, neu ewch yn ôl i newid eich ateb. "
   }
 }

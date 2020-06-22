@@ -20,13 +20,7 @@ const ignoreContent = [
   'phoneTitle',
   'emailTitle',
   'responseTime',
-  'clarificationCourtFeedback',
-  'backLink',
-  'feedback',
-  'languageToggle',
-  'thereWasAProblem',
-  'change',
-  'signIn'
+  'clarificationCourtFeedback'
 ];
 
 describe(modulePath, () => {

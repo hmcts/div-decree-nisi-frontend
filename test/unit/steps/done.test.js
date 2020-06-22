@@ -40,14 +40,7 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'continue',
-        'careOf',
-        'backLink',
-        'signIn',
-        'languageToggle',
-        'thereWasAProblem',
-        'change',
-        'husband',
-        'wife'
+        'careOf'
       ];
       const session = { case: { data: {} } };
       return content(Done, session, { ignoreContent });

@@ -5,9 +5,6 @@ const idam = require('services/idam');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
-const checkWelshToggle = require('middleware/checkWelshToggle');
-const i18next = require('i18next');
-const commonContent = require('common/content');
 
 class AmendApplication extends Interstitial {
   static get path() {
@@ -18,17 +15,11 @@ class AmendApplication extends Interstitial {
     return this.req.session.case.data;
   }
 
-  get divorceWho() {
-    const sessionLanguage = i18next.language;
-    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
-  }
-
   get middleware() {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments(feeTypes.amendFee),
-      checkWelshToggle
+      getFeeFromFeesAndPayments(feeTypes.amendFee)
     ];
   }
 

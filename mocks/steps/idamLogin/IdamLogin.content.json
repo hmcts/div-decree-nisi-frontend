@@ -10,17 +10,5 @@
         "no": "No"
       }
     }
-  },
-  "cy": {
-    "title": "[CY] Idam login successfull?",
-    "errors": {
-      "required": "[CY] Select the an option"
-    },
-    "fields": {
-      "success": {
-        "yes": "[CY] Yes",
-        "no": "[CY] No"
-      }
-    }
   }
 }
