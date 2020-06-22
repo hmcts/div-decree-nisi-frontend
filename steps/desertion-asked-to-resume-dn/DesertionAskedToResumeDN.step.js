@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-const { Question } = require('@hmcts/one-per-page/steps');
+const { shimSessionQuestion } = require('middleware/shimSession');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
@@ -10,7 +10,7 @@ const i18next = require('i18next');
 const commonContent = require('common/content');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 
-class DesertionAskedToResumeDN extends Question {
+class DesertionAskedToResumeDN extends shimSessionQuestion {
   static get path() {
     return config.paths.desertionAskedToResumeDN;
   }

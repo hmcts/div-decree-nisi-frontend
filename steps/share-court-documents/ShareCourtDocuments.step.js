@@ -1,6 +1,6 @@
 const { branch } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
-const { Question } = require('@hmcts/one-per-page/steps');
+const { shimSessionQuestion } = require('middleware/shimSession');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
@@ -19,7 +19,7 @@ const constants = {
   awaitingClarification
 };
 
-class ShareCourtDocuments extends Question {
+class ShareCourtDocuments extends shimSessionQuestion {
   static get path() {
     return config.paths.shareCoreDocuments;
   }
