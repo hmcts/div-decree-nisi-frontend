@@ -26,20 +26,30 @@ describe(modulePath, () => {
       res.end();
     });
 
-    it('sanitises an url', () => {
-      const actualUrl = '/authenticated?__auth-token=thEt0keN';
-      const expectedUrl = '/authenticated?';
-      const sanitisedUrl = urlSanitiser(actualUrl);
+    it('sanitises an empty url@testone', () => {
+      const actualUrl = '';
+      const expectedUrl = '';
+      const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
       sinon.assert.match(
         sanitisedUrl,
         expectedUrl
       );
     });
 
-    it('sanitises an empty url', () => {
-      const actualUrl = '';
-      const expectedUrl = '';
-      const sanitisedUrl = urlSanitiser(actualUrl);
+    it('sanitises a url with one parameter@testone', () => {
+      const actualUrl = '/authenticated?__auth-token=thEt0keN';
+      const expectedUrl = '/authenticated?';
+      const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
+      sinon.assert.match(
+        sanitisedUrl,
+        expectedUrl
+      );
+    });
+
+    it('sanitises a url with two parameters@testone', () => {
+      const actualUrl = '/authenticated?__auth-token=thEt0keN&code=01928askljqw8913041&parameter=value';
+      const expectedUrl = '/authenticated?__parameter=value';
+      const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
       sinon.assert.match(
         sanitisedUrl,
         expectedUrl
