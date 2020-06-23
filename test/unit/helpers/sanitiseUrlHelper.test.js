@@ -5,7 +5,7 @@ const urlSanitiser = require(modulePath);
 
 describe(modulePath, () => {
   describe('#sanitiseUrl', () => {
-    it('sanitises an empty url@testone', () => {
+    it('sanitises an empty URL@testone', () => {
       const actualUrl = '';
       const expectedUrl = '';
       const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
@@ -15,7 +15,7 @@ describe(modulePath, () => {
       );
     });
 
-    it('sanitises a url with one parameter@testone', () => {
+    it('sanitises a URL with one parameter to be removed@testone', () => {
       const actualUrl = '/authenticated?__auth-token=thEt0keN';
       const expectedUrl = '/authenticated';
       const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
@@ -25,9 +25,19 @@ describe(modulePath, () => {
       );
     });
 
-    it('sanitises a url with two parameters@testone', () => {
+    it('sanitises a URL with two parameters to be removed and one kept @testone', () => {
       const actualUrl = '/authenticated?__auth-token=thEt0keN&code=c0d4c0de&parameter=value';
       const expectedUrl = '/authenticated?parameter=value';
+      const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
+      sinon.assert.match(
+        sanitisedUrl,
+        expectedUrl
+      );
+    });
+
+    it('returns non-target URLs without change@testone', () => {
+      const actualUrl = '/continue-with-divorce';
+      const expectedUrl = '/continue-with-divorce';
       const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
       sinon.assert.match(
         sanitisedUrl,
