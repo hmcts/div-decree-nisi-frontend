@@ -1,6 +1,6 @@
 const nodeJsLogging = require('@hmcts/nodejs-logging');
 const { get } = require('lodash');
-const sanitiseUrl = require('helpers/sanitiseUrlHelper');
+const urlSanitiser = require('helpers/sanitiseUrlHelper');
 
 const buildUserInfo = req => {
   const idamId = get(req, 'idam.userDetails.id', 'unknown');
@@ -29,7 +29,7 @@ const accessLogger = () => {
   return nodeJsLogging.Express.accessLogger({
     formatter: (req, res) => {
       const url = req.originalUrl || req.url;
-      const sanitisedUrl = sanitiseUrl(url);
+      const sanitisedUrl = urlSanitiser.sanitiseUrl(url);
       return `${buildUserInfo(req)} - "${req.method} ${sanitisedUrl} HTTP/${req.httpVersionMajor}.${req.httpVersionMinor}" ${res.statusCode}`;
     }
   });

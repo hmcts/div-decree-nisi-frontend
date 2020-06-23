@@ -3,7 +3,6 @@ const modulePath = 'services/logger';
 const { sinon } = require('@hmcts/one-per-page-test-suite');
 const nodeJsLogger = require('@hmcts/nodejs-logging').Logger.getLogger('name');
 const logger = require(modulePath);
-const urlSanitiser = require('helpers/sanitiseUrlHelper');
 
 const req = {
   originalUrl: 'url',
@@ -24,36 +23,6 @@ describe(modulePath, () => {
       };
       middleware(req, res, sinon.stub());
       res.end();
-    });
-
-    it('sanitises an empty url@testone', () => {
-      const actualUrl = '';
-      const expectedUrl = '';
-      const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
-      sinon.assert.match(
-        sanitisedUrl,
-        expectedUrl
-      );
-    });
-
-    it('sanitises a url with one parameter@testone', () => {
-      const actualUrl = '/authenticated?__auth-token=thEt0keN';
-      const expectedUrl = '/authenticated?';
-      const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
-      sinon.assert.match(
-        sanitisedUrl,
-        expectedUrl
-      );
-    });
-
-    it('sanitises a url with two parameters@testone', () => {
-      const actualUrl = '/authenticated?__auth-token=thEt0keN&code=01928askljqw8913041&parameter=value';
-      const expectedUrl = '/authenticated?__parameter=value';
-      const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
-      sinon.assert.match(
-        sanitisedUrl,
-        expectedUrl
-      );
     });
   });
 

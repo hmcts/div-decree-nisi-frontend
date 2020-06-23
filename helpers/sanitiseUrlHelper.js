@@ -1,22 +1,18 @@
-const parametersForRemoval = [
+const authenticationParametersForRemoval = [
   'auth-token',
   'code'
 ];
-
-// const sanitiseUrl = url => {
-//   return url.replace(/(.+)(__auth-token=.+)/mg, '\\$1');
-// };
 
 const removeURLParameter = (url, parameter) => {
   const urlParts = url.split('?');
   if (urlParts.length > 1) {
     const prefix = `${parameter}=`;
     const parameters = urlParts[1].split(/[&]/g);
-    for (let i = parameters.length; i > 0; i--) {
-      if (parameters[i].includes(prefix)) {
-        parameters.splice(i, 1);
+    parameters.forEach(param => {
+      if (param.includes(prefix)) {
+        parameters.splice(param, 1);
       }
-    }
+    });
     return urlParts[0] + (parameters.length > 0 ? `?${parameters.join('&')}` : '');
   }
   return url;
@@ -25,9 +21,9 @@ const removeURLParameter = (url, parameter) => {
 const sanitiseUrl = url => {
   let resultUrl = url;
   if (resultUrl.includes('/authenticated?')) {
-    for (const parameter of parametersForRemoval) {
+    authenticationParametersForRemoval.forEach(parameter => {
       if (resultUrl.includes(parameter)) resultUrl = removeURLParameter(resultUrl, parameter);
-    }
+    });
   }
   return resultUrl;
 };
