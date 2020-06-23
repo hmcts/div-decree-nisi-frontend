@@ -1,14 +1,26 @@
 {
   "en": {
-    "dAATitle": "Your {{ case.divorceWho }} has said that they intend to defend the divorce",
-    "dAAHasRespondend": "Your {{ case.divorceWho }} has responded to your application and said that they want to try to prevent the divorce (they intend to defend it).",
-    "dAAHasRespondendForAmendedCase": "Your {{ case.divorceWho }} has responded to your amended application and said that they want to try to prevent the divorce (they intend to defend it).",
+    "dAATitle": "Your {{ divorceWho }} has said that they intend to defend the divorce",
+    "dAAHasRespondend": "Your {{ divorceWho }} has responded to your application and said that they want to try to prevent the divorce (they intend to defend it).",
+    "dAAHasRespondendForAmendedCase": "Your {{ divorceWho }} has responded to your amended application and said that they want to try to prevent the divorce (they intend to defend it).",
     "dAAWhatHappensNext": "What happens next",
-    "dAA28Days": "Your {{ case.divorceWho }} now has 21 days from the date they first signed into their divorce account to submit another form. This form is legally known as an 'answer', and they'll need to complete it to make their case for defending the divorce.", 
-    "dAAUsualyGoToCourt": "You'll usually then both have to go to a court hearing where a judge will make a decision on the divorce. You’ll also need to carry out the rest of your divorce offline.",
-    "dAADoesntSubmitAnswer": "If your {{ case.divorceWho }} doesn't submit an answer",
-    "dAADoesntReceiveAnswer": "If the court doesn't receive your {{ case.divorceWho }}'s answer by the deadline, it will assume that they don't want to take their defence any further. You'll be able to continue your divorce as if they hadn't said that they intended to defend.",
-    "dAASentandEmail": "You'll be sent an email once your {{ case.divorceWho }} has responded or the deadline has passed telling you what to do next.",
-    "dAAReadResp": "Read your {{ case.divorceWho }}'s response on the next page."
+    "dAA28Days": "Your {{ divorceWhodivorceWho }} now has 21 days from the date they first signed into their divorce account to submit another form. This form is legally known as an 'answer', and they’ll need to complete it to make their case for defending the divorce.",
+    "dAAUsualyGoToCourt": "You’ll usually then both have to go to a court hearing where a judge will make a decision on the divorce. You’ll also need to carry out the rest of your divorce offline.",
+    "dAADoesntSubmitAnswer": "If your {{ divorceWho }} doesn’t submit an answer",
+    "dAADoesntReceiveAnswer": "If the court doesn’t receive your {{ divorceWho }}’s answer by the deadline, it will assume that they don’t want to take their defence any further. You’ll be able to continue your divorce as if they hadn’t said that they intended to defend.",
+    "dAASentandEmail": "You’ll be sent an email once your {{ divorceWho }} has responded or the deadline has passed telling you what to do next.",
+    "dAAReadResp": "Read your {{ divorceWho }}’s response on the next page."
+  },
+  "cy": {
+    "dAATitle": "Mae eich {{ divorceWho }} wedi dweud eu bod yn bwriadu amddiffyn yr ysgariad",
+    "dAAHasRespondend": "Mae eich {{ divorceWho }} wedi ymateb i’ch cais ac maent wedi datgan eu bod eisiau ceisio atal yr ysgariad (maent yn bwriadu ei amddiffyn).",
+    "dAAHasRespondendForAmendedCase": "Mae eich {{ divorceWho }} wedi ymateb i’ch cais diwygiedig ac maent wedi datgan eu bod eisiau ceisio atal yr ysgariad (maent yn bwriadu ei amddiffyn).",
+    "dAAWhatHappensNext": "Beth fydd yn digwydd nesaf",
+    "dAA28Days": "Mae gan eich {{ divorceWho }} nawr 21 diwrnod o'r dyddiad y bu iddynt fewngofnodi i'w cyfrif ysgaru am y tro cyntaf i gyflwyno ffurflen arall.  Yn gyfreithiol, gelwir y ffurflen hon yn ‘ateb’ a bydd angen iddynt ei llenwi er mwyn gallu cyflwyno eu hachos dros amddiffyn yr ysgariad.",
+    "dAAUsualyGoToCourt": "Gan amlaf, bydd rhaid i'r ddau ohonoch wedyn fynychu gwrandawiad llys lle bydd Barnwr yn gwneud penderfyniad ynghylch yr ysgariad.  Hefyd, ni allwch gwblhau gweddill eich cais am ysgariad ar-lein.",
+    "dAADoesntSubmitAnswer": "Os nad yw eich {{ divorceWho }} yn cyflwyno ateb",
+    "dAADoesntReceiveAnswer": "Os na fydd ateb eich {{ divorceWho }} yn cyrraedd y llys erbyn y terfyn amser, bydd y llys yn tybio nad ydynt eisiau mynd â’u hamddiffyniad yn bellach.  Gallwch barhau â’ch ysgariad fel petaent heb ddweud eu bod yn bwriadu ei amddiffyn.",
+    "dAASentandEmail": "Byddwch yn cael neges e-bost unwaith y bydd eich {{ divorceWho }} wedi ymateb neu mae’r dyddiad cyflwyno wedi mynd heibio a bydd yn dweud wrthych beth i'w wneud nesaf.",
+    "dAAReadResp": "Darllenwch ymateb eich {{ divorceWho }} ar y dudalen nesaf."
   }
 }

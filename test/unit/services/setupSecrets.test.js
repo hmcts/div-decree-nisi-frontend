@@ -3,7 +3,7 @@ const { cloneDeep } = require('lodash');
 const config = require('config');
 const proxyquire = require('proxyquire');
 
-const modulePath = 'helpers/setupSecretsHelper';
+const modulePath = 'services/setupSecrets';
 
 let mockConfig = {};
 

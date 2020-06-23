@@ -5,6 +5,9 @@ const { createUris } = require('@hmcts/div-document-express-handler');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
 const { get } = require('lodash');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 class Done extends ExitPoint {
   static get path() {
@@ -25,6 +28,11 @@ class Done extends ExitPoint {
 
   get case() {
     return this.req.session.case.data;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
   }
 
   get downloadableFiles() {
@@ -50,7 +58,8 @@ class Done extends ExitPoint {
     return [
       idam.protect(),
       idam.logout(),
-      ...super.middleware
+      ...super.middleware,
+      checkWelshToggle
     ];
   }
 }

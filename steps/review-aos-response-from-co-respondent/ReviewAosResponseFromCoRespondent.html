@@ -50,6 +50,9 @@
     {% else %}
       <p class="govuk-body">{{ content.theCoRespondentAgreeToPayCostsNo }}</p>
       <p class="govuk-body">{{ case.coRespondentAnswers.costs.reason | nl2br | safe }}</p>
+      {% if case.coRespondentAnswers.costs.reasonTrans %}
+        <p class="govuk-body">{{ case.coRespondentAnswers.costs.reasonTrans | nl2br | safe }}</p>
+      {% endif %}
     {% endif %}
   {% endif %}
   <details class="govuk-details">

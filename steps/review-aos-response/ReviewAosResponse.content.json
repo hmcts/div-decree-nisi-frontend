@@ -1,27 +1,25 @@
 {
   "en": {
-    "title": "Read your {{ case.divorceWho }}'s response",
-    "respSolicitorRepresented": "This response was submitted by the respondent's nominated solicitor.",
-    "youNeedToRead": "You need to read your {{ case.divorceWho }}'s response before you continue. The response is legally known as the 'acknowledgement of service'",
-   
+    "title": "Read your {{ divorceWho }}’s response",
+    "respSolicitorRepresented": "This response was submitted by the respondent’s nominated solicitor.",
+    "youNeedToRead": "You need to read your {{ divorceWho }}’s response before you continue. The response is legally known as the 'acknowledgement of service'",
     "acknowledgementOfSrvice": "Acknowledgement of service",
     "respondent": "Respondent",
     "corespondent": "Co-respondent",
     "applicant": "Applicant",
     "whatThisMeans": "What this means",
-
     "respProceed": {
       "title": "How the respondent wants to proceed",
       "willDefendDivorce": "The respondent will try to prevent the divorce based on this application (they intend to 'defend' it).",
-      "willLetDivorceProceed": "The respondent will let the divorce proceed (doesn't intend to 'defend' it).",
-      "letDivorceProceedButNotAdmit": "The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't accept the allegations made in the application.",
+      "willLetDivorceProceed": "The respondent will let the divorce proceed (doesn’t intend to 'defend' it).",
+      "letDivorceProceedButNotAdmit": "The respondent will let the divorce proceed (doesn’t intend to 'defend' it), but doesn’t accept the allegations made in the application.",
       "adultery": {
         "admitsAdultery": "The respondent admits to committing the adultery.",
         "doesNotAdmitAdultery": "The respondent does not admit to committing the adultery."
       },
       "sep": {
-        "intendingToDelayDivorce":"The respondent is intending to ask the court to delay the divorce until it’s satisfied with their financial situation.",
-        "notIntendingToDelayDivorce":"The respondent is not intending to ask the court to delay the divorce until it’s satisfied with their financial situation."
+        "intendingToDelayDivorce": "The respondent is intending to ask the court to delay the divorce until it’s satisfied with their financial situation.",
+        "notIntendingToDelayDivorce": "The respondent is not intending to ask the court to delay the divorce until it’s satisfied with their financial situation."
       },
       "sep2Yr": {
         "respConsent": "The respondent consents to a divorce.",
@@ -29,17 +27,16 @@
       },
       "sep5Yr": {
         "defendingFinancialHardship": "The respondent is defending on the basis that it will cause them severe hardship and provided the following explanation:",
-        "notDefendingFinancialHardship":"The respondent is not defending on the basis that it will cause them severe hardship."
+        "notDefendingFinancialHardship": "The respondent is not defending on the basis that it will cause them severe hardship."
       },
       "givenOptions": "The respondent was given the following options for their response.",
       "proceedWithDivorce": "to proceed with the divorce",
       "proceedNotAccept": "to proceed, but not accept the allegations",
       "disagree": "to disagree with the application - if they want to try to prevent the divorce or want to make their own application for divorce (they intend to 'defend' it)"
     },
-
     "jurisdiction": {
       "title": "Jurisdiction of the court",
-      "otherCourtDetails":"Other court cases that could affect jurisdiction",
+      "otherCourtDetails": "Other court cases that could affect jurisdiction",
       "respondentAgrees": "The respondent agrees that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
       "respDoesNotAgree": "The respondent does not agree that the courts of England and Wales have the jurisdiction (the legal power) to grant you a divorce.",
       "detailsGiven": "They gave the following statement to support this:",
@@ -49,29 +46,96 @@
       "respondentWasAsked": "The respondent was asked if they agree with the jurisdiction connections which you give in your divorce application.",
       "courtProceedings": "They were also asked if there were any other court proceedings which may affect the marriage."
     },
-
     "costsOrder": {
       "title": "Costs order",
-      "agreedToPayCosts": "Your {{ case.divorceWho }} has agreed to pay some or all of the costs of the divorce.",
-      "notAgreedToPayCosts": "Your {{ case.divorceWho }} has said they should not pay costs and given the following explanation about why they should not pay:",
+      "agreedToPayCosts": "Your {{ divorceWho }} has agreed to pay some or all of the costs of the divorce.",
+      "notAgreedToPayCosts": "Your {{ divorceWho }} has said they should not pay costs and given the following explanation about why they should not pay:",
       "respondentWasAskedPayCosts": "The respondent was asked if they agreed to pay the costs that you claimed.",
       "followingOptions": "They were given the following options:",
       "payCosts": "to agree to pay some or all of the costs of the divorce",
       "notPayCosts": "to not agree to paying any of the costs",
-      "chanceToChangeAmount": "You'll be given a chance to accept their suggestion or change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ case.divorceWho }} make."
+      "chanceToChangeAmount": "You’ll be given a chance to accept their suggestion or change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split, but it will take into account any requests you and your {{ divorceWho }} make."
     },
-    
     "statementOfTruth": {
       "title": "Statement of Truth",
-      "details":"\"I believe that the facts stated in this application are true.\""
+      "details": "\"I believe that the facts stated in this application are true.\""
     },
-
     "fields": {
       "reviewAosResponse": {
-        "title": "Your {{ case.divorceWho }}'s response",
-        "no": "The respondent will let the divorce proceed (doesn't intend to 'defend' it).",
-        "nonoadmission": "The respondent will let the divorce proceed (doesn't intend to 'defend' it), but doesn't accept the allegations made in the application.",
+        "title": "Your {{ divorceWho }}’s response",
+        "no": "The respondent will let the divorce proceed (doesn’t intend to 'defend' it).",
+        "nonoadmission": "The respondent will let the divorce proceed (doesn’t intend to 'defend' it), but doesn’t accept the allegations made in the application.",
         "yes": "The respondent will try to prevent the divorce based on this application (they intend to 'defend' it)."
+      }
+    }
+  },
+  "cy": {
+    "title": "Darllenwch ymateb eich {{ divorceWho }}",
+    "respSolicitorRepresented": "Cyflwynwyd yr ymateb hwn gan gyfreithiwr yr Atebydd.",
+    "youNeedToRead": "Mae angen ichi ddarllen ymateb eich {{ divorceWho }} cyn ichi barhau.  Yn gyfreithiol, gelwir yr ymateb yn ‘Cydnabyddiad Cyflwyno’",
+    "acknowledgementOfSrvice": "Cydnabyddiad Cyflwyno",
+    "respondent": "Atebydd",
+    "corespondent": "Cyd-atebydd",
+    "applicant": "Ceisydd",
+    "whatThisMeans": "Beth mae hyn yn ei olygu",
+    "respProceed": {
+      "title": "Sut mae’r Atebydd eisiau parhau",
+      "willDefendDivorce": "Bydd yr Atebydd yn ceisio atal yr ysgariad ar sail y cais hwn (maent yn bwriadu ei ‘amddiffyn’).",
+      "willLetDivorceProceed": "Bydd yr Atebydd yn gadael i’r ysgariad barhau (nid ydynt yn bwriadu ei ‘amddiffyn’).",
+      "letDivorceProceedButNotAdmit": "Bydd yr Atebydd yn gadael i’r ysgariad barhau (nid ydynt yn bwriadu ei 'amddiffyn'), ond nid ydynt yn derbyn yr honiadau a wnaed yn y cais.",
+      "adultery": {
+        "admitsAdultery": "Mae’r Atebydd yn cyfaddef cyflawni’r godineb.",
+        "doesNotAdmitAdultery": "Nid yw’r Atebydd yn cyfaddef cyflawni’r godineb."
+      },
+      "sep": {
+        "intendingToDelayDivorce": "Mae’r Atebydd yn bwriadu gofyn i’r llys ohirio’r cais am ysgariad hyd nes y bydd yn fodlon â’i sefyllfa ariannol.",
+        "notIntendingToDelayDivorce": "Nid yw’r Atebydd yn bwriadu gofyn i’r llys ohirio’r cais am ysgariad hyd nes y bydd yn fodlon â’i sefyllfa ariannol. "
+      },
+      "sep2Yr": {
+        "respConsent": "Mae’r Atebydd yn cydsynio i ysgariad.",
+        "respDoesNotContent": "Nid yw’r Atebydd yn cydsynio i ysgariad.  "
+      },
+      "sep5Yr": {
+        "defendingFinancialHardship": "Mae’r Atebydd yn amddiffyn y cais oherwydd y bydd yn achosi caledi ariannol eithriadol iddynt, a rhoddodd yr eglurhad canlynol:",
+        "notDefendingFinancialHardship": "Nid yw’r Atebydd yn amddiffyn y cais oherwydd y bydd yn achosi caledi ariannol eithriadol iddynt. "
+      },
+      "givenOptions": "Rhoddwyd yr opsiynau canlynol i’r Atebydd ar gyfer eu hymateb.",
+      "proceedWithDivorce": "i barhau â’r ysgariad",
+      "proceedNotAccept": "i barhau, ond i beidio â derbyn yr honiadau",
+      "disagree": "i anghytuno â’r cais - os ydynt eisiau ceisio atal yr ysgariad neu eisiau gwneud cais am ysgariad eu hunain (maent yn bwriadu ei ‘amddiffyn’)"
+    },
+    "jurisdiction": {
+      "title": "Pwerau cyfreithiol y llys",
+      "otherCourtDetails": "Achosion llys eraill a allai effeithio ar bwerau cyfreithiol y llys",
+      "respondentAgrees": "Mae’r Atebydd yn cytuno bod gan lysoedd Cymru a Lloegr bwer cyfreithiol i ganiatáu ichi gael ysgariad.",
+      "respDoesNotAgree": "Nid yw’r Atebydd yn cytuno bod gan lysoedd Cymru a Lloegr bwer cyfreithiol i ganiatáu ichi gael ysgariad.",
+      "detailsGiven": "Fe roesant y datganiad canlynol i gefnogi hyn:",
+      "countryTheyResp": "Fe ofynnwyd iddynt ym mha wlad y maent yn treulio rhan fwyaf o’u hamser. A’u hymateb oedd:",
+      "otherProceedings": "Mi ddywedont fod yna achosion eraill y tu allan i Gymru a Lloegr sy’n ymwneud â’r briodas neu a allai effeithio ar ei dilysrwydd (pa mor gyfreithiol rwymol yw’r briodas).",
+      "noOtherProceedings": "Mi ddywedont nad oes achosion eraill y tu allan i Gymru a Lloegr sy’n ymwneud â’r briodas neu a allai effeithio ar ei dilysrwydd (pa mor gyfreithiol rwymol yw’r briodas).",
+      "respondentWasAsked": "Gofynnwyd i’r Atebydd os ydynt yn cytuno â’r cysylltiadau cyfreithiol a roddwyd gennych yn eich cais am ysgariad.",
+      "courtProceedings": "Hefyd, gofynnwyd iddynt os oedd unrhyw achosion llys eraill a allai effeithio ar y briodas. "
+    },
+    "costsOrder": {
+      "title": "Gorchymyn Costau",
+      "agreedToPayCosts": "Mae eich {{ divorceWho }} wedi cytuno i dalu rhywfaint neu holl gostau’r ysgariad.",
+      "notAgreedToPayCosts": "Mae eich {{ divorceWho }} wedi dweud na ddylent dalu’r costau a rhoesant yr eglurhad canlynol ynghylch pam na ddylent dalu:",
+      "respondentWasAskedPayCosts": "Gofynnwyd i’r Atebydd os oeddynt yn cytuno i dalu’r costau yr ydych wedi’u hawlio.",
+      "followingOptions": "Rhoddwyd yr opsiynau canlynol iddynt:",
+      "payCosts": "cytuno i dalu rhywfaint neu holl gostau’r ysgariad",
+      "notPayCosts": "ddim yn cytuno i dalu unrhyw gostau",
+      "chanceToChangeAmount": "Fe gewch gyfle i dderbyn eu hawgrym neu i newid eich meddwl ynghylch hawlio costau hwyrach ymlaen yn y cais.  Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn cymryd i ystyriaeth unrhyw geisiadau yr ydych chi a’ch {{ divorceWho }} yn eu gwneud."
+    },
+    "statementOfTruth": {
+      "title": " Datganiad Gwirionedd",
+      "details": "\"I believe that the facts stated in this application are true.\""
+    },
+    "fields": {
+      "reviewAosResponse": {
+        "title": " Ymateb eich {{ divorceWho }}",
+        "no": "Bydd yr Atebydd yn gadael i’r ysgariad barhau (nid ydynt yn bwriadu ei ‘amddiffyn’).",
+        "nonoadmission": "Bydd yr Atebydd yn gadael i’r ysgariad barhau (nid ydynt yn bwriadu ei 'amddiffyn'), ond nid ydynt yn derbyn yr honiadau a wnaed yn y cais.",
+        "yes": "Bydd yr Atebydd yn ceisio atal yr ysgariad ar sail y cais hwn (maent yn bwriadu ei ‘amddiffyn’)."
       }
     }
   }
