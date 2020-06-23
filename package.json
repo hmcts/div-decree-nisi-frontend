@@ -137,7 +137,8 @@
       "steps/cookies-policy/",
       "steps/privacy-policy/",
       "steps/terms-and-conditions/",
-      "test/**/*"
+      "test/**/*",
+      "middleware/shimSession.js"
     ]
   }
 }
