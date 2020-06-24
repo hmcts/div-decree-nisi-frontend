@@ -1,8 +1,14 @@
 {
   "en": {
     "dWSAppStatusMsg": "You can continue with your divorce",
-    "dWSAppStatusMsgDetails1": "The court has accepted your application to 'dispense with service' (decided that your {{ case.divorceWho }} doesn’t have to be served the divorce application).",
-    "dWSAmendedAppStatusMsgDetails1": "The court has accepted your application to 'dispense with service' (decided that your {{ case.divorceWho }} doesn’t have to be served the amended divorce application).",
+    "dWSAppStatusMsgDetails1": "The court has accepted your application to 'dispense with service' (decided that your {{ divorceWho }} doesn’t have to be served the divorce application).",
+    "dWSAmendedAppStatusMsgDetails1": "The court has accepted your application to 'dispense with service' (decided that your {{ divorceWho }} doesn’t have to be served the amended divorce application).",
     "dWSAppStatusMsgDetails2": "You can now continue the divorce without their response."
+  },
+  "cy": {
+    "dWSAppStatusMsg": "Gallwch nawr barhau â’ch ysgariad",
+    "dWSAppStatusMsgDetails1": "Mae’r llys wedi derbyn eich cais i 'hepgor cyflwyno' (penderfynu nad oes rhaid cyflwyno'r cais am ysgariad i'ch {{ divorceWho }}).",
+    "dWSAmendedAppStatusMsgDetails1": "Mae’r llys wedi derbyn eich cais i 'hepgor cyflwyno' (penderfynu nad oes rhaid cyflwyno'r cais diwygiedig am ysgariad i'ch {{ divorceWho }}).",
+    "dWSAppStatusMsgDetails2": "Gallwch nawr barhau â’r ysgariad heb eu hymateb. "
   }
 }

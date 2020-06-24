@@ -1,13 +1,25 @@
 {
   "en": {
-    "title": "Respond to the court's feedback?",
-    "needToProvide" : "See the court’s feedback",
+    "title": "Respond to the court’s feedback?",
+    "needToProvide": "See the court’s feedback",
     "errors": {
       "required": "You need to enter a response before continuing"
     },
     "fields": {
       "response": {
         "title": "Your response"
+      }
+    }
+  },
+  "cy": {
+    "title": "Ymateb i adborth y llys",
+    "needToProvide" : "Gweld adborth y llys",
+    "errors": {
+      "required": " Mae angen ichi ymateb cyn y gallwch barhau"
+    },
+    "fields": {
+      "response": {
+        "title": " Eich ymateb"
       }
     }
   }

@@ -5,6 +5,7 @@ const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
+const checkWelshToggle = require('middleware/checkWelshToggle');
 
 class LivedApartSinceAdultery extends Question {
   static get path() {
@@ -102,7 +103,11 @@ class LivedApartSinceAdultery extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 }
 

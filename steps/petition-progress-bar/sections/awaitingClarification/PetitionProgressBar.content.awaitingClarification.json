@@ -7,5 +7,14 @@
     "awaitingClarificationDoNext": "What you need to do next",
     "awaitingClarificationProvideResponse": "You need to provide a response to the court’s feedback before your application can proceed.",
     "awaitingClarificationSubmitDocuments": "You will be able to submit additional documents online or by sending the original paper copies by post."
+  },
+  "cy" : {
+    "awaitingClarificationTitle": "Mae angen ichi ddarparu rhagor o wybodaeth neu ddogfennau",
+    "awaitingClarificationReviewOfCase": "Ar ôl adolygu eich cais, nid yw’r llys yn fodlon eto eich bod chi’n gymwys i gael dyfarniad ysgaru.",
+    "awaitingClarificationCourtsFeedback": "Adborth y llys",
+    "awaitingClarificationNotSatisfied": "Gallwch lawrlwytho a chadw'r <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"Bydd y ddolen hon yn lawrlwytho’r Gorchymyn Gwrthod ar ffurf PDF.\">Gorchymyn Gwrthod ({{ refusalOrderFile.fileType | upper }})</a>.",
+    "awaitingClarificationDoNext": "Beth sydd angen i chi wneud nesaf",
+    "awaitingClarificationProvideResponse": "Mae angen ichi ddarparu ymateb i adborth y llys cyn y gallwch barhau â’ch cais.",
+    "awaitingClarificationSubmitDocuments": "Byddwch yn gallu cyflwyno dogfennau ychwanegol ar-lein neu drwy anfon y copïau papur gwreiddiol drwy’r post. "
   }
 }

@@ -10,6 +10,9 @@ const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification, dnIsRefused } = require('common/constants');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 const {
   caseStateMap,
@@ -43,6 +46,11 @@ class PetitionProgressBar extends Interstitial {
     return this.req.session.case.data;
   }
 
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
+  }
+
   get caseId() {
     return this.req.session.case.caseId;
   }
@@ -69,7 +77,8 @@ class PetitionProgressBar extends Interstitial {
       ...super.middleware,
       idam.protect(),
       checkCaseState,
-      getFeeFromFeesAndPayments(feeTypes.amendFee)
+      getFeeFromFeesAndPayments(feeTypes.amendFee),
+      checkWelshToggle
     ];
   }
 

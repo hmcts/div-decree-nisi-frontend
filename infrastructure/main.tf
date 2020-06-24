@@ -161,6 +161,8 @@ module "frontend" {
     WEBSITE_LOCAL_CACHE_OPTION = "Never"
     WEBSITE_LOCAL_CACHE_SIZEINMB = 0
     WEBSITE_DYNAMIC_CACHE = 0
+
+    LAUNCHDARKLY_KEY = "${data.azurerm_key_vault_secret.launchdarkly_key.value}"
   }
 }
 
@@ -181,6 +183,11 @@ data "azurerm_key_vault_secret" "session_secret" {
 
 data "azurerm_key_vault_secret" "redis_secret" {
   name      = "redis-secret"
+  key_vault_id = "${data.azurerm_key_vault.div_key_vault.id}"
+}
+
+data "azurerm_key_vault_secret" "launchdarkly_key" {
+  name = "launchdarkly-key"
   key_vault_id = "${data.azurerm_key_vault.div_key_vault.id}"
 }
 

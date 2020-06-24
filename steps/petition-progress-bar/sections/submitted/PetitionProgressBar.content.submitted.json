@@ -1,11 +1,20 @@
 {
   "en": {
     "submittedAppStatusMsg": "Your application was submitted on {{ case.createdDate | date }}",
-    "submittedAppStatusMsgDetails1": "Your temporary reference number is ",
-    "submittedAppStatusMsgDetails2": "You’ll be given a full case number when your application has been accepted and issued (sent by post to your {{ case.divorceWho }}).",
+    "submittedAppStatusMsgDetails1": "Your temporary reference number is",
+    "submittedAppStatusMsgDetails2": "You’ll be given a full case number when your application has been accepted and issued (sent by post to your {{ divorceWho }}).",
     "submittedWhatHappensNext": "What happens next",
-    "submittedWhatHappensNextDetails1": "If your application is accepted you'll be sent a copy by email along with your case number.",
-    "submittedWhatHappensNextDetails2": "Your {{ case.divorceWho }} will also receive a copy of the application by post and a form to return. If you have used adultery as your reason for divorce, and named the person that your {{ case.divorceWho }} committed adultery with, they will also get a copy and a form to return.",
-    "submittedWhatHappensNextDetails3": "Contact the service centre if you don't hear anything back after 4 weeks."
+    "submittedWhatHappensNextDetails1": "If your application is accepted you’ll be sent a copy by email along with your case number.",
+    "submittedWhatHappensNextDetails2": "Your {{ divorceWho }} will also receive a copy of the application by post and a form to return. If you have used adultery as your reason for divorce, and named the person that your {{ divorceWho }} committed adultery with, they will also get a copy and a form to return.",
+    "submittedWhatHappensNextDetails3": "Contact the service centre if you don’t hear anything back after 4 weeks."
+  },
+  "cy": {
+    "submittedAppStatusMsg": "Cyflwynwyd eich cais ar {{ case.createdDate | date }}",
+    "submittedAppStatusMsgDetails1": "Eich cyfeirnod dros dro yw:",
+    "submittedAppStatusMsgDetails2": "Byddwch yn cael eich rhif achos iawn pan fydd eich cais wedi cael ei dderbyn a’i gyhoeddi (pan fydd wedi'i anfon drwy'r post at eich {{ divorceWho }}).",
+    "submittedWhatHappensNext": "Beth fydd yn digwydd nesaf",
+    "submittedWhatHappensNextDetails1": "Os bydd eich cais yn cael ei dderbyn fe gewch gopi ohono drwy e-bost ynghyd â'ch rhif achos iawn.",
+    "submittedWhatHappensNextDetails2": "Bydd eich{{ divorceWho }} hefyd yn cael copi o’r cais drwy'r post a ffurflen i’w dychwelyd. Os mai godineb yw eich rheswm dros ysgaru, a’ch bod wedi enwi’r unigolyn y godinebodd eich {{ divorceWho }} ag ef/hi, bydd ef/hi yn cael copi hefyd a ffurflen i’w dychwelyd.",
+    "submittedWhatHappensNextDetails3": "Cysylltwch â ni os na fyddwch wedi clywed gennym ar ôl 4 wythnos."
   }
 }

@@ -6,6 +6,9 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 class RespNotAdmitAdultery extends Question {
   static get path() {
@@ -14,6 +17,11 @@ class RespNotAdmitAdultery extends Question {
 
   get case() {
     return this.req.session.case.data;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
   }
 
   get form() {
@@ -56,7 +64,8 @@ class RespNotAdmitAdultery extends Question {
     return [
       ...super.middleware,
       idam.protect(),
-      getFeeFromFeesAndPayments(feeTypes.amendFee)
+      getFeeFromFeesAndPayments(feeTypes.amendFee),
+      checkWelshToggle
     ];
   }
 }

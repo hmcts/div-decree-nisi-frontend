@@ -2,11 +2,21 @@
   "en" : {
     "acceptedStatusMsg": "Your decree nisi application has been accepted",
     "acceptedStatusDetails": "A district judge will formally announce the decree nisi at a court hearing. This is the first stage of the decree ending your marriage.",
-    "acceptedStatusPanelDetails": "You'll only be divorced when the second stage is complete and you have your decree absolute.",
+    "acceptedStatusPanelDetails": "You’ll only be divorced when the second stage is complete and you have your decree absolute.",
     "acceptedHearingTitle": "The hearing",
     "acceptedHearingMsg1": "You can find more details about the date of the hearing and the orders that will be made (including costs orders) in your <a class=\"govuk-link\" href=\"{{ certificateOfEntitlementFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Certificate Of Entitlement PDF.\">Certificate Of Entitlement</a> ({{ certificateOfEntitlementFile.fileType | upper }}).",
     "acceptedHearingInfo": "You don’t need to come to the hearing unless you want to object to any of the court orders being made.",
     "acceptedHearingMsg2": "If you want to attend the hearing, you need to email the court before the hearing date.",
-    "acceptedHearingMsg2Costs": " If you, or your {{ case.divorceWho }}, want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date."
+    "acceptedHearingMsg2Costs": "If you, or your {{ divorceWho }}, want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date."
+  },
+  "cy" : {
+    "acceptedStatusMsg": "Mae eich cais am Ddyfarniad Nisi wedi’i dderbyn",
+    "acceptedStatusDetails": "Bydd Barnwr Rhanbarth yn cyhoeddi’r Dyfarniad Nisi yn ffurfiol mewn gwrandawiad llys. Dyma gam cyntaf y dyfarniad a fydd yn dod â’ch priodas i ben.",
+    "acceptedStatusPanelDetails": "Dim ond pan fydd yr ail gam wedi’i gwblhau ac y byddwch wedi cael eich Dyfarniad Absoliwt y byddwch wedi ysgaru.",
+    "acceptedHearingTitle": "Y gwrandawiad",
+    "acceptedHearingMsg1": "Gallwch gael mwy o wybodaeth am ddyddiad y gwrandawiad a’r gorchmynion a wneir (gan gynnwys gorchmynion costau) yn eich <a class=\"govuk-link\" href=\"{{ certificateOfEntitlementFile.uri | safe }}\" target=\"_blank\" aria-label=\"Bydd y ddolen hon yn lawrlwytho copi PDF o'r Dystysgrif Hawl.\">Tystysgrif Hawl</a> ({{ certificateOfEntitlementFile.fileType | upper }}).",
+    "acceptedHearingInfo": "Nid oes angen ichi ddod i'r gwrandawiad oni bai eich bod am wrthwynebu unrhyw rai o'r gorchmynion llys sy'n cael eu gwneud.",
+    "acceptedHearingMsg2": "Os ydych eisiau mynychu’r gwrandawiad, bydd angen ichi anfon neges e-bost i'r llys cyn dyddiad y gwrandawiad.",
+    "acceptedHearingMsg2Costs": " Os ydych chi, neu’ch {{ divorceWho }} eisiau gwrthwynebu gorchymyn costau, rhaid i'r llys gael llythyr neu neges e-bost yn nodi'r rhesymau dros wneud hynny o leiaf 14 diwrnod cyn dyddiad y gwrandawiad. "
   }
 }
