@@ -43,7 +43,13 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'clarificationCourtFeedback',
-        'clarification'
+        'clarification',
+        'signIn',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
       ];
       return content(ShareCourtDocuments, session, { ignoreContent });
     });

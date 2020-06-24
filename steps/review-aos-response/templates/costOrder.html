@@ -6,6 +6,9 @@
     <p class="govuk-body">{{ content.costsOrder.notAgreedToPayCosts }}</p>
     <div class="govuk-details__text govuk-!-margin-bottom-4">
       <p class="govuk-body">"{{ case.respCostsReason | nl2br | safe }}"</p>
+      {% if case.respCostsReasonTrans %}
+        <p class="govuk-body">"{{ case.respCostsReasonTrans | nl2br | safe }}"</p>
+      {% endif %}
     </div>
   {% endif %}
 
@@ -21,7 +24,7 @@
         <li>{{ content.costsOrder.payCosts }}</li>
         <li>{{ content.costsOrder.notPayCosts }}</li>
       </ul>
-      <br />
+      <br>
       <p class="govuk-body">{{ content.costsOrder.chanceToChangeAmount }}</p>
     </div>
   </details>

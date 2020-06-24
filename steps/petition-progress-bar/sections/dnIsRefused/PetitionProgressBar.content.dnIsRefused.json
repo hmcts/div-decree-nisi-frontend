@@ -7,8 +7,7 @@
     "dnIsRefusedDownloadAndKeep": "You can download and keep the court’s full <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"This link will download the Refusal order PDF.\">Refusal Order ({{ refusalOrderFile.fileType | upper }})</a>.",
     "dnIsRefusedDoNext": "What you need to do next",
     "dnIsRefusedDivorceToContinue": "If you want your divorce to continue, you’ll need to amend and resubmit it. You’ll also need to pay a £{{ amendFee }} amendment fee.",
-    "dnIsRefusedSentToDivorceWho": "The application will then be sent to your {{ case.divorceWho }}  again so that they can respond.",
-
+    "dnIsRefusedSentToDivorceWho": "The application will then be sent to your {{ divorceWho }}  again so that they can respond.",
     "dnIsRefusedRefusalCourtFeedback" : {
       "noJurisdiction": {
         "title": "Jurisdiction details",
@@ -24,6 +23,33 @@
       },
       "other": {
         "title": "The court has provided the following comments"
+      }
+    }
+  },
+  "cy" : {
+    "dnIsRefusedTitle": "Mae eich cais wedi cael ei wrthod",
+    "dnIsRefusedReviewOfCase": "Ar ôl adolygu eich cais, nid yw’r llys yn fodlon eto eich bod chi’n gymwys i gael dyfarniad ysgaru.",
+    "dnIsRefusedContinueWithApplication": "I barhau â’ch cais, mae’r llys wedi gofyn ichi gyflwyno rhagor o wybodaeth.  Bydd rhaid i chi hefyd dalu ffi o £{{ amendFee }} i newid eich cais.",
+    "dnIsRefusedCourtFeedback": "Adborth y llys",
+    "dnIsRefusedDownloadAndKeep": "Gallwch lawrlwytho a chadw'r <a class=\"govuk-link\" href=\"{{ refusalOrderFile.uri | safe }}\" target=\"_blank\" aria-label=\"Bydd y ddolen hon yn lawrlwytho’r Gorchymyn Gwrthod ar ffurf PDF.\">Gorchymyn Gwrthod ({{ refusalOrderFile.fileType | upper }})</a>.",
+    "dnIsRefusedDoNext": "Beth sydd angen i chi ei wneud nesaf",
+    "dnIsRefusedDivorceToContinue": "Os ydych eisiau i'ch ysgariad barhau, bydd angen ichi wneud newidiadau i’ch cais a’i ailgyflwyno. Bydd rhaid ichi hefyd dalu ffi o £{{ amendFee }} i newid eich cais.",
+    "dnIsRefusedSentToDivorceWho": "Yna bydd y cais yn cael ei anfon i’ch {{ divorceWho }} eto fel y gallant ymateb.",
+    "dnIsRefusedRefusalCourtFeedback" : {
+      "noJurisdiction": {
+        "title": "Pwerau Cyfreithiol Llysoedd Cymru a Lloegr",
+        "description": "Nid yw eich cais yn disgyn o fewn pwerau cyfreithiol Llysoedd Cymru a Lloegr. "
+      },
+      "noCriteria": {
+        "title": "Nid yw eich cais yn bodloni'r meini prawf",
+        "description": "Nid yw eich cais yn bodloni'r meini prawf ar gyfer y rheswm rydych wedi’i ddewis dros gael ysgariad.  "
+      },
+      "insufficentDetails": {
+        "title": "Manylion annigonol yn y cais",
+        "description": "Mae'r Llys wedi penderfynu nad yw eich cais yn dangos bod y briodas wedi chwalu’n gyfan gwbl. I ganiatáu ysgariad, rhaid i'r llys fod yn fodlon bod y briodas wedi chwalu’n gyfan gwbl, yn seiliedig ar y wybodaeth sydd yn y cais. "
+      },
+      "other": {
+        "title": "Mae'r llys wedi darparu'r sylwadau canlynol"
       }
     }
   }

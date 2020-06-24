@@ -5,7 +5,9 @@ const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
-
+const checkWelshToggle = require('middleware/checkWelshToggle');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 const { form, text } = require('@hmcts/one-per-page/forms');
 
 class Intolerable extends Question {
@@ -15,6 +17,11 @@ class Intolerable extends Question {
 
   get case() {
     return this.req.session.case.data;
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
   }
 
   get form() {
@@ -44,7 +51,11 @@ class Intolerable extends Question {
   }
 
   get middleware() {
-    return [...super.middleware, idam.protect()];
+    return [
+      ...super.middleware,
+      idam.protect(),
+      checkWelshToggle
+    ];
   }
 }
 

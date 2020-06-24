@@ -1,13 +1,13 @@
 {
   "en": {
     "title": "When did you first find out about the adultery?",
-    "whenAdulteryFound": "If you're not sure, use the closest date you remember.",
+    "whenAdulteryFound": "If you’re not sure, use the closest date you remember.",
     "errors": {
       "requireFirstFoundDate": "Enter a date between the day you got married and the day you submitted your divorce application."
     },
     "fields": {
       "adulteryFirstFoundDate": {
-        "question" : "Enter the date that you first found out about the adultery",
+        "question": "Enter the date that you first found out about the adultery",
         "hint": "For example, 31 3 2002",
         "dayLabel": "Day",
         "monthLabel": "Month",
@@ -16,6 +16,26 @@
         "dayRequired": "Enter a valid day that you first found out about the adultery",
         "monthRequired": "Enter a valid month that you first found out about the adultery",
         "yearRequired": "Enter a valid year that you first found out about the adultery"
+      }
+    }
+  },
+  "cy": {
+    "title": "Pa bryd y daethoch i wybod am yr odineb (cael perthynas â rhywun arall) am y tro cyntaf?",
+    "whenAdulteryFound": "Os nad ydych yn siwr, defnyddiwch y dyddiad agosaf rydych yn ei gofio.",
+    "errors": {
+      "requireFirstFoundDate": " Rhowch ddyddiad sydd rhwng dyddiad y briodas a’r dyddiad y bu ichi gyflwyno eich cais am ysgariad."
+    },
+    "fields": {
+      "adulteryFirstFoundDate": {
+        "question" : "Rhowch y dyddiad y daethoch i wybod am yr odineb am y tro cyntaf",
+        "hint": "Er enghraifft, 31 3 2002",
+        "dayLabel": "Diwrnod",
+        "monthLabel": "Mis",
+        "yearLabel": "Blwyddyn",
+        "allRequired": "Rhowch ddyddiad sydd rhwng dyddiad y briodas a’r dyddiad y bu ichi gyflwyno eich cais am ysgariad.",
+        "dayRequired": "Rhowch ddiwrnod dilys ar gyfer pryd y daethoch i wybod am yr odineb am y tro cyntaf",
+        "monthRequired": "Rhowch fis dilys ar gyfer pryd y daethoch i wybod am yr odineb am y tro cyntaf",
+        "yearRequired": "Rhowch flwyddyn ddilys ar gyfer pryd y daethoch i wybod am yr odineb am y tro cyntaf"
       }
     }
   }

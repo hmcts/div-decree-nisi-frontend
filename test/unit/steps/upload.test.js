@@ -51,7 +51,13 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'clarificationCourtFeedback',
-        'clarificationDigitalCopies'
+        'clarificationDigitalCopies',
+        'signIn',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
       ];
       const session = { case: { data: {} } };
       return content(Upload, session, { ignoreContent });

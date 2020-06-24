@@ -39,6 +39,9 @@
 
         {% if key == "other" %}
           <p class="govuk-body">"{{ case.refusalRejectionAdditionalInfo }}"</p>
+          {% if case.refusalRejectionAdditionalInfoWelsh %}
+            <p class="govuk-body">"{{ case.refusalRejectionAdditionalInfoWelsh }}"</p>
+          {% endif %}
         {% endif %}
       {% endif %}
     {% endif %}

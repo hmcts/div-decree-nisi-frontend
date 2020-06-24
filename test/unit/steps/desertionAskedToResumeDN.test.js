@@ -34,7 +34,13 @@ describe(modulePath, () => {
       'chatClosed',
       'chatAlreadyOpen',
       'chatOpeningHours',
-      'clarificationCourtFeedback'
+      'clarificationCourtFeedback',
+      'signIn',
+      'languageToggle',
+      'thereWasAProblem',
+      'change',
+      'husband',
+      'wife'
     ];
     return content(DesertionAskedToResumeDN, session, { ignoreContent });
   });

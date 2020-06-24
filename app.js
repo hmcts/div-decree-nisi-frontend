@@ -15,6 +15,7 @@ const setupRateLimiter = require('services/rateLimiter');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const getFilters = require('views/filters');
 const { parseBool } = require('@hmcts/one-per-page/util');
+const errorContent = require('views/errors/error-content');
 
 const app = express();
 
@@ -81,7 +82,42 @@ onePerPage.journey(app, {
   baseUrl: config.node.baseUrl,
   steps: getSteps(),
   routes: [ documentHandler ],
-  errorPages: { serverError: { template: 'errors/error' }, notFound: { template: 'errors/error' } },
+  errorPages: {
+    serverError: {
+      template: 'errors/server-error',
+      message: {
+        tryAgain: errorContent.tryAgain,
+        canContact: errorContent.canContact,
+        phoneDetails: errorContent.isThereAProblemWithThisPagePhone,
+        emailDetails: errorContent.isThereAProblemWithThisPageEmail,
+        serviceName: errorContent.serviceName,
+        youCanEither: errorContent.youCanEither,
+        backLink: errorContent.backLink,
+        feedback: errorContent.feedback,
+        accessibility: errorContent.accessibility,
+        cookies: errorContent.cookies,
+        privacyPolicy: errorContent.privacyPolicy,
+        termsAndConditions: errorContent.termsAndConditions
+      }
+    },
+    notFound: {
+      template: 'errors/not-found-error',
+      message: {
+        errorMessage: errorContent.notFoundMessage,
+        isThereAProblem: errorContent.isThereAProblemWithThisPageParagraph,
+        phoneDetails: errorContent.isThereAProblemWithThisPagePhone,
+        emailDetails: errorContent.isThereAProblemWithThisPageEmail,
+        serviceName: errorContent.serviceName,
+        youCanEither: errorContent.youCanEither,
+        backLink: errorContent.backLink,
+        feedback: errorContent.feedback,
+        accessibility: errorContent.accessibility,
+        cookies: errorContent.cookies,
+        privacyPolicy: errorContent.privacyPolicy,
+        termsAndConditions: errorContent.termsAndConditions
+      }
+    }
+  },
   noSessionHandler: (req, res) => {
     return res.redirect(config.paths.entry);
   },

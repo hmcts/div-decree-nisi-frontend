@@ -35,7 +35,13 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'respNotPay',
-        'clarificationCourtFeedback'
+        'clarificationCourtFeedback',
+        'signIn',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
       ];
       return content(ClaimCosts, sess, { ignoreContent });
     });
@@ -52,7 +58,13 @@ describe(modulePath, () => {
         'chatAlreadyOpen',
         'chatOpeningHours',
         'respPay',
-        'clarificationCourtFeedback'
+        'clarificationCourtFeedback',
+        'signIn',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
       ];
       return content(ClaimCosts, sess, { ignoreContent });
     });
