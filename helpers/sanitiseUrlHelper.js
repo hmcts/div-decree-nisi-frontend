@@ -1,34 +1,30 @@
+const authenticationUrl = '/authenticated?';
 const authenticationParametersForRemoval = [
   'auth-token',
   'code'
 ];
 
-const removeURLParameter = (url, parameter) => {
+const removeURLParameters = (url, parametersForRemoval) => {
   const urlParts = url.split('?');
   if (urlParts.length > 1) {
-    const prefix = `${parameter}=`;
-    const parameters = urlParts[1].split(/[&]/g);
-    parameters.forEach(param => {
-      if (param.includes(prefix)) {
-        parameters.splice(param, 1);
-      }
+    const urlParameters = urlParts[1].split(/[&]/g);
+    parametersForRemoval.forEach(parameterForRemoval => {
+      urlParameters.forEach(urlParameter => {
+        if (urlParameter.includes(`${parameterForRemoval}=`)) {
+          urlParameters.splice(urlParameter, 1);
+        }
+      });
     });
-    return urlParts[0] + (parameters.length > 0 ? `?${parameters.join('&')}` : '');
+    return urlParts[0] + (urlParameters.length > 0 ? `?${urlParameters.join('&')}` : '');
   }
   return url;
 };
 
 const sanitiseUrl = url => {
-  let resultUrl = url;
-  if (resultUrl.includes('/authenticated?')) {
-    authenticationParametersForRemoval.forEach(parameter => {
-      if (resultUrl.includes(parameter)) resultUrl = removeURLParameter(resultUrl, parameter);
-    });
-  }
-  return resultUrl;
+  return (url && url.includes(authenticationUrl)) ? removeURLParameters(url, authenticationParametersForRemoval) : url;
 };
 
 module.exports = {
-  removeURLParameter,
+  removeURLParameters,
   sanitiseUrl
 };
