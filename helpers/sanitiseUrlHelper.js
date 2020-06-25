@@ -4,7 +4,7 @@ const authenticationParametersForRemoval = [
   'code'
 ];
 
-const removeURLParameters = (url, parametersForRemoval) => {
+const removeUrlParameters = (url, parametersForRemoval) => {
   const urlParts = url.split('?');
   if (urlParts.length > 1) {
     const urlParameters = urlParts[1].split(/[&]/g);
@@ -21,10 +21,10 @@ const removeURLParameters = (url, parametersForRemoval) => {
 };
 
 const sanitiseUrl = url => {
-  return (url && url.includes(authenticationUrl)) ? removeURLParameters(url, authenticationParametersForRemoval) : url;
+  return (url && url.includes(authenticationUrl)) ? removeUrlParameters(url, authenticationParametersForRemoval) : url;
 };
 
 module.exports = {
-  removeURLParameters,
+  removeUrlParameters,
   sanitiseUrl
 };
