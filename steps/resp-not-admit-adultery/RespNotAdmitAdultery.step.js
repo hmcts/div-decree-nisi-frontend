@@ -1,4 +1,5 @@
-const { Question, branch } = require('@hmcts/one-per-page');
+const { shimSessionQuestion } = require('middleware/shimSession');
+const { branch } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
@@ -10,7 +11,7 @@ const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
-class RespNotAdmitAdultery extends Question {
+class RespNotAdmitAdultery extends shimSessionQuestion {
   static get path() {
     return config.paths.respNotAdmitAdultery;
   }

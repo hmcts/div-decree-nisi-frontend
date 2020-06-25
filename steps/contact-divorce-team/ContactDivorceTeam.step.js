@@ -1,9 +1,9 @@
-const { Page } = require('@hmcts/one-per-page');
+const { shimSessionStaticPage } = require('middleware/shimSession');
 const config = require('config');
 const { stopHere } = require('@hmcts/one-per-page/flow');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 
-class ContactDivorceTeam extends Page {
+class ContactDivorceTeam extends shimSessionStaticPage {
   static get path() {
     return config.paths.contactDivorceTeam;
   }

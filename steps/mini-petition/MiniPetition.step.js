@@ -1,4 +1,4 @@
-const { Question } = require('@hmcts/one-per-page/steps');
+const { shimSessionQuestion } = require('middleware/shimSession');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
@@ -10,7 +10,7 @@ const commonContent = require('common/content');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 
-class MiniPetition extends Question {
+class MiniPetition extends shimSessionQuestion {
   static get path() {
     return config.paths.miniPetition;
   }

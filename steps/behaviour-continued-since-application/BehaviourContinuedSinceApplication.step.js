@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-const { Question } = require('@hmcts/one-per-page/steps');
+const { shimSessionQuestion } = require('middleware/shimSession');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
@@ -11,7 +11,7 @@ const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
-class BehaviourContinuedSinceApplication extends Question {
+class BehaviourContinuedSinceApplication extends shimSessionQuestion {
   static get path() {
     return config.paths.behaviourContinuedSinceApplication;
   }

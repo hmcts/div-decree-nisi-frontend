@@ -1,8 +1,8 @@
-const { Page } = require('@hmcts/one-per-page');
+const { shimSessionStaticPage } = require('middleware/shimSession');
 const config = require('config');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 
-class AccessibilityStatement extends Page {
+class AccessibilityStatement extends shimSessionStaticPage {
   static get path() {
     return config.paths.accessibilityStatement;
   }

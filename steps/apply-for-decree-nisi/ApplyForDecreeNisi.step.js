@@ -1,4 +1,5 @@
-const { Question, branch } = require('@hmcts/one-per-page');
+const { shimSessionQuestion } = require('middleware/shimSession');
+const { branch } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
@@ -7,7 +8,7 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const checkWelshToggle = require('middleware/checkWelshToggle');
 
-class ApplyForDecreeNisi extends Question {
+class ApplyForDecreeNisi extends shimSessionQuestion {
   static get path() {
     return config.paths.applyForDecreeNisi;
   }

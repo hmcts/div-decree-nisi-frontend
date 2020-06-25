@@ -1,4 +1,4 @@
-const { Interstitial } = require('@hmcts/one-per-page/steps');
+const { shimSessionInterstitial } = require('middleware/shimSession');
 const { action } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
@@ -9,7 +9,7 @@ const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
-class AmendApplication extends Interstitial {
+class AmendApplication extends shimSessionInterstitial {
   static get path() {
     return config.paths.amendApplication;
   }
