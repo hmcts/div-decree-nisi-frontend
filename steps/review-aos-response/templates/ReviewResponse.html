@@ -7,7 +7,7 @@
 {% endset %}
 
 {% block fields %}
-  {% if exist(consts.respSolicitorRepresented) %}
+  {% if case.respondentSolicitorRepresented === consts.yes %}
     <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.respSolicitorRepresented }}</h3>
   {% endif %}
   <p class="govuk-body">{{ content.youNeedToRead | safe }}</p>

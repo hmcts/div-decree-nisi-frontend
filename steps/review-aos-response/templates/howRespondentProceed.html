@@ -1,44 +1,44 @@
 
   <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.respProceed.title }}</h3>
-  {% if notExist(consts.respWillDefendDivorce) %}
+  {% if case.respWillDefendDivorce === consts.no %}
      <p class="govuk-body">{{ content.respProceed.willLetDivorceProceed }}</p>
-  {% elif notAccepted(consts.respWillDefendDivorce) %}
+  {% elif case.respWillDefendDivorce === consts.notAccept %}
      <p class="govuk-body">{{ content.respProceed.letDivorceProceedButNotAdmit }}</p>
-  {% elif exist(consts.respWillDefendDivorce) %}
+  {% elif case.respWillDefendDivorce === consts.yes %}
      <p class="govuk-body">{{ content.respProceed.willDefendDivorce }}</p>
   {% endif %}
 
   {% if adultery %}
-    {% if exist(consts.respAdmitOrConsentToFact) %}
+    {% if case.respAdmitOrConsentToFact === consts.yes %}
         <p class="govuk-body">{{ content.respProceed.adultery.admitsAdultery }}</p>
-    {% elif notExist(consts.respAdmitOrConsentToFact) %}
+    {% elif case.respAdmitOrConsentToFact === consts.no %}
         <p class="govuk-body">{{ content.respProceed.adultery.doesNotAdmitAdultery }}</p>
     {% endif %}
   {% endif %}
 
   {% if sep2yr %}
-     {% if exist(consts.respAdmitOrConsentToFact) %}
+     {% if case.respAdmitOrConsentToFact === consts.yes %}
         <p class="govuk-body">{{ content.respProceed.sep2Yr.respConsent }}</p>
-     {% elif notExist(consts.respAdmitOrConsentToFact) %}
+     {% elif case.respAdmitOrConsentToFact === consts.no %}
          <p class="govuk-body">{{ content.respProceed.sep2Yr.respDoesNotContent }}</p>
      {% endif %}
   {% endif %}
 
-  {% if sep5yr and exist(consts.respWillDefendDivorce) %}
-    {% if exist(consts.respHardshipDefenseResponse) %}
+  {% if sep5yr and (case.respWillDefendDivorce === consts.yes) %}
+    {% if case.respHardshipDefenseResponse === consts.yes %}
       <p class="govuk-body">{{ content.respProceed.sep5Yr.defendingFinancialHardship }}</p>
       <div class="govuk-details__text govuk-!-margin-bottom-4">
         <p class="govuk-body">"{{ case.respHardshipDescription | nl2br | safe }}"</p>
       </div>
-    {% elif notExist(consts.respHardshipDefenseResponse) %}
+    {% elif case.respHardshipDefenseResponse === consts.no %}
       <p class="govuk-body">{{ content.respProceed.sep5Yr.notDefendingFinancialHardship }}</p>
     {% endif %}
   {% endif %}
 
   {% if sep2yr or sep5yr %}
-    {% if exist(consts.respConsiderFinancialSituation) %}
+    {% if case.respConsiderFinancialSituation === consts.yes %}
          <p class="govuk-body">{{ content.respProceed.sep.intendingToDelayDivorce }}</p>
-    {% elif notExist(consts.respConsiderFinancialSituation) %}
+    {% elif case.respConsiderFinancialSituation === consts.no %}
       <p class="govuk-body">{{ content.respProceed.sep.notIntendingToDelayDivorce }}</p>
      {% endif %}
   {% endif %}

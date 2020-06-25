@@ -13,14 +13,6 @@ const constants = {
   viewOnlyState: 'AosSubmittedAwaitingAnswer',
   viewTemplate: './templates/ViewResponse.html',
   reviewTemplate: './templates/ReviewResponse.html',
-  respWillDefendDivorce: 'respWillDefendDivorce',
-  respAdmitOrConsentToFact: 'respAdmitOrConsentToFact',
-  respConsiderFinancialSituation: 'respConsiderFinancialSituation',
-  respHardshipDefenseResponse: 'respHardshipDefenseResponse',
-  respJurisdictionAgree: 'respJurisdictionAgree',
-  respLegalProceedingsExist: 'respLegalProceedingsExist',
-  respAgreeToCosts: 'respAgreeToCosts',
-  respSolicitorRepresented: 'respondentSolicitorRepresented',
   sep5yr: 'separation-5-years',
   sep2yr: 'separation-2-years',
   desertion: 'desertion',
@@ -29,7 +21,8 @@ const constants = {
   yes: 'Yes',
   no: 'No',
   notAccept: 'NoNoAdmission',
-  AosCompleted: 'AosCompleted'
+  AosCompleted: 'AosCompleted',
+  differentAmount: 'DifferentAmount'
 };
 
 class ReviewAosResponse extends shimSessionQuestion {
@@ -48,18 +41,6 @@ class ReviewAosResponse extends shimSessionQuestion {
 
   get consts() {
     return constants;
-  }
-
-  exist(key) {
-    return this.case[key] === this.consts.yes;
-  }
-
-  notExist(key) {
-    return this.case[key] === this.consts.no;
-  }
-
-  notAccepted(key) {
-    return this.case[key] === this.consts.notAccept;
   }
 
   get behaviour() {
@@ -103,7 +84,7 @@ class ReviewAosResponse extends shimSessionQuestion {
 
   next() {
     const respNotAdmitAdultery = () => {
-      return this.adultery && this.notExist(this.consts.respAdmitOrConsentToFact) && this.req.session.case.state === this.consts.AosCompleted;
+      return this.adultery && this.case.respAdmitOrConsentToFact === this.consts.no && this.req.session.case.state === this.consts.AosCompleted;
     };
 
     const amendAplication = () => {
@@ -138,9 +119,7 @@ class ReviewAosResponse extends shimSessionQuestion {
   }
 
   answers() {
-    const respondentAnswer = this.case[
-      this.consts.respWillDefendDivorce
-    ];
+    const respondentAnswer = this.case.respWillDefendDivorce;
     return answer(this, {
       question: this.content.fields.reviewAosResponse.title,
       answer: respondentAnswer ? this.content.fields.reviewAosResponse[respondentAnswer.toLowerCase()] : ''
