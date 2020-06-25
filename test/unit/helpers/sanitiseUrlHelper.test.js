@@ -26,7 +26,7 @@ describe(modulePath, () => {
     });
 
     it('sanitises a URL with one parameter to be removed', () => {
-      const actualUrl = '/authenticated?__auth-token=thEt0keN';
+      const actualUrl = '/authenticated?code=c0d4c0de';
       const expectedUrl = '/authenticated';
       const sanitisedUrl = urlSanitiser.sanitiseUrl(actualUrl);
       sinon.assert.match(
