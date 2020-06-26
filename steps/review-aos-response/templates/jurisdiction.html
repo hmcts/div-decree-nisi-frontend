@@ -1,9 +1,9 @@
 
   <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.jurisdiction.title }}</h3>
 
-  {% if exist(consts.respJurisdictionAgree) %}
+  {% if case.respJurisdictionAgree === consts.yes %}
     <p class="govuk-body">{{ content.jurisdiction.respondentAgrees }}</p>
-  {% elif notExist(consts.respJurisdictionAgree) %}
+  {% elif case.respJurisdictionAgree === consts.no %}
     <p class="govuk-body">{{ content.jurisdiction.respDoesNotAgree }}</p>
 
     <p class="govuk-body">{{ content.jurisdiction.detailsGiven }}</p>
@@ -14,15 +14,18 @@
       {% endif %}
     </div>
 
+  {% if case.respContactMethodIsDigital %}
     <p class="govuk-body">{{ content.jurisdiction.countryTheyResp }}</p>
     <div class="govuk-details__text govuk-!-margin-bottom-4">
       <p class="govuk-body">"{{ case.respJurisdictionRespCountryOfResidence | nl2br | safe }}"</p>
     </div>
   {% endif %}
 
+  {% endif %}
+
   <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.jurisdiction.otherCourtDetails }}</h3>
 
-  {% if exist(consts.respLegalProceedingsExist) %}
+  {% if case.respLegalProceedingsExist === consts.yes %}
     <p class="govuk-body">{{ content.jurisdiction.otherProceedings }}</p>
     <p class="govuk-body">{{ content.jurisdiction.detailsGiven }}</p>
     <div class="govuk-details__text govuk-!-margin-bottom-4">
@@ -31,7 +34,7 @@
         <p class="govuk-body">"{{ case.respLegalProceedingsDescriptionTrans | nl2br | safe }}"</p>
       {% endif %}
     </div>
-  {% elif notExist(consts.respLegalProceedingsExist) %}
+  {% elif case.respLegalProceedingsExist === consts.no %}
     <p class="govuk-body">{{ content.jurisdiction.noOtherProceedings }}</p>
   {% endif %}
 

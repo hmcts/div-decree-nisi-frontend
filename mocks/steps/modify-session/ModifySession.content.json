@@ -51,6 +51,9 @@
         },
         "respCostsReason": {
           "title": "Provide a brief explanation of why you should not pay?"
+        },
+        "respCostsAmount": {
+          "title": "How much do you agree to pay?"
         }
       }
     }

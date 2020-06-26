@@ -1,8 +1,8 @@
 
   <h3 class="govuk-heading-s govuk-!-margin-bottom-0">{{ content.costsOrder.title }}</h3>
-  {% if exist(consts.respAgreeToCosts) %}
+  {% if case.respAgreeToCosts === consts.yes %}
     <p class="govuk-body">{{ content.costsOrder.agreedToPayCosts }}</p>
-  {% elif notExist(consts.respAgreeToCosts) %}
+  {% elif case.respAgreeToCosts === consts.no %}
     <p class="govuk-body">{{ content.costsOrder.notAgreedToPayCosts }}</p>
     <div class="govuk-details__text govuk-!-margin-bottom-4">
       <p class="govuk-body">"{{ case.respCostsReason | nl2br | safe }}"</p>
@@ -10,6 +10,20 @@
         <p class="govuk-body">"{{ case.respCostsReasonTrans | nl2br | safe }}"</p>
       {% endif %}
     </div>
+  {% elif case.respAgreeToCosts === consts.differentAmount %}
+    {% if not case.respContactMethodIsDigital %}
+      <p class="govuk-body">{{ content.costsOrder.differentAmount }}</p>
+
+      <p class="govuk-body">{{ content.costsOrder.respCostsAmount }}</p>
+      <div class="govuk-details__text govuk-!-margin-bottom-4">
+        <p class="govuk-body">"{{ case.respCostsAmount | nl2br | safe }}"</p>
+      </div>
+
+      <p class="govuk-body">{{ content.costsOrder.respCostsReason }}</p>
+      <div class="govuk-details__text govuk-!-margin-bottom-4">
+        <p class="govuk-body">"{{ case.respCostsReason | nl2br | safe }}"</p>
+      </div>
+    {% endif %}
   {% endif %}
 
   <details class="govuk-details">
