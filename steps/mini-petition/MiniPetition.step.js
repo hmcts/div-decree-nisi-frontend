@@ -1,16 +1,15 @@
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 
-class MiniPetition extends shimSessionQuestion {
+class MiniPetition extends Question {
   static get path() {
     return config.paths.miniPetition;
   }
@@ -163,8 +162,7 @@ class MiniPetition extends shimSessionQuestion {
       getFeeFromFeesAndPayments(feeTypes.issueFee),
       getFeeFromFeesAndPayments(feeTypes.amendFee),
       getFeeFromFeesAndPayments(feeTypes.appFinancialOrderFee),
-      getFeeFromFeesAndPayments(feeTypes.appWithoutNoticeFee),
-      checkWelshToggle
+      getFeeFromFeesAndPayments(feeTypes.appWithoutNoticeFee)
     ];
   }
 }

@@ -1,12 +1,11 @@
-const { shimSessionStaticPage } = require('middleware/shimSession');
+const { Page } = require('@hmcts/one-per-page');
 const config = require('config');
 const { stopHere } = require('@hmcts/one-per-page/flow');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 
-class DnNoResponse extends shimSessionStaticPage {
+class DnNoResponse extends Page {
   static get path() {
     return config.paths.dnNoResponse;
   }
@@ -36,8 +35,7 @@ class DnNoResponse extends shimSessionStaticPage {
     return [
       ...super.middleware,
       getFeeFromFeesAndPayments(feeTypes.appWithoutNoticeFee),
-      getFeeFromFeesAndPayments(feeTypes.enforcementFee),
-      checkWelshToggle
+      getFeeFromFeesAndPayments(feeTypes.enforcementFee)
     ];
   }
 }

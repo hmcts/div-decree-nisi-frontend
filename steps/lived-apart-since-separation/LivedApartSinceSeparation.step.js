@@ -1,15 +1,14 @@
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 
-class LivedApartSinceSeparation extends shimSessionQuestion {
+class LivedApartSinceSeparation extends Question {
   static get path() {
     return config.paths.livedApartSinceSeparation;
   }
@@ -101,8 +100,7 @@ class LivedApartSinceSeparation extends shimSessionQuestion {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
+      idam.protect()
     ];
   }
 }

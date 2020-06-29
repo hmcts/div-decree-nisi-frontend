@@ -1,4 +1,4 @@
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text, list, object, errorFor } = require('@hmcts/one-per-page/forms');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
@@ -8,9 +8,8 @@ const evidenceManagmentMiddleware = require('middleware/evidenceManagmentMiddlew
 const errors = require('resources/errors');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 
-class Upload extends shimSessionQuestion {
+class Upload extends Question {
   static get path() {
     return config.paths.upload;
   }
@@ -114,8 +113,7 @@ class Upload extends shimSessionQuestion {
     return [
       ...super.middleware,
       idam.protect(),
-      evidenceManagmentMiddleware.createHandler(this.name),
-      checkWelshToggle
+      evidenceManagmentMiddleware.createHandler(this.name)
     ];
   }
 

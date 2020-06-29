@@ -1,15 +1,14 @@
-const { shimSessionExitPoint } = require('middleware/shimSession');
+const { ExitPoint } = require('@hmcts/one-per-page');
 const config = require('config');
 const idam = require('services/idam');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
 const { get } = require('lodash');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
-class Done extends shimSessionExitPoint {
+class Done extends ExitPoint {
   static get path() {
     return config.paths.done;
   }
@@ -58,8 +57,7 @@ class Done extends shimSessionExitPoint {
     return [
       idam.protect(),
       idam.logout(),
-      ...super.middleware,
-      checkWelshToggle
+      ...super.middleware
     ];
   }
 }

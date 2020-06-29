@@ -1,11 +1,10 @@
-const { shimSessionStaticPage } = require('middleware/shimSession');
+const { Page } = require('@hmcts/one-per-page');
 const config = require('config');
 const { stopHere } = require('@hmcts/one-per-page/flow');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
-class ExitIntolerable extends shimSessionStaticPage {
+class ExitIntolerable extends Page {
   static get path() {
     return config.paths.exitIntolerable;
   }
@@ -21,13 +20,6 @@ class ExitIntolerable extends shimSessionStaticPage {
 
   get flowControl() {
     return stopHere(this);
-  }
-
-  get middleware() {
-    return [
-      ...super.middleware,
-      checkWelshToggle
-    ];
   }
 }
 

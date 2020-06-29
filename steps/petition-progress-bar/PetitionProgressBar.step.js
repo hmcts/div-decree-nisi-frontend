@@ -1,4 +1,4 @@
-const { shimSessionInterstitial } = require('middleware/shimSession');
+const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { branch, redirectTo, action } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
@@ -10,7 +10,6 @@ const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification, dnIsRefused } = require('common/constants');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
@@ -37,7 +36,7 @@ const constants = {
   yes: 'yes'
 };
 
-class PetitionProgressBar extends shimSessionInterstitial {
+class PetitionProgressBar extends Interstitial {
   static get path() {
     return config.paths.petitionProgressBar;
   }
@@ -77,8 +76,7 @@ class PetitionProgressBar extends shimSessionInterstitial {
       ...super.middleware,
       idam.protect(),
       checkCaseState,
-      getFeeFromFeesAndPayments(feeTypes.amendFee),
-      checkWelshToggle
+      getFeeFromFeesAndPayments(feeTypes.amendFee)
     ];
   }
 

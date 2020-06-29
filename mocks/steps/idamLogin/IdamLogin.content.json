@@ -1,6 +1,6 @@
 {
   "en": {
-    "title": "Idam login successfull?",
+    "title": "Idam login successful?",
     "errors": {
       "required": "Select the an option"
     },
@@ -12,7 +12,7 @@
     }
   },
   "cy": {
-    "title": "[CY] Idam login successfull?",
+    "title": "[CY] Idam login successful?",
     "errors": {
       "required": "[CY] Select the an option"
     },

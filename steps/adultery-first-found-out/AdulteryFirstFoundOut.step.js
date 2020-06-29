@@ -1,14 +1,13 @@
 /* eslint-disable max-len */
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const moment = require('moment');
 const { form, date, convert } = require('@hmcts/one-per-page/forms');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 
-class AdulteryFirstFoundOut extends shimSessionQuestion {
+class AdulteryFirstFoundOut extends Question {
   static get path() {
     return config.paths.adulteryFirstFoundOut;
   }
@@ -53,8 +52,7 @@ class AdulteryFirstFoundOut extends shimSessionQuestion {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
+      idam.protect()
     ];
   }
 }

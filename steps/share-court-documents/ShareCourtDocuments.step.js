@@ -1,6 +1,6 @@
 const { branch } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
@@ -8,7 +8,6 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
@@ -19,7 +18,7 @@ const constants = {
   awaitingClarification
 };
 
-class ShareCourtDocuments extends shimSessionQuestion {
+class ShareCourtDocuments extends Question {
   static get path() {
     return config.paths.shareCoreDocuments;
   }
@@ -90,8 +89,7 @@ class ShareCourtDocuments extends shimSessionQuestion {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
+      idam.protect()
     ];
   }
 }

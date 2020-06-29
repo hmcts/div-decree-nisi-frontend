@@ -1,15 +1,14 @@
 /* eslint-disable max-len */
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 
 const { form, text } = require('@hmcts/one-per-page/forms');
 
-class CourtFeedback extends shimSessionQuestion {
+class CourtFeedback extends Question {
   static get path() {
     return config.paths.courtFeedback;
   }
@@ -34,8 +33,7 @@ class CourtFeedback extends shimSessionQuestion {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
+      idam.protect()
     ];
   }
 

@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
@@ -7,11 +7,10 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const moment = require('moment');
 const { form, text, object, date, convert, errorFor } = require('@hmcts/one-per-page/forms');
-const checkWelshToggle = require('middleware/checkWelshToggle');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
-class BehaviourContinuedSinceApplication extends shimSessionQuestion {
+class BehaviourContinuedSinceApplication extends Question {
   static get path() {
     return config.paths.behaviourContinuedSinceApplication;
   }
@@ -115,8 +114,7 @@ class BehaviourContinuedSinceApplication extends shimSessionQuestion {
   get middleware() {
     return [
       ...super.middleware,
-      idam.protect(),
-      checkWelshToggle
+      idam.protect()
     ];
   }
 }
