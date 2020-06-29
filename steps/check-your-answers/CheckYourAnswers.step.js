@@ -1,4 +1,4 @@
-const { shimSessionCYA } = require('middleware/shimSession');
+const { CheckYourAnswers: CYA } = require('@hmcts/one-per-page/checkYourAnswers');
 const { goTo, action, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
@@ -10,7 +10,7 @@ const { notDefined, awaitingClarification } = require('common/constants');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
-class CheckYourAnswers extends shimSessionCYA {
+class CheckYourAnswers extends CYA {
   static get path() {
     return config.paths.checkYourAnswers;
   }

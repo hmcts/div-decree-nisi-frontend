@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
@@ -9,7 +9,7 @@ const i18next = require('i18next');
 const commonContent = require('common/content');
 const { form, text } = require('@hmcts/one-per-page/forms');
 
-class Intolerable extends shimSessionQuestion {
+class Intolerable extends Question {
   static get path() {
     return config.paths.intolerable;
   }

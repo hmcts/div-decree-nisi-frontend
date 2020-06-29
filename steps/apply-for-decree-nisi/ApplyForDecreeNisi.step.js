@@ -1,4 +1,4 @@
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { branch } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
@@ -7,7 +7,7 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 
-class ApplyForDecreeNisi extends shimSessionQuestion {
+class ApplyForDecreeNisi extends Question {
   static get path() {
     return config.paths.applyForDecreeNisi;
   }

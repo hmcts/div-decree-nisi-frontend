@@ -1,4 +1,4 @@
-const { shimSessionInterstitial } = require('middleware/shimSession');
+const { Interstitial } = require('@hmcts/one-per-page/steps');
 const config = require('config');
 const { branch, redirectTo, action } = require('@hmcts/one-per-page/flow');
 const idam = require('services/idam');
@@ -36,7 +36,7 @@ const constants = {
   yes: 'yes'
 };
 
-class PetitionProgressBar extends shimSessionInterstitial {
+class PetitionProgressBar extends Interstitial {
   static get path() {
     return config.paths.petitionProgressBar;
   }

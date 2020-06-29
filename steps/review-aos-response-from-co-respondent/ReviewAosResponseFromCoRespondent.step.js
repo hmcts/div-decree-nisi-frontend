@@ -1,4 +1,4 @@
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
 const config = require('config');
@@ -11,7 +11,7 @@ const constants = {
   no: 'No',
   AosCompleted: 'AosCompleted'
 };
-class ReviewAosResponseFromCoRespondent extends shimSessionQuestion {
+class ReviewAosResponseFromCoRespondent extends Question {
   static get path() {
     return config.paths.reviewAosResponseFromCoRespondent;
   }

@@ -1,4 +1,4 @@
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
@@ -17,7 +17,7 @@ const constants = {
   no: 'No'
 };
 
-class ClaimCosts extends shimSessionQuestion {
+class ClaimCosts extends Question {
   static get path() {
     return config.paths.claimCosts;
   }

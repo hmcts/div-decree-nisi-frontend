@@ -1,4 +1,4 @@
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { form, text, list, object, errorFor } = require('@hmcts/one-per-page/forms');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
@@ -9,7 +9,7 @@ const errors = require('resources/errors');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
 
-class Upload extends shimSessionQuestion {
+class Upload extends Question {
   static get path() {
     return config.paths.upload;
   }

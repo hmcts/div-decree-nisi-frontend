@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-const { shimSessionQuestion } = require('middleware/shimSession');
+const { Question } = require('@hmcts/one-per-page/steps');
 const { branch, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
@@ -7,7 +7,7 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 
-class LivedApartSinceLastIncidentDate extends shimSessionQuestion {
+class LivedApartSinceLastIncidentDate extends Question {
   static get path() {
     return config.paths.livedApartSinceLastIncidentDate;
   }
