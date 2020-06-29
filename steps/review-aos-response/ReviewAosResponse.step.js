@@ -1,4 +1,4 @@
-const { Question } = require('@hmcts/one-per-page/steps');
+const { shimSessionQuestion } = require('middleware/shimSession');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { redirectTo, branch } = require('@hmcts/one-per-page/flow');
 const config = require('config');
@@ -12,14 +12,6 @@ const constants = {
   viewOnlyState: 'AosSubmittedAwaitingAnswer',
   viewTemplate: './templates/ViewResponse.html',
   reviewTemplate: './templates/ReviewResponse.html',
-  respWillDefendDivorce: 'respWillDefendDivorce',
-  respAdmitOrConsentToFact: 'respAdmitOrConsentToFact',
-  respConsiderFinancialSituation: 'respConsiderFinancialSituation',
-  respHardshipDefenseResponse: 'respHardshipDefenseResponse',
-  respJurisdictionAgree: 'respJurisdictionAgree',
-  respLegalProceedingsExist: 'respLegalProceedingsExist',
-  respAgreeToCosts: 'respAgreeToCosts',
-  respSolicitorRepresented: 'respondentSolicitorRepresented',
   sep5yr: 'separation-5-years',
   sep2yr: 'separation-2-years',
   desertion: 'desertion',
@@ -28,10 +20,11 @@ const constants = {
   yes: 'Yes',
   no: 'No',
   notAccept: 'NoNoAdmission',
-  AosCompleted: 'AosCompleted'
+  AosCompleted: 'AosCompleted',
+  differentAmount: 'DifferentAmount'
 };
 
-class ReviewAosResponse extends Question {
+class ReviewAosResponse extends shimSessionQuestion {
   static get path() {
     return config.paths.reviewAosResponse;
   }
@@ -47,18 +40,6 @@ class ReviewAosResponse extends Question {
 
   get consts() {
     return constants;
-  }
-
-  exist(key) {
-    return this.case[key] === this.consts.yes;
-  }
-
-  notExist(key) {
-    return this.case[key] === this.consts.no;
-  }
-
-  notAccepted(key) {
-    return this.case[key] === this.consts.notAccept;
   }
 
   get behaviour() {
@@ -102,7 +83,7 @@ class ReviewAosResponse extends Question {
 
   next() {
     const respNotAdmitAdultery = () => {
-      return this.adultery && this.notExist(this.consts.respAdmitOrConsentToFact) && this.req.session.case.state === this.consts.AosCompleted;
+      return this.adultery && this.case.respAdmitOrConsentToFact === this.consts.no && this.req.session.case.state === this.consts.AosCompleted;
     };
 
     const amendAplication = () => {
@@ -137,9 +118,7 @@ class ReviewAosResponse extends Question {
   }
 
   answers() {
-    const respondentAnswer = this.case[
-      this.consts.respWillDefendDivorce
-    ];
+    const respondentAnswer = this.case.respWillDefendDivorce;
     return answer(this, {
       question: this.content.fields.reviewAosResponse.title,
       answer: respondentAnswer ? this.content.fields.reviewAosResponse[respondentAnswer.toLowerCase()] : ''

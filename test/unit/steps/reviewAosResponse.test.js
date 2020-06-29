@@ -1,17 +1,15 @@
 const modulePath = 'steps/review-aos-response/ReviewAosResponse.step';
 
 const ReviewAosResponse = require(modulePath);
-const ReviewAosResponseContent = require('steps/review-aos-response/ReviewAosResponse.content');
-const RespNotAdmitAdultery = require('steps/resp-not-admit-adultery/RespNotAdmitAdultery.step');
 
-const commonContent = require('common/content');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 // eslint-disable-next-line max-len
 const ReviewAosResponseFromCoRespondent = require('steps/review-aos-response-from-co-respondent/ReviewAosResponseFromCoRespondent.step');
 const AmendApplication = require('steps/amend-application/AmendApplication.step');
 const idam = require('services/idam');
-const { middleware, sinon, content,
-  stepAsInstance, question, expect } = require('@hmcts/one-per-page-test-suite');
+const {
+  middleware, sinon, content, question
+} = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
   beforeEach(() => {
@@ -23,114 +21,7 @@ describe(modulePath, () => {
   });
 
   it('has idam.protect middleware', () => {
-    return middleware.hasMiddleware(ReviewAosResponse, [ idam.protect() ]);
-  });
-
-  describe('CCD state: AosSubmittedAwaitingAnswer', () => {
-    it('renders the correct template', () => {
-      const session = {
-        case: {
-          state: 'AosSubmittedAwaitingAnswer',
-          data: {
-            respWillDefendDivorce: 'Yes'
-          }
-        }
-      };
-      const instance = stepAsInstance(ReviewAosResponse, session);
-      expect(instance.responseTemplate).to.eql(instance.consts.viewTemplate);
-    });
-
-    it('Continue button should not be rendered', () => {
-      const session = {
-        case: {
-          state: 'AosSubmittedAwaitingAnswer',
-          data: {
-            respWillDefendDivorce: 'Yes'
-          }
-        }
-      };
-      const specificContentToNotExist = [commonContent.en.continue];
-      return content(ReviewAosResponse, session, { specificContentToNotExist });
-    });
-  });
-
-  describe('CCD state: DNAwaiting', () => {
-    it('renders the correct template', () => {
-      const session = {
-        case: {
-          state: 'AwaitingDecreeNisi',
-          data: {
-            respWillDefendDivorce: 'Yes'
-          }
-        }
-      };
-      const instance = stepAsInstance(ReviewAosResponse, session);
-      expect(instance.responseTemplate).to.eql(instance.consts.reviewTemplate);
-    });
-
-    it('Continue button should be rendered', () => {
-      const session = {
-        case: {
-          state: 'AwaitingDecreeNisi',
-          data: {
-            respWillDefendDivorce: 'Yes'
-          }
-        }
-      };
-      const specificContent = [ 'continue' ];
-      return content(ReviewAosResponse, session, { specificContent });
-    });
-
-    it('returns correct answers', () => {
-      const expectedContent = [ ReviewAosResponseContent.en.fields.reviewAosResponse.yes ];
-      const session = {
-        case: {
-          data: {
-            respWillDefendDivorce: 'Yes'
-          }
-        }
-      };
-      return question.answers(ReviewAosResponse, {}, expectedContent, session);
-    });
-
-    it('redirects to ApplyForDecreeNisi page', () => {
-      const fields = { reviewAosResponse: 'yes' };
-      const session = {
-        case: {
-          data: {
-            reasonForDivorce: 'unreasonable-behaviour'
-          }
-        }
-      };
-      return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
-    });
-
-    it('redirects to RespNotAdmitAdultery page - state: AosCompleted', () => {
-      const fields = { reviewAosResponse: 'yes' };
-      const session = {
-        case: {
-          state: 'AosCompleted',
-          data: {
-            reasonForDivorce: 'adultery',
-            respAdmitOrConsentToFact: 'No'
-          }
-        }
-      };
-      return question.redirectWithField(ReviewAosResponse, fields, RespNotAdmitAdultery, session);
-    });
-
-    it('redirects to ApplyForDecreeNisi page - state is not matching with AOS completed', () => {
-      const fields = { reviewAosResponse: 'yes' };
-      const session = {
-        case: {
-          data: {
-            reasonForDivorce: 'adultery',
-            respAdmitOrConsentToFact: 'No'
-          }
-        }
-      };
-      return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
-    });
+    return middleware.hasMiddleware(ReviewAosResponse, [idam.protect()]);
   });
 
   describe('AOS Response: Content and respective values', () => {
@@ -192,7 +83,7 @@ describe(modulePath, () => {
       });
     });
 
-    describe('How Respondnet wants to proceed section', () => {
+    describe('How Respondent wants to proceed section', () => {
       it('renders common conent in this section', () => {
         const session = {
           case: {
@@ -337,7 +228,7 @@ describe(modulePath, () => {
             'respProceed.sep5Yr.defendingFinancialHardship',
             'respProceed.sep.notIntendingToDelayDivorce'
           ];
-          const specificValues = [ session.case.data.respHardshipDescription ];
+          const specificValues = [session.case.data.respHardshipDescription];
           return content(ReviewAosResponse, session, { specificContent, specificValues });
         });
 
@@ -423,29 +314,55 @@ describe(modulePath, () => {
         return content(ReviewAosResponse, session, { specificContent });
       });
 
-      it('respJurisdictionAgree: No', () => {
-        const session = {
-          case: {
-            data: {
-              respJurisdictionAgree: 'No',
-              respJurisdictionDisagreeReason: 'Disagreed due to some reason',
-              respJurisdictionRespCountryOfResidence: 'India',
-              respWillDefendDivorce: 'Yes'
+      describe('respJurisdictionAgree: NO', () => {
+        it('should display RespJurisdictionRespCountryOfResidence, for online respondent', () => {
+          const session = {
+            case: {
+              data: {
+                respJurisdictionAgree: 'No',
+                respJurisdictionDisagreeReason: 'Outside of UK',
+                respJurisdictionRespCountryOfResidence: 'America',
+                respContactMethodIsDigital: true
+              }
             }
-          }
-        };
-        const specificContent = [
-          'jurisdiction.respDoesNotAgree',
-          'jurisdiction.detailsGiven',
-          'jurisdiction.countryTheyResp'
-        ];
-        const specificValues = [
-          session.case.data.respJurisdictionDisagreeReason,
-          session.case.data.respJurisdictionRespCountryOfResidence
-        ];
-        return content(ReviewAosResponse, session, { specificContent, specificValues });
-      });
+          };
 
+          const specificContent = [
+            'jurisdiction.respDoesNotAgree',
+            'jurisdiction.detailsGiven',
+            'jurisdiction.countryTheyResp'
+          ];
+          const specificValues = [
+            session.case.data.respJurisdictionDisagreeReason,
+            session.case.data.respJurisdictionRespCountryOfResidence
+          ];
+          return content(ReviewAosResponse, session, { specificContent, specificValues });
+        });
+
+        it('should hide RespJurisdictionRespCountryOfResidence, for offline respondent', () => {
+          const session = {
+            case: {
+              data: {
+                respJurisdictionAgree: 'No',
+                respJurisdictionDisagreeReason: 'Outside of UK',
+                respJurisdictionRespCountryOfResidence: 'America',
+                respContactMethodIsDigital: false
+              }
+            }
+          };
+
+          const specificContent = [
+            'jurisdiction.respDoesNotAgree',
+            'jurisdiction.detailsGiven'
+          ];
+          const specificValues = [session.case.data.respJurisdictionDisagreeReason];
+          return content(ReviewAosResponse, session, {
+            specificContent, specificValues,
+            specificValuesToNotExist: [session.case.data.respJurisdictionRespCountryOfResidence],
+            specificContentToNotExist: ['jurisdiction.countryTheyResp']
+          });
+        });
+      });
 
       it('respLegalProceedingsExist: Yes', () => {
         const session = {
@@ -457,7 +374,7 @@ describe(modulePath, () => {
             }
           }
         };
-        const specificValues = [ session.case.data.respLegalProceedingsDescription ];
+        const specificValues = [session.case.data.respLegalProceedingsDescription];
         const specificContent = [
           'jurisdiction.otherProceedings',
           'jurisdiction.otherCourtDetails'
@@ -510,7 +427,6 @@ describe(modulePath, () => {
         return content(ReviewAosResponse, session, { specificContent });
       });
 
-
       it('respAgreeToCosts: No', () => {
         const session = {
           case: {
@@ -522,10 +438,11 @@ describe(modulePath, () => {
           }
         };
         const specificContent = ['costsOrder.notAgreedToPayCosts'];
-        const specificValues = [ session.case.data.respCostsReason ];
+        const specificValues = [session.case.data.respCostsReason];
         return content(ReviewAosResponse, session, { specificContent, specificValues });
       });
     });
+
     describe('Next step ', () => {
       it('redirects to CoRespondent response - respAdmitOrConsentToFact: Yes', () => {
         const fields = { reviewAosResponse: 'yes' };
@@ -593,6 +510,68 @@ describe(modulePath, () => {
           }
         };
         return question.redirectWithField(ReviewAosResponse, fields, ApplyForDecreeNisi, session);
+      });
+    });
+
+    describe('RespAgreeToCosts is "DifferentAmount"', () => {
+      describe('Respondent is Paper Based', () => {
+        it('should display DifferentAmount, respCostsAmount and respCostsReason', () => {
+          const session = {
+            case: {
+              data: {
+                respAgreeToCosts: 'DifferentAmount',
+                respCostsAmount: '100',
+                respCostsReason: 'I want to pay 60%',
+                respContactMethodIsDigital: false
+              }
+            }
+          };
+
+          const specificContent = [
+            'costsOrder.title',
+            'costsOrder.differentAmount',
+            'costsOrder.respCostsAmount',
+            'costsOrder.respCostsReason'
+          ];
+
+          const specificValues = [
+            session.case.data.respCostsAmount,
+            session.case.data.respCostsReason
+          ];
+
+          return content(ReviewAosResponse, session, { specificContent, specificValues });
+        });
+      });
+
+      describe('Respondent is Online', () => {
+        it('should hide DifferentAmount, respCostsAmount and respCostsReason', () => {
+          const session = {
+            case: {
+              data: {
+                respAgreeToCosts: 'DifferentAmount',
+                respCostsAmount: '100',
+                respCostsReason: 'I want to pay 60%',
+                respContactMethodIsDigital: true
+              }
+            }
+          };
+
+          const specificContentToNotExist = [
+            'costsOrder.differentAmount',
+            'costsOrder.respCostsAmount',
+            'costsOrder.respCostsReason'
+          ];
+
+          const specificValuesToNotExist = [
+            session.case.data.respCostsAmount,
+            session.case.data.respCostsReason
+          ];
+
+          return content(ReviewAosResponse, session, {
+            specificContentToNotExist, specificValuesToNotExist
+          }
+          );
+        });
       });
     });
   });

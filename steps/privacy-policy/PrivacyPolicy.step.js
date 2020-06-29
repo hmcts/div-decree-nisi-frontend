@@ -1,7 +1,7 @@
-const { Page } = require('@hmcts/one-per-page');
+const { shimSessionStaticPage } = require('middleware/shimSession');
 const config = require('config');
 
-class PrivacyPolicy extends Page {
+class PrivacyPolicy extends shimSessionStaticPage {
   static get ignorePa11yWarnings() {
     return ['WCAG2AA.Principle1.Guideline1_3.1_3_1.H48'];
   }

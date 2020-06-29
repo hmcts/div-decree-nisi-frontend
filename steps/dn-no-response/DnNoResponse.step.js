@@ -1,11 +1,11 @@
-const { Page } = require('@hmcts/one-per-page');
+const { shimSessionStaticPage } = require('middleware/shimSession');
 const config = require('config');
 const { stopHere } = require('@hmcts/one-per-page/flow');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 
-class DnNoResponse extends Page {
+class DnNoResponse extends shimSessionStaticPage {
   static get path() {
     return config.paths.dnNoResponse;
   }

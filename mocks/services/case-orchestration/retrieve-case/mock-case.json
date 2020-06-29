@@ -296,6 +296,7 @@
     "respJurisdictionRespCountryOfResidence": "UK",
     "respLegalProceedingsExist": "Yes",
     "respLegalProceedingsDescription": "Some Description",
+    "respContactMethodIsDigital": true,
     "respAgreeToCosts": "No",
     "respCostsAmount": "1232321",
     "respCostsReason": "a)I should not pay any costs, and will give my reasons1\r\nb)I should not pay any costs, and will give my reasons2\r\nc)I should not pay any costs, and will give my reasons3\r\nd)I should not pay any costs, and will give my reasons4.Test\r\ne)I should not pay any costs, and will give my reasons",

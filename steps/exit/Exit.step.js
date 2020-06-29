@@ -1,8 +1,8 @@
-const { ExitPoint } = require('@hmcts/one-per-page');
+const { shimSessionExitPoint } = require('middleware/shimSession');
 const config = require('config');
 const idam = require('services/idam');
 
-class Exit extends ExitPoint {
+class Exit extends shimSessionExitPoint {
   static get path() {
     return config.paths.exit;
   }

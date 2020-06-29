@@ -1,10 +1,10 @@
-const { Page } = require('@hmcts/one-per-page');
+const { shimSessionStaticPage } = require('middleware/shimSession');
 const config = require('config');
 const { stopHere } = require('@hmcts/one-per-page/flow');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
-class ExitIntolerable extends Page {
+class ExitIntolerable extends shimSessionStaticPage {
   static get path() {
     return config.paths.exitIntolerable;
   }

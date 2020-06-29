@@ -1,4 +1,4 @@
-const { ExitPoint } = require('@hmcts/one-per-page');
+const { shimSessionExitPoint } = require('middleware/shimSession');
 const config = require('config');
 const idam = require('services/idam');
 const { createUris } = require('@hmcts/div-document-express-handler');
@@ -8,7 +8,7 @@ const { get } = require('lodash');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
-class Done extends ExitPoint {
+class Done extends shimSessionExitPoint {
   static get path() {
     return config.paths.done;
   }
