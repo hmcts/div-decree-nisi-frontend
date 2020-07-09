@@ -122,7 +122,7 @@
     "costsOrder": {
       "title": "Gorchymyn Costau",
       "agreedToPayCosts": "Mae eich {{ divorceWho }} wedi cytuno i dalu rhywfaint neu holl gostau’r ysgariad.",
-      "notAgreedToPayCosts": "Mae eich {{ divorceWho }} wedi dweud na ddylent dalu’r costau a rhoesant yr eglurhad canlynol ynghylch pam na ddylent dalu:",
+      "notAgreedToPayCosts": "Mae eich {{ divorceWho }} wedi dweud na ddylai dalu’r costau a rhoddodd yr eglurhad canlynol:",
       "respondentWasAskedPayCosts": "Gofynnwyd i’r Atebydd os oeddynt yn cytuno i dalu’r costau yr ydych wedi’u hawlio.",
       "followingOptions": "Rhoddwyd yr opsiynau canlynol iddynt:",
       "payCosts": "cytuno i dalu rhywfaint neu holl gostau’r ysgariad",
@@ -130,12 +130,12 @@
       "chanceToChangeAmount": "Fe gewch gyfle i dderbyn eu hawgrym neu i newid eich meddwl ynghylch hawlio costau hwyrach ymlaen yn y cais.  Y llys fydd yn penderfynu sut fydd y costau’n cael eu rhannu, ond bydd yn cymryd i ystyriaeth unrhyw geisiadau yr ydych chi a’ch {{ divorceWho }} yn eu gwneud."
     },
     "statementOfTruth": {
-      "title": " Datganiad Gwirionedd",
-      "details": "\"I believe that the facts stated in this application are true.\""
+      "title": "Datganiad Gwirionedd",
+      "details": "\"Credaf fod y ffeithiau a nodir yn y cais hwn yn wir.\""
     },
     "fields": {
       "reviewAosResponse": {
-        "title": " Ymateb eich {{ divorceWho }}",
+        "title": "Ymateb eich {{ divorceWho }}",
         "no": "Bydd yr Atebydd yn gadael i’r ysgariad barhau (nid ydynt yn bwriadu ei ‘amddiffyn’).",
         "nonoadmission": "Bydd yr Atebydd yn gadael i’r ysgariad barhau (nid ydynt yn bwriadu ei 'amddiffyn'), ond nid ydynt yn derbyn yr honiadau a wnaed yn y cais.",
         "yes": "Bydd yr Atebydd yn ceisio atal yr ysgariad ar sail y cais hwn (maent yn bwriadu ei ‘amddiffyn’)."
