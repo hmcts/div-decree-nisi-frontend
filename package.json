@@ -4,7 +4,7 @@
   "version": "0.0.2",
   "license": "MIT",
   "engines": {
-    "node": ">=12.14.1"
+    "node": ">=12.13.0"
   },
   "jest": {
     "verbose": true,
@@ -53,18 +53,22 @@
     "formidable": "^1.2.1",
     "glob": "^7.1.2",
     "govuk-frontend": "^2.11.0",
+    "handlebars": ">=4.5.3",
     "helmet": "^3.21.2",
+    "helmet-csp": ">=2.9.1",
     "hpkp": "^2.0.0",
     "http-status-codes": "^1.4.0",
+    "https-proxy-agent": ">=2.2.3",
     "ioredis": "^4.14.1",
     "joi": "^14.3.1",
     "jsoneditor": "^8.4.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "os": "^0.1.1",
     "paths": "^0.1.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.8",
+    "serialize-javascript": ">=2.1.1",
     "superagent": "^3.8.3",
     "tmp": "^0.1.0",
     "util": "^0.12.1"
