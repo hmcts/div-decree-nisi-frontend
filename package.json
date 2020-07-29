@@ -37,7 +37,7 @@
     "@hmcts/ctsc-web-chat": "^0.3.11",
     "@hmcts/div-document-express-handler": "^1.1.0",
     "@hmcts/div-idam-express-middleware": "^6.6.2",
-    "@hmcts/look-and-feel": "^4.1.1",
+    "@hmcts/look-and-feel": "4.0.8",
     "@hmcts/nodejs-healthcheck": "^1.7.0",
     "@hmcts/nodejs-logging": "^3.0.1",
     "@hmcts/one-per-page": "^5.3.0",
@@ -77,7 +77,7 @@
     "@hmcts/div-idam-test-harness": "^1.6.0",
     "@hmcts/div-test-harness": "^1.0.4",
     "@hmcts/environment-variable-setter": "^1.0.0",
-    "@hmcts/one-per-page-test-suite": "5.0.0",
+    "@hmcts/one-per-page-test-suite": "^5.0.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
@@ -110,18 +110,6 @@
     "w3cjs": "^0.4.0",
     "webdriverio": "^4.13.1",
     "zepto-node": "^1.0.0"
-  },
-  "resolutions": {
-    "assign-deep": ">=1.0.1",
-    "braces": "^2.3.1",
-    "handlebars": ">=4.5.3",
-    "helmet-csp": ">=2.9.1",
-    "https-proxy-agent": ">=2.2.3",
-    "lodash": "^4.17.11",
-    "minimist": "^1.2.5",
-    "serialize-javascript": ">=2.1.1",
-    "mem": ">=4.0.0",
-    "yargs-parser": "15.0.1"
   },
   "nyc": {
     "report-dir": "coverage",
