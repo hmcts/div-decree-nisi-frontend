@@ -23,8 +23,7 @@ if (proxyByPass) {
 }
 
 exports.config = {
-  // tests: './paths/**/*.js',
-  tests: './paths/pages.js',
+  tests: './paths/**/*.js',
   output: config.tests.functional.outputDir,
   helpers: {
     Puppeteer: {
