@@ -111,6 +111,11 @@
     "webdriverio": "^4.13.1",
     "zepto-node": "^1.0.0"
   },
+  "resolutions": {
+    "mem": ">=4.0.0",
+    "serialize-javascript": ">=2.1.1",
+    "yargs-parser": "15.0.1"
+  },
   "nyc": {
     "report-dir": "coverage",
     "temp-directory": "./coverage/.nyc_output",
