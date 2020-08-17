@@ -47,7 +47,11 @@ const templates = {
   awaitingClarification:
     './sections/awaitingClarification/PetitionProgressBar.awaitingClarification.template.html',
   dnIsRefused:
-    './sections/dnIsRefused/PetitionProgressBar.dnIsRefused.template.html'
+    './sections/dnIsRefused/PetitionProgressBar.dnIsRefused.template.html',
+  deemedApproved:
+    './sections/deemedApproved/PetitionProgressBar.deemedApproved.template.html',
+  dispensedApproved:
+    './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html'
 };
 
 // get all content for all pages
@@ -417,6 +421,54 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.defendedWithoutAnswer);
+    });
+  });
+
+  describe('CCD state: DNawaiting, ServiceApplicationType: deemed, ServiceApplicationGranted: Yes, DNReason : 5', () => {
+    const session = {
+      case: {
+        state: 'AwaitingDecreeNisi',
+        data: {
+          serviceApplicationType: 'deemed',
+          serviceApplicationGranted: 'Yes'
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.deemedApproved);
+      const specificContentToNotExist = contentToNotExist('deemedApproved');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.deemedApproved);
+    });
+  });
+
+  describe('CCD state: DNawaiting, ServiceApplicationType: dispensed, ServiceApplicationGranted: Yes, DNReason : 6', () => {
+    const session = {
+      case: {
+        state: 'AwaitingDecreeNisi',
+        data: {
+          serviceApplicationType: 'dispensed',
+          serviceApplicationGranted: 'Yes'
+        }
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.dispensedApproved);
+      const specificContentToNotExist = contentToNotExist('dispensedApproved');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.dispensedApproved);
     });
   });
 

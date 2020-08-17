@@ -1,0 +1,12 @@
+{
+  "en": {
+    "deemedApprovedAppStatusMsg": "Your ‘deemed service’ application has been approved",
+    "deemedApprovedAppStatusMsgDetails1": "The court has accepted your application for 'deemed service' that your {{ divorceWho }} received the divorce application.",
+    "deemedApprovedAppStatusMsgDetails2": "You can now continue with the next stage and apply for a decree nisi."
+  },
+  "cy": {
+    "deemedApprovedAppStatusMsg": "Your ‘deemed service’ application has been approved",
+    "deemedApprovedAppStatusMsgDetails1": "The court has accepted your application for 'deemed service' that your {{ divorceWho }} received the divorce application.",
+    "deemedApprovedAppStatusMsgDetails2": "You can now continue with the next stage and apply for a decree nisi."
+  }
+}

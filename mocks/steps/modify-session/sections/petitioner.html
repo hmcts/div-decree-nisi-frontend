@@ -39,6 +39,24 @@
   hideQuestion = false,
   inline = true
 ) }}
+
+  {{ selectionButtons(fields.serviceApplicationType, content.fields.petitioner.serviceApplicationType.title,
+    options = [
+      { label: content.fields.petitioner.serviceApplicationType.deemed, value: "deemed" },
+      { label: content.fields.petitioner.serviceApplicationType.dispensed, value: "dispensed" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
+
+  {{ selectionButtons(fields.serviceApplicationGranted, content.fields.petitioner.serviceApplicationGranted.title,
+    options = [
+      { label: content.fields.petitioner.serviceApplicationGranted.yes, value: "Yes" },
+      { label: content.fields.petitioner.serviceApplicationGranted.no, value: "No" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
 {% endcall %}
 
 <div class="js-hidden" id="reason-adultery-container">

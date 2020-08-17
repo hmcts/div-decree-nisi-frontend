@@ -1,0 +1,12 @@
+{
+  "en": {
+    "dispensedApprovedAppStatusMsg": "Your ‘dispense with service’ application has been approved",
+    "dispensedApprovedAppStatusMsgDetails1": "The court has accepted your application to 'dispense with service' and that your {{ divorceWho }} doesn’t have to be served the divorce application.",
+    "dispensedApprovedAppStatusMsgDetails2": "You can now continue with the next stage and apply for a decree nisi."
+  },
+  "cy": {
+    "dispensedApprovedAppStatusMsg": "Your ‘dispense with service’ application has been approved",
+    "dispensedApprovedAppStatusMsgDetails1": "The court has accepted your application to 'dispense with service' and that your {{ divorceWho }} doesn’t have to be served the divorce application.",
+    "dispensedApprovedAppStatusMsgDetails2": "You can now continue with the next stage and apply for a decree nisi."
+  }
+}

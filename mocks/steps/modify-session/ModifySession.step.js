@@ -73,6 +73,9 @@ class ModifySession extends Question {
     const refusalRejectionReason = list(text);
     const refusalRejectionAdditionalInfo = text;
 
+    const serviceApplicationGranted = text;
+    const serviceApplicationType = text;
+
     return form({
       divorceWho,
       reasonForDivorce,
@@ -100,7 +103,9 @@ class ModifySession extends Question {
       refusalClarificationReason,
       refusalClarificationAdditionalInfo,
       refusalRejectionReason,
-      refusalRejectionAdditionalInfo
+      refusalRejectionAdditionalInfo,
+      serviceApplicationGranted,
+      serviceApplicationType
     });
   }
 
