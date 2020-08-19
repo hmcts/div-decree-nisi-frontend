@@ -6,6 +6,8 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 
 class ApplyForDecreeNisi extends Question {
   static get path() {
@@ -26,6 +28,19 @@ class ApplyForDecreeNisi extends Question {
       .joi(this.content.errors.required, validAnswers);
 
     return form({ applyForDecreeNisi });
+  }
+
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
+  }
+
+  get isDeemedApproved() {
+    return this.case.serviceApplicationGranted === 'Yes' && this.case.serviceApplicationType === 'deemed';
+  }
+
+  get isDispensedApproved() {
+    return this.case.serviceApplicationGranted === 'Yes' && this.case.serviceApplicationType === 'dispensed';
   }
 
   answers() {

@@ -8,6 +8,16 @@
 
 {% block fields %}
 
+  {% if isDeemedApproved %}
+    <div class="govuk-inset-text">
+      {{ content.continueBecauseOfDeemed }}
+    </div>
+  {% elif isDispensedApproved %}
+    <div class="govuk-inset-text">
+      {{ content.continueBecauseOfDispensed }}
+    </div>
+  {% endif %}
+
   <p class="govuk-body">{{ content.amendOrAdd | safe }}</p>
 
   <details class="govuk-details">
