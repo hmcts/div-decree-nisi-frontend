@@ -18,23 +18,25 @@
 
   <h2 class="govuk-heading-m">{{ content.whichSituation }}</h2>
 
- <details class="exit-guidance">
-    <summary aria-controls="details-content-0" aria-expanded="false">
-      <span class="govuk-details__summary-text">{{ content.haveAnotherAddress.linkSummary }}</span>
+  <details class="exit-guidance govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text govuk-!-font-size-16">
+        {{ content.haveAnotherAddress.linkSummary }}
+      </span>
     </summary>
-
-    <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+    <div class="govuk-details__text">
       <p class="govuk-body">{{ content.haveAnotherAddress.provideAddress }}</p>
       <p class="govuk-body">{{ content.haveAnotherAddress.noExtraPay }}</p>
     </div>
   </details>
 
- <details class="exit-guidance">
-    <summary aria-controls="details-content-1" aria-expanded="false">
-      <span class="govuk-details__summary-text">{{ content.sendToWorkAddress.linkSummary }}</span>
+  <details class="exit-guidance govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text govuk-!-font-size-16">
+          {{ content.sendToWorkAddress.linkSummary }}
+        </span>
     </summary>
-
-    <div class="govuk-details__text" id="details-content-1" aria-hidden="true">
+    <div class="govuk-details__text">
       <p class="govuk-body">{{ content.sendToWorkAddress.askToSendApp }}</p>
       <p class="govuk-body"><strong>{{ content.howToApply }}</strong>{{ content.fill }} {{ content.applyD11 | safe }} {{ content.printAndSend }}</p>
       <p class="govuk-body"><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
@@ -43,12 +45,13 @@
     </div>
   </details>
 
- <details class="exit-guidance">
-    <summary aria-controls="details-content-2" aria-expanded="false">
-      <span class="govuk-details__summary-text">{{ content.needToSearchRecords.linkSummary }}</span>
+  <details class="exit-guidance govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text govuk-!-font-size-16">
+            {{ content.needToSearchRecords.linkSummary }}
+          </span>
     </summary>
-
-    <div class="govuk-details__text" id="details-content-2" aria-hidden="true">
+    <div class="govuk-details__text">
       <p class="govuk-body">{{ content.needToSearchRecords.canApplyIfRespLivesInEngWales }}</p>
       <p class="govuk-body"><strong>{{ content.howToApply }}</strong> {{ content.needToSearchRecords.applyViaSearchRecords }}</p>
       <p class="govuk-body"><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
@@ -57,12 +60,13 @@
     </div>
   </details>
 
- <details class="exit-guidance">
-    <summary aria-controls="details-content-3" aria-expanded="false">
-      <span class="govuk-details__summary-text">{{ content.sendEmailToResp.linkSummary }}</span>
+  <details class="exit-guidance govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text govuk-!-font-size-16">
+              {{ content.sendEmailToResp.linkSummary }}
+            </span>
     </summary>
-
-    <div class="govuk-details__text" id="details-content-3" aria-hidden="true">
+    <div class="govuk-details__text">
       <p class="govuk-body">{{ content.sendEmailToResp.appToEmail }}</p>
       <p class="govuk-body"><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.printAndSend }}</p>
       <p class="govuk-body"><strong>{{ content.howToPay }}</strong>{{ content.howToPayContent }}</p>
@@ -71,12 +75,13 @@
     </div>
   </details>
 
- <details class="exit-guidance">
-    <summary aria-controls="details-content-4" aria-expanded="false">
-      <span class="govuk-details__summary-text">{{ content.believeRespChoseNotToRespond.linkSummary }}</span>
+  <details class="exit-guidance govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text govuk-!-font-size-16">
+                {{ content.believeRespChoseNotToRespond.linkSummary }}
+              </span>
     </summary>
-
-    <div class="govuk-details__text" id="details-content-4" aria-hidden="true">
+    <div class="govuk-details__text">
       <p class="govuk-body">{{ content.believeRespChoseNotToRespond.deliverPapersDirectlyToResp }}</p>
       <p class="govuk-body">{{ content.believeRespChoseNotToRespond.optionsToDeliver }}</p>
       <ul class="govuk-list govuk-list--bullet">
@@ -101,13 +106,13 @@
     </div>
   </details>
 
-
- <details class="exit-guidance">
-    <summary aria-controls="details-content-5" aria-expanded="false">
-      <span class="govuk-details__summary-text">{{ content.evidenceRespWontRespond.linkSummary }}</span>
+  <details class="exit-guidance govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text govuk-!-font-size-16">
+                  {{ content.evidenceRespWontRespond.linkSummary }}
+                </span>
     </summary>
-
-    <div class="govuk-details__text" id="details-content-5" aria-hidden="true">
+    <div class="govuk-details__text">
       <p class="govuk-body">{{ content.evidenceRespWontRespond.canApplyForDeemedServ }}</p>
       <p class="govuk-body">{{ content.evidenceRespWontRespond.needToProve }}</p>
       <p class="govuk-body"><strong>{{ content.howToApply }}</strong> {{ content.fill }} {{ content.applyD11 | safe }} {{ content.evidenceRespWontRespond.applyAndSendDocs }}</p>
@@ -117,13 +122,13 @@
     </div>
   </details>
 
-
- <details class="exit-guidance">
-    <summary aria-controls="details-content-6" aria-expanded="false">
-      <span class="govuk-details__summary-text">{{ content.doneWithAllWaysOfDelivering.linkSummary }}</span>
+  <details class="exit-guidance govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text govuk-!-font-size-16">
+                    {{ content.doneWithAllWaysOfDelivering.linkSummary }}
+                  </span>
     </summary>
-
-    <div class="govuk-details__text" id="details-content-6" aria-hidden="true">
+    <div class="govuk-details__text">
       <p class="govuk-body">{{ content.doneWithAllWaysOfDelivering.askForDispenseWithService }}</p>
       <p class="govuk-body">{{ content.doneWithAllWaysOfDelivering.allInCourtHands }}</p>
       <ul class="govuk-list govuk-list--bullet">

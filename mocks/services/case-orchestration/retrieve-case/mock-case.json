@@ -426,6 +426,17 @@
         "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/23e0b759-77b5-4778-a604-1234",
         "mimeType": null,
         "status": null
+      },
+      {
+        "id": "23e0b759-77b5-4778-a604-1234",
+        "createdBy": 0,
+        "createdOn": null,
+        "lastModifiedBy": 0,
+        "modifiedOn": null,
+        "fileName": "aosOverdueCoverLetter1559143445687032.pdf",
+        "fileUrl": "http://dm-store-aat.service.core-compute-aat.internal/documents/23e0b759-77b5-4778-a604-1234",
+        "mimeType": null,
+        "status": null
       }
     ],
     "hearingDate": [

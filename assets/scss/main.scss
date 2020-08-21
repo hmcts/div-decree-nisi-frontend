@@ -41,13 +41,15 @@ textarea.form-control {
 }
 
 .exit-guidance {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #b1b4b6;
   padding-bottom: 6px;
   padding-top: 12px;
+  margin-bottom: 0px !important;
+}
 
-  summary span {
-    text-decoration: none;
-    font-weight: 700;
+details:first-of-type {
+  &.exit-guidance {
+    border-top: 1px solid #b1b4b6;
   }
 }
 

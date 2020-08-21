@@ -161,6 +161,7 @@ document:
   - 'dnAnswers'
   - 'clarificationDnRefusalOrder'
   - 'rejectionDnRefusalOrder'
+  - 'aosOverdueCoverLetter'
 
 ccd:
   d8States:
