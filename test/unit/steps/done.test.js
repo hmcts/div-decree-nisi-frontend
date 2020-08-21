@@ -140,6 +140,18 @@ describe(modulePath, () => {
                 fileName: 'respondentAnswers1559143445687032.pdf',
                 // eslint-disable-next-line max-len
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/30acaa2f-84d7-4e27-adb3-69551560222'
+              },
+              {
+                id: '4756b8b3-fb60-4dd4-a409-2ec91d09dd78',
+                fileName: 'deemedAsServedGranted.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/4756b8b3-fb60-4dd4-a409-2ec91d09dd78'
+              },
+              {
+                id: '79310942-3f30-4065-b68f-65d94fcdc6e8',
+                fileName: 'dispenseWithServiceGranted.pdf',
+                // eslint-disable-next-line max-len
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/79310942-3f30-4065-b68f-65d94fcdc6e8'
               }
             ]
           }

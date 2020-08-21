@@ -56,7 +56,9 @@
       "decreeNisi": "Decree Nisi",
       "dnAnswers": "Decree Nisi answers",
       "clarificationDnRefusalOrder": "Refusal Order",
-      "rejectionDnRefusalOrder": "Refusal Order"
+      "rejectionDnRefusalOrder": "Refusal Order",
+      "deemedAsServedGranted": "Deemed service order",
+      "dispenseWithServiceGranted": "Order to dispense"
     }
   },
   "cy": {
@@ -116,7 +118,9 @@
       "decreeNisi": "Dyfarniad Nisi",
       "dnAnswers": "Atebion y Dyfarniad Nisi",
       "clarificationDnRefusalOrder": "Gorchymyn Gwrthod",
-      "rejectionDnRefusalOrder": "Gorchymyn Gwrthod"
+      "rejectionDnRefusalOrder": "Gorchymyn Gwrthod",
+      "deemedAsServedGranted": "Deemed service order",
+      "dispenseWithServiceGranted": "Order to dispense"
     }
   }
 }

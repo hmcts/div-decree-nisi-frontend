@@ -26,6 +26,16 @@
           "yes": "Yes",
           "no": "No"
         },
+        "serviceApplicationType": {
+          "title": "Service application type",
+          "deemed": "Deemed",
+          "dispensed": "Dispensed"
+        },
+        "serviceApplicationGranted": {
+          "title": "Service Application Granted",
+          "yes": "Yes",
+          "no": "No"
+        },
         "reasonForDivorceBehaviourDetails": {
           "title": "Specify the unreasonable behaviour details"
         },
@@ -82,6 +92,16 @@
         },
         "claimCosts": {
           "title": "[CY] Do you want to claim costs?",
+          "yes": "[CY] Yes",
+          "no": "[CY] No"
+        },
+        "serviceApplicationType": {
+          "title": "[CY] Service application type",
+          "deemed": "[CY] Deemed",
+          "dispensed": "[CY] Dispensed"
+        },
+        "serviceApplicationGranted": {
+          "title": "[CY] Service Application Granted",
           "yes": "[CY] Yes",
           "no": "[CY] No"
         },

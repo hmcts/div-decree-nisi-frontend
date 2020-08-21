@@ -161,6 +161,8 @@ document:
   - 'dnAnswers'
   - 'clarificationDnRefusalOrder'
   - 'rejectionDnRefusalOrder'
+  - 'deemedAsServedGranted'
+  - 'dispenseWithServiceGranted'
 
 ccd:
   d8States:
