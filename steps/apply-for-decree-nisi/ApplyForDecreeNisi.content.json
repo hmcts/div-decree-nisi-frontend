@@ -30,8 +30,8 @@
     "decreeAbsolute": "Y ‘Dyfarniad Absoliwt’, sy’n dod â’r briodas i ben yn gyfreithiol.  Ni ellir ei roi tan o leiaf 6 wythnos ar ôl y Dyfarniad Nisi.",
     "courtCanCancel": "Gall y llys ganslo (a elwir yn gyfreithiol yn 'dadwneud') y Datganiad Nisi unrhyw bryd hyd at adeg cyflwyno’r Dyfarniad Absoliwt, os bydd yn cael tystiolaeth newydd yn dangos pam na ddylech gael ysgariad.",
     "signOutDetail": "Cliciwch ar Parhau i allgofnodi.  Os ydych eisiau tynnu eich cais am ysgariad yn ôl, cysylltwch â’r Gwasanaeth Llysoedd a Thribiwnlysoedd.",
-    "continueBecauseOfDeemed": "You can apply for a decree nisi even though your husband / wife didn’t respond to the divorce petition. This is because the courts accepted your  ‘deemed service’ application.",
-    "continueBecauseOfDispensed": "You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the courts accepted your  ‘dispense with service’ application.",
+    "continueBecauseOfDeemed": "[CY] You can apply for a decree nisi even though your husband / wife didn’t respond to the divorce petition. This is because the courts accepted your  ‘deemed service’ application.",
+    "continueBecauseOfDispensed": "[CY] You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the courts accepted your  ‘dispense with service’ application.",
     "errors": {
       "required": " Dewiswch p’un a ydych eisiau parhau gyda’ch ysgariad"
     },

@@ -9,6 +9,13 @@ const Joi = require('joi');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
+const constants = {
+  no: 'no',
+  yes: 'yes',
+  deemed: 'deemed',
+  dispensed: 'dispensed'
+};
+
 class ApplyForDecreeNisi extends Question {
   static get path() {
     return config.paths.applyForDecreeNisi;
@@ -36,11 +43,15 @@ class ApplyForDecreeNisi extends Question {
   }
 
   get isDeemedApproved() {
-    return this.case.serviceApplicationGranted === 'Yes' && this.case.serviceApplicationType === 'deemed';
+    return this.isEqual(this.case.serviceApplicationGranted, constants.yes) && this.isEqual(this.case.serviceApplicationType, constants.deemed);
   }
 
   get isDispensedApproved() {
-    return this.case.serviceApplicationGranted === 'Yes' && this.case.serviceApplicationType === 'dispensed';
+    return this.isEqual(this.case.serviceApplicationGranted, constants.yes) && this.isEqual(this.case.serviceApplicationType, constants.dispensed);
+  }
+
+  isEqual(dataElement, constant) {
+    return dataElement && dataElement.toLowerCase() === constant;
   }
 
   answers() {
@@ -53,7 +64,7 @@ class ApplyForDecreeNisi extends Question {
 
   next() {
     const declinesToApplyForDN = () => {
-      return this.fields.applyForDecreeNisi.value === 'no';
+      return this.fields.applyForDecreeNisi.value === constants.no;
     };
 
     return branch(

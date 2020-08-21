@@ -33,7 +33,9 @@ const constants = {
   dnIsRefused,
   undefendedReason: '0',
   no: 'no',
-  yes: 'yes'
+  yes: 'yes',
+  deemed: 'deemed',
+  dispensed: 'dispensed'
 };
 
 class PetitionProgressBar extends Interstitial {
@@ -178,10 +180,10 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get serviceApplicationReason() {
-    if (this.case.serviceApplicationGranted === 'Yes') {
+    if (this.isEqual(this.case.serviceApplicationGranted, constants.yes)) {
       switch (this.case.serviceApplicationType) {
-      case 'deemed': return '5';
-      case 'dispensed': return '6';
+      case constants.deemed: return '5';
+      case constants.dispensed: return '6';
       default: return null;
       }
     }
@@ -223,6 +225,10 @@ class PetitionProgressBar extends Interstitial {
     return this.downloadableFiles.find(file => {
       return file.type === 'decreeNisi';
     });
+  }
+
+  isEqual(dataElement, constant) {
+    return dataElement && dataElement.toLowerCase() === constant;
   }
 }
 

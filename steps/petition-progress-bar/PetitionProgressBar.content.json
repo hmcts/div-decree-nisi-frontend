@@ -89,8 +89,8 @@
       "dnAnswers": "Atebion y Dyfarniad Nisi",
       "clarificationDnRefusalOrder": "Gorchymyn Gwrthod",
       "rejectionDnRefusalOrder": "Gorchymyn Gwrthod",
-      "deemedAsServedGranted": "Deemed service order",
-      "dispenseWithServiceGranted": "Order to dispense"
+      "deemedAsServedGranted": "[CY] Deemed service order",
+      "dispenseWithServiceGranted": "[CY] Order to dispense"
     }
   }
 }
