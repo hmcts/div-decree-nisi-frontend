@@ -170,7 +170,22 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get dnReason() {
+    const serviceApplicationReason = this.serviceApplicationReason;
+    if (serviceApplicationReason) {
+      return serviceApplicationReason;
+    }
     return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
+  }
+
+  get serviceApplicationReason() {
+    if (this.case.serviceApplicationGranted === 'Yes') {
+      switch (this.case.serviceApplicationType) {
+      case 'deemed': return '5';
+      case 'dispensed': return '6';
+      default: return null;
+      }
+    }
+    return null;
   }
 
   get stateTemplate() {
