@@ -163,6 +163,7 @@ document:
   - 'rejectionDnRefusalOrder'
   - 'deemedAsServedGranted'
   - 'dispenseWithServiceGranted'
+  - 'aosOverdueCoverLetter'
 
 ccd:
   d8States:
