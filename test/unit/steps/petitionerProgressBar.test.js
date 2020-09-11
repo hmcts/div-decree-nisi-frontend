@@ -685,6 +685,28 @@ describe(modulePath, () => {
                 status: null
               },
               {
+                id: 'respondentAnswers10231283124',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'respondentAnswers1539017559370698.pdf',
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/respondentAnswers',
+                mimeType: null,
+                status: null
+              },
+              {
+                id: 'coRespondentAnswers10231283125',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'coRespondentAnswers1539017559370697.pdf',
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/coRespondentAnswers',
+                mimeType: null,
+                status: null
+              },
+              {
                 id: '401ab79e-34cb-4570-9124-4cf9357m4st3r',
                 createdBy: 0,
                 createdOn: null,
@@ -791,6 +813,28 @@ describe(modulePath, () => {
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/79310942-3f30-4065-b68f-65d94fcdc6e8',
                 mimeType: null,
                 status: null
+              },
+              {
+                id: 'generalOrder10231283124',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'generalOrder1539017559370698.pdf',
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/generalOrder',
+                mimeType: null,
+                status: null
+              },
+              {
+                id: 'generalOrder10231283125',
+                createdBy: 0,
+                createdOn: null,
+                lastModifiedBy: 0,
+                modifiedOn: null,
+                fileName: 'generalOrder1539017559370697.pdf',
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/generalOrder',
+                mimeType: null,
+                status: null
               }
             ]
           }
@@ -805,6 +849,8 @@ describe(modulePath, () => {
 
       expect(fileTypes).to.eql([
         'dpetition',
+        'respondentAnswers',
+        'coRespondentAnswers',
         'certificateOfEntitlement',
         'costsOrder',
         'decreeNisi',
@@ -813,7 +859,9 @@ describe(modulePath, () => {
         'rejectionDnRefusalOrder',
         'deemedAsServedGranted',
         'dispenseWithServiceGranted',
-        'aosOverdueCoverLetter'
+        'aosOverdueCoverLetter',
+        'generalOrder',
+        'generalOrder'
       ]);
     });
   });
