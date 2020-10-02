@@ -18,9 +18,7 @@ variable "env" { }
 
 variable "ilbIp" { }
 
-variable "deployment_env" {
-  type = "string"
-}
+variable "deployment_env" {}
 
 variable "deployment_path" {
   default = "/opt/divorce/frontend"
@@ -36,13 +34,10 @@ variable "node_config_dir" {
 
 variable "subscription" { }
 
-variable "vault_section" {
-  type = "string"
-}
+variable "vault_section" {}
 
 // CNP settings
 variable "jenkins_AAD_objectId" {
-  type                        = "string"
   description                 = "(Required) The Azure AD object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies."
 }
 
@@ -62,9 +57,7 @@ variable "node_path" {
   default = "."
 }
 
-variable "additional_host_name" {
-  type = "string"
-}
+variable "additional_host_name" {}
 
 // Package details
 variable "packages_name" {
@@ -75,9 +68,7 @@ variable "packages_project" {
   default = "divorce"
 }
 
-variable "packages_environment" {
-  type = "string"
-}
+variable "packages_environment" {}
 
 variable "packages_version" {
   default = "-1"
@@ -99,17 +90,11 @@ variable "health_endpoint" {
   default = "/health"
 }
 
-variable "idam_authentication_web_url" {
-  type = "string"
-}
+variable "idam_authentication_web_url" {}
 
-variable "petitioner_frontend_url" {
-  type = "string"
-}
+variable "petitioner_frontend_url" {}
 
-variable "respondent_frontend_url" {
-  type = "string"
-}
+variable "respondent_frontend_url" {}
 
 variable "decree_absolute_frontend_url" {
   default = ""
@@ -119,9 +104,7 @@ variable "idam_authentication_login_endpoint" {
   default = "/login"
 }
 
-variable "idam_api_url" {
-  type = "string"
-}
+variable "idam_api_url" {}
 
 variable "frontend_service_name" {
   default = "divorce-decree-nisi-frontend"
@@ -139,9 +122,7 @@ variable "hpkp_shas" {
   default = "Naw+prhcXSIkbtYJ0t7vAD+Fc92DWL9UZevVfWBvids=,klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=,grX4Ta9HpZx6tSHkmCrvpApTQGo67CYDnvprLg5yRME="
 }
 
-variable "component" {
-   type = "string"
-}
+variable "component" {}
 
 variable "capacity" {
   default = "1"
@@ -166,7 +147,7 @@ variable "rate_limiter_enabled" {
 }
 
 variable "common_tags" {
-  type = "map"
+  type = map(string)
 }
 
 variable "evidence_management_client_api_upload_endpoint" {
@@ -194,7 +175,6 @@ variable "feature_dn_is_refused" {
 }
 
 variable "ccd_digital_courts" {
-  type = "string"
   default = "[\"serviceCentre\"]"
 }
 
@@ -208,27 +188,22 @@ variable "feature_webchat" {
 }
 
 variable "webchat_chat_id" {
-  type = "string"
   default = "3833071605d5d4518036a09.30917386"
 }
 
 variable "webchat_tenant" {
-  type = "string"
   default = "aG1jdHNzdGFnaW5nMDE"
 }
 
 variable "webchat_button_no_agents" {
-  type = "string"
   default = "7732814745cac6f4603c4d1.53357933"
 }
 
 variable "webchat_button_agents_busy" {
-  type = "string"
   default = "2042157415cc19c95669039.65793052"
 }
 
 variable "webchat_button_service_closed" {
-  type = "string"
   default = "20199488815cc1a89e0861d5.73103009"
 }
 
