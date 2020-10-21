@@ -3,7 +3,7 @@ const modulePath = 'steps/done/Done.step';
 const Done = require(modulePath);
 const DoneContent = require('steps/done/Done.content');
 const idam = require('services/idam');
-const { custom, expect, middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
+const { custom, expect, middleware, sinon, content, stepAsInstance } = require('@hmcts/one-per-page-test-suite');
 const httpStatus = require('http-status-codes');
 const { getExpectedCourtsList, testDivorceUnitDetailsRender,
   testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
@@ -158,11 +158,46 @@ describe(modulePath, () => {
                 fileName: 'aosOverdueCoverLetter1559143445687032.pdf',
                 // eslint-disable-next-line max-len
                 fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/79310942-3f30-4065-b68f-65d94fcdc6e8'
+              },
+              {
+                id: 'generalOrder10231283124',
+                fileName: 'generalOrder1539017559370698.pdf',
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/generalOrder'
+              },
+              {
+                id: 'generalOrder10231283125',
+                fileName: 'generalOrder1539017559370697.pdf',
+                fileUrl: 'http://dm-store-aat.service.core-compute-aat.internal/documents/generalOrder'
               }
             ]
           }
         }
       };
+    });
+
+    it('returns the correct files', () => {
+      const instance = stepAsInstance(Done, session);
+
+      const fileTypes = instance.downloadableFiles.map(file => {
+        return file.type;
+      });
+
+      expect(fileTypes).to.eql([
+        'dpetition',
+        'certificateOfEntitlement',
+        'costsOrder',
+        'decreeNisi',
+        'dnAnswers',
+        'rejectionDnRefusalOrder',
+        'clarificationDnRefusalOrder',
+        'coRespondentAnswers',
+        'respondentAnswers',
+        'deemedAsServedGranted',
+        'dispenseWithServiceGranted',
+        'aosOverdueCoverLetter',
+        'generalOrder',
+        'generalOrder'
+      ]);
     });
 
     describe('Share documents is true and has uploaded documents', () => {

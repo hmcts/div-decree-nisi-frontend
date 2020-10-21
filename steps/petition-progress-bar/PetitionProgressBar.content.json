@@ -44,7 +44,8 @@
       "rejectionDnRefusalOrder": "Refusal Order",
       "deemedAsServedGranted": "Deemed service order",
       "dispenseWithServiceGranted": "Order to dispense",
-      "aosOverdueCoverLetter": "Email return coversheet"
+      "aosOverdueCoverLetter": "Email return coversheet",
+      "generalOrder": "General Order"
     }
   },
   "cy": {
@@ -92,7 +93,8 @@
       "rejectionDnRefusalOrder": "Gorchymyn Gwrthod",
       "deemedAsServedGranted": "Deemed service order",
       "dispenseWithServiceGranted": "Order to dispense",
-      "aosOverdueCoverLetter": "Email return coversheet"
+      "aosOverdueCoverLetter": "Email return coversheet",
+      "generalOrder": "[CY] General Order"
     }
   }
 }
