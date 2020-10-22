@@ -8,13 +8,9 @@
     "whichSituation": "Which situation applies to you?",
     "warning": "Warning",
     "haveAnotherAddress": {
-      "linkSummary": "I have another residential address or a solicitor’s address for my {{ divorceWho }} (no fee)",
+      "linkSummary": "I have another address or a solicitor’s address for my {{ divorceWho }} (no fee)",
       "provideAddress": "Contact the Courts and Tribunals Service Centre to provide a different address for your {{ divorceWho }}. This can be a UK or international address.",
       "noExtraPay": "You don’t have to pay anything extra to have the application sent to a different address."
-    },
-    "sendToWorkAddress": {
-      "linkSummary": "I need to send the application to a non-residential address, eg a work address (£{{ feeToResendApplication }})",
-      "askToSendApp": "You can ask for the application to be sent to a non-residential address."
     },
     "needToSearchRecords": {
       "linkSummary": "I need to search government records for my {{ divorceWho }}’s address (£{{ feeToResendApplication }})",
@@ -26,7 +22,7 @@
       "appToEmail": "You can ask for the application to be delivered by email."
     },
     "believeRespChoseNotToRespond": {
-      "linkSummary": "I believe my {{ divorceWho }} lives at that address, but chose not to respond (£{{ enforcemetFee }})",
+      "linkSummary": "I believe my {{ divorceWho }} lives at that address, but chose not to respond (£{{ enforcementFee }})",
       "deliverPapersDirectlyToResp": "If you think that your {{ divorceWho }} is deliberately not responding you can pay a professional to deliver (serve) the divorce papers directly to them.",
       "optionsToDeliver": "You can do this by using either a:",
       "privateHireToDeliver": "Process server (a privately hired professional)",
@@ -66,7 +62,7 @@
     "applyD11": "<a class=\"govuk-link\" href=\"http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=98\" target=\"_blank\" aria-label=\"Form D11 link, This link will open in a new tab.\">form D11</a>.",
     "howToPay": "How to pay:",
     "howToPayContent": "Call the service centre to make the £{{ feeToResendApplication }} payment by card (Monday - Friday 8am to 8pm, Saturday 8am to 2pm) or include a cheque with your form.",
-    "howToPayBailiffContent": "Call the service centre to make the £{{ enforcemetFee }} payment by card (Monday - Friday 8am to 8pm, Saturday 8am to 2pm) or include a cheque with your form.",
+    "howToPayBailiffContent": "Call the service centre to make the £{{ enforcementFee }} payment by card (Monday - Friday 8am to 8pm, Saturday 8am to 2pm) or include a cheque with your form.",
     "getNewRefNumb": "If you’re eligible for help with fees you’ll need to apply again and <a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"Get a new reference number link, This link will open in a new tab.\">get a new reference number</a>.",
     "extraCosts": "If you asked the court to order your {{ divorceWho }} to pay your costs, then these extra costs will also be taken into account.",
     "printAndSend": "Send the form to the Courts and Tribunals Service Centre.",
@@ -95,13 +91,9 @@
     "whichSituation": "Pa sefyllfa sy’n berthnasol i chi?",
     "warning": "Rhybudd",
     "haveAnotherAddress": {
-      "linkSummary": "Mae gen i gyfeiriad preswyl arall neu gyfeiriad arall ar gyfer cyfreithiwr fy {{ divorceWho }} (no fee)",
+      "linkSummary": "Mae gen i gyfeiriad arall neu gyfeiriad cyfreithiwr ar gyfer fy {{ divorceWho }} (no fee)",
       "provideAddress": "Cysylltwch â’r Gwasanaeth Llysoedd a Thribiwnlysoedd i ddarparu cyfeiriad gwahanol ar gyfer eich {{ divorceWho }}. Gall hwn fod yn gyfeiriad yn y DU neu’n gyfeiriad rhyngwladol.",
       "noExtraPay": "Nid oes rhaid ichi dalu mwy i anfon y cais i gyfeiriad gwahanol."
-    },
-    "sendToWorkAddress": {
-      "linkSummary": "Rwyf angen anfon y cais i gyfeiriad dibreswyl, e.e. cyfeiriad gwaith (£{{ feeToResendApplication }})",
-      "askToSendApp": "Gallwch ofyn i’r cais gael ei anfon i gyfeiriad dibreswyl."
     },
     "needToSearchRecords": {
       "linkSummary": "Rwyf angen chwilio cofnodion y llywodraeth i ddod o hyd i gyfeiriad fy {{ divorceWho }} (£{{ feeToResendApplication }})",
