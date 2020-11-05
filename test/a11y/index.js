@@ -74,7 +74,7 @@ const validateAccessibility = (step, method, language = 'en') => {
 };
 
 const runTests = (step, language = 'en') => {
-  describe(`Validate HTML accessibility for the page ${step.name}`, () => {
+  describe(`Validate HTML accessibility for the page ${step.name} - ${language}`, () => {
     let errors = [];
     let warnings = [];
 
