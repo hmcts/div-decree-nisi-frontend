@@ -9,30 +9,30 @@ const testHappyPath = async(I, language = 'en') => {
   I.amOnLoadedPage('/', language);
   await I.testIdamPage();
 
-  I.testProgressBar();
-  I.testApplyForDecreeNisiPage();
-  I.testMiniPetitionPage();
+  I.testProgressBar(language);
+  I.testApplyForDecreeNisiPage(language);
+  I.testMiniPetitionPage(language);
 
   if (config.tests.functional.verifyOnCrossbrowser) {
-    I.testBehaviourContinuedSinceApplicationPage();
+    I.testBehaviourContinuedSinceApplicationPage(language);
   } else {
     const isMocked = await I.grabCookie('mockIdamUserDetails');
     if (isMocked) {
-      I.testLivedApartSinceSeparationPage();
+      I.testLivedApartSinceSeparationPage(language);
     } else {
-      I.testBehaviourContinuedSinceApplicationPage();
+      I.testBehaviourContinuedSinceApplicationPage(language);
     }
   }
 
-  I.testClaimCostsPage();
-  I.testShareCourtDocumentsPage('no');
+  I.testClaimCostsPage(language);
+  I.testShareCourtDocumentsPage('no', language);
 
-  I.testCheckYourAnswersPage();
-  I.navByClick(CheckYourAnswersContent.en.submit);
+  I.testCheckYourAnswersPage(language);
+  I.navByClick(CheckYourAnswersContent[language].submit);
   if (config.tests.functional.verifyOnCrossbrowser) {
     I.retry(2).waitForText('LV18D81234');
   } else {
-    I.amOnLoadedPage(config.paths.done);
+    I.amOnLoadedPage(config.paths.done, language);
   }
 };
 

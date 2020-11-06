@@ -41,7 +41,7 @@ const testAllPages = async(I, language = 'en') => {
 
   I.testReviewAosResponsePage(language);
 
-  I.testShareCourtDocumentsPage(language);
+  I.testShareCourtDocumentsPage('yes', language);
 
   await I.testUploadPage(language);
 
