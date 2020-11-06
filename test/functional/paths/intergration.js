@@ -2,17 +2,15 @@ const CheckYourAnswersContent = require('steps/check-your-answers/CheckYourAnswe
 const config = require('config');
 const basicDivorceSession = require('test/resources/basic-divorce-session');
 
-Feature('Integration Tests');
-
-Scenario('Happy Path', async I => {
+const testHappyPath = async(I, language = 'en') => {
   await I.createAUser();
   await I.createDnCaseForUser(basicDivorceSession);
-  I.amOnLoadedPage('/');
+
+  I.amOnLoadedPage('/', language);
   await I.testIdamPage();
+
   I.testProgressBar();
-
   I.testApplyForDecreeNisiPage();
-
   I.testMiniPetitionPage();
 
   if (config.tests.functional.verifyOnCrossbrowser) {
@@ -27,7 +25,6 @@ Scenario('Happy Path', async I => {
   }
 
   I.testClaimCostsPage();
-
   I.testShareCourtDocumentsPage('no');
 
   I.testCheckYourAnswersPage();
@@ -37,4 +34,14 @@ Scenario('Happy Path', async I => {
   } else {
     I.amOnLoadedPage(config.paths.done);
   }
+};
+
+Feature('Integration Tests');
+
+Scenario('Happy Path for English language', async I => {
+  await testHappyPath(I, 'en');
+}).retry(2);
+
+Scenario('Happy Path for Welsh language', async I => {
+  await testHappyPath(I, 'cy');
 }).retry(2);

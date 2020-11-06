@@ -7,12 +7,12 @@ const DesertionAskedToResumeDNContent = require(
 const LivedApartSinceDesertion = require('steps/lived-apart-since-desertion/LivedApartSinceDesertion.step'); // eslint-disable-line
 const commonContent = require('common/content');
 
-function testDesertionAskedToResumeDN() {
+function testDesertionAskedToResumeDN(language = 'en') {
   const I = this;
 
   I.amOnLoadedPage(DesertionAskedToResumeDN.path);
-  I.checkOption(DesertionAskedToResumeDNContent.en.fields.desertionAskedToResumeDN.no); // eslint-disable-line
-  I.navByClick(commonContent.en.continue);
+  I.checkOption(DesertionAskedToResumeDNContent[language].fields.desertionAskedToResumeDN.no); // eslint-disable-line
+  I.navByClick(commonContent[language].continue);
 
   I.seeCurrentUrlEquals(LivedApartSinceDesertion.path);
 }

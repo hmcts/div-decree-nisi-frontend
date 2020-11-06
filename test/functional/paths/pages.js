@@ -1,57 +1,55 @@
 const basicDivorceSession = require('test/resources/basic-divorce-session');
 
-Feature('Test all pages');
-
-Scenario('Pages', async I => {
+const testAllPages = async(I, language = 'en') => {
   await I.createAUser();
 
   await I.createDnCaseForUser(basicDivorceSession);
 
-  I.amOnLoadedPage('/');
+  I.amOnLoadedPage('/', language);
 
   await I.testIdamPage();
 
-  I.testProgressBar();
+  I.testProgressBar(language);
 
-  I.testDnNoResponse();
+  I.testDnNoResponse(language);
 
-  I.testAmendApplication();
+  I.testAmendApplication(language);
 
-  I.testRespNotAdmitAdultery();
+  I.testRespNotAdmitAdultery(language);
 
-  I.testReviewAosResponseFromCoRespondent();
+  I.testReviewAosResponseFromCoRespondent(language);
 
-  I.testAdulteryFirstFound();
+  I.testAdulteryFirstFound(language);
 
-  I.testApplyForDecreeNisiPage();
+  I.testApplyForDecreeNisiPage(language);
 
-  I.testBehaviourContinuedSinceApplicationPage();
+  I.testBehaviourContinuedSinceApplicationPage(language);
 
-  I.testClaimCostsPage();
+  I.testClaimCostsPage(language);
 
-  I.testIntolerable();
+  I.testIntolerable(language);
 
-  I.testLivedApartSinceAdulteryPage();
+  I.testLivedApartSinceAdulteryPage(language);
 
-  I.testLivedApartSinceDesertionPage();
+  I.testLivedApartSinceDesertionPage(language);
 
-  I.testLivedApartSinceLastIncidentDatePage();
+  I.testLivedApartSinceLastIncidentDatePage(language);
 
-  I.testLivedApartSinceSeparationPage();
+  I.testLivedApartSinceSeparationPage(language);
 
-  I.testMiniPetitionPage();
+  I.testMiniPetitionPage(language);
 
-  I.testReviewAosResponsePage();
+  I.testReviewAosResponsePage(language);
 
-  I.testShareCourtDocumentsPage();
+  I.testShareCourtDocumentsPage(language);
 
-  await I.testUploadPage();
+  await I.testUploadPage(language);
 
-  I.testDesertionAskedToResumeDN();
+  I.testDesertionAskedToResumeDN(language);
 
-  I.testCourtFeedback();
+  I.testCourtFeedback(language);
 
-  I.testCheckYourAnswersPage();
+  I.testCheckYourAnswersPage(language);
 
   I.testDonePage();
 
@@ -72,4 +70,14 @@ Scenario('Pages', async I => {
   I.testAccessibilityStatementPage();
 
   I.checkUrlsNotTested();
+};
+
+Feature('Test all pages');
+
+Scenario('Pages with English language', async I => {
+  await testAllPages(I, 'en');
+}).retry(3);
+
+Scenario('Pages with Welsh language', async I => {
+  await testAllPages(I, 'cy');
 }).retry(3);

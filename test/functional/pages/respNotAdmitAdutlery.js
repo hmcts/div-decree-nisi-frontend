@@ -6,12 +6,12 @@ const RespNotAdmitAdulteryContent = require(
 const content = require('common/content');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 
-function testRespNotAdmitAdultery() {
+function testRespNotAdmitAdultery(language = 'en') {
   const I = this;
 
   I.amOnLoadedPage(RespNotAdmitAdultery.path);
-  I.checkOption(RespNotAdmitAdulteryContent.en.fields.amendPetition.no);
-  I.navByClick(content.en.continue);
+  I.checkOption(RespNotAdmitAdulteryContent[language].fields.amendPetition.no);
+  I.navByClick(content[language].continue);
 
   I.seeCurrentUrlEquals(ApplyForDecreeNisi.path);
 }
