@@ -5,7 +5,7 @@ const DnNoResponseContent = require('steps/dn-no-response/DnNoResponse.content')
 function testDnNoResponse(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(DnNoResponse.path);
+  I.amOnLoadedPage(DnNoResponse.path, language);
   I.see(DnNoResponseContent[language].title);
 }
 

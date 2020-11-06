@@ -6,7 +6,7 @@ const MiniPetition = require('steps/mini-petition/MiniPetition.step');
 function testApplyForDecreeNisiPage(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(ApplyForDecreeNisi.path);
+  I.amOnLoadedPage(ApplyForDecreeNisi.path, language);
   I.waitInUrl(ApplyForDecreeNisi.path, 5);
   I.retry(2).click(ApplyForDecreeNisiContent[language].fields.applyForDecreeNisi.yes);
   I.navByClick(commonContent[language].continue);

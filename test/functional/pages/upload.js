@@ -29,7 +29,7 @@ async function testUploadPage(language = 'en') {
   const isDragAndDropSupported = await I.checkElementExist('.dz-hidden-input');
 
   I.uploadFile(isDragAndDropSupported);
-  I.deleteAFile();
+  I.deleteAFile(language);
   I.navByClick(commonContent[language].continue);
 
   I.seeCurrentUrlEquals(CheckYourAnswers.path);
@@ -47,12 +47,12 @@ function uploadFile(isDragAndDropSupported, language = 'en') {
   I.waitForVisible(`input[value="${commonContent.en.continue}"]:not([disabled])`);
 }
 
-function deleteAFile() {
+function deleteAFile(language = 'en') {
   const I = this;
 
-  I.click(UploadContent.en.remove);
+  I.click(UploadContent[language].remove);
   I.waitForInvisible('.file');
-  I.dontSee(UploadContent.en.remove);
+  I.dontSee(UploadContent[language].remove);
 }
 
 module.exports = { testUploadPage, uploadFile, deleteAFile };

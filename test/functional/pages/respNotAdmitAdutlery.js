@@ -5,11 +5,12 @@ const RespNotAdmitAdulteryContent = require(
 );
 const content = require('common/content');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
+const { lang } = require('moment');
 
 function testRespNotAdmitAdultery(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(RespNotAdmitAdultery.path);
+  I.amOnLoadedPage(RespNotAdmitAdultery.path, language);
   I.checkOption(RespNotAdmitAdulteryContent[language].fields.amendPetition.no);
   I.navByClick(content[language].continue);
 

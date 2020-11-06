@@ -4,7 +4,7 @@ const CheckYourAnswersContent = require('steps/check-your-answers/CheckYourAnswe
 function testCheckYourAnswersPage(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(CheckYourAnswers.path);
+  I.amOnLoadedPage(CheckYourAnswers.path, language);
   I.retry(2).click(CheckYourAnswersContent[language].fields.statementOfTruth.yes);
   I.see(CheckYourAnswersContent[language].title);
 }
