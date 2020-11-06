@@ -5,7 +5,6 @@ const RespNotAdmitAdulteryContent = require(
 );
 const content = require('common/content');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
-const { lang } = require('moment');
 
 function testRespNotAdmitAdultery(language = 'en') {
   const I = this;
