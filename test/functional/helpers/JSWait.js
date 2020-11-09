@@ -37,8 +37,8 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
   async amOnLoadedPage(url, language = 'en') {
     let newUrl = `${url}?lng=${language}`;
     this.urlsTested = this.urlsTested || [];
-    if (!this.urlsTested.includes(newUrl)) {
-      this.urlsTested.push(newUrl);
+    if (!this.urlsTested.includes(url)) {
+      this.urlsTested.push(url);
     }
 
     const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;

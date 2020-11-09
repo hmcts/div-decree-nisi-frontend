@@ -10,7 +10,7 @@ const commonContent = require('common/content');
 function testDesertionAskedToResumeDN(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(DesertionAskedToResumeDN.path);
+  I.amOnLoadedPage(DesertionAskedToResumeDN.path, language);
   I.checkOption(DesertionAskedToResumeDNContent[language].fields.desertionAskedToResumeDN.no); // eslint-disable-line
   I.navByClick(commonContent[language].continue);
 

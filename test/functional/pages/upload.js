@@ -28,7 +28,7 @@ async function testUploadPage(language = 'en') {
 
   const isDragAndDropSupported = await I.checkElementExist('.dz-hidden-input');
 
-  I.uploadFile(isDragAndDropSupported);
+  I.uploadFile(isDragAndDropSupported, language);
   I.deleteAFile(language);
   I.navByClick(commonContent[language].continue);
 
@@ -43,8 +43,8 @@ function uploadFile(isDragAndDropSupported, language = 'en') {
 
   upload.call(I, '/assets/image.jpg', isDragAndDropSupported);
   I.waitForVisible('.file', 30);
-  I.waitForText(UploadContent.en.remove, 30);
-  I.waitForVisible(`input[value="${commonContent.en.continue}"]:not([disabled])`);
+  I.waitForText(UploadContent[language].remove, 30);
+  I.waitForVisible(`input[value="${commonContent[language].continue}"]:not([disabled])`);
 }
 
 function deleteAFile(language = 'en') {
