@@ -104,7 +104,7 @@
           createImageThumbnails: false,
           paramName: 'file',
           parallelUploads: 1,
-          url: document.URL + '?js=true&_csrf=' + csrfToken,
+          url: document.URL + self.queryParamAppender(document.URL) + 'js=true&_csrf=' + csrfToken,
           maxFilesize: 10,
           timeout: 5 * (60 * 1000), //  5 minutes
           acceptedFiles: 'image/x-png,image/png,image/jpeg,image/jpg,application/pdf,image/tiff,image/tif,image/bmp',
@@ -129,6 +129,10 @@
         }
       },
 
+      queryParamAppender: function(url) {
+        return url.indexOf('?') > 0 ? '&' : '?';
+      },
+
       addExsistingFiles: function(dropzone){
         jQuery('.file').each(function($row){
           dropzone.files.push({
@@ -149,7 +153,7 @@
           var $file = jQuery(this).parents('.file');
           var fileUrl = jQuery(this).data('fileurl');
           jQuery.ajax({
-            url: window.location + '?js=true&fileUrl=' + encodeURI(fileUrl) + '&_csrf=' + csrfToken,
+            url: window.location + self.queryParamAppender(window.location.href) + 'js=true&fileUrl=' + encodeURI(fileUrl) + '&_csrf=' + csrfToken,
             type: 'DELETE',
             success: function() {
               self.removeFileFromList($file);
