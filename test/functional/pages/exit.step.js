@@ -1,14 +1,14 @@
 const ExitPage = require('steps/exit/Exit.step');
 const ExitPageContent = require('steps/exit/Exit.content');
 
-async function testExitPage() {
+async function testExitPage(language = 'en') {
   const I = this;
 
   await I.testIdamPage();
 
-  I.amOnLoadedPage(ExitPage.path);
+  I.amOnLoadedPage(ExitPage.path, language);
 
-  I.see(ExitPageContent.en.title);
+  I.see(ExitPageContent[language].title);
 }
 
 module.exports = { testExitPage };

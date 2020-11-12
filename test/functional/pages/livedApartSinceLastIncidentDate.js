@@ -9,12 +9,12 @@ const ClaimCosts = require(
   'steps/claim-costs/ClaimCosts.step'
 );
 
-function testLivedApartSinceLastIncidentDatePage() {
+function testLivedApartSinceLastIncidentDatePage(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(LivedApartSinceLastIncidentDate.path);
-  I.checkOption(LivedApartSinceLastIncidentDateContent.en.fields.changes.livedApartSinceLastIncidentDate.yes); // eslint-disable-line
-  I.navByClick(commonContent.en.continue);
+  I.amOnLoadedPage(LivedApartSinceLastIncidentDate.path, language);
+  I.checkOption(LivedApartSinceLastIncidentDateContent[language].fields.changes.livedApartSinceLastIncidentDate.yes); // eslint-disable-line
+  I.navByClick(commonContent[language].continue);
 
   I.seeCurrentUrlEquals(ClaimCosts.path);
 }

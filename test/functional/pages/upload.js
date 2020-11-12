@@ -19,40 +19,40 @@ function upload(file, isDragAndDropSupported) {
   }
 }
 
-async function testUploadPage() {
+async function testUploadPage(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(ShareCourtDocuments.path);
-  I.checkOption(ShareCourtDocumentsContent.en.fields.upload.yes);
-  I.navByClick(commonContent.en.continue);
+  I.amOnLoadedPage(ShareCourtDocuments.path, language);
+  I.checkOption(ShareCourtDocumentsContent[language].fields.upload.yes);
+  I.navByClick(commonContent[language].continue);
 
   const isDragAndDropSupported = await I.checkElementExist('.dz-hidden-input');
 
-  I.uploadFile(isDragAndDropSupported);
-  I.deleteAFile();
-  I.navByClick(commonContent.en.continue);
+  I.uploadFile(isDragAndDropSupported, language);
+  I.deleteAFile(language);
+  I.navByClick(commonContent[language].continue);
 
   I.seeCurrentUrlEquals(CheckYourAnswers.path);
 }
 
-function uploadFile(isDragAndDropSupported) {
+function uploadFile(isDragAndDropSupported, language = 'en') {
   const I = this;
 
   I.say(`Drag and Drop supported: ${isDragAndDropSupported}`);
-  I.amOnLoadedPage(Upload.path);
+  I.amOnLoadedPage(Upload.path, language);
 
   upload.call(I, '/assets/image.jpg', isDragAndDropSupported);
   I.waitForVisible('.file', 30);
-  I.waitForText(UploadContent.en.remove, 30);
-  I.waitForVisible(`input[value="${commonContent.en.continue}"]:not([disabled])`);
+  I.waitForText(UploadContent[language].remove, 30);
+  I.waitForVisible(`input[value="${commonContent[language].continue}"]:not([disabled])`);
 }
 
-function deleteAFile() {
+function deleteAFile(language = 'en') {
   const I = this;
 
-  I.click(UploadContent.en.remove);
+  I.click(UploadContent[language].remove);
   I.waitForInvisible('.file');
-  I.dontSee(UploadContent.en.remove);
+  I.dontSee(UploadContent[language].remove);
 }
 
 module.exports = { testUploadPage, uploadFile, deleteAFile };

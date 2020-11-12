@@ -34,7 +34,8 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
     await helper.wait(3);
   }
 
-  async amOnLoadedPage(url) {
+  async amOnLoadedPage(url, language = 'en') {
+    let newUrl = `${url}?lng=${language}`;
     this.urlsTested = this.urlsTested || [];
     if (!this.urlsTested.includes(url)) {
       this.urlsTested.push(url);
@@ -42,7 +43,6 @@ class JSWait extends codecept_helper { // eslint-disable-line camelcase
 
     const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
     const helperIsPuppeteer = this.helpers.Puppeteer;
-    let newUrl = url;
 
     if (helperIsPuppeteer) {
       if (newUrl.indexOf('http') !== 0) {

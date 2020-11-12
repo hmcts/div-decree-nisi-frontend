@@ -2,11 +2,11 @@ const ProgressBarStep = require('steps/petition-progress-bar/PetitionProgressBar
 
 const ProgressBarStepContent = require('steps/petition-progress-bar/PetitionProgressBar.content');
 
-function testProgressBar() {
+function testProgressBar(language = 'en') {
   const I = this;
   I.waitInUrl(ProgressBarStep.path, 5);
-  I.amOnLoadedPage(ProgressBarStep.path);
-  I.see(ProgressBarStepContent.en.title);
+  I.amOnLoadedPage(ProgressBarStep.path, language);
+  I.see(ProgressBarStepContent[language].title);
 }
 
 module.exports = { testProgressBar };
