@@ -36,6 +36,11 @@
           "yes": "Yes",
           "no": "No"
         },
+        "servedByProcessServer": {
+          "title": "Served by process server",
+          "yes": "Yes",
+          "no": "No"
+        },
         "reasonForDivorceBehaviourDetails": {
           "title": "Specify the unreasonable behaviour details"
         },
@@ -58,6 +63,11 @@
         },
         "respLegalProceedingsDescription": {
           "title": "Details of the court cases?"
+        },
+        "receivedAOSfromResp": {
+          "title": "AOS Received from Respondent",
+          "yes": "Yes",
+          "no": "No"
         },
         "respCostsReason": {
           "title": "Provide a brief explanation of why you should not pay?"
@@ -105,6 +115,16 @@
           "yes": "[CY] Yes",
           "no": "[CY] No"
         },
+        "servedByProcessServer": {
+          "title": "[CY] Served by process server",
+          "yes": "[CY] Yes",
+          "no": "[CY] No"
+        },
+        "receivedAOSfromResp": {
+          "title": "[CY] AOS Received from Respondent",
+          "yes": "[CY] Yes",
+          "no": "[CY] No"
+        },
         "reasonForDivorceBehaviourDetails": {
           "title": "[CY] Specify the unreasonable behaviour details"
         },
@@ -127,6 +147,11 @@
         },
         "respLegalProceedingsDescription": {
           "title": "[CY] Details of the court cases?"
+        },
+        "receivedAOSfromResp": {
+          "title": "[CY] AOS Received from Respondent",
+          "yes": "[CY] Yes",
+          "no": "[CY] No"
         },
         "respCostsReason": {
           "title": "[CY] Provide a brief explanation of why you should not pay?"

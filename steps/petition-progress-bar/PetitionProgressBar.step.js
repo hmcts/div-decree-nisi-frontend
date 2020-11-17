@@ -5,7 +5,7 @@ const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
-const { get } = require('lodash');
+const { get, toLower, isEqual } = require('lodash');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification, dnIsRefused } = require('common/constants');
 const caseOrchestrationService = require('services/caseOrchestrationService');
@@ -17,7 +17,8 @@ const {
   caseStateMap,
   permitDNReasonMap,
   caseIdDisplayStateMap,
-  awaitingPronouncementWithHearingDateTemplate
+  awaitingPronouncementWithHearingDateTemplate,
+  dnAwaitingTemplate
 } = require('./petitionerStateTemplates');
 
 const constants = {
@@ -128,12 +129,21 @@ class PetitionProgressBar extends Interstitial {
     return respWillDefendDivorce || this.aosIsCompleted || isTwoYrSep;
   }
 
-  awaitingPronouncementWithHearingDate() {
-    const isAwaitingPronouncement = this.caseState === constants
-      .awaitingPronouncement;
+  isAwaitingDecreeNisi() {
+    return constants.DNAwaiting.includes(this.caseState);
+  }
+
+  isAwaitingPronouncementWithHearingDate() {
+    const awaitingPronouncement = this.caseState === constants.awaitingPronouncement;
     const hearingDates = get(this.case, 'hearingDate') || [];
 
-    return isAwaitingPronouncement && hearingDates.length;
+    return awaitingPronouncement && hearingDates.length;
+  }
+
+  isAwaitingDecreeNisiWithProcessServerService() {
+    return this.caseState === constants.DNAwaiting
+      && isEqual(toLower(this.case.servedByProcessServer), constants.yes)
+      && isEqual(toLower(this.case.receivedAOSfromResp), constants.no);
   }
 
   get certificateOfEntitlementFile() {
@@ -174,33 +184,47 @@ class PetitionProgressBar extends Interstitial {
     if (serviceApplicationReason) {
       return serviceApplicationReason;
     }
+
+    if (this.isAwaitingDecreeNisiWithProcessServerService()) {
+      return this.getProcessServerReason();
+    }
+
     return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
   }
 
+  getProcessServerReason() {
+    return dnAwaitingTemplate.servedByProcessServer;
+  }
+
   get serviceApplicationReason() {
+    let serviceApplicationTemplate = null;
+
     if (this.case.serviceApplicationGranted === 'Yes') {
-      switch (this.case.serviceApplicationType) {
-      case 'deemed': return '5';
-      case 'dispensed': return '6';
-      default: return null;
+      const serviceApplicationType = this.case.serviceApplicationType;
+
+      if (serviceApplicationType === 'deemed') {
+        serviceApplicationTemplate = dnAwaitingTemplate.deemed;
+      } else if (serviceApplicationType === 'dispensed') {
+        serviceApplicationTemplate = dnAwaitingTemplate.dispensed;
       }
     }
-    return null;
+
+    return serviceApplicationTemplate;
   }
 
   get stateTemplate() {
-    let template = '';
-    if (constants.DNAwaiting.includes(this.caseState)) {
-      template = permitDNReasonMap.get(this.dnReason);
-    } else if (this.awaitingPronouncementWithHearingDate()) {
-      template = awaitingPronouncementWithHearingDateTemplate;
-    } else {
-      caseStateMap(this.case).forEach(dataMap => {
-        if (dataMap.state.includes(this.caseState)) {
-          template = dataMap.template;
-        }
-      });
+    if (this.isAwaitingDecreeNisi()) {
+      return permitDNReasonMap.get(this.dnReason);
+    } else if (this.isAwaitingPronouncementWithHearingDate()) {
+      return awaitingPronouncementWithHearingDateTemplate;
     }
+
+    let template = '';
+    caseStateMap(this.case).forEach(dataMap => {
+      if (dataMap.state.includes(this.caseState)) {
+        template = dataMap.template;
+      }
+    });
     return template;
   }
 

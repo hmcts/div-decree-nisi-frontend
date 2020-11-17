@@ -81,12 +81,20 @@ const permitDNReasonMap = new Map([
   ['3', './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html'],
   ['4', './sections/defendedWithoutAnswer/PetitionProgressBar.defendedWithoutAnswer.template.html'],
   ['5', './sections/deemedApproved/PetitionProgressBar.deemedApproved.template.html'],
-  ['6', './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html']
+  ['6', './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html'],
+  ['7', './sections/processServerService/PetitionProgressBar.processServerService.template.html']
 ]);
+
+const dnAwaitingTemplate = {
+  deemed: '5',
+  dispensed: '6',
+  servedByProcessServer: '7'
+};
 
 module.exports = {
   caseStateMap,
   permitDNReasonMap,
   caseIdDisplayStateMap,
-  awaitingPronouncementWithHearingDateTemplate
+  awaitingPronouncementWithHearingDateTemplate,
+  dnAwaitingTemplate
 };

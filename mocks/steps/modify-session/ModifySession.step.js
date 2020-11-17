@@ -76,6 +76,9 @@ class ModifySession extends Question {
     const serviceApplicationGranted = text;
     const serviceApplicationType = text;
 
+    const servedByProcessServer = text;
+    const receivedAOSfromResp = text;
+
     return form({
       divorceWho,
       reasonForDivorce,
@@ -105,7 +108,9 @@ class ModifySession extends Question {
       refusalRejectionReason,
       refusalRejectionAdditionalInfo,
       serviceApplicationGranted,
-      serviceApplicationType
+      serviceApplicationType,
+      servedByProcessServer,
+      receivedAOSfromResp
     });
   }
 

@@ -57,6 +57,15 @@
     hideQuestion = false,
     inline = true
   ) }}
+
+  {{ selectionButtons(fields.servedByProcessServer, content.fields.petitioner.servedByProcessServer.title,
+    options = [
+      { label: content.fields.petitioner.servedByProcessServer.yes, value: "Yes" },
+      { label: content.fields.petitioner.servedByProcessServer.no, value: "No" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
 {% endcall %}
 
 <div class="js-hidden" id="reason-adultery-container">
