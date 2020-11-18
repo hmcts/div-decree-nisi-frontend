@@ -141,7 +141,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   isAwaitingDecreeNisiWithProcessServerService() {
-    return this.isAwaitingDecreeNisi() && this.isServedByProcessServer() && this.isReceivedAOSFromRespondent();
+    return this.isAwaitingDecreeNisi() && this.isServedByProcessServer() && !this.isReceivedAOSFromRespondent();
   }
 
   isServedByProcessServer() {
@@ -149,7 +149,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   isReceivedAOSFromRespondent() {
-    return isEqual(toLower(this.case.receivedAOSfromResp), constants.no);
+    return isEqual(toLower(this.case.receivedAOSfromResp), constants.yes);
   }
 
   isPetitionerRepresented() {

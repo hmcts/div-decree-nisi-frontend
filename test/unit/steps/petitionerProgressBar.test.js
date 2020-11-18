@@ -523,8 +523,8 @@ describe(modulePath, () => {
     });
 
     describe('Process Server functionality', () => {
-      it('should return true if AOS has been received', () => {
-        expect(petitionProgressBar.isReceivedAOSFromRespondent()).to.equal(true);
+      it('should return false if AOS has been received', () => {
+        expect(petitionProgressBar.isReceivedAOSFromRespondent()).to.equal(false);
       });
 
       it('should return true if process server has been served', () => {
