@@ -145,11 +145,13 @@ class PetitionProgressBar extends Interstitial {
   }
 
   isServedByProcessServer() {
-    return isEqual(toLower(this.case.servedByProcessServer), constants.yes);
+    const { servedByProcessServer } = this.case;
+    return isEqual(toLower(servedByProcessServer), constants.yes);
   }
 
   isReceivedAOSFromRespondent() {
-    return isEqual(toLower(this.case.receivedAOSfromResp), constants.yes);
+    const { receivedAOSfromResp } = this.case;
+    return isEqual(toLower(receivedAOSfromResp), constants.yes);
   }
 
   isPetitionerRepresented() {

@@ -91,9 +91,9 @@
       "dnAnswers": "Atebion y Dyfarniad Nisi",
       "clarificationDnRefusalOrder": "Gorchymyn Gwrthod",
       "rejectionDnRefusalOrder": "Gorchymyn Gwrthod",
-      "deemedAsServedGranted": "Deemed service order",
-      "dispenseWithServiceGranted": "Order to dispense",
-      "aosOverdueCoverLetter": "Email return coversheet",
+      "deemedAsServedGranted": "[CY] Deemed service order",
+      "dispenseWithServiceGranted": "[CY] Order to dispense",
+      "aosOverdueCoverLetter": "[CY] Email return coversheet",
       "generalOrder": "[CY] General Order"
     }
   }
