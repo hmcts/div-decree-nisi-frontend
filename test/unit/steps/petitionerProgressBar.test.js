@@ -539,6 +539,10 @@ describe(modulePath, () => {
         expect(petitionProgressBar.isAwaitingDecreeNisi()).to.equal(true);
       });
 
+      it('should return false when petitioner solicitor email is empty', () => {
+        expect(petitionProgressBar.isPetitionerRepresented()).to.equal(false);
+      });
+
       it('should return false if case is not awaiting decree nisi', () => {
         session.case.state = 'AOSOverdue';
         const instance = stepAsInstance(PetitionProgressBar, session);

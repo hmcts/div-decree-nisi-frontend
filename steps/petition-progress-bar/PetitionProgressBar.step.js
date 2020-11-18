@@ -5,7 +5,7 @@ const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
-const { get, toLower, isEqual } = require('lodash');
+const { get, toLower, isEqual, isEmpty, trim } = require('lodash');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification, dnIsRefused } = require('common/constants');
 const caseOrchestrationService = require('services/caseOrchestrationService');
@@ -152,6 +152,11 @@ class PetitionProgressBar extends Interstitial {
     return isEqual(toLower(this.case.receivedAOSfromResp), constants.no);
   }
 
+  isPetitionerRepresented() {
+    const { petitionerSolicitorEmail } = this.case;
+    return !isEmpty(trim(petitionerSolicitorEmail));
+  }
+
   get certificateOfEntitlementFile() {
     return this.downloadableFiles.find(file => {
       return file.type === 'certificateOfEntitlement';
@@ -191,7 +196,7 @@ class PetitionProgressBar extends Interstitial {
       return serviceApplicationReason;
     }
 
-    if (this.isAwaitingDecreeNisiWithProcessServerService()) {
+    if (!this.isPetitionerRepresented() && this.isAwaitingDecreeNisiWithProcessServerService()) {
       return this.getProcessServerReason();
     }
 
