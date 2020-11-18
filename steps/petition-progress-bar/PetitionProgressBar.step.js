@@ -141,9 +141,15 @@ class PetitionProgressBar extends Interstitial {
   }
 
   isAwaitingDecreeNisiWithProcessServerService() {
-    return this.caseState === constants.DNAwaiting
-      && isEqual(toLower(this.case.servedByProcessServer), constants.yes)
-      && isEqual(toLower(this.case.receivedAOSfromResp), constants.no);
+    return this.isAwaitingDecreeNisi() && this.isServedByProcessServer() && this.isReceivedAOSFromRespondent();
+  }
+
+  isServedByProcessServer() {
+    return isEqual(toLower(this.case.servedByProcessServer), constants.yes);
+  }
+
+  isReceivedAOSFromRespondent() {
+    return isEqual(toLower(this.case.receivedAOSfromResp), constants.no);
   }
 
   get certificateOfEntitlementFile() {
