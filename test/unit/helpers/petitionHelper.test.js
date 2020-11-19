@@ -38,12 +38,14 @@ describe(modulePath, () => {
 
   it('should return true if AOS has been received', () => {
     session.case.data.receivedAOSfromResp = 'Yes';
+
     expect(isReceivedAOSFromRespondent(session.case.data)).to.equal(true);
   });
 
   it('should return false if AOS received does not exist', () => {
     const newSession = Object.assign({}, session);
     delete newSession.case.data.receivedAOSfromResp;
+
     expect(isReceivedAOSFromRespondent(newSession.case.data)).to.equal(false);
   });
 
@@ -59,6 +61,7 @@ describe(modulePath, () => {
   it('should return false if process server does not exist', () => {
     const newSession = Object.assign({}, session);
     delete newSession.case.data.servedByProcessServer;
+
     expect(isServedByProcessServer(session.case.data)).to.equal(false);
   });
 
@@ -66,8 +69,16 @@ describe(modulePath, () => {
     expect(isProcessServerService(session.case.data)).to.equal(true);
   });
 
+  it('should return false petitioner is represented', () => {
+    const newSession = Object.assign({}, session);
+    newSession.case.data.petitionerSolicitorEmail = 'solicitor@email.com';
+
+    expect(isProcessServerService(newSession.case.data)).to.equal(false);
+  });
+
   it('should return true if awaiting hearingDate is set', () => {
     const newSession = Object.assign({}, session);
+
     expect(isAwaitingPronouncementWithHearingDate('AwaitingPronouncement', newSession.case.data)).to.equal(true);
   });
 
