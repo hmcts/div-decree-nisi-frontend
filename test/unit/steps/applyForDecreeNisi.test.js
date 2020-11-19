@@ -7,10 +7,10 @@ const ExitPage = require('steps/exit/Exit.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
-const session = { case: { data: {} } };
-
 describe(modulePath, () => {
+  let session = {};
   beforeEach(() => {
+    session = { case: { data: {} } };
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
   });
 
@@ -38,7 +38,9 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'continueBecauseOfDeemed',
+      'continueBecauseOfDispensed'
     ];
     return content(ApplyForDecreeNisi, session, { ignoreContent });
   });
@@ -69,5 +71,29 @@ describe(modulePath, () => {
     ];
     const stepData = { applyForDecreeNisi: 'yes' };
     return question.answers(ApplyForDecreeNisi, stepData, expectedContent, session);
+  });
+
+  it('shows correct message when deemed approved', () => {
+    session.case.data.serviceApplicationGranted = 'Yes';
+    session.case.data.serviceApplicationType = 'deemed';
+    const specificContent = ['continueBecauseOfDeemed'];
+    const specificContentToNotExist = ['continueBecauseOfDispensed'];
+    return content(ApplyForDecreeNisi, session, { specificContent, specificContentToNotExist });
+  });
+
+  it('shows correct message when dispensed approved', () => {
+    session.case.data.serviceApplicationGranted = 'Yes';
+    session.case.data.serviceApplicationType = 'dispensed';
+    const specificContent = ['continueBecauseOfDispensed'];
+    const specificContentToNotExist = ['continueBecauseOfDeemed'];
+    return content(ApplyForDecreeNisi, session, { specificContent, specificContentToNotExist });
+  });
+
+  it('hides message when not deemed or dispensed approved', () => {
+    const specificContentToNotExist = [
+      'continueBecauseOfDeemed',
+      'continueBecauseOfDispensed'
+    ];
+    return content(ApplyForDecreeNisi, session, { specificContentToNotExist });
   });
 });

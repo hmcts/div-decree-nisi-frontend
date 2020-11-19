@@ -6,6 +6,15 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
+const i18next = require('i18next');
+const commonContent = require('common/content');
+
+const constants = {
+  no: 'no',
+  yes: 'yes',
+  deemed: 'deemed',
+  dispensed: 'dispensed'
+};
 
 class ApplyForDecreeNisi extends Question {
   static get path() {
@@ -28,6 +37,23 @@ class ApplyForDecreeNisi extends Question {
     return form({ applyForDecreeNisi });
   }
 
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
+  }
+
+  get isDeemedApproved() {
+    return this.isEqual(this.case.serviceApplicationGranted, constants.yes) && this.isEqual(this.case.serviceApplicationType, constants.deemed);
+  }
+
+  get isDispensedApproved() {
+    return this.isEqual(this.case.serviceApplicationGranted, constants.yes) && this.isEqual(this.case.serviceApplicationType, constants.dispensed);
+  }
+
+  isEqual(dataElement, constant) {
+    return dataElement && dataElement.toLowerCase() === constant;
+  }
+
   answers() {
     return answer(this, {
       question: this.content.fields.applyForDecreeNisi.title,
@@ -38,7 +64,7 @@ class ApplyForDecreeNisi extends Question {
 
   next() {
     const declinesToApplyForDN = () => {
-      return this.fields.applyForDecreeNisi.value === 'no';
+      return this.fields.applyForDecreeNisi.value === constants.no;
     };
 
     return branch(
