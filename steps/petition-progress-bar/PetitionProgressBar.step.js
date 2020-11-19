@@ -158,7 +158,7 @@ class PetitionProgressBar extends Interstitial {
       return serviceApplicationReason;
     }
 
-    if (isAwaitingDecreeNisi(this.caseState) && isProcessServerService(this.case)) {
+    if (isProcessServerService(this.case)) {
       return getProcessServerReason();
     }
 
