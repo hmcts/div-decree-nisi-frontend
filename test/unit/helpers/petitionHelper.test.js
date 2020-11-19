@@ -14,10 +14,10 @@ const {
 } = require('helpers/petitionHelper');
 
 describe(modulePath, () => {
-  let pageInstance = {};
+  let session = {};
 
-  before(() => {
-    pageInstance = {
+  beforeEach(() => {
+    session = {
       case: {
         state: 'AwaitingDecreeNisi',
         data: {
@@ -31,19 +31,41 @@ describe(modulePath, () => {
   });
 
   it('should return false if AOS has not been received', () => {
-    expect(isReceivedAOSFromRespondent(pageInstance.case.data)).to.equal(false);
+    expect(isReceivedAOSFromRespondent(session.case.data)).to.equal(false);
+  });
+
+  it('should return true if AOS has been received', () => {
+    session.case.data.receivedAOSfromResp = 'Yes';
+    expect(isReceivedAOSFromRespondent(session.case.data)).to.equal(true);
+  });
+
+  it('should return false if AOS received does not exist', () => {
+    const newSession = Object.assign({}, session);
+    delete newSession.case.data.receivedAOSfromResp;
+    expect(isReceivedAOSFromRespondent(newSession.case.data)).to.equal(false);
   });
 
   it('should return true if process server has been served', () => {
-    expect(isServedByProcessServer(pageInstance.case.data)).to.equal(true);
+    expect(isServedByProcessServer(session.case.data)).to.equal(true);
+  });
+
+  it('should return false if process server has not been served', () => {
+    session.case.data.servedByProcessServer = 'No';
+    expect(isServedByProcessServer(session.case.data)).to.equal(false);
+  });
+
+  it('should return false if process server does not exist', () => {
+    const newSession = Object.assign({}, session);
+    delete newSession.case.data.servedByProcessServer;
+    expect(isServedByProcessServer(session.case.data)).to.equal(false);
   });
 
   it('should return true if process server is served and no response from respondent', () => {
-    expect(isProcessServerService(pageInstance.case.data)).to.equal(true);
+    expect(isProcessServerService(session.case.data)).to.equal(true);
   });
 
   it('should return true if awaiting hearingDate is set', () => {
-    const newPageInstance = Object.assign({}, pageInstance);
+    const newPageInstance = Object.assign({}, session);
     expect(isAwaitingPronouncementWithHearingDate('AwaitingPronouncement', newPageInstance.case.data)).to.equal(true);
   });
 
@@ -51,8 +73,17 @@ describe(modulePath, () => {
     expect(isAwaitingDecreeNisi(constants.DNAwaiting)).to.equal(true);
   });
 
+  it('should return false if case is not awaiting decree nisi', () => {
+    expect(isAwaitingDecreeNisi('AnotherState')).to.equal(false);
+  });
+
   it('should return false when petitioner solicitor email is empty', () => {
-    expect(isPetitionerRepresented(pageInstance.case.data)).to.equal(false);
+    expect(isPetitionerRepresented(session.case.data)).to.equal(false);
+  });
+
+  it('should return true when petitioner solicitor email is not empty', () => {
+    session.case.data.petitionerSolicitorEmail = 'solicitor@email.com';
+    expect(isPetitionerRepresented(session.case.data)).to.equal(true);
   });
 
   it('should return correct process server template index key value', () => {
