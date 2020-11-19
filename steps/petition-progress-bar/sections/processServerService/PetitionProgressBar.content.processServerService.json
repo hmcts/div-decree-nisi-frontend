@@ -1,0 +1,12 @@
+{
+  "en": {
+    "processServerServiceHeader": "Your divorce petition has been served by a process server",
+    "processServerServiceResponse": "Your {{ divorceWho }} was served using a process server. However, they have not yet responded.",
+    "processServerServiceDetails": "Because it is more than 7 days since service, you are now able continue to the next stage and apply for a decree nisi."
+  },
+  "cy": {
+    "processServerServiceHeader": "[CY] Your divorce petition has been served by a process server",
+    "processServerServiceResponse": "[CY] Your {{ divorceWho }} was served using a process server. However, they have not yet responded.",
+    "processServerServiceDetails": "[CY] Because it is more than 7 days since service, you are now able continue to the next stage and apply for a decree nisi."
+  }
+}

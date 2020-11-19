@@ -12,9 +12,15 @@
     <div class="govuk-inset-text">
       {{ content.continueBecauseOfDeemed }}
     </div>
+
   {% elif isDispensedApproved %}
     <div class="govuk-inset-text">
       {{ content.continueBecauseOfDispensed }}
+    </div>
+
+  {% elif isServedByProcessServerService %}
+    <div class="govuk-inset-text">
+      {{ content.processServerDetail }}
     </div>
   {% endif %}
 

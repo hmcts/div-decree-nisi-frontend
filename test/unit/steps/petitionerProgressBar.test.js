@@ -8,13 +8,17 @@ const DnNoResponse = require('steps/dn-no-response/DnNoResponse.step');
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const ApplyForDecreeNisi = require('steps/apply-for-decree-nisi/ApplyForDecreeNisi.step');
 const idam = require('services/idam');
-const { custom, middleware, interstitial, sinon, content,
-  stepAsInstance, expect } = require('@hmcts/one-per-page-test-suite');
+const {
+  custom, middleware, interstitial, sinon, content,
+  stepAsInstance, expect
+} = require('@hmcts/one-per-page-test-suite');
 const checkCaseState = require('middleware/checkCaseState');
 const httpStatus = require('http-status-codes');
 const glob = require('glob');
-const { getExpectedCourtsList, testDivorceUnitDetailsRender,
-  testCTSCDetailsRender } = require('test/unit/helpers/courtInformation');
+const {
+  getExpectedCourtsList, testDivorceUnitDetailsRender,
+  testCTSCDetailsRender
+} = require('test/unit/helpers/courtInformation');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 
@@ -51,7 +55,9 @@ const templates = {
   deemedApproved:
     './sections/deemedApproved/PetitionProgressBar.deemedApproved.template.html',
   dispensedApproved:
-    './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html'
+    './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html',
+  processServerService:
+    './sections/processServerService/PetitionProgressBar.processServerService.template.html'
 };
 
 // get all content for all pages
@@ -141,7 +147,7 @@ describe(modulePath, () => {
     });
 
     it('displays case id', () => {
-      return content(PetitionProgressBar, session, { specificValues: [ referenceNumber ] });
+      return content(PetitionProgressBar, session, { specificValues: [referenceNumber] });
     });
   });
 
@@ -171,12 +177,12 @@ describe(modulePath, () => {
         PetitionProgressBar,
         session,
         {
-          specificValues: [ session.case.data.caseReference ]
+          specificValues: [session.case.data.caseReference]
         });
     });
   });
 
-  describe('CCD state: DNawaiting, DNReason : 0 ', () => {
+  describe('CCD state: AwaitingDecreeNisi, DNReason : 0 ', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -273,8 +279,7 @@ describe(modulePath, () => {
     });
   });
 
-
-  describe('CCD state: DNawaiting, DNReason : 1 ', () => {
+  describe('CCD state: AwaitingDecreeNisi, DNReason : 1 ', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -326,7 +331,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, DNReason : 2 ', () => {
+  describe('CCD state: AwaitingDecreeNisi, DNReason : 2 ', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -378,7 +383,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, DNReason : 3 ', () => {
+  describe('CCD state: AwaitingDecreeNisi, DNReason : 3 ', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -401,7 +406,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, DNReason : 4 ', () => {
+  describe('CCD state: AwaitingDecreeNisi, DNReason : 4 ', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -424,7 +429,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, ServiceApplicationType: deemed, ServiceApplicationGranted: Yes, DNReason : 5', () => {
+  describe('CCD state: AwaitingDecreeNisi, ServiceApplicationType: deemed, ServiceApplicationGranted: Yes, DNReason : 5', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -448,7 +453,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNawaiting, ServiceApplicationType: dispensed, ServiceApplicationGranted: Yes, DNReason : 6', () => {
+  describe('CCD state: AwaitingDecreeNisi, ServiceApplicationType: dispensed, ServiceApplicationGranted: Yes, DNReason : 6', () => {
     const session = {
       case: {
         state: 'AwaitingDecreeNisi',
@@ -469,6 +474,52 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.dispensedApproved);
+    });
+  });
+
+  describe('CCD state: AwaitingDecreeNisi, Served by process server, ProcessServer: Yes, DNReason : 7', () => {
+    let session = {};
+    let petitionProgressBar = {};
+
+    before(() => {
+      session = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            servedByProcessServer: 'Yes',
+            receivedAOSfromResp: 'No',
+            permittedDecreeNisiReason: '3'
+          }
+        }
+      };
+      petitionProgressBar = stepAsInstance(PetitionProgressBar, session);
+    });
+
+    describe('Content Rendering for Process Server', () => {
+      it('should render the process server service template', () => {
+        expect(petitionProgressBar.stateTemplate).to.equal(templates.processServerService);
+      });
+
+      it('should render the correct content', () => {
+        const specificContent = Object.keys(pageContent.processServerService);
+        return content(PetitionProgressBar, session, { specificContent });
+      });
+
+      it('should render the default decree nisi template', () => {
+        session = {
+          case: {
+            state: 'AwaitingDecreeNisi',
+            data: {
+              servedByProcessServer: 'No',
+              receivedAOSfromResp: 'Yes',
+              permittedDecreeNisiReason: '3'
+            }
+          }
+        };
+
+        const progressBarInstance = stepAsInstance(PetitionProgressBar, session);
+        expect(progressBarInstance.stateTemplate).to.equal(templates.defendedWithoutAnswer);
+      });
     });
   });
 
@@ -871,7 +922,7 @@ describe(modulePath, () => {
       case: {
         state: 'AwaitingPronouncement',
         data: {
-          hearingDate: [ '2018-04-25T00:00:00.000Z' ],
+          hearingDate: ['2018-04-25T00:00:00.000Z'],
           d8: [
             {
               id: '401ab79e-34cb-4570-9f2f-4cf9357m4st3r',
@@ -915,7 +966,7 @@ describe(modulePath, () => {
         case: {
           state: 'AwaitingPronouncement',
           data: {
-            hearingDate: [ '2018-04-25T00:00:00.000Z' ]
+            hearingDate: ['2018-04-25T00:00:00.000Z']
           }
         }
       };
@@ -1057,8 +1108,8 @@ describe(modulePath, () => {
             refusalClarificationAdditionalInfo: 'some extra info',
             dnOutcomeCase: true
           };
-          const specificContent = [ 'clarificationCourtFeedback.other.title' ];
-          const specificValues = [ 'some extra info' ];
+          const specificContent = ['clarificationCourtFeedback.other.title'];
+          const specificValues = ['some extra info'];
           return content(PetitionProgressBar, session, { specificContent, specificValues });
         });
       });
@@ -1088,7 +1139,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNisRefused', () => {
+  describe('CCD state: DecreeNisiIsRefused', () => {
     let sandbox = {};
 
     before(() => {
@@ -1175,8 +1226,8 @@ describe(modulePath, () => {
             refusalRejectionAdditionalInfo: 'some extra info',
             dnOutcomeCase: true
           };
-          const specificContent = [ 'dnIsRefusedRefusalCourtFeedback.other.title' ];
-          const specificValues = [ 'some extra info' ];
+          const specificContent = ['dnIsRefusedRefusalCourtFeedback.other.title'];
+          const specificValues = ['some extra info'];
           return content(PetitionProgressBar, session, { specificContent, specificValues });
         });
       });
@@ -1329,7 +1380,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: DNPronounced', () => {
+  describe('CCD state: DecreeNisiPronounced', () => {
     let session = {};
 
     beforeEach(() => {

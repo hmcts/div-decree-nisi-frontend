@@ -10,6 +10,7 @@
     "signOutDetail": "Press Continue to sign out. If you want to withdraw your divorce application, contact the Courts and Tribunals Service Centre.",
     "continueBecauseOfDeemed": "You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the courts accepted your  ‘deemed service’ application.",
     "continueBecauseOfDispensed": "You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the courts accepted your  ‘dispense with service’ application.",
+    "processServerDetail": "You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the time required for your {{ divorceWho }} to respond to the ‘process server’ has passed.",
     "errors": {
       "required": "Choose whether you want to continue with your divorce"
     },
@@ -32,6 +33,7 @@
     "signOutDetail": "Cliciwch ar Parhau i allgofnodi.  Os ydych eisiau tynnu eich cais am ysgariad yn ôl, cysylltwch â’r Gwasanaeth Llysoedd a Thribiwnlysoedd.",
     "continueBecauseOfDeemed": "[CY] You can apply for a decree nisi even though your husband / wife didn’t respond to the divorce petition. This is because the courts accepted your  ‘deemed service’ application.",
     "continueBecauseOfDispensed": "[CY] You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the courts accepted your  ‘dispense with service’ application.",
+    "processServerDetail": "[CY] You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the time required for your {{ divorceWho }} to respond to the ‘process server’ has passed.",
     "errors": {
       "required": " Dewiswch p’un a ydych eisiau parhau gyda’ch ysgariad"
     },

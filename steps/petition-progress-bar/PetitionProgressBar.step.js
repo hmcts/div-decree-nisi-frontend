@@ -5,11 +5,17 @@ const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
-const { get } = require('lodash');
+const { toLower } = require('lodash');
 const { parseBool } = require('@hmcts/one-per-page/util');
-const { notDefined, awaitingClarification, dnIsRefused } = require('common/constants');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
+const {
+  constants,
+  isAwaitingDecreeNisi,
+  isProcessServerService,
+  isAwaitingPronouncementWithHearingDate,
+  getProcessServerReason
+} = require('helpers/petitionHelper');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
@@ -17,26 +23,9 @@ const {
   caseStateMap,
   permitDNReasonMap,
   caseIdDisplayStateMap,
-  awaitingPronouncementWithHearingDateTemplate
+  awaitingPronouncementWithHearingDateTemplate,
+  dnAwaitingTemplate
 } = require('./petitionerStateTemplates');
-
-const constants = {
-  adultery: 'adultery',
-  sep2Yr: 'separation-2-years',
-  AOSCompleted: 'aoscompleted',
-  AOSOverdue: 'aosoverdue',
-  validAnswer: ['yes', 'no', 'nonoadmission'],
-  notDefined,
-  DNAwaiting: 'awaitingdecreenisi',
-  awaitingPronouncement: 'awaitingpronouncement',
-  awaitingClarification,
-  dnIsRefused,
-  undefendedReason: '0',
-  no: 'no',
-  yes: 'yes',
-  deemed: 'deemed',
-  dispensed: 'dispensed'
-};
 
 class PetitionProgressBar extends Interstitial {
   static get path() {
@@ -91,7 +80,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get caseState() {
-    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
+    return this.req.session.case.state ? toLower(this.req.session.case.state) : constants.notDefined;
   }
 
   get showCourtFeedback() {
@@ -128,14 +117,6 @@ class PetitionProgressBar extends Interstitial {
     const isTwoYrSep = this.reasonForDivorce === constants.sep2Yr;
 
     return respWillDefendDivorce || this.aosIsCompleted || isTwoYrSep;
-  }
-
-  awaitingPronouncementWithHearingDate() {
-    const isAwaitingPronouncement = this.caseState === constants
-      .awaitingPronouncement;
-    const hearingDates = get(this.case, 'hearingDate') || [];
-
-    return isAwaitingPronouncement && hearingDates.length;
   }
 
   get certificateOfEntitlementFile() {
@@ -176,33 +157,45 @@ class PetitionProgressBar extends Interstitial {
     if (serviceApplicationReason) {
       return serviceApplicationReason;
     }
+
+    if (isProcessServerService(this.case)) {
+      return getProcessServerReason();
+    }
+
     return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
   }
 
   get serviceApplicationReason() {
-    if (this.isEqual(this.case.serviceApplicationGranted, constants.yes)) {
-      switch (this.case.serviceApplicationType) {
-      case constants.deemed: return '5';
-      case constants.dispensed: return '6';
-      default: return null;
+    let serviceApplicationTemplate = null;
+
+    if (this.case.serviceApplicationGranted === 'Yes') {
+      const serviceApplicationType = this.case.serviceApplicationType;
+
+      if (serviceApplicationType === 'deemed') {
+        serviceApplicationTemplate = dnAwaitingTemplate.deemed;
+      } else if (serviceApplicationType === 'dispensed') {
+        serviceApplicationTemplate = dnAwaitingTemplate.dispensed;
       }
     }
-    return null;
+
+    return serviceApplicationTemplate;
   }
 
   get stateTemplate() {
-    let template = '';
-    if (constants.DNAwaiting.includes(this.caseState)) {
-      template = permitDNReasonMap.get(this.dnReason);
-    } else if (this.awaitingPronouncementWithHearingDate()) {
-      template = awaitingPronouncementWithHearingDateTemplate;
-    } else {
-      caseStateMap(this.case).forEach(dataMap => {
-        if (dataMap.state.includes(this.caseState)) {
-          template = dataMap.template;
-        }
-      });
+    if (isAwaitingDecreeNisi(this.caseState)) {
+      return permitDNReasonMap.get(this.dnReason);
     }
+
+    if (isAwaitingPronouncementWithHearingDate(this.caseState, this.case)) {
+      return awaitingPronouncementWithHearingDateTemplate;
+    }
+
+    let template = '';
+    caseStateMap(this.case).forEach(dataMap => {
+      if (dataMap.state.includes(this.caseState)) {
+        template = dataMap.template;
+      }
+    });
     return template;
   }
 

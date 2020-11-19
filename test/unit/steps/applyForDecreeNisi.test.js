@@ -40,7 +40,8 @@ describe(modulePath, () => {
       'husband',
       'wife',
       'continueBecauseOfDeemed',
-      'continueBecauseOfDispensed'
+      'continueBecauseOfDispensed',
+      'processServerDetail'
     ];
     return content(ApplyForDecreeNisi, session, { ignoreContent });
   });
@@ -73,27 +74,70 @@ describe(modulePath, () => {
     return question.answers(ApplyForDecreeNisi, stepData, expectedContent, session);
   });
 
-  it('shows correct message when deemed approved', () => {
-    session.case.data.serviceApplicationGranted = 'Yes';
-    session.case.data.serviceApplicationType = 'deemed';
-    const specificContent = ['continueBecauseOfDeemed'];
-    const specificContentToNotExist = ['continueBecauseOfDispensed'];
-    return content(ApplyForDecreeNisi, session, { specificContent, specificContentToNotExist });
+  describe('Deemed and Dispensed template view:', () => {
+    it('shows correct message when deemed approved', () => {
+      session.case.data.serviceApplicationGranted = 'Yes';
+      session.case.data.serviceApplicationType = 'deemed';
+      const specificContent = ['continueBecauseOfDeemed'];
+      const specificContentToNotExist = ['continueBecauseOfDispensed'];
+      return content(ApplyForDecreeNisi, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('shows correct message when dispensed approved', () => {
+      session.case.data.serviceApplicationGranted = 'Yes';
+      session.case.data.serviceApplicationType = 'dispensed';
+      const specificContent = ['continueBecauseOfDispensed'];
+      const specificContentToNotExist = ['continueBecauseOfDeemed'];
+      return content(ApplyForDecreeNisi, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('hides message when not deemed or dispensed approved', () => {
+      const specificContentToNotExist = [
+        'continueBecauseOfDeemed',
+        'continueBecauseOfDispensed'
+      ];
+      return content(ApplyForDecreeNisi, session, { specificContentToNotExist });
+    });
   });
 
-  it('shows correct message when dispensed approved', () => {
-    session.case.data.serviceApplicationGranted = 'Yes';
-    session.case.data.serviceApplicationType = 'dispensed';
-    const specificContent = ['continueBecauseOfDispensed'];
-    const specificContentToNotExist = ['continueBecauseOfDeemed'];
-    return content(ApplyForDecreeNisi, session, { specificContent, specificContentToNotExist });
-  });
+  describe('Process Server template view:', () => {
+    let processServerSession = {};
 
-  it('hides message when not deemed or dispensed approved', () => {
-    const specificContentToNotExist = [
-      'continueBecauseOfDeemed',
-      'continueBecauseOfDispensed'
-    ];
-    return content(ApplyForDecreeNisi, session, { specificContentToNotExist });
+    beforeEach(() => {
+      processServerSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            servedByProcessServer: 'Yes',
+            receivedAOSfromResp: 'No',
+            permittedDecreeNisiReason: '3',
+            divorceWho: 'husband'
+          }
+        }
+      };
+    });
+
+    it('should render correct content when served by process server', () => {
+      const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
+        'clarificationCourtFeedback',
+        'signIn',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife',
+        'continueBecauseOfDeemed',
+        'continueBecauseOfDispensed'
+      ];
+      return content(ApplyForDecreeNisi, processServerSession, { ignoreContent });
+    });
   });
 });

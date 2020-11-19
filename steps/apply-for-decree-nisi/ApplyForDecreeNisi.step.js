@@ -4,17 +4,17 @@ const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
-const idam = require('services/idam');
-const Joi = require('joi');
 const i18next = require('i18next');
 const commonContent = require('common/content');
-
-const constants = {
-  no: 'no',
-  yes: 'yes',
-  deemed: 'deemed',
-  dispensed: 'dispensed'
-};
+const idam = require('services/idam');
+const Joi = require('joi');
+const { isEqual, toLower } = require('lodash');
+const {
+  constants,
+  isProcessServerService,
+  isDeemedServiceApplicationGranted,
+  isDispensedServiceApplicationGranted
+} = require('helpers/petitionHelper');
 
 class ApplyForDecreeNisi extends Question {
   static get path() {
@@ -43,15 +43,15 @@ class ApplyForDecreeNisi extends Question {
   }
 
   get isDeemedApproved() {
-    return this.isEqual(this.case.serviceApplicationGranted, constants.yes) && this.isEqual(this.case.serviceApplicationType, constants.deemed);
+    return isDeemedServiceApplicationGranted(this.case);
   }
 
   get isDispensedApproved() {
-    return this.isEqual(this.case.serviceApplicationGranted, constants.yes) && this.isEqual(this.case.serviceApplicationType, constants.dispensed);
+    return isDispensedServiceApplicationGranted(this.case);
   }
 
-  isEqual(dataElement, constant) {
-    return dataElement && dataElement.toLowerCase() === constant;
+  get isServedByProcessServerService() {
+    return isProcessServerService(this.case);
   }
 
   answers() {
@@ -64,7 +64,7 @@ class ApplyForDecreeNisi extends Question {
 
   next() {
     const declinesToApplyForDN = () => {
-      return this.fields.applyForDecreeNisi.value === constants.no;
+      return isEqual(toLower(this.fields.applyForDecreeNisi.value), constants.no);
     };
 
     return branch(
@@ -72,7 +72,6 @@ class ApplyForDecreeNisi extends Question {
       redirectTo(this.journey.steps.MiniPetition)
     );
   }
-
 
   get middleware() {
     return [
