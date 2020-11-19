@@ -2,12 +2,12 @@
 const ContactDivorceTeam = require('steps/contact-divorce-team/ContactDivorceTeam.step');
 const ContactDivorceTeamContent = require('steps/contact-divorce-team/ContactDivorceTeam.content');
 
-function testContactDivorceTeam() {
+function testContactDivorceTeam(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(ContactDivorceTeam.path);
+  I.amOnLoadedPage(ContactDivorceTeam.path, language);
 
-  I.see(ContactDivorceTeamContent.en.title);
+  I.see(ContactDivorceTeamContent[language].title);
 }
 
 module.exports = { testContactDivorceTeam };

@@ -7,13 +7,13 @@ const livedApartSinceAdulteryContent = require(
 const ClaimsCosts = require('steps/claim-costs/ClaimCosts.step');
 const commonContent = require('common/content');
 
-function testLivedApartSinceAdulteryPage() {
+function testLivedApartSinceAdulteryPage(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(livedApartSinceAdultery.path);
-  I.checkOption(livedApartSinceAdulteryContent.en.fields.livedApart.livedApartSinceAdultery.no);
+  I.amOnLoadedPage(livedApartSinceAdultery.path, language);
+  I.checkOption(livedApartSinceAdulteryContent[language].fields.livedApart.livedApartSinceAdultery.no);
   I.fillField('livedApart.datesLivedTogether', 'some details');
-  I.navByClick(commonContent.en.continue);
+  I.navByClick(commonContent[language].continue);
   I.seeCurrentUrlEquals(ClaimsCosts.path);
 
   I.seeCurrentUrlEquals(ClaimsCosts.path);

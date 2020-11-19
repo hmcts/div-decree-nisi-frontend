@@ -147,7 +147,7 @@
 
   <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
     <input type="hidden" name="_csrf" value="{{ csurfCsrfToken }}">
-    <input class="govuk-button" type="submit" value="Continue">
+    <input class="govuk-button" type="submit" value="{{ content.continue }}">
   </form>
 
   <br><br>

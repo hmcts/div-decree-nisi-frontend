@@ -6,12 +6,12 @@ const commonContent = require('common/content');
 const Upload = require('steps/upload/Upload.step');
 const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
 
-function testShareCourtDocumentsPage(option = 'yes') {
+function testShareCourtDocumentsPage(option = 'yes', language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(ShareCourtDocuments.path);
-  I.click(ShareCourtDocumentsContent.en.fields.upload[option]);
-  I.navByClick(commonContent.en.continue);
+  I.amOnLoadedPage(ShareCourtDocuments.path, language);
+  I.click(ShareCourtDocumentsContent[language].fields.upload[option]);
+  I.navByClick(commonContent[language].continue);
 
   if (option === 'yes') {
     I.seeCurrentUrlEquals(Upload.path);

@@ -7,12 +7,12 @@ const IntolerableContnet = require(
 const AdulteryFirstFoundOut = require('steps/adultery-first-found-out/AdulteryFirstFoundOut.step');
 const commonContent = require('common/content');
 
-function testIntolerable() {
+function testIntolerable(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(Intolerable.path);
-  I.checkOption(IntolerableContnet.en.fields.changes.intolerable.yes);
-  I.navByClick(commonContent.en.continue);
+  I.amOnLoadedPage(Intolerable.path, language);
+  I.checkOption(IntolerableContnet[language].fields.changes.intolerable.yes);
+  I.navByClick(commonContent[language].continue);
 
   I.seeCurrentUrlEquals(AdulteryFirstFoundOut.path);
 }

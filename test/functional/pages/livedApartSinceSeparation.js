@@ -7,12 +7,12 @@ const LivedApartSinceSeparationContent = require(
 const commonContent = require('common/content');
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
 
-function testLivedApartSinceSeparationPage() {
+function testLivedApartSinceSeparationPage(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(LivedApartSinceSeparation.path);
-  I.checkOption(LivedApartSinceSeparationContent.en.fields.changes.livedApartSinceSeparation.yes);
-  I.navByClick(commonContent.en.continue);
+  I.amOnLoadedPage(LivedApartSinceSeparation.path, language);
+  I.checkOption(LivedApartSinceSeparationContent[language].fields.changes.livedApartSinceSeparation.yes);
+  I.navByClick(commonContent[language].continue);
 
   I.seeCurrentUrlEquals(ClaimCosts.path);
 }

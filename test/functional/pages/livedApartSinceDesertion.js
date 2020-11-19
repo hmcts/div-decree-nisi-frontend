@@ -9,12 +9,12 @@ const ClaimCosts = require(
 );
 const commonContent = require('common/content');
 
-function testLivedApartSinceDesertionPage() {
+function testLivedApartSinceDesertionPage(language = 'en') {
   const I = this;
 
-  I.amOnLoadedPage(LivedApartSinceDesertion.path);
-  I.checkOption(LivedApartSinceDesertionContent.en.fields.changes.livedApartSinceDesertion.yes);
-  I.navByClick(commonContent.en.continue);
+  I.amOnLoadedPage(LivedApartSinceDesertion.path, language);
+  I.checkOption(LivedApartSinceDesertionContent[language].fields.changes.livedApartSinceDesertion.yes);
+  I.navByClick(commonContent[language].continue);
 
   I.seeCurrentUrlEquals(ClaimCosts.path);
 }

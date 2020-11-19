@@ -27,7 +27,7 @@ class DnNoResponse extends Page {
     return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.appWithoutNoticeFee] : '';
   }
 
-  get enforcemetFee() {
+  get enforcementFee() {
     return this.res.locals.applicationFee ? this.res.locals.applicationFee[feeTypes.enforcementFee] : '';
   }
 
