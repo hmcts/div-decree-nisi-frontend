@@ -219,6 +219,10 @@ class PetitionProgressBar extends Interstitial {
       return file.type === 'decreeNisi';
     });
   }
+
+  isEqual(dataElement, constant) {
+    return dataElement && dataElement.toLowerCase() === constant;
+  }
 }
 
 module.exports = PetitionProgressBar;

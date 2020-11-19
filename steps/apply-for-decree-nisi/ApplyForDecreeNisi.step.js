@@ -40,6 +40,18 @@ class ApplyForDecreeNisi extends Question {
     return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
   }
 
+  get isDeemedApproved() {
+    return this.isEqual(this.case.serviceApplicationGranted, constants.yes) && this.isEqual(this.case.serviceApplicationType, constants.deemed);
+  }
+
+  get isDispensedApproved() {
+    return this.isEqual(this.case.serviceApplicationGranted, constants.yes) && this.isEqual(this.case.serviceApplicationType, constants.dispensed);
+  }
+
+  isEqual(dataElement, constant) {
+    return dataElement && dataElement.toLowerCase() === constant;
+  }
+
   answers() {
     return answer(this, {
       question: this.content.fields.applyForDecreeNisi.title,

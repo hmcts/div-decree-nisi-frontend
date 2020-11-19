@@ -7,10 +7,10 @@ const ExitPage = require('steps/exit/Exit.step');
 const idam = require('services/idam');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
-const session = { case: { data: {} } };
-
 describe(modulePath, () => {
+  let session = {};
   beforeEach(() => {
+    session = { case: { data: {} } };
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
   });
 
@@ -39,6 +39,8 @@ describe(modulePath, () => {
       'change',
       'husband',
       'wife',
+      'continueBecauseOfDeemed',
+      'continueBecauseOfDispensed',
       'processServerDetail'
     ];
     return content(ApplyForDecreeNisi, session, { ignoreContent });
@@ -72,18 +74,48 @@ describe(modulePath, () => {
     return question.answers(ApplyForDecreeNisi, stepData, expectedContent, session);
   });
 
+  describe('Deemed and Dispensed view:', () => {
+    it('shows correct message when deemed approved', () => {
+      session.case.data.serviceApplicationGranted = 'Yes';
+      session.case.data.serviceApplicationType = 'deemed';
+      const specificContent = ['continueBecauseOfDeemed'];
+      const specificContentToNotExist = ['continueBecauseOfDispensed'];
+      return content(ApplyForDecreeNisi, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('shows correct message when dispensed approved', () => {
+      session.case.data.serviceApplicationGranted = 'Yes';
+      session.case.data.serviceApplicationType = 'dispensed';
+      const specificContent = ['continueBecauseOfDispensed'];
+      const specificContentToNotExist = ['continueBecauseOfDeemed'];
+      return content(ApplyForDecreeNisi, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('hides message when not deemed or dispensed approved', () => {
+      const specificContentToNotExist = [
+        'continueBecauseOfDeemed',
+        'continueBecauseOfDispensed'
+      ];
+      return content(ApplyForDecreeNisi, session, { specificContentToNotExist });
+    });
+  });
+
   describe('Process Server view:', () => {
-    const processServerSession = {
-      case: {
-        state: 'AwaitingDecreeNisi',
-        data: {
-          servedByProcessServer: 'Yes',
-          receivedAOSfromResp: 'No',
-          permittedDecreeNisiReason: '3',
-          divorceWho: 'husband'
+    let processServerSession = {};
+
+    beforeEach(() => {
+      processServerSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            servedByProcessServer: 'Yes',
+            receivedAOSfromResp: 'No',
+            permittedDecreeNisiReason: '3',
+            divorceWho: 'husband'
+          }
         }
-      }
-    };
+      };
+    });
 
     it('should render correct content when served by process server', () => {
       const ignoreContent = [

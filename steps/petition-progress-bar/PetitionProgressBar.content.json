@@ -93,7 +93,7 @@
       "rejectionDnRefusalOrder": "Gorchymyn Gwrthod",
       "deemedAsServedGranted": "[CY] Deemed service order",
       "dispenseWithServiceGranted": "[CY] Order to dispense",
-      "aosOverdueCoverLetter": "[CY] Email return coversheet",
+      "aosOverdueCoverLetter": "Email return coversheet",
       "generalOrder": "[CY] General Order"
     }
   }

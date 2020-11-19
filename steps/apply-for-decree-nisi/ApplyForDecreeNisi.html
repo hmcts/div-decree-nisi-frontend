@@ -8,6 +8,16 @@
 
 {% block fields %}
 
+  {% if isDeemedApproved %}
+    <div class="govuk-inset-text">
+      {{ content.continueBecauseOfDeemed }}
+    </div>
+  {% elif isDispensedApproved %}
+    <div class="govuk-inset-text">
+      {{ content.continueBecauseOfDispensed }}
+    </div>
+  {% endif %}
+
   {% if isServedByProcessServerService %}
    <div class="govuk-inset-text">
     {{ content.processServerDetail }}

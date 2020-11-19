@@ -15,7 +15,9 @@ const constants = {
   dnIsRefused,
   undefendedReason: '0',
   no: 'no',
-  yes: 'yes'
+  yes: 'yes',
+  deemed: 'deemed',
+  dispensed: 'dispensed'
 };
 
 const getValue = (caseData, property) => {
