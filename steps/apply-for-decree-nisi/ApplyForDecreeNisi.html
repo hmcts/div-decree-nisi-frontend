@@ -12,16 +12,16 @@
     <div class="govuk-inset-text">
       {{ content.continueBecauseOfDeemed }}
     </div>
+
   {% elif isDispensedApproved %}
     <div class="govuk-inset-text">
       {{ content.continueBecauseOfDispensed }}
     </div>
-  {% endif %}
 
-  {% if isServedByProcessServerService %}
-   <div class="govuk-inset-text">
-    {{ content.processServerDetail }}
-   </div>
+  {% elif isServedByProcessServerService %}
+    <div class="govuk-inset-text">
+      {{ content.processServerDetail }}
+    </div>
   {% endif %}
 
   <p class="govuk-body">{{ content.amendOrAdd | safe }}</p>

@@ -74,7 +74,7 @@ describe(modulePath, () => {
     return question.answers(ApplyForDecreeNisi, stepData, expectedContent, session);
   });
 
-  describe('Deemed and Dispensed view:', () => {
+  describe('Deemed and Dispensed template view:', () => {
     it('shows correct message when deemed approved', () => {
       session.case.data.serviceApplicationGranted = 'Yes';
       session.case.data.serviceApplicationType = 'deemed';
@@ -100,7 +100,7 @@ describe(modulePath, () => {
     });
   });
 
-  describe('Process Server view:', () => {
+  describe('Process Server template view:', () => {
     let processServerSession = {};
 
     beforeEach(() => {
@@ -133,7 +133,9 @@ describe(modulePath, () => {
         'thereWasAProblem',
         'change',
         'husband',
-        'wife'
+        'wife',
+        'continueBecauseOfDeemed',
+        'continueBecauseOfDispensed'
       ];
       return content(ApplyForDecreeNisi, processServerSession, { ignoreContent });
     });

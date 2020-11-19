@@ -10,7 +10,9 @@ const {
   isServedByProcessServer,
   isReceivedAOSFromRespondent,
   isPetitionerRepresented,
-  getProcessServerReason
+  getProcessServerReason,
+  isDeemedServiceApplicationGranted,
+  isDispensedServiceApplicationGranted
 } = require('helpers/petitionHelper');
 
 describe(modulePath, () => {
@@ -65,8 +67,8 @@ describe(modulePath, () => {
   });
 
   it('should return true if awaiting hearingDate is set', () => {
-    const newPageInstance = Object.assign({}, session);
-    expect(isAwaitingPronouncementWithHearingDate('AwaitingPronouncement', newPageInstance.case.data)).to.equal(true);
+    const newSession = Object.assign({}, session);
+    expect(isAwaitingPronouncementWithHearingDate('AwaitingPronouncement', newSession.case.data)).to.equal(true);
   });
 
   it('should return true if case is awaiting decree nisi', () => {
@@ -88,5 +90,21 @@ describe(modulePath, () => {
 
   it('should return correct process server template index key value', () => {
     expect(getProcessServerReason()).to.equal(dnAwaitingTemplate.servedByProcessServer);
+  });
+
+  it('should return true when deemed service has been granted', () => {
+    const newSession = Object.assign({}, session);
+    newSession.case.data.serviceApplicationGranted = constants.yes;
+    newSession.case.data.serviceApplicationType = constants.deemed;
+
+    expect(isDeemedServiceApplicationGranted(newSession.case.data)).to.equal(true);
+  });
+
+  it('should return true when dispensed service has been granted', () => {
+    const newSession = Object.assign({}, session);
+    newSession.case.data.serviceApplicationGranted = constants.yes;
+    newSession.case.data.serviceApplicationType = constants.dispensed;
+
+    expect(isDispensedServiceApplicationGranted(newSession.case.data)).to.equal(true);
   });
 });

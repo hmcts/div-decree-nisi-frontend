@@ -57,6 +57,14 @@ const isProcessServerService = caseData => {
   return isServedByProcessServer(caseData) && !isReceivedAOSFromRespondent(caseData);
 };
 
+const isDeemedServiceApplicationGranted = caseData => {
+  return isEqual(toLower(caseData.serviceApplicationGranted), constants.yes) && isEqual(toLower(caseData.serviceApplicationType), constants.deemed);
+};
+
+const isDispensedServiceApplicationGranted = caseData => {
+  return isEqual(toLower(caseData.serviceApplicationGranted), constants.yes) && isEqual(toLower(caseData.serviceApplicationType), constants.dispensed);
+};
+
 const getProcessServerReason = () => {
   return dnAwaitingTemplate.servedByProcessServer;
 };
@@ -69,5 +77,7 @@ module.exports = {
   isServedByProcessServer,
   isReceivedAOSFromRespondent,
   isPetitionerRepresented,
+  isDeemedServiceApplicationGranted,
+  isDispensedServiceApplicationGranted,
   getProcessServerReason
 };

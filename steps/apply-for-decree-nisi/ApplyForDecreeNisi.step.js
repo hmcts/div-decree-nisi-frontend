@@ -11,7 +11,9 @@ const Joi = require('joi');
 const { isEqual, toLower } = require('lodash');
 const {
   constants,
-  isProcessServerService
+  isProcessServerService,
+  isDeemedServiceApplicationGranted,
+  isDispensedServiceApplicationGranted
 } = require('helpers/petitionHelper');
 
 class ApplyForDecreeNisi extends Question {
@@ -41,15 +43,15 @@ class ApplyForDecreeNisi extends Question {
   }
 
   get isDeemedApproved() {
-    return this.isEqual(this.case.serviceApplicationGranted, constants.yes) && this.isEqual(this.case.serviceApplicationType, constants.deemed);
+    return isDeemedServiceApplicationGranted(this.case);
   }
 
   get isDispensedApproved() {
-    return this.isEqual(this.case.serviceApplicationGranted, constants.yes) && this.isEqual(this.case.serviceApplicationType, constants.dispensed);
+    return isDispensedServiceApplicationGranted(this.case);
   }
 
-  isEqual(dataElement, constant) {
-    return dataElement && dataElement.toLowerCase() === constant;
+  get isServedByProcessServerService() {
+    return isProcessServerService(this.case);
   }
 
   answers() {
@@ -71,16 +73,11 @@ class ApplyForDecreeNisi extends Question {
     );
   }
 
-
   get middleware() {
     return [
       ...super.middleware,
       idam.protect()
     ];
-  }
-
-  get isServedByProcessServerService() {
-    return isProcessServerService(this.case);
   }
 }
 
