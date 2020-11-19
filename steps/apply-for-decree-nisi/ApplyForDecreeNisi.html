@@ -8,6 +8,12 @@
 
 {% block fields %}
 
+  {% if isServedByProcessServerService %}
+   <div class="govuk-inset-text">
+    {{ content.processServerDetail }}
+   </div>
+  {% endif %}
+
   <p class="govuk-body">{{ content.amendOrAdd | safe }}</p>
 
   <details class="govuk-details">

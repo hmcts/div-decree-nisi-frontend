@@ -38,7 +38,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'processServerDetail'
     ];
     return content(ApplyForDecreeNisi, session, { ignoreContent });
   });
@@ -69,5 +70,40 @@ describe(modulePath, () => {
     ];
     const stepData = { applyForDecreeNisi: 'yes' };
     return question.answers(ApplyForDecreeNisi, stepData, expectedContent, session);
+  });
+
+  describe('Process Server view:', () => {
+    const processServerSession = {
+      case: {
+        state: 'AwaitingDecreeNisi',
+        data: {
+          servedByProcessServer: 'Yes',
+          receivedAOSfromResp: 'No',
+          permittedDecreeNisiReason: '3',
+          divorceWho: 'husband'
+        }
+      }
+    };
+
+    it('should render correct content when served by process server', () => {
+      const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
+        'clarificationCourtFeedback',
+        'signIn',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife'
+      ];
+      return content(ApplyForDecreeNisi, processServerSession, { ignoreContent });
+    });
   });
 });

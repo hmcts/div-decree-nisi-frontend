@@ -521,34 +521,6 @@ describe(modulePath, () => {
         expect(progressBarInstance.stateTemplate).to.equal(templates.defendedWithoutAnswer);
       });
     });
-
-    describe('Process Server functionality', () => {
-      it('should return false if AOS has been received', () => {
-        expect(petitionProgressBar.isReceivedAOSFromRespondent()).to.equal(false);
-      });
-
-      it('should return true if process server has been served', () => {
-        expect(petitionProgressBar.isServedByProcessServer()).to.equal(true);
-      });
-
-      it('should return true if process server is served and no response from respondent', () => {
-        expect(petitionProgressBar.isAwaitingDecreeNisiWithProcessServerService()).to.equal(true);
-      });
-
-      it('should return true if case is awaiting decree nisi', () => {
-        expect(petitionProgressBar.isAwaitingDecreeNisi()).to.equal(true);
-      });
-
-      it('should return false when petitioner solicitor email is empty', () => {
-        expect(petitionProgressBar.isPetitionerRepresented()).to.equal(false);
-      });
-
-      it('should return false if case is not awaiting decree nisi', () => {
-        session.case.state = 'AOSOverdue';
-        const instance = stepAsInstance(PetitionProgressBar, session);
-        expect(instance.isAwaitingDecreeNisi()).to.equal(false);
-      });
-    });
   });
 
   describe('CCD state: AosSubmittedAwaitingAnswer', () => {

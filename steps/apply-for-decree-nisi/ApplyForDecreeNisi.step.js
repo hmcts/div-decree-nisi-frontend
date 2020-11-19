@@ -4,8 +4,15 @@ const { redirectTo } = require('@hmcts/one-per-page/flow');
 const { form, text } = require('@hmcts/one-per-page/forms');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const config = require('config');
+const i18next = require('i18next');
+const commonContent = require('common/content');
 const idam = require('services/idam');
 const Joi = require('joi');
+const { isEqual, toLower } = require('lodash');
+const {
+  constants,
+  isProcessServerService
+} = require('helpers/petitionHelper');
 
 class ApplyForDecreeNisi extends Question {
   static get path() {
@@ -28,6 +35,11 @@ class ApplyForDecreeNisi extends Question {
     return form({ applyForDecreeNisi });
   }
 
+  get divorceWho() {
+    const sessionLanguage = i18next.language;
+    return commonContent[sessionLanguage][this.req.session.case.data.divorceWho];
+  }
+
   answers() {
     return answer(this, {
       question: this.content.fields.applyForDecreeNisi.title,
@@ -38,7 +50,7 @@ class ApplyForDecreeNisi extends Question {
 
   next() {
     const declinesToApplyForDN = () => {
-      return this.fields.applyForDecreeNisi.value === 'no';
+      return isEqual(toLower(this.fields.applyForDecreeNisi.value), constants.no);
     };
 
     return branch(
@@ -53,6 +65,10 @@ class ApplyForDecreeNisi extends Question {
       ...super.middleware,
       idam.protect()
     ];
+  }
+
+  get isServedByProcessServerService() {
+    return isProcessServerService(this.case);
   }
 }
 

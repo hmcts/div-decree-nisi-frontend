@@ -5,11 +5,17 @@ const idam = require('services/idam');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const { createUris } = require('@hmcts/div-document-express-handler');
 const checkCaseState = require('middleware/checkCaseState');
-const { get, toLower, isEqual, isEmpty, trim } = require('lodash');
+const { toLower } = require('lodash');
 const { parseBool } = require('@hmcts/one-per-page/util');
-const { notDefined, awaitingClarification, dnIsRefused } = require('common/constants');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
+const {
+  constants,
+  isAwaitingDecreeNisi,
+  isProcessServerService,
+  isAwaitingPronouncementWithHearingDate,
+  getProcessServerReason
+} = require('helpers/petitionHelper');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 
@@ -20,22 +26,6 @@ const {
   awaitingPronouncementWithHearingDateTemplate,
   dnAwaitingTemplate
 } = require('./petitionerStateTemplates');
-
-const constants = {
-  adultery: 'adultery',
-  sep2Yr: 'separation-2-years',
-  AOSCompleted: 'aoscompleted',
-  AOSOverdue: 'aosoverdue',
-  validAnswer: ['yes', 'no', 'nonoadmission'],
-  notDefined,
-  DNAwaiting: 'awaitingdecreenisi',
-  awaitingPronouncement: 'awaitingpronouncement',
-  awaitingClarification,
-  dnIsRefused,
-  undefendedReason: '0',
-  no: 'no',
-  yes: 'yes'
-};
 
 class PetitionProgressBar extends Interstitial {
   static get path() {
@@ -90,7 +80,7 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get caseState() {
-    return this.req.session.case.state ? this.req.session.case.state.toLowerCase() : constants.NotDefined;
+    return this.req.session.case.state ? toLower(this.req.session.case.state) : constants.notDefined;
   }
 
   get showCourtFeedback() {
@@ -127,36 +117,6 @@ class PetitionProgressBar extends Interstitial {
     const isTwoYrSep = this.reasonForDivorce === constants.sep2Yr;
 
     return respWillDefendDivorce || this.aosIsCompleted || isTwoYrSep;
-  }
-
-  isAwaitingDecreeNisi() {
-    return constants.DNAwaiting.includes(this.caseState);
-  }
-
-  isAwaitingPronouncementWithHearingDate() {
-    const awaitingPronouncement = this.caseState === constants.awaitingPronouncement;
-    const hearingDates = get(this.case, 'hearingDate') || [];
-
-    return awaitingPronouncement && hearingDates.length;
-  }
-
-  isAwaitingDecreeNisiWithProcessServerService() {
-    return this.isAwaitingDecreeNisi() && this.isServedByProcessServer() && !this.isReceivedAOSFromRespondent();
-  }
-
-  isServedByProcessServer() {
-    const { servedByProcessServer } = this.case;
-    return isEqual(toLower(servedByProcessServer), constants.yes);
-  }
-
-  isReceivedAOSFromRespondent() {
-    const { receivedAOSfromResp } = this.case;
-    return isEqual(toLower(receivedAOSfromResp), constants.yes);
-  }
-
-  isPetitionerRepresented() {
-    const { petitionerSolicitorEmail } = this.case;
-    return !isEmpty(trim(petitionerSolicitorEmail));
   }
 
   get certificateOfEntitlementFile() {
@@ -198,15 +158,11 @@ class PetitionProgressBar extends Interstitial {
       return serviceApplicationReason;
     }
 
-    if (!this.isPetitionerRepresented() && this.isAwaitingDecreeNisiWithProcessServerService()) {
-      return this.getProcessServerReason();
+    if (isAwaitingDecreeNisi(this.caseState) && isProcessServerService(this.case)) {
+      return getProcessServerReason();
     }
 
     return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;
-  }
-
-  getProcessServerReason() {
-    return dnAwaitingTemplate.servedByProcessServer;
   }
 
   get serviceApplicationReason() {
@@ -226,9 +182,11 @@ class PetitionProgressBar extends Interstitial {
   }
 
   get stateTemplate() {
-    if (this.isAwaitingDecreeNisi()) {
+    if (isAwaitingDecreeNisi(this.caseState)) {
       return permitDNReasonMap.get(this.dnReason);
-    } else if (this.isAwaitingPronouncementWithHearingDate()) {
+    }
+
+    if (isAwaitingPronouncementWithHearingDate(this.caseState, this.case)) {
       return awaitingPronouncementWithHearingDateTemplate;
     }
 
