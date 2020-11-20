@@ -51,7 +51,7 @@ function deleteAFile(language = 'en') {
   const I = this;
 
   I.click(UploadContent[language].remove);
-  I.waitForInvisible('.file');
+  I.waitForInvisible('.file', 30);
   I.dontSee(UploadContent[language].remove);
 }
 
