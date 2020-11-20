@@ -34,6 +34,7 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 withNightlyPipeline("nodejs", product, component) {
   env.TEST_URL = params.URL_TO_TEST
   env.NODE_ENV = 'ci'
+  env.test_environment = 'aat'
 
   loadVaultSecrets(secrets)
   enableSecurityScan()
@@ -47,32 +48,10 @@ withNightlyPipeline("nodejs", product, component) {
     stage('Test E2E') {
       yarnBuilder.yarn('test:e2e')
     }
-  }
 
-  before('fullfunctionalTest:aks') {
-    env.NODE_ENV = 'ci'
-    sh 'printenv'
-  }
-
-  before('fullfunctionalTest:preview') {
-    env.NODE_ENV = 'ci'
-    sh 'printenv'
-  }
-
-  before('fullfunctionalTest:aat') {
-    env.NODE_ENV = 'ci'
-    sh 'printenv'
-  }
-
-  after('fullfunctionalTest:preview') {
-    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
-    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
-  }
-
-  after('fullfunctionalTest:aat') {
-    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
-    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+    after('fullfunctionalTest:aat') {
+      steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
+      steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+    }
   }
 }
-
-
