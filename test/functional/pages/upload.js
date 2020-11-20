@@ -29,7 +29,7 @@ async function testUploadPage(language = 'en') {
   const isDragAndDropSupported = await I.checkElementExist('.dz-hidden-input');
 
   I.uploadFile(isDragAndDropSupported, language);
-  I.deleteAFile(language);
+  // I.deleteAFile(language);
   I.navByClick(commonContent[language].continue);
 
   I.seeCurrentUrlEquals(CheckYourAnswers.path);
