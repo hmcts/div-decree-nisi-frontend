@@ -64,7 +64,7 @@
         "respLegalProceedingsDescription": {
           "title": "Details of the court cases?"
         },
-        "receivedAOSfromResp": {
+        "receivedAosFromResp": {
           "title": "AOS Received from Respondent",
           "yes": "Yes",
           "no": "No"
@@ -120,7 +120,7 @@
           "yes": "[CY] Yes",
           "no": "[CY] No"
         },
-        "receivedAOSfromResp": {
+        "receivedAosFromResp": {
           "title": "[CY] AOS Received from Respondent",
           "yes": "[CY] Yes",
           "no": "[CY] No"

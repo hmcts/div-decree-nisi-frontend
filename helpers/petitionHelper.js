@@ -45,16 +45,16 @@ const isServedByProcessServer = caseData => {
   return isEqual(toLower(servedByProcessServer), constants.yes);
 };
 
-const isReceivedAOSFromRespondent = caseData => {
-  const receivedAOSfromResp = getValue(caseData, 'receivedAOSfromResp');
-  return isEqual(toLower(receivedAOSfromResp), constants.yes);
+const isReceivedAosFromRespondent = caseData => {
+  const receivedAosFromResp = getValue(caseData, 'receivedAosFromResp');
+  return isEqual(toLower(receivedAosFromResp), constants.yes);
 };
 
 const isProcessServerService = caseData => {
   if (isPetitionerRepresented(caseData)) {
     return false;
   }
-  return isServedByProcessServer(caseData) && !isReceivedAOSFromRespondent(caseData);
+  return isServedByProcessServer(caseData) && !isReceivedAosFromRespondent(caseData);
 };
 
 const isDeemedServiceApplicationGranted = caseData => {
@@ -75,7 +75,7 @@ module.exports = {
   isAwaitingPronouncementWithHearingDate,
   isProcessServerService,
   isServedByProcessServer,
-  isReceivedAOSFromRespondent,
+  isReceivedAosFromRespondent,
   isPetitionerRepresented,
   isDeemedServiceApplicationGranted,
   isDispensedServiceApplicationGranted,
