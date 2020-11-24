@@ -21,8 +21,6 @@ const constants = {
 };
 
 const getValue = (caseData, property) => {
-  // if(property === 'receivedAOSfromResp')
-  //   console.log("caseData, property:",caseData, property);
   return get(caseData, property);
 };
 
