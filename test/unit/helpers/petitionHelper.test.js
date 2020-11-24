@@ -8,7 +8,7 @@ const {
   isAwaitingPronouncementWithHearingDate,
   isProcessServerService,
   isServedByProcessServer,
-  isReceivedAOSFromRespondent,
+  isReceivedAosFromRespondent,
   isPetitionerRepresented,
   getProcessServerReason,
   isDeemedServiceApplicationGranted,
@@ -24,7 +24,7 @@ describe(modulePath, () => {
         state: 'AwaitingDecreeNisi',
         data: {
           servedByProcessServer: 'Yes',
-          receivedAOSfromResp: 'No',
+          receivedAosFromResp: 'No',
           permittedDecreeNisiReason: '3',
           hearingDate: ['2022-04-25T00:00:00.000Z']
         }
@@ -33,20 +33,20 @@ describe(modulePath, () => {
   });
 
   it('should return false if AOS has not been received', () => {
-    expect(isReceivedAOSFromRespondent(session.case.data)).to.equal(false);
+    expect(isReceivedAosFromRespondent(session.case.data)).to.equal(false);
   });
 
   it('should return true if AOS has been received', () => {
-    session.case.data.receivedAOSfromResp = 'Yes';
+    session.case.data.receivedAosFromResp = 'Yes';
 
-    expect(isReceivedAOSFromRespondent(session.case.data)).to.equal(true);
+    expect(isReceivedAosFromRespondent(session.case.data)).to.equal(true);
   });
 
   it('should return false if AOS received does not exist', () => {
     const newSession = Object.assign({}, session);
-    delete newSession.case.data.receivedAOSfromResp;
+    delete newSession.case.data.receivedAosFromResp;
 
-    expect(isReceivedAOSFromRespondent(newSession.case.data)).to.equal(false);
+    expect(isReceivedAosFromRespondent(newSession.case.data)).to.equal(false);
   });
 
   it('should return true if process server has been served', () => {

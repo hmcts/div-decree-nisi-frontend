@@ -77,7 +77,7 @@ class ModifySession extends Question {
     const serviceApplicationType = text;
 
     const servedByProcessServer = text;
-    const receivedAOSfromResp = text;
+    const receivedAosFromResp = text;
 
     return form({
       divorceWho,
@@ -110,7 +110,7 @@ class ModifySession extends Question {
       serviceApplicationGranted,
       serviceApplicationType,
       servedByProcessServer,
-      receivedAOSfromResp
+      receivedAosFromResp
     });
   }
 
