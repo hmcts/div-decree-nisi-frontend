@@ -45,11 +45,8 @@ withNightlyPipeline("nodejs", product, component) {
       yarnBuilder.yarn('test:validation')
       yarnBuilder.yarn('test:a11y')
     }
-    stage('Test E2E') {
-      yarnBuilder.yarn('test:e2e')
-    }
 
-    after('fullfunctionalTest:aat') {
+    after('fullfunctionalTest') {
       steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
       steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
