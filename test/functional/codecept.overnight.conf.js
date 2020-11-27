@@ -29,7 +29,7 @@ const setupConfig = {
   tests: './paths/**/*.js',
   output: config.tests.functional.outputDir,
   helpers: {
-    WebDriverIO: {
+    WebDriver: {
       url: config.tests.functional.url || config.node.baseUrl,
       browser,
       waitForTimeout,

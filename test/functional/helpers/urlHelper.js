@@ -1,7 +1,7 @@
 const url = require('url');
 class UrlHelper extends codecept_helper { // eslint-disable-line
   async getCurrentUrl() {
-    const helper = this.helpers.WebDriverIO || this.helpers.Puppeteer;
+    const helper = this.helpers.WebDriver || this.helpers.Puppeteer;
     const helperIsPuppeteer = this.helpers.Puppeteer;
     let fullUrl = '';
 

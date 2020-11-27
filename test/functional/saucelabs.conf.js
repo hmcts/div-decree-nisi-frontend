@@ -38,7 +38,7 @@ const setupConfig = {
   tests: './paths/intergration.js',
   output: `${process.cwd()}/functional-output`,
   helpers: {
-    WebDriverIO: {
+    WebDriver: {
       url: process.env.E2E_FRONTEND_URL || config.tests.functional.url,
       browser,
       waitForTimeout,
