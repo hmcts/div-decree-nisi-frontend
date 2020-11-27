@@ -15,8 +15,6 @@ function testLivedApartSinceAdulteryPage(language = 'en') {
   I.fillField('livedApart.datesLivedTogether', 'some details');
   I.navByClick(commonContent[language].continue);
   I.seeCurrentUrlEquals(ClaimsCosts.path);
-
-  I.seeCurrentUrlEquals(ClaimsCosts.path);
 }
 
 module.exports = { testLivedApartSinceAdulteryPage };
