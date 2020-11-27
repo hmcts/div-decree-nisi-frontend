@@ -4,6 +4,13 @@ const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const config = require('config');
 const merge = require('./helpers/caseConfigHelper').merge;
 
+const processEnvironmentSetup = require('@hmcts/environment-variable-setter');
+
+if (process.env.POINT_TO_REMOTE) {
+  const configurationFile = './remote-config.json';
+  processEnvironmentSetup.setUpEnvironmentVariables(configurationFile);
+}
+
 const waitForTimeout = parseInt(config.saucelabs.waitForTimeoutValue);
 const smartWait = parseInt(config.saucelabs.smartWait);
 const browser = process.env.SAUCE_BROWSER || config.saucelabs.browser;
