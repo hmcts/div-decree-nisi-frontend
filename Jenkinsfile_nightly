@@ -10,7 +10,7 @@ properties([
 @Library("Infrastructure")
 
 def product = "div"
-def component = "da"
+def component = "dn"
 
 def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
