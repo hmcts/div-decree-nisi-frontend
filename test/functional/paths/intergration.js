@@ -3,8 +3,8 @@ const config = require('config');
 const basicDivorceSession = require('test/resources/basic-divorce-session');
 
 const testHappyPath = async(I, language = 'en') => {
-  await I.createAUser();
-  await I.createDnCaseForUser(basicDivorceSession);
+  await I.retry(2).createAUser();
+  await I.retry(2).createDnCaseForUser(basicDivorceSession);
 
   I.amOnLoadedPage('/', language);
   await I.testIdamPage();

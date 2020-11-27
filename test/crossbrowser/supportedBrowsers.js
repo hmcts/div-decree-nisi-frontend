@@ -8,7 +8,7 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'IE11_DECREE_ABSOLUTE',
+        name: 'IE11_DECREE_NISI',
         screenResolution: '1400x1050'
       }
     }
@@ -19,7 +19,7 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'Edge_Win10_DECREE_ABSOLUTE'
+        name: 'Edge_Win10_DECREE_NISI'
       }
     }
   },
@@ -29,7 +29,7 @@ const supportedBrowsers = {
       platformName: 'macOS 10.14',
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'MAC_SAFARI_LATEST_DECREE_ABSOLUTE',
+        name: 'MAC_SAFARI_LATEST_DECREE_NISI',
         seleniumVersion: '3.141.59',
         screenResolution: '1400x1050'
       }
@@ -41,7 +41,7 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'WIN_CHROME_LATEST_DECREE_ABSOLUTE'
+        name: 'WIN_CHROME_LATEST_DECREE_NISI'
       }
     },
     chrome_mac_latest: {
@@ -49,7 +49,7 @@ const supportedBrowsers = {
       platformName: LATEST_MAC,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'MAC_CHROME_LATEST_DECREE_ABSOLUTE'
+        name: 'MAC_CHROME_LATEST_DECREE_NISI'
       }
     }
   },
@@ -59,7 +59,7 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'WIN_FIREFOX_LATEST_DECREE_ABSOLUTE'
+        name: 'WIN_FIREFOX_LATEST_DECREE_NISI'
       }
     },
     firefox_mac_latest: {
@@ -67,7 +67,7 @@ const supportedBrowsers = {
       platformName: LATEST_MAC,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'MAC_FIREFOX_LATEST_DECREE_ABSOLUTE'
+        name: 'MAC_FIREFOX_LATEST_DECREE_NISI'
       }
     }
   }

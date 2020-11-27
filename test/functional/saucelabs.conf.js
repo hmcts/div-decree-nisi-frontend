@@ -2,40 +2,40 @@
 
 const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const config = require('config');
+const merge = require('./helpers/caseConfigHelper').merge;
 
-const processEnvironmentSetup = require('@hmcts/environment-variable-setter');
-
-if (process.env.POINT_TO_REMOTE) {
-  const configurationFile = './remote-config.json';
-  processEnvironmentSetup.setUpEnvironmentVariables(configurationFile);
-}
-
-const waitForTimeout = config.saucelabs.waitForTimeout;
-const smartWait = config.saucelabs.smartWait;
-
-
+const waitForTimeout = parseInt(config.saucelabs.waitForTimeoutValue);
+const smartWait = parseInt(config.saucelabs.smartWait);
 const browser = process.env.SAUCE_BROWSER || config.saucelabs.browser;
-const tunnelName = process.env.SAUCE_TUNNEL_IDENTIFIER || config.saucelabs.tunnelId;
-const getBrowserConfig = browserGroup => {
+const defaultSauceOptions = {
+  username: process.env.SAUCE_USERNAME || config.saucelabs.username,
+  accessKey: process.env.SAUCE_ACCESS_KEY || config.saucelabs.key,
+  tunnelIdentifier: process.env.SAUCE_TUNNEL_IDENTIFIER || config.saucelabs.tunnelId,
+  acceptSslCerts: true,
+  tags: ['DN_divorce']
+};
+
+function getBrowserConfig(browserGroup) {
   const browserConfig = [];
   for (const candidateBrowser in supportedBrowsers[browserGroup]) {
     if (candidateBrowser) {
-      const desiredCapability = supportedBrowsers[browserGroup][candidateBrowser];
-      desiredCapability.tunnelIdentifier = tunnelName;
-      desiredCapability.tags = ['DN_divorce'];
+      const candidateCapabilities = supportedBrowsers[browserGroup][candidateBrowser];
+      candidateCapabilities['sauce:options'] = merge(
+        defaultSauceOptions, candidateCapabilities['sauce:options']
+      );
       browserConfig.push({
-        browser: desiredCapability.browserName,
-        desiredCapabilities: desiredCapability
+        browser: candidateCapabilities.browserName,
+        capabilities: candidateCapabilities
       });
     } else {
       console.error('ERROR: supportedBrowsers.js is empty or incorrectly defined');
     }
   }
   return browserConfig;
-};
+}
 
 const setupConfig = {
-  tests: './paths/intergration.js',
+  tests: './paths/**/*.js',
   output: `${process.cwd()}/functional-output`,
   helpers: {
     WebDriver: {
@@ -47,9 +47,7 @@ const setupConfig = {
       host: 'ondemand.eu-central-1.saucelabs.com',
       port: 80,
       region: 'eu',
-      user: process.env.SAUCE_USERNAME || config.saucelabs.username,
-      key: process.env.SAUCE_ACCESS_KEY || config.saucelabs.key,
-      desiredCapabilities: {}
+      capabilities: {}
     },
     SauceLabsReportingHelper: { require: './helpers/SauceLabsReportingHelper.js' },
     JSWait: { require: './helpers/JSWait.js' },
@@ -60,9 +58,31 @@ const setupConfig = {
   include: { I: './pages/steps.js' },
   mocha: {
     reporterOptions: {
-      reportDir: `${process.cwd()}/functional-output`,
-      reportName: 'index',
-      inlineAssets: true
+      'codeceptjs-cli-reporter': {
+        stdout: '-',
+        options: { steps: true }
+      },
+      'mocha-junit-reporter': {
+        stdout: '-',
+        options: { mochaFile: `${process.cwd()}/functional-output/result.xml` }
+      },
+      mochawesome: {
+        stdout: './functional-output/console.log',
+        options: {
+          reportDir: `${process.cwd()}/functional-output`,
+          reportName: 'index',
+          inlineAssets: true
+        }
+      }
+    }
+  },
+  plugins: {
+    retryFailedStep: {
+      enabled: true,
+      retries: 2
+    },
+    autoDelay: {
+      enabled: true
     }
   },
   multiple: {
