@@ -11,6 +11,7 @@ async function testIdamPage(success = true) {
   const currentPath = await I.getCurrentUrl();
   if (currentPath !== PetitionProgressBarPage.path) {
     if (currentPath === IdamMockLogin.path) {
+      I.waitInUrl(IdamMockLogin.path);
       I.seeCurrentUrlEquals(IdamMockLogin.path);
       if (success) {
         I.checkOption(content.en.fields.success.yes);
