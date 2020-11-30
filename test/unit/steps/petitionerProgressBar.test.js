@@ -57,7 +57,7 @@ const templates = {
   dispensedApproved:
     './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html',
   processServerService:
-    './sections/processServerService/PetitionProgressBar.processServerService.template.html'
+    './sections/processServerService/PetitionProgressBar.servedByAlternativeMethod.template.html'
 };
 
 // get all content for all pages
@@ -262,7 +262,6 @@ describe(modulePath, () => {
       const specificContent = ['undefendedAmendedAppStatusMsgDetails1'];
       return content(PetitionProgressBar, yesAdmitSession, { specificContent });
     });
-
 
     it('renders undefendedAppStatusMsgDetails1: behaviour case ', () => {
       const behaviourSession = {

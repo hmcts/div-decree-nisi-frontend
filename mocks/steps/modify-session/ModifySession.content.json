@@ -41,6 +41,11 @@
           "yes": "Yes",
           "no": "No"
         },
+        "servedByAlternativeMethod": {
+          "title": "Served by alternative method",
+          "yes": "Yes",
+          "no": "No"
+        },
         "reasonForDivorceBehaviourDetails": {
           "title": "Specify the unreasonable behaviour details"
         },

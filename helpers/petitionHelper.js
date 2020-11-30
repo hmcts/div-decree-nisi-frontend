@@ -57,6 +57,24 @@ const isProcessServerService = caseData => {
   return isServedByProcessServer(caseData) && !isReceivedAosFromRespondent(caseData);
 };
 
+const isServedByAlternativeMethod = caseData => {
+  /*
+    AC1 - DN landing page for alternative service method
+          GIVEN the case is in the state is ID:'AwaitingDecreeNisi' [DONE]
+          AND the case has had alternative method confirmed (field ID: 'ServedByAlternativeMethod' = 'Yes') [DONE]
+  //TODO  AND the AOS has not been submitted by the respondent (how do we identify?)
+    AND is citizen case (petitioner not represented) [DONE]
+  //TODO  WHEN petitioner logs into PFE
+  //TODO  THEN they are redirected with the 'DN landing page - alternative method' on DN with the following conditional content:
+
+  // TODO add tests
+     */
+  if (isPetitionerRepresented(caseData)) {
+    return false;
+  }
+
+  return isEqual(toLower(caseData.servedByAlternativeMethod), constants.yes);
+};
 const isDeemedServiceApplicationGranted = caseData => {
   return isEqual(toLower(caseData.serviceApplicationGranted), constants.yes) && isEqual(toLower(caseData.serviceApplicationType), constants.deemed);
 };
@@ -69,6 +87,10 @@ const getProcessServerReason = () => {
   return dnAwaitingTemplate.servedByProcessServer;
 };
 
+const getServedByAlternativeMethodReason = () => {
+  return dnAwaitingTemplate.servedByAlternativeMethod;
+};
+
 module.exports = {
   constants,
   isAwaitingDecreeNisi,
@@ -79,5 +101,7 @@ module.exports = {
   isPetitionerRepresented,
   isDeemedServiceApplicationGranted,
   isDispensedServiceApplicationGranted,
-  getProcessServerReason
+  getProcessServerReason,
+  getServedByAlternativeMethodReason,
+  isServedByAlternativeMethod
 };
