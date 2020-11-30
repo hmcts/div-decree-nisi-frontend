@@ -57,7 +57,9 @@ const templates = {
   dispensedApproved:
     './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html',
   processServerService:
-    './sections/processServerService/PetitionProgressBar.processServerService.template.html'
+    './sections/processServerService/PetitionProgressBar.processServerService.template.html',
+  servedByAlternativeMethod:
+    './sections/servedByAlternativeMethod/PetitionProgressBar.servedByAlternativeMethod.template.html'
 };
 
 // get all content for all pages
@@ -262,7 +264,6 @@ describe(modulePath, () => {
       const specificContent = ['undefendedAmendedAppStatusMsgDetails1'];
       return content(PetitionProgressBar, yesAdmitSession, { specificContent });
     });
-
 
     it('renders undefendedAppStatusMsgDetails1: behaviour case ', () => {
       const behaviourSession = {
@@ -522,6 +523,37 @@ describe(modulePath, () => {
       });
     });
   });
+
+  describe('CCD state: AwaitingDecreeNisi. Testing servedByAlternativeMethod', () => {
+    let session = {};
+    let petitionProgressBar = {};
+
+    before(() => {
+      session = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            servedByAlternativeMethod: 'Yes',
+            receivedAosFromResp: 'No',
+            permittedDecreeNisiReason: '8'
+          }
+        }
+      };
+      petitionProgressBar = stepAsInstance(PetitionProgressBar, session);
+    });
+
+    describe('Content Rendering for Served By Alternative Method', () => {
+      it('should render the servedByAlternativeMethod template', () => {
+        expect(petitionProgressBar.stateTemplate).to.equal(templates.servedByAlternativeMethod);
+      });
+
+      it('should render the correct content', () => {
+        const specificContent = Object.keys(pageContent.servedByAlternativeMethod);
+        return content(PetitionProgressBar, session, { specificContent });
+      });
+    });
+  });
+
 
   describe('CCD state: AosSubmittedAwaitingAnswer', () => {
     const session = {

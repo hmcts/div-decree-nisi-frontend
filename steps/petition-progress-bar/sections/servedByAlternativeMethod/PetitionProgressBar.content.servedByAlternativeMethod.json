@@ -1,0 +1,12 @@
+{
+  "en": {
+    "servedByAlternativeMethodStatusMsg": "Your divorce petition has been served by an alternative method",
+    "servedByAlternativeMethod": "Your {{ divorceWho }} was served by an alternative method. However, they have not yet responded.",
+    "servedByAlternativeMethodAosOverdue": "Because it is more than 7 days since confirmation of service, you are now able continue to the next stage and apply for a decree nisi."
+  },
+  "cy": {
+    "servedByAlternativeMethodStatusMsg": "Your divorce petition has been served by an alternative method",
+    "servedByAlternativeMethod": "Your {{ divorceWho }} was served by an alternative method. However, they have not yet responded.",
+    "servedByAlternativeMethodAosOverdue": "Because it is more than 7 days since confirmation of service, you are now able continue to the next stage and apply for a decree nisi."
+  }
+}

@@ -45,7 +45,7 @@ const isServedByProcessServer = caseData => {
   return isEqual(toLower(servedByProcessServer), constants.yes);
 };
 
-const isReceivedAosFromRespondent = caseData => {
+const hasReceivedAosFromRespondent = caseData => {
   const receivedAosFromResp = getValue(caseData, 'receivedAosFromResp');
   return isEqual(toLower(receivedAosFromResp), constants.yes);
 };
@@ -54,9 +54,19 @@ const isProcessServerService = caseData => {
   if (isPetitionerRepresented(caseData)) {
     return false;
   }
-  return isServedByProcessServer(caseData) && !isReceivedAosFromRespondent(caseData);
+  return isServedByProcessServer(caseData) && !hasReceivedAosFromRespondent(caseData);
 };
 
+const hasBeenServedByAlternativeMethod = caseData => {
+  const servedByAlternativeMethod = getValue(caseData, 'servedByAlternativeMethod');
+  return isEqual(toLower(servedByAlternativeMethod), constants.yes);
+};
+
+const isServedByAlternativeMethod = caseData => {
+  const isServedByAlternativeMethodValid = Boolean(hasBeenServedByAlternativeMethod(caseData) && !isPetitionerRepresented(caseData) && !hasReceivedAosFromRespondent());
+
+  return isServedByAlternativeMethodValid;
+};
 const isDeemedServiceApplicationGranted = caseData => {
   return isEqual(toLower(caseData.serviceApplicationGranted), constants.yes) && isEqual(toLower(caseData.serviceApplicationType), constants.deemed);
 };
@@ -69,15 +79,21 @@ const getProcessServerReason = () => {
   return dnAwaitingTemplate.servedByProcessServer;
 };
 
+const getServedByAlternativeMethodReason = () => {
+  return dnAwaitingTemplate.servedByAlternativeMethod;
+};
+
 module.exports = {
   constants,
   isAwaitingDecreeNisi,
   isAwaitingPronouncementWithHearingDate,
   isProcessServerService,
   isServedByProcessServer,
-  isReceivedAosFromRespondent,
+  isReceivedAosFromRespondent: hasReceivedAosFromRespondent,
   isPetitionerRepresented,
   isDeemedServiceApplicationGranted,
   isDispensedServiceApplicationGranted,
-  getProcessServerReason
+  getProcessServerReason,
+  getServedByAlternativeMethodReason,
+  isServedByAlternativeMethod
 };

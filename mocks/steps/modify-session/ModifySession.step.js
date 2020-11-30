@@ -77,6 +77,7 @@ class ModifySession extends Question {
     const serviceApplicationType = text;
 
     const servedByProcessServer = text;
+    const servedByAlternativeMethod = text;
     const receivedAosFromResp = text;
 
     return form({
@@ -110,6 +111,7 @@ class ModifySession extends Question {
       serviceApplicationGranted,
       serviceApplicationType,
       servedByProcessServer,
+      servedByAlternativeMethod,
       receivedAosFromResp
     });
   }

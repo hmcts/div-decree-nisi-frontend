@@ -20,22 +20,21 @@
   })
 }}
 
-<h2 class="govuk-heading-m">{{ content.undefendedAppStatusMsg }}</h2>
-
-{% if respNotAdmitsToFact %}
-  {% if isCaseAmended %}
-    <p class="govuk-body">{{ content.undefendedAmendedCaseButNotAdmit }}</p>
+  <h2 class="govuk-heading-m">{{ content.undefendedAppStatusMsg }}</h2>
+  {% if respNotAdmitsToFact %}
+    {% if isCaseAmended %}
+      <p class="govuk-body">{{ content.undefendedAmendedCaseButNotAdmit }}</p>
+    {% else %}
+      <p class="govuk-body">{{ content.undefendedButNotAdmit }}</p>
+    {% endif %}
   {% else %}
-    <p class="govuk-body">{{ content.undefendedButNotAdmit }}</p>
+    {% if isCaseAmended %}
+      <p class="govuk-body">{{ content.undefendedAmendedAppStatusMsgDetails1 }}</p>
+    {% else %}
+      <p class="govuk-body">{{ content.undefendedAppStatusMsgDetails1 }}</p>
+    {% endif %}
   {% endif %}
-{% else %}
-  {% if isCaseAmended %}
-    <p class="govuk-body">{{ content.undefendedAmendedAppStatusMsgDetails1 }}</p>
-  {% else %}
-    <p class="govuk-body">{{ content.undefendedAppStatusMsgDetails1 }}</p>
-  {% endif %}
-{% endif %}
-<p class="govuk-body">{{ content.undefendedAppStatusMsgDetails2 }}</p>
+  <p class="govuk-body">{{ content.undefendedAppStatusMsgDetails2 }}</p>
 
 <details class="govuk-details">
   <summary class="govuk-details__summary" aria-controls="details-content-0" aria-expanded="false">
