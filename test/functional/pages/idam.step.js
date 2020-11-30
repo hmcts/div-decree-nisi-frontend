@@ -28,7 +28,8 @@ async function testIdamPage(success = true) {
     }
   }
 
-  I.seeCurrentUrlEquals(PetitionProgressBarPage.path);
+  I.wait(3);
+  I.waitInUrl(PetitionProgressBarPage.path);
 }
 
 module.exports = { testIdamPage };
