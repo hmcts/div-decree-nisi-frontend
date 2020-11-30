@@ -14,6 +14,7 @@ function testIntolerable(language = 'en') {
   I.checkOption(IntolerableContnet[language].fields.changes.intolerable.yes);
   I.navByClick(commonContent[language].continue);
 
+  I.waitInUrl(AdulteryFirstFoundOut.path);
   I.seeCurrentUrlEquals(AdulteryFirstFoundOut.path);
 }
 

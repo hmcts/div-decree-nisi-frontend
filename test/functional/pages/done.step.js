@@ -6,6 +6,8 @@ function testDonePage(language = 'en') {
 
   I.amOnLoadedPage(DonePage.path);
 
+  I.waitInUrl(DonePage.path);
+
   I.see(DoneContent[language].applicationComplete);
 }
 
