@@ -50,7 +50,8 @@ function uploadFile(isDragAndDropSupported, language = 'en') {
 function deleteAFile(language = 'en') {
   const I = this;
 
-  I.forceClick(UploadContent[language].remove);
+  I.retry(2).forceClick(UploadContent[language].remove);
+  I.navByClick(UploadContent[language].remove);
   I.waitForInvisible('.file', 30);
   I.dontSee(UploadContent[language].remove);
 }
