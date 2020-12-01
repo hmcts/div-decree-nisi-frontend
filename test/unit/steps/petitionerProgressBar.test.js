@@ -554,7 +554,6 @@ describe(modulePath, () => {
     });
   });
 
-
   describe('CCD state: AosSubmittedAwaitingAnswer', () => {
     const session = {
       case: {
