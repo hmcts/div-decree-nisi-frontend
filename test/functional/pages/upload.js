@@ -29,6 +29,7 @@ async function testUploadPage(language = 'en') {
   const isDragAndDropSupported = await I.checkElementExist('.dz-hidden-input');
 
   I.uploadFile(isDragAndDropSupported, language);
+  // Temporarily turn off I.deleteAFile() step due to current bug with the Remove button, where the browser receives a 403 response when it's clicked
   // I.deleteAFile(language);
   I.navByClick(commonContent[language].continue);
 
