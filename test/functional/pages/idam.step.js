@@ -6,8 +6,8 @@ const idamConfigHelper = require('test/functional/helpers/idamConfigHelper.js');
 async function testIdamPage(success = true) {
   const I = this;
 
+  I.wait(2);
   I.amOnLoadedPage('/');
-  I.wait(3);
 
   const currentPath = await I.getCurrentUrl();
   if (currentPath !== PetitionProgressBarPage.path) {
