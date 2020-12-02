@@ -13,6 +13,7 @@ function testRespNotAdmitAdultery(language = 'en') {
   I.checkOption(RespNotAdmitAdulteryContent[language].fields.amendPetition.no);
   I.navByClick(content[language].continue);
 
+  I.waitInUrl(ApplyForDecreeNisi.path);
   I.seeCurrentUrlEquals(ApplyForDecreeNisi.path);
 }
 

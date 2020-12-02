@@ -7,10 +7,10 @@ function testApplyForDecreeNisiPage(language = 'en') {
   const I = this;
 
   I.amOnLoadedPage(ApplyForDecreeNisi.path, language);
-  I.waitInUrl(ApplyForDecreeNisi.path, 5);
+  I.waitInUrl(ApplyForDecreeNisi.path);
   I.retry(2).click(ApplyForDecreeNisiContent[language].fields.applyForDecreeNisi.yes);
   I.navByClick(commonContent[language].continue);
-  I.waitInUrl(MiniPetition.path, 5);
+  I.waitInUrl(MiniPetition.path);
   I.seeCurrentUrlEquals(MiniPetition.path);
 }
 

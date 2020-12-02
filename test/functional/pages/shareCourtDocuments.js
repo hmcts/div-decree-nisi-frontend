@@ -16,7 +16,7 @@ function testShareCourtDocumentsPage(option = 'yes', language = 'en') {
   if (option === 'yes') {
     I.seeCurrentUrlEquals(Upload.path);
   } else {
-    I.waitInUrl(CheckYourAnswers.path, 5);
+    I.waitInUrl(CheckYourAnswers.path);
     I.seeCurrentUrlEquals(CheckYourAnswers.path);
   }
 }
