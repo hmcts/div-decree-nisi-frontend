@@ -11,10 +11,10 @@ function testBehaviourContinuedSinceApplicationPage(language = 'en') {
   const I = this;
 
   I.amOnLoadedPage(BehaviourContinuedSinceApplication.path, language);
-  I.waitInUrl(BehaviourContinuedSinceApplication.path, 5);
+  I.waitInUrl(BehaviourContinuedSinceApplication.path);
   I.retry(2).click(BehaviourContinuedSinceApplicationContent[language].fields.changes.behaviourContinuedSinceApplication.yes); // eslint-disable-line
   I.navByClick(commonContent[language].continue);
-  I.waitInUrl(ClaimCosts.path, 5);
+  I.waitInUrl(ClaimCosts.path);
   I.seeCurrentUrlEquals(ClaimCosts.path);
 }
 

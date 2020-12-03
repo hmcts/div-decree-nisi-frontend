@@ -19,7 +19,8 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'Edge_Win10_DECREE_NISI'
+        name: 'Edge_Win10_DECREE_NISI',
+        screenResolution: '1400x1050'
       }
     }
   },

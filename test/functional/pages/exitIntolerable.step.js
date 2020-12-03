@@ -8,6 +8,8 @@ async function testExitIntolerable(language = 'en') {
 
   I.amOnLoadedPage(ExitIntolerablePage.path, language);
 
+  I.waitInUrl(ExitIntolerablePage.path);
+
   I.see(ExitIntolerablePageContent[language].contact);
 }
 

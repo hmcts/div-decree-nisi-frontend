@@ -56,7 +56,9 @@ const setupConfig = {
       region: 'eu',
       capabilities: {}
     },
+    SauceLabsBrowserHelper: { require: './helpers/SauceLabsBrowserHelper.js' },
     SauceLabsReportingHelper: { require: './helpers/SauceLabsReportingHelper.js' },
+    ElementExist: { require: './helpers/elementExist.js' },
     JSWait: { require: './helpers/JSWait.js' },
     IdamHelper: { require: './helpers/idamHelper.js' },
     CaseHelper: { require: './helpers/caseHelper.js' },

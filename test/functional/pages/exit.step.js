@@ -8,6 +8,8 @@ async function testExitPage(language = 'en') {
 
   I.amOnLoadedPage(ExitPage.path, language);
 
+  I.waitInUrl(ExitPage.path);
+
   I.see(ExitPageContent[language].title);
 }
 

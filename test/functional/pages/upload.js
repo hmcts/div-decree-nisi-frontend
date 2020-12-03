@@ -3,6 +3,7 @@ const UploadContent = require('steps/upload/Upload.content');
 const commonContent = require('common/content');
 const CheckYourAnswers = require('steps/check-your-answers/CheckYourAnswers.step');
 const ShareCourtDocuments = require('steps/share-court-documents/ShareCourtDocuments.step');
+const config = require('config');
 const ShareCourtDocumentsContent = require(
   'steps/share-court-documents/ShareCourtDocuments.content'
 );
@@ -26,11 +27,16 @@ async function testUploadPage(language = 'en') {
   I.checkOption(ShareCourtDocumentsContent[language].fields.upload.yes);
   I.navByClick(commonContent[language].continue);
 
-  const isDragAndDropSupported = await I.checkElementExist('.dz-hidden-input');
+  if (['safari', 'microsoftEdge'].includes(config.features.browserSupport)) {
+    // eslint-disable-next-line no-console
+    console.log(`Running test in ${config.features.browserSupport}, skipping document upload.`);
+  } else {
+    const isDragAndDropSupported = await I.checkElementExist('.dz-hidden-input');
+    I.uploadFile(isDragAndDropSupported, language);
+    // Below step is broken by bug (raised 30/11/20): https://tools.hmcts.net/jira/browse/RPET-638
+    // I.deleteAFile(language);
+  }
 
-  I.uploadFile(isDragAndDropSupported, language);
-  // Temporarily turn off I.deleteAFile() step due to current bug with the Remove button, where the browser receives a 403 response when it's clicked
-  // I.deleteAFile(language);
   I.navByClick(commonContent[language].continue);
 
   I.seeCurrentUrlEquals(CheckYourAnswers.path);

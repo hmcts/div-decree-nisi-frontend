@@ -7,7 +7,7 @@ function testMiniPetitionPage(language = 'en') {
   const I = this;
 
   I.amOnLoadedPage(MiniPetition.path, language);
-  I.waitInUrl(MiniPetition.path, 5);
+  I.waitInUrl(MiniPetition.path);
   I.retry(2).click(MiniPetitionContent[language].fields.changes.hasBeenChanges.no);
   I.waitForText(MiniPetitionContent[language].fields.changes.statementOfTruthNoChanges.yes);
   I.retry(2).click(MiniPetitionContent[language].fields.changes.statementOfTruthNoChanges.yes);

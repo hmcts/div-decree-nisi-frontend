@@ -47,6 +47,10 @@ withNightlyPipeline("nodejs", product, component) {
       yarnBuilder.yarn('test:a11y')
     }
 
+  after('crossBrowserTest') {
+     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+
     after('fullfunctionalTest') {
       steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
       steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'

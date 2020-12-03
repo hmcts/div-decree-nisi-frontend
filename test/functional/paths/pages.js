@@ -51,7 +51,7 @@ const testAllPages = async(I, language = 'en') => {
 
   I.testCheckYourAnswersPage(language);
 
-  I.testDonePage();
+  await I.testDonePage();
 
   await I.testExitPage();
 
