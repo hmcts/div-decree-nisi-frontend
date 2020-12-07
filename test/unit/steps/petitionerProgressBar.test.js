@@ -525,10 +525,6 @@ describe(modulePath, () => {
     });
   });
 
-  /*
-  here
-   */
-
   describe('CCD state: AwaitingDecreeNisi. ServedByAlternativeMethod', () => {
     let session = {};
     let petitionProgressBar = {};
