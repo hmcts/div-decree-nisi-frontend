@@ -158,7 +158,7 @@ describe(modulePath, () => {
 
       it('should return false if petitioner is represented', () => {
         session.case.data.petitionerSolicitorEmail = 'solicitorEmail@mail.com';
-        expect(isServedByAlternativeMethod('AnotherState')).to.equal(false);
+        expect(isServedByAlternativeMethod(session)).to.equal(false);
       });
 
       it('should return false if not served by alternative method', () => {
