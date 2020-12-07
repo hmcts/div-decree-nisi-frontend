@@ -63,7 +63,7 @@ const hasBeenServedByAlternativeMethod = caseData => {
 };
 
 const isServedByAlternativeMethod = caseData => {
-  const isServedByAlternativeMethodValid = Boolean(hasBeenServedByAlternativeMethod(caseData) && !isPetitionerRepresented(caseData) && !hasReceivedAosFromRespondent());
+  const isServedByAlternativeMethodValid = Boolean(hasBeenServedByAlternativeMethod(caseData) && !isPetitionerRepresented(caseData) && !hasReceivedAosFromRespondent(caseData));
 
   return isServedByAlternativeMethodValid;
 };

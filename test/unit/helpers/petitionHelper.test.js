@@ -128,7 +128,7 @@ describe(modulePath, () => {
           data: {
             servedByAlternativeMethod: 'Yes',
             receivedAosFromResp: 'No',
-            permittedDecreeNisiReason: '0'
+            permittedDecreeNisiReason: '8'
           }
         }
       };
@@ -138,6 +138,13 @@ describe(modulePath, () => {
       it('should return true if all conditions are valid', () => {
         session.case.data.servedByAlternativeMethod = 'Yes';
         session.case.data.petitionerSolicitorEmail = null;
+        session.case.data.receivedAosFromResp = 'something';
+
+        expect(isServedByAlternativeMethod(session.case.data)).to.equal(true);
+      });
+
+      it('AC2: Served by alternative method and AOS received within 7 days', () => {
+        session.case.data.servedByAlternativeMethod = 'Yes';
         session.case.data.receivedAosFromResp = 'something';
 
         expect(isServedByAlternativeMethod(session.case.data)).to.equal(true);

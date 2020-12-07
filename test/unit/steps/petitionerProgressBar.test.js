@@ -57,9 +57,7 @@ const templates = {
   dispensedApproved:
     './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html',
   processServerService:
-    './sections/processServerService/PetitionProgressBar.processServerService.template.html',
-  servedByAlternativeMethod:
-    './sections/servedByAlternativeMethod/PetitionProgressBar.servedByAlternativeMethod.template.html'
+    './sections/processServerService/PetitionProgressBar.processServerService.template.html'
 };
 
 // get all content for all pages
@@ -264,6 +262,7 @@ describe(modulePath, () => {
       const specificContent = ['undefendedAmendedAppStatusMsgDetails1'];
       return content(PetitionProgressBar, yesAdmitSession, { specificContent });
     });
+
 
     it('renders undefendedAppStatusMsgDetails1: behaviour case ', () => {
       const behaviourSession = {
@@ -524,25 +523,29 @@ describe(modulePath, () => {
     });
   });
 
-  describe('CCD state: AwaitingDecreeNisi. Testing servedByAlternativeMethod', () => {
+  /*
+  here
+   */
+
+  describe('CCD state: AwaitingDecreeNisi. ServedByAlternativeMethod', () => {
     let session = {};
     let petitionProgressBar = {};
 
-    before(() => {
-      session = {
-        case: {
-          state: 'AwaitingDecreeNisi',
-          data: {
-            servedByAlternativeMethod: 'Yes',
-            receivedAosFromResp: 'No',
-            permittedDecreeNisiReason: '8'
-          }
-        }
-      };
-      petitionProgressBar = stepAsInstance(PetitionProgressBar, session);
-    });
-
     describe('Content Rendering for Served By Alternative Method', () => {
+      before(() => {
+        session = {
+          case: {
+            state: 'AwaitingDecreeNisi',
+            data: {
+              servedByAlternativeMethod: 'Yes',
+              receivedAosFromResp: 'No',
+              permittedDecreeNisiReason: '8'
+            }
+          }
+        };
+        petitionProgressBar = stepAsInstance(PetitionProgressBar, session);
+      });
+
       it('should render the servedByAlternativeMethod template', () => {
         expect(petitionProgressBar.stateTemplate).to.equal(templates.servedByAlternativeMethod);
       });
@@ -553,6 +556,7 @@ describe(modulePath, () => {
       });
     });
   });
+
 
   describe('CCD state: AosSubmittedAwaitingAnswer', () => {
     const session = {
