@@ -45,7 +45,7 @@ const isServedByProcessServer = caseData => {
   return isEqual(toLower(servedByProcessServer), constants.yes);
 };
 
-const hasReceivedAosFromRespondent = caseData => {
+const isReceivedAosFromRespondent = caseData => {
   const receivedAosFromResp = getValue(caseData, 'receivedAosFromResp');
   return isEqual(toLower(receivedAosFromResp), constants.yes);
 };
@@ -54,7 +54,7 @@ const isProcessServerService = caseData => {
   if (isPetitionerRepresented(caseData)) {
     return false;
   }
-  return isServedByProcessServer(caseData) && !hasReceivedAosFromRespondent(caseData);
+  return isServedByProcessServer(caseData) && !isReceivedAosFromRespondent(caseData);
 };
 
 const hasBeenServedByAlternativeMethod = caseData => {
@@ -63,7 +63,7 @@ const hasBeenServedByAlternativeMethod = caseData => {
 };
 
 const isServedByAlternativeMethod = caseData => {
-  const isServedByAlternativeMethodValid = Boolean(hasBeenServedByAlternativeMethod(caseData) && !isPetitionerRepresented(caseData) && !hasReceivedAosFromRespondent(caseData));
+  const isServedByAlternativeMethodValid = Boolean(hasBeenServedByAlternativeMethod(caseData) && !isPetitionerRepresented(caseData) && !isReceivedAosFromRespondent(caseData));
 
   return isServedByAlternativeMethodValid;
 };
@@ -89,7 +89,7 @@ module.exports = {
   isAwaitingPronouncementWithHearingDate,
   isProcessServerService,
   isServedByProcessServer,
-  isReceivedAosFromRespondent: hasReceivedAosFromRespondent,
+  isReceivedAosFromRespondent,
   isPetitionerRepresented,
   isDeemedServiceApplicationGranted,
   isDispensedServiceApplicationGranted,
