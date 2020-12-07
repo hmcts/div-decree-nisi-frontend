@@ -12,6 +12,7 @@ const { isEqual, toLower } = require('lodash');
 const {
   constants,
   isProcessServerService,
+  isServedByAlternativeMethod,
   isDeemedServiceApplicationGranted,
   isDispensedServiceApplicationGranted
 } = require('helpers/petitionHelper');
@@ -52,6 +53,10 @@ class ApplyForDecreeNisi extends Question {
 
   get isServedByProcessServerService() {
     return isProcessServerService(this.case);
+  }
+
+  get isAlternativeServiceMethod() {
+    return isServedByAlternativeMethod(this.case);
   }
 
   answers() {

@@ -66,9 +66,9 @@ const isServedByAlternativeMethod = caseData => {
   if (isPetitionerRepresented(caseData)) {
     return false;
   }
-
-  return (hasBeenServedByAlternativeMethod(caseData) && !isReceivedAosFromRespondent(caseData));
+  return hasBeenServedByAlternativeMethod(caseData) && !isReceivedAosFromRespondent(caseData);
 };
+
 const isDeemedServiceApplicationGranted = caseData => {
   return isEqual(toLower(caseData.serviceApplicationGranted), constants.yes) && isEqual(toLower(caseData.serviceApplicationType), constants.deemed);
 };

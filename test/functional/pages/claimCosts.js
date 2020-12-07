@@ -13,7 +13,7 @@ function testClaimCostsPage(language = 'en') {
   I.amOnLoadedPage(ClaimCosts.path, language);
   I.click(ClaimCostsContent[language].fields.dnCosts.originalAmount);
   I.navByClick(commonContent[language].continue);
-  I.waitInUrl(ShareCourtDocuments.path, 5);
+  I.waitInUrl(ShareCourtDocuments.path);
   I.seeCurrentUrlEquals(ShareCourtDocuments.path);
 }
 

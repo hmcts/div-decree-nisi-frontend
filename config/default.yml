@@ -143,6 +143,7 @@ features:
   webchat: true
   awaitingClarification: true
   dnIsRefused: true
+  browserSupport: false
 
 journey:
   timeoutDelay: 300
@@ -182,5 +183,5 @@ saucelabs:
   username: 'username'
   key: 'privatekey'
   tunnelId: 'reformtunnel'
-  waitForTimeout: 20000
-  smartWait: 20000
+  waitForTimeout: 30000
+  smartWait: 30000
