@@ -57,7 +57,9 @@ const templates = {
   dispensedApproved:
     './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html',
   processServerService:
-    './sections/processServerService/PetitionProgressBar.processServerService.template.html'
+    './sections/processServerService/PetitionProgressBar.processServerService.template.html',
+  servedByAlternativeMethod:
+    './sections/servedByAlternativeMethod/PetitionProgressBar.servedByAlternativeMethod.template.html'
 };
 
 // get all content for all pages
@@ -539,7 +541,7 @@ describe(modulePath, () => {
             data: {
               servedByAlternativeMethod: 'Yes',
               receivedAosFromResp: 'No',
-              permittedDecreeNisiReason: '8'
+              permittedDecreeNisiReason: '4'
             }
           }
         };
