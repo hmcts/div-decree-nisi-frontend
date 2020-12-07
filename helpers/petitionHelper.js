@@ -63,9 +63,11 @@ const hasBeenServedByAlternativeMethod = caseData => {
 };
 
 const isServedByAlternativeMethod = caseData => {
-  const isServedByAlternativeMethodValid = Boolean(hasBeenServedByAlternativeMethod(caseData) && !isPetitionerRepresented(caseData) && !isReceivedAosFromRespondent(caseData));
+  if (isPetitionerRepresented(caseData)) {
+    return false;
+  }
 
-  return isServedByAlternativeMethodValid;
+  return (hasBeenServedByAlternativeMethod(caseData) && !isReceivedAosFromRespondent(caseData));
 };
 const isDeemedServiceApplicationGranted = caseData => {
   return isEqual(toLower(caseData.serviceApplicationGranted), constants.yes) && isEqual(toLower(caseData.serviceApplicationType), constants.deemed);

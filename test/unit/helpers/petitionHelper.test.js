@@ -143,7 +143,7 @@ describe(modulePath, () => {
         expect(isServedByAlternativeMethod(session.case.data)).to.equal(true);
       });
 
-      it('AC2: Served by alternative method and AOS received within 7 days', () => {
+      it('should return true when served by alt method and AOS received within 7 days', () => {
         session.case.data.servedByAlternativeMethod = 'Yes';
         session.case.data.receivedAosFromResp = 'something';
 
