@@ -11,6 +11,7 @@
     "continueBecauseOfDeemed": "You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the courts accepted your  ‘deemed service’ application.",
     "continueBecauseOfDispensed": "You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the courts accepted your  ‘dispense with service’ application.",
     "processServerDetail": "You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the time required for your {{ divorceWho }} to respond to the ‘process server’ has passed.",
+    "alternativeMethodDetail": "You can apply for a decree nisi even though your {{ divorceWho }} didn’t respond to the divorce petition. This is because the time required for your {{ divorceWho }} to respond to the service by an alternative method has passed.",
     "errors": {
       "required": "Choose whether you want to continue with your divorce"
     },

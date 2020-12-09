@@ -22,6 +22,11 @@
     <div class="govuk-inset-text">
       {{ content.processServerDetail }}
     </div>
+
+  {% elif isAlternativeServiceMethod %}
+    <div class="govuk-inset-text">
+      {{ content.alternativeMethodDetail }}
+    </div>
   {% endif %}
 
   <p class="govuk-body">{{ content.amendOrAdd | safe }}</p>

@@ -41,7 +41,8 @@ describe(modulePath, () => {
       'wife',
       'continueBecauseOfDeemed',
       'continueBecauseOfDispensed',
-      'processServerDetail'
+      'processServerDetail',
+      'alternativeMethodDetail'
     ];
     return content(ApplyForDecreeNisi, session, { ignoreContent });
   });
@@ -109,7 +110,7 @@ describe(modulePath, () => {
           state: 'AwaitingDecreeNisi',
           data: {
             servedByProcessServer: 'Yes',
-            receivedAOSfromResp: 'No',
+            receivedAosFromResp: 'No',
             permittedDecreeNisiReason: '3',
             divorceWho: 'husband'
           }
@@ -135,9 +136,52 @@ describe(modulePath, () => {
         'husband',
         'wife',
         'continueBecauseOfDeemed',
-        'continueBecauseOfDispensed'
+        'continueBecauseOfDispensed',
+        'alternativeMethodDetail'
       ];
       return content(ApplyForDecreeNisi, processServerSession, { ignoreContent });
+    });
+  });
+
+  describe('Alternative Service template view:', () => {
+    let alternativeServiceSession = {};
+
+    beforeEach(() => {
+      alternativeServiceSession = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            servedByAlternativeMethod: 'Yes',
+            receivedAosFromResp: 'No',
+            permittedDecreeNisiReason: '2',
+            divorceWho: 'wife'
+          }
+        }
+      };
+    });
+
+    it('should render correct content when served by process server', () => {
+      const ignoreContent = [
+        'webChatTitle',
+        'chatDown',
+        'chatWithAnAgent',
+        'noAgentsAvailable',
+        'allAgentsBusy',
+        'chatClosed',
+        'chatAlreadyOpen',
+        'chatOpeningHours',
+        'clarificationCourtFeedback',
+        'signIn',
+        'languageToggle',
+        'thereWasAProblem',
+        'change',
+        'husband',
+        'wife',
+        'continueBecauseOfDeemed',
+        'continueBecauseOfDispensed',
+        'processServerDetail'
+      ];
+      return content(ApplyForDecreeNisi, alternativeServiceSession, { ignoreContent });
     });
   });
 });
