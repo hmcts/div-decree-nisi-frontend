@@ -57,6 +57,18 @@ const isProcessServerService = caseData => {
   return isServedByProcessServer(caseData) && !isReceivedAosFromRespondent(caseData);
 };
 
+const hasBeenServedByAlternativeMethod = caseData => {
+  const servedByAlternativeMethod = getValue(caseData, 'servedByAlternativeMethod');
+  return isEqual(toLower(servedByAlternativeMethod), constants.yes);
+};
+
+const isServedByAlternativeMethod = caseData => {
+  if (isPetitionerRepresented(caseData)) {
+    return false;
+  }
+
+  return hasBeenServedByAlternativeMethod(caseData) && !isReceivedAosFromRespondent(caseData);
+};
 const isDeemedServiceApplicationGranted = caseData => {
   return isEqual(toLower(caseData.serviceApplicationGranted), constants.yes) && isEqual(toLower(caseData.serviceApplicationType), constants.deemed);
 };
@@ -69,6 +81,10 @@ const getProcessServerReason = () => {
   return dnAwaitingTemplate.servedByProcessServer;
 };
 
+const getServedByAlternativeMethodReason = () => {
+  return dnAwaitingTemplate.servedByAlternativeMethod;
+};
+
 module.exports = {
   constants,
   isAwaitingDecreeNisi,
@@ -79,5 +95,7 @@ module.exports = {
   isPetitionerRepresented,
   isDeemedServiceApplicationGranted,
   isDispensedServiceApplicationGranted,
-  getProcessServerReason
+  getProcessServerReason,
+  getServedByAlternativeMethodReason,
+  isServedByAlternativeMethod
 };

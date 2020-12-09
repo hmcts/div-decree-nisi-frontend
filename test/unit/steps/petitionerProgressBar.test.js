@@ -57,7 +57,9 @@ const templates = {
   dispensedApproved:
     './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html',
   processServerService:
-    './sections/processServerService/PetitionProgressBar.processServerService.template.html'
+    './sections/processServerService/PetitionProgressBar.processServerService.template.html',
+  servedByAlternativeMethod:
+    './sections/servedByAlternativeMethod/PetitionProgressBar.servedByAlternativeMethod.template.html'
 };
 
 // get all content for all pages
@@ -522,6 +524,37 @@ describe(modulePath, () => {
       });
     });
   });
+
+  describe('CCD state: AwaitingDecreeNisi. ServedByAlternativeMethod', () => {
+    let session = {};
+    let petitionProgressBar = {};
+
+    describe('Content Rendering for Served By Alternative Method', () => {
+      before(() => {
+        session = {
+          case: {
+            state: 'AwaitingDecreeNisi',
+            data: {
+              servedByAlternativeMethod: 'Yes',
+              receivedAosFromResp: 'No',
+              permittedDecreeNisiReason: '4'
+            }
+          }
+        };
+        petitionProgressBar = stepAsInstance(PetitionProgressBar, session);
+      });
+
+      it('should render the servedByAlternativeMethod template', () => {
+        expect(petitionProgressBar.stateTemplate).to.equal(templates.servedByAlternativeMethod);
+      });
+
+      it('should render the correct content', () => {
+        const specificContent = Object.keys(pageContent.servedByAlternativeMethod);
+        return content(PetitionProgressBar, session, { specificContent });
+      });
+    });
+  });
+
 
   describe('CCD state: AosSubmittedAwaitingAnswer', () => {
     const session = {
