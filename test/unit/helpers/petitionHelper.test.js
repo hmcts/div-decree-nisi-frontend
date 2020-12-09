@@ -179,4 +179,65 @@ describe(modulePath, () => {
       expect(isServedByAlternativeMethod(session.case.data)).to.equal(false);
     });
   });
+
+  describe('Served by alternative method: ', () => {
+    beforeEach(() => {
+      session = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            servedByAlternativeMethod: 'Yes',
+            receivedAosFromResp: 'No',
+            permittedDecreeNisiReason: '8'
+          }
+        }
+      };
+    });
+
+    describe('Valid Scenario', () => {
+      it('should return true if all conditions are valid', () => {
+        session.case.data.servedByAlternativeMethod = 'Yes';
+        session.case.data.petitionerSolicitorEmail = null;
+        session.case.data.receivedAosFromResp = 'something';
+
+        expect(isServedByAlternativeMethod(session.case.data)).to.equal(true);
+      });
+
+      it('should return true when served by alt method and AOS received within 7 days', () => {
+        session.case.data.servedByAlternativeMethod = 'Yes';
+        session.case.data.receivedAosFromResp = 'something';
+
+        expect(isServedByAlternativeMethod(session.case.data)).to.equal(true);
+      });
+    });
+
+    describe('Invalid scenario', () => {
+      it('should return false if not in AwaitingDecreeNisi state', () => {
+        expect(isServedByAlternativeMethod('AnotherState')).to.equal(false);
+      });
+
+      it('should return false if petitioner is represented', () => {
+        session.case.data.petitionerSolicitorEmail = 'solicitorEmail@mail.com';
+        expect(isServedByAlternativeMethod(session)).to.equal(false);
+      });
+
+      it('should return false if not served by alternative method', () => {
+        session.case.data.servedByAlternativeMethod = 'No';
+
+        expect(isServedByAlternativeMethod(session.case)).to.equal(false);
+      });
+
+      it('should return false if petitioner is represented by a solicitor', () => {
+        session.case.data.petitionerSolicitorEmail = 'petsolicitor@mail.com';
+
+        expect(isServedByAlternativeMethod(session.case)).to.equal(false);
+      });
+
+      it('should return false if AoS has been received from respondent', () => {
+        session.case.data.receivedAosFromResp = 'Yes';
+
+        expect(isServedByAlternativeMethod(session.case)).to.equal(false);
+      });
+    });
+  });
 });
