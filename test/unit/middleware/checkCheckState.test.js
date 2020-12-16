@@ -23,9 +23,12 @@ const validCaseStates = [
   'dnpronounced'
 ];
 
-const statesNotHandledOrInvalid = [
+const invalidCaseState = [
   'iAmNotValid',
-  'noreAmI',
+  'noreAmI'
+];
+
+const statesNotHandled = [
   'awaitinggeneralreferralpayment',
   'generalconsiderationcomplete'
 ];
@@ -47,21 +50,21 @@ describe(modulePath, () => {
     });
   });
 
-  describe('Contact Divorce team suite', () => {
+  describe('Contact Divorce team redirection test', () => {
     let next = null;
     let req = null;
     let res = null;
     const { contactDivorceTeam } = config.paths;
 
     beforeEach(() => {
-      req = { session: { case: { state: null } } };
       res = { redirect: sinon.stub() };
       next = sinon.stub();
     });
 
+    const statesNotHandledOrInvalid = [].concat(invalidCaseState, statesNotHandled);
     statesNotHandledOrInvalid.forEach(caseState => {
       it(`should redirect to contact us page if state is: ${caseState}`, () => {
-        req.session.case.state = caseState;
+        req = { session: { case: { state: caseState } } };
         checkCaseState(req, res, next);
 
         expect(next.calledOnce).to.eql(false);
@@ -71,7 +74,7 @@ describe(modulePath, () => {
     });
 
     it('should redirect when state is awaitingdecreeabsolute and NO decreeNisiGrantedDate', () => {
-      req.session.case.state = 'awaitingdecreeabsolute';
+      req = { session: { case: { state: 'awaitingdecreeabsolute' } } };
       checkCaseState(req, res, next);
 
       expect(next.calledOnce).to.eql(false);
