@@ -23,9 +23,11 @@ const validCaseStates = [
   'dnpronounced'
 ];
 
-const invalidCaseState = [
+const statesNotHandledOrInvalid = [
   'iAmNotValid',
-  'noreAmI'
+  'noreAmI',
+  'awaitinggeneralreferralpayment',
+  'generalconsiderationcomplete'
 ];
 
 describe(modulePath, () => {
@@ -45,27 +47,36 @@ describe(modulePath, () => {
     });
   });
 
-  describe('redirects to contact us page if state is invalid', () => {
-    invalidCaseState.forEach(invalidState => {
-      it(`case state: ${invalidState}`, () => {
-        const req = { session: { case: { state: invalidState } } };
-        const res = { redirect: sinon.stub() };
-        const next = sinon.stub();
+  describe('Contact Divorce team suite', () => {
+    let next = null;
+    let req = null;
+    let res = null;
+    const { contactDivorceTeam } = config.paths;
+
+    beforeEach(() => {
+      req = { session: { case: { state: null } } };
+      res = { redirect: sinon.stub() };
+      next = sinon.stub();
+    });
+
+    statesNotHandledOrInvalid.forEach(caseState => {
+      it(`should redirect to contact us page if state is: ${caseState}`, () => {
+        req.session.case.state = caseState;
         checkCaseState(req, res, next);
+
         expect(next.calledOnce).to.eql(false);
         expect(res.redirect.calledOnce).to.eql(true);
-        expect(res.redirect.calledWith(config.paths.contactDivorceTeam)).to.eql(true);
+        expect(res.redirect.calledWith(contactDivorceTeam)).to.eql(true);
       });
     });
 
-    it('state is awaitingdecreeabsolute and NO decreeNisiGrantedDate', () => {
-      const req = { session: { case: { state: 'awaitingdecreeabsolute' } } };
-      const res = { redirect: sinon.stub() };
-      const next = sinon.stub();
+    it('should redirect when state is awaitingdecreeabsolute and NO decreeNisiGrantedDate', () => {
+      req.session.case.state = 'awaitingdecreeabsolute';
       checkCaseState(req, res, next);
+
       expect(next.calledOnce).to.eql(false);
       expect(res.redirect.calledOnce).to.eql(true);
-      expect(res.redirect.calledWith(config.paths.contactDivorceTeam)).to.eql(true);
+      expect(res.redirect.calledWith(contactDivorceTeam)).to.eql(true);
     });
   });
 });
