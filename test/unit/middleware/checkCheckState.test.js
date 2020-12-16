@@ -30,7 +30,8 @@ const invalidCaseState = [
 
 const statesNotHandled = [
   'awaitinggeneralreferralpayment',
-  'generalconsiderationcomplete'
+  'generalconsiderationcomplete',
+  'awaitingdecreeabsolute'
 ];
 
 describe(modulePath, () => {
@@ -71,15 +72,6 @@ describe(modulePath, () => {
         expect(res.redirect.calledOnce).to.eql(true);
         expect(res.redirect.calledWith(contactDivorceTeam)).to.eql(true);
       });
-    });
-
-    it('should redirect when state is awaitingdecreeabsolute and NO decreeNisiGrantedDate', () => {
-      req = { session: { case: { state: 'awaitingdecreeabsolute' } } };
-      checkCaseState(req, res, next);
-
-      expect(next.calledOnce).to.eql(false);
-      expect(res.redirect.calledOnce).to.eql(true);
-      expect(res.redirect.calledWith(contactDivorceTeam)).to.eql(true);
     });
   });
 });
