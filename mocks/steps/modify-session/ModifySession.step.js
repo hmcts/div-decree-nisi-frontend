@@ -9,7 +9,6 @@ class ModifySession extends Question {
     if (req.method === 'POST') {
       this.updateSession(req);
     }
-
     this.renderPage();
   }
 
