@@ -105,97 +105,103 @@
 
   <h2 class="govuk-heading-m">{{ content.jurisdiction }}</h2>
 
-  {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-    <ul class="govuk-list govuk-list--bullet">
+  {% if case.NewLegalConnectionPolicy != "Yes" %}
+    {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+      <ul class="govuk-list govuk-list--bullet">
+    {% endif %}
+
+      {% if "A" in case.connections and case.connections.A != null %}
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionBothResident }}
+
+        {% if case.connections|length > 1  and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          </li>
+        {% endif %}
+      {% endif %}
+
+      {% if "B" in case.connections and case.connections.B != null %}
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionOneResides }}
+
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          </li>
+        {% endif %}
+      {% endif %}
+
+      {% if "C" in case.connections and case.connections.C != null %}
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionRespondent }}
+
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          </li>
+        {% endif %}
+      {% endif %}
+
+      {% if "D" in case.connections and case.connections.D != null %}
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionPetitioner }}
+
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          </li>
+        {% endif %}
+      {% endif %}
+
+      {% if "E" in case.connections and case.connections.E != null %}
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionPetitionerSixMonths }}
+
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          </li>
+        {% endif %}
+      {% endif %}
+
+      {% if "F" in case.connections and case.connections.F != null %}
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionBothDomiciled }}
+
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          </li>
+        {% endif %}
+      {% endif %}
+
+      {% if "G" in case.connections and case.connections.G != null %}
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          <li>
+        {% endif %}
+
+        {{ content.jurisdictionConnectionOther }}
+
+        {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+          </li>
+        {% endif %}
+      {% endif %}
+
+    {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
+      </ul>
+    {% endif %}
   {% endif %}
 
-    {% if "A" in case.connections and case.connections.A != null %}
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        <li>
-      {% endif %}
+<!-- Brexit Jurisdiction -->
 
-      {{ content.jurisdictionConnectionBothResident }}
 
-      {% if case.connections|length > 1  and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        </li>
-      {% endif %}
-    {% endif %}
-
-    {% if "B" in case.connections and case.connections.B != null %}
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionOneResides }}
-
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        </li>
-      {% endif %}
-    {% endif %}
-
-    {% if "C" in case.connections and case.connections.C != null %}
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionRespondent }}
-
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        </li>
-      {% endif %}
-    {% endif %}
-
-    {% if "D" in case.connections and case.connections.D != null %}
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionPetitioner }}
-
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        </li>
-      {% endif %}
-    {% endif %}
-
-    {% if "E" in case.connections and case.connections.E != null %}
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionPetitionerSixMonths }}
-
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        </li>
-      {% endif %}
-    {% endif %}
-
-    {% if "F" in case.connections and case.connections.F != null %}
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionBothDomiciled }}
-
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        </li>
-      {% endif %}
-    {% endif %}
-
-    {% if "G" in case.connections and case.connections.G != null %}
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        <li>
-      {% endif %}
-
-      {{ content.jurisdictionConnectionOther }}
-
-      {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-        </li>
-      {% endif %}
-    {% endif %}
-
-  {% if case.connections|length > 1 and case.connections != ["A", "C"] and case.connections != ["C", "A"] %}
-    </ul>
-  {% endif %}
 
   <br>
 
