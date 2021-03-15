@@ -23,6 +23,7 @@ const additionalStateCheck = (state, session) => {
 
 const validCaseStates = [
   'submitted',
+  'awaitingbailiffservice',
   'awaitinghwfdecision',
   'awaitingdocuments',
   'awaitingdecreenisi',
@@ -31,6 +32,7 @@ const validCaseStates = [
   'aosstarted',
   'aosawaiting',
   'issued',
+  'issuedtobailiff',
   'awaitinglegaladvisorreferral',
   'awaitingconsideration',
   'awaitingpronouncement',

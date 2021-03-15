@@ -14,6 +14,8 @@ const validCaseStates = [
   'aosstarted',
   'aosawaiting',
   'issued',
+  'issuedtobailiff',
+  'awaitingbailiffservice',
   'awaitinglegaladvisorreferral',
   'defendeddivorce',
   'aossubmittedawaitinganswer',

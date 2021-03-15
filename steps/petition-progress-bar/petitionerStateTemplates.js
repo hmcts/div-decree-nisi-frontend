@@ -66,6 +66,16 @@ const caseStateMap = caseData => {
     };
     map.push(newDnIsRefusedTemplate);
   }
+  // Temp value before feature toggle is added.
+  const isIssuedToBailiff = true;
+
+  if (isIssuedToBailiff) {
+    const newIssuedToBailiffTemplate = {
+      template: './sections/issuedToBailiff/PetitionProgressBar.issuedToBailiff.template.html',
+      state: ['issuedtobailiff', 'awaitingbailiffservice']
+    };
+    map.push(newIssuedToBailiffTemplate);
+  }
 
   return map;
 };
