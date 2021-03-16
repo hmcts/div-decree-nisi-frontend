@@ -1,5 +1,53 @@
 const config = require('config');
 const { parseBool } = require('@hmcts/one-per-page/util');
+const { isEmpty } = require('lodash');
+
+const removeStateMappingFor = (template, givenState) => {
+  return template.state
+    .filter(state => {
+      return state !== givenState;
+    });
+};
+
+const addStateMappingsForDnOutcomeCase = map => {
+  const awaitingClarificationEnabled = parseBool(config.features.awaitingClarification);
+  const dnIsRefusedEnabled = parseBool(config.features.dnIsRefused);
+
+  if (awaitingClarificationEnabled) {
+    // remove awaitingclarification state from awaitingSubmittedDN template
+    const awaitingSubmittedDNTemplate = map[2];
+    awaitingSubmittedDNTemplate.state = removeStateMappingFor(awaitingSubmittedDNTemplate, 'awaitingclarification');
+
+    // add new template for awaitingclarification state
+    const newAwaitingClarificationTemplate = {
+      template: './sections/awaitingClarification/PetitionProgressBar.awaitingClarification.template.html',
+      state: ['awaitingclarification']
+    };
+    map.push(newAwaitingClarificationTemplate);
+  }
+
+  if (dnIsRefusedEnabled) {
+    const newDnIsRefusedTemplate = {
+      template: './sections/dnIsRefused/PetitionProgressBar.dnIsRefused.template.html',
+      state: ['dnisrefused']
+    };
+    map.push(newDnIsRefusedTemplate);
+  }
+};
+
+const addStateMappingsForServedByBailiffNotSuccessful = map => {
+  const aosAwaitingTemplate = map[1];
+  aosAwaitingTemplate.state = removeStateMappingFor(aosAwaitingTemplate, 'aosawaiting');
+
+  const aosOverdueTemplate = map[5];
+  aosOverdueTemplate.state = removeStateMappingFor(aosOverdueTemplate, 'aosoverdue');
+
+  const newAosTemplate = {
+    template: './sections/bailiffServiceNotSuccessful/PetitionProgressBar.bailiffServiceNotSuccessful.template.html',
+    state: ['aosawaiting', 'aosoverdue']
+  };
+  map.push(newAosTemplate);
+};
 
 const caseStateMap = caseData => {
   const map = [
@@ -38,33 +86,15 @@ const caseStateMap = caseData => {
   ];
 
   const isDnOutcomeCase = parseBool(caseData.dnOutcomeCase);
-  const awaitingClarificationEnabled = parseBool(
-    config.features.awaitingClarification
-  );
-  const dnIsRefusedEnabled = parseBool(config.features.dnIsRefused);
+  const isServedByBailiffRequested = !isEmpty(caseData.successfulServedByBailiff);
+  const isServedByBailiffSuccessful = parseBool(caseData.successfulServedByBailiff);
 
-  if (isDnOutcomeCase && awaitingClarificationEnabled) {
-    // remove awaitingclarification state from awaitingSubmittedDN template
-    const awaitingSubmittedDNTemplate = map[2];
-    awaitingSubmittedDNTemplate.state = awaitingSubmittedDNTemplate.state
-      .filter(state => {
-        return state !== 'awaitingclarification';
-      });
-
-    // add new template for awaitingclarification state
-    const newAwaitingClarificationTemplate = {
-      template: './sections/awaitingClarification/PetitionProgressBar.awaitingClarification.template.html',
-      state: ['awaitingclarification']
-    };
-    map.push(newAwaitingClarificationTemplate);
+  if (isDnOutcomeCase) {
+    addStateMappingsForDnOutcomeCase(map);
   }
 
-  if (isDnOutcomeCase && dnIsRefusedEnabled) {
-    const newDnIsRefusedTemplate = {
-      template: './sections/dnIsRefused/PetitionProgressBar.dnIsRefused.template.html',
-      state: ['dnisrefused']
-    };
-    map.push(newDnIsRefusedTemplate);
+  if (isServedByBailiffRequested && !isServedByBailiffSuccessful) {
+    addStateMappingsForServedByBailiffNotSuccessful(map);
   }
 
   return map;

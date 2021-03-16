@@ -78,6 +78,8 @@ class ModifySession extends Question {
     const servedByProcessServer = text;
     const servedByAlternativeMethod = text;
     const receivedAosFromResp = text;
+    const successfulServedByBailiff = text;
+    const reasonFailureToServe = text;
 
     return form({
       divorceWho,
@@ -111,7 +113,9 @@ class ModifySession extends Question {
       serviceApplicationType,
       servedByProcessServer,
       servedByAlternativeMethod,
-      receivedAosFromResp
+      receivedAosFromResp,
+      successfulServedByBailiff,
+      reasonFailureToServe
     });
   }
 

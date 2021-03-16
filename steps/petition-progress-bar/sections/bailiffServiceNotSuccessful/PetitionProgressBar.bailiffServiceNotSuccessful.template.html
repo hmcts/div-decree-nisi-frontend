@@ -1,0 +1,35 @@
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
+
+{{
+  progressList({
+    one: {
+      label: content.youApply,
+      complete: true
+    },
+    two: {
+      label: content.husbandWifeMustRespond,
+      current: true
+    },
+    three: {
+      label: content.getDecreeNisi
+    },
+    four: {
+      label: content.madeFinal
+    }
+  })
+}}
+
+<h3 class="govuk-heading-s">{{ content.bailiffServiceNotSuccessfulStatusMsg }}</h3>
+
+<p class="govuk-body">{{ content.bailiffServiceNotSuccessful }}</p>
+
+
+<h3 class="govuk-heading-s">{{ content.bailiffServiceNotSuccessfulReason }}</h3>
+
+<div class="govuk-inset-text court-feedback">
+  {{ reasonFailureToServe }}
+</div>
+
+<p class="govuk-body">{{ content.bailiffServiceNotSuccessfulOtherOptions }}</p>
+
+{% include "includes/aos_delivery_alternatives.html" %}

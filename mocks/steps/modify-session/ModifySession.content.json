@@ -80,6 +80,16 @@
         "respCostsAmount": {
           "title": "How much do you agree to pay?"
         }
+      },
+      "serviceApplication": {
+        "successfulServedByBailiff": {
+          "title": "Did bailiff service successfully?",
+          "yes": "Yes",
+          "no": "No"
+        },
+        "reasonFailureToServe": {
+          "title": "Reason for failure to serve"
+        }
       }
     }
   },
@@ -160,6 +170,16 @@
         },
         "respCostsReason": {
           "title": "[CY] Provide a brief explanation of why you should not pay?"
+        }
+      },
+      "serviceApplication": {
+        "successfulServedByBailiff": {
+          "title": "[CY] Did bailiff service successfully?",
+          "yes": "[CY] Yes",
+          "no": "[CY] No"
+        },
+        "reasonFailureToServe": {
+          "title": "[CY] Reason for failure to serve"
         }
       }
     }
