@@ -123,7 +123,7 @@
     "jurisdictionConnectionRespondent": "The respondent is habitually resident in England and Wales",
     "jurisdictionConnectionPetitionerSixMonths": "The applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately prior to the application.",
     "jurisdictionConnectionOther": "The courts of England and Wales have residual jurisdiction, meaning either: no other court in any EU Member State has jurisdiction and either the applicant or respondent is domiciled in England and Wales; or (for same sex couples only) the applicant or respondent married each other in England and Wales, no other court in any EU Member State has jurisdiction, and it would be in the interests of justice for the court to assume jurisdiction in this case.",
-    "jurisdictionConnectionNewPolicyOther": "The courts of England and Wales have residual jurisdiction.",
+    "jurisdictionConnectionNewPolicyOther": "The courts of England and Wales have residual jurisdiction. (Same sex marriage)",
     "otherCourtCases": "Other court cases that could affect jurisdiction",
     "onGoingCasesNo": "There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.",
     "onGoingCasesYes": "The applicant has given the following court cases which are related to the marriage, property or children.",
