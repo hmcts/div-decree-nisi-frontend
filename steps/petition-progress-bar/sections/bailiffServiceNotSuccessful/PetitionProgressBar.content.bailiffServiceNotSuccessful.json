@@ -63,22 +63,7 @@
     "howToPayBailiffContent": "Call the service centre to make the £{{ enforcementFee }} payment by card (Monday - Friday 8am to 8pm, Saturday 8am to 2pm) or include a cheque with your form.",
     "getNewRefNumb": "If you’re eligible for help with fees you’ll need to apply again and <a class=\"govuk-link\" href=\"https://www.gov.uk/get-help-with-court-fees\" target=\"_blank\" aria-label=\"Get a new reference number link, This link will open in a new tab.\">get a new reference number</a>.",
     "extraCosts": "If you asked the court to order your {{ divorceWho }} to pay your costs, then these extra costs will also be taken into account.",
-    "printAndSend": "Send the form to the Courts and Tribunals Service Centre.",
-    "yourCourt": "Your divorce centre",
-    "help": "Getting help",
-    "email": "Email",
-    "phone": "Phone",
-    "phoneNumber": "0300 303 0642",
-    "divorceEmail": "divorcecase@justice.gov.uk",
-    "openTimes": "(Monday to Friday, 8am to 8pm, Saturday 8am to 2pm)",
-    "careOf": "c/o ",
-    "guidance": "Guidance on GOV.UK",
-    "howRespondsLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"Respond to a divorce application link, This link will open in a new tab.\">How your {{ divorceWho }} responds</a>",
-    "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Decree nisi link, This link will open in a new tab.\">Decree nisi</a>",
-    "decreeAbsoluteLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"Decree absolute link, This link will open in a new tab.\">Decree absolute</a>",
-    "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Children and divorce link, This link will open in a new tab.\">Children and divorce</a>",
-    "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Money and property link, This link will open in a new tab.\">Money and property</a>",
-    "solicitorLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"This link will open in a new tab.\">solicitor or legal adviser</a>"
+    "printAndSend": "Send the form to the Courts and Tribunals Service Centre."
   },
   "cy": {
     "bailiffServiceNotSuccessfulStatusMsg": "[CY] Bailiff service was not successful",
@@ -144,21 +129,6 @@
     "howToPayBailiffContent": "Ffoniwch y Gwasanaeth Llysoedd a Thribiwnlysoedd i dalu’r ffi o £{{ enforcementFee }} gyda cherdyn (rhwng 8.30am - 5pm) neu fel arall anfonwch siec gyda’ch ffurflen.",
     "getNewRefNumb": "Os ydych chi’n gymwys i gael help i dalu ffioedd llysoedd a thribiwnlysoedd, bydd angen ichi wneud cais arall a <a class=\"govuk-link\" href=\"https://www.gov.uk/help-i-dalu-ffioedd-llysoedd-a-thribiwnlysoedd\" target=\"_blank\" aria-label=\"Dolen i gael cyfeirnod newydd. Bydd y ddolen hon yn agor mewn tab newydd.\">chael cyfeirnod newydd</a>.",
     "extraCosts": " Os gofynnoch i’r llys orchymyn bod eich {{ divorceWho }} yn talu’ch costau, yna bydd y costau ychwanegol hyn hefyd yn cael eu hystyried.",
-    "printAndSend": "Anfonwch y ffurflen i’r Gwasanaeth Llysoedd a Thribiwnlysoedd.",
-    "yourCourt": "Eich canolfan ysgaru",
-    "help": "Cael cymorth",
-    "email": "E-bost",
-    "phone": "Ffôn",
-    "phoneNumber" : "0300 303 5171",
-    "divorceEmail": "ymholiadaucymraeg@justice.gov.uk",
-    "openTimes": "(Dydd Llun i ddydd Gwener, 8.30am – 5pm)",
-    "careOf": "dan ofal ",
-    "guidance": "Canllawiau ar GOV.UK",
-    "howRespondsLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/respond-to-a-divorce-petition\" target=\"_blank\" aria-label=\"Dolen i Ymateb i gais am ysgariad. Bydd y ddolen hon yn agor mewn tab newydd.\">Sut mae eich {{ divorceWho }} yn ymateb</a>",
-    "decreeNisiLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-decree-nisi\" target=\"_blank\" aria-label=\"Dolen i wneud cais am Ddyfarniad Nisi. Bydd y ddolen hon yn agor mewn tab newydd.\">Dyfarniad Nisi</a>",
-    "decreeAbsoluteLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/divorce/apply-for-a-decree-absolute\" target=\"_blank\" aria-label=\"Dolen i wneud cais am Ddyfarniad Absoliwt. Bydd y ddolen hon yn agor mewn tab newydd.\">Dyfarniad Absoliwt</a>",
-    "childrenAndDivorceLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/looking-after-children-divorce/overview\" target=\"_blank\" aria-label=\"Dolen i Plant ac ysgariad. Bydd y ddolen hon yn agor mewn tab newydd.\">Plant ac ysgariad</a>",
-    "moneyAndPropertyLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/money-property-when-relationship-ends\" target=\"_blank\" aria-label=\"Dolen i Arian ac eiddo. Bydd y ddolen hon yn agor mewn tab newydd.\">Arian ac eiddo</a>",
-    "solicitorLink": "<a class=\"govuk-link\" href=\"https://www.gov.uk/find-a-legal-adviser\" target=\"_blank\" aria-label=\"Bydd y ddolen hon yn agor mewn tab newydd.\">cyfreithiwr neu gynghorydd cyfreithiol</a>"
+    "printAndSend": "Anfonwch y ffurflen i’r Gwasanaeth Llysoedd a Thribiwnlysoedd."
   }
 }
