@@ -1,0 +1,23 @@
+<h1 class="heading-large">Service Application</h1>
+
+{% call formSection() %}
+  {{ selectionButtons(fields.successfulServedByBailiff, content.fields.serviceApplication.successfulServedByBailiff.title,
+    options = [
+      { label: content.fields.serviceApplication.successfulServedByBailiff.yes, value: "Yes" },
+      { label: content.fields.serviceApplication.successfulServedByBailiff.no, value: "No" , target: "successfulServedByBailiff-no-container" }
+    ],
+    hideQuestion = false,
+    inline = true
+  ) }}
+
+  <div class="js-hidden" id="successfulServedByBailiff-no-container">
+    <div class="form-group">
+      {{ content.fields.serviceApplication.reasonFailureToServe.title }}
+      <textarea class="form-control"
+                id="reasonFailureToServe"
+                name="reasonFailureToServe"
+                rows="4">{% if fields.reasonFailureToServe.value %}
+          {{ fields.reasonFailureToServe.value }}{% endif %}</textarea>
+    </div>
+  </div>
+{% endcall %}

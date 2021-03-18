@@ -59,7 +59,9 @@ const templates = {
   processServerService:
     './sections/processServerService/PetitionProgressBar.processServerService.template.html',
   servedByAlternativeMethod:
-    './sections/servedByAlternativeMethod/PetitionProgressBar.servedByAlternativeMethod.template.html'
+    './sections/servedByAlternativeMethod/PetitionProgressBar.servedByAlternativeMethod.template.html',
+  bailiffServiceNotSuccessful:
+    './sections/bailiffServiceNotSuccessful/PetitionProgressBar.bailiffServiceNotSuccessful.template.html'
 };
 
 // get all content for all pages
@@ -650,6 +652,47 @@ describe(modulePath, () => {
     });
   });
 
+  describe('CCD state: AOSAwaiting', () => {
+    const session = {
+      case: {
+        state: 'AosAwaiting',
+        data: {}
+      }
+    };
+
+    it('renders the correct content', () => {
+      const specificContent = Object.keys(pageContent.issued);
+      const specificContentToNotExist = contentToNotExist('issued');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.issued);
+    });
+
+    it('renders the correct content for successfulServedByBailiff is No', () => {
+      session.case.data = { successfulServedByBailiff: 'no' };
+      const specificContent = Object.keys(pageContent.bailiffServiceNotSuccessful);
+      const specificContentToNotExist = contentToNotExist('bailiffServiceNotSuccessful');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template for successfulServedByBailiff is No', () => {
+      session.case.data = { successfulServedByBailiff: 'no' };
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.bailiffServiceNotSuccessful);
+    });
+
+    it('renders the correct template for successfulServedByBailiff is empty', () => {
+      session.case.data = { successfulServedByBailiff: '' };
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.issued);
+    });
+  });
+
   describe('CCD state: AOSOverdue', () => {
     const session = {
       case: {
@@ -666,6 +709,26 @@ describe(modulePath, () => {
     });
 
     it('renders the correct template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.respondentNotReplied);
+    });
+
+    it('renders the correct content for successfulServedByBailiff is No', () => {
+      session.case.data = { successfulServedByBailiff: 'no' };
+      const specificContent = Object.keys(pageContent.bailiffServiceNotSuccessful);
+      const specificContentToNotExist = contentToNotExist('bailiffServiceNotSuccessful');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the correct template for successfulServedByBailiff is No', () => {
+      session.case.data = { successfulServedByBailiff: 'no' };
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.bailiffServiceNotSuccessful);
+    });
+
+    it('renders the correct template for successfulServedByBailiff is empty', () => {
+      session.case.data = { successfulServedByBailiff: '' };
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.respondentNotReplied);
     });

@@ -187,6 +187,10 @@ class PetitionProgressBar extends Interstitial {
     return serviceApplicationTemplate;
   }
 
+  get reasonFailureToServe() {
+    return this.case.reasonFailureToServe;
+  }
+
   get stateTemplate() {
     if (isAwaitingDecreeNisi(this.caseState)) {
       return permitDNReasonMap.get(this.dnReason);
