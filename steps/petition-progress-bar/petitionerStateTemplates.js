@@ -49,6 +49,20 @@ const addStateMappingsForServedByBailiffNotSuccessful = map => {
   map.push(newAosTemplate);
 };
 
+const addStateMappingsForServedByBailiffSuccessful = map => {
+  const aosAwaitingTemplate = map[1];
+  aosAwaitingTemplate.state = removeStateMappingFor(aosAwaitingTemplate, 'aosawaiting');
+
+  const aosOverdueTemplate = map[5];
+  aosOverdueTemplate.state = removeStateMappingFor(aosOverdueTemplate, 'aosoverdue');
+
+  const newAosTemplate = {
+    template: './sections/bailiffServiceSuccessful/PetitionProgressBar.bailiffServiceSuccessful.template.html',
+    state: ['aosawaiting', 'aosoverdue']
+  };
+  map.push(newAosTemplate);
+};
+
 const caseStateMap = caseData => {
   const map = [
     {
@@ -93,8 +107,12 @@ const caseStateMap = caseData => {
     addStateMappingsForDnOutcomeCase(map);
   }
 
-  if (isServedByBailiffRequested && !isServedByBailiffSuccessful) {
-    addStateMappingsForServedByBailiffNotSuccessful(map);
+  if (isServedByBailiffRequested) {
+    if (isServedByBailiffSuccessful) {
+      addStateMappingsForServedByBailiffSuccessful(map);
+    } else {
+      addStateMappingsForServedByBailiffNotSuccessful(map);
+    }
   }
 
   return map;
