@@ -22,26 +22,26 @@ const additionalStateCheck = (state, session) => {
 };
 
 const validCaseStates = [
-  'submitted',
-  'awaitinghwfdecision',
-  'awaitingdocuments',
+  'aosawaiting',
+  'aoscompleted',
+  'aosoverdue',
+  'aosstarted',
+  'aossubmittedawaitinganswer',
+  'awaitingclarification',
+  'awaitingconsideration',
+  'awaitingdecreeabsolute',
   'awaitingdecreenisi',
+  'awaitingdocuments',
+  'awaitinghwfdecision',
+  'awaitinglegaladvisorreferral',
+  'awaitingpronouncement',
+  'defendeddivorce',
+  'dnisrefused',
+  'dnpronounced',
+  'issued',
   'pendingrejection',
   'petitioncompleted',
-  'aosstarted',
-  'aosawaiting',
-  'issued',
-  'awaitinglegaladvisorreferral',
-  'awaitingconsideration',
-  'awaitingpronouncement',
-  'awaitingclarification',
-  'defendeddivorce',
-  'aossubmittedawaitinganswer',
-  'aosoverdue',
-  'aoscompleted',
-  'awaitingdecreeabsolute',
-  'dnpronounced',
-  'dnisrefused'
+  'submitted'
 ];
 
 const caseStateIsValid = currentState => {
