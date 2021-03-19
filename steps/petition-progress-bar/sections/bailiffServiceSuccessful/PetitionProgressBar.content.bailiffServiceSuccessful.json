@@ -1,0 +1,14 @@
+{
+  "en": {
+    "bailiffServiceSuccessfulStatusMsg": "Successful service by court bailiff",
+    "bailiffServiceSuccessful": "A court bailiff successfully served the petition to your {{ divorceWho }} using the details provided in your request for court bailiff application.",
+    "sevenDaysToRespond": "Your {{ divorceWho }} has been given 7 days to respond.",
+    "noResponseReceived": "If no response is received, then you will still be able to continue to the next stage and apply for a decree nisi."
+  },
+  "cy": {
+    "bailiffServiceSuccessfulStatusMsg": "[CY] Successful service by court bailiff",
+    "bailiffServiceSuccessful": "[CY] A court bailiff successfully served the petition to your {{ divorceWho }} using the details provided in your request for court bailiff application.",
+    "sevenDaysToRespond": "[CY] Your {{ divorceWho }} has been given 7 days to respond.",
+    "noResponseReceived": "[CY] If no response is received, then you will still be able to continue to the next stage and apply for a decree nisi."
+  }
+}
