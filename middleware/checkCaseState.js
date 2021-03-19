@@ -27,6 +27,7 @@ const validCaseStates = [
   'aosoverdue',
   'aosstarted',
   'aossubmittedawaitinganswer',
+  'awaitingbailiffservice',
   'awaitingclarification',
   'awaitingconsideration',
   'awaitingdecreeabsolute',
@@ -39,6 +40,7 @@ const validCaseStates = [
   'dnisrefused',
   'dnpronounced',
   'issued',
+  'issuedtobailiff',
   'pendingrejection',
   'petitioncompleted',
   'submitted'
