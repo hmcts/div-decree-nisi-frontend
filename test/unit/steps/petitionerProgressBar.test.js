@@ -736,15 +736,6 @@ describe(modulePath, () => {
 
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
-
-    it('renders the correct content for successfulServedByBailiff is Yes', () => {
-      session.case.data = { successfulServedByBailiff: 'yes' };
-      const specificContent = Object.keys(pageContent.bailiffServiceSuccessful);
-      const specificContentToNotExist = contentToNotExist('bailiffServiceSuccessful');
-
-      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
-    });
-
     it('renders the correct template for successfulServedByBailiff is No', () => {
       session.case.data = { successfulServedByBailiff: 'no' };
       const instance = stepAsInstance(PetitionProgressBar, session);
@@ -755,12 +746,6 @@ describe(modulePath, () => {
       session.case.data = { successfulServedByBailiff: '' };
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.respondentNotReplied);
-    });
-
-    it('renders the correct template for successfulServedByBailiff is Yes', () => {
-      session.case.data = { successfulServedByBailiff: 'yes' };
-      const instance = stepAsInstance(PetitionProgressBar, session);
-      expect(instance.stateTemplate).to.eql(templates.bailiffServiceSuccessful);
     });
   });
 

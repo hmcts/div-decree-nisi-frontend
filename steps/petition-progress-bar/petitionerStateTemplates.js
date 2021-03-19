@@ -53,12 +53,9 @@ const addStateMappingsForServedByBailiffSuccessful = map => {
   const aosAwaitingTemplate = map[1];
   aosAwaitingTemplate.state = removeStateMappingFor(aosAwaitingTemplate, 'aosawaiting');
 
-  const aosOverdueTemplate = map[5];
-  aosOverdueTemplate.state = removeStateMappingFor(aosOverdueTemplate, 'aosoverdue');
-
   const newAosTemplate = {
     template: './sections/bailiffServiceSuccessful/PetitionProgressBar.bailiffServiceSuccessful.template.html',
-    state: ['aosawaiting', 'aosoverdue']
+    state: ['aosawaiting']
   };
   map.push(newAosTemplate);
 };
