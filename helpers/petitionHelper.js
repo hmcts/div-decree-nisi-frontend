@@ -45,7 +45,7 @@ const isServedByProcessServer = caseData => {
   return isEqual(toLower(servedByProcessServer), constants.yes);
 };
 
-const isReceivedAosFromRespondent = caseData => {
+const hasReceivedAosFromRespondent = caseData => {
   const receivedAosFromResp = getValue(caseData, 'receivedAosFromResp');
   return isEqual(toLower(receivedAosFromResp), constants.yes);
 };
@@ -54,7 +54,7 @@ const isProcessServerService = caseData => {
   if (isPetitionerRepresented(caseData)) {
     return false;
   }
-  return isServedByProcessServer(caseData) && !isReceivedAosFromRespondent(caseData);
+  return isServedByProcessServer(caseData) && !hasReceivedAosFromRespondent(caseData);
 };
 
 const hasBeenServedByAlternativeMethod = caseData => {
@@ -66,16 +66,20 @@ const isServedByAlternativeMethod = caseData => {
   if (isPetitionerRepresented(caseData)) {
     return false;
   }
-  return hasBeenServedByAlternativeMethod(caseData) && !isReceivedAosFromRespondent(caseData);
+  return hasBeenServedByAlternativeMethod(caseData) && !hasReceivedAosFromRespondent(caseData);
+};
+
+const hasBeenServedByBailiff = caseData => {
+  const successfulServedByBailiff = getValue(caseData, 'successfulServedByBailiff');
+  return isEqual(toLower(successfulServedByBailiff), constants.yes);
+};
+
+const isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived = caseData => {
+  return hasBeenServedByBailiff(caseData) && !hasReceivedAosFromRespondent(caseData);
 };
 
 const isDeemedServiceApplicationGranted = caseData => {
   return isEqual(toLower(caseData.serviceApplicationGranted), constants.yes) && isEqual(toLower(caseData.serviceApplicationType), constants.deemed);
-};
-
-const isSuccessfulServedByBailiff = caseData => {
-  const successfulServedByBailiff = getValue(caseData, 'SuccessfulServedByBailiff');
-  return isEqual(toLower(successfulServedByBailiff), constants.yes);
 };
 
 const isDispensedServiceApplicationGranted = caseData => {
@@ -90,18 +94,23 @@ const getServedByAlternativeMethodReason = () => {
   return dnAwaitingTemplate.servedByAlternativeMethod;
 };
 
+const getServedByBailiffSuccessfulReason = () => {
+  return dnAwaitingTemplate.servedByBailiffSuccessful;
+};
+
 module.exports = {
   constants,
   isAwaitingDecreeNisi,
   isAwaitingPronouncementWithHearingDate,
   isProcessServerService,
   isServedByProcessServer,
-  isReceivedAosFromRespondent,
+  hasReceivedAosFromRespondent,
   isPetitionerRepresented,
   isDeemedServiceApplicationGranted,
-  isSuccessfulServedByBailiff,
   isDispensedServiceApplicationGranted,
   getProcessServerReason,
   getServedByAlternativeMethodReason,
+  getServedByBailiffSuccessfulReason,
+  isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived,
   isServedByAlternativeMethod
 };

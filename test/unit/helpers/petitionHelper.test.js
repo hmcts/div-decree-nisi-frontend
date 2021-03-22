@@ -8,11 +8,11 @@ const {
   isAwaitingPronouncementWithHearingDate,
   isProcessServerService,
   isServedByProcessServer,
-  isReceivedAosFromRespondent,
+  hasReceivedAosFromRespondent,
   isPetitionerRepresented,
   getProcessServerReason,
   isDeemedServiceApplicationGranted,
-  isSuccessfulServedByBailiff,
+  isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived,
   isDispensedServiceApplicationGranted,
   isServedByAlternativeMethod
 } = require('helpers/petitionHelper');
@@ -36,19 +36,19 @@ describe(modulePath, () => {
     });
 
     it('should return false if AOS has not been received', () => {
-      expect(isReceivedAosFromRespondent(session.case.data)).to.equal(false);
+      expect(hasReceivedAosFromRespondent(session.case.data)).to.equal(false);
     });
 
     it('should return true if AOS has been received', () => {
       session.case.data.receivedAosFromResp = 'Yes';
 
-      expect(isReceivedAosFromRespondent(session.case.data)).to.equal(true);
+      expect(hasReceivedAosFromRespondent(session.case.data)).to.equal(true);
     });
 
     it('should return false if AOS received does not exist', () => {
       delete session.case.data.receivedAosFromResp;
 
-      expect(isReceivedAosFromRespondent(session.case.data)).to.equal(false);
+      expect(hasReceivedAosFromRespondent(session.case.data)).to.equal(false);
     });
 
     it('should return true if process server has been served', () => {
@@ -155,7 +155,7 @@ describe(modulePath, () => {
     });
 
     it('should return false if AOS has not been received', () => {
-      expect(isReceivedAosFromRespondent(session.case.data)).to.equal(false);
+      expect(hasReceivedAosFromRespondent(session.case.data)).to.equal(false);
     });
 
     it('should return true when served by alt method and AOS not received', () => {
@@ -188,15 +188,31 @@ describe(modulePath, () => {
           state: 'AwaitingDecreeNisi',
           data: {
             SuccessfulServedByBailiff: 'Yes',
-            petitionerSolicitorEmail: null,
-            receivedAosFromResp: 'No'
+            receivedAosFromResp: 'No',
+            permittedDecreeNisiReason: '9'
           }
         }
       };
     });
 
     it('should return true when served by bailiff successfully, is a petitioner case and no AOS Response', () => {
-      expect(isSuccessfulServedByBailiff(session.case.data)).to.equal(true);
+      expect(isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived(session.case.data)).to.equal(true);
+    });
+
+    it('should return false when not served by bailiff successfully, is a petitioner case and no AOS Response', () => {
+      session.case.data.SuccessfulServedByBailiff = 'No';
+      expect(isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived(session.case.data)).to.equal(false);
+    });
+
+    it('should return false when SuccessfulServedByBailiff is null', () => {
+      session.case.data.SuccessfulServedByBailiff = null;
+      expect(isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived(session.case.data)).to.equal(false);
+    });
+
+    it('should return false when served by bailiff successfully, is a petitioner case and AOS Response has been responded to', () => {
+      session.case.data.receivedAosFromResp = 'Yes';
+
+      expect(isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived(session.case.data)).to.equal(false);
     });
   });
 });
