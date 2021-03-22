@@ -16,7 +16,9 @@ const {
   isAwaitingPronouncementWithHearingDate,
   getProcessServerReason,
   getServedByAlternativeMethodReason,
-  isServedByAlternativeMethod
+  isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived,
+  isServedByAlternativeMethod,
+  getServedByBailiffSuccessfulReason
 } = require('helpers/petitionHelper');
 const i18next = require('i18next');
 const commonContent = require('common/content');
@@ -166,6 +168,10 @@ class PetitionProgressBar extends Interstitial {
 
     if (isServedByAlternativeMethod(this.case)) {
       return getServedByAlternativeMethodReason();
+    }
+
+    if (isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived(this.case)) {
+      return getServedByBailiffSuccessfulReason();
     }
 
     return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;

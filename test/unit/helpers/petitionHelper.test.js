@@ -187,7 +187,7 @@ describe(modulePath, () => {
         case: {
           state: 'AwaitingDecreeNisi',
           data: {
-            SuccessfulServedByBailiff: 'Yes',
+            successfulServedByBailiff: 'Yes',
             receivedAosFromResp: 'No',
             permittedDecreeNisiReason: '9'
           }
