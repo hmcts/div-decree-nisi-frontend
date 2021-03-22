@@ -73,6 +73,11 @@ const isDeemedServiceApplicationGranted = caseData => {
   return isEqual(toLower(caseData.serviceApplicationGranted), constants.yes) && isEqual(toLower(caseData.serviceApplicationType), constants.deemed);
 };
 
+const isSuccessfulServedByBailiff = caseData => {
+  const successfulServedByBailiff = getValue(caseData, 'SuccessfulServedByBailiff');
+  return isEqual(toLower(successfulServedByBailiff), constants.yes);
+};
+
 const isDispensedServiceApplicationGranted = caseData => {
   return isEqual(toLower(caseData.serviceApplicationGranted), constants.yes) && isEqual(toLower(caseData.serviceApplicationType), constants.dispensed);
 };
@@ -94,6 +99,7 @@ module.exports = {
   isReceivedAosFromRespondent,
   isPetitionerRepresented,
   isDeemedServiceApplicationGranted,
+  isSuccessfulServedByBailiff,
   isDispensedServiceApplicationGranted,
   getProcessServerReason,
   getServedByAlternativeMethodReason,

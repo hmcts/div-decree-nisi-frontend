@@ -12,6 +12,7 @@ const {
   isPetitionerRepresented,
   getProcessServerReason,
   isDeemedServiceApplicationGranted,
+  isSuccessfulServedByBailiff,
   isDispensedServiceApplicationGranted,
   isServedByAlternativeMethod
 } = require('helpers/petitionHelper');
@@ -177,6 +178,25 @@ describe(modulePath, () => {
       session.case.data.servedByAlternativeMethod = 'No';
 
       expect(isServedByAlternativeMethod(session.case.data)).to.equal(false);
+    });
+  });
+
+  describe('Suite: Served by Bailiff Journey', () => {
+    beforeEach(() => {
+      session = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            SuccessfulServedByBailiff: 'Yes',
+            petitionerSolicitorEmail: null,
+            receivedAosFromResp: 'No'
+          }
+        }
+      };
+    });
+
+    it('should return true when served by bailiff successfully, is a petitioner case and no AOS Response', () => {
+      expect(isSuccessfulServedByBailiff(session.case.data)).to.equal(true);
     });
   });
 });
