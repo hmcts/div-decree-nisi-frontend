@@ -171,6 +171,8 @@ ccd:
   d8States:
     - 'AwaitingPayment'
     - 'AmendPetition'
+    - 'IssuedToBailiff'
+    - 'AwaitingBailiffService'
   courts:
     - 'serviceCentre'
   validDaStates:
