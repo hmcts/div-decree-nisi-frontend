@@ -20,11 +20,11 @@
   })
 }}
 
-<h2 class="govuk-heading-m">{{ content.title }}</h2>
+<h2 class="govuk-heading-m">{{ content.bailiffServiceSuccessfulContinueHeader }}</h2>
 
-<p class="govuk-body">{{ content.servedByBailiffButResponse }}</p>
+<p class="govuk-body">{{ content.bailiffServiceSuccessfulContinueNoResponse }}</p>
 
-<p class="govuk-body">{{ content.continueToDecreeNisi }}</p>
+<p class="govuk-body">{{ content.bailiffServiceSuccessfulContinueToDecreeNisi }}</p>
 
 <form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
   <input role="button" draggable="false" class="govuk-button govuk-button--start" type="submit" value="{{ content.continue }}">

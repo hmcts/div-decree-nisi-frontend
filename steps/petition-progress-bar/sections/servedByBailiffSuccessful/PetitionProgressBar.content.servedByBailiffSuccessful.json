@@ -1,12 +1,12 @@
 {
   "en": {
-    "title": "You can continue with your divorce",
-    "servedByBailiffButResponse": "Your {{ divorceWho }} was served by a court bailiff. However, they have not yet responded.",
-    "continueToDecreeNisi": "Because it is more than 7 days since confirmation of service, you are now able to continue to the next stage and apply for a decree nisi."
+    "bailiffServiceSuccessfulContinueHeader": "You can continue with your divorce",
+    "bailiffServiceSuccessfulContinueNoResponse": "Your {{ divorceWho }} was served by a court bailiff. However, they have not yet responded.",
+    "bailiffServiceSuccessfulContinueToDecreeNisi": "Because it is more than 7 days since confirmation of service, you are now able to continue to the next stage and apply for a decree nisi."
   },
   "cy": {
-    "title": "[cy] You can continue with your divorce",
-    "servedByBailiffButResponse": "[cy] Your {{ divorceWho }} was served by a court bailiff. However, they have not yet responded.",
-    "continueToDecreeNisi": "[cy] Because it is more than 7 days since confirmation of service, you are now able to continue to the next stage and apply for a decree nisi."
+    "bailiffServiceSuccessfulContinueHeader": "[cy] You can continue with your divorce",
+    "bailiffServiceSuccessfulContinueNoResponse": "[cy] Your {{ divorceWho }} was served by a court bailiff. However, they have not yet responded.",
+    "bailiffServiceSuccessfulContinueToDecreeNisi": "[cy] Because it is more than 7 days since confirmation of service, you are now able to continue to the next stage and apply for a decree nisi."
   }
 }
