@@ -195,21 +195,22 @@ describe(modulePath, () => {
       };
     });
 
-    it('should return true when served by bailiff successfully, is a petitioner case and no AOS Response', () => {
+    it('should return true when served by bailiff successfully and no AOS Response', () => {
       expect(isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived(session.case.data)).to.equal(true);
     });
 
-    it('should return false when not served by bailiff successfully, is a petitioner case and no AOS Response', () => {
-      session.case.data.SuccessfulServedByBailiff = 'No';
+    it('should return false when not served by bailiff successfully and no AOS Response', () => {
+      session.case.data.successfulServedByBailiff = 'No';
       expect(isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived(session.case.data)).to.equal(false);
     });
 
-    it('should return false when SuccessfulServedByBailiff is null', () => {
-      session.case.data.SuccessfulServedByBailiff = null;
-      expect(isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived(session.case.data)).to.equal(false);
+    it('should return false if SuccessfulServedByBailiff does not exist', () => {
+      delete session.case.data.successfulServedByBailiff;
+
+      expect(hasReceivedAosFromRespondent(session.case.data)).to.equal(false);
     });
 
-    it('should return false when served by bailiff successfully, is a petitioner case and AOS Response has been responded to', () => {
+    it('should return false when served by bailiff successfully and AOS Response has been responded to', () => {
       session.case.data.receivedAosFromResp = 'Yes';
 
       expect(isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived(session.case.data)).to.equal(false);

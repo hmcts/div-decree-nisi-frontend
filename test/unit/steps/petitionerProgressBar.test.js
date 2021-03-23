@@ -63,7 +63,9 @@ const templates = {
   bailiffServiceNotSuccessful:
     './sections/bailiffServiceNotSuccessful/PetitionProgressBar.bailiffServiceNotSuccessful.template.html',
   bailiffServiceSuccessful:
-    './sections/bailiffServiceSuccessful/PetitionProgressBar.bailiffServiceSuccessful.template.html'
+    './sections/bailiffServiceSuccessful/PetitionProgressBar.bailiffServiceSuccessful.template.html',
+  servedByBailiffSuccessful:
+    './sections/servedByBailiffSuccessful/PetitionProgressBar.servedByBailiffSuccessful.template.html'
 };
 
 // get all content for all pages
@@ -488,8 +490,7 @@ describe(modulePath, () => {
       case: {
         state: 'AwaitingDecreeNisi',
         data: {
-          SuccessfulServedByBailiff: 'Yes',
-          petitionerSolicitorEmail: null,
+          successfulServedByBailiff: 'Yes',
           receivedAosFromResp: 'No',
           permittedDecreeNisiReason: '9'
         }
@@ -497,15 +498,15 @@ describe(modulePath, () => {
     };
 
     it('renders the correct content', () => {
-      const specificContent = Object.keys(pageContent.dispensedApproved);
-      const specificContentToNotExist = contentToNotExist('dispensedApproved');
+      const specificContent = Object.keys(pageContent.servedByBailiffSuccessful);
+      const specificContentToNotExist = contentToNotExist('servedByBailiffSuccessful');
 
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
-      expect(instance.stateTemplate).to.eql(templates.dispensedApproved);
+      expect(instance.stateTemplate).to.eql(templates.servedByBailiffSuccessful);
     });
   });
 
