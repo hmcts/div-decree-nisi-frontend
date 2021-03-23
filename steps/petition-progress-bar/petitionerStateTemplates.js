@@ -132,7 +132,7 @@ const permitDNReasonMap = new Map([
   ['6', './sections/dispensedApproved/PetitionProgressBar.dispensedApproved.template.html'],
   ['7', './sections/processServerService/PetitionProgressBar.processServerService.template.html'],
   ['8', './sections/servedByAlternativeMethod/PetitionProgressBar.servedByAlternativeMethod.template.html'],
-  ['9', './sections/servedByBailiffSuccessful/PetitionProgressBar.servedByBailiffSuccessful.template.html']
+  ['9', './sections/bailiffServiceSuccessfulContinue/PetitionProgressBar.bailiffServiceSuccessfulContinue.template.html']
 ]);
 
 const dnAwaitingTemplate = {
@@ -140,7 +140,7 @@ const dnAwaitingTemplate = {
   dispensed: '6',
   servedByProcessServer: '7',
   servedByAlternativeMethod: '8',
-  servedByBailiffSuccessful: '9'
+  bailiffServiceSuccessfulContinue: '9'
 };
 
 module.exports = {

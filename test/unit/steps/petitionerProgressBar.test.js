@@ -64,8 +64,8 @@ const templates = {
     './sections/bailiffServiceNotSuccessful/PetitionProgressBar.bailiffServiceNotSuccessful.template.html',
   bailiffServiceSuccessful:
     './sections/bailiffServiceSuccessful/PetitionProgressBar.bailiffServiceSuccessful.template.html',
-  servedByBailiffSuccessful:
-    './sections/servedByBailiffSuccessful/PetitionProgressBar.servedByBailiffSuccessful.template.html'
+  bailiffServiceSuccessfulContinue:
+    './sections/bailiffServiceSuccessfulContinue/PetitionProgressBar.bailiffServiceSuccessfulContinue.template.html'
 };
 
 // get all content for all pages
@@ -498,15 +498,15 @@ describe(modulePath, () => {
     };
 
     it('renders the correct content', () => {
-      const specificContent = Object.keys(pageContent.servedByBailiffSuccessful);
-      const specificContentToNotExist = contentToNotExist('servedByBailiffSuccessful');
+      const specificContent = Object.keys(pageContent.bailiffServiceSuccessfulContinue);
+      const specificContentToNotExist = contentToNotExist('bailiffServiceSuccessfulContinue');
 
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
-      expect(instance.stateTemplate).to.eql(templates.servedByBailiffSuccessful);
+      expect(instance.stateTemplate).to.eql(templates.bailiffServiceSuccessfulContinue);
     });
   });
 

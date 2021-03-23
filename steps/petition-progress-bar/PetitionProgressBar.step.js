@@ -18,7 +18,7 @@ const {
   getServedByAlternativeMethodReason,
   isServedByBailiffSuccessfulAndAosNotReceived,
   isServedByAlternativeMethod,
-  getServedByBailiffSuccessfulReason
+  getServedByBailiffSuccessfulContinueReason
 } = require('helpers/petitionHelper');
 const i18next = require('i18next');
 const commonContent = require('common/content');
@@ -171,7 +171,7 @@ class PetitionProgressBar extends Interstitial {
     }
 
     if (isServedByBailiffSuccessfulAndAosNotReceived(this.case)) {
-      return getServedByBailiffSuccessfulReason();
+      return getServedByBailiffSuccessfulContinueReason();
     }
 
     return this.case.permittedDecreeNisiReason ? this.case.permittedDecreeNisiReason : constants.undefendedReason;

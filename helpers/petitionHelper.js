@@ -94,8 +94,8 @@ const getServedByAlternativeMethodReason = () => {
   return dnAwaitingTemplate.servedByAlternativeMethod;
 };
 
-const getServedByBailiffSuccessfulReason = () => {
-  return dnAwaitingTemplate.servedByBailiffSuccessful;
+const getServedByBailiffSuccessfulContinueReason = () => {
+  return dnAwaitingTemplate.bailiffServiceSuccessfulContinue;
 };
 
 module.exports = {
@@ -110,7 +110,7 @@ module.exports = {
   isDispensedServiceApplicationGranted,
   getProcessServerReason,
   getServedByAlternativeMethodReason,
-  getServedByBailiffSuccessfulReason,
+  getServedByBailiffSuccessfulContinueReason,
   isServedByBailiffSuccessfulAndAosNotReceived,
   isServedByAlternativeMethod
 };
