@@ -74,7 +74,7 @@ const hasBeenServedByBailiff = caseData => {
   return isEqual(toLower(successfulServedByBailiff), constants.yes);
 };
 
-const isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived = caseData => {
+const isServedByBailiffSuccessfulAndAosNotReceived = caseData => {
   return hasBeenServedByBailiff(caseData) && !hasReceivedAosFromRespondent(caseData);
 };
 
@@ -111,6 +111,6 @@ module.exports = {
   getProcessServerReason,
   getServedByAlternativeMethodReason,
   getServedByBailiffSuccessfulReason,
-  isServedByBailiffSuccessfulNotRepresentedAndAosNotReceived,
+  isServedByBailiffSuccessfulAndAosNotReceived,
   isServedByAlternativeMethod
 };
