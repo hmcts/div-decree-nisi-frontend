@@ -182,38 +182,40 @@ describe(modulePath, () => {
   });
 
   describe('Suite: Served by Bailiff Journey', () => {
-    beforeEach(() => {
-      session = {
-        case: {
-          state: 'AwaitingDecreeNisi',
-          data: {
-            successfulServedByBailiff: 'Yes',
-            receivedAosFromResp: 'No',
-            permittedDecreeNisiReason: '9'
+    describe('Testing DNReason: isServedByBailiffSuccessfulAndAosNotReceived', () => {
+      beforeEach(() => {
+        session = {
+          case: {
+            state: 'AwaitingDecreeNisi',
+            data: {
+              successfulServedByBailiff: 'Yes',
+              receivedAosFromResp: 'No',
+              permittedDecreeNisiReason: '9'
+            }
           }
-        }
-      };
-    });
+        };
+      });
 
-    it('should return true when served by bailiff successfully and no AOS Response', () => {
-      expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(true);
-    });
+      it('should return true when served by bailiff successfully and no AOS Response', () => {
+        expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(true);
+      });
 
-    it('should return false when not served by bailiff successfully and no AOS Response', () => {
-      session.case.data.successfulServedByBailiff = 'No';
-      expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(false);
-    });
+      it('should return false when not served by bailiff successfully and no AOS Response', () => {
+        session.case.data.successfulServedByBailiff = 'No';
+        expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(false);
+      });
 
-    it('should return false if SuccessfulServedByBailiff does not exist', () => {
-      delete session.case.data.successfulServedByBailiff;
+      it('should return false if SuccessfulServedByBailiff does not exist', () => {
+        delete session.case.data.successfulServedByBailiff;
 
-      expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(false);
-    });
+        expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(false);
+      });
 
-    it('should return false when served by bailiff successfully and AOS Response has been responded to', () => {
-      session.case.data.receivedAosFromResp = 'Yes';
+      it('should return false when served by bailiff successfully and AOS Response has been responded to', () => {
+        session.case.data.receivedAosFromResp = 'Yes';
 
-      expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(false);
+        expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(false);
+      });
     });
   });
 });
