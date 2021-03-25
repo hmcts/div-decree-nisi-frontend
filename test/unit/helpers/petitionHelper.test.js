@@ -12,9 +12,9 @@ const {
   isPetitionerRepresented,
   getProcessServerReason,
   isDeemedServiceApplicationGranted,
-  isServedByBailiffSuccessfulAndAosNotReceived,
   isDispensedServiceApplicationGranted,
-  isServedByAlternativeMethod
+  isServedByAlternativeMethod,
+  isServedByBailiffSuccessful
 } = require('helpers/petitionHelper');
 
 describe(modulePath, () => {
@@ -182,7 +182,7 @@ describe(modulePath, () => {
   });
 
   describe('Suite: Served by Bailiff Journey', () => {
-    describe('Testing DNReason: isServedByBailiffSuccessfulAndAosNotReceived', () => {
+    describe('Testing DNReason: getServedByBailiffSuccessfulContinueReason', () => {
       beforeEach(() => {
         session = {
           case: {
@@ -197,24 +197,24 @@ describe(modulePath, () => {
       });
 
       it('should return true when served by bailiff successfully and no AOS Response', () => {
-        expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(true);
+        expect(isServedByBailiffSuccessful(session.case.data)).to.equal(true);
       });
 
       it('should return false when not served by bailiff successfully and no AOS Response', () => {
         session.case.data.successfulServedByBailiff = 'No';
-        expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(false);
+        expect(isServedByBailiffSuccessful(session.case.data)).to.equal(false);
       });
 
       it('should return false if SuccessfulServedByBailiff does not exist', () => {
         delete session.case.data.successfulServedByBailiff;
 
-        expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(false);
+        expect(isServedByBailiffSuccessful(session.case.data)).to.equal(false);
       });
 
       it('should return false when served by bailiff successfully and AOS Response has been responded to', () => {
         session.case.data.receivedAosFromResp = 'Yes';
-
-        expect(isServedByBailiffSuccessfulAndAosNotReceived(session.case.data)).to.equal(false);
+        expect(isServedByBailiffSuccessful(session.case.data)).to.equal(true);
+        expect(!hasReceivedAosFromRespondent(session.case.data)).to.equal(false);
       });
     });
   });

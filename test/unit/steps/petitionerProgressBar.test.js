@@ -497,14 +497,14 @@ describe(modulePath, () => {
       }
     };
 
-    it('renders the correct content', () => {
+    it('renders the correct content for `bailiffServiceSuccessfulContinue`', () => {
       const specificContent = Object.keys(pageContent.bailiffServiceSuccessfulContinue);
       const specificContentToNotExist = contentToNotExist('bailiffServiceSuccessfulContinue');
 
       return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
     });
 
-    it('renders the correct template', () => {
+    it('renders the `bailiffServiceSuccessfulContinue` template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.bailiffServiceSuccessfulContinue);
     });
