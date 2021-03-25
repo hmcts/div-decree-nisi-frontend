@@ -189,8 +189,7 @@ describe(modulePath, () => {
             state: 'AwaitingDecreeNisi',
             data: {
               successfulServedByBailiff: 'Yes',
-              receivedAosFromResp: 'No',
-              permittedDecreeNisiReason: '9'
+              receivedAosFromResp: 'No'
             }
           }
         };
