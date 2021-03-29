@@ -42,7 +42,8 @@ describe(modulePath, () => {
       'continueBecauseOfDeemed',
       'continueBecauseOfDispensed',
       'processServerDetail',
-      'alternativeMethodDetail'
+      'alternativeMethodDetail',
+      'eligibleForDecreeNisi'
     ];
     return content(ApplyForDecreeNisi, session, { ignoreContent });
   });
@@ -137,7 +138,8 @@ describe(modulePath, () => {
         'wife',
         'continueBecauseOfDeemed',
         'continueBecauseOfDispensed',
-        'alternativeMethodDetail'
+        'alternativeMethodDetail',
+        'eligibleForDecreeNisi'
       ];
       return content(ApplyForDecreeNisi, processServerSession, { ignoreContent });
     });
@@ -160,7 +162,7 @@ describe(modulePath, () => {
       };
     });
 
-    it('should render correct content when served by process server', () => {
+    it('should render correct content when served by alternative method', () => {
       const ignoreContent = [
         'webChatTitle',
         'chatDown',
@@ -179,7 +181,8 @@ describe(modulePath, () => {
         'wife',
         'continueBecauseOfDeemed',
         'continueBecauseOfDispensed',
-        'processServerDetail'
+        'processServerDetail',
+        'eligibleForDecreeNisi'
       ];
       return content(ApplyForDecreeNisi, alternativeServiceSession, { ignoreContent });
     });
@@ -199,23 +202,17 @@ describe(modulePath, () => {
       };
     });
 
-    it('should render eligibleForDecreeNisi content when isServedByBailiffSuccessfulAndNoAosResponse is Yes', () => {
-      session = {
-        case: {
-          state: 'AwaitingDecreeNisi',
-          data: {
-            successfulServedByBailiff: 'Yes',
-            receivedAosFromResp: 'No',
-            divorceWho: 'wife'
-          }
-        }
-      };
+    it('should render eligibleForDecreeNisi content when isServedByBailiffSuccessfulAndNoAosResponse is true', () => {
+      session.case.data.successfulServedByBailiff = 'Yes';
+      session.case.data.receivedAOSfromResp = 'No';
+
       const specificContent = ['eligibleForDecreeNisi'];
       return content(ApplyForDecreeNisi, session, { specificContent });
     });
 
-    it('should not render eligibleForDecreeNisi content when isServedByBailiffSuccessfulAndNoAosResponse is No', () => {
+    it('should not render eligibleForDecreeNisi content when isServedByBailiffSuccessfulAndNoAosResponse is false', () => {
       session.case.data.successfulServedByBailiff = 'No';
+
       const specificContentToNotExist = ['eligibleForDecreeNisi'];
       return content(ApplyForDecreeNisi, session, { specificContentToNotExist });
     });

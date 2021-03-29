@@ -1717,7 +1717,7 @@ describe(modulePath, () => {
       return interstitial.navigatesToNext(PetitionProgressBar, DnNoResponse, session);
     });
 
-    it('rediects to ApplyForDecreeNisi when CCD has respWillDefendDivorce as null', () => {
+    it('redirects to ApplyForDecreeNisi when CCD has respWillDefendDivorce as null', () => {
       const session = {
         case: {
           state: 'awaitingdecreenisi',
@@ -1766,6 +1766,31 @@ describe(modulePath, () => {
       };
       return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
     });
+
+    it('should redirect to /review-aos-response when receivedAosFromResp is Yes', () => {
+      const session = {
+        case: {
+          state: 'awaitingdecreenisi',
+          data: {
+            receivedAosFromResp: 'Yes'
+          }
+        }
+      };
+      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    it('should redirect to /continue-with-divorce when receivedAosFromResp is No', () => {
+      const session = {
+        case: {
+          state: 'awaitingdecreenisi',
+          data: {
+            receivedAosFromResp: 'No'
+          }
+        }
+      };
+      return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
+    });
+
 
     describe('feature: dnIsRefused is true', () => {
       let sandbox = {};
