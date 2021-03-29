@@ -63,7 +63,9 @@ const templates = {
   bailiffServiceNotSuccessful:
     './sections/bailiffServiceNotSuccessful/PetitionProgressBar.bailiffServiceNotSuccessful.template.html',
   bailiffServiceSuccessful:
-    './sections/bailiffServiceSuccessful/PetitionProgressBar.bailiffServiceSuccessful.template.html'
+    './sections/bailiffServiceSuccessful/PetitionProgressBar.bailiffServiceSuccessful.template.html',
+  bailiffServiceSuccessfulContinue:
+    './sections/bailiffServiceSuccessfulContinue/PetitionProgressBar.bailiffServiceSuccessfulContinue.template.html'
 };
 
 // get all content for all pages
@@ -480,6 +482,30 @@ describe(modulePath, () => {
     it('renders the correct template', () => {
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.dispensedApproved);
+    });
+  });
+
+  describe('CCD state: AwaitingDecreeNisi, SuccessfulServedByBailiff: Yes, receivedAOSFromResp: No, DNReason : 9', () => {
+    const session = {
+      case: {
+        state: 'AwaitingDecreeNisi',
+        data: {
+          successfulServedByBailiff: 'Yes',
+          receivedAosFromResp: 'No'
+        }
+      }
+    };
+
+    it('renders the correct content for `bailiffServiceSuccessfulContinue`', () => {
+      const specificContent = Object.keys(pageContent.bailiffServiceSuccessfulContinue);
+      const specificContentToNotExist = contentToNotExist('bailiffServiceSuccessfulContinue');
+
+      return content(PetitionProgressBar, session, { specificContent, specificContentToNotExist });
+    });
+
+    it('renders the `bailiffServiceSuccessfulContinue` template', () => {
+      const instance = stepAsInstance(PetitionProgressBar, session);
+      expect(instance.stateTemplate).to.eql(templates.bailiffServiceSuccessfulContinue);
     });
   });
 

@@ -1,0 +1,31 @@
+{% from "look-and-feel/components/progress-list.njk" import progressList %}
+
+{{
+  progressList({
+    one: {
+      label: content.youApply,
+      complete: true
+    },
+    two: {
+      label: content.husbandWifeMustRespond,
+      complete: true
+    },
+    three: {
+      label: content.getDecreeNisi,
+      current: true
+    },
+    four: {
+      label: content.madeFinal
+    }
+  })
+}}
+
+<h2 class="govuk-heading-m">{{ content.bailiffServiceSuccessfulContinueHeader }}</h2>
+
+<p class="govuk-body">{{ content.bailiffServiceSuccessfulContinueNoResponse }}</p>
+
+<p class="govuk-body">{{ content.bailiffServiceSuccessfulContinueToDecreeNisi }}</p>
+
+<form action="{{ postUrl | default(path if path else url) }}" method="post" class="form">
+  <input role="button" draggable="false" class="govuk-button govuk-button--start" type="submit" value="{{ content.continue }}">
+</form>

@@ -8,12 +8,13 @@ const {
   isAwaitingPronouncementWithHearingDate,
   isProcessServerService,
   isServedByProcessServer,
-  isReceivedAosFromRespondent,
+  hasReceivedAosFromRespondent,
   isPetitionerRepresented,
   getProcessServerReason,
   isDeemedServiceApplicationGranted,
   isDispensedServiceApplicationGranted,
-  isServedByAlternativeMethod
+  isServedByAlternativeMethod,
+  isServedByBailiffSuccessful
 } = require('helpers/petitionHelper');
 
 describe(modulePath, () => {
@@ -35,19 +36,19 @@ describe(modulePath, () => {
     });
 
     it('should return false if AOS has not been received', () => {
-      expect(isReceivedAosFromRespondent(session.case.data)).to.equal(false);
+      expect(hasReceivedAosFromRespondent(session.case.data)).to.equal(false);
     });
 
     it('should return true if AOS has been received', () => {
       session.case.data.receivedAosFromResp = 'Yes';
 
-      expect(isReceivedAosFromRespondent(session.case.data)).to.equal(true);
+      expect(hasReceivedAosFromRespondent(session.case.data)).to.equal(true);
     });
 
     it('should return false if AOS received does not exist', () => {
       delete session.case.data.receivedAosFromResp;
 
-      expect(isReceivedAosFromRespondent(session.case.data)).to.equal(false);
+      expect(hasReceivedAosFromRespondent(session.case.data)).to.equal(false);
     });
 
     it('should return true if process server has been served', () => {
@@ -154,7 +155,7 @@ describe(modulePath, () => {
     });
 
     it('should return false if AOS has not been received', () => {
-      expect(isReceivedAosFromRespondent(session.case.data)).to.equal(false);
+      expect(hasReceivedAosFromRespondent(session.case.data)).to.equal(false);
     });
 
     it('should return true when served by alt method and AOS not received', () => {
@@ -177,6 +178,43 @@ describe(modulePath, () => {
       session.case.data.servedByAlternativeMethod = 'No';
 
       expect(isServedByAlternativeMethod(session.case.data)).to.equal(false);
+    });
+  });
+
+  describe('Suite: Served by Bailiff Journey', () => {
+    describe('Testing DNReason: getServedByBailiffSuccessfulContinueReason', () => {
+      beforeEach(() => {
+        session = {
+          case: {
+            state: 'AwaitingDecreeNisi',
+            data: {
+              successfulServedByBailiff: 'Yes',
+              receivedAosFromResp: 'No'
+            }
+          }
+        };
+      });
+
+      it('should return true when served by bailiff successfully and no AOS Response', () => {
+        expect(isServedByBailiffSuccessful(session.case.data)).to.equal(true);
+      });
+
+      it('should return false when not served by bailiff successfully and no AOS Response', () => {
+        session.case.data.successfulServedByBailiff = 'No';
+        expect(isServedByBailiffSuccessful(session.case.data)).to.equal(false);
+      });
+
+      it('should return false if SuccessfulServedByBailiff does not exist', () => {
+        delete session.case.data.successfulServedByBailiff;
+
+        expect(isServedByBailiffSuccessful(session.case.data)).to.equal(false);
+      });
+
+      it('should return false when served by bailiff successfully and AOS Response has been responded to', () => {
+        session.case.data.receivedAosFromResp = 'Yes';
+        expect(isServedByBailiffSuccessful(session.case.data)).to.equal(true);
+        expect(!hasReceivedAosFromRespondent(session.case.data)).to.equal(false);
+      });
     });
   });
 });
