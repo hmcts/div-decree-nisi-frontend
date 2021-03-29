@@ -27,6 +27,11 @@
     <div class="govuk-inset-text">
       {{ content.alternativeMethodDetail }}
     </div>
+
+  {% elif isServedByBailiffSuccessfulAndNoAosResponse %}
+    <div class="govuk-details__text" id="details-content-bailiff" >
+      <p class="govuk-body">{{ content.eligibleForDecreeNisi }}</p>
+    </div>
   {% endif %}
 
   <p class="govuk-body">{{ content.amendOrAdd | safe }}</p>

@@ -184,4 +184,40 @@ describe(modulePath, () => {
       return content(ApplyForDecreeNisi, alternativeServiceSession, { ignoreContent });
     });
   });
+
+  describe('Served by Bailiff:', () => {
+    beforeEach(() => {
+      session = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            successfulServedByBailiff: 'Yes',
+            receivedAosFromResp: 'No',
+            divorceWho: 'wife'
+          }
+        }
+      };
+    });
+
+    it('should render eligibleForDecreeNisi content when isServedByBailiffSuccessfulAndNoAosResponse is Yes', () => {
+      session = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            successfulServedByBailiff: 'Yes',
+            receivedAosFromResp: 'No',
+            divorceWho: 'wife'
+          }
+        }
+      };
+      const specificContent = ['eligibleForDecreeNisi'];
+      return content(ApplyForDecreeNisi, session, { specificContent });
+    });
+
+    it('should not render eligibleForDecreeNisi content when isServedByBailiffSuccessfulAndNoAosResponse is No', () => {
+      session.case.data.successfulServedByBailiff = 'No';
+      const specificContentToNotExist = ['eligibleForDecreeNisi'];
+      return content(ApplyForDecreeNisi, session, { specificContentToNotExist });
+    });
+  });
 });

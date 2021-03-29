@@ -14,7 +14,9 @@ const {
   isProcessServerService,
   isServedByAlternativeMethod,
   isDeemedServiceApplicationGranted,
-  isDispensedServiceApplicationGranted
+  isDispensedServiceApplicationGranted,
+  hasReceivedAosFromRespondent,
+  isServedByBailiffSuccessful
 } = require('helpers/petitionHelper');
 
 class ApplyForDecreeNisi extends Question {
@@ -53,6 +55,10 @@ class ApplyForDecreeNisi extends Question {
 
   get isServedByProcessServerService() {
     return isProcessServerService(this.case);
+  }
+
+  get isServedByBailiffSuccessfulAndNoAosResponse() {
+    return isServedByBailiffSuccessful(this.case) && !hasReceivedAosFromRespondent(this.case);
   }
 
   get isAlternativeServiceMethod() {
