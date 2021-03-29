@@ -19,7 +19,8 @@ const {
   isServedByAlternativeMethod,
   getServedByBailiffSuccessfulContinueReason,
   isServedByBailiffSuccessful,
-  hasReceivedAosFromRespondent
+  hasReceivedAosFromRespondent,
+  YES_VALUE
 } = require('helpers/petitionHelper');
 const i18next = require('i18next');
 const commonContent = require('common/content');
@@ -108,6 +109,14 @@ class PetitionProgressBar extends Interstitial {
     return this.caseState === constants.AOSCompleted;
   }
 
+  get hasRespondent() {
+    return this.caseState === constants.AOSCompleted;
+  }
+
+  get hasReceivedAosFromResp() {
+    return this.case.receivedAosFromResp === YES_VALUE;
+  }
+
   get dnIsRefused() {
     const isDnOutcomeCase = parseBool(this.case.dnOutcomeCase);
     const featureIsEnabled = parseBool(config.features.dnIsRefused);
@@ -121,7 +130,7 @@ class PetitionProgressBar extends Interstitial {
       .includes(this.respWillDefendDivorce.toLowerCase());
     const isTwoYrSep = this.reasonForDivorce === constants.sep2Yr;
 
-    return respWillDefendDivorce || this.aosIsCompleted || isTwoYrSep;
+    return respWillDefendDivorce || this.aosIsCompleted || isTwoYrSep || this.hasReceivedAosFromResp;
   }
 
   get certificateOfEntitlementFile() {

@@ -20,6 +20,8 @@ const constants = {
   dispensed: 'dispensed'
 };
 
+const YES_VALUE = 'Yes';
+
 const getValue = (caseData, property) => {
   return get(caseData, property);
 };
@@ -112,5 +114,6 @@ module.exports = {
   getServedByAlternativeMethodReason,
   getServedByBailiffSuccessfulContinueReason,
   isServedByBailiffSuccessful,
-  isServedByAlternativeMethod
+  isServedByAlternativeMethod,
+  YES_VALUE
 };
