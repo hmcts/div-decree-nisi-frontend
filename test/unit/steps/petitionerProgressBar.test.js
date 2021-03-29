@@ -1767,28 +1767,35 @@ describe(modulePath, () => {
       return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
     });
 
-    it('should redirect to /review-aos-response when receivedAosFromResp is Yes', () => {
-      const session = {
-        case: {
-          state: 'awaitingdecreenisi',
-          data: {
-            receivedAosFromResp: 'Yes'
+    describe('Bailiff Journey', () => {
+      let session = {};
+      beforeEach(() => {
+        session = {
+          case: {
+            state: 'awaitingdecreenisi',
+            data: {
+              receivedAosFromResp: 'No',
+              successfulServedByBailiff: 'Yes'
+            }
           }
-        }
-      };
-      return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
-    });
+        };
+      });
 
-    it('should redirect to /continue-with-divorce when receivedAosFromResp is No', () => {
-      const session = {
-        case: {
-          state: 'awaitingdecreenisi',
-          data: {
-            receivedAosFromResp: 'No'
-          }
-        }
-      };
-      return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
+      it('should redirect to /review-aos-response when receivedAosFromResp is Yes', () => {
+        session.case.data.receivedAosFromResp = 'Yes';
+        return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+      });
+
+      it('should redirect to /continue-with-divorce when receivedAosFromResp is No', () => {
+        session.case.data.receivedAosFromResp = 'No';
+        return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
+      });
+
+      it('should redirect to /continue-with-divorce when both receivedAosFromResp and successfulServedByBailiff are No', () => {
+        session.case.data.successfulServedByBailiff = 'No';
+        session.case.data.receivedAOSfromResp = 'No';
+        return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
+      });
     });
 
 
