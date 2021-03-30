@@ -112,6 +112,9 @@ const contentToNotExist = withoutKeysFrom => {
   }, []);
 };
 
+const YES_VALUE = 'Yes';
+const NO_VALUE = 'No';
+
 describe(modulePath, () => {
   beforeEach(() => {
     sinon.stub(idam, 'protect').returns(middleware.nextMock);
@@ -1769,7 +1772,8 @@ describe(modulePath, () => {
 
     describe('Bailiff Journey', () => {
       let session = {};
-      beforeEach(() => {
+
+      before(() => {
         session = {
           case: {
             state: 'awaitingdecreenisi',
@@ -1781,23 +1785,30 @@ describe(modulePath, () => {
         };
       });
 
-      it('should redirect to /review-aos-response when receivedAosFromResp is Yes', () => {
-        session.case.data.receivedAosFromResp = 'Yes';
+      it('should redirect to /review-aos-response when both successfulServedByBailiff and receivedAosFromResp is Yes', () => {
+        session.case.data.successfulServedByBailiff = YES_VALUE;
+        session.case.data.receivedAosFromResp = YES_VALUE;
         return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
       });
 
-      it('should redirect to /continue-with-divorce when receivedAosFromResp is No', () => {
-        session.case.data.receivedAosFromResp = 'No';
+      it('should redirect to /continue-with-divorce when successfulServedByBailiff is Yes and receivedAOSfromResp is No', () => {
+        session.case.data.successfulServedByBailiff = YES_VALUE;
+        session.case.data.receivedAosFromResp = NO_VALUE;
         return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
+      });
+
+      it('should redirect to /review-aos-response when successfulServedByBailiff is No and receivedAOSfromResp is Yes', () => {
+        session.case.data.successfulServedByBailiff = NO_VALUE;
+        session.case.data.receivedAosFromResp = YES_VALUE;
+        return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
       });
 
       it('should redirect to /continue-with-divorce when both receivedAosFromResp and successfulServedByBailiff are No', () => {
-        session.case.data.successfulServedByBailiff = 'No';
-        session.case.data.receivedAOSfromResp = 'No';
+        session.case.data.successfulServedByBailiff = NO_VALUE;
+        session.case.data.receivedAosFromResp = NO_VALUE;
         return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
       });
     });
-
 
     describe('feature: dnIsRefused is true', () => {
       let sandbox = {};
