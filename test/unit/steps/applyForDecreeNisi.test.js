@@ -54,17 +54,17 @@ describe(modulePath, () => {
   });
 
   it('redirects to Exit page if answer is no', () => {
-    const fields = { applyForDecreeNisi: constants.no };
+    const fields = { applyForDecreeNisi: 'no' };
     return question.redirectWithField(ApplyForDecreeNisi, fields, ExitPage, session);
   });
 
   it('redirects to MiniPetition if answer is yes', () => {
-    const fields = { applyForDecreeNisi: constants.yes };
+    const fields = { applyForDecreeNisi: 'yes' };
     return question.redirectWithField(ApplyForDecreeNisi, fields, MiniPetition, session);
   });
 
   it('loads fields from the session', () => {
-    const stepData = { applyForDecreeNisi: constants.yes };
+    const stepData = { applyForDecreeNisi: 'yes' };
     return question.rendersValues(ApplyForDecreeNisi, stepData, session);
   });
 
@@ -73,7 +73,7 @@ describe(modulePath, () => {
       ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.title,
       ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.yes
     ];
-    const stepData = { applyForDecreeNisi: constants.yes };
+    const stepData = { applyForDecreeNisi: 'yes' };
     return question.answers(ApplyForDecreeNisi, stepData, expectedContent, session);
   });
 
