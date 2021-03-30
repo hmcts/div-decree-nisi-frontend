@@ -5,7 +5,7 @@ const ApplyForDecreeNisiContent = require('steps/apply-for-decree-nisi/ApplyForD
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
 const ExitPage = require('steps/exit/Exit.step');
 const idam = require('services/idam');
-const constants = require('./../../common/constants');
+const constants = require('../../../common/constants');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
