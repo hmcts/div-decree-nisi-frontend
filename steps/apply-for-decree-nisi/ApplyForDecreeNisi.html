@@ -29,8 +29,8 @@
     </div>
 
   {% elif isServedByBailiffSuccessfulAndNoAosResponse %}
-    <div class="govuk-details__text" id="details-content-bailiff" >
-      <p class="govuk-body">{{ content.eligibleForDecreeNisi }}</p>
+    <div class="govuk-inset-text">
+      {{ content.eligibleForDecreeNisi }}
     </div>
   {% endif %}
 

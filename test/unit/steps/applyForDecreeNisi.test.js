@@ -5,6 +5,7 @@ const ApplyForDecreeNisiContent = require('steps/apply-for-decree-nisi/ApplyForD
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
 const ExitPage = require('steps/exit/Exit.step');
 const idam = require('services/idam');
+const constants = require('./../../common/constants');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
@@ -53,17 +54,17 @@ describe(modulePath, () => {
   });
 
   it('redirects to Exit page if answer is no', () => {
-    const fields = { applyForDecreeNisi: 'no' };
+    const fields = { applyForDecreeNisi: constants.no };
     return question.redirectWithField(ApplyForDecreeNisi, fields, ExitPage, session);
   });
 
   it('redirects to MiniPetition if answer is yes', () => {
-    const fields = { applyForDecreeNisi: 'yes' };
+    const fields = { applyForDecreeNisi: constants.yes };
     return question.redirectWithField(ApplyForDecreeNisi, fields, MiniPetition, session);
   });
 
   it('loads fields from the session', () => {
-    const stepData = { applyForDecreeNisi: 'yes' };
+    const stepData = { applyForDecreeNisi: constants.yes };
     return question.rendersValues(ApplyForDecreeNisi, stepData, session);
   });
 
@@ -72,13 +73,13 @@ describe(modulePath, () => {
       ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.title,
       ApplyForDecreeNisiContent.en.fields.applyForDecreeNisi.yes
     ];
-    const stepData = { applyForDecreeNisi: 'yes' };
+    const stepData = { applyForDecreeNisi: constants.yes };
     return question.answers(ApplyForDecreeNisi, stepData, expectedContent, session);
   });
 
   describe('Deemed and Dispensed template view:', () => {
     it('shows correct message when deemed approved', () => {
-      session.case.data.serviceApplicationGranted = 'Yes';
+      session.case.data.serviceApplicationGranted = constants.yes;
       session.case.data.serviceApplicationType = 'deemed';
       const specificContent = ['continueBecauseOfDeemed'];
       const specificContentToNotExist = ['continueBecauseOfDispensed'];
@@ -86,7 +87,7 @@ describe(modulePath, () => {
     });
 
     it('shows correct message when dispensed approved', () => {
-      session.case.data.serviceApplicationGranted = 'Yes';
+      session.case.data.serviceApplicationGranted = constants.yes;
       session.case.data.serviceApplicationType = 'dispensed';
       const specificContent = ['continueBecauseOfDispensed'];
       const specificContentToNotExist = ['continueBecauseOfDeemed'];
@@ -203,15 +204,15 @@ describe(modulePath, () => {
     });
 
     it('should render eligibleForDecreeNisi content when isServedByBailiffSuccessfulAndNoAosResponse is true', () => {
-      session.case.data.successfulServedByBailiff = 'Yes';
-      session.case.data.receivedAOSfromResp = 'No';
+      session.case.data.successfulServedByBailiff = constants.yes;
+      session.case.data.receivedAOSfromResp = constants.no;
 
       const specificContent = ['eligibleForDecreeNisi'];
       return content(ApplyForDecreeNisi, session, { specificContent });
     });
 
     it('should not render eligibleForDecreeNisi content when isServedByBailiffSuccessfulAndNoAosResponse is false', () => {
-      session.case.data.successfulServedByBailiff = 'No';
+      session.case.data.successfulServedByBailiff = constants.no;
 
       const specificContentToNotExist = ['eligibleForDecreeNisi'];
       return content(ApplyForDecreeNisi, session, { specificContentToNotExist });

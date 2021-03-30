@@ -19,8 +19,7 @@ const {
   isServedByAlternativeMethod,
   getServedByBailiffSuccessfulContinueReason,
   isServedByBailiffSuccessful,
-  hasReceivedAosFromRespondent,
-  YES_VALUE
+  hasReceivedAosFromRespondent
 } = require('helpers/petitionHelper');
 const i18next = require('i18next');
 const commonContent = require('common/content');
@@ -109,12 +108,8 @@ class PetitionProgressBar extends Interstitial {
     return this.caseState === constants.AOSCompleted;
   }
 
-  get hasRespondent() {
-    return this.caseState === constants.AOSCompleted;
-  }
-
   get hasReceivedAosFromResp() {
-    return this.case.receivedAosFromResp === YES_VALUE;
+    return parseBool(this.case.receivedAosFromResp);
   }
 
   get dnIsRefused() {

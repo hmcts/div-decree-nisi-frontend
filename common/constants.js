@@ -1,7 +1,9 @@
 const constants = {
   notDefined: 'notdefined',
   awaitingClarification: 'awaitingclarification',
-  dnIsRefused: 'dnisrefused'
+  dnIsRefused: 'dnisrefused',
+  yes: 'Yes',
+  no: 'No'
 };
 
 module.exports = constants;
