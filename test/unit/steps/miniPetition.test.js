@@ -540,6 +540,9 @@ describe(modulePath, () => {
         'costsPetitionerDivorceCostsdByFinantialOrder',
         'jurisdictionConnectionBothResident',
         'jurisdictionConnectionBothDomiciled',
+        'jurisdictionConnectionPetDomiciled',
+        'jurisdictionConnectionResDomiciled',
+        'jurisdictionConnectionNewPolicyOther',
         'jurisdictionConnectionOneResides',
         'jurisdictionConnectionPetitioner',
         'jurisdictionConnectionRespondent',
@@ -836,6 +839,40 @@ describe(modulePath, () => {
           MiniPetition,
           session,
           { specificContent: ['jurisdictionConnectionOther'] });
+      });
+    });
+
+    describe('Brexit policy wording', () => {
+      it('Displays new Legal policy wording for Brexit', () => {
+        const session = {
+          case: {
+            data: {
+              newLegalConnectionPolicy: 'Yes',
+              jurisdictionConnectionNewPolicy: ['G', 'H', 'I']
+            }
+          }
+        };
+        return content(
+          MiniPetition,
+          session,
+          { specificContent: ['jurisdictionConnectionNewPolicyOther', 'jurisdictionConnectionPetDomiciled', 'jurisdictionConnectionResDomiciled'] }
+        );
+      });
+
+      it('Does not display new Legal policy wording for Brexit due to older case', () => {
+        const session = {
+          case: {
+            data: {
+              connections: { G: '' },
+              jurisdictionConnectionNewPolicy: ['G', 'H', 'I']
+            }
+          }
+        };
+        return content(
+          MiniPetition,
+          session,
+          { specificContent: ['jurisdictionConnectionOther'] }
+        );
       });
     });
 
