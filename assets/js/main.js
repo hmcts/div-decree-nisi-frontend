@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import $ from 'jquery';
-import { initAll } from 'govuk-frontend';
+import govukFrontend from 'govuk-frontend/all';
 import './documentUpload';
 import './showHideContent';
 
@@ -19,5 +19,5 @@ $(document).ready(() => {
     });
   });
 
-  initAll();
+  govukFrontend.initAll();
 });
