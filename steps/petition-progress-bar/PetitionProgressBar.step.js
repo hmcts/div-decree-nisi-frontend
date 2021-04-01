@@ -108,6 +108,10 @@ class PetitionProgressBar extends Interstitial {
     return this.caseState === constants.AOSCompleted;
   }
 
+  get hasReceivedAosFromResp() {
+    return parseBool(this.case.receivedAosFromResp);
+  }
+
   get dnIsRefused() {
     const isDnOutcomeCase = parseBool(this.case.dnOutcomeCase);
     const featureIsEnabled = parseBool(config.features.dnIsRefused);
@@ -121,7 +125,7 @@ class PetitionProgressBar extends Interstitial {
       .includes(this.respWillDefendDivorce.toLowerCase());
     const isTwoYrSep = this.reasonForDivorce === constants.sep2Yr;
 
-    return respWillDefendDivorce || this.aosIsCompleted || isTwoYrSep;
+    return respWillDefendDivorce || this.aosIsCompleted || isTwoYrSep || this.hasReceivedAosFromResp;
   }
 
   get certificateOfEntitlementFile() {

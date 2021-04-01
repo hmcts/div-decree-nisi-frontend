@@ -5,6 +5,7 @@ const ApplyForDecreeNisiContent = require('steps/apply-for-decree-nisi/ApplyForD
 const MiniPetition = require('steps/mini-petition/MiniPetition.step');
 const ExitPage = require('steps/exit/Exit.step');
 const idam = require('services/idam');
+const constants = require('../../../common/constants');
 const { middleware, question, sinon, content } = require('@hmcts/one-per-page-test-suite');
 
 describe(modulePath, () => {
@@ -42,7 +43,8 @@ describe(modulePath, () => {
       'continueBecauseOfDeemed',
       'continueBecauseOfDispensed',
       'processServerDetail',
-      'alternativeMethodDetail'
+      'alternativeMethodDetail',
+      'eligibleForDecreeNisi'
     ];
     return content(ApplyForDecreeNisi, session, { ignoreContent });
   });
@@ -77,7 +79,7 @@ describe(modulePath, () => {
 
   describe('Deemed and Dispensed template view:', () => {
     it('shows correct message when deemed approved', () => {
-      session.case.data.serviceApplicationGranted = 'Yes';
+      session.case.data.serviceApplicationGranted = constants.yes;
       session.case.data.serviceApplicationType = 'deemed';
       const specificContent = ['continueBecauseOfDeemed'];
       const specificContentToNotExist = ['continueBecauseOfDispensed'];
@@ -85,7 +87,7 @@ describe(modulePath, () => {
     });
 
     it('shows correct message when dispensed approved', () => {
-      session.case.data.serviceApplicationGranted = 'Yes';
+      session.case.data.serviceApplicationGranted = constants.yes;
       session.case.data.serviceApplicationType = 'dispensed';
       const specificContent = ['continueBecauseOfDispensed'];
       const specificContentToNotExist = ['continueBecauseOfDeemed'];
@@ -137,7 +139,8 @@ describe(modulePath, () => {
         'wife',
         'continueBecauseOfDeemed',
         'continueBecauseOfDispensed',
-        'alternativeMethodDetail'
+        'alternativeMethodDetail',
+        'eligibleForDecreeNisi'
       ];
       return content(ApplyForDecreeNisi, processServerSession, { ignoreContent });
     });
@@ -160,7 +163,7 @@ describe(modulePath, () => {
       };
     });
 
-    it('should render correct content when served by process server', () => {
+    it('should render correct content when served by alternative method', () => {
       const ignoreContent = [
         'webChatTitle',
         'chatDown',
@@ -179,9 +182,40 @@ describe(modulePath, () => {
         'wife',
         'continueBecauseOfDeemed',
         'continueBecauseOfDispensed',
-        'processServerDetail'
+        'processServerDetail',
+        'eligibleForDecreeNisi'
       ];
       return content(ApplyForDecreeNisi, alternativeServiceSession, { ignoreContent });
+    });
+  });
+
+  describe('Served by Bailiff:', () => {
+    beforeEach(() => {
+      session = {
+        case: {
+          state: 'AwaitingDecreeNisi',
+          data: {
+            successfulServedByBailiff: 'Yes',
+            receivedAosFromResp: 'No',
+            divorceWho: 'wife'
+          }
+        }
+      };
+    });
+
+    it('should render eligibleForDecreeNisi content when isServedByBailiffSuccessfulAndNoAosResponse is true', () => {
+      session.case.data.successfulServedByBailiff = constants.yes;
+      session.case.data.receivedAOSfromResp = constants.no;
+
+      const specificContent = ['eligibleForDecreeNisi'];
+      return content(ApplyForDecreeNisi, session, { specificContent });
+    });
+
+    it('should not render eligibleForDecreeNisi content when isServedByBailiffSuccessfulAndNoAosResponse is false', () => {
+      session.case.data.successfulServedByBailiff = constants.no;
+
+      const specificContentToNotExist = ['eligibleForDecreeNisi'];
+      return content(ApplyForDecreeNisi, session, { specificContentToNotExist });
     });
   });
 });

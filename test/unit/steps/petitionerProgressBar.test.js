@@ -23,6 +23,7 @@ const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
+const constants = require('../../../common/constants');
 
 const templates = {
   submitted: './sections/submitted/PetitionProgressBar.submitted.template.html',
@@ -709,7 +710,7 @@ describe(modulePath, () => {
     });
 
     it('renders the correct content for successfulServedByBailiff is Yes', () => {
-      session.case.data = { successfulServedByBailiff: 'yes' };
+      session.case.data = { successfulServedByBailiff: constants.yes };
       const specificContent = Object.keys(pageContent.bailiffServiceSuccessful);
       const specificContentToNotExist = contentToNotExist('bailiffServiceSuccessful');
 
@@ -729,7 +730,7 @@ describe(modulePath, () => {
     });
 
     it('renders the correct template for successfulServedByBailiff is Yes', () => {
-      session.case.data = { successfulServedByBailiff: 'yes' };
+      session.case.data = { successfulServedByBailiff: constants.yes };
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.bailiffServiceSuccessful);
     });
@@ -764,7 +765,7 @@ describe(modulePath, () => {
     });
 
     it('renders the correct content for successfulServedByBailiff is Yes', () => {
-      session.case.data = { successfulServedByBailiff: 'yes' };
+      session.case.data = { successfulServedByBailiff: constants.yes };
       const specificContent = Object.keys(pageContent.bailiffServiceSuccessful);
       const specificContentToNotExist = contentToNotExist('bailiffServiceSuccessful');
 
@@ -784,7 +785,7 @@ describe(modulePath, () => {
     });
 
     it('renders the correct template for successfulServedByBailiff is Yes', () => {
-      session.case.data = { successfulServedByBailiff: 'yes' };
+      session.case.data = { successfulServedByBailiff: constants.yes };
       const instance = stepAsInstance(PetitionProgressBar, session);
       expect(instance.stateTemplate).to.eql(templates.bailiffServiceSuccessful);
     });
@@ -1717,7 +1718,7 @@ describe(modulePath, () => {
       return interstitial.navigatesToNext(PetitionProgressBar, DnNoResponse, session);
     });
 
-    it('rediects to ApplyForDecreeNisi when CCD has respWillDefendDivorce as null', () => {
+    it('redirects to ApplyForDecreeNisi when CCD has respWillDefendDivorce as null', () => {
       const session = {
         case: {
           state: 'awaitingdecreenisi',
@@ -1765,6 +1766,46 @@ describe(modulePath, () => {
         }
       };
       return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+    });
+
+    describe('Bailiff Journey', () => {
+      let session = {};
+
+      before(() => {
+        session = {
+          case: {
+            state: 'awaitingdecreenisi',
+            data: {
+              receivedAosFromResp: 'No',
+              successfulServedByBailiff: 'Yes'
+            }
+          }
+        };
+      });
+
+      it('should redirect to /review-aos-response when both successfulServedByBailiff and receivedAosFromResp is Yes', () => {
+        session.case.data.successfulServedByBailiff = constants.no;
+        session.case.data.receivedAosFromResp = constants.yes;
+        return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+      });
+
+      it('should redirect to /continue-with-divorce when successfulServedByBailiff is Yes and receivedAOSfromResp is No', () => {
+        session.case.data.successfulServedByBailiff = constants.yes;
+        session.case.data.receivedAosFromResp = constants.no;
+        return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
+      });
+
+      it('should redirect to /review-aos-response when successfulServedByBailiff is No and receivedAOSfromResp is Yes', () => {
+        session.case.data.successfulServedByBailiff = constants.no;
+        session.case.data.receivedAosFromResp = constants.yes;
+        return interstitial.navigatesToNext(PetitionProgressBar, ReviewAosResponse, session);
+      });
+
+      it('should redirect to /continue-with-divorce when both receivedAosFromResp and successfulServedByBailiff are No', () => {
+        session.case.data.successfulServedByBailiff = constants.no;
+        session.case.data.receivedAosFromResp = constants.no;
+        return interstitial.navigatesToNext(PetitionProgressBar, ApplyForDecreeNisi, session);
+      });
     });
 
     describe('feature: dnIsRefused is true', () => {
