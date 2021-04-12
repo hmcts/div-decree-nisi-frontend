@@ -69,36 +69,64 @@ const validateResponse = (req, response) => {
   // eslint-disable-next-line max-len
   const caseIsInDecreeAbsoluteState = config.ccd.validDaStates.includes(response.state);
 
+  const caseId = response.data.id;
+
   switch (true) {
   case notValidState:
   case noDigitalCourt:
-    return Promise.reject(redirectToPetitionerError);
+    return (
+      // eslint-disable-next-line no-console
+      console.log('No digital court included for case ID: %s', caseId),
+      Promise.reject(redirectToPetitionerError)
+    );
   case oldPaperBasedCase:
-    return Promise.resolve(response);
+    return (
+      // eslint-disable-next-line no-console
+      console.log('Paper based case for case ID: %s', caseId),
+      Promise.resolve(response)
+    );
   case userIsRespondent:
-    return Promise.reject(redirectToRespondentError);
+    return (
+      // eslint-disable-next-line no-console
+      console.log('User is respondent for case ID: %s', caseId),
+      Promise.reject(redirectToRespondentError)
+    );
   case caseIsInDecreeAbsoluteState:
-    return Promise.reject(redirectToDecreeAbsoluteError);
+    return (
+      // eslint-disable-next-line no-console
+      console.log('User is respondent for case ID: %s', caseId),
+      Promise.reject(redirectToDecreeAbsoluteError)
+    );
   default:
     return Promise.resolve(response);
   }
 };
 
 const handleErrorCodes = (error, req, res, next) => {
+  const caseId = res.data.id;
+
   switch (error.statusCode) {
   case NOT_FOUND:
   case REDIRECT_TO_PETITIONER_FE:
+    // eslint-disable-next-line no-console
+    console.log('Redirectiong to PFE for case ID: %s', caseId);
     redirectToFrontendHelper.redirectToFrontend(req, res);
     break;
   case MULTIPLE_CHOICES:
+    // eslint-disable-next-line no-console
+    console.log('Multiple choices error for case ID: %s', caseId);
     res.redirect(config.paths.contactDivorceTeamError);
     break;
   case REDIRECT_TO_RESPONDENT_FE:
+    // eslint-disable-next-line no-console
+    console.log('Redirectiong to RFE for case ID: %s', caseId);
     idamService.logout()(req, res, () => {
       redirectToFrontendHelper.redirectToAos(req, res);
     });
     break;
   case REDIRECT_TO_DECREE_ABSOLUTE_FE:
+    // eslint-disable-next-line no-console
+    console.log('Redirectiong to DAFE for case ID: %s', caseId);
     redirectToFrontendHelper.redirectToDa(req, res);
     break;
   default:
