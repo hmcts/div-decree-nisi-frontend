@@ -1,4 +1,5 @@
 const sessionToCosMapping = require('resources/sessionToCosMapping');
+const logger = require('services/logger').getLogger(__filename);
 const { get } = require('lodash');
 const config = require('config');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
@@ -59,8 +60,10 @@ const formatSessionForSubmit = req => {
 const validateResponse = (req, response) => {
   const { idam } = req;
 
+
   const notValidState = !response.state || config.ccd.d8States.includes(response.state);
   const noDigitalCourt = !config.ccd.courts.includes(response.data.courts);
+
 
   // temporary solution to prevent old paper based cases progressing via DA
   const oldPaperBasedCase = !response.data.decreeNisiGrantedDate;
@@ -71,30 +74,32 @@ const validateResponse = (req, response) => {
 
   const caseId = response.data.id;
 
+  logger.infoWithReq('Redirect: Case state: %s, Court: %s, for case ID: %s', response.state, response.data.courts, caseId);
+
   switch (true) {
   case notValidState:
   case noDigitalCourt:
     return (
       // eslint-disable-next-line no-console
-      console.log('No digital court included for case ID: %s', caseId),
+      logger.infoWithReq('Redirect: No digital court included for case ID: %s', caseId),
       Promise.reject(redirectToPetitionerError)
     );
   case oldPaperBasedCase:
     return (
       // eslint-disable-next-line no-console
-      console.log('Paper based case for case ID: %s', caseId),
+      logger.infoWithReq('Redirect: Paper based case for case ID: %s', caseId),
       Promise.resolve(response)
     );
   case userIsRespondent:
     return (
       // eslint-disable-next-line no-console
-      console.log('User is respondent for case ID: %s', caseId),
+      logger.infoWithReq('Redirect: User is respondent for case ID: %s', caseId),
       Promise.reject(redirectToRespondentError)
     );
   case caseIsInDecreeAbsoluteState:
     return (
       // eslint-disable-next-line no-console
-      console.log('User is respondent for case ID: %s', caseId),
+      logger.infoWithReq('Redirect: case ID: %s is in DA eligible state ', caseId),
       Promise.reject(redirectToDecreeAbsoluteError)
     );
   default:
@@ -109,24 +114,24 @@ const handleErrorCodes = (error, req, res, next) => {
   case NOT_FOUND:
   case REDIRECT_TO_PETITIONER_FE:
     // eslint-disable-next-line no-console
-    console.log('Redirectiong to PFE for case ID: %s', caseId);
+    logger.infoWithReq('Redirecting to PFE for case ID: %s', caseId);
     redirectToFrontendHelper.redirectToFrontend(req, res);
     break;
   case MULTIPLE_CHOICES:
     // eslint-disable-next-line no-console
-    console.log('Multiple choices error for case ID: %s', caseId);
+    logger.infoWithReq('Multiple choices error for case ID: %s', caseId);
     res.redirect(config.paths.contactDivorceTeamError);
     break;
   case REDIRECT_TO_RESPONDENT_FE:
     // eslint-disable-next-line no-console
-    console.log('Redirectiong to RFE for case ID: %s', caseId);
+    logger.infoWithReq('Redirecting to RFE for case ID: %s', caseId);
     idamService.logout()(req, res, () => {
       redirectToFrontendHelper.redirectToAos(req, res);
     });
     break;
   case REDIRECT_TO_DECREE_ABSOLUTE_FE:
     // eslint-disable-next-line no-console
-    console.log('Redirectiong to DAFE for case ID: %s', caseId);
+    logger.infoWithReq('Redirecting to DAFE for case ID: %s', caseId);
     redirectToFrontendHelper.redirectToDa(req, res);
     break;
   default:
