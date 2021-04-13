@@ -72,7 +72,7 @@ const validateResponse = (req, response) => {
   // eslint-disable-next-line max-len
   const caseIsInDecreeAbsoluteState = config.ccd.validDaStates.includes(response.state);
 
-  const caseId = response.data.id;
+  const { caseId } = response.session.case;
 
   logger.infoWithReq('Redirect: Case state: %s, Court: %s, for case ID: %s', response.state, response.data.courts, caseId);
 
