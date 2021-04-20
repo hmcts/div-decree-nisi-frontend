@@ -74,7 +74,7 @@ const testAllPages = async(I, language = 'en') => {
 
 Feature('Test all pages');
 
-Scenario('Pages with English language', async I => {
+Scenario('Pages with English language @cross-browser-test', async I => {
   await testAllPages(I, 'en');
 }).retry(3);
 
