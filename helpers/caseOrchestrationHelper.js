@@ -60,14 +60,11 @@ const formatSessionForSubmit = req => {
 const validateResponse = (req, response) => {
   const { idam } = req;
 
-
   const notValidState = !response.state || config.ccd.d8States.includes(response.state);
   const noDigitalCourt = !config.ccd.courts.includes(response.data.courts);
 
-
   // temporary solution to prevent old paper based cases progressing via DA
   const oldPaperBasedCase = !response.data.decreeNisiGrantedDate;
-
   const userIsRespondent = idam.userDetails.email === response.data.respEmailAddress; // eslint-disable-line max-len
   // eslint-disable-next-line max-len
   const caseIsInDecreeAbsoluteState = config.ccd.validDaStates.includes(response.state);
