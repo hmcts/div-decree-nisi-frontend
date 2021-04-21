@@ -72,7 +72,7 @@ const validateResponse = (req, response) => {
   // eslint-disable-next-line max-len
   const caseIsInDecreeAbsoluteState = config.ccd.validDaStates.includes(response.state);
 
-  const { caseId } = response.session.case;
+  const caseId = response.caseId;
 
   logger.infoWithReq('Redirect: Case state: %s, Court: %s, for case ID: %s', response.state, response.data.courts, caseId);
 
@@ -108,30 +108,20 @@ const validateResponse = (req, response) => {
 };
 
 const handleErrorCodes = (error, req, res, next) => {
-  const caseId = res.data.id;
-
   switch (error.statusCode) {
   case NOT_FOUND:
   case REDIRECT_TO_PETITIONER_FE:
-    // eslint-disable-next-line no-console
-    logger.infoWithReq('Redirecting to PFE for case ID: %s', caseId);
     redirectToFrontendHelper.redirectToFrontend(req, res);
     break;
   case MULTIPLE_CHOICES:
-    // eslint-disable-next-line no-console
-    logger.infoWithReq('Multiple choices error for case ID: %s', caseId);
     res.redirect(config.paths.contactDivorceTeamError);
     break;
   case REDIRECT_TO_RESPONDENT_FE:
-    // eslint-disable-next-line no-console
-    logger.infoWithReq('Redirecting to RFE for case ID: %s', caseId);
     idamService.logout()(req, res, () => {
       redirectToFrontendHelper.redirectToAos(req, res);
     });
     break;
   case REDIRECT_TO_DECREE_ABSOLUTE_FE:
-    // eslint-disable-next-line no-console
-    logger.infoWithReq('Redirecting to DAFE for case ID: %s', caseId);
     redirectToFrontendHelper.redirectToDa(req, res);
     break;
   default:
