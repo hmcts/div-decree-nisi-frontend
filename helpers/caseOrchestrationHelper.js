@@ -1,4 +1,5 @@
 const sessionToCosMapping = require('resources/sessionToCosMapping');
+const logger = require('services/logger').getLogger(__filename);
 const { get } = require('lodash');
 const config = require('config');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
@@ -64,21 +65,40 @@ const validateResponse = (req, response) => {
 
   // temporary solution to prevent old paper based cases progressing via DA
   const oldPaperBasedCase = !response.data.decreeNisiGrantedDate;
-
   const userIsRespondent = idam.userDetails.email === response.data.respEmailAddress; // eslint-disable-line max-len
   // eslint-disable-next-line max-len
   const caseIsInDecreeAbsoluteState = config.ccd.validDaStates.includes(response.state);
 
+  const caseId = response.caseId;
+
+  logger.infoWithReq('Redirect: Case state: %s, Court: %s, for case ID: %s', response.state, response.data.courts, caseId);
+
   switch (true) {
   case notValidState:
   case noDigitalCourt:
-    return Promise.reject(redirectToPetitionerError);
+    return (
+      // eslint-disable-next-line no-console
+      logger.infoWithReq('Redirect: No digital court included for case ID: %s', caseId),
+      Promise.reject(redirectToPetitionerError)
+    );
   case oldPaperBasedCase:
-    return Promise.resolve(response);
+    return (
+      // eslint-disable-next-line no-console
+      logger.infoWithReq('Redirect: Paper based case for case ID: %s', caseId),
+      Promise.resolve(response)
+    );
   case userIsRespondent:
-    return Promise.reject(redirectToRespondentError);
+    return (
+      // eslint-disable-next-line no-console
+      logger.infoWithReq('Redirect: User is respondent for case ID: %s', caseId),
+      Promise.reject(redirectToRespondentError)
+    );
   case caseIsInDecreeAbsoluteState:
-    return Promise.reject(redirectToDecreeAbsoluteError);
+    return (
+      // eslint-disable-next-line no-console
+      logger.infoWithReq('Redirect: case ID: %s is in DA eligible state ', caseId),
+      Promise.reject(redirectToDecreeAbsoluteError)
+    );
   default:
     return Promise.resolve(response);
   }
