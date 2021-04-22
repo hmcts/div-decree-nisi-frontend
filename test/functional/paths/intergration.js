@@ -38,7 +38,7 @@ const testHappyPath = async(I, language = 'en') => {
 
 Feature('Integration Tests');
 
-Scenario('Happy Path for English language', async I => {
+Scenario('Happy Path for English language @cross-browser-test', async I => {
   await testHappyPath(I, 'en');
 }).retry(2);
 
