@@ -30,7 +30,7 @@ nodejs:
         CASE_MAINTENANCE_BASE_URL: "http://div-cms-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
         FEES_AND_PAYMENTS_URL: "http://div-fps-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
         IDAM_LOGIN_URL: "https://idam-web-public.{{ .Values.global.environment }}.platform.hmcts.net/login"
-        ORCHESTRATION_SERVICE_AMEND_PETITION_URL: "http://div-cos-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/amend-petition"
+        ORCHESTRATION_SERVICE_AMEND_PETITION_URL: "http://div-cos-pr-1423.service.core-compute-preview.internal/amend-petition"
         ORCHESTRATION_SERVICE_AMEND_DN_REJECTION_URL: "http://div-cos-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/amend-petition-dn-rejection"
         ORCHESTRATION_SERVICE_DRAFT_ENDPOINT: "http://div-cos-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/draftsapi/version/1"
         ORCHESTRATION_SERVICE_GET_PETITION_URL: "http://div-cos-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/retrieve-case"
