@@ -148,7 +148,7 @@ class PetitionProgressBar extends Interstitial {
     if (this.dnIsRefused) {
       return action(caseOrchestrationService.amendRejectedApplication)
         .then(redirectToFrontendHelper.redirectToFrontendAmend)
-        .catch(this.journey.steps.PetitionProgressBar);
+        .onFailure(redirectTo(config.paths.contactDivorceTeamError));
     }
 
     return branch(
