@@ -54,7 +54,7 @@
     "formidable": "^1.2.1",
     "glob": "^7.1.2",
     "govuk-frontend": "^2.11.0",
-    "handlebars": ">=4.5.3",
+    "handlebars": ">=4.7.7",
     "helmet": "^3.21.2",
     "helmet-csp": ">=2.9.1",
     "hpkp": "^2.0.0",
@@ -63,7 +63,7 @@
     "ioredis": "^4.14.1",
     "joi": "^14.3.1",
     "jsoneditor": "^8.4.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "os": "^0.1.1",
     "paths": "^0.1.1",
@@ -128,7 +128,12 @@
     "ssri": ">=6.0.2 <7.0.0 || >=8.0.1",
     "redis": "^3.1.1",
     "netmask": "^2.0.1",
-    "diff": "^3.5.0"
+    "diff": "^3.5.0",
+    "hosted-git-info": ">=3.0.8",
+    "url-parse": ">=1.5.0",
+    "lodash": "^4.17.21",
+    "handlebars": ">=4.7.7",
+    "ua-parser-js": ">=0.7.24"
   },
   "nyc": {
     "report-dir": "coverage",
