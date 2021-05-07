@@ -10,8 +10,6 @@ nodejs:
         PUBLIC_HOSTNAME: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         FEATURE_WEBCHAT: "true"
         PETITIONER_FRONTEND_URL: "https://petitioner-frontend-aks.aat.platform.hmcts.net"
-        ORCHESTRATION_SERVICE_AMEND_PETITION_URL: "http://div-cos-pr-1423.service.core-compute-preview.internal/amend-petition"
-        ORCHESTRATION_SERVICE_URL: "http://div-cos-pr-1423.service.core-compute-preview.internal"
 
   # Don't modify below here
     image: ${IMAGE_NAME}

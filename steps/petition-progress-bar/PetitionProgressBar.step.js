@@ -9,6 +9,7 @@ const { toLower } = require('lodash');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const caseOrchestrationService = require('services/caseOrchestrationService');
 const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
+const logger = require('services/logger').getLogger(__filename);
 const {
   constants,
   isAwaitingDecreeNisi,
@@ -146,6 +147,7 @@ class PetitionProgressBar extends Interstitial {
 
   next() {
     if (this.dnIsRefused) {
+      logger.infoWithReq(this.req, 'amendPetition', 'Attempting to amend petition (rejected app)');
       return action(caseOrchestrationService.amendRejectedApplication)
         .then(redirectToFrontendHelper.redirectToFrontendAmend)
         .onFailure(redirectTo(config.paths.contactDivorceTeamError));

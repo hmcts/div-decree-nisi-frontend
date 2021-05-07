@@ -63,6 +63,7 @@ const methods = {
     const { caseId } = req.session.case;
     const uri = `${config.services.orchestrationService.amendPetitionUrl}/${caseId}`;
     const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
+    logger.infoWithReq(req, 'amendPetition', uri);
     return request.put({ uri, headers, json: true })
       .catch(error => {
         logger.errorWithReq(req, 'error_amending_application',
@@ -78,6 +79,7 @@ const methods = {
     const { caseId } = req.session.case;
     const uri = `${config.services.orchestrationService.amendDNRejectionUrl}/${caseId}`;
     const headers = { Authorization: `Bearer ${req.cookies[authTokenString]}` };
+    logger.infoWithReq(req, 'amendPetition', uri);
     return request.put({ uri, headers, json: true })
       .catch(error => {
         logger.errorWithReq(req, 'error_amending_dn_rejection_application',
