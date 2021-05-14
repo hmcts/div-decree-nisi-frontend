@@ -1,5 +1,5 @@
 const { Interstitial } = require('@hmcts/one-per-page/steps');
-const { action } = require('@hmcts/one-per-page/flow');
+const { action, redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
 const idam = require('services/idam');
 const caseOrchestrationService = require('services/caseOrchestrationService');
@@ -37,7 +37,8 @@ class AmendApplication extends Interstitial {
 
   next() {
     return action(caseOrchestrationService.amendApplication)
-      .then(redirectToFrontendHelper.redirectToFrontendAmend);
+      .then(redirectToFrontendHelper.redirectToFrontendAmend)
+      .onFailure(redirectTo(config.paths.contactDivorceTeamError));
   }
 }
 
