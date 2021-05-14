@@ -1,7 +1,7 @@
 {
   "en": {
     "submittedAppStatusMsg": "Your application was submitted on {{ case.createdDate | date }}",
-    "submittedAppStatusMsgDetails1": "Your temporary reference number is",
+    "submittedAppStatusMsgDetails1": "Your temporary reference number is ",
     "submittedAppStatusMsgDetails2": "You’ll be given a full case number when your application has been accepted and issued (sent by post to your {{ divorceWho }}).",
     "submittedWhatHappensNext": "What happens next",
     "submittedWhatHappensNextDetails1": "If your application is accepted you’ll be sent a copy by email along with your case number.",
@@ -10,7 +10,7 @@
   },
   "cy": {
     "submittedAppStatusMsg": "Cyflwynwyd eich cais ar {{ case.createdDate | date }}",
-    "submittedAppStatusMsgDetails1": "Eich cyfeirnod dros dro yw:",
+    "submittedAppStatusMsgDetails1": "Eich cyfeirnod dros dro yw: ",
     "submittedAppStatusMsgDetails2": "Byddwch yn cael eich rhif achos iawn pan fydd eich cais wedi cael ei dderbyn a’i gyhoeddi (pan fydd wedi'i anfon drwy'r post at eich {{ divorceWho }}).",
     "submittedWhatHappensNext": "Beth fydd yn digwydd nesaf",
     "submittedWhatHappensNextDetails1": "Os bydd eich cais yn cael ei dderbyn fe gewch gopi ohono drwy e-bost ynghyd â'ch rhif achos iawn.",
