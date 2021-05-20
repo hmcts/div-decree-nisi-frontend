@@ -52,24 +52,6 @@ const testAllPages = async(I, language = 'en') => {
   I.testCheckYourAnswersPage(language);
 
   await I.testDonePage();
-
-  await I.testExitPage();
-
-  await I.testExitIntolerable();
-
-  I.testContactDivorceTeam();
-
-  I.testContactDivorceTeamError();
-
-  I.testCookiesPolicyPage();
-
-  I.testPrivacyPolicyPage();
-
-  I.testTermsAndConditionsPage();
-
-  I.testAccessibilityStatementPage();
-
-  I.checkUrlsNotTested();
 };
 
 Feature('Test all pages');
