@@ -33,6 +33,18 @@ const supportedBrowsers = {
         name: 'WIN_CHROME_LATEST_DECREE_NISI'
       }
     },
+    safari: {
+      safari_mac_latest: {
+        browserName: 'safari',
+        platformName: 'macOS 10.14',
+        browserVersion: 'latest',
+        'sauce:options': {
+          name: 'MAC_SAFARI_LATEST_DECREE_NISI',
+          seleniumVersion: '3.141.59',
+          screenResolution: '1400x1050'
+        }
+      }
+    },
     chrome_mac_latest: {
       browserName: 'chrome',
       platformName: LATEST_MAC,
