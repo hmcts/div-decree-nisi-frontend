@@ -6,9 +6,15 @@
   {{ content.title }}
 {% endset %}
 
+{% block bodyStart %}
+<div class="cookies-policy-banner">
+  {{ super() }}
+</div>
+{% endblock %}
+
 {% block main_content %}
-<div class="cookies-page">
-  {% include "cookie-manager/cookie-success-banner.njk" %}
+<div class="cookies-policy-content">
+  {% include "includes/cookies/cookie-manager/cookie-success-banner.njk" %}
   <p class="govuk-body">{{ content.info }}</p>
   <p class="govuk-body">{{ content.thisServiceUsesThemTo | safe }}</p>
   <ul class="govuk-list govuk-list--bullet">
@@ -189,7 +195,7 @@
     </tr>
   </table>
 
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Allow cookies that measure website use?</legend>
+  <div class="govuk-fieldset__legend govuk-fieldset__legend--s">Allow cookies that measure website use?</div>
   <div class="govuk-radios">
     <div class="govuk-radios__item">
       <input type="radio" name="analytics" id="radio-analytics-on" value="true" class="govuk-radios__input">
@@ -202,8 +208,8 @@
       </label>
     </div>
   </div>
-  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-    Allow cookies that measure website application performance monitoring?</legend>
+  <div class="govuk-fieldset__legend govuk-fieldset__legend--s">
+    Allow cookies that measure website application performance monitoring?</div>
   <div class="govuk-radios">
     <div class="govuk-radios__item">
       <input type="radio" name="apm" id="radio-apm-on" value="true" class="govuk-radios__input">

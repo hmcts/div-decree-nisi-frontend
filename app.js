@@ -17,8 +17,7 @@ const getFilters = require('views/filters');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const errorContent = require('views/errors/error-content');
 
-const app = express(),
-  cookieManagerComponentsPath = 'node_modules/cmc-cookies-manager/shared-component/components';
+const app = express();
 
 setupHelmet(app);
 setupPrivacy(app);
@@ -34,18 +33,17 @@ lookAndFeel.configure(app, {
     views: [
       path.resolve(__dirname, 'mocks', 'steps'),
       path.resolve(__dirname, 'steps'),
-      path.resolve(__dirname, 'views'),
-      path.resolve(__dirname, cookieManagerComponentsPath)
+      path.resolve(__dirname, 'views')
     ]
   },
   webpack: {
     entry: [
       path.resolve(__dirname, 'assets/js/main.js'),
+      path.resolve(__dirname, 'assets/js/cookieManager.js'),
       path.resolve(__dirname, 'assets/scss/_web-chat.scss'),
       path.resolve(__dirname, 'assets/scss/main.scss'),
       path.resolve(__dirname, 'assets/scss/_cookies.scss'),
-      path.resolve(__dirname, 'node_modules/dropzone/dist/dropzone.js'),
-      path.resolve(__dirname, `${cookieManagerComponentsPath}/cookie-manager/cookies-manager.js`)
+      path.resolve(__dirname, 'node_modules/dropzone/dist/dropzone.js')
     ],
     plugins: [
       new CopyWebpackPlugin(

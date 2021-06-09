@@ -45,7 +45,6 @@
     "@hmcts/properties-volume": "^0.0.9",
     "applicationinsights": "1.6.0",
     "applicationinsights-native-metrics": "^0.0.5",
-    "cmc-cookies-manager": "github:hmcts/cmc-cookies-manager#3.0.0",
     "cookie-parser": "^1.4.4",
     "cookies": "^0.8.0",
     "copy-webpack-plugin": "^4.5.2",
