@@ -70,3 +70,8 @@
 {% block one_third -%}
   {% block side_content %}{% endblock %}
 {%- endblock %}
+
+{% block bodyEnd %}
+  {% include "includes/scripts.html" %}
+  {% block extra_scripts %}{% endblock %}
+{% endblock %}

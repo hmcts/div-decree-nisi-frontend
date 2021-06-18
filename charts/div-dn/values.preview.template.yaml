@@ -10,6 +10,7 @@ nodejs:
         PUBLIC_HOSTNAME: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         FEATURE_WEBCHAT: "true"
         PETITIONER_FRONTEND_URL: "https://petitioner-frontend-aks.aat.platform.hmcts.net"
+
     # Don't modify below here
     image: ${IMAGE_NAME}
     ingressHost: ${SERVICE_FQDN}

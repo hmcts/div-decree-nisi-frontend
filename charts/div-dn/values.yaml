@@ -22,6 +22,12 @@ nodejs:
         WEBCHAT_BUTTON_AGENTS_BUSY: 2042157415cc19c95669039.65793052
         WEBCHAT_BUTTON_SERVICE_CLOSED: 20199488815cc1a89e0861d5.73103009
 
+        ANTENNA_WEBCHAT_URL: "webchat.training.ctsc.hmcts.net"
+        ANTENNA_WEBCHAT_SERVICE: "Testing"
+        ANTENNA_WEBCHAT_INTEGRITY_CODE_ES5: "sha384-q2frIrgzQ2N01xiqrV6qtO/w01EzprxDOqVngE7cybQ/Hl4GsH15Qi0M+A0dX3Lm"
+        ANTENNA_WEBCHAT_INTEGRITY_CODE_ES2015: "sha384-iEIeVUq/ncVpaigZAlCikuomSR9QyL2yiApzGyMAsdgFi8ljx86/VPCQdyST4uhZ"
+
+
         GOOGLE_ANALYTICS_ID: "TBD"
         DEPLOYMENT_ENV: "{{ .Values.global.environment }}"
         REFORM_ENVIRONMENT: "{{ .Values.global.environment }}"
