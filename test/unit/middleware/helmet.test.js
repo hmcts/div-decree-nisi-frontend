@@ -26,6 +26,11 @@ describe(modulePath, () => {
 
     sinon.assert.calledWith(contentSecurityPolicyStub, {
       directives: {
+        defaultSrc: [
+          '\'self\'',
+          '\'data:\'',
+          '\'unsafe-inline\''
+        ],
         fontSrc: ['\'self\' data:'],
         scriptSrc: [
           '\'self\'',
@@ -34,21 +39,59 @@ describe(modulePath, () => {
           'hmctspiwik.useconnect.co.uk',
           'www.googletagmanager.com',
           'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com'
+          'vcc-eu4b.8x8.com',
+          'https://webchat-client.ctsc.hmcts.net',
+          'https://webchat-client.training.ctsc.hmcts.net',
+          'https://webchat.ctsc.hmcts.net',
+          'https://webchat.training.ctsc.hmcts.net',
+          'wss://webchat.ctsc.hmcts.net',
+          'wss://webchat.training.ctsc.hmcts.net'
         ],
-        connectSrc: ['\'self\''],
-        mediaSrc: ['\'self\''],
+        connectSrc: [
+          '\'self\'',
+          'https://webchat-client.ctsc.hmcts.net',
+          'https://webchat-client.training.ctsc.hmcts.net',
+          'https://webchat.ctsc.hmcts.net',
+          'https://webchat.training.ctsc.hmcts.net',
+          'wss://webchat.ctsc.hmcts.net',
+          'wss://webchat.training.ctsc.hmcts.net'
+        ],
+        mediaSrc: [
+          '\'self\'',
+          'https://webchat-client.ctsc.hmcts.net',
+          'https://webchat-client.training.ctsc.hmcts.net',
+          'https://webchat.ctsc.hmcts.net',
+          'https://webchat.training.ctsc.hmcts.net',
+          'wss://webchat.ctsc.hmcts.net',
+          'wss://webchat.training.ctsc.hmcts.net'
+        ],
         frameSrc: [
           '\'none\'',
           'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com'
+          'vcc-eu4b.8x8.com',
+          'https://webchat-client.ctsc.hmcts.net',
+          'https://webchat-client.training.ctsc.hmcts.net',
+          'https://webchat.ctsc.hmcts.net',
+          'https://webchat.training.ctsc.hmcts.net',
+          'wss://webchat.ctsc.hmcts.net',
+          'wss://webchat.training.ctsc.hmcts.net'
         ],
         imgSrc: [
           '\'self\'',
           'www.google-analytics.com',
           'hmctspiwik.useconnect.co.uk',
           'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com'
+          'vcc-eu4b.8x8.com',
+          'https://webchat-client.ctsc.hmcts.net',
+          'https://webchat-client.training.ctsc.hmcts.net',
+          'https://webchat.ctsc.hmcts.net',
+          'https://webchat.training.ctsc.hmcts.net',
+          'wss://webchat.ctsc.hmcts.net',
+          'wss://webchat.training.ctsc.hmcts.net'
+        ],
+        styleSrc: [
+          '\'self\'',
+          '\'unsafe-inline\''
         ]
       }
     });
