@@ -10,4 +10,3 @@ test/crossbrowser/reports/*
 webpack.config.js
 Gruntfile.js
 dist
-views/includes/scripts.html
