@@ -120,7 +120,6 @@ paths:
   respNotAdmitAdultery: /resp-does-not-admit-adultery-options
   reviewAosResponseFromCoRespondent: /review-aos-response-from-co-respondent
   accessibilityStatement: /accessibility-statement
-  avayaWebchat: /avaya-webchat
   courtFeedback: /court-feedback
   mock:
     idamLogin: /idam-mock-login
