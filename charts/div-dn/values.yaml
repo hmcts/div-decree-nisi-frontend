@@ -22,8 +22,8 @@ nodejs:
         WEBCHAT_BUTTON_AGENTS_BUSY: 2042157415cc19c95669039.65793052
         WEBCHAT_BUTTON_SERVICE_CLOSED: 20199488815cc1a89e0861d5.73103009
 
-        ANTENNA_WEBCHAT_URL: "webchat.training.ctsc.hmcts.net"
-        ANTENNA_WEBCHAT_SERVICE: "Testing"
+        ANTENNA_WEBCHAT_URL: "webchat.ctsc.hmcts.net"
+        ANTENNA_WEBCHAT_SERVICE: "Divorce"
 
         GOOGLE_ANALYTICS_ID: "TBD"
         DEPLOYMENT_ENV: "{{ .Values.global.environment }}"
