@@ -11,7 +11,7 @@ nodejs:
         FEATURE_WEBCHAT: "false"
         PETITIONER_FRONTEND_URL: "https://petitioner-frontend-aks.aat.platform.hmcts.net"
 
-        ANTENNA_WEBCHAT_URL: "webchat-client.training.ctsc.hmcts.net"
+        ANTENNA_WEBCHAT_URL: "webchat.training.ctsc.hmcts.net"
         ANTENNA_WEBCHAT_SERVICE: "Testing"
 
     # Don't modify below here
