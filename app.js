@@ -39,6 +39,7 @@ lookAndFeel.configure(app, {
   webpack: {
     entry: [
       path.resolve(__dirname, 'assets/js/main.js'),
+      path.resolve(__dirname, 'assets/scss/_web-chat.scss'),
       path.resolve(__dirname, 'assets/scss/main.scss'),
       path.resolve(__dirname, 'node_modules/dropzone/dist/dropzone.js')
     ],
@@ -59,12 +60,20 @@ lookAndFeel.configure(app, {
       feedbackLink: 'https://www.smartsurvey.co.uk/s/Divorce_Feedback/',
       googleAnalyticsId: config.services.googleAnalytics.id,
       webchat: config.services.webchat,
-      features: { webchat: parseBool(config.features.webchat) }
+      antennaWebchat: {
+        url: config.services.antennaWebchat.url,
+        service: config.services.antennaWebchat.service
+      },
+      features: {
+        webchat: parseBool(config.features.webchat),
+        antennaWebchat: parseBool(config.features.antennaWebchat)
+      }
     }
   }
 });
 
 app.use('/webchat', express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`));
+app.use('/public/locale', express.static(`${__dirname}/assets/locale`));
 
 // Get user details from idam, sets req.idam.userDetails
 app.use(idam.userDetails());

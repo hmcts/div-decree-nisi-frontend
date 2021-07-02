@@ -7,6 +7,7 @@ const { sinon, expect } = require('@hmcts/one-per-page-test-suite');
 
 const hpkpStub = sinon.stub();
 const setupHelmet = proxyquire(modulePath, { hpkp: hpkpStub });
+const webchatUrl = config.services.antennaWebchat.url;
 
 const app = {};
 
@@ -26,6 +27,11 @@ describe(modulePath, () => {
 
     sinon.assert.calledWith(contentSecurityPolicyStub, {
       directives: {
+        defaultSrc: [
+          '\'self\'',
+          '\'data:\'',
+          '\'unsafe-inline\''
+        ],
         fontSrc: ['\'self\' data:'],
         scriptSrc: [
           '\'self\'',
@@ -34,21 +40,39 @@ describe(modulePath, () => {
           'hmctspiwik.useconnect.co.uk',
           'www.googletagmanager.com',
           'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com'
+          'vcc-eu4b.8x8.com',
+          `https://${webchatUrl}`,
+          `wss://${webchatUrl}`
         ],
-        connectSrc: ['\'self\''],
-        mediaSrc: ['\'self\''],
+        connectSrc: [
+          '\'self\'',
+          `https://${webchatUrl}`,
+          `wss://${webchatUrl}`
+        ],
+        mediaSrc: [
+          '\'self\'',
+          `https://${webchatUrl}`,
+          `wss://${webchatUrl}`
+        ],
         frameSrc: [
           '\'none\'',
           'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com'
+          'vcc-eu4b.8x8.com',
+          `https://${webchatUrl}`,
+          `wss://${webchatUrl}`
         ],
         imgSrc: [
           '\'self\'',
           'www.google-analytics.com',
           'hmctspiwik.useconnect.co.uk',
           'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com'
+          'vcc-eu4b.8x8.com',
+          `https://${webchatUrl}`,
+          `wss://${webchatUrl}`
+        ],
+        styleSrc: [
+          '\'self\'',
+          '\'unsafe-inline\''
         ]
       }
     });
