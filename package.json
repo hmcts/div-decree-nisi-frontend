@@ -136,7 +136,7 @@
     "ua-parser-js": ">=0.7.24",
     "postcss": "^8.2.10",
     "glob-parent": "^5.1.2",
-    "redis": "^3.1.1",
+    "redis": "^2.8.0",
     "trim-newlines": "^4.0.1"
   },
   "nyc": {
