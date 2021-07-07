@@ -7,7 +7,7 @@ This repo is for the Decree Nisi Frontend and forms part of the online Divorce A
 **Install dependencies**
 
 ```shell
-$ yarn install
+yarn install
 ```
 
 **Start application**
@@ -15,15 +15,15 @@ $ yarn install
 Then you can use the following commands in different terminal sessions:
 
 ```shell
-`docker-compose up redis`
+docker-compose up redis
 ```
 
 ```shell
-$ yarn mocks
+yarn mocks
 ```
 
 ```shell
-$ yarn dev
+yarn dev
 ```
 
 The application will now be running on ```https://localhost:3000```.
@@ -35,7 +35,7 @@ This is only be available locally and on AAT environment and is useful for debug
 ## Testing
 
 ```shell
-$ yarn test
+yarn test
 ```
 
 **Run Functional tests locally**

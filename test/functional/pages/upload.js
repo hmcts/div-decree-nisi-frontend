@@ -8,7 +8,7 @@ const ShareCourtDocumentsContent = require(
   'steps/share-court-documents/ShareCourtDocuments.content'
 );
 
-function upload(file, isDragAndDropSupported) {
+function upload(file, isDragAndDropSupported, language) {
   const I = this;
 
   if (isDragAndDropSupported) {
@@ -16,7 +16,13 @@ function upload(file, isDragAndDropSupported) {
   } else {
     I.waitForVisible('.file-upload-input');
     I.attachFile('.file-upload-input', file);
-    I.click('Upload');
+    if (language === 'en') {
+      I.click('Upload');
+    }
+
+    if (language === 'cy') {
+      I.click('Uwchlwytho');
+    }
   }
 }
 
@@ -48,7 +54,7 @@ function uploadFile(isDragAndDropSupported, language = 'en') {
   I.say(`Drag and Drop supported: ${isDragAndDropSupported}`);
   I.amOnLoadedPage(Upload.path, language);
 
-  upload.call(I, '/assets/image.jpg', isDragAndDropSupported);
+  upload.call(I, '/assets/image.jpg', isDragAndDropSupported, language);
   I.waitForVisible('.file', 30);
   I.waitForText(UploadContent[language].remove, 30);
   I.waitForVisible(`input[value="${commonContent[language].continue}"]:not([disabled])`);
