@@ -143,8 +143,7 @@ tests:
 
 features:
   idam: false
-  webchat: true
-  antennaWebchat: false
+  antennaWebchatUserAttribute: false
   awaitingClarification: true
   dnIsRefused: true
   browserSupport: false
