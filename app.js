@@ -63,7 +63,10 @@ lookAndFeel.configure(app, {
         url: config.services.antennaWebchat.url,
         service: config.services.antennaWebchat.service
       },
-      features: { antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute) }
+      features: {
+        antennaWebchat: parseBool(config.features.antennaWebchat),
+        antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute)
+      }
     }
   }
 });
