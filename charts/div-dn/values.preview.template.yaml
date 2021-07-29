@@ -9,6 +9,7 @@ nodejs:
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         PUBLIC_HOSTNAME: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         FEATURE_WEBCHAT: "false"
+        FEATURE_ANTENNA_WEBCHAT: "true"
         PETITIONER_FRONTEND_URL: "https://petitioner-frontend-aks.aat.platform.hmcts.net"
         FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE: "true"
         ANTENNA_WEBCHAT_URL: "webchat.training.ctsc.hmcts.net"
