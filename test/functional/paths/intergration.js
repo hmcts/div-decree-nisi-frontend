@@ -30,6 +30,7 @@ const testHappyPath = async(I, language = 'en') => {
   I.testCheckYourAnswersPage(language);
   I.navByClick(CheckYourAnswersContent[language].submit);
   if (config.tests.functional.verifyOnCrossbrowser) {
+    I.wait(3);
     I.retry(2).waitForText('LV18D81234');
   } else {
     I.amOnLoadedPage(config.paths.done, language);
