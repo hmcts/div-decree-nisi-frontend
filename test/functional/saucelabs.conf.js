@@ -94,11 +94,8 @@ const setupConfig = {
     }
   },
   multiple: {
-    microsoftIE11: {
-      browsers: getBrowserConfig('microsoftIE11')
-    },
-    microsoftEdge: {
-      browsers: getBrowserConfig('microsoftEdge')
+    microsoft: {
+      browsers: getBrowserConfig('microsoft')
     },
     chrome: {
       browsers: getBrowserConfig('chrome')
