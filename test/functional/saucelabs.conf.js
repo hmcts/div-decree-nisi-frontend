@@ -17,7 +17,6 @@ const browser = process.env.SAUCE_BROWSER || config.saucelabs.browser;
 const defaultSauceOptions = {
   username: process.env.SAUCE_USERNAME || config.saucelabs.username,
   accessKey: process.env.SAUCE_ACCESS_KEY || config.saucelabs.key,
-  tunnelIdentifier: process.env.SAUCE_TUNNEL_IDENTIFIER || config.saucelabs.tunnelId,
   acceptSslCerts: true,
   tags: ['DN_divorce']
 };
