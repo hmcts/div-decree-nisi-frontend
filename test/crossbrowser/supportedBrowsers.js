@@ -9,7 +9,8 @@ const supportedBrowsers = {
       browserVersion: 'latest',
       'sauce:options': {
         name: 'IE11_DECREE_NISI',
-        screenResolution: '1400x1050'
+        screenResolution: '1400x1050',
+        extendedDebugging: true
       }
     }
   },
@@ -20,7 +21,8 @@ const supportedBrowsers = {
       browserVersion: 'latest',
       'sauce:options': {
         name: 'Edge_Win10_DECREE_NISI',
-        screenResolution: '1400x1050'
+        screenResolution: '1400x1050',
+        extendedDebugging: true
       }
     }
   },
@@ -30,7 +32,8 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'WIN_CHROME_LATEST_DECREE_NISI'
+        name: 'WIN_CHROME_LATEST_DECREE_NISI',
+        extendedDebugging: true
       }
     },
     safari: {
@@ -41,7 +44,8 @@ const supportedBrowsers = {
         'sauce:options': {
           name: 'MAC_SAFARI_LATEST_DECREE_NISI',
           seleniumVersion: '3.141.59',
-          screenResolution: '1400x1050'
+          screenResolution: '1400x1050',
+          extendedDebugging: true
         }
       }
     },
@@ -50,7 +54,8 @@ const supportedBrowsers = {
       platformName: LATEST_MAC,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'MAC_CHROME_LATEST_DECREE_NISI'
+        name: 'MAC_CHROME_LATEST_DECREE_NISI',
+        extendedDebugging: true
       }
     }
   },
@@ -60,7 +65,8 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'WIN_FIREFOX_LATEST_DECREE_NISI'
+        name: 'WIN_FIREFOX_LATEST_DECREE_NISI',
+        extendedDebugging: true
       }
     },
     firefox_mac_latest: {
@@ -68,7 +74,8 @@ const supportedBrowsers = {
       platformName: LATEST_MAC,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'MAC_FIREFOX_LATEST_DECREE_NISI'
+        name: 'MAC_FIREFOX_LATEST_DECREE_NISI',
+        extendedDebugging: true
       }
     }
   }
