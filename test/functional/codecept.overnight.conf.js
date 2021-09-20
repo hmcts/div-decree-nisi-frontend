@@ -5,14 +5,12 @@ const supportedBrowsers = require('../crossbrowser/supportedBrowsers.js');
 const waitForTimeout = config.services.saucelabs.waitForTimeout;
 const smartWait = config.tests.functional.smartWait;
 const browser = process.env.SAUCE_BROWSER || config.services.saucelabs.browser;
-const tunnelName = process.env.SAUCE_TUNNEL_IDENTIFIER || config.services.saucelabs.tunnelId;
 
 const getBrowserConfig = () => {
   const browserConfig = [];
   for (const candidateBrowser in supportedBrowsers) {
     if (candidateBrowser) {
       const desiredCapability = supportedBrowsers[candidateBrowser];
-      desiredCapability.tunnelIdentifier = tunnelName;
       desiredCapability.tags = ['divorce'];
       browserConfig.push({
         browser: desiredCapability.browserName,
