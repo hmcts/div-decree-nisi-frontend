@@ -72,7 +72,6 @@
     "request-promise-native": "^1.0.8",
     "serialize-javascript": ">=2.1.1",
     "superagent": "^3.8.3",
-    "tar": ">=4.4.18",
     "tmp": "^0.1.0",
     "util": "^0.12.1"
   },
@@ -137,7 +136,7 @@
     "ua-parser-js": ">=0.7.24",
     "postcss": "^8.2.10",
     "glob-parent": "^5.1.2",
-    "redis": "^3.1.1",
+    "redis": "^2.8.0",
     "trim-newlines": "^4.0.1",
     "tar": ">=4.4.18 <5.0.0 || >=5.0.10 <6.0.0 || >=6.1.9",
     "path-parse": ">=1.0.7",
