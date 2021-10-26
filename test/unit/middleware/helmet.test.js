@@ -39,8 +39,6 @@ describe(modulePath, () => {
           'www.google-analytics.com',
           'hmctspiwik.useconnect.co.uk',
           'www.googletagmanager.com',
-          'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com',
           `https://${webchatUrl}`,
           `wss://${webchatUrl}`
         ],
@@ -56,8 +54,6 @@ describe(modulePath, () => {
         ],
         frameSrc: [
           '\'none\'',
-          'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com',
           `https://${webchatUrl}`,
           `wss://${webchatUrl}`
         ],
@@ -65,8 +61,6 @@ describe(modulePath, () => {
           '\'self\'',
           'www.google-analytics.com',
           'hmctspiwik.useconnect.co.uk',
-          'vcc-eu4.8x8.com',
-          'vcc-eu4b.8x8.com',
           `https://${webchatUrl}`,
           `wss://${webchatUrl}`
         ],

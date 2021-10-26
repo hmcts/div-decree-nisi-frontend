@@ -90,7 +90,6 @@ journey:
 
 features:
   idam: FEATURE_IDAM
-  antennaWebchat: FEATURE_ANTENNA_WEBCHAT
   antennaWebchatUserAttribute: FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE
   awaitingClarification: FEATURE_AWAITING_CLARIFICATION
   dnIsRefused: FEATURE_DN_IS_REFUSED

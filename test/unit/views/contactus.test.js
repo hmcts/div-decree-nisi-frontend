@@ -1,8 +1,7 @@
 const PetitionProgressBar = require('steps/petition-progress-bar/PetitionProgressBar.step');
 const idam = require('services/idam');
-const { middleware, sinon, content, custom, expect } = require('@hmcts/one-per-page-test-suite');
+const { middleware, sinon, content } = require('@hmcts/one-per-page-test-suite');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
-const httpStatus = require('http-status-codes');
 
 const session = {
   case: {
@@ -41,16 +40,4 @@ describe('Test contact us for help', () => {
     return content(PetitionProgressBar, session, { specificContent });
   });
 
-  it('shows webchat content if enabled', () => {
-    const features = { antennaWebchat: true };
-
-    return custom(PetitionProgressBar)
-      .withSession(session)
-      .withGlobal('features', features)
-      .get()
-      .expect(httpStatus.OK)
-      .text(pageContent => {
-        expect(pageContent).to.include('Talk to an Agent');
-      });
-  });
 });

@@ -64,14 +64,11 @@ lookAndFeel.configure(app, {
         service: config.services.antennaWebchat.service
       },
       features: {
-        antennaWebchat: parseBool(config.features.antennaWebchat),
         antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute)
       }
     }
   }
 });
-
-app.use('/webchat', express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`));
 app.use('/public/locale', express.static(`${__dirname}/assets/locale`));
 
 // Get user details from idam, sets req.idam.userDetails

@@ -137,7 +137,6 @@ tests:
 
 features:
   idam: false
-  antennaWebchat: true
   antennaWebchatUserAttribute: false
   awaitingClarification: true
   dnIsRefused: true

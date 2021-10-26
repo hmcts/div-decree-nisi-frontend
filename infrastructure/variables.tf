@@ -183,30 +183,6 @@ variable "appinsights_instrumentation_key" {
   default     = ""
 }
 
-variable "feature_webchat" {
-  default = true
-}
-
-variable "webchat_chat_id" {
-  default = "3833071605d5d4518036a09.30917386"
-}
-
-variable "webchat_tenant" {
-  default = "aG1jdHNzdGFnaW5nMDE"
-}
-
-variable "webchat_button_no_agents" {
-  default = "7732814745cac6f4603c4d1.53357933"
-}
-
-variable "webchat_button_agents_busy" {
-  default = "2042157415cc19c95669039.65793052"
-}
-
-variable "webchat_button_service_closed" {
-  default = "20199488815cc1a89e0861d5.73103009"
-}
-
 variable "node_version" {
   default = "12.14.1"
 }
