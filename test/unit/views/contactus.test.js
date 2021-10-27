@@ -39,5 +39,4 @@ describe('Test contact us for help', () => {
     ];
     return content(PetitionProgressBar, session, { specificContent });
   });
-
 });
