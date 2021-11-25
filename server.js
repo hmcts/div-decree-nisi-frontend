@@ -18,7 +18,7 @@ if (['development'].includes(config.environment)) {
   const sslDirectory = path.join(__dirname, 'resources', 'localhost-ssl');
 
   const sslOptions = {
-    secureProtocol: 'TLSv1_2_server_method',
+    secureProtocol: 'TLS_method',
     key: fs.readFileSync(path.join(sslDirectory, 'localhost.key')),
     cert: fs.readFileSync(path.join(sslDirectory, 'localhost.crt'))
   };
