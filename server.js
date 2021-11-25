@@ -11,6 +11,7 @@ const app = require('./app');
 const path = require('path');
 const https = require('https');
 const fs = require('fs');
+const tls = require('constants').SSL_OP_NO_TLSv1;
 
 let http = {};
 
@@ -18,6 +19,7 @@ if (['development'].includes(config.environment)) {
   const sslDirectory = path.join(__dirname, 'resources', 'localhost-ssl');
 
   const sslOptions = {
+    secureOptions: tls,
     key: fs.readFileSync(path.join(sslDirectory, 'localhost.key')),
     cert: fs.readFileSync(path.join(sslDirectory, 'localhost.crt'))
   };
