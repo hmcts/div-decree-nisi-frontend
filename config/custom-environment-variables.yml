@@ -81,12 +81,6 @@ services:
   feesAndPayments:
     url: FEES_AND_PAYMENTS_URL
     health: FEES_AND_PAYMENTS_HEALTHCHECK_URL
-  webchat:
-    chatId: WEBCHAT_CHAT_ID
-    tenant: WEBCHAT_TENANT
-    buttonNoAgents: WEBCHAT_BUTTON_NO_AGENTS
-    buttonAgentsBusy: WEBCHAT_BUTTON_AGENTS_BUSY
-    buttonServiceClosed: WEBCHAT_BUTTON_SERVICE_CLOSED
   antennaWebchat:
     url: ANTENNA_WEBCHAT_URL
     service: ANTENNA_WEBCHAT_SERVICE
@@ -96,8 +90,8 @@ journey:
 
 features:
   idam: FEATURE_IDAM
-  webchat: FEATURE_WEBCHAT
   antennaWebchat: FEATURE_ANTENNA_WEBCHAT
+  antennaWebchatUserAttribute: FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE
   awaitingClarification: FEATURE_AWAITING_CLARIFICATION
   dnIsRefused: FEATURE_DN_IS_REFUSED
   browserSupport: BROWSER_GROUP

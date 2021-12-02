@@ -3,7 +3,6 @@ const idam = require('services/idam');
 const { middleware, sinon, content, custom, expect } = require('@hmcts/one-per-page-test-suite');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 const httpStatus = require('http-status-codes');
-const { get } = require('lodash');
 
 const session = {
   case: {
@@ -43,17 +42,15 @@ describe('Test contact us for help', () => {
   });
 
   it('shows webchat content if enabled', () => {
-    const features = { webchat: true };
+    const features = { antennaWebchat: true };
 
     return custom(PetitionProgressBar)
       .withSession(session)
       .withGlobal('features', features)
       .get()
       .expect(httpStatus.OK)
-      .text((pageContent, contentKeys) => {
-        const webChatTitle = get(contentKeys, 'webChatTitle');
-
-        expect(pageContent).to.include(webChatTitle);
+      .text(pageContent => {
+        expect(pageContent).to.include('Talk to an Agent');
       });
   });
 });

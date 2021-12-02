@@ -39,6 +39,7 @@ withNightlyPipeline("nodejs", product, component) {
   loadVaultSecrets(secrets)
   enableCrossBrowserTest()
   enableFullFunctionalTest()
+  enableFortifyScan()
 
   before('securitychecks') {
     stage('Test HTML') {
@@ -54,6 +55,11 @@ withNightlyPipeline("nodejs", product, component) {
       steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
       steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
+
+  after('fortify-scan') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
+  }
+
   }
 }
 

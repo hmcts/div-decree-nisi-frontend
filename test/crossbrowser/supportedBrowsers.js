@@ -2,7 +2,7 @@ const LATEST_MAC = 'macOS 10.15';
 const LATEST_WINDOWS = 'Windows 10';
 
 const supportedBrowsers = {
-  microsoftIE11: {
+  microsoft: {
     ie11: {
       browserName: 'internet explorer',
       platformName: LATEST_WINDOWS,
@@ -11,15 +11,24 @@ const supportedBrowsers = {
         name: 'IE11_DECREE_NISI',
         screenResolution: '1400x1050'
       }
-    }
-  },
-  microsoftEdge: {
+    },
     edge: {
       browserName: 'MicrosoftEdge',
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'Edge_Win10_DECREE_NISI',
+        name: 'Edge_Win10_DECREE_NISI'
+      }
+    }
+  },
+  safari: {
+    safari_mac_latest: {
+      browserName: 'safari',
+      platformName: 'macOS 10.14',
+      browserVersion: 'latest',
+      'sauce:options': {
+        name: 'MAC_SAFARI_LATEST_DECREE_NISI',
+        seleniumVersion: '3.141.59',
         screenResolution: '1400x1050'
       }
     }
@@ -31,18 +40,6 @@ const supportedBrowsers = {
       browserVersion: 'latest',
       'sauce:options': {
         name: 'WIN_CHROME_LATEST_DECREE_NISI'
-      }
-    },
-    safari: {
-      safari_mac_latest: {
-        browserName: 'safari',
-        platformName: 'macOS 10.14',
-        browserVersion: 'latest',
-        'sauce:options': {
-          name: 'MAC_SAFARI_LATEST_DECREE_NISI',
-          seleniumVersion: '3.141.59',
-          screenResolution: '1400x1050'
-        }
       }
     },
     chrome_mac_latest: {
@@ -60,7 +57,8 @@ const supportedBrowsers = {
       platformName: LATEST_WINDOWS,
       browserVersion: 'latest',
       'sauce:options': {
-        name: 'WIN_FIREFOX_LATEST_DECREE_NISI'
+        name: 'WIN_FIREFOX_LATEST_DECREE_NISI',
+        screenResolution: '1400x1050'
       }
     },
     firefox_mac_latest: {
