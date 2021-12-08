@@ -84,7 +84,7 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-jq": "^0.0.9",
-    "codeceptjs": "^2.6.11",
+    "codeceptjs": "^3.2.2",
     "domino": "^2.0.2",
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.14.0",
