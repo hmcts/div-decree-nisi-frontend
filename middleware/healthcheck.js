@@ -2,7 +2,6 @@ const healthcheck = require('@hmcts/nodejs-healthcheck');
 const config = require('config');
 const os = require('os');
 const logger = require('services/logger').getLogger(__filename);
-const redis = require('services/redis');
 const outputs = require('@hmcts/nodejs-healthcheck/healthcheck/outputs');
 const { OK } = require('http-status-codes');
 
@@ -21,15 +20,6 @@ const healthOptions = message => {
 
 const checks = () => {
   return {
-    redis: healthcheck.raw(() => {
-      return redis.ping().then(_ => {
-        return healthcheck.status(_ === 'PONG');
-      })
-        .catch(error => {
-          logger.errorWithReq(null, 'health_check_error', 'Health check failed on redis', error);
-          return false;
-        });
-    }),
     'idam-api': healthcheck.web(`${config.services.idam.apiUrl}/health`,
       healthOptions('Health check failed on idam-api:')
     ),
