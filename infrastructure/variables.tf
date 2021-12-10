@@ -16,20 +16,10 @@ variable "location" {
 
 variable "env" { }
 
-variable "ilbIp" { }
-
 variable "deployment_env" {}
 
 variable "deployment_path" {
   default = "/opt/divorce/frontend"
-}
-
-variable "node_config_dir" {
-  // for Unix
-  // default = "/opt/divorce/frontend/config"
-
-  // for Windows
-  default = "D:\\home\\site\\wwwroot\\config"
 }
 
 variable "subscription" { }
@@ -60,13 +50,6 @@ variable "node_path" {
 variable "additional_host_name" {}
 
 // Package details
-variable "packages_name" {
-  default = "frontend"
-}
-
-variable "packages_project" {
-  default = "divorce"
-}
 
 variable "packages_environment" {}
 
