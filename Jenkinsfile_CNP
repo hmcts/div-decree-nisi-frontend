@@ -12,6 +12,7 @@ def secrets = [
     secret('session-secret', 'SESSION_SECRET'),
     secret('redis-secret', 'REDIS_ENCRYPTION_SECRET'),
     secret('idam-secret', 'IDAM_SECRET'),
+    secret('dn-redis-connection-string', 'REDISCLOUD_URL')
   ]
 ]
 
