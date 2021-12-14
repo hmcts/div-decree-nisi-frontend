@@ -6,6 +6,11 @@ const client = ioRedis.createClient(
   config.services.redis.url,
   { enableOfflineQueue: false }
 );
+
+client.on('connect', () => {
+  logger.infoWithReq(null, 'redis_connect', 'Connected to Redis');
+});
+
 client.on('error', error => {
   logger.errorWithReq(null, 'redis_error', 'Error connecting to Redis', error);
 });
