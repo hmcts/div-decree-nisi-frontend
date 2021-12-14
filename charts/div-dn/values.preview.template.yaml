@@ -5,6 +5,7 @@ idam-pr:
 
 nodejs:
     environment:
+        REDISCLOUD_URL: "redis://${SERVICE_NAME}-redis-master:6379"
         BASE_URL: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         PUBLIC_HOSTNAME: "https://${SERVICE_NAME}.service.core-compute-preview.internal"
         FEATURE_WEBCHAT: "false"
@@ -23,8 +24,7 @@ nodejs:
               - session-secret
               - redis-secret
               - idam-secret
-              - dn-redis-connection-string
 
 tags:
   idam-pr: true
-  pr: false
+  pr: true
