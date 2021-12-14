@@ -23,6 +23,7 @@ nodejs:
               - session-secret
               - redis-secret
               - idam-secret
+              - dn-redis-connection-string
 
 tags:
   idam-pr: true
