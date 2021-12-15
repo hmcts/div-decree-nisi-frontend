@@ -1,10 +1,9 @@
-const Redis = require('ioredis');
+const ioRedis = require('ioredis');
 const config = require('config');
 const logger = require('services/logger').getLogger(__filename);
 
-const client = new Redis(
-  config.services.redis.url,
-  { enableOfflineQueue: false }
+const client = ioRedis.createClient(
+  config.services.redis.url
 );
 
 client.on('connect', () => {
