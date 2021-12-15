@@ -16,8 +16,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const getFilters = require('views/filters');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const errorContent = require('views/errors/error-content');
+const events = require('events');
 
 const app = express();
+
+// Prevent node warnings re: MaxListenersExceededWarning
+events.EventEmitter.defaultMaxListeners = Infinity;
 
 setupHelmet(app);
 setupPrivacy(app);
