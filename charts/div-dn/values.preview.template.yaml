@@ -14,7 +14,7 @@ nodejs:
         FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE: "true"
         ANTENNA_WEBCHAT_URL: "webchat.training.ctsc.hmcts.net"
         ANTENNA_WEBCHAT_SERVICE: "Testing"
-        FEATURE_DYNATRACE: "true"
+        FEATURE_DYNATRACE: "false"
 
     # Don't modify below here
     image: ${IMAGE_NAME}
