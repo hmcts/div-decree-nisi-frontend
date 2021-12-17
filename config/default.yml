@@ -142,7 +142,7 @@ features:
   awaitingClarification: true
   dnIsRefused: true
   browserSupport: false
-  dynatrace: true
+  dynatrace: false
 
 journey:
   timeoutDelay: 300
