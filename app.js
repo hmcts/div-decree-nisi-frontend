@@ -81,11 +81,6 @@ app.use('/public/locale', express.static(`${__dirname}/assets/locale`));
 // Get user details from idam, sets req.idam.userDetails
 app.use(idam.userDetails());
 
-// 1px image used for tracking
-app.get('/noJS.png', (req, res) => {
-  res.send('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
-});
-
 app.use(accessLogger());
 
 app.set('trust proxy', 1);
@@ -151,6 +146,11 @@ onePerPage.journey(app, {
   timeoutDelay: config.journey.timeoutDelay,
   i18n: { filters: getFilters() },
   useCsrfToken: true
+});
+
+// 1px image used for tracking
+app.get('/noJS.png', (req, res) => {
+  res.send('data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
 });
 
 module.exports = app;
