@@ -142,6 +142,7 @@ features:
   awaitingClarification: true
   dnIsRefused: true
   browserSupport: false
+  pingRedis: false
 
 journey:
   timeoutDelay: 300
