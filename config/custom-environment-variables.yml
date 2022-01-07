@@ -96,6 +96,7 @@ features:
   dnIsRefused: FEATURE_DN_IS_REFUSED
   browserSupport: BROWSER_GROUP
   dynatrace: FEATURE_DYNATRACE
+  pingRedis: FEATURE_PING_REDIS
 
 ccd:
   courts: CCD_DIGITAL_COURTS

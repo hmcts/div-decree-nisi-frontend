@@ -143,6 +143,7 @@ features:
   dnIsRefused: true
   browserSupport: false
   dynatrace: false
+  pingRedis: false
 
 journey:
   timeoutDelay: 300
