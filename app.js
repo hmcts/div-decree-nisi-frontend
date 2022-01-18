@@ -43,8 +43,10 @@ lookAndFeel.configure(app, {
   webpack: {
     entry: [
       path.resolve(__dirname, 'assets/js/main.js'),
+      path.resolve(__dirname, 'assets/js/cookiesManager.js'),
       path.resolve(__dirname, 'assets/scss/_web-chat.scss'),
       path.resolve(__dirname, 'assets/scss/main.scss'),
+      path.resolve(__dirname, 'assets/scss/_cookies.scss'),
       path.resolve(__dirname, 'node_modules/dropzone/dist/dropzone.js')
     ],
     plugins: [
@@ -69,7 +71,9 @@ lookAndFeel.configure(app, {
       },
       features: {
         antennaWebchat: parseBool(config.features.antennaWebchat),
-        antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute)
+        antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute),
+        // Dynatrace Feature Toggle
+        dynatrace: parseBool(config.features.dynatrace)
       }
     }
   }

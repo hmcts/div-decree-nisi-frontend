@@ -95,6 +95,7 @@ features:
   awaitingClarification: FEATURE_AWAITING_CLARIFICATION
   dnIsRefused: FEATURE_DN_IS_REFUSED
   browserSupport: BROWSER_GROUP
+  dynatrace: FEATURE_DYNATRACE
   pingRedis: FEATURE_PING_REDIS
 
 ccd:

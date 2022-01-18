@@ -104,7 +104,7 @@ paths:
   upload: /upload-docs
   exitNoCase: /exit-no-case
   termsAndConditions: /terms-and-conditions
-  cookiesPolicy: /cookie
+  cookiesPolicy: /cookies
   privacyPolicy: /privacy-policy
   contactDivorceTeam: /contact-divorce-team
   contactDivorceTeamError: /contact-divorce-team-error
@@ -142,6 +142,7 @@ features:
   awaitingClarification: true
   dnIsRefused: true
   browserSupport: false
+  dynatrace: false
   pingRedis: false
 
 journey:
