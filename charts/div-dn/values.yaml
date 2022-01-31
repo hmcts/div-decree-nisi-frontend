@@ -20,6 +20,8 @@ nodejs:
         ANTENNA_WEBCHAT_URL: "webchat.ctsc.hmcts.net"
         ANTENNA_WEBCHAT_SERVICE: "Divorce"
 
+        FEATURE_DYNATRACE: "false"
+
         GOOGLE_ANALYTICS_ID: "TBD"
         DEPLOYMENT_ENV: "{{ .Values.global.environment }}"
         REFORM_ENVIRONMENT: "{{ .Values.global.environment }}"

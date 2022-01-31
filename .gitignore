@@ -23,7 +23,6 @@ tmp
 package-lock.json
 .vscode/launch.json
 .sonar/
-.env
 .nyc_output
 .scannerwork
 dist

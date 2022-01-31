@@ -11,6 +11,18 @@
   {{ content.title | safe }}
 {% endset %}
 
+{% block bodyStart %}
+  {% set serviceName = 'Divorce' %}
+  {% if features.dynatrace %}
+  <div id="global-cookie-message">
+    {% include "includes/cookies/cookie-manager/cookie-banner.njk" %}
+  </div>
+  {% endif %}
+  <noscript>
+    <img src="/noJS.png" alt="1px" width="1" height="1" style="display: none;" />
+  </noscript>
+{% endblock %}
+
 {% block full_width %}
   <div class="grid-row">
     <div class="column-full">
@@ -70,4 +82,9 @@
       {% include "includes/problem_with_this_page.html" %}
     </div>
   </div>
+{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+  <script type="text/javascript" src="{{ asset_path }}main.js"></script>
 {% endblock %}

@@ -16,8 +16,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const getFilters = require('views/filters');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const errorContent = require('views/errors/error-content');
+const events = require('events');
 
 const app = express();
+
+// Prevent node warnings re: MaxListenersExceededWarning
+events.EventEmitter.defaultMaxListeners = Infinity;
 
 setupHelmet(app);
 setupPrivacy(app);
@@ -39,8 +43,10 @@ lookAndFeel.configure(app, {
   webpack: {
     entry: [
       path.resolve(__dirname, 'assets/js/main.js'),
+      path.resolve(__dirname, 'assets/js/cookiesManager.js'),
       path.resolve(__dirname, 'assets/scss/_web-chat.scss'),
       path.resolve(__dirname, 'assets/scss/main.scss'),
+      path.resolve(__dirname, 'assets/scss/_cookies.scss'),
       path.resolve(__dirname, 'node_modules/dropzone/dist/dropzone.js')
     ],
     plugins: [
@@ -63,7 +69,11 @@ lookAndFeel.configure(app, {
         url: config.services.antennaWebchat.url,
         service: config.services.antennaWebchat.service
       },
-      features: { antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute) }
+      features: {
+        antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute),
+        // Dynatrace Feature Toggle
+        dynatrace: parseBool(config.features.dynatrace)
+      }
     }
   }
 });
