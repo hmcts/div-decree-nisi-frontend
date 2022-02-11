@@ -468,11 +468,6 @@
     lodash.mergewith "^4.6.2"
     webdriverio "^5.15.2"
 
-"@hmcts/ctsc-web-chat@^0.3.11":
-  version "0.3.12"
-  resolved "https://registry.yarnpkg.com/@hmcts/ctsc-web-chat/-/ctsc-web-chat-0.3.12.tgz#67de21992e8b27278e9d15927fe16be95d87725d"
-  integrity sha512-X25Qu27oYPppNGc+Yv4nw9USMZmUOUa/30xF8b2wPFGz2bdHjkoRwAhJgM3G//NxfwOwZWt66HdwURP1cEhD9A==
-
 "@hmcts/div-document-express-handler@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@hmcts/div-document-express-handler/-/div-document-express-handler-1.1.0.tgz#1fed050291e943402848b030597a9d31f487e0a5"
