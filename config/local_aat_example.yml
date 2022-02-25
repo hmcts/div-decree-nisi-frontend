@@ -1,0 +1,19 @@
+# For running tests locally against AAT
+environment: local-aat
+
+services:
+  idam:
+    apiUrl: 'https://idam-api.aat.platform.hmcts.net'
+    secret:  # DO NOT SET HERE - MAKE A COPY OF THIS FILE AS `local-aat.yml`
+
+
+  caseMaintenance:
+    baseUrl: 'http://div-cms-aat.service.core-compute-aat.internal'
+
+tests:
+  functional:
+    show: true
+    url:
+
+features:
+  idam: true
