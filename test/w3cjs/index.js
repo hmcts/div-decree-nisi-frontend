@@ -8,7 +8,7 @@ const config = require('config');
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 const maxHtmlValidationRetries = 3;
-const htmlValidationTimeout = 10000;
+const htmlValidationTimeout = 5000;
 
 
 // Ignored warnings
