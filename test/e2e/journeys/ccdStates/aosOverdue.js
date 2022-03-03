@@ -31,16 +31,14 @@ describe('Case State : AOSOverdue', () => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
 
-    getStub
-      .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.getCaseUrl}`
-      }))
-      .resolves(merge({}, mockCaseResponse, { state: 'DefendedDivorce', data: session }));
+    getStub.withArgs(sinon.match({
+      uri: `${config.services.orchestrationService.getCaseUrl}`
+    })).resolves(merge({}, mockCaseResponse, { state: 'DefendedDivorce', data: session }));
 
-    caseOrchestrationServiceSubmitStub = postStub
-      .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.submitCaseUrl}/${mockCaseResponse.caseId}`
-      }));
+    caseOrchestrationServiceSubmitStub = postStub.withArgs(sinon.match({
+      uri: `${config.services.orchestrationService.submitCaseUrl}/${mockCaseResponse.caseId}`
+    }));
+
     caseOrchestrationServiceSubmitStub.resolves();
 
     sinon.stub(feesAndPaymentsService, 'getFee')
@@ -80,16 +78,7 @@ describe('Case State : AOSOverdue', () => {
 
   it('submits correct body to case orchestration service', () => {
     const body = {
-      applyForDecreeNisi: 'yes',
-      approximateDatesOfLivingTogetherField: null,
-      changesDetails: null,
-      claimCosts: 'originalAmount',
-      costsDifferentDetails: null,
-      hasBeenChanges: 'no',
-      livedApartSinceSeparation: 'yes',
-      statementOfTruth: 'yes',
-      statementOfTruthChanges: 'yes',
-      uploadAnyOtherDocuments: 'no'
+      statementOfTruth: 'yes'
     };
     sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
   });

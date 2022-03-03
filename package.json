@@ -31,7 +31,7 @@
     "fortifyScan": "./test/java/gradlew -p test/java fortifyScan",
     "test:crossbrowser": "./bin/run-crossbrowser-tests.sh",
     "test-crossbrowser-e2e": "NODE_PATH=. NODE_ENV=ci  LOG_LEVEL=ERROR node_modules/.bin/codeceptjs run-multiple  ${BROWSER_GROUP:-'--all'} -c test/functional/saucelabs.conf.js --grep @cross-browser-test --steps --reporter mocha-multi",
-    "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=OFF mocha --exit 'test/w3cjs' --timeout 15000",
+    "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=OFF mocha --exit test/w3cjs",
     "lint": "eslint ."
   },
   "pre-commit": "lint",
@@ -118,10 +118,6 @@
   },
   "resolutions": {
     "axios": ">=0.21.2",
-    "node-fetch": "^2.6.7",
-    "follow-redirects": ">=1.14.7",
-    "pathval": ">=1.1.1",
-    "pac-resolver": ">=5.0.0",
     "mem": ">=4.0.0",
     "serialize-javascript": ">=2.1.1",
     "yargs-parser": ">=13.1.2 <14.0.0 || >=15.0.1 <16.0.0 || >=18.1.2",
@@ -147,7 +143,11 @@
     "path-parse": ">=1.0.7",
     "set-value": "^4.0.1",
     "ansi-regex": "^5.0.1",
-    "json-schema": "^0.4.0"
+    "json-schema": "^0.4.0",
+    "node-fetch": "^2.6.7",
+    "follow-redirects": ">=1.14.7",
+    "pathval": ">=1.1.1",
+    "pac-resolver": ">=5.0.0"
   },
   "nyc": {
     "report-dir": "coverage",
