@@ -147,7 +147,10 @@
     "node-fetch": "^2.6.7",
     "follow-redirects": ">=1.14.7",
     "pathval": ">=1.1.1",
-    "pac-resolver": ">=5.0.0"
+    "pac-resolver": ">=5.0.0",
+    "nanoid": ">=3.1.31",
+    "node-sass": ">=7.0.0",
+    "redis": ">=3.1.1"
   },
   "nyc": {
     "report-dir": "coverage",
