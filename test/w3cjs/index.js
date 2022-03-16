@@ -67,6 +67,7 @@ const stepHtml = step => {
 
 const w3cjsValidate = html => {
   return new Promise((resolve, reject) => {
+    w3cjs.setW3cCheckUrl('https://validator.w3.org/nu/');
     w3cjs.validate({
       input: html,
       callback: (error, res) => { // eslint-disable-line id-blacklist
@@ -91,21 +92,20 @@ const repeatW3cjsValidate = html => {
 
   return new Promise((resolve, reject) => {
     const doValidation = () => {
-      const promise = w3cjsValidate(html)
-        .then(results => {
-          if (!promise.done) {
-            resolve(results);
-          }
-          // set promise done so it does not resolve/reject after timeout
-          promise.done = true;
-        })
-        .catch(error => {
-          if (!promise.done) {
-            reject(error);
-          }
-          // set promise done so it does not resolve/reject after timeout
-          promise.done = true;
-        });
+      const promise = w3cjsValidate(html);
+      promise.then(results => {
+        if (!promise.done) {
+          resolve(results);
+        }
+        // set promise done so it does not resolve/reject after timeout
+        promise.done = true;
+      }).catch(error => {
+        if (!promise.done) {
+          reject(error);
+        }
+        // set promise done so it does not resolve/reject after timeout
+        promise.done = true;
+      });
 
       // catch timeouted request to w3jcs validate
       setTimeout(() => {
@@ -134,13 +134,12 @@ steps
       before(function beforeTests() {
         this.timeout(htmlValidationTimeout * maxHtmlValidationRetries);
 
-        sinon.stub(feesAndPaymentsService, 'getFee')
-          .resolves({
-            feeCode: 'FEE0002',
-            version: 4,
-            amount: 550.00,
-            description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
-          });
+        sinon.stub(feesAndPaymentsService, 'getFee').resolves({
+          feeCode: 'FEE0002',
+          version: 4,
+          amount: 550.00,
+          description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+        });
 
         return stepHtml(step)
           .then(html => repeatW3cjsValidate(html))
