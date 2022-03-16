@@ -89,19 +89,7 @@ describe('Desertion DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        applyForDecreeNisi: 'yes',
-        hasBeenChanges: 'no',
-        changesDetails: null,
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
-        costsDifferentDetails: null,
-        uploadAnyOtherDocuments: 'no',
-        statementOfTruth: 'yes',
-        desertionAskedToResumeDN: 'no',
-        desertionAskedToResumeDNDetails: null,
-        desertionAskedToResumeDNRefused: null,
-        livedApartSinceDesertion: 'yes',
-        approximateDatesOfLivingTogetherField: null
+        statementOfTruth: 'yes'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
@@ -137,19 +125,7 @@ describe('Desertion DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        applyForDecreeNisi: 'yes',
-        hasBeenChanges: 'no',
-        changesDetails: null,
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
-        costsDifferentDetails: null,
-        uploadAnyOtherDocuments: 'no',
-        statementOfTruth: 'yes',
-        desertionAskedToResumeDN: 'yes',
-        desertionAskedToResumeDNDetails: null,
-        desertionAskedToResumeDNRefused: 'no',
-        livedApartSinceDesertion: 'no',
-        approximateDatesOfLivingTogetherField: 'details...'
+        statementOfTruth: 'yes'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
@@ -186,19 +162,7 @@ describe('Desertion DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        applyForDecreeNisi: 'yes',
-        hasBeenChanges: 'no',
-        changesDetails: null,
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
-        costsDifferentDetails: null,
-        uploadAnyOtherDocuments: 'no',
-        statementOfTruth: 'yes',
-        desertionAskedToResumeDN: 'yes',
-        desertionAskedToResumeDNRefused: 'yes',
-        desertionAskedToResumeDNDetails: 'Refusal details',
-        livedApartSinceDesertion: 'no',
-        approximateDatesOfLivingTogetherField: 'details...'
+        statementOfTruth: 'yes'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });

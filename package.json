@@ -90,6 +90,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-mocha": "^5.0.0",
     "ioredis-mock": "^4.19.0",
+    "ioredis": "^4.0.2",
     "istanbul": "^0.4.5",
     "istanbul-api": "1.2.2",
     "istanbul-reports": "1.1.4",
@@ -117,6 +118,7 @@
     "zepto-node": "^1.0.0"
   },
   "resolutions": {
+    "axios": ">=0.21.2",
     "mem": ">=4.0.0",
     "serialize-javascript": ">=2.1.1",
     "yargs-parser": ">=13.1.2 <14.0.0 || >=15.0.1 <16.0.0 || >=18.1.2",
@@ -124,14 +126,13 @@
     "minimist": ">=0.2.1 <1.0.0 || >=1.2.3",
     "braces": ">= 2.3.2",
     "ini": ">=1.3.6",
-    "axios":  ">=0.21.1",
     "node-notifier": ">=8.0.1",
     "y18n": ">=5.0.5||>=4.0.1 <5.0.0||>=3.2.2 <4.0.0",
     "ssri": ">=6.0.2 <7.0.0 || >=8.0.1",
     "netmask": "^2.0.1",
     "diff": "^3.5.0",
     "hosted-git-info": ">=3.0.8",
-    "url-parse": ">=1.5.2",
+    "url-parse": ">=1.5.8",
     "lodash": "^4.17.21",
     "handlebars": ">=4.7.7",
     "ua-parser-js": ">=0.7.24",
@@ -143,7 +144,13 @@
     "path-parse": ">=1.0.7",
     "set-value": "^4.0.1",
     "ansi-regex": "^5.0.1",
-    "json-schema": "^0.4.0"
+    "json-schema": "^0.4.0",
+    "node-fetch": "^2.6.7",
+    "follow-redirects": ">=1.14.7",
+    "pathval": ">=1.1.1",
+    "pac-resolver": ">=5.0.0",
+    "nanoid": ">=3.1.31",
+    "node-sass": ">=7.0.0"
   },
   "nyc": {
     "report-dir": "coverage",

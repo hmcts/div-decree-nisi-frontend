@@ -82,16 +82,7 @@ describe('Separation 5 years', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        applyForDecreeNisi: 'yes',
-        hasBeenChanges: 'no',
-        changesDetails: null,
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
-        costsDifferentDetails: null,
-        uploadAnyOtherDocuments: 'no',
-        statementOfTruth: 'yes',
-        livedApartSinceSeparation: 'yes',
-        approximateDatesOfLivingTogetherField: null
+        statementOfTruth: 'yes'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
@@ -123,16 +114,7 @@ describe('Separation 5 years', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        applyForDecreeNisi: 'yes',
-        hasBeenChanges: 'no',
-        changesDetails: null,
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
-        costsDifferentDetails: null,
-        uploadAnyOtherDocuments: 'no',
-        statementOfTruth: 'yes',
-        livedApartSinceSeparation: 'no',
-        approximateDatesOfLivingTogetherField: 'details...'
+        statementOfTruth: 'yes'
       };
       sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
     });
