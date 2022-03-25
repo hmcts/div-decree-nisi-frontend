@@ -64,6 +64,11 @@ class CheckYourAnswers extends CYA {
   }
 
   get middleware() {
+    if (config.environment === 'development') {
+      if (typeof this.req.session !== 'undefined') {
+        this.req.session.entryPoint = this.name;
+      }
+    }
     return [
       ...super.middleware,
       idam.protect()
