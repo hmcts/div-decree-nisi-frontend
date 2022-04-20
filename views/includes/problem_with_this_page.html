@@ -9,7 +9,7 @@
         <web-chat
                 class="hidden"
                 chat-title="Ask Divorce Web Chat"
-                chat-icon-url="https://{{ antennaWebchat.url }}/chat-client/1/assets/icon.png"
+                chat-icon-url="https://{{ antennaWebchat.url }}/chat-client/{{ antennaWebchat.version }}/assets/icon.png"
                 url="{{ antennaWebchat.url }}"
                 secure-connections="true"
                 api-version="1.0"
@@ -38,8 +38,8 @@
 <!-- Javascript -->
 {% if features.antennaWebchat and i18n.currentLanguage == "en" %}
 
-<script src="https://{{ antennaWebchat.url }}/chat-client/1/app-es2015.js" type="module"></script>
-<script src="https://{{ antennaWebchat.url }}/chat-client/1/app-es5.js" nomodule defer></script>
+<script src="https://{{ antennaWebchat.url }}/chat-client/{{ antennaWebchat.version }}/app-es2015.js" type="module"></script>
+<script src="https://{{ antennaWebchat.url }}/chat-client/{{ antennaWebchat.version }}/app-es5.js" nomodule defer></script>
 <script>
     (function() {
         let popupWin;

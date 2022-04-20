@@ -76,6 +76,7 @@ services:
   antennaWebchat:
     url: 'webchat.training.ctsc.hmcts.net'
     service: 'Testing'
+    version: '1'
 
 paths:
   adulteryFirstFoundOut: /first-find-out
