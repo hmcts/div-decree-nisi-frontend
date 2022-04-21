@@ -12,8 +12,9 @@ nodejs:
         FEATURE_ANTENNA_WEBCHAT: "true"
         PETITIONER_FRONTEND_URL: "https://petitioner-frontend-aks.aat.platform.hmcts.net"
         FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE: "true"
-        ANTENNA_WEBCHAT_URL: "webchat.training.ctsc.hmcts.net"
+        ANTENNA_WEBCHAT_URL: "webchat-client.pp.ctsc.hmcts.net"
         ANTENNA_WEBCHAT_SERVICE: "Testing"
+        ANTENNA_WEBCHAT_VERSION: "1-6-12"
         FEATURE_DYNATRACE: "false"
         FEATURE_PING_REDIS: "true"
 
