@@ -169,6 +169,7 @@ features:
   idam: false
   antennaWebchat: true
   antennaWebchatUserAttribute: false
+  antennaWebchatAvailabilityToggle: false
   awaitingClarification: true
   dnIsRefused: true
   browserSupport: false
