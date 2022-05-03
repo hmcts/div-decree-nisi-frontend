@@ -7,6 +7,7 @@ const idam = require('services/idam');
 const Joi = require('joi');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 const constants = {
   originalAmount: 'originalAmount',
@@ -117,6 +118,7 @@ class ClaimCosts extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }
