@@ -7,6 +7,7 @@ const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 const constants = {
   viewOnlyState: 'AosSubmittedAwaitingAnswer',
@@ -128,6 +129,7 @@ class ReviewAosResponse extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

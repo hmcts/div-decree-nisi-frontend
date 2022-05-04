@@ -8,6 +8,7 @@ const i18next = require('i18next');
 const commonContent = require('common/content');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class MiniPetition extends Question {
   static get path() {
@@ -158,6 +159,7 @@ class MiniPetition extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments(feeTypes.issueFee),
       getFeeFromFeesAndPayments(feeTypes.amendFee),

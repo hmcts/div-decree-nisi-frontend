@@ -7,6 +7,7 @@ const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 
 const { form, text } = require('@hmcts/one-per-page/forms');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class CourtFeedback extends Question {
   static get path() {
@@ -33,6 +34,7 @@ class CourtFeedback extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

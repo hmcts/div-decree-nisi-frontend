@@ -6,6 +6,7 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const moment = require('moment');
 const { form, date, convert } = require('@hmcts/one-per-page/forms');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class AdulteryFirstFoundOut extends Question {
   static get path() {
@@ -52,6 +53,7 @@ class AdulteryFirstFoundOut extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

@@ -7,6 +7,7 @@ const Joi = require('joi');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class LivedApartSinceSeparation extends Question {
   static get path() {
@@ -100,6 +101,7 @@ class LivedApartSinceSeparation extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

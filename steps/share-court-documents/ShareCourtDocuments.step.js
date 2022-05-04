@@ -10,6 +10,7 @@ const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 const constants = {
   adultery: 'adultery',
@@ -89,6 +90,7 @@ class ShareCourtDocuments extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

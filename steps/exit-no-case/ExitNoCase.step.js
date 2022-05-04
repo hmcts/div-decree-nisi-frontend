@@ -3,6 +3,7 @@ const idam = require('services/idam');
 const config = require('config');
 const destroySession = require('@hmcts/one-per-page/src/session/destroySession');
 const { METHOD_NOT_ALLOWED } = require('http-status-codes');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class ExitNoCase extends BaseStep {
   static get path() {
@@ -18,7 +19,12 @@ class ExitNoCase extends BaseStep {
   }
 
   get middleware() {
-    return [...super.middleware, destroySession, idam.logout()];
+    return [
+      ...super.middleware,
+      getWebchatOpeningHours,
+      destroySession,
+      idam.logout()
+    ];
   }
 }
 
