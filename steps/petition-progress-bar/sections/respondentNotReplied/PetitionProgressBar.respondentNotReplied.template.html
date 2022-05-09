@@ -19,9 +19,12 @@
   })
 }}
 
-<h2 class="govuk-heading-m">{{ content.rNRTitle }}</h2>
-<p class="govuk-body">{{ content.rNRSentApplication }}</p>
-<p class="govuk-body">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
+<!-- Respondent Address -->
+{% if case.respondentContactDetailsConfidential == "share" %}
+  <h2 class="govuk-heading-m">{{ content.rNRTitle }}</h2>
+  <p class="govuk-body">{{ content.rNRSentApplication }}</p>
+  <p class="govuk-body">{{ case.respondentCorrespondenceAddress.address | address | safe }}</p>
+{% endif %}
 <p class="govuk-body">{{ content.rNRaskedToRespondBy }}</p>
 <p class="govuk-body">{{ content.rNRhearFromBothParties }}</p>
 <div class="govuk-inset-text">
