@@ -19,7 +19,6 @@ const LivedApartSinceAdultery = require(
 );
 // eslint-disable-next-line max-len
 const ReviewAosResponseFromCoRespondent = require('steps/review-aos-response-from-co-respondent/ReviewAosResponseFromCoRespondent.step');
-const moment = require('moment');
 const Entry = require('steps/entry/Entry.step');
 
 const ClaimCosts = require('steps/claim-costs/ClaimCosts.step');
@@ -48,16 +47,13 @@ describe('Adultery DN flow', () => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
 
-    getStub
-      .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.getCaseUrl}`
-      }))
-      .resolves(merge({}, mockCaseResponse, { data: session }));
+    getStub.withArgs(sinon.match({
+      uri: `${config.services.orchestrationService.getCaseUrl}`
+    })).resolves(merge({}, mockCaseResponse, { data: session }));
 
-    caseOrchestrationServiceSubmitStub = postStub
-      .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.submitCaseUrl}/${mockCaseResponse.caseId}`
-      }));
+    caseOrchestrationServiceSubmitStub = postStub.withArgs(sinon.match({
+      uri: `${config.services.orchestrationService.submitCaseUrl}/${mockCaseResponse.caseId}`
+    }));
     caseOrchestrationServiceSubmitStub.resolves();
 
     sinon.stub(feesAndPaymentsService, 'getFee')
@@ -104,24 +100,9 @@ describe('Adultery DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        applyForDecreeNisi: 'yes',
-        hasBeenChanges: 'no',
-        changesDetails: null,
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
-        costsDifferentDetails: null,
-        uploadAnyOtherDocuments: 'no',
-        statementOfTruth: 'yes',
-        intolerable: 'yes',
-        adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
-        livedApartSinceAdultery: 'yes',
-        datesLivedTogether: null
+        statementOfTruth: 'yes'
       };
-      sinon.assert.calledWith(
-        caseOrchestrationServiceSubmitStub,
-        sinon.match(matchParam('body', body)
-        )
-      );
+      sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match(matchParam('body', body)));
     });
   });
 
@@ -157,24 +138,9 @@ describe('Adultery DN flow', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        applyForDecreeNisi: 'yes',
-        hasBeenChanges: 'no',
-        changesDetails: null,
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
-        costsDifferentDetails: null,
-        uploadAnyOtherDocuments: 'no',
-        statementOfTruth: 'yes',
-        intolerable: 'yes',
-        adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
-        livedApartSinceAdultery: 'no',
-        datesLivedTogether: '3 months'
+        statementOfTruth: 'yes'
       };
-      sinon.assert.calledWith(
-        caseOrchestrationServiceSubmitStub,
-        sinon.match(matchParam('body', body)
-        )
-      );
+      sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match(matchParam('body', body)));
     });
   });
 
@@ -211,16 +177,13 @@ describe('Respondent Admitted Adultery : no', () => {
     const getStub = sinon.stub(request, 'get');
     const postStub = sinon.stub(request, 'post');
 
-    getStub
-      .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.getCaseUrl}`
-      }))
-      .resolves(merge({}, mockCaseResponse, { state: 'AosCompleted', data: sess }));
+    getStub.withArgs(sinon.match({
+      uri: `${config.services.orchestrationService.getCaseUrl}`
+    })).resolves(merge({}, mockCaseResponse, { state: 'AosCompleted', data: sess }));
 
-    caseOrchestrationServiceSubmitStub = postStub
-      .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.submitCaseUrl}/${mockCaseResponse.caseId}`
-      }));
+    caseOrchestrationServiceSubmitStub = postStub.withArgs(sinon.match({
+      uri: `${config.services.orchestrationService.submitCaseUrl}/${mockCaseResponse.caseId}`
+    }));
     caseOrchestrationServiceSubmitStub.resolves();
 
     sinon.stub(feesAndPaymentsService, 'getFee')
@@ -270,24 +233,9 @@ describe('Respondent Admitted Adultery : no', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        applyForDecreeNisi: 'yes',
-        hasBeenChanges: 'no',
-        changesDetails: null,
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
-        costsDifferentDetails: null,
-        uploadAnyOtherDocuments: 'no',
-        statementOfTruth: 'yes',
-        intolerable: 'yes',
-        adulteryFirstFoundDate: moment('2011-08-09T00:00:00.000'),
-        livedApartSinceAdultery: 'yes',
-        datesLivedTogether: null
+        statementOfTruth: 'yes'
       };
-      sinon.assert.calledWith(
-        caseOrchestrationServiceSubmitStub,
-        sinon.match(matchParam('body', body)
-        )
-      );
+      sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match(matchParam('body', body)));
     });
   });
 });
@@ -308,18 +256,16 @@ describe('Respondent Admitted Adultery : no, AdulteryWishToName: Yes', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
 
-    getStub
-      .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.getCaseUrl}`
-      }))
-      .resolves(merge({}, mockCaseResponse, { state: 'AosCompleted', data: sess }));
-    sinon.stub(feesAndPaymentsService, 'getFee')
-      .resolves({
-        feeCode: 'FEE0002',
-        version: 4,
-        amount: 550.00,
-        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
-      });
+    getStub.withArgs(sinon.match({
+      uri: `${config.services.orchestrationService.getCaseUrl}`
+    })).resolves(merge({}, mockCaseResponse, { state: 'AosCompleted', data: sess }));
+
+    sinon.stub(feesAndPaymentsService, 'getFee').resolves({
+      feeCode: 'FEE0002',
+      version: 4,
+      amount: 550.00,
+      description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+    });
   });
 
   after(() => {
@@ -357,19 +303,16 @@ describe('Respondent Admitted Adultery : yes, AdulteryWishToName: Yes', () => {
   before(() => {
     const getStub = sinon.stub(request, 'get');
 
-    getStub
-      .withArgs(sinon.match({
-        uri: `${config.services.orchestrationService.getCaseUrl}`
-      }))
-      .resolves(merge({}, mockCaseResponse, { data: sess }));
+    getStub.withArgs(sinon.match({
+      uri: `${config.services.orchestrationService.getCaseUrl}`
+    })).resolves(merge({}, mockCaseResponse, { data: sess }));
 
-    sinon.stub(feesAndPaymentsService, 'getFee')
-      .resolves({
-        feeCode: 'FEE0002',
-        version: 4,
-        amount: 550.00,
-        description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
-      });
+    sinon.stub(feesAndPaymentsService, 'getFee').resolves({
+      feeCode: 'FEE0002',
+      version: 4,
+      amount: 550.00,
+      description: 'Filing an application for a divorce, nullity or civil partnership dissolution – fees order 1.2.' // eslint-disable-line max-len
+    });
   });
 
   after(() => {

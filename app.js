@@ -47,7 +47,8 @@ lookAndFeel.configure(app, {
       path.resolve(__dirname, 'assets/scss/_web-chat.scss'),
       path.resolve(__dirname, 'assets/scss/main.scss'),
       path.resolve(__dirname, 'assets/scss/_cookies.scss'),
-      path.resolve(__dirname, 'node_modules/dropzone/dist/dropzone.js')
+      path.resolve(__dirname, 'node_modules/dropzone/dist/dropzone.js'),
+      path.resolve(__dirname, 'assets/js/webchat.js')
     ],
     plugins: [
       new CopyWebpackPlugin(
@@ -67,10 +68,12 @@ lookAndFeel.configure(app, {
       googleAnalyticsId: config.services.googleAnalytics.id,
       antennaWebchat: {
         url: config.services.antennaWebchat.url,
-        service: config.services.antennaWebchat.service
+        service: config.services.antennaWebchat.service,
+        version: config.services.antennaWebchat.version
       },
       features: {
         antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute),
+        antennaWebchatAvailabilityToggle: parseBool(config.features.antennaWebchatAvailabilityToggle),
         // Dynatrace Feature Toggle
         dynatrace: parseBool(config.features.dynatrace)
       }

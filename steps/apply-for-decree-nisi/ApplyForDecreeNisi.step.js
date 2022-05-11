@@ -18,6 +18,7 @@ const {
   hasReceivedAosFromRespondent,
   isServedByBailiffSuccessful
 } = require('helpers/petitionHelper');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class ApplyForDecreeNisi extends Question {
   static get path() {
@@ -87,6 +88,7 @@ class ApplyForDecreeNisi extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

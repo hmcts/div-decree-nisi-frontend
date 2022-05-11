@@ -6,6 +6,7 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class LivedApartSinceLastIncidentDate extends Question {
   static get path() {
@@ -93,6 +94,7 @@ class LivedApartSinceLastIncidentDate extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

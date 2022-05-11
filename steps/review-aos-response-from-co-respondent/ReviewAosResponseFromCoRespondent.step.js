@@ -5,6 +5,7 @@ const config = require('config');
 const idam = require('services/idam');
 const Joi = require('joi');
 const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 const constants = {
   respAdmitOrConsentToFact: 'respAdmitOrConsentToFact',
@@ -23,6 +24,7 @@ class ReviewAosResponseFromCoRespondent extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

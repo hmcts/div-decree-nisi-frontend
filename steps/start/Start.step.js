@@ -1,6 +1,7 @@
 const { Redirect, branch } = require('@hmcts/one-per-page');
 const { redirectTo } = require('@hmcts/one-per-page/flow');
 const config = require('config');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class Start extends Redirect {
   static get path() {
@@ -16,6 +17,13 @@ class Start extends Redirect {
       redirectTo(this.journey.steps.PetitionProgressBar).if(hasSession),
       redirectTo(this.journey.steps.Entry)
     );
+  }
+
+  get middleware() {
+    return [
+      ...super.middleware,
+      getWebchatOpeningHours
+    ];
   }
 }
 

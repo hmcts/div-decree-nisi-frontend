@@ -7,6 +7,7 @@ const redirectToFrontendHelper = require('helpers/redirectToFrontendHelper');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class AmendApplication extends Interstitial {
   static get path() {
@@ -25,6 +26,7 @@ class AmendApplication extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments(feeTypes.amendFee)
     ];

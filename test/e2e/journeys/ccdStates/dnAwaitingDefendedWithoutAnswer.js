@@ -82,16 +82,7 @@ describe('Case State : DNAwaiting, permittedDecreeNisiReason: 3', () => {
 
   it('submits correct body to case orchestration service', () => {
     const body = {
-      applyForDecreeNisi: 'yes',
-      approximateDatesOfLivingTogetherField: null,
-      changesDetails: null,
-      claimCosts: 'originalAmount',
-      costsDifferentDetails: null,
-      hasBeenChanges: 'no',
-      livedApartSinceSeparation: 'yes',
-      statementOfTruth: 'yes',
-      statementOfTruthChanges: 'yes',
-      uploadAnyOtherDocuments: 'no'
+      statementOfTruth: 'yes'
     };
     sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
   });

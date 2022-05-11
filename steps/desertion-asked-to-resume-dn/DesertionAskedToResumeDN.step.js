@@ -8,6 +8,7 @@ const { answer } = require('@hmcts/one-per-page/checkYourAnswers');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 const { form, text, errorFor, object } = require('@hmcts/one-per-page/forms');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class DesertionAskedToResumeDN extends Question {
   static get path() {
@@ -156,6 +157,7 @@ class DesertionAskedToResumeDN extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }
