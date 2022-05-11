@@ -3,6 +3,7 @@ const config = require('config');
 const { stopHere } = require('@hmcts/one-per-page/flow');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class ExitIntolerable extends Page {
   static get path() {
@@ -20,6 +21,13 @@ class ExitIntolerable extends Page {
 
   get flowControl() {
     return stopHere(this);
+  }
+
+  get middleware() {
+    return [
+      ...super.middleware,
+      getWebchatOpeningHours
+    ];
   }
 }
 

@@ -3,7 +3,6 @@ const request = require('request-promise-native');
 const { merge } = require('lodash');
 const mockCaseResponse = require('mocks/services/case-orchestration/retrieve-case/mock-case');
 const config = require('config');
-const moment = require('moment');
 
 const Start = require('steps/start/Start.step');
 const IdamLogin = require('mocks/steps/idamLogin/IdamLogin.step');
@@ -95,22 +94,9 @@ describe('Unreasonable behaviour', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        applyForDecreeNisi: 'yes',
-        hasBeenChanges: 'no',
-        changesDetails: null,
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
-        costsDifferentDetails: null,
-        uploadAnyOtherDocuments: 'no',
-        statementOfTruth: 'yes',
-        behaviourContinuedSinceApplication: 'yes',
-        lastIncidentDate: null
+        statementOfTruth: 'yes'
       };
-      sinon.assert.calledWith(
-        caseOrchestrationServiceSubmitStub,
-        sinon.match(matchParam('body', body)
-        )
-      );
+      sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match(matchParam('body', body)));
     });
   });
 
@@ -146,24 +132,9 @@ describe('Unreasonable behaviour', () => {
 
     it('submits correct body to case orchestration service', () => {
       const body = {
-        applyForDecreeNisi: 'yes',
-        hasBeenChanges: 'no',
-        changesDetails: null,
-        statementOfTruthChanges: 'yes',
-        claimCosts: 'originalAmount',
-        costsDifferentDetails: null,
-        uploadAnyOtherDocuments: 'no',
-        statementOfTruth: 'yes',
-        behaviourContinuedSinceApplication: 'no',
-        lastIncidentDate: moment('2018-08-20T00:00:00.000'),
-        livedApartSinceLastIncidentDate: 'yes',
-        approximateDatesOfLivingTogetherField: null
+        statementOfTruth: 'yes'
       };
-      sinon.assert.calledWith(
-        caseOrchestrationServiceSubmitStub,
-        sinon.match(matchParam('body', body)
-        )
-      );
+      sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match(matchParam('body', body)));
     });
   });
 });

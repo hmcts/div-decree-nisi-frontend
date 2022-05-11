@@ -15,16 +15,13 @@ const PetitionProgressBar = require('steps/petition-progress-bar/PetitionProgres
 const ReviewAosResponse = require('steps/review-aos-response/ReviewAosResponse.step');
 const AmendApplication = require('steps/amend-application/AmendApplication.step.js');
 
-
 const feesAndPaymentsService = require('services/feesAndPaymentsService');
 
 const session = {
   reasonForDivorce: 'separation-2-years',
   respAdmitOrConsentToFact: 'No',
   respWillDefendDivorce: 'No'
-
 };
-
 
 describe('Case State : AosCompleted', () => {
   before(() => {
@@ -37,8 +34,7 @@ describe('Case State : AosCompleted', () => {
       .withArgs(sinon.match({
         uri: `${config.services.orchestrationService.getCaseUrl}`
       }))
-      .resolves(merge({}, mockCaseResponse, { state: 'AosCompleted',
-        data: session }));
+      .resolves(merge({}, mockCaseResponse, { state: 'AosCompleted', data: session }));
 
     sinon.stub(feesAndPaymentsService, 'getFee')
       .resolves({
@@ -67,8 +63,7 @@ describe('Case State : AosCompleted', () => {
   ]);
 
   it('Sends request to amend endpoint and redirects to PFE', done => {
-    const step = stepAsInstance(AmendApplication, {
-    });
+    const step = stepAsInstance(AmendApplication, {});
     caseOrchestrationService.amendApplication.resolves();
     step.next().redirect().then(() => {
       expect(caseOrchestrationService.amendApplication.calledOnce).to.eql(true);

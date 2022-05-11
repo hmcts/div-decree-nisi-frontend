@@ -115,9 +115,7 @@ describe('Case State: AwaitingClarification - feature AwaitingClarification is o
 
   it('submits correct body to case orchestration service', () => {
     const body = {
-      clarificationResponse: 'some details',
-      statementOfTruth: 'yes',
-      uploadAnyOtherDocuments: 'no'
+      statementOfTruth: 'yes'
     };
     sinon.assert.calledWith(caseOrchestrationServiceSubmitStub, sinon.match.has('body', body));
   });

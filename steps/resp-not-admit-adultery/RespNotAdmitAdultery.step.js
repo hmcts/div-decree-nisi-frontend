@@ -9,6 +9,7 @@ const Joi = require('joi');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class RespNotAdmitAdultery extends Question {
   static get path() {
@@ -63,6 +64,7 @@ class RespNotAdmitAdultery extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       getFeeFromFeesAndPayments(feeTypes.amendFee)
     ];

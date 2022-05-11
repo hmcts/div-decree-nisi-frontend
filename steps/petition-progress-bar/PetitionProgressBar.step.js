@@ -31,6 +31,7 @@ const {
   awaitingPronouncementWithHearingDateTemplate,
   dnAwaitingTemplate
 } = require('./petitionerStateTemplates');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class PetitionProgressBar extends Interstitial {
   static get path() {
@@ -70,6 +71,7 @@ class PetitionProgressBar extends Interstitial {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       checkCaseState,
       getFeeFromFeesAndPayments(feeTypes.amendFee)

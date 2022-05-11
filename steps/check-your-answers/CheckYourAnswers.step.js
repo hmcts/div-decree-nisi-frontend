@@ -9,6 +9,7 @@ const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class CheckYourAnswers extends CYA {
   static get path() {
@@ -64,8 +65,14 @@ class CheckYourAnswers extends CYA {
   }
 
   get middleware() {
+    if (config.environment === 'development') {
+      if (typeof this.req.session !== 'undefined') {
+        this.req.session.entryPoint = this.name;
+      }
+    }
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

@@ -9,6 +9,7 @@ const moment = require('moment');
 const { form, text, object, date, convert, errorFor } = require('@hmcts/one-per-page/forms');
 const i18next = require('i18next');
 const commonContent = require('common/content');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class BehaviourContinuedSinceApplication extends Question {
   static get path() {
@@ -114,6 +115,7 @@ class BehaviourContinuedSinceApplication extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect()
     ];
   }

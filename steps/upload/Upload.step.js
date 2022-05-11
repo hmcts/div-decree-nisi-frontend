@@ -8,6 +8,7 @@ const evidenceManagmentMiddleware = require('middleware/evidenceManagmentMiddlew
 const errors = require('resources/errors');
 const { parseBool } = require('@hmcts/one-per-page/util');
 const { notDefined, awaitingClarification } = require('common/constants');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class Upload extends Question {
   static get path() {
@@ -112,6 +113,7 @@ class Upload extends Question {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       idam.protect(),
       evidenceManagmentMiddleware.createHandler(this.name)
     ];

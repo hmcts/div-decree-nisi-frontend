@@ -4,6 +4,7 @@ const { stopHere } = require('@hmcts/one-per-page/flow');
 const i18next = require('i18next');
 const commonContent = require('common/content');
 const { getFeeFromFeesAndPayments, feeTypes } = require('middleware/feesAndPaymentsMiddleware');
+const { getWebchatOpeningHours } = require('../../middleware/getWebchatOpenHours');
 
 class DnNoResponse extends Page {
   static get path() {
@@ -34,6 +35,7 @@ class DnNoResponse extends Page {
   get middleware() {
     return [
       ...super.middleware,
+      getWebchatOpeningHours,
       getFeeFromFeesAndPayments(feeTypes.appWithoutNoticeFee),
       getFeeFromFeesAndPayments(feeTypes.enforcementFee)
     ];
