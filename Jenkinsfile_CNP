@@ -29,6 +29,47 @@ def checkForNightlyTestLabel(branch_name) {
   return new GithubAPI(this).getLabelsbyPattern(branch_name, "nightly").contains("nightly_tests")
 }
 
+withPipeline("nodejs", product, component) {
+  enableAksStagingDeployment()
+  loadVaultSecrets(secrets)
+  disableLegacyDeployment()
+
+  before('securitychecks') {
+    stage('Test HTML') {
+      yarnBuilder.yarn('test:validation')
+      yarnBuilder.yarn('test:a11y')
+    }
+    stage('Test E2E') {
+      yarnBuilder.yarn('test:e2e')
+    }
+  }
+
+  before('functionalTest:aks') {
+    env.NODE_ENV= 'ci'
+    sh 'printenv'
+  }
+
+  before('functionalTest:preview') {
+    env.NODE_ENV= 'ci'
+    sh 'printenv'
+  }
+
+  before('functionalTest:aat') {
+    env.NODE_ENV= 'ci'
+    sh 'printenv'
+  }
+
+  after('functionalTest:preview') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+
+  after('functionalTest:aat') {
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
+    steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+}
+
 if (checkForNightlyTestLabel(env.BRANCH_NAME)) {
   withNightlyPipeline("nodejs", product, component) {
     env.TEST_URL = "https://div-dn-pr-${CHANGE_ID}.service.core-compute-preview.internal"
@@ -59,47 +100,6 @@ if (checkForNightlyTestLabel(env.BRANCH_NAME)) {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
       }
 
-    }
-  }
-} else {
-  withPipeline("nodejs", product, component) {
-    enableAksStagingDeployment()
-    loadVaultSecrets(secrets)
-    disableLegacyDeployment()
-
-    before('securitychecks') {
-      stage('Test HTML') {
-        yarnBuilder.yarn('test:validation')
-        yarnBuilder.yarn('test:a11y')
-      }
-      stage('Test E2E') {
-        yarnBuilder.yarn('test:e2e')
-      }
-    }
-
-    before('functionalTest:aks') {
-      env.NODE_ENV= 'ci'
-      sh 'printenv'
-    }
-
-    before('functionalTest:preview') {
-      env.NODE_ENV= 'ci'
-      sh 'printenv'
-    }
-
-    before('functionalTest:aat') {
-      env.NODE_ENV= 'ci'
-      sh 'printenv'
-    }
-
-    after('functionalTest:preview') {
-      steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
-      steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
-    }
-
-    after('functionalTest:aat') {
-      steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
-      steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
   }
 }
