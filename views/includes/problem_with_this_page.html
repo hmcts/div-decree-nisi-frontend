@@ -40,7 +40,6 @@
 </details>
 <!-- Javascript -->
 {% if antennaWebchat.url is defined and antennaWebchat.url and i18n.currentLanguage == "en" %}
-
 <script src="https://{{ antennaWebchat.url }}/chat-client/{{ antennaWebchat.version }}/app-es2015.js" type="module"></script>
 <script src="https://{{ antennaWebchat.url }}/chat-client/{{ antennaWebchat.version }}/app-es5.js" nomodule defer></script>
 {% endif %}
