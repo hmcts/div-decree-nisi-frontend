@@ -31,7 +31,8 @@ def checkForNightlyTestLabel(branch_name) {
 
 if (checkForNightlyTestLabel(env.BRANCH_NAME)) {
   withNightlyPipeline("nodejs", product, component) {
-    env.TEST_URL = "https://div-dn-pr-${CHANGE_ID}.service.core-compute-preview.internal"
+    string ingress = "div-dn-pr-${CHANGE_ID}.service.core-compute-preview.internal"
+    env.TEST_URL = "http://${ingress}"
     env.NODE_ENV = 'ci'
     env.test_environment = 'aat'
 
@@ -48,6 +49,7 @@ if (checkForNightlyTestLabel(env.BRANCH_NAME)) {
 
       after('crossBrowserTest') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+        env.TEST_URL = "https://${ingress}"
       }
 
       after('fullfunctionalTest') {
