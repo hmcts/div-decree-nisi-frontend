@@ -30,10 +30,11 @@ def checkForNightlyTestLabel(branch_name) {
 }
 
 if (checkForNightlyTestLabel(env.BRANCH_NAME)) {
+  String prIngress = "https://div-dn-pr-${CHANGE_ID}.service.core-compute-preview.internal"
   properties([
     pipelineTriggers([cron('00 22 * * *')]),
     parameters([
-      string(name: 'URL_TO_TEST', defaultValue: "https://div-dn-pr-${CHANGE_ID}.service.core-compute-preview.internal", description: 'The URL you want to run these tests against'),
+      string(name: 'URL_TO_TEST', defaultValue: prIngress, description: 'The URL you want to run these tests against'),
     ])
   ])
 
