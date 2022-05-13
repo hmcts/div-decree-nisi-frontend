@@ -39,7 +39,7 @@ if (checkForNightlyTestLabel(env.BRANCH_NAME)) {
   ])
 
   withNightlyPipeline("nodejs", product, component) {
-    env.TEST_URL = "https://div-dn-pr-${CHANGE_ID}.service.core-compute-preview.internal"
+    env.TEST_URL = prIngress
     env.NODE_ENV = 'ci'
     env.test_environment = 'aat'
 
