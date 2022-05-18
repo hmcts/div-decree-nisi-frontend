@@ -1,4 +1,5 @@
 #!groovy
+import uk.gov.hmcts.contino.GithubAPI
 
 @Library("Infrastructure")
 
@@ -22,6 +23,10 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
     version: '',
     envVariable: envVar
   ]
+}
+
+def checkForNightlyTestLabel(branch_name) {
+  return new GithubAPI(this).getLabelsbyPattern(branch_name, "nightly").contains("nightly_tests")
 }
 
 withPipeline("nodejs", product, component) {
@@ -62,5 +67,39 @@ withPipeline("nodejs", product, component) {
   after('functionalTest:aat') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+  }
+}
+
+if (checkForNightlyTestLabel(env.BRANCH_NAME)) {
+  withNightlyPipeline("nodejs", product, component) {
+    env.TEST_URL = "https://div-dn-pr-${CHANGE_ID}.service.core-compute-preview.internal"
+    env.NODE_ENV = 'ci'
+    env.test_environment = 'aat'
+
+    loadVaultSecrets(secrets)
+    enableCrossBrowserTest()
+    enableFullFunctionalTest()
+    enableFortifyScan()
+
+    before('securitychecks') {
+      stage('Test HTML') {
+        yarnBuilder.yarn('test:validation')
+        yarnBuilder.yarn('test:a11y')
+      }
+
+      after('crossBrowserTest') {
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+      }
+
+      after('fullfunctionalTest') {
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
+      }
+
+      after('fortify-scan') {
+        steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
+      }
+
+    }
   }
 }
