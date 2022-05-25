@@ -121,6 +121,14 @@ if (checkLabel("atLeastOneEnabled")) {
 
       loadVaultSecrets(secrets)
 
+      if (checkLabel("enable_full_functional_test")) {
+        enableFullFunctionalTest()
+      }
+
+      if (checkLabel("enable_fortify_scan")) {
+        enableFortifyScan()
+      }
+
       before('securitychecks') {
         if (checkLabel("enable_html_test")) {
           stage('Test HTML') {
@@ -130,8 +138,6 @@ if (checkLabel("atLeastOneEnabled")) {
         }
 
         if (checkLabel("enable_full_functional_test")) {
-          enableFullFunctionalTest()
-
           after('fullfunctionalTest') {
             steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
             steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
@@ -139,8 +145,6 @@ if (checkLabel("atLeastOneEnabled")) {
         }
 
         if (checkLabel("enable_fortify_scan")) {
-          enableFortifyScan()
-
           after('fortify-scan') {
             steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
           }
