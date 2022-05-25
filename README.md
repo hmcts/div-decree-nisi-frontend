@@ -64,7 +64,6 @@ yarn test:functional
 
 1. Add one or more appropriate labels to your PR in GitHub. Valid labels are:
 
-- ```enable_html_test```
 - ```enable_full_functional_test```
 - ```enable_fortify_scan```
 - ```enable_all_tests_and_scans```

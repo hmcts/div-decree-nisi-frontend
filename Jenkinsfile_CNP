@@ -27,7 +27,6 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 }
 
 def labels = [
-  "enable_html_test",
   "enable_full_functional_test",
   "enable_fortify_scan"
 ]
@@ -130,13 +129,6 @@ if (checkLabel("atLeastOneEnabled")) {
       }
 
       before('securitychecks') {
-        if (checkLabel("enable_html_test")) {
-          stage('Test HTML') {
-            yarnBuilder.yarn('test:validation')
-            yarnBuilder.yarn('test:a11y')
-          }
-        }
-
         if (checkLabel("enable_full_functional_test")) {
           after('fullfunctionalTest') {
             steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
