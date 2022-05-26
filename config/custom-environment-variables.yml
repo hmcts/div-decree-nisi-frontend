@@ -96,7 +96,6 @@ journey:
 
 features:
   idam: FEATURE_IDAM
-  antennaWebchat: FEATURE_ANTENNA_WEBCHAT
   antennaWebchatUserAttribute: FEATURE_ANTENNA_WEBCHAT_USER_ATTRIBUTE
   antennaWebchatAvailabilityToggle: FEATURE_ANTENNA_WEBCHAT_AVAILABILITY_TOGGLE
   awaitingClarification: FEATURE_AWAITING_CLARIFICATION

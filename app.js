@@ -72,7 +72,6 @@ lookAndFeel.configure(app, {
         version: config.services.antennaWebchat.version
       },
       features: {
-        antennaWebchat: parseBool(config.features.antennaWebchat),
         antennaWebchatUserAttribute: parseBool(config.features.antennaWebchatUserAttribute),
         antennaWebchatAvailabilityToggle: parseBool(config.features.antennaWebchatAvailabilityToggle),
         // Dynatrace Feature Toggle
@@ -81,8 +80,6 @@ lookAndFeel.configure(app, {
     }
   }
 });
-
-app.use('/webchat', express.static(`${__dirname}/node_modules/@hmcts/ctsc-web-chat/assets`));
 app.use('/public/locale', express.static(`${__dirname}/assets/locale`));
 
 // Get user details from idam, sets req.idam.userDetails
