@@ -29,6 +29,11 @@ nodejs:
               - session-secret
               - redis-secret
               - idam-secret
+redis:
+  enabled: true
+  architecture: standalone
+  auth:
+    enabled: false
 
 tags:
   idam-pr: true
