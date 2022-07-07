@@ -40,7 +40,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'phoneToCallIfProblems'
     ];
     return content(DesertionAskedToResumeDN, session, { ignoreContent });
   });

@@ -59,7 +59,8 @@ describe(modulePath, () => {
         'thereWasAProblem',
         'change',
         'husband',
-        'wife'
+        'wife',
+        'phoneToCallIfProblems'
       ];
 
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
@@ -99,7 +100,8 @@ describe(modulePath, () => {
         'thereWasAProblem',
         'change',
         'husband',
-        'wife'
+        'wife',
+        'phoneToCallIfProblems'
       ];
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
     });
@@ -137,7 +139,8 @@ describe(modulePath, () => {
         'thereWasAProblem',
         'change',
         'husband',
-        'wife'
+        'wife',
+        'phoneToCallIfProblems'
       ];
       return content(ReviewAosResponseFromCoRespondent, session, { ignoreContent });
     });
@@ -209,7 +212,8 @@ describe(modulePath, () => {
         'thereWasAProblem',
         'change',
         'husband',
-        'wife'
+        'wife',
+        'phoneToCallIfProblems'
       ];
       const specificValuesToNotExist = ['It is the right thing to do...'];
       return content(ReviewAosResponseFromCoRespondent, session, {

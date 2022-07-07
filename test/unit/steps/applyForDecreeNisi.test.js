@@ -44,7 +44,8 @@ describe(modulePath, () => {
       'continueBecauseOfDispensed',
       'processServerDetail',
       'alternativeMethodDetail',
-      'eligibleForDecreeNisi'
+      'eligibleForDecreeNisi',
+      'phoneToCallIfProblems'
     ];
     return content(ApplyForDecreeNisi, session, { ignoreContent });
   });
@@ -140,7 +141,8 @@ describe(modulePath, () => {
         'continueBecauseOfDeemed',
         'continueBecauseOfDispensed',
         'alternativeMethodDetail',
-        'eligibleForDecreeNisi'
+        'eligibleForDecreeNisi',
+        'phoneToCallIfProblems'
       ];
       return content(ApplyForDecreeNisi, processServerSession, { ignoreContent });
     });
@@ -183,7 +185,8 @@ describe(modulePath, () => {
         'continueBecauseOfDeemed',
         'continueBecauseOfDispensed',
         'processServerDetail',
-        'eligibleForDecreeNisi'
+        'eligibleForDecreeNisi',
+        'phoneToCallIfProblems'
       ];
       return content(ApplyForDecreeNisi, alternativeServiceSession, { ignoreContent });
     });

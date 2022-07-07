@@ -555,7 +555,8 @@ describe(modulePath, () => {
         'thereWasAProblem',
         'change',
         'husband',
-        'wife'
+        'wife',
+        'phoneToCallIfProblems'
       ];
       return content(MiniPetition, session, { ignoreContent });
     });
