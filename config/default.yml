@@ -109,8 +109,7 @@ webchatAvailability:
 
 commonProps:
   courtPhoneNumberEn: '0300 303 0642'
-  courtOpeningHourEn: 'Monday - Friday - Phones and Webchat are open 8am-6pm.'
-  courtOpeningHourEn2: 'Closed on Saturday and Sunday.'
+  courtOpeningHourEn: 'Monday to Friday, 8am to 6pm'
 
 paths:
   adulteryFirstFoundOut: /first-find-out
