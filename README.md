@@ -60,16 +60,6 @@ yarn test:functional
 3. Add "TEST_URL" with AAT url
 4. Run `yarn test:functional:remote`
 
-### Running additional tests in the Jenkins PR Pipeline
-
-1. Add one or more appropriate labels to your PR in GitHub. Valid labels are:
-
-- ```enable_full_functional_test```
-- ```enable_fortify_scan```
-- ```enable_all_tests_and_scans```
-
-2. Trigger a build of your PR in Jenkins. Once the regular pipeline completes, the nightly pipeline will trigger to execute your chosen test(s).
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
