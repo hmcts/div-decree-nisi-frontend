@@ -36,7 +36,8 @@ describe(modulePath, () => {
       'thereWasAProblem',
       'change',
       'husband',
-      'wife'
+      'wife',
+      'phoneToCallIfProblems'
     ];
     return content(AdulteryFirstFoundOut, session, { ignoreContent });
   });

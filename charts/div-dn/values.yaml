@@ -24,13 +24,16 @@ nodejs:
         RATE_LIMITER_ENABLED: "false"
         RATE_LIMITER_EXPIRE: "3600000"
         RATE_LIMITER_TOTAL: "3600"
-        
+
         ANTENNA_WEBCHAT_URL: "webchat.ctsc.hmcts.net"
         ANTENNA_WEBCHAT_SERVICE: "Divorce"
         ANTENNA_WEBCHAT_VERSION: "1"
 
         ANTENNA_WEBCHAT_AVAILABILITY_DEBUG: "false"
         FEATURE_WEBCHAT_AVAILABILITY_TOGGLE: "false"
+
+        COURT_PHONENUMBER_EN: "0300 303 0642"
+        COURT_OPENINGHOURS_EN: 'Monday to Friday, 8am to 6pm'
 
         FEATURE_DYNATRACE: "false"
 

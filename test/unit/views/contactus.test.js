@@ -32,7 +32,6 @@ describe('Test contact us for help', () => {
   it('shows email and phone content', () => {
     const specificContent = [
       'phoneTitle',
-      'phoneToCallIfProblems',
       'emailTitle',
       'emailIfProblems',
       'responseTime'
