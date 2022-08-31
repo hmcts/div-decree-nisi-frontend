@@ -8,7 +8,7 @@
   },
   "jest": {
     "verbose": true,
-    "testURL": "https://localhost:3000"
+    "testURL": "http://localhost:3000"
   },
   "scripts": {
     "start": "NODE_PATH=. node server.js",
