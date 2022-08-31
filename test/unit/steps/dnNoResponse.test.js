@@ -72,9 +72,7 @@ describe('DnNoResponse step', () => {
           const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
           testDivorceUnitDetailsRender(rightHandSideMenu);
-          expect(rightHandSideMenu).to.include(DnNoResponseContent.en.openTimes)
-            .and.to.include(DnNoResponseContent.en.divorceEmail)
-            .and.to.include(DnNoResponseContent.en.phoneNumber);
+          expect(rightHandSideMenu).to.include(DnNoResponseContent.en.divorceEmail);
         });
     });
 
@@ -96,9 +94,7 @@ describe('DnNoResponse step', () => {
           const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
           testCTSCDetailsRender(rightHandSideMenu);
-          expect(rightHandSideMenu).to.include(DnNoResponseContent.en.openTimes)
-            .and.to.include(DnNoResponseContent.en.divorceEmail)
-            .and.to.include(DnNoResponseContent.en.phoneNumber);
+          expect(rightHandSideMenu).to.include(DnNoResponseContent.en.divorceEmail);
         });
     });
   });

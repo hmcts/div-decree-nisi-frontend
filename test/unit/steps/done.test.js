@@ -47,7 +47,8 @@ describe(modulePath, () => {
         'thereWasAProblem',
         'change',
         'husband',
-        'wife'
+        'wife',
+        'phoneToCallIfProblems'
       ];
       const session = { case: { data: {} } };
       return content(Done, session, { ignoreContent });
@@ -358,9 +359,7 @@ describe(modulePath, () => {
             const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
             testDivorceUnitDetailsRender(rightHandSideMenu);
-            expect(rightHandSideMenu).to.include(DoneContent.en.openTimes)
-              .and.to.include(DoneContent.en.divorceEmail)
-              .and.to.include(DoneContent.en.phoneNumber);
+            expect(rightHandSideMenu).to.include(DoneContent.en.divorceEmail);
           });
       });
 
@@ -382,9 +381,7 @@ describe(modulePath, () => {
             const rightHandSideMenu = $('.govuk-grid-column-one-third').html();
 
             testCTSCDetailsRender(rightHandSideMenu);
-            expect(rightHandSideMenu).to.include(DoneContent.en.openTimes)
-              .and.to.include(DoneContent.en.divorceEmail)
-              .and.to.include(DoneContent.en.phoneNumber);
+            expect(rightHandSideMenu).to.include(DoneContent.en.divorceEmail);
           });
       });
     });

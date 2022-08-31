@@ -43,7 +43,8 @@ describe(modulePath, () => {
         'thereWasAProblem',
         'change',
         'husband',
-        'wife'
+        'wife',
+        'phoneToCallIfProblems'
       ];
       const session = { case: { data: {} } };
       return content(CheckYourAnswers, session, { ignoreContent });

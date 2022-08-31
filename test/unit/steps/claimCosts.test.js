@@ -41,7 +41,8 @@ describe(modulePath, () => {
         'thereWasAProblem',
         'change',
         'husband',
-        'wife'
+        'wife',
+        'phoneToCallIfProblems'
       ];
       return content(ClaimCosts, sess, { ignoreContent });
     });
@@ -64,7 +65,8 @@ describe(modulePath, () => {
         'thereWasAProblem',
         'change',
         'husband',
-        'wife'
+        'wife',
+        'phoneToCallIfProblems'
       ];
       return content(ClaimCosts, sess, { ignoreContent });
     });
