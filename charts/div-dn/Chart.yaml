@@ -1,11 +1,11 @@
 apiVersion: v2
 description: Divorce - Decree Nisi
 name: div-dn
-version: 2.0.5
+version: 2.0.6
 dependencies:
   - name: nodejs
     version: 2.4.0
-    repository: '@hmctspublic'
+    repository: 'https://hmctspublic.azurecr.io/helm/v1/repo/'
   - name: redis
     version: "10.0.0"
     repository: "https://charts.bitnami.com/bitnami"
@@ -13,6 +13,6 @@ dependencies:
       - pr
   - name: idam-pr
     version: 2.2.6
-    repository: '@hmctspublic'
+    repository: 'https://hmctspublic.azurecr.io/helm/v1/repo/'
     tags:
       - idam-pr
