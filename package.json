@@ -152,7 +152,8 @@
     "node-sass": ">=7.0.0",
     "async": ">=3.2.2",
     "moment": "^2.29.4",
-    "tmpl": ">=1.0.5"
+    "tmpl": ">=1.0.5",
+    "vm2": "^3.9.11"
   },
   "nyc": {
     "report-dir": "coverage",
