@@ -152,7 +152,13 @@
     "node-sass": ">=7.0.0",
     "async": ">=3.2.2",
     "moment": "^2.29.4",
-    "tmpl": ">=1.0.5"
+    "minimatch": "^3.0.5",
+    "scss-tokenizer": "^0.4.3",
+    "loader-utils":  "^1.4.2",
+    "terser": "^4.8.1",
+    "jsdom": "^16.5.0",
+    "vm2": "^3.9.11",
+    "decode-uri-component": "^0.2.1"
   },
   "nyc": {
     "report-dir": "coverage",
