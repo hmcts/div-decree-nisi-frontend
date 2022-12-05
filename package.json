@@ -75,8 +75,8 @@
     "util": "^0.12.1",
     "jsoneditor": "^9.5.6",
     "ajv": ">=6.12.3",
-    "loader-utils": ">=2.0.3",
-    "scss-tokenizer": ">=0.4.3"
+    "loader-utils": "3.2.1",
+    "scss-tokenizer": "0.4.3"
   },
   "devDependencies": {
     "@hmcts/div-idam-test-harness": "^1.6.0",
@@ -155,7 +155,13 @@
     "node-sass": ">=7.0.0",
     "async": ">=3.2.2",
     "moment": "^2.29.4",
-    "tmpl": ">=1.0.5"
+    "tmpl": ">=1.0.5",
+    "validator": "13.7.0",
+    "minimatch": "3.0.5",
+    "decode-uri-component": "0.2.1",
+    "terser": "4.8.1",
+    "vm2": "3.9.11",
+    "loader-utils": "1.4.2"
   },
   "nyc": {
     "report-dir": "coverage",
