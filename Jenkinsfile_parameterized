@@ -31,7 +31,7 @@ withParameterizedPipeline(params.TYPE, params.PRODUCT, params.COMPONENT, params.
   loadVaultSecrets(secrets)
   setVaultName('div')
 
-  after('test') {
+  afterSuccess('test') {
     sh 'yarn test:validation'
     sh 'yarn test:e2e'
   }
@@ -42,7 +42,7 @@ withParameterizedPipeline(params.TYPE, params.PRODUCT, params.COMPONENT, params.
     sh 'printenv'
   }
 
-  after('functionalTest:saat') {
+  afterSuccess('functionalTest:saat') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
   }
