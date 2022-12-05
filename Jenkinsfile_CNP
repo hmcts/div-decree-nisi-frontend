@@ -54,12 +54,12 @@ withPipeline("nodejs", product, component) {
     sh 'printenv'
   }
 
-  after('functionalTest:preview') {
+  afterSuccess('functionalTest:preview') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
   }
 
-  after('functionalTest:aat') {
+  afterSuccess('functionalTest:aat') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
   }

@@ -47,16 +47,16 @@ withNightlyPipeline("nodejs", product, component) {
       yarnBuilder.yarn('test:a11y')
     }
 
-  after('crossBrowserTest') {
+  afterSuccess('crossBrowserTest') {
      steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
   }
 
-    after('fullfunctionalTest') {
+    afterSuccess('fullfunctionalTest') {
       steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'smoke-output/**/*'
       steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/**/*'
     }
 
-  after('fortify-scan') {
+  afterSuccess('fortify-scan') {
     steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
   }
 
