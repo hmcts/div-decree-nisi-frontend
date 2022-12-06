@@ -50,7 +50,7 @@
     "copy-webpack-plugin": "^4.5.2",
     "dns-packet": "^5.2.4",
     "dropzone": "^5.5.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-limiter": "^1.6.1",
     "formidable": "^1.2.1",
     "glob": "^7.1.2",
@@ -158,7 +158,10 @@
     "terser": "^4.8.1",
     "jsdom": "^16.5.0",
     "vm2": "^3.9.11",
-    "decode-uri-component": "^0.2.1"
+    "decode-uri-component": "^0.2.1",
+    "qs": "^6.9.7",
+    "express": "^4.17.3",
+    "validator": "^13.7.0"
   },
   "nyc": {
     "report-dir": "coverage",
