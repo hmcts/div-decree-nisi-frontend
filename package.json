@@ -161,7 +161,8 @@
     "decode-uri-component": "^0.2.1",
     "qs": "^6.9.7",
     "express": "^4.17.3",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "ajv": "^6.12.3"
   },
   "nyc": {
     "report-dir": "coverage",
