@@ -163,7 +163,8 @@
     "express": "^4.17.3",
     "validator": "^13.7.0",
     "json5": "^2.2.2",
-    "flat": "^5.0.1"
+    "flat": "^5.0.1",
+    "debug": "^3.1.0"
   },
   "nyc": {
     "report-dir": "coverage",
