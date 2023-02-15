@@ -32,7 +32,8 @@
     "test:crossbrowser": "./bin/run-crossbrowser-tests.sh",
     "test-crossbrowser-e2e": "NODE_PATH=. NODE_ENV=ci  LOG_LEVEL=ERROR node_modules/.bin/codeceptjs run-multiple  ${BROWSER_GROUP:-'--all'} -c test/functional/saucelabs.conf.js --grep @cross-browser-test --steps --reporter mocha-multi",
     "test:validation": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=OFF mocha --exit test/w3cjs",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "yarn-audit-fix": "yarn-audit-fix"
   },
   "pre-commit": "lint",
   "dependencies": {
@@ -114,6 +115,7 @@
     "supertest": "^3.0.0",
     "w3cjs": "^0.4.0",
     "ws": "^7.4.6",
+    "yarn-audit-fix": "^9.3.2",
     "zepto-node": "^1.0.0"
   },
   "resolutions": {
