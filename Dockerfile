@@ -5,4 +5,6 @@ RUN yarn install --production
 # ---- Runtime imge ----
 FROM base as runtime
 COPY . .
+COPY .yarn ./.yarn
+COPY .yarnrc.yml ./
 EXPOSE 3000

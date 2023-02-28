@@ -28,7 +28,6 @@ package-lock.json
 dist
 remote-config.json
 acb.yaml
-.pnp.*
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
