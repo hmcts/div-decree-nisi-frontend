@@ -7,8 +7,7 @@ WORKDIR ${WORKDIR}
 
 COPY --chown=hmcts:hmcts package.json yarn.lock yarn-audit-known-issues ./
 RUN yarn set version berry
-RUN yarn workspaces focus --production  \
-    && yarn cache clean
+RUN yarn workspaces focus --production
 
 # ---- Build image ----
 FROM base as build
