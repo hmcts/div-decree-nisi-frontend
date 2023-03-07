@@ -5234,7 +5234,7 @@ __metadata:
     mocha-junit-reporter: ^1.23.3
     mocha-multi: ^1.1.3
     mochawesome: ^3.0.2
-    mockserver: ^2.1.1
+    mockserver: ^2.0.0 || ^2.1.1
     moment: ^2.29.4
     node-dev: ^4.0.0
     nyc: 12.0.1
@@ -11036,7 +11036,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mockserver@npm:^2.1.1":
+"mockserver@npm:^2.0.0 || ^2.1.1":
   version: 2.2.0
   resolution: "mockserver@npm:2.2.0"
   dependencies:
