@@ -3111,7 +3111,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-runtime@npm:^6.18.0, babel-runtime@npm:^6.20.0, babel-runtime@npm:^6.22.0, babel-runtime@npm:^6.26.0":
+"babel-runtime@npm:^6.18.0, babel-runtime@npm:^6.22.0, babel-runtime@npm:^6.26.0":
   version: 6.26.0
   resolution: "babel-runtime@npm:6.26.0"
   dependencies:
@@ -3834,7 +3834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^2.0.0, chalk@npm:^2.0.1, chalk@npm:^2.1.0, chalk@npm:^2.3.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
+"chalk@npm:^2.0.0, chalk@npm:^2.0.1, chalk@npm:^2.1.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -3855,7 +3855,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^4.0.0, chalk@npm:^4.1.2":
+"chalk@npm:^4.0.0, chalk@npm:^4.1.0, chalk@npm:^4.1.2":
   version: 4.1.2
   resolution: "chalk@npm:4.1.2"
   dependencies:
@@ -4260,13 +4260,6 @@ __metadata:
   version: 2.11.0
   resolution: "commander@npm:2.11.0"
   checksum: 0d0c622d129a801699b9bbf6fa518108c7e221e51ae12457119aec52f1142ab759b6cd3348ee253604e934639e200c8f0e1cf8342a2ba4b28b3565a7322ead14
-  languageName: node
-  linkType: hard
-
-"commander@npm:2.15.1":
-  version: 2.15.1
-  resolution: "commander@npm:2.15.1"
-  checksum: a1b6b66a98cd1862084fcb230d11f56d3af0e5a42c307158d987464d65112fd9f8de2a682895247d2e475f925895e70e5bda21379b1286b21c55dd5c17f0d5fa
   languageName: node
   linkType: hard
 
@@ -5273,10 +5266,10 @@ __metadata:
     joi: ^14.3.1
     jsoneditor: ^9.5.6
     lodash: ^4.17.21
-    mocha: ^5.2.0
+    mocha: ^6.2.1
     mocha-junit-reporter: ^1.23.3
     mocha-multi: ^1.1.3
-    mochawesome: ^3.0.2
+    mochawesome: ^6.2.1
     mockserver: ^2.0.0 || ^2.1.1
     moment: ^2.29.4
     node-dev: ^4.0.0
@@ -5749,7 +5742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"escape-html@npm:~1.0.3":
+"escape-html@npm:^1.0.3, escape-html@npm:~1.0.3":
   version: 1.0.3
   resolution: "escape-html@npm:1.0.3"
   checksum: 6213ca9ae00d0ab8bccb6d8d4e0a98e76237b2410302cf7df70aaa6591d509a2a37ce8998008cbecae8fc8ffaadf3fb0229535e6a145f3ce0b211d060decbb24
@@ -6845,17 +6838,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^4.0.2":
-  version: 4.0.3
-  resolution: "fs-extra@npm:4.0.3"
-  dependencies:
-    graceful-fs: ^4.1.2
-    jsonfile: ^4.0.0
-    universalify: ^0.1.0
-  checksum: c5ae3c7043ad7187128e619c0371da01b58694c1ffa02c36fb3f5b459925d9c27c3cb1e095d9df0a34a85ca993d8b8ff6f6ecef868fd5ebb243548afa7fc0936
-  languageName: node
-  linkType: hard
-
 "fs-extra@npm:^6.0.1":
   version: 6.0.1
   resolution: "fs-extra@npm:6.0.1"
@@ -6864,6 +6846,17 @@ __metadata:
     jsonfile: ^4.0.0
     universalify: ^0.1.0
   checksum: 133dbd765e05c1cdaaf723308e00ffbe746da5ad516ad890ae2da2a538982c1175371055c778fbe68d1fca1da9ed4003ba55c4a14e070372eabf6a7c48062759
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:^7.0.0":
+  version: 7.0.1
+  resolution: "fs-extra@npm:7.0.1"
+  dependencies:
+    graceful-fs: ^4.1.2
+    jsonfile: ^4.0.0
+    universalify: ^0.1.0
+  checksum: 141b9dccb23b66a66cefdd81f4cda959ff89282b1d721b98cea19ba08db3dcbe6f862f28841f3cf24bb299e0b7e6c42303908f65093cb7e201708e86ea5a8dcf
   languageName: node
   linkType: hard
 
@@ -10042,7 +10035,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.isfunction@npm:^3.0.8":
+"lodash.isempty@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "lodash.isempty@npm:4.4.0"
+  checksum: a8118f23f7ed72a1dbd176bf27f297d1e71aa1926288449cb8f7cef99ba1bc7527eab52fe7899ab080fa1dc150aba6e4a6367bf49fa4e0b78da1ecc095f8d8c5
+  languageName: node
+  linkType: hard
+
+"lodash.isfunction@npm:^3.0.8, lodash.isfunction@npm:^3.0.9":
   version: 3.0.9
   resolution: "lodash.isfunction@npm:3.0.9"
   checksum: 99e54c34b1e8a9ba75c034deb39cedbd2aca7af685815e67a2a8ec4f73ec9748cda6ebee5a07d7de4b938e90d421fd280e9c385cc190f903ac217ac8aff30314
@@ -10060,6 +10060,13 @@ __metadata:
   version: 4.0.6
   resolution: "lodash.isplainobject@npm:4.0.6"
   checksum: 29c6351f281e0d9a1d58f1a4c8f4400924b4c79f18dfc4613624d7d54784df07efaff97c1ff2659f3e085ecf4fff493300adc4837553104cef2634110b0d5337
+  languageName: node
+  linkType: hard
+
+"lodash.isstring@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "lodash.isstring@npm:4.0.1"
+  checksum: eaac87ae9636848af08021083d796e2eea3d02e80082ab8a9955309569cb3a463ce97fd281d7dc119e402b2e7d8c54a23914b15d2fc7fff56461511dc8937ba0
   languageName: node
   linkType: hard
 
@@ -10168,7 +10175,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.0.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -10901,29 +10908,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mocha@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "mocha@npm:5.2.0"
-  dependencies:
-    browser-stdout: 1.3.1
-    commander: 2.15.1
-    debug: 3.1.0
-    diff: 3.5.0
-    escape-string-regexp: 1.0.5
-    glob: 7.1.2
-    growl: 1.10.5
-    he: 1.1.1
-    minimatch: 3.0.4
-    mkdirp: 0.5.1
-    supports-color: 5.4.0
-  bin:
-    _mocha: ./bin/_mocha
-    mocha: ./bin/mocha
-  checksum: 08d37a9fa0e67141d8e062356a6915402788fb4d7b1ff9cb7311efa140aa3f255c98f6fa64697981d721d3a41f4eb4d9a28fc986f84499456f1978c0ea2d4109
-  languageName: node
-  linkType: hard
-
-"mocha@npm:^6.2.3":
+"mocha@npm:^6.2.1, mocha@npm:^6.2.3":
   version: 6.2.3
   resolution: "mocha@npm:6.2.3"
   dependencies:
@@ -10957,44 +10942,45 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mochawesome-report-generator@npm:^3.0.1":
-  version: 3.1.5
-  resolution: "mochawesome-report-generator@npm:3.1.5"
+"mochawesome-report-generator@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "mochawesome-report-generator@npm:5.2.0"
   dependencies:
-    chalk: ^2.3.0
+    chalk: ^2.4.2
     dateformat: ^3.0.2
-    fs-extra: ^4.0.2
+    escape-html: ^1.0.3
+    fs-extra: ^7.0.0
     fsu: ^1.0.2
     lodash.isfunction: ^3.0.8
-    opener: ^1.4.2
-    prop-types: ^15.5.8
-    react: ^16.0.0
-    react-dom: ^16.0.0
+    opener: ^1.5.2
+    prop-types: ^15.7.2
     tcomb: ^3.2.17
     tcomb-validation: ^3.3.0
-    validator: ^9.1.2
-    yargs: ^10.0.3
+    validator: ^10.11.0
+    yargs: ^13.2.2
   bin:
-    marge: ./bin/cli.js
-  checksum: 9d5a912a52ce4e817724106d0e5b6e45504e6b6c5ea23faa6412d76cdca90b6d64b202d5a5741eadf1a37fecfa363e8ea20e7c4e6d1c0e9f597b2f93783e6e0e
+    marge: bin/cli.js
+  checksum: dca3693075de16cec7c00fabb67fa5af085cd4c9cbc1d8c68839b7572ddfd3bf85a6307e8514538d92991716a8073f617267742ca5030949dc3ec6f99956cad0
   languageName: node
   linkType: hard
 
-"mochawesome@npm:^3.0.2":
-  version: 3.1.2
-  resolution: "mochawesome@npm:3.1.2"
+"mochawesome@npm:^6.2.1":
+  version: 6.3.1
+  resolution: "mochawesome@npm:6.3.1"
   dependencies:
-    babel-runtime: ^6.20.0
-    chalk: ^2.3.0
-    diff: ^3.4.0
+    chalk: ^4.1.0
+    diff: ^5.0.0
     json-stringify-safe: ^5.0.1
-    lodash: ^4.17.3
-    mochawesome-report-generator: ^3.0.1
-    strip-ansi: ^4.0.0
-    uuid: ^3.0.1
+    lodash.isempty: ^4.4.0
+    lodash.isfunction: ^3.0.9
+    lodash.isobject: ^3.0.2
+    lodash.isstring: ^4.0.1
+    mochawesome-report-generator: ^5.2.0
+    strip-ansi: ^6.0.0
+    uuid: ^8.3.2
   peerDependencies:
-    mocha: "*"
-  checksum: 075a429a75b442424d2d8b4e1467ca089af7518dbbb1076d90ab057084bd14fc4c91a8c0c8f49bb8709052911a528902a95e9eed970c5f49b89ead2a0f82f14a
+    mocha: ">=7"
+  checksum: 85d02d280f799a4a34d49bd0d636b4771b922a8eeba4af17594a8a47c3fa195beb0442762b4a3959900bc6ed9d7d905fb930fae0d09a8e767c2731c3ad41e9e9
   languageName: node
   linkType: hard
 
@@ -11735,7 +11721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"opener@npm:^1.4.2":
+"opener@npm:^1.5.2":
   version: 1.5.2
   resolution: "opener@npm:1.5.2"
   bin:
@@ -12557,7 +12543,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.8, prop-types@npm:^15.6.2":
+"prop-types@npm:^15.7.2":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -12871,20 +12857,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.0.0":
-  version: 16.14.0
-  resolution: "react-dom@npm:16.14.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    prop-types: ^15.6.2
-    scheduler: ^0.19.1
-  peerDependencies:
-    react: ^16.14.0
-  checksum: 5a5c49da0f106b2655a69f96c622c347febcd10532db391c262b26aec225b235357d9da1834103457683482ab1b229af7a50f6927a6b70e53150275e31785544
-  languageName: node
-  linkType: hard
-
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -12896,17 +12868,6 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 9d6d111d8990dc98bc5402c1266a808b0459b5d54830bbea24c12d908b536df7883f268a7868cfaedde3dd9d4e0d574db456f84d2e6df9c4526f99bb4b5344d8
-  languageName: node
-  linkType: hard
-
-"react@npm:^16.0.0":
-  version: 16.14.0
-  resolution: "react@npm:16.14.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-    prop-types: ^15.6.2
-  checksum: 8484f3ecb13414526f2a7412190575fc134da785c02695eb92bb6028c930bfe1c238d7be2a125088fec663cc7cda0a3623373c46807cf2c281f49c34b79881ac
   languageName: node
   linkType: hard
 
@@ -13748,16 +13709,6 @@ __metadata:
   dependencies:
     xmlchars: ^2.2.0
   checksum: 5636b55cf15f7cf0baa73f2797bf992bdcf75d1b39d82c0aa4608555c774368f6ac321cb641fd5f3d3ceb87805122cd47540da6a7b5960fe0dbdb8f8c263f000
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.19.1":
-  version: 0.19.1
-  resolution: "scheduler@npm:0.19.1"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: 73e185a59e2ff5aa3609f5b9cb97ddd376f89e1610579d29939d952411ca6eb7a24907a4ea4556569dacb931467a1a4a56d94fe809ef713aa76748642cd96a6c
   languageName: node
   linkType: hard
 
@@ -14770,15 +14721,6 @@ __metadata:
   dependencies:
     has-flag: ^2.0.0
   checksum: b57ff1b7ed9bae527fda95b51bf892dfac6ab669b884b3d5194bf27acaf0a0af2c2ffd666208f42b00ce08c42e4a9aae44c662819726e727d2b147b7843bceec
-  languageName: node
-  linkType: hard
-
-"supports-color@npm:5.4.0":
-  version: 5.4.0
-  resolution: "supports-color@npm:5.4.0"
-  dependencies:
-    has-flag: ^3.0.0
-  checksum: bc84f495b07a5cdfd871243d94a5d390972e5203ca07b189f49467c46102df348044c411ce9be872f77265f6c65bea0052c4898b9b7dac25f4a45253d23caa5b
   languageName: node
   linkType: hard
 
@@ -16418,7 +16360,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:13.3.2, yargs@npm:^13.3.0":
+"yargs@npm:13.3.2, yargs@npm:^13.2.2, yargs@npm:^13.3.0":
   version: 13.3.2
   resolution: "yargs@npm:13.3.2"
   dependencies:
@@ -16433,26 +16375,6 @@ __metadata:
     y18n: ^4.0.0
     yargs-parser: ^13.1.2
   checksum: 75c13e837eb2bb25717957ba58d277e864efc0cca7f945c98bdf6477e6ec2f9be6afa9ed8a876b251a21423500c148d7b91e88dee7adea6029bdec97af1ef3e8
-  languageName: node
-  linkType: hard
-
-"yargs@npm:^10.0.3":
-  version: 10.1.2
-  resolution: "yargs@npm:10.1.2"
-  dependencies:
-    cliui: ^4.0.0
-    decamelize: ^1.1.1
-    find-up: ^2.1.0
-    get-caller-file: ^1.0.1
-    os-locale: ^2.0.0
-    require-directory: ^2.1.1
-    require-main-filename: ^1.0.1
-    set-blocking: ^2.0.0
-    string-width: ^2.0.0
-    which-module: ^2.0.0
-    y18n: ^3.2.1
-    yargs-parser: ^8.1.0
-  checksum: 09d55c05af2c4a74a0d61be75b4ba0ed766acb17e6ea6d0851ee964502f2bcb5ad5c1ffa5ade265691a7fbff122e92fd311f3a4c03e2b2d338eb54b9b880441a
   languageName: node
   linkType: hard
 
