@@ -28,3 +28,12 @@ package-lock.json
 dist
 remote-config.json
 acb.yaml
+
+# Yarn v3
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
