@@ -973,40 +973,6 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/semantic-conventions/-/semantic-conventions-1.10.0.tgz#2addef53b595c687c133922ecad0e850b9287fc9"
   integrity sha512-Mzo5IyrI59YuYWeNoOZRXfUCc3upjmxCmczSm+pUgWprvSNfdOX70SVde84UxmuzU7MF1MEkPXKXTYG3ymRw2w==
 
-"@redis/bloom@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@redis/bloom/-/bloom-1.2.0.tgz#d3fd6d3c0af3ef92f26767b56414a370c7b63b71"
-  integrity sha512-HG2DFjYKbpNmVXsa0keLHp/3leGJz1mjh09f2RLGGLQZzSHpkmZWuwJbAvo3QcRY8p80m5+ZdXZdYOSBLlp7Cg==
-
-"@redis/client@1.5.6":
-  version "1.5.6"
-  resolved "https://registry.yarnpkg.com/@redis/client/-/client-1.5.6.tgz#869cc65718d7d5493ef655a71dc40f3bc64a1b28"
-  integrity sha512-dFD1S6je+A47Lj22jN/upVU2fj4huR7S9APd7/ziUXsIXDL+11GPYti4Suv5y8FuXaN+0ZG4JF+y1houEJ7ToA==
-  dependencies:
-    cluster-key-slot "1.1.2"
-    generic-pool "3.9.0"
-    yallist "4.0.0"
-
-"@redis/graph@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@redis/graph/-/graph-1.1.0.tgz#cc2b82e5141a29ada2cce7d267a6b74baa6dd519"
-  integrity sha512-16yZWngxyXPd+MJxeSr0dqh2AIOi8j9yXKcKCwVaKDbH3HTuETpDVPcLujhFYVPtYrngSco31BUcSa9TH31Gqg==
-
-"@redis/json@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@redis/json/-/json-1.0.4.tgz#f372b5f93324e6ffb7f16aadcbcb4e5c3d39bda1"
-  integrity sha512-LUZE2Gdrhg0Rx7AN+cZkb1e6HjoSKaeeW8rYnt89Tly13GBI5eP4CwDVr+MY8BAYfCg4/N15OUrtLoona9uSgw==
-
-"@redis/search@1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@redis/search/-/search-1.1.2.tgz#6a8f66ba90812d39c2457420f859ce8fbd8f3838"
-  integrity sha512-/cMfstG/fOh/SsE+4/BQGeuH/JJloeWuH+qJzM8dbxuWvdWibWAOAHHCZTMPhV3xIlH4/cUEIA8OV5QnYpaVoA==
-
-"@redis/time-series@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@redis/time-series/-/time-series-1.0.4.tgz#af85eb080f6934580e4d3b58046026b6c2b18717"
-  integrity sha512-ThUIgo2U/g7cCuZavucQTQzA9g9JbDDY2f64u3AbAoz/8vE2lt2U37LamDUVChhaDA3IRT9R6VvJwqnUfTJzng==
-
 "@sinonjs/commons@^1", "@sinonjs/commons@^1.3.0", "@sinonjs/commons@^1.7.0":
   version "1.8.6"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.6.tgz#80c516a4dc264c2a69115e7578d62581ff455ed9"
@@ -3273,7 +3239,7 @@ cls-hooked@^4.2.2:
     emitter-listener "^1.0.1"
     semver "^5.4.1"
 
-cluster-key-slot@1.1.2, cluster-key-slot@^1.1.0:
+cluster-key-slot@^1.1.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/cluster-key-slot/-/cluster-key-slot-1.1.2.tgz#88ddaa46906e303b5de30d3153b7d9fe0a0c19ac"
   integrity sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA==
@@ -4152,6 +4118,11 @@ domino@^2.0.2:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/domino/-/domino-2.1.6.tgz#fe4ace4310526e5e7b9d12c7de01b7f485a57ffe"
   integrity sha512-3VdM/SXBZX2omc9JF9nOPCtDaYQ67BGp5CoLpIQlO2KCAPETs8TcDHacF26jXadGbvUteZzRTeos2fhID5+ucQ==
+
+double-ended-queue@^2.1.0-0:
+  version "2.1.0-0"
+  resolved "https://registry.yarnpkg.com/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz#103d3527fd31528f40188130c841efdd78264e5c"
+  integrity sha512-+BNfZ+deCo8hMNpDqDnvT+c0XpJ5cUa6mqYq89bho2Ifze4URTqRkcwR399hWoTrTkbZ/XJYDgP6rc7pRgffEQ==
 
 dropzone@^5.5.1:
   version "5.9.3"
@@ -5420,11 +5391,6 @@ gaze@^1.0.0:
   integrity sha512-BRdNm8hbWzFzWHERTrejLqwHDfS4GibPoq5wjTPIoJHoBtKGPg3xAFfxmM+9ztbXelxcf2hwQcaz1PtmFeue8g==
   dependencies:
     globule "^1.0.0"
-
-generic-pool@3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-3.9.0.tgz#36f4a678e963f4fdb8707eab050823abc4e8f5e4"
-  integrity sha512-hymDOu5B53XvN4QT9dBmZxPX4CWhBPPLguTZ9MMFeFa/Kg0xWVfylOVNlJji/E7yTZWFd/q9GO5TxDLq156D7g==
 
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
@@ -7500,7 +7466,19 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha512-ZClg6AaYvamvYEE82d3Iyd3vSSIjQ+odgjaTzRuO3s7toCdFKczob2i0zCh7JE8kWn17yvAWhUVxvqGwUalsRA==
 
-json5@>=1.0.2, json5@^0.5.1, json5@^1.0.1, json5@^2.2.2, json5@^2.2.3:
+json5@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
+  integrity sha512-4xrs1aW+6N5DalkqSVA8fxh458CXvR99WU8WLKmq4v8eWAL86Xo3BVqyd3SkA9wEVjCMqyvvRRkshAdOnBp5rw==
+
+json5@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.2.tgz#63d98d60f21b313b77c4d6da18bfa69d80e1d593"
+  integrity sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==
+  dependencies:
+    minimist "^1.2.0"
+
+json5@^2.2.2, json5@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
@@ -10057,7 +10035,7 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
-redis-commands@1.7.0:
+redis-commands@1.7.0, redis-commands@^1.2.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/redis-commands/-/redis-commands-1.7.0.tgz#15a6fea2d58281e27b1cd1acfb4b293e278c3a89"
   integrity sha512-nJWqw3bTFy21hX/CPKHth6sfhZbdiHP6bTawSgQBlKOVRG7EZkfHbbHwQJnrE4vsQf0CMNE+3gJ4Fmm16vdVlQ==
@@ -10067,6 +10045,11 @@ redis-errors@^1.0.0, redis-errors@^1.2.0:
   resolved "https://registry.yarnpkg.com/redis-errors/-/redis-errors-1.2.0.tgz#eb62d2adb15e4eaf4610c04afe1529384250abad"
   integrity sha512-1qny3OExCf0UvUV/5wpYKf2YwPcOqXzkwKKSmKHiE6ZMQs5heeE/c8eXK+PNllPvmjgAbfnsbpkGZWy8cBpn9w==
 
+redis-parser@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/redis-parser/-/redis-parser-2.6.0.tgz#52ed09dacac108f1a631c07e9b69941e7a19504b"
+  integrity sha512-9Hdw19gwXFBJdN8ENUoNVJFRyMDFrE/ZBClPicKYDPwNPJ4ST1TedAHYNSiGKElwh2vrmRGMoJYbVdJd+WQXIw==
+
 redis-parser@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/redis-parser/-/redis-parser-3.0.0.tgz#b66d828cdcafe6b4b8a428a7def4c6bcac31c8b4"
@@ -10074,17 +10057,14 @@ redis-parser@^3.0.0:
   dependencies:
     redis-errors "^1.0.0"
 
-"redis@>=3.1.1 ", redis@^2.8.0:
-  version "4.6.5"
-  resolved "https://registry.yarnpkg.com/redis/-/redis-4.6.5.tgz#f32fbde44429e96f562bb0c9b1db0143ab8cfa4f"
-  integrity sha512-O0OWA36gDQbswOdUuAhRL6mTZpHFN525HlgZgDaVNgCJIAZR3ya06NTESb0R+TUZ+BFaDpz6NnnVvoMx9meUFg==
+redis@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/redis/-/redis-2.8.0.tgz#202288e3f58c49f6079d97af7a10e1303ae14b02"
+  integrity sha512-M1OkonEQwtRmZv4tEWF2VgpG0JWJ8Fv1PhlgT5+B+uNq2cA3Rt1Yt/ryoR+vQNOQcIEgdCdfH0jr3bDpihAw1A==
   dependencies:
-    "@redis/bloom" "1.2.0"
-    "@redis/client" "1.5.6"
-    "@redis/graph" "1.1.0"
-    "@redis/json" "1.0.4"
-    "@redis/search" "1.1.2"
-    "@redis/time-series" "1.0.4"
+    double-ended-queue "^2.1.0-0"
+    redis-commands "^1.2.0"
+    redis-parser "^2.6.0"
 
 regenerate@^1.2.1:
   version "1.4.2"
@@ -12531,11 +12511,6 @@ xtend@^4.0.0, xtend@~4.0.1:
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-5.0.8.tgz#7f4934d0f7ca8c56f95314939ddcd2dd91ce1d55"
   integrity sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==
 
-yallist@4.0.0, yallist@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
-  integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
-
 yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
@@ -12545,6 +12520,11 @@ yallist@^3.0.2:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"
   integrity sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==
+
+yallist@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
+  integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
 yargs-parser@13.1.2, "yargs-parser@>=13.1.2 <14.0.0 || >=15.0.1 <16.0.0 || >=18.1.2", yargs-parser@^11.1.1, yargs-parser@^13.1.2, yargs-parser@^18.1.2, yargs-parser@^20.2.3, yargs-parser@^21.1.1, yargs-parser@^7.0.0, yargs-parser@^8.0.0, yargs-parser@^9.0.2:
   version "21.1.1"
