@@ -112,6 +112,7 @@
     "sonar-scanner": "^3.1.0",
     "supertest": "^3.0.0",
     "w3cjs": "^0.4.0",
+    "webpack-cli": "^5.0.1",
     "ws": "^7.4.6",
     "zepto-node": "^1.0.0"
   },
