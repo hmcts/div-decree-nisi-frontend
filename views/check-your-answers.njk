@@ -4,6 +4,7 @@
 {% from "look-and-feel/components/check-your-answers.njk" import answer %}
 {% from "look-and-feel/components/fields.njk" import hiddenInput %}
 {% from "look-and-feel/components/errors.njk" import errorSummary %}
+{% from "look-and-feel/components/warning-text.njk" import warningText %}
 
 {% set titleSize = titleSize | default("l") %}
 
@@ -26,6 +27,10 @@
 {% block full_width %}
   <div class="grid-row">
     <div class="column-full">
+    {{ warningText({
+            text: "Please note that due to a technical error some users may have received a copy of an old petition and acknowledgement of service pack. If the same divorce case number has already concluded with a Decree Absolute, or you have already responded to this, please rely on your portal to confirm the latest position.",
+            iconFallbackText: "Information"
+          }) }}
       {{ errorSummary(fields) }}
 
       {{ header(title, size=titleSize) }}
