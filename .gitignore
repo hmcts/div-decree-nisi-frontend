@@ -5,6 +5,7 @@
 public
 govuk_modules
 functional-output
+mock-output
 node_modules/*
 .tmuxp.*
 *.swp
@@ -23,13 +24,17 @@ tmp
 package-lock.json
 .vscode/launch.json
 .sonar/
+.env
 .nyc_output
 .scannerwork
 dist
 remote-config.json
+config/local*
 acb.yaml
+mochawesome-report
+/config/dev.yaml
+/config/development.yaml
 
-# Yarn v3
 .pnp.*
 .yarn/*
 !.yarn/cache
