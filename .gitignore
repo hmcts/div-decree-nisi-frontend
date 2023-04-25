@@ -35,7 +35,7 @@ mochawesome-report
 /config/dev.yaml
 /config/development.yaml
 
-.pnp.*
+!.pnp.cjs
 .yarn/*
 !.yarn/cache
 !.yarn/patches
