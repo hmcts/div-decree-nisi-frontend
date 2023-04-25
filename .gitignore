@@ -35,11 +35,14 @@ mochawesome-report
 /config/dev.yaml
 /config/development.yaml
 
-!.pnp.cjs
+# yarn v2
 .yarn/*
-!.yarn/cache
-!.yarn/patches
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# yarn v2 zero-install
+!.pnp.cjs
+!.yarn/unplugged
 !.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+!.yarn/cache
