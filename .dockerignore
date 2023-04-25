@@ -1,21 +1,7 @@
-# exclude all by default
+.github
+infrastructure
+kubernetes
+node_modules
 
-*
-
-# exceptions from `exclude all` rule
-
-!package.json
-!yarn.lock
-!.yarnrc.yml
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-
-!tsconfig.json
-!webpack/**
-!src/main/**
-!config/**
-!webpack.config.js
+Jenkinsfile*
+README.md
