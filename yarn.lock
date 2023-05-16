@@ -685,9 +685,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hmcts/look-and-feel@npm:4.0.8":
-  version: 4.0.8
-  resolution: "@hmcts/look-and-feel@npm:4.0.8"
+"@hmcts/look-and-feel@npm:4.0.9":
+  version: 4.0.9
+  resolution: "@hmcts/look-and-feel@npm:4.0.9"
   dependencies:
     babel-core: ^6.26.0
     babel-loader: ^7.1.2
@@ -715,7 +715,7 @@ __metadata:
     style-loader: ^0.20.1
     webpack: ^3.4.1
     webpack-dev-middleware: ^2.0.4
-  checksum: 1756dd58e2b56ed310f28a7452ba54ca27e5e46109aa6827ee49bcce06cdc8e01a31f7d7a282c162cab05573bca1426ba224ef9f07b2dfb9b0f059429c5e8ec7
+  checksum: ad02dfd3fd8c548a3a17a4f2610b940431224c5f1b52af191f48cc258cc1cbb386579d0cdf8163fa960ab105984c880f65964dce2fa13c3a9d5bfbbcabc0b2b9
   languageName: node
   linkType: hard
 
@@ -4577,10 +4577,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:0.4.0":
-  version: 0.4.0
-  resolution: "cookie@npm:0.4.0"
-  checksum: 760384ba0aef329c52523747e36a452b5e51bc49b34160363a6934e7b7df3f93fcc88b35e33450361535d40a92a96412da870e1816aba9aa6cc556a9fedd8492
+"cookie@npm:0.3.1":
+  version: 0.3.1
+  resolution: "cookie@npm:0.3.1"
+  checksum: 5309937344947a049283573861c24bed054fac3334ce5a0fa74b9bc6bf39bd387d3a0fca7f3ed6f4a09f112de82c00b541a0e7d6ce7a8de0f5d1301eec799730
   languageName: node
   linkType: hard
 
@@ -4913,14 +4913,14 @@ __metadata:
   linkType: hard
 
 "csurf@npm:^1.9.0":
-  version: 1.11.0
-  resolution: "csurf@npm:1.11.0"
+  version: 1.10.0
+  resolution: "csurf@npm:1.10.0"
   dependencies:
-    cookie: 0.4.0
+    cookie: 0.3.1
     cookie-signature: 1.0.6
     csrf: 3.1.0
-    http-errors: ~1.7.3
-  checksum: c41a1ec593000301f8ad57b8b43c13520c9939af61e0ed2d03f753f69870478ba40f874c02349312ff001c2d349421b649aef4af222b3c699bb10f1d98ce2860
+    http-errors: ~1.7.2
+  checksum: df15ffb6a74b31bc1ce1772e94d843b76ae9bf29eb4a54f8a073082b14ae7763a7f1bbe29220c0041890a7f4817bbaaef282fa3996e9fc439997cbe30303dc8f
   languageName: node
   linkType: hard
 
@@ -5360,7 +5360,7 @@ __metadata:
     "@hmcts/div-idam-test-harness": ^1.6.0
     "@hmcts/div-test-harness": ^1.0.4
     "@hmcts/environment-variable-setter": ^1.0.0
-    "@hmcts/look-and-feel": 4.0.8
+    "@hmcts/look-and-feel": 4.0.9
     "@hmcts/nodejs-healthcheck": ^1.7.0
     "@hmcts/nodejs-logging": ^3.0.1
     "@hmcts/one-per-page": ^5.4.0
@@ -6920,14 +6920,14 @@ __metadata:
   linkType: hard
 
 "formidable@npm:^2.0.1":
-  version: 2.1.1
-  resolution: "formidable@npm:2.1.1"
+  version: 2.1.2
+  resolution: "formidable@npm:2.1.2"
   dependencies:
     dezalgo: ^1.0.4
     hexoid: ^1.0.0
     once: ^1.4.0
     qs: ^6.11.0
-  checksum: b407bf89abf0dc40e00efe20edd80aa60ff7e7f4928b3a7048b630d3bb61012f316b69cd3350ccc9aab2d4c682516fea917bc31aef3479d4a652ed97cf8ba9aa
+  checksum: 81c8e5d89f5eb873e992893468f0de22c01678ca3d315db62be0560f9de1c77d4faefc9b1f4575098eb2263b3c81ba1024833a9fc3206297ddbac88a4f69b7a8
   languageName: node
   linkType: hard
 
@@ -7917,7 +7917,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-errors@npm:~1.7.3":
+"http-errors@npm:~1.7.2":
   version: 1.7.3
   resolution: "http-errors@npm:1.7.3"
   dependencies:
@@ -8448,7 +8448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-core-module@npm:^2.11.0, is-core-module@npm:^2.5.0":
+"is-core-module@npm:^2.12.0, is-core-module@npm:^2.5.0":
   version: 2.12.0
   resolution: "is-core-module@npm:2.12.0"
   dependencies:
@@ -10796,7 +10796,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime@npm:2.6.0, mime@npm:^2.1.0, mime@npm:^2.3.1":
+"mime@npm:^2.1.0, mime@npm:^2.3.1, mime@npm:^2.5.0":
   version: 2.6.0
   resolution: "mime@npm:2.6.0"
   bin:
@@ -13679,15 +13679,15 @@ __metadata:
   linkType: hard
 
 "resolve@npm:^1.0.0, resolve@npm:^1.10.0, resolve@npm:^1.11.1, resolve@npm:^1.18.1, resolve@npm:^1.22.1":
-  version: 1.22.2
-  resolution: "resolve@npm:1.22.2"
+  version: 1.22.3
+  resolution: "resolve@npm:1.22.3"
   dependencies:
-    is-core-module: ^2.11.0
+    is-core-module: ^2.12.0
     path-parse: ^1.0.7
     supports-preserve-symlinks-flag: ^1.0.0
   bin:
     resolve: bin/resolve
-  checksum: 7e5df75796ebd429445d102d5824482ee7e567f0070b2b45897b29bb4f613dcbc262e0257b8aeedb3089330ccaea0d6a0464df1a77b2992cf331dcda0f4cb549
+  checksum: fb834b81348428cb545ff1b828a72ea28feb5a97c026a1cf40aa1008352c72811ff4d4e71f2035273dc536dcfcae20c13604ba6283c612d70fa0b6e44519c374
   languageName: node
   linkType: hard
 
@@ -13708,15 +13708,15 @@ __metadata:
   linkType: hard
 
 "resolve@patch:resolve@^1.0.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.11.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.18.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.1#~builtin<compat/resolve>":
-  version: 1.22.2
-  resolution: "resolve@patch:resolve@npm%3A1.22.2#~builtin<compat/resolve>::version=1.22.2&hash=c3c19d"
+  version: 1.22.3
+  resolution: "resolve@patch:resolve@npm%3A1.22.3#~builtin<compat/resolve>::version=1.22.3&hash=c3c19d"
   dependencies:
-    is-core-module: ^2.11.0
+    is-core-module: ^2.12.0
     path-parse: ^1.0.7
     supports-preserve-symlinks-flag: ^1.0.0
   bin:
     resolve: bin/resolve
-  checksum: 66cc788f13b8398de18eb4abb3aed90435c84bb8935953feafcf7231ba4cd191b2c10b4a87b1e9681afc34fb138c705f91f7330ff90bfa36f457e5584076a2b8
+  checksum: ad59734723b596d0891321c951592ed9015a77ce84907f89c9d9307dd0c06e11a67906a3e628c4cae143d3e44898603478af0ddeb2bba3f229a9373efe342665
   languageName: node
   linkType: hard
 
@@ -15021,8 +15021,8 @@ __metadata:
   linkType: hard
 
 "superagent@npm:7":
-  version: 7.1.6
-  resolution: "superagent@npm:7.1.6"
+  version: 7.1.5
+  resolution: "superagent@npm:7.1.5"
   dependencies:
     component-emitter: ^1.3.0
     cookiejar: ^2.1.3
@@ -15031,11 +15031,11 @@ __metadata:
     form-data: ^4.0.0
     formidable: ^2.0.1
     methods: ^1.1.2
-    mime: 2.6.0
+    mime: ^2.5.0
     qs: ^6.10.3
     readable-stream: ^3.6.0
     semver: ^7.3.7
-  checksum: b73316836003219f1a4886a6d77dd28551a6784c30e871009fb7bad699fae772b20370d39d2ccb5a543c9335ce12b43a76b959a3ca983f1d6365cb4b5682c08f
+  checksum: 4782ca099b18a0933705f93ac4678290bcfcd5e57ca1286dd4f733c7fbb554ca0c7cc1c97261254dc29623ac258aa64fc40aaa18da960cbe759085efa3e4b8f6
   languageName: node
   linkType: hard
 

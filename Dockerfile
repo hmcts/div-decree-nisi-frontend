@@ -10,5 +10,6 @@ RUN yarn install && yarn cache clean
 # ---- Runtime image ----
 FROM base as runtime
 COPY . .
+COPY main.css /opt/app/dist
 EXPOSE 3000
 CMD ["yarn", "run", "start"]
