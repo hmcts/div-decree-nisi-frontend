@@ -11,3 +11,4 @@ RUN yarn install && yarn cache clean
 FROM base as runtime
 COPY . .
 EXPOSE 3000
+CMD ["yarn", "run", "start"]
