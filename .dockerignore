@@ -1,3 +1,8 @@
+.yarn/install-state.gz
+.github
+infrastructure
+kubernetes
+
 .github
 infrastructure
 kubernetes
