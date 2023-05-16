@@ -24,4 +24,4 @@ RUN PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install \
 FROM base as runtime
 COPY . .
 EXPOSE 3000
-CMD ["node", "server.js" ]
+CMD ["yarn", "start" ]
