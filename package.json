@@ -38,7 +38,7 @@
   "dependencies": {
     "@hmcts/div-document-express-handler": "^1.1.0",
     "@hmcts/div-idam-express-middleware": "^6.6.2",
-    "@hmcts/look-and-feel": "4.0.9",
+    "@hmcts/look-and-feel": "4.0.8",
     "@hmcts/nodejs-healthcheck": "^1.7.0",
     "@hmcts/nodejs-logging": "^3.0.1",
     "@hmcts/one-per-page": "^5.4.0",
@@ -53,6 +53,7 @@
     "express-limiter": "^1.6.1",
     "formidable": "^1.2.1",
     "glob": "^7.1.2",
+    "govuk-frontend": "^2.11.0",
     "handlebars": ">=4.7.7",
     "helmet": "^4.6.0",
     "helmet-csp": ">=3.4.0",
