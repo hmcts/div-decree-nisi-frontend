@@ -5,7 +5,7 @@ RUN corepack enable
 RUN apk add git
 USER hmcts
 COPY --chown=hmcts:hmcts . .
-RUN yarn install && yarn cache clean
+RUN yarn install
 
 # ---- Runtime image ----
 FROM base as runtime
