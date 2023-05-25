@@ -1,6 +1,15 @@
-FROM hmctspublic.azurecr.io/base/node:12-alpine as runtime
-COPY --chown=hmcts:hmcts package.json yarn.lock ./
-RUN yarn install --production && rm -r ~/.cache/yarn
+# ---- Base image ----
+FROM hmctspublic.azurecr.io/base/node:16-alpine as base
+USER root
+RUN corepack enable
+RUN apk add git
+USER hmcts
+COPY --chown=hmcts:hmcts . .
+RUN yarn install && yarn cache clean
 
+# ---- Runtime image ----
+FROM base as runtime
 COPY . .
+COPY /assets/main.* /opt/app/dist/
 EXPOSE 3000
+CMD ["yarn", "run", "start"]
