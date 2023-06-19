@@ -1,6 +1,6 @@
 # Divorce Decree Nisi [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repo is for the Decree Nisi Frontend and forms part of the online Divorce Application.
+This repo is for the Decree Nisi Frontend and forms part of the online Divorce Application..
 
 ## Setup
 
