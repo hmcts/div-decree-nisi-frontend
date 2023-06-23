@@ -13,7 +13,7 @@ const setupSecrets = () => {
     setSecret('secrets.div.session-secret', 'session.secret');
     setSecret('secrets.div.redis-secret', 'services.redis.encryptionAtRestKey');
     setSecret('secrets.div.idam-secret', 'services.idam.secret');
-    setSecret('secrets.div.dn-redis-connection-string', 'services.redis.url');
+    setSecret('secrets.div.redis-connection-string', 'services.redis.url');
     setSecret('secrets.div.AppInsightsInstrumentationKey', 'services.applicationInsights.instrumentationKey');
   }
 };
