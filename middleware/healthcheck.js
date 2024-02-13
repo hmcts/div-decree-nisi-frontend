@@ -30,9 +30,6 @@ const checks = () => {
           return false;
         });
     }),
-    'idam-api': healthcheck.web(`${config.services.idam.apiUrl}/health`,
-      healthOptions('Health check failed on idam-api:')
-    ),
     'case-orchestration-service': healthcheck.web(`${config.services.orchestrationService.baseUrl}/health`,
       healthOptions('Health check failed on case-orchestration-service:')
     ),
