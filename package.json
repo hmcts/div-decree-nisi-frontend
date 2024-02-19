@@ -42,7 +42,7 @@
     "@hmcts/nodejs-healthcheck": "^1.7.0",
     "@hmcts/nodejs-logging": "^3.0.1",
     "@hmcts/one-per-page": "^5.4.0",
-    "@hmcts/properties-volume": "^0.0.13",
+    "@hmcts/properties-volume": "^0.0.14",
     "applicationinsights": "^2.5.0",
     "cookie-parser": "^1.4.4",
     "cookies": "^0.8.0",
