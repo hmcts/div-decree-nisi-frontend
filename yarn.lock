@@ -5407,7 +5407,7 @@ __metadata:
     mockserver: ^2.1.1
     moment: ^2.29.4
     node-dev: ^4.0.0
-    nyc: 12.0.1
+    nyc: 12.0.2
     os: ^0.1.1
     pa11y: ^4.0.1
     paths: ^0.1.1
@@ -11760,9 +11760,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nyc@npm:12.0.1":
-  version: 12.0.1
-  resolution: "nyc@npm:12.0.1"
+"nyc@npm:12.0.2":
+  version: 12.0.2
+  resolution: "nyc@npm:12.0.2"
   dependencies:
     archy: ^1.0.0
     arrify: ^1.0.1
@@ -11793,7 +11793,7 @@ __metadata:
     yargs-parser: ^8.0.0
   bin:
     nyc: ./bin/nyc.js
-  checksum: c0407ecd39ae06e078a9abd708cc18d165f72c1ea3c394841feb5f1e48ec15bd0c08556a34ab58c0245660e4624aad0d0dbfb68188c99d1f9905e256a0f15964
+  checksum: 8cd26f9e003fec1e0f370a4990fc8762ea2d431ea333a060ad1d1680ffdbcf5ac6a200365d6244c83bf28cc1195abc9e686bdd143ec0592b33dd2c3c0e7dbe9a
   languageName: node
   linkType: hard
 
