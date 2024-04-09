@@ -45,7 +45,7 @@
     "@hmcts/properties-volume": "^0.0.13",
     "applicationinsights": "^2.5.0",
     "cookie-parser": "^1.4.4",
-    "cookies": "^0.8.0",
+    "cookies": "^0.9.0",
     "copy-webpack-plugin": "^4.5.2",
     "dns-packet": "^5.2.4",
     "dropzone": "^5.5.1",
