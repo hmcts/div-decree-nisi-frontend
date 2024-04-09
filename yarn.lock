@@ -4612,13 +4612,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookies@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "cookies@npm:0.8.0"
+"cookies@npm:^0.9.0":
+  version: 0.9.1
+  resolution: "cookies@npm:0.9.1"
   dependencies:
     depd: ~2.0.0
     keygrip: ~1.1.0
-  checksum: 806055a44f128705265b1bc6a853058da18bf80dea3654ad99be20985b1fa1b14f86c1eef73644aab8071241f8a78acd57202b54c4c5c70769fc694fbb9c4edc
+  checksum: 213e4d14847b582fbd8a003203d3621a4b9fa792a315c37954e89332d38fac5bcc34ba92ef316ad6d5fe28f0187aaa115927fbbe2080744ad1707a93b4313247
   languageName: node
   linkType: hard
 
@@ -5372,7 +5372,7 @@ __metadata:
     chai-jq: ^0.0.9
     codeceptjs: ^2.6.11
     cookie-parser: ^1.4.4
-    cookies: ^0.8.0
+    cookies: ^0.9.0
     copy-webpack-plugin: ^4.5.2
     dns-packet: ^5.2.4
     domino: ^2.0.2
