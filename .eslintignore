@@ -3,7 +3,6 @@ docs/*
 govuk_modules/*
 public/*
 app/assets/javascripts/*
-app/assets/main.js
 app/steps/sitemap/*
 lib/*
 coverage/*
@@ -12,4 +11,3 @@ webpack.config.js
 Gruntfile.js
 dist
 functional-output/*
-assets/main.js
