@@ -66,7 +66,7 @@ const sendFile = req => {
               );
 
               if (response && response.errorCode === 'invalidFileType') {
-                return reject(errors.fileTypeInvalid);
+                return reject(new Error(errors.fileTypeInvalid.message));
               }
               return reject(errorToReturn);
             }
