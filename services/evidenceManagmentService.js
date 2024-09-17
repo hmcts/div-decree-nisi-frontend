@@ -6,7 +6,7 @@ const logger = require('services/logger').getLogger(__filename);
 const errors = require('resources/errors');
 const fileManagment = require('services/fileManagement');
 
-const evidenceManagementClientUploadUrl = `${config.services.evidenceManagementClient.url}${config.services.evidenceManagementClient.uploadEndpoint}`;
+const evidenceManagementClientUploadUrl = `${config.services.evidenceManagementClient.url}/${config.services.evidenceManagementClient.uploadEndpoint}`;
 const defaultEMCErrorMessage = 'Error uploading to evidence management client';
 
 const handleResponse = (req, body, resolve, reject) => {
