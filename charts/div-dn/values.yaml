@@ -13,7 +13,7 @@ nodejs:
       targetCPUUtilizationPercentage: 80 # Default is 80% target CPU utilization
     environment:
         CCD_DIGITAL_COURTS: '["serviceCentre", "eastMidlands", "westMidlands", "southWest", "northWest"]'
-        GOOGLE_ANALYTICS_TRACKING_URL: "https://www.google-analytics.com/collect"
+        GOOGLE_ANALYTICS_TRACKING_URL: "http://www.google-analytics.com/collect"
         EVIDENCE_MANAGEMENT_CLIENT_API_UPLOAD_ENDPOINT: "/emclientapi/version/1/upload"
         EVIDENCE_MANAGEMENT_CLIENT_API_DOWNLOAD_ENDPOINT: "/emclientapi/version/1/download"
 
