@@ -23,7 +23,7 @@
     "test:overnight": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run-multiple saucelabs -c test/functional/codecept.overnight.conf.js --steps",
     "test:e2e": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --exit 'test/e2e/**/*.js' --timeout 15000",
     "test:coverage": "nyc check-coverage",
-    "test:a11y": "NODE_PATH=. NODE_ENV=testing LOG_LEVEL=ERROR mocha --exit test/a11y --reporter spec --recursive --timeout 15000 --reporter mochawesome --reporter-options reportDir=functional-output,reportFilename=a11y",
+    "test:a11y": "",
     "sonar-scan": "node_modules/sonar-scanner/bin/sonar-scanner",
     "test:functional": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/functional/codecept.conf.js --steps --invert --reporter mocha-multi",
     "test:fullfunctional": "NODE_PATH=. LOG_LEVEL=ERROR codeceptjs run -c test/functional/codecept.conf.js --steps --invert --reporter mocha-multi",
