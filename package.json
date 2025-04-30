@@ -4,7 +4,7 @@
   "version": "0.0.2",
   "license": "MIT",
   "engines": {
-    "node": ">=14.9.3"
+    "node": ">=20.0.0"
   },
   "jest": {
     "verbose": true,
@@ -100,10 +100,10 @@
     "mockserver": "^2.1.1",
     "node-dev": "^4.0.0",
     "nyc": "12.0.1",
-    "pa11y": "^4.0.1",
+    "pa11y": "^8.0.0",
     "pre-commit": "^1.2.2",
     "proxyquire": "^2.0.1",
-    "puppeteer": "^5.4.1",
+    "puppeteer": "^7.1.0",
     "randomstring": "^1.1.5",
     "require-directory": "^2.1.1",
     "rewire": "^4.0.1",
