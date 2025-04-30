@@ -103,7 +103,7 @@
     "pa11y": "^8.0.0",
     "pre-commit": "^1.2.2",
     "proxyquire": "^2.0.1",
-    "puppeteer": "^7.1.0",
+    "puppeteer": "^24.0.0",
     "randomstring": "^1.1.5",
     "require-directory": "^2.1.1",
     "rewire": "^4.0.1",
