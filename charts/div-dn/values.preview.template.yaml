@@ -29,11 +29,22 @@ nodejs:
               - session-secret
               - redis-secret
               - idam-secret
+
 redis:
   enabled: true
-  architecture: standalone
-  auth:
+  replica:
+    replicaCount: 0
+  cluster:
     enabled: false
+    slaveCount: 0
+  usePassword: false
+  master:
+    persistence:
+      enabled: false
+  serviceAccount:
+    create: false
+    name: "divorce"
+    automountServiceAccountToken: true
 
 tags:
   idam-pr: true
