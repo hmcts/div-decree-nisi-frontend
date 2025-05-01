@@ -32,15 +32,9 @@ nodejs:
 
 redis:
   enabled: true
-  replica:
-    replicaCount: 0
-  cluster:
+  architecture: standalone
+  auth:
     enabled: false
-    slaveCount: 0
-  usePassword: false
-  master:
-    persistence:
-      enabled: false
 
 tags:
   idam-pr: true
