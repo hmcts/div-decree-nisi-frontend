@@ -51,7 +51,7 @@ nodejs:
         ORCHESTRATION_SERVICE_GET_PETITION_URL: "http://div-cos-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/retrieve-case"
         ORCHESTRATION_SERVICE_URL: "http://div-cos-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
         ORCHESTRATION_SERVICE_POST_PETITION_URL: "http://div-cos-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/submit-dn"
-        EVIDENCE_MANAGEMENT_CLIENT_API_URL: "http://div-emca-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/"
+        EVIDENCE_MANAGEMENT_CLIENT_API_URL: "http://div-emca-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
         PETITIONER_FRONTEND_URL: "https://div-pfe-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
         DECREE_ABSOLUTE_FRONTEND_URL: "https://div-da-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
         RESPONDENT_FRONTEND_URL: "https://div-rfe-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal"
