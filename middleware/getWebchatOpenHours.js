@@ -54,7 +54,7 @@ const dayToTitleCase = day => {
 const timeTo12Hr = time => {
   let convertedTime = new Date(`1970-01-01T${time}`).toLocaleTimeString([], { hour: 'numeric', hour12: 'true' });
   convertedTime = convertedTime === 'Invalid Date' ? 'Invalid Time' : convertedTime;
-  return convertedTime;
+  return convertedTime.replace('am', 'AM').replace('pm', 'PM');
 };
 
 // Validate returned json data format
